@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-04-29 15:20 UTC",
+  "generated_at_iso": "2026-04-29T15:20:03.012271+00:00",
+  "total_tasks": 523,
+  "tasks_this_week": 213,
+  "tasks_by_area": {
+    "Quintus": 67,
+    "Olympic": 429,
+    "Unassigned": 7,
+    "GOD": 15,
+    "Flomatic": 1,
+    "Timion": 4
+  },
+  "total_meetings": 66,
+  "meetings_this_month": 10,
+  "total_docs": 65,
+  "agents": 6,
+  "automations": 3,
+  "integrations": 12
+}

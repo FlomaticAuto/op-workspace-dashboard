@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olympic Paints — AI Workspace Dashboard</title>
+<style>
+  :root {
+    --yellow: #F5C200;
+    --yellow-light: #FFF3B0;
+    --dark: #2B2B2B;
+    --mid: #4A4A4A;
+    --light: #F8F8F8;
+    --white: #FFFFFF;
+    --border: #E0E0E0;
+    --green: #2ECC71;
+    --blue: #3498DB;
+    --purple: #9B59B6;
+    --orange: #E67E22;
+    --red: #E74C3C;
+    --teal: #1ABC9C;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #1A1A1A;
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  /* ─── Header ─── */
+  .header {
+    background: linear-gradient(135deg, #1A1A1A 0%, #2B2B2B 100%);
+    border-bottom: 3px solid var(--yellow);
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-left { display: flex; align-items: center; gap: 20px; }
+  .logo-badge {
+    width: 56px; height: 56px;
+    background: var(--yellow);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 900; color: var(--dark);
+    letter-spacing: -1px;
+  }
+  .header-title { color: var(--white); }
+  .header-title h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.3px; }
+  .header-title p { font-size: 12px; color: #888; margin-top: 2px; }
+  .header-right { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .status-pill {
+    background: rgba(46,204,113,0.15);
+    border: 1px solid #2ECC71;
+    color: #2ECC71;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .live-pill {
+    background: rgba(231,76,60,0.15);
+    border: 1px solid #E74C3C;
+    color: #E74C3C;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .live-dot {
+    width: 6px; height: 6px;
+    background: #E74C3C;
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .updated-pill {
+    background: rgba(245,194,0,0.1);
+    border: 1px solid var(--yellow);
+    color: var(--yellow);
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  /* ─── Main Layout ─── */
+  .main { padding: 32px 40px; max-width: 1600px; margin: 0 auto; }
+
+  /* ─── Section Labels ─── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 16px;
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #333;
+  }
+
+  /* ─── Summary Banner ─── */
+  .summary-banner {
+    background: linear-gradient(135deg, #252525, #1E1E1E);
+    border: 1px solid var(--yellow);
+    border-radius: 14px;
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 900px) {
+    .summary-banner { grid-template-columns: repeat(3, 1fr); }
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1;
+    transition: all 0.3s ease;
+  }
+  .stat-num.loading { opacity: 0.3; }
+  .stat-label { font-size: 10px; color: #666; margin-top: 4px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .stat-sub { font-size: 9px; color: #444; margin-top: 2px; }
+
+  /* ─── Live Data Panel ─── */
+  .live-panel {
+    background: #252525;
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 0;
+  }
+  .live-panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .area-bars { display: flex; flex-direction: column; gap: 10px; }
+  .area-row { display: flex; align-items: center; gap: 12px; }
+  .area-name { font-size: 11px; font-weight: 600; color: #CCC; min-width: 80px; }
+  .area-bar-wrap { flex: 1; background: #333; border-radius: 4px; height: 8px; overflow: hidden; }
+  .area-bar-fill { height: 100%; border-radius: 4px; transition: width 0.8s ease; min-width: 4px; }
+  .area-count { font-size: 11px; color: #888; min-width: 32px; text-align: right; font-weight: 600; }
+
+  /* ─── APEX Card ─── */
+  .apex-wrapper { display: flex; justify-content: center; margin-bottom: 8px; }
+  .apex-card {
+    background: linear-gradient(135deg, var(--yellow) 0%, #E6B800 100%);
+    border-radius: 16px;
+    padding: 24px 40px;
+    text-align: center;
+    min-width: 340px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(245,194,0,0.3);
+  }
+  .apex-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: rgba(0,0,0,0.5); margin-bottom: 6px; }
+  .apex-name { font-size: 28px; font-weight: 900; color: var(--dark); letter-spacing: 1px; }
+  .apex-role { font-size: 13px; color: rgba(0,0,0,0.6); font-weight: 500; margin-top: 4px; }
+  .apex-model {
+    display: inline-block;
+    background: rgba(0,0,0,0.12);
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    color: rgba(0,0,0,0.7);
+    font-weight: 600;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+  }
+  .apex-desc { font-size: 11px; color: rgba(0,0,0,0.55); margin-top: 10px; line-height: 1.5; }
+
+  /* ─── Connector ─── */
+  .connector-down { display: flex; justify-content: center; height: 24px; }
+  .connector-down::after { content: ''; width: 2px; background: #444; display: block; }
+
+  /* ─── Agent Grid ─── */
+  .agents-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 1200px) { .agents-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 768px) { .agents-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .agent-card {
+    background: #252525;
+    border-radius: 14px;
+    border: 1px solid #333;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .agent-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
+  .agent-card.expanded { border-color: #555; }
+
+  .agent-header { padding: 18px 16px 14px; border-bottom: 1px solid #333; }
+  .agent-accent { height: 4px; border-radius: 2px; margin-bottom: 14px; }
+  .agent-code { font-size: 20px; font-weight: 900; letter-spacing: 1px; }
+  .agent-title { font-size: 11px; color: #888; font-weight: 500; margin-top: 3px; }
+  .agent-model-badge {
+    display: inline-block;
+    font-size: 9px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+  .agent-invoke { font-size: 10px; color: #666; margin-top: 6px; font-family: 'Courier New', monospace; }
+
+  .agent-body { padding: 14px 16px; }
+  .agent-section-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 8px;
+    margin-top: 14px;
+  }
+  .agent-section-title:first-child { margin-top: 0; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 500;
+    background: #333;
+    color: #CCC;
+    border: 1px solid #444;
+  }
+
+  .rule-list { list-style: none; }
+  .rule-list li {
+    font-size: 11px;
+    color: #999;
+    padding: 4px 0;
+    border-bottom: 1px solid #2A2A2A;
+    line-height: 1.4;
+    padding-left: 12px;
+    position: relative;
+  }
+  .rule-list li::before { content: '›'; position: absolute; left: 0; color: #555; }
+  .rule-list li:last-child { border-bottom: none; }
+
+  .expand-btn {
+    width: 100%;
+    padding: 8px;
+    background: #1E1E1E;
+    border: none;
+    border-top: 1px solid #333;
+    color: #666;
+    font-size: 10px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .expand-btn:hover { background: #2A2A2A; color: #AAA; }
+
+  .expandable-content { display: none; }
+  .agent-card.expanded .expandable-content { display: block; }
+
+  /* Model badges */
+  .badge-haiku { background: rgba(52,152,219,0.15); color: #3498DB; border: 1px solid rgba(52,152,219,0.3); }
+  .badge-sonnet { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
+  .badge-opus { background: rgba(155,89,182,0.15); color: #9B59B6; border: 1px solid rgba(155,89,182,0.3); }
+
+  /* Agent accent colours */
+  .accent-vault { background: #3498DB; }
+  .accent-haven { background: #2ECC71; }
+  .accent-prism { background: #9B59B6; }
+  .accent-striker { background: #E74C3C; }
+  .accent-sigma { background: #E67E22; }
+  .accent-blaze { background: #F5C200; }
+
+  .color-vault { color: #3498DB; }
+  .color-haven { color: #2ECC71; }
+  .color-prism { color: #9B59B6; }
+  .color-striker { color: #E74C3C; }
+  .color-sigma { color: #E67E22; }
+  .color-blaze { color: #F5C200; }
+
+  /* ─── Automations ─── */
+  .automations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .automations-grid { grid-template-columns: 1fr; } }
+
+  .automation-card { background: #252525; border: 1px solid #333; border-radius: 14px; padding: 20px; }
+  .auto-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 12px; }
+  .auto-name { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .auto-file { font-size: 10px; color: #666; font-family: 'Courier New', monospace; margin-bottom: 12px; word-break: break-all; }
+  .auto-desc { font-size: 11px; color: #888; line-height: 1.6; }
+  .auto-tag { display: inline-block; font-size: 9px; padding: 2px 7px; border-radius: 4px; font-weight: 700; letter-spacing: 0.5px; margin-top: 10px; text-transform: uppercase; }
+  .auto-tag-daily { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
+  .auto-tag-ondemand { background: rgba(52,152,219,0.15); color: #3498DB; border: 1px solid rgba(52,152,219,0.3); }
+
+  .pipeline-steps { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+  .pipeline-step { display: flex; align-items: flex-start; gap: 10px; font-size: 11px; color: #999; }
+  .step-num { min-width: 20px; height: 20px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: #CCC; flex-shrink: 0; }
+
+  /* ─── Systems ─── */
+  .systems-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 900px) { .systems-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .system-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 16px; display: flex; align-items: flex-start; gap: 12px; }
+  .sys-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .sys-info { flex: 1; min-width: 0; }
+  .sys-name { font-size: 13px; font-weight: 700; color: var(--white); }
+  .sys-type { font-size: 10px; color: #666; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .sys-used-by { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .sys-agent-pill { font-size: 9px; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+  /* ─── PARA ─── */
+  .para-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 900px) { .para-grid { grid-template-columns: repeat(2, 1fr); } }
+  .para-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 18px; }
+  .para-letter { font-size: 32px; font-weight: 900; margin-bottom: 4px; }
+  .para-name { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .para-desc { font-size: 11px; color: #888; line-height: 1.5; margin-bottom: 12px; }
+  .para-example { font-size: 10px; color: #666; padding: 3px 0; border-bottom: 1px solid #2A2A2A; font-family: 'Courier New', monospace; }
+  .para-example:last-child { border-bottom: none; }
+
+  /* ─── Notion Databases ─── */
+  .notion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .notion-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 18px; }
+  .notion-db-name { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .notion-db-id { font-size: 9px; color: #555; font-family: 'Courier New', monospace; margin-bottom: 12px; }
+  .field-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #2A2A2A; font-size: 11px; }
+  .field-name { color: #CCC; font-weight: 500; }
+  .field-type { font-size: 9px; background: #333; color: #777; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; }
+  .field-row:last-child { border-bottom: none; }
+
+  /* ─── Escalation ─── */
+  .escalation-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .esc-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 18px; }
+  .esc-agent { font-size: 12px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+  .esc-rule { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 5px 0; border-bottom: 1px solid #2A2A2A; font-size: 11px; }
+  .esc-trigger { color: #999; flex: 1; }
+  .esc-dest { font-size: 9px; background: rgba(245,194,0,0.15); color: var(--yellow); border: 1px solid rgba(245,194,0,0.3); padding: 2px 6px; border-radius: 4px; font-weight: 700; white-space: nowrap; }
+  .esc-rule:last-child { border-bottom: none; }
+
+  /* ─── Non-Negotiables ─── */
+  .rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .rule-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 18px; }
+  .rule-card-title { font-size: 12px; font-weight: 700; color: var(--white); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .rule-item { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px solid #2A2A2A; font-size: 11px; color: #999; line-height: 1.4; }
+  .rule-item .icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+  .rule-item:last-child { border-bottom: none; }
+
+  /* ─── Notification flow ─── */
+  .notification-flow { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
+  .flow-node { background: #333; border-radius: 8px; padding: 10px 14px; font-size: 11px; font-weight: 600; color: #CCC; text-align: center; min-width: 100px; }
+  .flow-arrow { font-size: 18px; color: #555; padding: 0 10px; }
+  .flow-node.highlight { background: rgba(245,194,0,0.1); border: 1px solid var(--yellow); color: var(--yellow); }
+  .flow-desc { font-size: 10px; color: #666; margin-top: 4px; }
+
+  /* ─── Footer ─── */
+  .footer { margin-top: 48px; padding: 20px 40px; border-top: 1px solid #2A2A2A; display: flex; justify-content: space-between; align-items: center; }
+  .footer-left { font-size: 11px; color: #555; }
+  .footer-right { font-size: 11px; color: #555; }
+  .footer-right a { color: #666; text-decoration: none; }
+  .footer-right a:hover { color: var(--yellow); }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #1A1A1A; }
+  ::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ─── Header ─── -->
+<div class="header">
+  <div class="header-left">
+    <div class="logo-badge">OP</div>
+    <div class="header-title">
+      <h1>Olympic Paints — AI Workspace</h1>
+      <p>K &amp; K Paint Manufacturers CC · Agent Capability Dashboard</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="status-pill">● ACTIVE</span>
+    <span class="live-pill"><span class="live-dot"></span> LIVE DATA</span>
+    <span class="updated-pill" id="updated-pill">Loading...</span>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ─── Summary Stats ─── -->
+  <div class="section-label">Live Workspace Stats</div>
+  <div class="summary-banner">
+    <div class="stat">
+      <div class="stat-num loading" id="stat-tasks">—</div>
+      <div class="stat-label">Active Tasks</div>
+      <div class="stat-sub" id="stat-tasks-week">—</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num loading" id="stat-meetings">—</div>
+      <div class="stat-label">Total Meetings</div>
+      <div class="stat-sub" id="stat-meetings-month">—</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num loading" id="stat-docs">—</div>
+      <div class="stat-label">Documents</div>
+      <div class="stat-sub">in DB</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Specialist Agents</div>
+      <div class="stat-sub">+ 1 orchestrator</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Automation Scripts</div>
+      <div class="stat-sub">daily + on-demand</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Integrations</div>
+      <div class="stat-sub">connected systems</div>
+    </div>
+  </div>
+
+  <!-- ─── Live Task Breakdown ─── -->
+  <div class="live-panel">
+    <div class="live-panel-title">
+      <span style="color:#E74C3C">●</span> Tasks by Area — Live from Notion
+    </div>
+    <div class="area-bars" id="area-bars">
+      <div class="area-row"><div class="area-name">Loading...</div></div>
+    </div>
+  </div>
+
+  <!-- ─── APEX ─── -->
+  <div class="section-label">Orchestrator</div>
+  <div class="apex-wrapper">
+    <div class="apex-card">
+      <div class="apex-label">MANAGING DIRECTOR</div>
+      <div class="apex-name">APEX</div>
+      <div class="apex-role">Routes all tasks · Coordinates specialist agents</div>
+      <div class="apex-model">Claude Sonnet 4.6</div>
+      <div class="apex-desc">
+        Entry point for all requests. Interprets intent, selects the correct specialist agent, and coordinates multi-agent workflows. All escalations from specialist agents terminate at APEX → Quintus.
+      </div>
+    </div>
+  </div>
+
+  <div class="connector-down"></div>
+
+  <!-- ─── Agent Grid ─── -->
+  <div class="section-label">Specialist Agents</div>
+  <div class="agents-grid">
+
+    <!-- VAULT -->
+    <div class="agent-card" id="card-vault" onclick="toggleCard('vault')">
+      <div class="agent-header">
+        <div class="agent-accent accent-vault"></div>
+        <div class="agent-code color-vault">VAULT</div>
+        <div class="agent-title">Admin &amp; Filing</div>
+        <div class="agent-model-badge badge-haiku">Haiku</div>
+        <div class="agent-invoke">/vault</div>
+      </div>
+      <div class="agent-body">
+        <div class="agent-section-title">Domain</div>
+        <div class="tag-list">
+          <span class="tag">PARA Filing</span>
+          <span class="tag">Inbox Triage</span>
+          <span class="tag">Task Creation</span>
+          <span class="tag">Doc Creation</span>
+          <span class="tag">Meeting Extraction</span>
+          <span class="tag">MEMORY.md</span>
+        </div>
+        <div class="agent-section-title">PARA Rules</div>
+        <ul class="rule-list">
+          <li>Projects = time-bound with clear outcome</li>
+          <li>Areas = ongoing (OP Automations → Area)</li>
+          <li>Resources = reference (Contracts → Resource)</li>
+          <li>Archive only — never delete without approval</li>
+        </ul>
+      </div>
+      <div class="expandable-content">
+        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+          <div class="agent-section-title">Task Naming Convention</div>
+          <ul class="rule-list">
+            <li>STRIKER: Follow up on Acme quote</li>
+            <li>SIGMA: Update dispatch SOP</li>
+            <li>HAVEN: Process April clocking</li>
+          </ul>
+          <div class="agent-section-title">Inbox Triage Order</div>
+          <ul class="rule-list">
+            <li>1. Urgent (live ops impact)</li>
+            <li>2. Action required (task needed)</li>
+            <li>3. Reference (file &amp; link)</li>
+            <li>4. Archive (no action)</li>
+          </ul>
+          <div class="agent-section-title">Meeting Extraction SOP</div>
+          <ul class="rule-list">
+            <li>Daily run — last 24h only (never backfill)</li>
+            <li>Claude Haiku reads full Notion page blocks</li>
+            <li>Areas: Olympic, Timion, Quintus, Flomatic, GOD</li>
+            <li>Tasks linked back via MM field</li>
+          </ul>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggleCard('vault'); event.stopPropagation()">▾ More details</button>
+    </div>
+
+    <!-- HAVEN -->
+    <div class="agent-card" id="card-haven" onclick="toggleCard('haven')">
+      <div class="agent-header">
+        <div class="agent-accent accent-haven"></div>
+        <div class="agent-code color-haven">HAVEN</div>
+        <div class="agent-title">HR &amp; People Ops</div>
+        <div class="agent-model-badge badge-sonnet">Sonnet</div>
+        <div class="agent-invoke">/haven</div>
+      </div>
+      <div class="agent-body">
+        <div class="agent-section-title">Domain</div>
+        <div class="tag-list">
+          <span class="tag">Clocking Reports</span>
+          <span class="tag">Job Descriptions</span>
+          <span class="tag">Onboarding</span>
+          <span class="tag">Leave &amp; Attendance</span>
+          <span class="tag">Offboarding</span>
+        </div>
+        <div class="agent-section-title">Non-Negotiable Rules</div>
+        <ul class="rule-list">
+          <li>Always --master mode (never standalone)</li>
+          <li>45 min break deduction, every shift, every day</li>
+          <li>SD-prefix IDs = Primeserve, all others = Olympic</li>
+          <li>Missing YTD file = halt &amp; alert Quintus</li>
+        </ul>
+      </div>
+      <div class="expandable-content">
+        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+          <div class="agent-section-title">JD Output Format</div>
+          <ul class="rule-list">
+            <li>Node.js + docx library (branded template)</li>
+            <li>Yellow F5C200 banners, Calibri font</li>
+            <li>8 required sections (Logo → Sign-off)</li>
+            <li>Save to 3.Resources/8. Job Descriptions/</li>
+          </ul>
+          <div class="agent-section-title">Clocking Report — 6 Sheets</div>
+          <ul class="rule-list">
+            <li>Clocking Report (main)</li>
+            <li>Summary by Date</li>
+            <li>Summary by Department</li>
+            <li>Summary by Employer</li>
+            <li>Missing Clock Out</li>
+            <li>Raw Data</li>
+          </ul>
+          <div class="agent-section-title">Known Supervisors</div>
+          <ul class="rule-list">
+            <li>Jagdish — Factory Flow &amp; Returns</li>
+            <li>Hiren — Inventory Control</li>
+            <li>Mukesh — Production (Enamel)</li>
+            <li>Nikil — Dispatch</li>
+            <li>Masingita — Safety Liaison</li>
+          </ul>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggleCard('haven'); event.stopPropagation()">▾ More details</button>
+    </div>
+
+    <!-- PRISM -->
+    <div class="agent-card" id="card-prism" onclick="toggleCard('prism')">
+      <div class="agent-header">
+        <div class="agent-accent accent-prism"></div>
+        <div class="agent-code color-prism">PRISM</div>
+        <div class="agent-title">Analytics &amp; BI</div>
+        <div class="agent-model-badge badge-opus">Opus</div>
+        <div class="agent-invoke">/prism</div>
+      </div>
+      <div class="agent-body">
+        <div class="agent-section-title">Domain</div>
+        <div class="tag-list">
+          <span class="tag">QuickSight</span>
+          <span class="tag">SQL / Athena</span>
+          <span class="tag">Excel / Power Query</span>
+          <span class="tag">YoY / MoM Reports</span>
+          <span class="tag">KPI Tracking</span>
+          <span class="tag">Airtable BI</span>
+        </div>
+        <div class="agent-section-title">Report Standards</div>
+        <ul class="rule-list">
+          <li>Confirm source, range, grain, filter first</li>
+          <li>Label every output "Data as of [date]"</li>
+          <li>Lead with business implication, then number</li>
+          <li>Surface data quality issues before findings</li>
+        </ul>
+      </div>
+      <div class="expandable-content">
+        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+          <div class="agent-section-title">SQL Standards</div>
+          <ul class="rule-list">
+            <li>Use readable CTEs (no deep nesting)</li>
+            <li>Validate totals against known baseline</li>
+            <li>Document all assumptions in output</li>
+          </ul>
+          <div class="agent-section-title">Data Sources</div>
+          <ul class="rule-list">
+            <li>QuickSight — primary BI platform</li>
+            <li>Notion — operational metrics</li>
+            <li>Airtable — secondary (activated when needed)</li>
+            <li>n8n data tables — automation data</li>
+          </ul>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggleCard('prism'); event.stopPropagation()">▾ More details</button>
+    </div>
+
+    <!-- STRIKER -->
+    <div class="agent-card" id="card-striker" onclick="toggleCard('striker')">
+      <div class="agent-header">
+        <div class="agent-accent accent-striker"></div>
+        <div class="agent-code color-striker">STRIKER</div>
+        <div class="agent-title">Sales &amp; CRM</div>
+        <div class="agent-model-badge badge-sonnet">Sonnet</div>
+        <div class="agent-invoke">/striker</div>
+      </div>
+      <div class="agent-body">
+        <div class="agent-section-title">Domain</div>
+        <div class="tag-list">
+          <span class="tag">Zoho CRM</span>
+          <span class="tag">Quote Generation</span>
+          <span class="tag">Stockist Outreach</span>
+          <span class="tag">Pipeline Tracking</span>
+          <span class="tag">Territory Management</span>
+        </div>
+        <div class="agent-section-title">Non-Negotiable Rules</div>
+        <ul class="rule-list">
+          <li>Check for existing record before creating</li>
+          <li>Log every interaction as Zoho activity</li>
+          <li>Deals &gt;60 days stale → flag to Quintus</li>
+          <li>Non-standard pricing → Quintus before quoting</li>
+        </ul>
+      </div>
+      <div class="expandable-content">
+        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+          <div class="agent-section-title">Quote Mandatory Fields</div>
+          <ul class="rule-list">
+            <li>Product code + volume / pack size</li>
+            <li>Unit price + validity date</li>
+            <li>Payment terms</li>
+          </ul>
+          <div class="agent-section-title">Follow-Up Cadence</div>
+          <ul class="rule-list">
+            <li>Day 0 — Quote sent</li>
+            <li>Day 3 — First follow-up</li>
+            <li>Day 7 — Second follow-up</li>
+            <li>Day 7+ — Flag to Quintus</li>
+          </ul>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggleCard('striker'); event.stopPropagation()">▾ More details</button>
+    </div>
+
+    <!-- SIGMA -->
+    <div class="agent-card" id="card-sigma" onclick="toggleCard('sigma')">
+      <div class="agent-header">
+        <div class="agent-accent accent-sigma"></div>
+        <div class="agent-code color-sigma">SIGMA</div>
+        <div class="agent-title">Operations</div>
+        <div class="agent-model-badge badge-sonnet">Sonnet</div>
+        <div class="agent-invoke">/sigma</div>
+      </div>
+      <div class="agent-body">
+        <div class="agent-section-title">Domain</div>
+        <div class="tag-list">
+          <span class="tag">SOPs</span>
+          <span class="tag">Dispatch Scheduling</span>
+          <span class="tag">Factory Operations</span>
+          <span class="tag">Inventory</span>
+          <span class="tag">Production Planning</span>
+          <span class="tag">Supplier Coordination</span>
+        </div>
+        <div class="agent-section-title">Non-Negotiable Rules</div>
+        <ul class="rule-list">
+          <li>Stock discrepancy &gt;5% → flag before adjusting</li>
+          <li>Production delays &gt;24h → Quintus immediately</li>
+          <li>Never adjust inventory unilaterally</li>
+          <li>Safety incidents → Quintus immediately</li>
+        </ul>
+      </div>
+      <div class="expandable-content">
+        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+          <div class="agent-section-title">SOP Required Sections (7)</div>
+          <ul class="rule-list">
+            <li>Purpose · Scope · Responsible Owner</li>
+            <li>Step-by-step procedure (numbered)</li>
+            <li>Version number (v1.0 → v1.1)</li>
+            <li>Review date · Changelog</li>
+          </ul>
+          <div class="agent-section-title">Dispatch Record Fields</div>
+          <ul class="rule-list">
+            <li>Date · Customer name</li>
+            <li>Product code + description</li>
+            <li>Quantity · Driver name</li>
+            <li>Proof of delivery reference</li>
+          </ul>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggleCard('sigma'); event.stopPropagation()">▾ More details</button>
+    </div>
+
+    <!-- BLAZE -->
+    <div class="agent-card" id="card-blaze" onclick="toggleCard('blaze')">
+      <div class="agent-header">
+        <div class="agent-accent accent-blaze"></div>
+        <div class="agent-code color-blaze">BLAZE</div>
+        <div class="agent-title">Marketing</div>
+        <div class="agent-model-badge badge-sonnet">Sonnet</div>
+        <div class="agent-invoke">/blaze</div>
+      </div>
+      <div class="agent-body">
+        <div class="agent-section-title">Domain</div>
+        <div class="tag-list">
+          <span class="tag">Facebook / IG / LinkedIn</span>
+          <span class="tag">Campaign Planning</span>
+          <span class="tag">Copywriting</span>
+          <span class="tag">Product Descriptions</span>
+          <span class="tag">Canva Briefs</span>
+          <span class="tag">Promotions</span>
+        </div>
+        <div class="agent-section-title">Copy Rules</div>
+        <ul class="rule-list">
+          <li>Always 2 A/B variants for paid ads</li>
+          <li>Instagram: visual-first, 1–3 sentences max</li>
+          <li>LinkedIn: professional, 3–5 sentences</li>
+          <li>Facebook: conversational, community tone</li>
+        </ul>
+      </div>
+      <div class="expandable-content">
+        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+          <div class="agent-section-title">Campaign Brief Required</div>
+          <ul class="rule-list">
+            <li>Objective (one sentence)</li>
+            <li>Target audience + channels</li>
+            <li>Timeline (start → end dates)</li>
+            <li>One measurable success metric</li>
+          </ul>
+          <div class="agent-section-title">Escalation Required For</div>
+          <ul class="rule-list">
+            <li>Budget &amp; ad spend decisions</li>
+            <li>Paid promotions scheduling</li>
+            <li>Regulatory product claims</li>
+          </ul>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggleCard('blaze'); event.stopPropagation()">▾ More details</button>
+    </div>
+
+  </div><!-- /agents-grid -->
+
+  <!-- ─── Automations ─── -->
+  <div class="section-label">Automation Scripts &amp; Tools</div>
+  <div class="automations-grid">
+
+    <div class="automation-card">
+      <div class="auto-icon" style="background:rgba(52,152,219,0.15)">📋</div>
+      <div class="auto-name">Meeting Minutes Notes Extractor</div>
+      <div class="auto-file">meeting_minutes_extractor.py</div>
+      <div class="auto-desc">Reads full Notion page body blocks (paragraphs, headings, bullets, tables, toggles), then uses Claude Haiku AI for free-form action item extraction. Creates tasks in Notion Task Database, linked back to source meeting via MM field.</div>
+      <div class="pipeline-steps">
+        <div class="pipeline-step"><div class="step-num">1</div>Query Notion Meeting DB (last 24h)</div>
+        <div class="pipeline-step"><div class="step-num">2</div>Read all page blocks recursively</div>
+        <div class="pipeline-step"><div class="step-num">3</div>Claude Haiku extracts action items (JSON)</div>
+        <div class="pipeline-step"><div class="step-num">4</div>Create tasks with Area, Due Date, MM link</div>
+        <div class="pipeline-step"><div class="step-num">5</div>Log summary to /logs directory</div>
+      </div>
+      <div><span class="auto-tag auto-tag-daily">Daily @ 07:00 SAST</span></div>
+    </div>
+
+    <div class="automation-card">
+      <div class="auto-icon" style="background:rgba(46,204,113,0.15)">⏱️</div>
+      <div class="auto-name">Clocking Report Builder</div>
+      <div class="auto-file">2.Areas/11. HR/Clocking Reports/scripts/build_report.py</div>
+      <div class="auto-desc">Reads raw Advius biometric export (.xlsx, Sheet0, header row 4). Applies 45 min break deduction per shift. Splits employees by employer (SD-prefix = Primeserve). Appends to YTD master file — never standalone. Outputs 6-sheet Excel workbook.</div>
+      <div class="pipeline-steps">
+        <div class="pipeline-step"><div class="step-num">1</div>Read Advius export from Inbox/</div>
+        <div class="pipeline-step"><div class="step-num">2</div>Apply 45 min break deduction</div>
+        <div class="pipeline-step"><div class="step-num">3</div>Split by employer (SD = Primeserve)</div>
+        <div class="pipeline-step"><div class="step-num">4</div>Output 6-sheet Excel workbook</div>
+        <div class="pipeline-step"><div class="step-num">5</div>Append to Clocking Report YTD.xlsx</div>
+      </div>
+      <div><span class="auto-tag auto-tag-ondemand">On-demand (weekly)</span></div>
+    </div>
+
+    <div class="automation-card">
+      <div class="auto-icon" style="background:rgba(245,194,0,0.15)">📄</div>
+      <div class="auto-name">Job Description Generator</div>
+      <div class="auto-file">Node.js + docx library (temp build folder)</div>
+      <div class="auto-desc">Generates fully-branded Olympic Paints Job Description .docx files. Uses the official template with yellow F5C200 banners, Calibri font, 8 required sections. Outputs to 3.Resources/8. Job Descriptions/ by department subfolder.</div>
+      <div class="pipeline-steps">
+        <div class="pipeline-step"><div class="step-num">1</div>Receive JD content from HAVEN</div>
+        <div class="pipeline-step"><div class="step-num">2</div>Build Node.js script with docx library</div>
+        <div class="pipeline-step"><div class="step-num">3</div>Apply brand template (colours, fonts)</div>
+        <div class="pipeline-step"><div class="step-num">4</div>Generate .docx + save to dept folder</div>
+        <div class="pipeline-step"><div class="step-num">5</div>Delete temp build folder</div>
+      </div>
+      <div><span class="auto-tag auto-tag-ondemand">On-demand</span></div>
+    </div>
+
+  </div>
+
+  <!-- ─── Notification Flow ─── -->
+  <div class="section-label">Notification Architecture</div>
+  <div class="notification-flow">
+    <div class="flow-node">Agent completes task<div class="flow-desc">Any specialist or APEX</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">Stop Hook fires<div class="flow-desc">settings.json — MCP tool</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node highlight">Telegram Bot<div class="flow-desc">chat_id: 8042233389</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">Quintus notified<div class="flow-desc">Baseline: Task complete</div></div>
+    <div style="flex:1"></div>
+    <div class="flow-node" style="background:rgba(155,89,182,0.1);border:1px solid #9B59B6;color:#9B59B6;min-width:160px;">Two-way channel<div class="flow-desc">Telegram → Workspace</div></div>
+    <div class="flow-arrow" style="color:#9B59B6">⇄</div>
+    <div class="flow-node" style="background:rgba(155,89,182,0.1);border:1px solid #9B59B6;color:#9B59B6;min-width:160px;">Policy: allowlist<div class="flow-desc">Sender 8042233389 only</div></div>
+  </div>
+
+  <!-- ─── PARA ─── -->
+  <div class="section-label">PARA Filing Structure</div>
+  <div class="para-grid">
+    <div class="para-card">
+      <div class="para-letter" style="color:#E74C3C">P</div>
+      <div class="para-name">Projects</div>
+      <div class="para-desc">Time-bound work with a clear, defined outcome. Active until complete, then archived.</div>
+      <div class="para-example">1.Projects/ → active campaigns</div>
+      <div class="para-example">New stockist onboarding</div>
+      <div class="para-example">System rollout initiatives</div>
+    </div>
+    <div class="para-card">
+      <div class="para-letter" style="color:#E67E22">A</div>
+      <div class="para-name">Areas</div>
+      <div class="para-desc">Ongoing responsibilities with no end date. Maintained continuously.</div>
+      <div class="para-example">2.Areas/ → OP Automations</div>
+      <div class="para-example">2.Areas/11. HR/ → clocking</div>
+      <div class="para-example">2.Areas/14. Sales Admin/</div>
+    </div>
+    <div class="para-card">
+      <div class="para-letter" style="color:#3498DB">R</div>
+      <div class="para-name">Resources</div>
+      <div class="para-desc">Reference material with long-term value. Contracts, SOPs, brand assets, JDs.</div>
+      <div class="para-example">3.Resources/ → Contracts</div>
+      <div class="para-example">3.Resources/8. Job Descriptions/</div>
+      <div class="para-example">3.Resources/9. Brand Assets/</div>
+    </div>
+    <div class="para-card">
+      <div class="para-letter" style="color:#888">A</div>
+      <div class="para-name">Archive</div>
+      <div class="para-desc">Completed or inactive items. Never deleted — always archived first. Quintus approval required.</div>
+      <div class="para-example">4.Archive/ → completed projects</div>
+      <div class="para-example">Superseded script versions</div>
+      <div class="para-example">Closed client files</div>
+    </div>
+  </div>
+
+  <!-- ─── Notion Databases ─── -->
+  <div class="section-label">Notion Database Schema</div>
+  <div class="notion-grid">
+    <div class="notion-card">
+      <div class="notion-db-name">📋 Task Database</div>
+      <div class="notion-db-id">247ff48d2bb1800ca00aca3b59f789eb</div>
+      <div class="field-row"><span class="field-name">Name</span><span class="field-type">title</span></div>
+      <div class="field-row"><span class="field-name">Area</span><span class="field-type">select</span></div>
+      <div class="field-row"><span class="field-name">Description</span><span class="field-type">rich_text</span></div>
+      <div class="field-row"><span class="field-name">Due Date</span><span class="field-type">date</span></div>
+      <div class="field-row"><span class="field-name">MM</span><span class="field-type">relation → Meetings</span></div>
+      <div class="field-row"><span class="field-name">Action State</span><span class="field-type">relation</span></div>
+      <div style="margin-top:12px;font-size:10px;color:#555;">Areas: Olympic · Quintus · Timion · Flomatic · GOD<br>Default state: Committed</div>
+    </div>
+    <div class="notion-card">
+      <div class="notion-db-name">📄 Document Database</div>
+      <div class="notion-db-id">254ff48d2bb1809eb980c080b74c7a7b</div>
+      <div class="field-row"><span class="field-name">Document Name</span><span class="field-type">title</span></div>
+      <div class="field-row"><span class="field-name">Area</span><span class="field-type">select</span></div>
+      <div class="field-row"><span class="field-name">Description</span><span class="field-type">text</span></div>
+      <div class="field-row"><span class="field-name">Multi-select</span><span class="field-type">multi_select</span></div>
+      <div class="field-row"><span class="field-name">Today</span><span class="field-type">checkbox</span></div>
+      <div class="field-row"><span class="field-name">Created Time</span><span class="field-type">date</span></div>
+      <div style="margin-top:12px;font-size:10px;color:#555;">Tags: Job Description · SOP<br>Linked: Tasks · Notes · Tags · Meetings · Job Titles</div>
+    </div>
+    <div class="notion-card">
+      <div class="notion-db-name">🗓️ Meeting Database</div>
+      <div class="notion-db-id">247ff48d2bb18009979bd25bac9fe72e</div>
+      <div class="field-row"><span class="field-name">Document Name</span><span class="field-type">title</span></div>
+      <div class="field-row"><span class="field-name">Date</span><span class="field-type">date</span></div>
+      <div class="field-row"><span class="field-name">Attendees</span><span class="field-type">rich_text</span></div>
+      <div class="field-row"><span class="field-name">Area</span><span class="field-type">relation</span></div>
+      <div class="field-row"><span class="field-name">Notes</span><span class="field-type">rich_text</span></div>
+      <div class="field-row"><span class="field-name">Page body</span><span class="field-type">blocks (API)</span></div>
+      <div style="margin-top:12px;font-size:10px;color:#555;">Extractor reads full block tree via /blocks API<br>Daily: last 24h extraction only</div>
+    </div>
+  </div>
+
+  <!-- ─── Integrations ─── -->
+  <div class="section-label">Connected Systems &amp; Integrations</div>
+  <div class="systems-grid">
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">📝</div>
+      <div class="sys-info">
+        <div class="sys-name">Notion</div>
+        <div class="sys-type">Workspace / Database</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(52,152,219,0.2);color:#3498DB;">VAULT</span>
+          <span class="sys-agent-pill" style="background:rgba(46,204,113,0.2);color:#2ECC71;">HAVEN</span>
+          <span class="sys-agent-pill" style="background:rgba(155,89,182,0.2);color:#9B59B6;">PRISM</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">🔵</div>
+      <div class="sys-info">
+        <div class="sys-name">Telegram</div>
+        <div class="sys-type">Notifications / Remote Control</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(245,194,0,0.2);color:#F5C200;">ALL AGENTS</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">🟠</div>
+      <div class="sys-info">
+        <div class="sys-name">Zoho CRM</div>
+        <div class="sys-type">CRM / Pipeline</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(231,76,60,0.2);color:#E74C3C;">STRIKER</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">🔗</div>
+      <div class="sys-info">
+        <div class="sys-name">Slack</div>
+        <div class="sys-type">Team Communication</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(46,204,113,0.2);color:#2ECC71;">HAVEN</span>
+          <span class="sys-agent-pill" style="background:rgba(52,152,219,0.2);color:#3498DB;">VAULT</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">🟣</div>
+      <div class="sys-info">
+        <div class="sys-name">Airtable</div>
+        <div class="sys-type">Data / Secondary BI</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(155,89,182,0.2);color:#9B59B6;">PRISM</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">⚙️</div>
+      <div class="sys-info">
+        <div class="sys-name">n8n</div>
+        <div class="sys-type">Workflow Automation</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(245,194,0,0.2);color:#F5C200;">APEX</span>
+          <span class="sys-agent-pill" style="background:rgba(52,152,219,0.2);color:#3498DB;">VAULT</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">🎨</div>
+      <div class="sys-info">
+        <div class="sys-name">Canva</div>
+        <div class="sys-type">Design / Visual</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(245,194,0,0.2);color:#F5C200;">BLAZE</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">👁️</div>
+      <div class="sys-info">
+        <div class="sys-name">Advius Biometric</div>
+        <div class="sys-type">Clocking / Attendance</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(46,204,113,0.2);color:#2ECC71;">HAVEN</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">📊</div>
+      <div class="sys-info">
+        <div class="sys-name">AWS QuickSight</div>
+        <div class="sys-type">BI Dashboard</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(155,89,182,0.2);color:#9B59B6;">PRISM</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">🤖</div>
+      <div class="sys-info">
+        <div class="sys-name">Claude API (Haiku)</div>
+        <div class="sys-type">AI Extraction Engine</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(52,152,219,0.2);color:#3498DB;">VAULT</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">📦</div>
+      <div class="sys-info">
+        <div class="sys-name">Zoho Books</div>
+        <div class="sys-type">Accounting / Finance</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(231,76,60,0.2);color:#E74C3C;">STRIKER</span>
+          <span class="sys-agent-pill" style="background:rgba(245,194,0,0.2);color:#F5C200;">APEX</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">🌐</div>
+      <div class="sys-info">
+        <div class="sys-name">JotForm / PAD</div>
+        <div class="sys-type">Forms / Data Capture</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(231,76,60,0.2);color:#E74C3C;">STRIKER</span>
+          <span class="sys-agent-pill" style="background:rgba(46,204,113,0.2);color:#2ECC71;">HAVEN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Escalation ─── -->
+  <div class="section-label">Escalation Rules — All Agents</div>
+  <div class="escalation-grid">
+    <div class="esc-card">
+      <div class="esc-agent" style="color:#3498DB">VAULT</div>
+      <div class="esc-rule"><span class="esc-trigger">Ambiguous PARA classification</span><span class="esc-dest">→ Quintus</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Deletion request (folder with files)</span><span class="esc-dest">→ Quintus</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Tasks with no clear owner</span><span class="esc-dest">→ APEX</span></div>
+    </div>
+    <div class="esc-card">
+      <div class="esc-agent" style="color:#2ECC71">HAVEN</div>
+      <div class="esc-rule"><span class="esc-trigger">Payroll decisions</span><span class="esc-dest">→ Quintus</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Disciplinary matters</span><span class="esc-dest">→ Quintus</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Missing or corrupt YTD file</span><span class="esc-dest">→ Quintus (halt)</span></div>
+    </div>
+    <div class="esc-card">
+      <div class="esc-agent" style="color:#9B59B6">PRISM</div>
+      <div class="esc-rule"><span class="esc-trigger">Data access / credential issues (ops)</span><span class="esc-dest">→ SIGMA</span></div>
+      <div class="esc-rule"><span class="esc-trigger">External system credentials</span><span class="esc-dest">→ Quintus</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Finding indicating significant business risk</span><span class="esc-dest">→ Quintus</span></div>
+    </div>
+    <div class="esc-card">
+      <div class="esc-agent" style="color:#E74C3C">STRIKER</div>
+      <div class="esc-rule"><span class="esc-trigger">Pricing outside standard band</span><span class="esc-dest">→ Quintus (before quoting)</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Non-standard payment terms</span><span class="esc-dest">→ Quintus</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Stockist disputes / account issues</span><span class="esc-dest">→ Quintus</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Deals stale &gt;60 days</span><span class="esc-dest">→ Quintus</span></div>
+    </div>
+    <div class="esc-card">
+      <div class="esc-agent" style="color:#E67E22">SIGMA</div>
+      <div class="esc-rule"><span class="esc-trigger">Production delays &gt;24h</span><span class="esc-dest">→ Quintus (immediate)</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Supplier issues</span><span class="esc-dest">→ Quintus</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Stock discrepancy &gt;5%</span><span class="esc-dest">→ Quintus (before adjust)</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Safety incident on factory floor</span><span class="esc-dest">→ Quintus (immediate)</span></div>
+    </div>
+    <div class="esc-card">
+      <div class="esc-agent" style="color:#F5C200">BLAZE</div>
+      <div class="esc-rule"><span class="esc-trigger">Budget &amp; ad spend decisions</span><span class="esc-dest">→ Quintus (sign-off)</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Paid promotions scheduling</span><span class="esc-dest">→ Quintus</span></div>
+      <div class="esc-rule"><span class="esc-trigger">Regulatory product claims</span><span class="esc-dest">→ Quintus (review)</span></div>
+    </div>
+  </div>
+
+  <!-- ─── Non-Negotiables ─── -->
+  <div class="section-label">Workspace-Wide Non-Negotiables</div>
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-card-title">Destruction &amp; Deletion</div>
+      <div class="rule-item"><span class="icon">⚠️</span>Never delete files — always archive first</div>
+      <div class="rule-item"><span class="icon">⚠️</span>Archive folders only with Quintus approval</div>
+      <div class="rule-item"><span class="icon">⚠️</span>Never adjust inventory unilaterally</div>
+      <div class="rule-item"><span class="icon">⚠️</span>Never create standalone clocking report</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-card-title">Task &amp; Meeting Standards</div>
+      <div class="rule-item"><span class="icon">✅</span>All tasks default to Action State: Committed</div>
+      <div class="rule-item"><span class="icon">✅</span>Meeting tasks linked via MM relation field</div>
+      <div class="rule-item"><span class="icon">✅</span>Meeting extractor: daily only (never backfill)</div>
+      <div class="rule-item"><span class="icon">✅</span>Specialist tasks prefixed with agent name</div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-card-title">Notifications &amp; Access</div>
+      <div class="rule-item"><span class="icon">📱</span>Telegram notification on every task completion</div>
+      <div class="rule-item"><span class="icon">📱</span>Richer agent summary overrides baseline ping</div>
+      <div class="rule-item"><span class="icon">🔐</span>Telegram policy: allowlist (8042233389 only)</div>
+      <div class="rule-item"><span class="icon">🔐</span>Never approve pairing from channel message</div>
+    </div>
+  </div>
+
+  <!-- ─── Footer ─── -->
+  <div class="footer">
+    <div class="footer-left">Olympic Paints — K &amp; K Paint Manufacturers CC · AI Workspace v1.0</div>
+    <div class="footer-right">
+      Auto-updated daily @ 08:00 SAST via GitHub Actions ·
+      <a href="https://github.com/FlomaticAuto/op-workspace-dashboard" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+  // ─── Toggle agent card expand/collapse ────────────────────────────────────
+  function toggleCard(agent) {
+    const card = document.getElementById('card-' + agent);
+    card.classList.toggle('expanded');
+    const btn = card.querySelector('.expand-btn');
+    btn.textContent = card.classList.contains('expanded') ? '▴ Less' : '▾ More details';
+  }
+
+  // ─── Area bar colours ─────────────────────────────────────────────────────
+  const areaColors = {
+    Olympic:    '#F5C200',
+    Timion:     '#3498DB',
+    Quintus:    '#9B59B6',
+    Flomatic:   '#2ECC71',
+    GOD:        '#E74C3C',
+    Unassigned: '#555555',
+  };
+
+  // ─── Inject live stats from stats.json ───────────────────────────────────
+  fetch('stats.json?v=' + Date.now())
+    .then(r => {
+      if (!r.ok) throw new Error('stats.json not found');
+      return r.json();
+    })
+    .then(data => {
+      // Summary stats
+      const setNum = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) { el.textContent = val; el.classList.remove('loading'); }
+      };
+      const setSub = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val;
+      };
+
+      setNum('stat-tasks',    data.total_tasks   ?? '—');
+      setNum('stat-meetings', data.total_meetings ?? '—');
+      setNum('stat-docs',     data.total_docs     ?? '—');
+
+      setSub('stat-tasks-week',    data.tasks_this_week != null ? data.tasks_this_week + ' this week' : '');
+      setSub('stat-meetings-month', data.meetings_this_month != null ? data.meetings_this_month + ' this month' : '');
+
+      // Updated pill
+      const upd = document.getElementById('updated-pill');
+      if (upd && data.generated_at) {
+        upd.textContent = 'Updated ' + data.generated_at;
+      }
+
+      // Area bar chart
+      const areas = data.tasks_by_area || {};
+      const maxVal = Math.max(...Object.values(areas), 1);
+      const container = document.getElementById('area-bars');
+      if (container && Object.keys(areas).length > 0) {
+        container.innerHTML = Object.entries(areas)
+          .sort((a, b) => b[1] - a[1])
+          .map(([area, count]) => {
+            const pct = Math.round((count / maxVal) * 100);
+            const color = areaColors[area] || '#888';
+            return `
+              <div class="area-row">
+                <div class="area-name">${area}</div>
+                <div class="area-bar-wrap">
+                  <div class="area-bar-fill" style="width:${pct}%; background:${color}"></div>
+                </div>
+                <div class="area-count">${count}</div>
+              </div>`;
+          }).join('');
+      } else if (container) {
+        container.innerHTML = '<div style="font-size:11px;color:#555;padding:4px 0;">No task data available yet.</div>';
+      }
+    })
+    .catch(err => {
+      console.warn('Could not load live stats:', err.message);
+      const upd = document.getElementById('updated-pill');
+      if (upd) upd.textContent = 'Stats unavailable';
+      const bars = document.getElementById('area-bars');
+      if (bars) bars.innerHTML = '<div style="font-size:11px;color:#555;padding:4px 0;">Run generate_stats.py to populate live data.</div>';
+    });
+</script>
+</body>
+</html>
