@@ -15,6 +15,12 @@
   "meetings_this_month": 10,
   "total_docs": 65,
   "agents": 6,
-  "automations": 3,
-  "integrations": 12
+  "automations": 4,
+  "integrations": 12,
+  "vehicle_report_health": {
+    "status": "OK",
+    "last_run": "27 Apr 2026 09:00",
+    "latest_file": "Weekly Trip Report 26042026 Multi Vehicles Trip Report.xls",
+    "latest_file_date": "28 Apr 2026"
+  }
 }

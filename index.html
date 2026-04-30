@@ -441,7 +441,7 @@
       <div class="stat-sub">+ 1 orchestrator</div>
     </div>
     <div class="stat">
-      <div class="stat-num">3</div>
+      <div class="stat-num">4</div>
       <div class="stat-label">Automation Scripts</div>
       <div class="stat-sub">daily + on-demand</div>
     </div>
@@ -832,6 +832,23 @@
       <div><span class="auto-tag auto-tag-ondemand">On-demand</span></div>
     </div>
 
+    <div class="automation-card" id="vehicle-health-card">
+      <div class="auto-icon" style="background:rgba(231,76,60,0.15)">🚛</div>
+      <div class="auto-name">Vehicle Report Health Check</div>
+      <div class="auto-file">striker_vehicle_health_check.py</div>
+      <div class="auto-desc">STRIKER verifies the vehicle report pipeline is healthy every Tuesday. Checks when the report was last run and when the source trip data was last updated, then cross-checks both and sends a status message to Quintus via Telegram.</div>
+      <div class="pipeline-steps">
+        <div class="pipeline-step"><div class="step-num">1</div>Read vehicle_report_log.txt — last run timestamp</div>
+        <div class="pipeline-step"><div class="step-num">2</div>Find latest trip report .xls/.xlsx in Inbox</div>
+        <div class="pipeline-step"><div class="step-num">3</div>Cross-check: report run after data arrived?</div>
+        <div class="pipeline-step"><div class="step-num">4</div>Send status (OK / Overdue / Warning) via Telegram</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;">
+        <span class="auto-tag" style="background:rgba(231,76,60,0.15);color:#E74C3C;border:1px solid rgba(231,76,60,0.3);">STRIKER · Weekly Tue 09:30</span>
+        <span id="vehicle-health-status" style="font-size:10px;color:#555;">Loading status...</span>
+      </div>
+    </div>
+
   </div>
 
   <!-- ─── Notification Flow ─── -->
@@ -1183,6 +1200,19 @@
       const upd = document.getElementById('updated-pill');
       if (upd && data.generated_at) {
         upd.textContent = 'Updated ' + data.generated_at;
+      }
+
+      // Vehicle report health status
+      const vhEl = document.getElementById('vehicle-health-status');
+      if (vhEl && data.vehicle_report_health) {
+        const vh = data.vehicle_report_health;
+        const statusColors = { OK: '#2ECC71', OVERDUE: '#E74C3C', WARNING: '#E67E22', ERROR: '#E74C3C', UNKNOWN: '#555' };
+        const col = statusColors[vh.status] || '#555';
+        vhEl.innerHTML = `<span style="color:${col};font-weight:700;">● ${vh.status}</span> · Last run: ${vh.last_run || '—'} · Data: ${vh.latest_file || '—'}`;
+        const card = document.getElementById('vehicle-health-card');
+        if (card) card.style.borderColor = col === '#2ECC71' ? '#2ECC71' : col;
+      } else if (vhEl) {
+        vhEl.textContent = '';
       }
 
       // Area bar chart
