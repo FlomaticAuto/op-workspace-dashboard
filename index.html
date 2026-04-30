@@ -395,6 +395,137 @@
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: #1A1A1A; }
   ::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+
+  /* ─── Tabs ─── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 0 40px;
+    background: #1A1A1A;
+    border-bottom: 2px solid #2A2A2A;
+  }
+  .tab-btn {
+    padding: 14px 24px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #666;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.15s, border-color 0.15s;
+    text-transform: uppercase;
+  }
+  .tab-btn:hover { color: #AAA; }
+  .tab-btn.active { color: var(--yellow); border-bottom-color: var(--yellow); }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ─── OrganoGram ─── */
+  .org-wrap {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .org-apex-row { display: flex; justify-content: center; margin-bottom: 0; }
+  .org-apex-node {
+    background: linear-gradient(135deg, var(--yellow), #E6B800);
+    border-radius: 14px;
+    padding: 18px 40px;
+    text-align: center;
+    min-width: 260px;
+    box-shadow: 0 6px 24px rgba(245,194,0,0.25);
+  }
+  .org-apex-node .on-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: rgba(0,0,0,0.45); margin-bottom: 4px; }
+  .org-apex-node .on-name { font-size: 22px; font-weight: 900; color: var(--dark); }
+  .org-apex-node .on-role { font-size: 11px; color: rgba(0,0,0,0.55); margin-top: 3px; }
+
+  .org-line-down { display: flex; justify-content: center; }
+  .org-line-down::after { content: ''; display: block; width: 2px; height: 32px; background: #444; }
+
+  .org-agents-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 0;
+  }
+  @media (max-width: 900px) { .org-agents-row { grid-template-columns: repeat(2, 1fr); } }
+
+  .org-agent-node {
+    background: #252525;
+    border: 1px solid #333;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .org-agent-header {
+    padding: 14px 16px 12px;
+    border-bottom: 1px solid #2A2A2A;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .org-accent-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .org-agent-name { font-size: 15px; font-weight: 900; letter-spacing: 0.5px; }
+  .org-agent-role { font-size: 10px; color: #666; margin-left: auto; font-weight: 500; }
+
+  .org-agent-body { padding: 14px 16px; }
+  .org-section-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 8px;
+    margin-top: 14px;
+  }
+  .org-section-title:first-child { margin-top: 0; }
+
+  .org-link-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #2A2A2A;
+    font-size: 11px;
+    color: #CCC;
+    line-height: 1.4;
+  }
+  .org-link-item:last-child { border-bottom: none; }
+  .org-link-arrow { color: #555; flex-shrink: 0; margin-top: 1px; }
+
+  .org-sched-badge {
+    font-size: 9px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .org-sched-daily { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
+  .org-sched-weekly { background: rgba(52,152,219,0.15); color: #3498DB; border: 1px solid rgba(52,152,219,0.3); }
+  .org-sched-ondemand { background: rgba(155,89,182,0.15); color: #9B59B6; border: 1px solid rgba(155,89,182,0.3); }
+  .org-sched-triggered { background: rgba(230,126,34,0.15); color: #E67E22; border: 1px solid rgba(230,126,34,0.3); }
+
+  .org-empty { font-size: 11px; color: #444; font-style: italic; padding: 4px 0; }
+
+  .org-connector-row {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 0;
+    margin: 0;
+  }
+  .org-h-line {
+    position: absolute;
+    top: 0;
+    height: 2px;
+    background: #333;
+    width: calc(66.66% + 20px);
+  }
 </style>
 </head>
 <body>
@@ -415,6 +546,14 @@
   </div>
 </div>
 
+<!-- ─── Tab Bar ─── -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('main')">Main Page</button>
+  <button class="tab-btn" onclick="switchTab('organogram')">OrganoGram Workflow</button>
+</div>
+
+<!-- ─── Tab: Main Page ─── -->
+<div id="tab-main" class="tab-panel active">
 <div class="main">
 
   <!-- ─── Summary Stats ─── -->
@@ -1186,8 +1325,169 @@
   </div>
 
 </div><!-- /main -->
+</div><!-- /tab-main -->
+
+<!-- ─── Tab: OrganoGram Workflow ─── -->
+<div id="tab-organogram" class="tab-panel">
+  <div class="org-wrap">
+
+    <!-- APEX -->
+    <div class="org-apex-row">
+      <div class="org-apex-node">
+        <div class="on-label">MANAGING DIRECTOR</div>
+        <div class="on-name">APEX</div>
+        <div class="on-role">Routes all tasks · Coordinates specialist agents</div>
+      </div>
+    </div>
+
+    <div class="org-line-down"></div>
+
+    <!-- Agent nodes -->
+    <div class="org-agents-row">
+
+      <!-- VAULT -->
+      <div class="org-agent-node">
+        <div class="org-agent-header">
+          <div class="org-accent-dot" style="background:#3498DB"></div>
+          <div class="org-agent-name" style="color:#3498DB">VAULT</div>
+          <div class="org-agent-role">Admin &amp; Filing</div>
+        </div>
+        <div class="org-agent-body">
+          <div class="org-section-title">Scheduled Actions</div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>Meeting Minutes Extractor — reads Notion, extracts action items, creates tasks</span>
+            <span class="org-sched-badge org-sched-daily">Daily 07:00</span>
+          </div>
+          <div class="org-section-title">Linked Tasks</div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>Create tasks in Notion Task DB with Area + MM relation link</span>
+            <span class="org-sched-badge org-sched-triggered">Triggered</span>
+          </div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>PARA filing — classify and file documents on request</span>
+            <span class="org-sched-badge org-sched-ondemand">On-demand</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HAVEN -->
+      <div class="org-agent-node">
+        <div class="org-agent-header">
+          <div class="org-accent-dot" style="background:#2ECC71"></div>
+          <div class="org-agent-name" style="color:#2ECC71">HAVEN</div>
+          <div class="org-agent-role">HR &amp; People Ops</div>
+        </div>
+        <div class="org-agent-body">
+          <div class="org-section-title">Scheduled Actions</div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>process_inbox.py — scans HR Inbox for Advius exports, builds clocking report, emails via Outlook</span>
+            <span class="org-sched-badge org-sched-daily">Daily 07:30</span>
+          </div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>haven_dashboard_check.py — regenerates HTML clocking dashboard, pushes to GitHub Pages, sends Telegram summary</span>
+            <span class="org-sched-badge org-sched-daily">Daily 08:00</span>
+          </div>
+          <div class="org-section-title">Linked Tasks</div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>haven_watcher.py — triggers clocking pipeline on new file arrival in Inbox</span>
+            <span class="org-sched-badge org-sched-triggered">File-triggered</span>
+          </div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>Job Description Generator — branded .docx output via Node.js + docx library</span>
+            <span class="org-sched-badge org-sched-ondemand">On-demand</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRISM -->
+      <div class="org-agent-node">
+        <div class="org-agent-header">
+          <div class="org-accent-dot" style="background:#9B59B6"></div>
+          <div class="org-agent-name" style="color:#9B59B6">PRISM</div>
+          <div class="org-agent-role">Analytics &amp; BI</div>
+        </div>
+        <div class="org-agent-body">
+          <div class="org-empty">No scheduled tasks or actions allocated to this agent.</div>
+        </div>
+      </div>
+
+      <!-- STRIKER -->
+      <div class="org-agent-node">
+        <div class="org-agent-header">
+          <div class="org-accent-dot" style="background:#E74C3C"></div>
+          <div class="org-agent-name" style="color:#E74C3C">STRIKER</div>
+          <div class="org-agent-role">Sales &amp; CRM</div>
+        </div>
+        <div class="org-agent-body">
+          <div class="org-section-title">Scheduled Actions</div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>striker_vehicle_health_check.py — verifies vehicle report pipeline, sends OK / Overdue / Warning to Quintus via Telegram</span>
+            <span class="org-sched-badge org-sched-weekly">Weekly Tue 09:30</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIGMA -->
+      <div class="org-agent-node">
+        <div class="org-agent-header">
+          <div class="org-accent-dot" style="background:#E67E22"></div>
+          <div class="org-agent-name" style="color:#E67E22">SIGMA</div>
+          <div class="org-agent-role">Operations</div>
+        </div>
+        <div class="org-agent-body">
+          <div class="org-empty">No scheduled tasks or actions allocated to this agent.</div>
+        </div>
+      </div>
+
+      <!-- BLAZE -->
+      <div class="org-agent-node">
+        <div class="org-agent-header">
+          <div class="org-accent-dot" style="background:#F5C200"></div>
+          <div class="org-agent-name" style="color:#F5C200">BLAZE</div>
+          <div class="org-agent-role">Marketing</div>
+        </div>
+        <div class="org-agent-body">
+          <div class="org-empty">No scheduled tasks or actions allocated to this agent.</div>
+        </div>
+      </div>
+
+    </div><!-- /org-agents-row -->
+
+    <!-- KPI Dashboard note (APEX-level, no single agent) -->
+    <div style="margin-top:32px;background:#252525;border:1px solid #333;border-radius:14px;padding:20px 24px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#555;margin-bottom:12px;">APEX-Level Automation</div>
+      <div class="org-link-item">
+        <span class="org-link-arrow">›</span>
+        <span>KPI Dashboard Auto-Update — reads Sales_Summary PDFs, regenerates KPI Dashboard.html, commits &amp; pushes to GitHub</span>
+        <span class="org-sched-badge org-sched-daily">Daily 07:00</span>
+      </div>
+      <div class="org-link-item" style="margin-top:4px;">
+        <span class="org-link-arrow">›</span>
+        <span>Workspace Dashboard Stats Update — generate_stats.py pulls Notion counts, writes stats.json, pushes to GitHub Pages</span>
+        <span class="org-sched-badge org-sched-daily">Daily 08:00 SAST</span>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /tab-organogram -->
 
 <script>
+  // ─── Tab switching ────────────────────────────────────────────────────────
+  function switchTab(name) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
   // ─── Toggle agent card expand/collapse ────────────────────────────────────
   function toggleCard(agent) {
     const card = document.getElementById('card-' + agent);
