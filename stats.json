@@ -15,7 +15,7 @@
   "meetings_this_month": 10,
   "total_docs": 65,
   "agents": 6,
-  "automations": 4,
+  "automations": 5,
   "integrations": 12,
   "vehicle_report_health": {
     "status": "OK",

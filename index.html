@@ -441,12 +441,12 @@
       <div class="stat-sub">+ 1 orchestrator</div>
     </div>
     <div class="stat">
-      <div class="stat-num">4</div>
+      <div class="stat-num">5</div>
       <div class="stat-label">Automation Scripts</div>
       <div class="stat-sub">daily + on-demand</div>
     </div>
     <div class="stat">
-      <div class="stat-num">12</div>
+      <div class="stat-num">13</div>
       <div class="stat-label">Integrations</div>
       <div class="stat-sub">connected systems</div>
     </div>
@@ -681,6 +681,13 @@
             <li>Day 7 — Second follow-up</li>
             <li>Day 7+ — Flag to Quintus</li>
           </ul>
+          <div class="agent-section-title">Weekly SOP — Vehicle Report Check (Tue 09:30)</div>
+          <ul class="rule-list">
+            <li>Read vehicle_report_log.txt — verify last run date</li>
+            <li>Check Inbox for latest trip report + modified date</li>
+            <li>Cross-check: report run after data arrived?</li>
+            <li>Send status (OK / Overdue / Warning) to Quintus via Telegram</li>
+          </ul>
         </div>
       </div>
       <button class="expand-btn" onclick="toggleCard('striker'); event.stopPropagation()">▾ More details</button>
@@ -804,17 +811,17 @@
 
     <div class="automation-card">
       <div class="auto-icon" style="background:rgba(46,204,113,0.15)">⏱️</div>
-      <div class="auto-name">Clocking Report Builder</div>
-      <div class="auto-file">2.Areas/11. HR/Clocking Reports/scripts/build_report.py</div>
-      <div class="auto-desc">Reads raw Advius biometric export (.xlsx, Sheet0, header row 4). Applies 45 min break deduction per shift. Splits employees by employer (SD-prefix = Primeserve). Appends to YTD master file — never standalone. Outputs 6-sheet Excel workbook.</div>
+      <div class="auto-name">Clocking Report Pipeline</div>
+      <div class="auto-file">process_inbox.py · build_report.py · haven_watcher.py</div>
+      <div class="auto-desc">Three-layer pipeline. <strong style="color:#CCC">process_inbox.py</strong> (one-shot, daily 07:30) scans HR Inbox for Advius exports, calls build_report.py, renames output to YTD master, archives input, and emails completed file via Outlook. <strong style="color:#CCC">haven_watcher.py</strong> (file watcher) triggers processing automatically when a new file lands. <strong style="color:#CCC">build_report.py</strong> applies 45 min break deduction, splits by employer (SD-prefix = Primeserve), outputs 6-sheet Excel, appends to YTD.</div>
       <div class="pipeline-steps">
-        <div class="pipeline-step"><div class="step-num">1</div>Read Advius export from Inbox/</div>
-        <div class="pipeline-step"><div class="step-num">2</div>Apply 45 min break deduction</div>
-        <div class="pipeline-step"><div class="step-num">3</div>Split by employer (SD = Primeserve)</div>
-        <div class="pipeline-step"><div class="step-num">4</div>Output 6-sheet Excel workbook</div>
-        <div class="pipeline-step"><div class="step-num">5</div>Append to Clocking Report YTD.xlsx</div>
+        <div class="pipeline-step"><div class="step-num">1</div>Watcher detects new Advius export in Inbox/</div>
+        <div class="pipeline-step"><div class="step-num">2</div>process_inbox.py validates &amp; calls build_report.py</div>
+        <div class="pipeline-step"><div class="step-num">3</div>45 min break deducted · split by employer</div>
+        <div class="pipeline-step"><div class="step-num">4</div>Output appended to Clocking Report YTD.xlsx</div>
+        <div class="pipeline-step"><div class="step-num">5</div>Email YTD file to Quintus via Outlook</div>
       </div>
-      <div><span class="auto-tag auto-tag-ondemand">On-demand (weekly)</span></div>
+      <div><span class="auto-tag auto-tag-daily">Daily 07:30 SAST + file-triggered</span></div>
     </div>
 
     <div class="automation-card">
@@ -830,6 +837,20 @@
         <div class="pipeline-step"><div class="step-num">5</div>Delete temp build folder</div>
       </div>
       <div><span class="auto-tag auto-tag-ondemand">On-demand</span></div>
+    </div>
+
+    <div class="automation-card">
+      <div class="auto-icon" style="background:rgba(155,89,182,0.15)">📊</div>
+      <div class="auto-name">KPI Dashboard Auto-Update</div>
+      <div class="auto-file">1.Projects/AWS Data/build_kpi_dashboard.py</div>
+      <div class="auto-desc">Reads all Sales_Summary_*.pdf snapshots from the Daily Reports Archive, extracts KPI data, regenerates KPI Dashboard.html, then commits and pushes to GitHub. Runs daily to keep the live sales dashboard current.</div>
+      <div class="pipeline-steps">
+        <div class="pipeline-step"><div class="step-num">1</div>Scan Daily Reports Archive for PDF snapshots</div>
+        <div class="pipeline-step"><div class="step-num">2</div>Extract KPI data via pdfplumber</div>
+        <div class="pipeline-step"><div class="step-num">3</div>Regenerate KPI Dashboard.html</div>
+        <div class="pipeline-step"><div class="step-num">4</div>Commit &amp; push to GitHub (auto-deploy)</div>
+      </div>
+      <div><span class="auto-tag auto-tag-daily">Daily @ 07:00 SAST</span></div>
     </div>
 
     <div class="automation-card" id="vehicle-health-card">
@@ -1067,6 +1088,16 @@
         <div class="sys-type">Forms / Data Capture</div>
         <div class="sys-used-by">
           <span class="sys-agent-pill" style="background:rgba(231,76,60,0.2);color:#E74C3C;">STRIKER</span>
+          <span class="sys-agent-pill" style="background:rgba(46,204,113,0.2);color:#2ECC71;">HAVEN</span>
+        </div>
+      </div>
+    </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">📧</div>
+      <div class="sys-info">
+        <div class="sys-name">Outlook</div>
+        <div class="sys-type">Email / Notifications</div>
+        <div class="sys-used-by">
           <span class="sys-agent-pill" style="background:rgba(46,204,113,0.2);color:#2ECC71;">HAVEN</span>
         </div>
       </div>

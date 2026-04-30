@@ -176,7 +176,7 @@ def collect_stats() -> dict:
         "meetings_this_month": meetings_this_month,
         "total_docs": total_docs,
         "agents": 6,
-        "automations": 4,
+        "automations": 5,
         "integrations": 12,
         "vehicle_report_health": vehicle_health,
     }
