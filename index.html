@@ -811,17 +811,20 @@
 
     <div class="automation-card">
       <div class="auto-icon" style="background:rgba(46,204,113,0.15)">⏱️</div>
-      <div class="auto-name">Clocking Report Pipeline</div>
-      <div class="auto-file">process_inbox.py · build_report.py · haven_watcher.py</div>
-      <div class="auto-desc">Three-layer pipeline. <strong style="color:#CCC">process_inbox.py</strong> (one-shot, daily 07:30) scans HR Inbox for Advius exports, calls build_report.py, renames output to YTD master, archives input, and emails completed file via Outlook. <strong style="color:#CCC">haven_watcher.py</strong> (file watcher) triggers processing automatically when a new file lands. <strong style="color:#CCC">build_report.py</strong> applies 45 min break deduction, splits by employer (SD-prefix = Primeserve), outputs 6-sheet Excel, appends to YTD.</div>
+      <div class="auto-name">Clocking Report Pipeline + Weekly Dashboard</div>
+      <div class="auto-file">process_inbox.py · build_report.py · haven_watcher.py · haven_dashboard_check.py</div>
+      <div class="auto-desc">Four-script pipeline. <strong style="color:#CCC">process_inbox.py</strong> (daily 07:30) scans HR Inbox for Advius exports, calls build_report.py, renames to YTD master, archives input, emails via Outlook. <strong style="color:#CCC">haven_watcher.py</strong> triggers on new file arrival. <strong style="color:#CCC">build_report.py</strong> applies 45 min break deduction, splits by employer (SD-prefix = Primeserve), appends to YTD. <strong style="color:#CCC">haven_dashboard_check.py</strong> (weekly Monday 08:00) regenerates the HTML dashboard from YTD, publishes to GitHub Pages, and sends a Telegram summary with employee count, total hours, and missing clock-out rate.</div>
       <div class="pipeline-steps">
         <div class="pipeline-step"><div class="step-num">1</div>Watcher detects new Advius export in Inbox/</div>
         <div class="pipeline-step"><div class="step-num">2</div>process_inbox.py validates &amp; calls build_report.py</div>
-        <div class="pipeline-step"><div class="step-num">3</div>45 min break deducted · split by employer</div>
-        <div class="pipeline-step"><div class="step-num">4</div>Output appended to Clocking Report YTD.xlsx</div>
-        <div class="pipeline-step"><div class="step-num">5</div>Email YTD file to Quintus via Outlook</div>
+        <div class="pipeline-step"><div class="step-num">3</div>45 min break deducted · split by employer · email via Outlook</div>
+        <div class="pipeline-step"><div class="step-num">4</div>Weekly Mon 08:00: gen_dashboard.py regenerates HTML + pushes to GitHub Pages</div>
+        <div class="pipeline-step"><div class="step-num">5</div>Telegram summary sent to Quintus (employees, hours, missing %)</div>
       </div>
-      <div><span class="auto-tag auto-tag-daily">Daily 07:30 SAST + file-triggered</span></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <span class="auto-tag auto-tag-daily">Daily 07:30 SAST + file-triggered</span>
+        <span class="auto-tag" style="background:rgba(46,204,113,0.15);color:#2ECC71;border:1px solid rgba(46,204,113,0.3);">Weekly Mon 08:00 · GitHub Pages</span>
+      </div>
     </div>
 
     <div class="automation-card">
