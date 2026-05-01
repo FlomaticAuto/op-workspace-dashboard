@@ -218,4 +218,15 @@ if __name__ == "__main__":
     print(f"  Documents: {stats['total_docs']}")
     for area, count in sorted(stats["tasks_by_area"].items()):
         print(f"    {area}: {count}")
+
+    # Auto-refresh kaizen_status.json alongside stats
+    try:
+        import subprocess
+        kaizen_script = os.path.join(base, "generate_kaizen_status.py")
+        if os.path.exists(kaizen_script):
+            subprocess.run(["python", kaizen_script], check=True, capture_output=True)
+            print("  Refreshed kaizen_status.json")
+    except Exception as e:
+        print(f"  WARNING: Could not refresh kaizen_status.json: {e}")
+
     print("=" * 50)

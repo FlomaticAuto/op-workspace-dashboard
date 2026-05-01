@@ -512,6 +512,112 @@
   .footer-right a { color: #666; text-decoration: none; }
   .footer-right a:hover { color: var(--yellow); }
 
+  /* ─── Kaizen Tab ─── */
+  .kaizen-wrap { padding: 32px 40px; max-width: 1600px; margin: 0 auto; }
+
+  .kaizen-summary-banner {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 1px solid #3498DB;
+    border-radius: 14px;
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .kaizen-stat { text-align: center; }
+  .kaizen-stat-num { font-size: 32px; font-weight: 900; color: #3498DB; line-height: 1; }
+  .kaizen-stat-num.pending { color: #E67E22; }
+  .kaizen-stat-num.triaged { color: #2ECC71; }
+  .kaizen-stat-label { font-size: 10px; color: #666; margin-top: 4px; letter-spacing: 0.5px; text-transform: uppercase; }
+
+  .kaizen-section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: #888; margin-bottom: 14px; margin-top: 28px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .kaizen-section-label::after { content: ''; flex: 1; height: 1px; background: #2A2A2A; }
+
+  /* Skills registry */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr; } }
+
+  .skill-card {
+    background: #252525; border: 1px solid #333; border-radius: 14px; padding: 20px;
+    border-left: 3px solid #3498DB;
+  }
+  .skill-invoke {
+    font-size: 13px; font-weight: 900; color: #3498DB; font-family: 'Courier New', monospace;
+    margin-bottom: 8px; letter-spacing: 0.5px;
+  }
+  .skill-owner-badge {
+    display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 7px;
+    border-radius: 4px; letter-spacing: 0.5px; margin-bottom: 10px;
+  }
+  .skill-desc { font-size: 11px; color: #888; line-height: 1.6; margin-bottom: 10px; }
+  .skill-cadence {
+    font-size: 10px; color: #555; font-style: italic;
+  }
+  .skill-file {
+    font-size: 9px; color: #444; font-family: 'Courier New', monospace; margin-top: 8px;
+  }
+
+  /* Per-agent improvement cards */
+  .kaizen-agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 1200px) { .kaizen-agents-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) { .kaizen-agents-grid { grid-template-columns: 1fr; } }
+
+  .kaizen-agent-card {
+    background: #252525; border: 1px solid #333; border-radius: 14px; overflow: hidden;
+  }
+  .kaizen-agent-header {
+    padding: 14px 16px 12px; border-bottom: 1px solid #2A2A2A;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .kaizen-agent-name { font-size: 15px; font-weight: 900; }
+  .kaizen-count-badges { margin-left: auto; display: flex; gap: 6px; }
+  .kaizen-badge {
+    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 8px;
+  }
+  .kaizen-badge.pending { background: rgba(230,126,34,0.15); color: #E67E22; border: 1px solid rgba(230,126,34,0.3); }
+  .kaizen-badge.triaged { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
+  .kaizen-badge.none { background: rgba(85,85,85,0.1); color: #444; border: 1px solid #2A2A2A; }
+
+  .kaizen-agent-body { padding: 14px 16px; }
+  .kaizen-entry {
+    padding: 10px 12px; background: #1E1E1E; border-radius: 8px; margin-bottom: 8px;
+    border-left: 2px solid #333;
+  }
+  .kaizen-entry.pending-entry { border-left-color: #E67E22; }
+  .kaizen-entry.triaged-entry { border-left-color: #2ECC71; }
+  .kaizen-entry-date { font-size: 10px; color: #555; margin-bottom: 4px; font-family: 'Courier New', monospace; }
+  .kaizen-entry-task { font-size: 11px; font-weight: 600; color: #CCC; margin-bottom: 4px; }
+  .kaizen-friction { font-size: 10px; color: #666; margin-bottom: 3px; }
+  .kaizen-suggestion { font-size: 11px; color: #AAA; line-height: 1.4; }
+  .kaizen-suggestion.pending { color: #E67E22; }
+  .kaizen-empty { font-size: 11px; color: #444; font-style: italic; padding: 4px 0; }
+  .triaged-tag {
+    display: inline-block; font-size: 9px; padding: 1px 6px; border-radius: 4px;
+    background: rgba(46,204,113,0.1); color: #2ECC71; border: 1px solid rgba(46,204,113,0.2);
+    margin-left: 6px; vertical-align: middle; font-weight: 700;
+  }
+
+  /* How it works flow */
+  .kaizen-flow {
+    background: #252525; border: 1px solid #333; border-radius: 14px; padding: 24px 28px;
+  }
+  .flow-steps { display: flex; align-items: flex-start; gap: 0; flex-wrap: wrap; }
+  .flow-step-item { display: flex; align-items: flex-start; gap: 12px; flex: 1; min-width: 180px; }
+  .flow-step-num {
+    width: 28px; height: 28px; border-radius: 50%; background: #333; display: flex;
+    align-items: center; justify-content: center; font-size: 11px; font-weight: 900;
+    color: #3498DB; flex-shrink: 0; margin-top: 2px;
+  }
+  .flow-step-text { font-size: 11px; color: #888; line-height: 1.5; flex: 1; }
+  .flow-step-text strong { color: #CCC; display: block; margin-bottom: 2px; }
+  .flow-step-arrow { font-size: 20px; color: #333; padding: 4px 8px; align-self: center; flex-shrink: 0; }
+  @media (max-width: 900px) { .flow-step-arrow { display: none; } }
+
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: #1A1A1A; }
   ::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
@@ -671,6 +777,7 @@
   <button class="tab-btn active" onclick="switchTab('main')">Main Page</button>
   <button class="tab-btn" onclick="switchTab('organogram')">OrganoGram Workflow</button>
   <button class="tab-btn" id="kpi-tab-btn" onclick="switchTab('kpi')">KPI Report <span id="kpi-tab-badge" style="display:none;background:#E74C3C;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;vertical-align:middle;font-weight:700;"></span></button>
+  <button class="tab-btn" id="kaizen-tab-btn" onclick="switchTab('kaizen')">Kaizen <span id="kaizen-tab-badge" style="display:none;background:#E67E22;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;vertical-align:middle;font-weight:700;"></span></button>
 </div>
 
 <!-- ─── Tab: Main Page ─── -->
@@ -1480,6 +1587,11 @@
             <span>Meeting Minutes Extractor — reads Notion, extracts action items, creates tasks</span>
             <span class="org-sched-badge org-sched-daily">Daily 07:00</span>
           </div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>/kaizen — reads all 6 agent Accumulated Learnings, creates Notion [Agent Improvement] tasks, sends Telegram summary, marks entries [TRIAGED]</span>
+            <span class="org-sched-badge org-sched-weekly">Weekly Mon 08:30</span>
+          </div>
           <div class="org-section-title">Linked Tasks</div>
           <div class="org-link-item">
             <span class="org-link-arrow">›</span>
@@ -1489,6 +1601,16 @@
           <div class="org-link-item">
             <span class="org-link-arrow">›</span>
             <span>PARA filing — classify and file documents on request</span>
+            <span class="org-sched-badge org-sched-ondemand">On-demand</span>
+          </div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>/retrospective — cross-agent pattern report → Notion + Telegram</span>
+            <span class="org-sched-badge org-sched-ondemand">Monthly</span>
+          </div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>/improve &lt;agent&gt; — applies approved improvement to agent profile, closes Notion task</span>
             <span class="org-sched-badge org-sched-ondemand">On-demand</span>
           </div>
         </div>
@@ -1696,6 +1818,81 @@
 
 </div>
 </div><!-- /tab-kpi -->
+
+<!-- ─── Tab: Kaizen ─── -->
+<div id="tab-kaizen" class="tab-panel">
+<div class="kaizen-wrap">
+
+  <!-- Summary Banner -->
+  <div class="kaizen-summary-banner">
+    <div class="kaizen-stat">
+      <div class="kaizen-stat-num" id="kz-total">—</div>
+      <div class="kaizen-stat-label">Total Learnings Logged</div>
+    </div>
+    <div class="kaizen-stat">
+      <div class="kaizen-stat-num pending" id="kz-pending">—</div>
+      <div class="kaizen-stat-label">Pending Triage</div>
+    </div>
+    <div class="kaizen-stat">
+      <div class="kaizen-stat-num triaged" id="kz-triaged">—</div>
+      <div class="kaizen-stat-label">Triaged to Notion</div>
+    </div>
+    <div class="kaizen-stat">
+      <div class="kaizen-stat-num" id="kz-agents">—</div>
+      <div class="kaizen-stat-label">Agents with Entries</div>
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <div class="kaizen-section-label">How the Continuous Improvement Loop Works</div>
+  <div class="kaizen-flow">
+    <div class="flow-steps">
+      <div class="flow-step-item">
+        <div class="flow-step-num">1</div>
+        <div class="flow-step-text"><strong>Agent completes a task</strong>If non-trivial, appends a learning entry to its <code style="font-size:9px;color:#3498DB;">## Accumulated Learnings</code> block — TASK, FRICTION, SUGGESTION.</div>
+      </div>
+      <div class="flow-step-arrow">›</div>
+      <div class="flow-step-item">
+        <div class="flow-step-num">2</div>
+        <div class="flow-step-text"><strong>Every Monday — /kaizen</strong>VAULT reads all 6 agent profiles, extracts unprocessed suggestions, creates Notion tasks tagged <code style="font-size:9px;color:#E67E22;">[Agent Improvement]</code>.</div>
+      </div>
+      <div class="flow-step-arrow">›</div>
+      <div class="flow-step-item">
+        <div class="flow-step-num">3</div>
+        <div class="flow-step-text"><strong>VAULT sends Telegram summary</strong>Quintus reviews the count per agent and decides which to accept.</div>
+      </div>
+      <div class="flow-step-arrow">›</div>
+      <div class="flow-step-item">
+        <div class="flow-step-num">4</div>
+        <div class="flow-step-text"><strong>/improve &lt;agent&gt; "suggestion"</strong>VAULT applies the accepted change to the agent profile and closes the Notion task.</div>
+      </div>
+      <div class="flow-step-arrow">›</div>
+      <div class="flow-step-item">
+        <div class="flow-step-num">5</div>
+        <div class="flow-step-text"><strong>Monthly — /retrospective</strong>Cross-agent pattern report — wins, friction themes, top 3 priorities → Notion + Telegram.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Registry -->
+  <div class="kaizen-section-label">Skills Registry — CI Loop Skills</div>
+  <div class="skills-grid" id="kz-skills-grid">
+    <div style="font-size:11px;color:#555;padding:8px 0;">Loading skills...</div>
+  </div>
+
+  <!-- Per-Agent Improvement Log -->
+  <div class="kaizen-section-label">Per-Agent Improvement Log</div>
+  <div class="kaizen-agents-grid" id="kz-agents-grid">
+    <div style="font-size:11px;color:#555;padding:8px 0;">Loading agent learnings...</div>
+  </div>
+
+  <div class="footer" style="margin-top:32px;">
+    <div class="footer-left">Kaizen data sourced from: agent profile memory files · Refresh: run <code style="font-size:10px;">generate_kaizen_status.py</code></div>
+    <div class="footer-right" id="kz-generated-at" style="color:#555;"></div>
+  </div>
+
+</div>
+</div><!-- /tab-kaizen -->
 
 <script>
   // ─── Tab switching ────────────────────────────────────────────────────────
@@ -1984,6 +2181,103 @@
       if (upd) upd.textContent = 'Stats unavailable';
       const bars = document.getElementById('area-bars');
       if (bars) bars.innerHTML = '<div style="font-size:11px;color:#555;padding:4px 0;">Run generate_stats.py to populate live data.</div>';
+    });
+
+  // ─── Kaizen status loader ─────────────────────────────────────────────────
+  function injectKaizenStatus(d) {
+    const s = d.summary || {};
+
+    // Summary banner
+    const setKz = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    setKz('kz-total',   s.total_entries   ?? '0');
+    setKz('kz-pending', s.total_pending   ?? '0');
+    setKz('kz-triaged', s.total_triaged   ?? '0');
+    setKz('kz-agents',  s.agents_with_entries ?? '0');
+
+    // Tab badge — show pending count
+    const badge = document.getElementById('kaizen-tab-badge');
+    if (badge && s.total_pending > 0) {
+      badge.textContent = s.total_pending + ' pending';
+      badge.style.display = 'inline';
+    }
+
+    // Generated at
+    const genEl = document.getElementById('kz-generated-at');
+    if (genEl && d.generated_at) genEl.textContent = 'Last updated: ' + d.generated_at;
+
+    // Skills registry
+    const skills = d.skills || [];
+    const skillsGrid = document.getElementById('kz-skills-grid');
+    if (skillsGrid && skills.length) {
+      skillsGrid.innerHTML = skills.map(sk => {
+        const ownerColor = {VAULT:'#3498DB',HAVEN:'#2ECC71',PRISM:'#9B59B6',STRIKER:'#E74C3C',SIGMA:'#E67E22',BLAZE:'#F5C200'}[sk.owner] || '#888';
+        return `
+          <div class="skill-card">
+            <div class="skill-invoke">${escHtml(sk.invoke)}</div>
+            <span class="skill-owner-badge" style="background:rgba(52,152,219,0.15);color:${ownerColor};border:1px solid ${ownerColor}40;">Owner: ${sk.owner}</span>
+            <div class="skill-desc">${escHtml(sk.description)}</div>
+            <div class="skill-cadence">⏱ ${escHtml(sk.cadence)}</div>
+            <div class="skill-file">${escHtml(sk.file)}</div>
+          </div>`;
+      }).join('');
+    }
+
+    // Per-agent log
+    const agents = d.agents || [];
+    const agentsGrid = document.getElementById('kz-agents-grid');
+    if (agentsGrid && agents.length) {
+      agentsGrid.innerHTML = agents.map(ag => {
+        const color = ag.color || '#888';
+        const pending = (ag.entries || []).filter(e => !e.triaged && e.has_suggestion);
+        const triaged = (ag.entries || []).filter(e => e.triaged);
+        const all = ag.entries || [];
+
+        const pendingBadge = pending.length
+          ? `<span class="kaizen-badge pending">${pending.length} pending</span>` : '';
+        const triagedBadge = triaged.length
+          ? `<span class="kaizen-badge triaged">${triaged.length} triaged</span>` : '';
+        const noneBadge = (!pending.length && !triaged.length)
+          ? `<span class="kaizen-badge none">no entries yet</span>` : '';
+
+        const entriesHtml = all.length ? all.slice().reverse().map(e => {
+          const cls = e.triaged ? 'triaged-entry' : (e.has_suggestion ? 'pending-entry' : '');
+          const triagedTag = e.triaged ? '<span class="triaged-tag">TRIAGED</span>' : '';
+          const suggClass = !e.triaged && e.has_suggestion ? 'pending' : '';
+          return `
+            <div class="kaizen-entry ${cls}">
+              <div class="kaizen-entry-date">${escHtml(e.date)}</div>
+              <div class="kaizen-entry-task">${escHtml(e.task)}</div>
+              ${e.friction !== 'none' ? `<div class="kaizen-friction">⚡ Friction: ${escHtml(e.friction)}</div>` : ''}
+              ${e.has_suggestion ? `<div class="kaizen-suggestion ${suggClass}">→ ${escHtml(e.suggestion)}${triagedTag}</div>` : ''}
+            </div>`;
+        }).join('') : '<div class="kaizen-empty">No learnings logged yet — will populate as agent tasks complete.</div>';
+
+        return `
+          <div class="kaizen-agent-card">
+            <div class="kaizen-agent-header">
+              <div style="width:10px;height:10px;border-radius:50%;background:${color};flex-shrink:0"></div>
+              <div class="kaizen-agent-name" style="color:${color}">${ag.agent}</div>
+              <div class="kaizen-count-badges">${pendingBadge}${triagedBadge}${noneBadge}</div>
+            </div>
+            <div class="kaizen-agent-body">${entriesHtml}</div>
+          </div>`;
+      }).join('');
+    }
+  }
+
+  function escHtml(str) {
+    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  fetch('kaizen_status.json?v=' + Date.now())
+    .then(r => { if (!r.ok) throw new Error('kaizen_status.json not found'); return r.json(); })
+    .then(data => injectKaizenStatus(data))
+    .catch(err => {
+      console.warn('Could not load kaizen status:', err.message);
+      const sg = document.getElementById('kz-skills-grid');
+      if (sg) sg.innerHTML = '<div style="font-size:11px;color:#555;padding:8px 0;">Run generate_kaizen_status.py to populate data.</div>';
+      const ag = document.getElementById('kz-agents-grid');
+      if (ag) ag.innerHTML = '<div style="font-size:11px;color:#555;padding:8px 0;">No data — run generate_kaizen_status.py first.</div>';
     });
 </script>
 </body>

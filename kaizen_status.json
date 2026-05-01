@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-05-01 22:04 UTC",
+  "generated_at_iso": "2026-05-01T22:04:41.926684+00:00",
+  "summary": {
+    "total_entries": 0,
+    "total_pending": 0,
+    "total_triaged": 0,
+    "agents_with_entries": 0
+  },
+  "skills": [
+    {
+      "name": "kaizen",
+      "invoke": "/kaizen",
+      "owner": "VAULT",
+      "description": "Weekly improvement triage \u2014 reads all agent Accumulated Learnings, creates Notion tasks tagged [Agent Improvement], sends Telegram summary, marks entries [TRIAGED].",
+      "cadence": "Weekly \u2014 Mondays 08:30",
+      "file": ".claude/skills/kaizen.md"
+    },
+    {
+      "name": "retrospective",
+      "invoke": "/retrospective",
+      "owner": "VAULT",
+      "description": "Cross-agent retrospective \u2014 reads last 30 days of learnings, identifies patterns, delivers structured report to Telegram + Notion Document DB.",
+      "cadence": "Monthly or after major incident",
+      "file": ".claude/skills/retrospective.md"
+    },
+    {
+      "name": "improve",
+      "invoke": "/improve <agent> \"<suggestion>\"",
+      "owner": "VAULT",
+      "description": "Apply an approved improvement \u2014 edits the agent profile, marks the Notion task complete, sends Telegram confirmation. Requires Quintus approval first.",
+      "cadence": "On-demand (after /kaizen review)",
+      "file": ".claude/skills/improve.md"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "HAVEN",
+      "color": "#2ECC71",
+      "total_entries": 0,
+      "pending_count": 0,
+      "triaged_count": 0,
+      "entries": []
+    },
+    {
+      "agent": "PRISM",
+      "color": "#9B59B6",
+      "total_entries": 0,
+      "pending_count": 0,
+      "triaged_count": 0,
+      "entries": []
+    },
+    {
+      "agent": "STRIKER",
+      "color": "#E74C3C",
+      "total_entries": 0,
+      "pending_count": 0,
+      "triaged_count": 0,
+      "entries": []
+    },
+    {
+      "agent": "SIGMA",
+      "color": "#E67E22",
+      "total_entries": 0,
+      "pending_count": 0,
+      "triaged_count": 0,
+      "entries": []
+    },
+    {
+      "agent": "BLAZE",
+      "color": "#F5C200",
+      "total_entries": 0,
+      "pending_count": 0,
+      "triaged_count": 0,
+      "entries": []
+    },
+    {
+      "agent": "VAULT",
+      "color": "#3498DB",
+      "total_entries": 0,
+      "pending_count": 0,
+      "triaged_count": 0,
+      "entries": []
+    }
+  ]
+}
