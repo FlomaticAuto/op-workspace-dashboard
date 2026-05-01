@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-30 14:08 UTC",
-  "generated_at_iso": "2026-04-30T14:08:07.242182+00:00",
-  "total_tasks": 369,
-  "tasks_this_week": 58,
+  "generated_at": "2026-05-01 10:54 UTC",
+  "generated_at_iso": "2026-05-01T10:54:39.708467+00:00",
+  "total_tasks": 375,
+  "tasks_this_week": 62,
   "tasks_by_area": {
     "Quintus": 67,
-    "Olympic": 275,
+    "Olympic": 280,
     "Unassigned": 7,
-    "GOD": 15,
+    "GOD": 16,
     "Flomatic": 1,
     "Timion": 4
   },
