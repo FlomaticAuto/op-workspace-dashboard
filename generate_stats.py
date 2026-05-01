@@ -192,11 +192,25 @@ if __name__ == "__main__":
 
     stats = collect_stats()
 
-    output_path = os.path.join(os.path.dirname(__file__), "stats.json")
+    base = os.path.dirname(__file__)
+
+    output_path = os.path.join(base, "stats.json")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(stats, f, indent=2)
-
     print(f"\nWrote {output_path}")
+
+    # Refresh generated_at timestamp in kpi_status.json if it exists
+    kpi_status_path = os.path.join(base, "kpi_status.json")
+    if os.path.exists(kpi_status_path):
+        try:
+            with open(kpi_status_path, encoding="utf-8") as f:
+                kpi_data = json.load(f)
+            kpi_data["generated_at"] = stats["generated_at"]
+            with open(kpi_status_path, "w", encoding="utf-8") as f:
+                json.dump(kpi_data, f, indent=2)
+            print(f"Updated generated_at in {kpi_status_path}")
+        except Exception as e:
+            print(f"  WARNING: Could not update kpi_status.json: {e}")
     print("=" * 50)
     print("Summary:")
     print(f"  Tasks:     {stats['total_tasks']} ({stats['tasks_this_week']} this week)")

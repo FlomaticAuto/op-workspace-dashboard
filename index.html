@@ -385,6 +385,126 @@
   .flow-node.highlight { background: rgba(245,194,0,0.1); border: 1px solid var(--yellow); color: var(--yellow); }
   .flow-desc { font-size: 10px; color: #666; margin-top: 4px; }
 
+  /* ─── KPI Tab ─── */
+  .kpi-tab-wrap { padding: 32px 40px; max-width: 1600px; margin: 0 auto; }
+
+  .kpi-update-banner {
+    background: linear-gradient(135deg, #1a2a1a, #1E2A1E);
+    border: 1px solid #2ECC71;
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kpi-update-left { display: flex; align-items: center; gap: 14px; }
+  .kpi-update-dot { width: 10px; height: 10px; background: #2ECC71; border-radius: 50%; box-shadow: 0 0 8px #2ECC71; }
+  .kpi-update-week { font-size: 17px; font-weight: 800; color: #fff; }
+  .kpi-update-sub { font-size: 11px; color: #666; margin-top: 2px; }
+  .kpi-update-right { text-align: right; }
+  .kpi-update-score { font-size: 24px; font-weight: 900; color: #2ECC71; }
+  .kpi-update-score-label { font-size: 10px; color: #555; letter-spacing: 1px; text-transform: uppercase; }
+  .kpi-open-link { display: inline-block; margin-top: 8px; font-size: 11px; color: #F5C200; text-decoration: none; font-weight: 600; }
+  .kpi-open-link:hover { color: #fff; }
+
+  .kpi-section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: #888; margin-bottom: 14px; margin-top: 28px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .kpi-section-label::after { content: ''; flex: 1; height: 1px; background: #2A2A2A; }
+
+  .kpi-headline-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 1000px) { .kpi-headline-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .kpi-metric-card {
+    background: #252525; border: 1px solid #333; border-radius: 12px;
+    padding: 18px 20px; position: relative; overflow: hidden;
+  }
+  .kpi-metric-card.red-border   { border-color: rgba(231,76,60,0.5); }
+  .kpi-metric-card.amber-border { border-color: rgba(230,126,34,0.5); }
+  .kpi-metric-card.green-border { border-color: rgba(46,204,113,0.5); }
+  .kpi-metric-label { font-size: 10px; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .kpi-metric-value { font-size: 22px; font-weight: 900; color: #fff; line-height: 1; }
+  .kpi-metric-delta { font-size: 11px; margin-top: 6px; font-weight: 600; }
+  .kpi-metric-delta.red    { color: #E74C3C; }
+  .kpi-metric-delta.amber  { color: #E67E22; }
+  .kpi-metric-delta.green  { color: #2ECC71; }
+  .kpi-metric-delta.muted  { color: #555; }
+  .kpi-metric-bar { height: 3px; background: #333; border-radius: 2px; margin-top: 10px; }
+  .kpi-metric-bar-fill { height: 100%; border-radius: 2px; }
+
+  .kpi-cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  @media (max-width: 1100px) { .kpi-cat-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px) { .kpi-cat-grid { grid-template-columns: 1fr 1fr; } }
+
+  .kpi-cat-card {
+    background: #252525; border-radius: 12px; padding: 18px 16px;
+    border: 1px solid #333; position: relative;
+  }
+  .kpi-cat-card.cat-scored  { border-color: rgba(46,204,113,0.4); background: #1A2A1A; }
+  .kpi-cat-card.cat-missing { border-color: rgba(230,126,34,0.3); }
+  .kpi-cat-id { font-size: 28px; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+  .kpi-cat-id.scored  { color: #2ECC71; }
+  .kpi-cat-id.missing { color: #444; }
+  .kpi-cat-name { font-size: 11px; font-weight: 700; color: #CCC; margin-bottom: 4px; line-height: 1.3; }
+  .kpi-cat-weight { font-size: 10px; color: #666; margin-bottom: 10px; }
+  .kpi-cat-status {
+    display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 8px;
+    border-radius: 6px; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .kpi-cat-status.scored  { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
+  .kpi-cat-status.missing { background: rgba(230,126,34,0.1); color: #E67E22; border: 1px solid rgba(230,126,34,0.3); }
+  .kpi-cat-note { font-size: 10px; color: #555; margin-top: 8px; line-height: 1.5; }
+
+  .kpi-rep-table-wrap { overflow-x: auto; }
+  .kpi-rep-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .kpi-rep-table thead tr { background: #1E1E1E; }
+  .kpi-rep-table thead th { padding: 10px 12px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #666; white-space: nowrap; border-bottom: 1px solid #333; }
+  .kpi-rep-table tbody tr { border-bottom: 1px solid #2A2A2A; transition: background 0.15s; }
+  .kpi-rep-table tbody tr:hover { background: #2A2A2A; }
+  .kpi-rep-table tbody td { padding: 10px 12px; vertical-align: middle; color: #CCC; }
+  .kpi-rep-table tbody td:first-child { color: #fff; font-weight: 700; }
+
+  .kpi-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+  .kpi-badge.green  { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
+  .kpi-badge.red    { background: rgba(231,76,60,0.12); color: #E74C3C; border: 1px solid rgba(231,76,60,0.3); }
+  .kpi-badge.amber  { background: rgba(230,126,34,0.12); color: #E67E22; border: 1px solid rgba(230,126,34,0.3); }
+  .kpi-badge.nodata { background: rgba(85,85,85,0.15); color: #555; border: 1px solid #333; }
+
+  .kpi-gap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 900px) { .kpi-gap-grid { grid-template-columns: 1fr 1fr; } }
+
+  .kpi-gap-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 18px; }
+  .kpi-gap-card.high   { border-left: 3px solid #E74C3C; }
+  .kpi-gap-card.medium { border-left: 3px solid #E67E22; }
+  .kpi-gap-card.low    { border-left: 3px solid #555; }
+  .kpi-gap-title { font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .kpi-gap-pri { font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-gap-pri.high   { background: rgba(231,76,60,0.15); color: #E74C3C; }
+  .kpi-gap-pri.medium { background: rgba(230,126,34,0.15); color: #E67E22; }
+  .kpi-gap-pri.low    { background: rgba(85,85,85,0.15); color: #777; }
+  .kpi-gap-desc { font-size: 11px; color: #888; line-height: 1.5; margin-bottom: 8px; }
+  .kpi-gap-affects { font-size: 10px; color: #555; }
+  .kpi-gap-affects span { display: inline-block; background: #333; color: #888; border-radius: 4px; padding: 1px 5px; margin-left: 4px; font-weight: 700; }
+
+  .kpi-risk-list { display: flex; flex-direction: column; gap: 8px; }
+  .kpi-risk-item { display: flex; align-items: flex-start; gap: 12px; background: #252525; border: 1px solid #333; border-radius: 10px; padding: 12px 16px; font-size: 12px; color: #CCC; }
+  .kpi-risk-item.high   { border-left: 3px solid #E74C3C; }
+  .kpi-risk-item.medium { border-left: 3px solid #E67E22; }
+  .kpi-risk-sev { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; margin-top: 1px; }
+  .kpi-risk-sev.high   { background: rgba(231,76,60,0.15); color: #E74C3C; }
+  .kpi-risk-sev.medium { background: rgba(230,126,34,0.15); color: #E67E22; }
+
+  .kpi-history-row { display: flex; align-items: flex-start; gap: 14px; background: #252525; border: 1px solid #333; border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; }
+  .kpi-history-date { font-size: 12px; font-weight: 700; color: #F5C200; min-width: 100px; }
+  .kpi-history-week { font-size: 12px; color: #CCC; font-weight: 600; }
+  .kpi-history-files { font-size: 10px; color: #555; margin-top: 4px; }
+  .kpi-history-scored { display: flex; gap: 6px; margin-top: 6px; }
+
   /* ─── Footer ─── */
   .footer { margin-top: 48px; padding: 20px 40px; border-top: 1px solid #2A2A2A; display: flex; justify-content: space-between; align-items: center; }
   .footer-left { font-size: 11px; color: #555; }
@@ -550,6 +670,7 @@
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('main')">Main Page</button>
   <button class="tab-btn" onclick="switchTab('organogram')">OrganoGram Workflow</button>
+  <button class="tab-btn" id="kpi-tab-btn" onclick="switchTab('kpi')">KPI Report <span id="kpi-tab-badge" style="display:none;background:#E74C3C;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;vertical-align:middle;font-weight:700;"></span></button>
 </div>
 
 <!-- ─── Tab: Main Page ─── -->
@@ -1479,6 +1600,103 @@
   </div>
 </div><!-- /tab-organogram -->
 
+<!-- ─── Tab: KPI Report ─── -->
+<div id="tab-kpi" class="tab-panel">
+<div class="kpi-tab-wrap">
+
+  <!-- Update Banner -->
+  <div class="kpi-update-banner" id="kpi-update-banner">
+    <div class="kpi-update-left">
+      <div class="kpi-update-dot"></div>
+      <div>
+        <div class="kpi-update-week" id="kpi-report-week">Loading...</div>
+        <div class="kpi-update-sub">Weekly KPI Report &middot; Source: QuickSight Weekly Progress folder</div>
+        <div class="kpi-update-sub" id="kpi-generated-at" style="margin-top:3px;"></div>
+      </div>
+    </div>
+    <div class="kpi-update-right">
+      <div class="kpi-update-score-label">Scoreable Weight</div>
+      <div class="kpi-update-score" id="kpi-scoreable-pct">—</div>
+      <div class="kpi-update-score-label">of 100% KPI Agreement</div>
+      <a href="https://flomaticauto.github.io/olympic-paints-kpi/" target="_blank" class="kpi-open-link">&#8599; Open Full KPI Dashboard</a>
+    </div>
+  </div>
+
+  <!-- Headline KPIs -->
+  <div class="kpi-section-label">Headline Metrics — Latest Week</div>
+  <div class="kpi-headline-grid" id="kpi-headline-grid">
+    <div class="kpi-metric-card"><div class="kpi-metric-label">MTD Sales</div><div class="kpi-metric-value" id="km-sales">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" id="km-sales-bar" style="width:0%"></div></div><div class="kpi-metric-delta" id="km-sales-delta">—</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">Outstanding Debtors</div><div class="kpi-metric-value" id="km-debtors">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" style="width:100%;background:#E74C3C"></div></div><div class="kpi-metric-delta red" id="km-debtors-delta">—</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">Rock Bottom % (avg)</div><div class="kpi-metric-value" id="km-rb">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" id="km-rb-bar" style="width:0%;background:#E67E22"></div></div><div class="kpi-metric-delta amber" id="km-rb-delta">—</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">YOY Growth (Apr)</div><div class="kpi-metric-value" id="km-yoy">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" id="km-yoy-bar" style="width:60%;background:#2ECC71"></div></div><div class="kpi-metric-delta green" id="km-yoy-delta">vs Apr 2025</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">% Overdue &gt;60 Days</div><div class="kpi-metric-value" id="km-overdue">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" id="km-overdue-bar" style="width:0%;background:#E74C3C"></div></div><div class="kpi-metric-delta red">Target: &lt;10%</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">E-Commerce Orders</div><div class="kpi-metric-value" id="km-ecom">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" style="width:55%;background:#3498DB"></div></div><div class="kpi-metric-delta muted">Open orders in system</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">Debtors &gt;90 Days</div><div class="kpi-metric-value" id="km-d90">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" style="width:100%;background:#E74C3C"></div></div><div class="kpi-metric-delta red">Requires collections action</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">Monthly Target</div><div class="kpi-metric-value" id="km-target">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" style="width:100%;background:#555"></div></div><div class="kpi-metric-delta muted" id="km-target-gap">—</div></div>
+  </div>
+
+  <!-- KPI Agreement Scorecard -->
+  <div class="kpi-section-label">KPI Agreement Scorecard — What Can Be Scored</div>
+  <div class="kpi-cat-grid" id="kpi-cat-grid">
+    <div class="kpi-metric-card" style="grid-column:1/-1;background:#1A1A1A;border-color:#333;padding:12px 16px;">
+      <span style="font-size:11px;color:#555;">Loading KPI categories...</span>
+    </div>
+  </div>
+
+  <!-- Rep Performance Table -->
+  <div class="kpi-section-label">Rep Performance — Current Week</div>
+  <div class="kpi-rep-table-wrap">
+    <table class="kpi-rep-table" id="kpi-rep-table">
+      <thead>
+        <tr>
+          <th>Rep</th>
+          <th>MTD Sales</th>
+          <th>Monthly Target</th>
+          <th>vs Target</th>
+          <th>YOY Growth</th>
+          <th>Rock Bottom %</th>
+          <th>KPI A (Sales)</th>
+          <th>KPI B (CRM)</th>
+          <th>KPI C (Products)</th>
+          <th>KPI D (New Cust)</th>
+          <th>KPI E (Training)</th>
+        </tr>
+      </thead>
+      <tbody id="kpi-rep-tbody">
+        <tr><td colspan="11" style="color:#555;padding:16px;">Loading rep data...</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:10px;color:#444;margin-top:8px;">KPI A scored from QuickSight sales data. KPIs B–E require CRM, store visit, and training data — see Data Gaps below.</p>
+
+  <!-- Data Gaps -->
+  <div class="kpi-section-label">Data Gaps — What Is Needed to Complete KPI Scoring</div>
+  <div class="kpi-gap-grid" id="kpi-gap-grid">
+    <div class="kpi-metric-card" style="background:#1A1A1A;border-color:#333;padding:12px 16px;">
+      <span style="font-size:11px;color:#555;">Loading data gaps...</span>
+    </div>
+  </div>
+
+  <!-- Risk Items -->
+  <div class="kpi-section-label">Current Risk Items</div>
+  <div class="kpi-risk-list" id="kpi-risk-list">
+    <div class="kpi-risk-item" style="border-left-color:#333;color:#555;">Loading...</div>
+  </div>
+
+  <!-- Update History -->
+  <div class="kpi-section-label">Update History</div>
+  <div id="kpi-history-list">
+    <div style="font-size:11px;color:#555;padding:8px 0;">Loading history...</div>
+  </div>
+
+  <div class="footer" style="margin-top:32px;">
+    <div class="footer-left">KPI data sourced from: AWS QuickSight Weekly Sales Reports &middot; KPI Agreement 2025/01</div>
+    <div class="footer-right"><a href="https://flomaticauto.github.io/olympic-paints-kpi/" target="_blank">Open Full KPI Dashboard &#8599;</a></div>
+  </div>
+
+</div>
+</div><!-- /tab-kpi -->
+
 <script>
   // ─── Tab switching ────────────────────────────────────────────────────────
   function switchTab(name) {
@@ -1487,6 +1705,194 @@
     document.getElementById('tab-' + name).classList.add('active');
     event.currentTarget.classList.add('active');
   }
+
+  // ─── KPI formatting helpers ───────────────────────────────────────────────
+  function fmtR(val) {
+    if (val == null) return '—';
+    if (val >= 1e6) return 'R' + (val/1e6).toFixed(2) + 'M';
+    if (val >= 1e3) return 'R' + (val/1e3).toFixed(1) + 'K';
+    return 'R' + val.toFixed(0);
+  }
+  function fmtPct(val, decimals) {
+    if (val == null) return '—';
+    const d = decimals ?? 1;
+    return (val >= 0 ? '+' : '') + val.toFixed(d) + '%';
+  }
+  function pctClass(val) {
+    if (val == null) return 'nodata';
+    if (val >= 0) return 'green';
+    if (val >= -15) return 'amber';
+    return 'red';
+  }
+  function rbClass(val) {
+    if (val == null) return 'nodata';
+    if (val >= 8) return 'green';
+    if (val >= 0) return 'amber';
+    return 'red';
+  }
+
+  // ─── KPI Status injection ─────────────────────────────────────────────────
+  function injectKpiStatus(d) {
+    const h = d.headline || {};
+
+    // Banner
+    const weekEl = document.getElementById('kpi-report-week');
+    if (weekEl) weekEl.textContent = 'Week ending ' + (d.report_week || '—');
+    const genEl = document.getElementById('kpi-generated-at');
+    if (genEl) genEl.textContent = 'Last updated: ' + (d.generated_at || '—');
+    const scoreEl = document.getElementById('kpi-scoreable-pct');
+    if (scoreEl) scoreEl.textContent = (d.scoreable_weight_pct || '—') + '%';
+
+    // Tab badge — show count of missing KPIs
+    const missing = (d.kpi_categories || []).filter(c => !c.data_available).length;
+    const badge = document.getElementById('kpi-tab-badge');
+    if (badge && missing > 0) {
+      badge.textContent = missing + ' gaps';
+      badge.style.display = 'inline';
+    }
+
+    // Headline metrics
+    const sales = h.mtd_sales, target = h.mtd_target;
+    const salesPct = target ? ((sales/target - 1) * 100) : null;
+
+    const setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    const setStyle = (id, prop, val) => { const el = document.getElementById(id); if (el) el.style[prop] = val; };
+
+    setEl('km-sales',  fmtR(sales));
+    setEl('km-sales-delta', fmtPct(h.mtd_pct) + ' vs monthly target');
+    setEl('km-debtors', fmtR(h.debtors_total));
+    setEl('km-debtors-delta', fmtR(h.debtors_90d) + ' overdue >90d');
+    setEl('km-rb', (h.above_rb_avg ?? '—') + '%');
+    setEl('km-rb-delta', 'Target: ' + h.above_rb_target + '% — gap: ' + ((h.above_rb_target - h.above_rb_avg) || '—').toFixed(1) + '%');
+    setEl('km-yoy', '+' + h.yoy_apr_pct + '%');
+    setEl('km-overdue', (h.overdue_60d_pct ?? '—') + '%');
+    setEl('km-ecom', h.ecom_open_orders ?? '—');
+    setEl('km-d90', fmtR(h.debtors_90d));
+    setEl('km-target', fmtR(target));
+    setEl('km-target-gap', 'Gap: ' + fmtR(target - sales));
+
+    // Bars
+    if (sales && target) {
+      const pct = Math.min(sales/target*100, 100);
+      setStyle('km-sales-bar', 'width', pct + '%');
+      setStyle('km-sales-bar', 'background', h.mtd_pct >= 0 ? '#2ECC71' : '#E67E22');
+    }
+    if (h.above_rb_avg && h.above_rb_target) {
+      setStyle('km-rb-bar', 'width', Math.min(h.above_rb_avg/h.above_rb_target*100, 100) + '%');
+    }
+    if (h.overdue_60d_pct) {
+      setStyle('km-overdue-bar', 'width', Math.min(h.overdue_60d_pct*4, 100) + '%');
+    }
+
+    // KPI Category cards
+    const cats = d.kpi_categories || [];
+    const catGrid = document.getElementById('kpi-cat-grid');
+    if (catGrid && cats.length) {
+      catGrid.innerHTML = cats.map(c => `
+        <div class="kpi-cat-card ${c.status === 'scored' ? 'cat-scored' : 'cat-missing'}">
+          <div class="kpi-cat-id ${c.status === 'scored' ? 'scored' : 'missing'}">${c.id}</div>
+          <div class="kpi-cat-name">${c.name}</div>
+          <div class="kpi-cat-weight">${c.weight}% weighting</div>
+          <span class="kpi-cat-status ${c.status === 'scored' ? 'scored' : 'missing'}">${c.status === 'scored' ? '✓ Scored' : '⚠ Data needed'}</span>
+          <div class="kpi-cat-note">${c.note || ''}</div>
+        </div>
+      `).join('');
+    }
+
+    // Rep table
+    const reps = d.reps || [];
+    const tbody = document.getElementById('kpi-rep-tbody');
+    if (tbody && reps.length) {
+      tbody.innerHTML = reps.map(r => {
+        const tgtStr = r.target ? fmtR(r.target) : '—';
+        const vsTarget = r.pct_target != null
+          ? `<span class="kpi-badge ${pctClass(r.pct_target)}">${fmtPct(r.pct_target)}</span>` : '—';
+        const yoyBadge = r.yoy != null
+          ? `<span class="kpi-badge ${r.yoy >= 10 ? 'green' : r.yoy >= 0 ? 'amber' : 'red'}">${fmtPct(r.yoy)}</span>` : '—';
+        const rbBadge = r.rb_pct != null
+          ? `<span class="kpi-badge ${rbClass(r.rb_pct)}">${r.rb_pct}%</span>`
+          : '<span class="kpi-badge nodata">No data</span>';
+        const kpiA = r.yoy != null
+          ? `<span class="kpi-badge ${r.yoy >= 10 ? 'green' : r.yoy >= 0 ? 'amber' : 'red'}">${r.yoy >= 10 ? '✓' : r.yoy >= 0 ? '⚠' : '✗'} ${fmtPct(r.yoy)} YOY</span>`
+          : '—';
+        const noData = '<span class="kpi-badge nodata">⚠ No data</span>';
+        return `<tr>
+          <td>${r.code}<br><span style="font-size:10px;color:#666;font-weight:400;">${r.name}</span></td>
+          <td>${fmtR(r.sales)}</td>
+          <td>${tgtStr}</td>
+          <td>${vsTarget}</td>
+          <td>${yoyBadge}</td>
+          <td>${rbBadge}</td>
+          <td>${kpiA}</td>
+          <td>${noData}</td>
+          <td>${noData}</td>
+          <td>${noData}</td>
+          <td>${noData}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    // Data gaps
+    const gaps = d.data_gaps || [];
+    const gapGrid = document.getElementById('kpi-gap-grid');
+    if (gapGrid && gaps.length) {
+      gapGrid.innerHTML = gaps.map(g => `
+        <div class="kpi-gap-card ${g.priority}">
+          <div class="kpi-gap-title">
+            ${g.label}
+            <span class="kpi-gap-pri ${g.priority}">${g.priority}</span>
+          </div>
+          <div class="kpi-gap-desc">${g.description}</div>
+          <div class="kpi-gap-affects">Affects KPIs: ${
+            g.affects_kpis.length
+              ? g.affects_kpis.map(k => `<span>${k}</span>`).join('')
+              : '<span>Analytics only</span>'
+          }</div>
+        </div>
+      `).join('');
+    }
+
+    // Risk items
+    const risks = d.risk_items || [];
+    const riskList = document.getElementById('kpi-risk-list');
+    if (riskList && risks.length) {
+      riskList.innerHTML = risks.map(r => `
+        <div class="kpi-risk-item ${r.severity}">
+          <span class="kpi-risk-sev ${r.severity}">${r.severity.toUpperCase()}</span>
+          <span>${r.item}</span>
+        </div>
+      `).join('');
+    }
+
+    // Update history
+    const history = d.update_history || [];
+    const histEl = document.getElementById('kpi-history-list');
+    if (histEl && history.length) {
+      histEl.innerHTML = history.map(h => `
+        <div class="kpi-history-row">
+          <div class="kpi-history-date">${h.date}</div>
+          <div>
+            <div class="kpi-history-week">Week: ${h.week}</div>
+            <div class="kpi-history-files">Sources: ${(h.source_files || []).join(' · ')}</div>
+            <div class="kpi-history-scored">
+              ${(h.kpis_scored || []).map(k => `<span class="kpi-badge green">KPI ${k} scored</span>`).join('')}
+              ${(h.kpis_missing || []).map(k => `<span class="kpi-badge nodata">KPI ${k} missing</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+  }
+
+  // ─── Load kpi_status.json ─────────────────────────────────────────────────
+  fetch('kpi_status.json?v=' + Date.now())
+    .then(r => { if (!r.ok) throw new Error('kpi_status.json not found'); return r.json(); })
+    .then(data => injectKpiStatus(data))
+    .catch(err => {
+      console.warn('Could not load KPI status:', err.message);
+      const week = document.getElementById('kpi-report-week');
+      if (week) week.textContent = 'KPI data not available — run build_kpi_dashboard.py';
+    });
 
   // ─── Toggle agent card expand/collapse ────────────────────────────────────
   function toggleCard(agent) {
