@@ -1,74 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Olympic Paints — AI Workspace Dashboard</title>
+<title>AI Workspace Dashboard — Olympic Paints</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
 <style>
-  :root {
-    --yellow: #F5C200;
-    --yellow-light: #FFF3B0;
-    --dark: #2B2B2B;
-    --mid: #4A4A4A;
-    --light: #F8F8F8;
-    --white: #FFFFFF;
-    --border: #E0E0E0;
-    --green: #2ECC71;
-    --blue: #3498DB;
-    --purple: #9B59B6;
-    --orange: #E67E22;
-    --red: #E74C3C;
-    --teal: #1ABC9C;
-  }
+/* ── RAW DESIGN TOKENS ─────────────────────────────────────────── */
+:root {
+  --_y50:#FEF9E0; --_y100:#FDF0A0; --_y200:#FAE04D;
+  --_y400:#F5C400; --_y600:#D4A800; --_y800:#A88000; --_y900:#6A5000;
+  --_n50:#E8EFF8; --_n100:#B8CCE8; --_n300:#6B9ED0;
+  --_n500:#2D6BA8; --_n700:#1A3D6E; --_n900:#0D2040; --_n950:#071022;
+  --_g0:#FFFFFF; --_g50:#F7F6F3; --_g100:#E8E7E2; --_g200:#C8C7C0;
+  --_g400:#949390; --_g600:#5C5B58; --_g800:#2E2E2C;
+  --_g900:#1A1A18; --_g950:#0D0D0B;
+  --_teal:#2D8C7A; --_teal-light:#C8EDE7; --_teal-dark:#1a5c50;
+  --_terra:#C97A3A; --_terra-light:#F7E0C8;
+  --_coral:#E86060; --_coral-light:#FDDCDC;
+  --_pink:#E87BAD; --_pink-light:#FCE4EF;
+  --_violet:#9B7DBF; --_violet-light:#EDE0F7;
+  --_sage:#7A8C55; --_ink:#5C6B7A;
+  --font-display:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-pill:50px;
+}
+
+/* ── LIGHT THEME ──────────────────────────────────────────────── */
+.theme-light {
+  color-scheme:light;
+  --color-surface-page:var(--_g50); --color-surface-base:var(--_g0);
+  --color-surface-elevated:var(--_g0); --color-surface-sunken:var(--_g100);
+  --color-surface-overlay:rgba(0,0,0,0.04);
+  --color-surface-brand:var(--_y400); --color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g950); --color-text-secondary:var(--_g600);
+  --color-text-tertiary:var(--_g400); --color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400); --color-brand-hover:var(--_y600);
+  --color-brand-secondary:var(--_n700); --color-brand-accent:var(--_y400);
+  --color-border-subtle:var(--_g100); --color-border-default:var(--_g200);
+  --color-border-strong:var(--_g400); --color-border-brand:var(--_y400);
+  --color-success-bg:#EDF7F5; --color-success-fg:var(--_teal-dark); --color-success-bd:var(--_teal);
+  --color-warning-bg:var(--_y50); --color-warning-fg:var(--_y900); --color-warning-bd:var(--_y600);
+  --color-danger-bg:#FEF2F2; --color-danger-fg:#C0392B; --color-danger-bd:var(--_coral);
+  --color-info-bg:var(--_n50); --color-info-fg:var(--_n700); --color-info-bd:var(--_n500);
+  --color-neutral-bg:var(--_g100); --color-neutral-fg:var(--_g600); --color-neutral-bd:var(--_g400);
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.08); --shadow-md:0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg:0 10px 30px rgba(0,0,0,0.10); --shadow-brand:0 4px 16px rgba(245,196,0,0.20);
+}
+
+/* ── DARK THEME ───────────────────────────────────────────────── */
+.theme-dark {
+  color-scheme:dark;
+  --color-surface-page:var(--_g950); --color-surface-base:var(--_g900);
+  --color-surface-elevated:var(--_g800); --color-surface-sunken:var(--_g950);
+  --color-surface-overlay:rgba(255,255,255,0.04);
+  --color-surface-brand:var(--_y400); --color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g100); --color-text-secondary:var(--_g400);
+  --color-text-tertiary:var(--_g600); --color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400); --color-brand-hover:var(--_y200);
+  --color-brand-secondary:var(--_n700); --color-brand-accent:var(--_y400);
+  --color-border-subtle:rgba(255,255,255,0.06); --color-border-default:rgba(255,255,255,0.10);
+  --color-border-strong:rgba(255,255,255,0.20); --color-border-brand:var(--_y400);
+  --color-success-bg:rgba(45,140,122,0.12); --color-success-fg:var(--_teal-light); --color-success-bd:rgba(45,140,122,0.30);
+  --color-warning-bg:rgba(245,196,0,0.10); --color-warning-fg:var(--_y200); --color-warning-bd:rgba(245,196,0,0.25);
+  --color-danger-bg:rgba(232,96,96,0.12); --color-danger-fg:var(--_coral-light); --color-danger-bd:rgba(232,96,96,0.30);
+  --color-info-bg:rgba(26,61,110,0.30); --color-info-fg:var(--_n100); --color-info-bd:rgba(107,158,208,0.30);
+  --color-neutral-bg:rgba(255,255,255,0.05); --color-neutral-fg:var(--_g400); --color-neutral-bd:rgba(255,255,255,0.10);
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.40); --shadow-md:0 4px 12px rgba(0,0,0,0.40);
+  --shadow-lg:0 10px 30px rgba(0,0,0,0.50); --shadow-brand:0 4px 20px rgba(245,196,0,0.15);
+}
+
+/* ── BRAND THEME (full yellow) ────────────────────────────────── */
+.theme-brand {
+  color-scheme:light;
+  --color-surface-page:var(--_y400); --color-surface-base:var(--_y200);
+  --color-surface-elevated:var(--_y50); --color-surface-sunken:var(--_y600);
+  --color-surface-overlay:rgba(0,0,0,0.05);
+  --color-surface-brand:var(--_y400); --color-surface-secondary:var(--_g950);
+  --color-text-primary:var(--_g950); --color-text-secondary:var(--_y900);
+  --color-text-tertiary:var(--_y800); --color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_g950); --color-brand-hover:var(--_n700);
+  --color-brand-secondary:var(--_n700); --color-brand-accent:var(--_g950);
+  --color-border-subtle:rgba(0,0,0,0.08); --color-border-default:rgba(0,0,0,0.14);
+  --color-border-strong:rgba(0,0,0,0.25); --color-border-brand:var(--_g950);
+  --color-success-bg:rgba(45,140,122,0.12); --color-success-fg:var(--_teal-dark); --color-success-bd:var(--_teal);
+  --color-warning-bg:rgba(0,0,0,0.08); --color-warning-fg:var(--_y900); --color-warning-bd:var(--_y900);
+  --color-danger-bg:rgba(232,96,96,0.12); --color-danger-fg:#C0392B; --color-danger-bd:var(--_coral);
+  --color-info-bg:rgba(26,61,110,0.10); --color-info-fg:var(--_n900); --color-info-bd:var(--_n700);
+  --color-neutral-bg:rgba(0,0,0,0.06); --color-neutral-fg:var(--_y900); --color-neutral-bd:rgba(0,0,0,0.15);
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.12); --shadow-md:0 4px 12px rgba(0,0,0,0.14);
+  --shadow-lg:0 10px 30px rgba(0,0,0,0.18); --shadow-brand:0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* ── NAVY EXECUTIVE THEME ─────────────────────────────────────── */
+.theme-navy {
+  color-scheme:dark;
+  --color-surface-page:var(--_n950); --color-surface-base:var(--_n900);
+  --color-surface-elevated:var(--_n700); --color-surface-sunken:var(--_n950);
+  --color-surface-overlay:rgba(255,255,255,0.04);
+  --color-surface-brand:var(--_y400); --color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g0); --color-text-secondary:var(--_n100);
+  --color-text-tertiary:var(--_n300); --color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400); --color-brand-hover:var(--_y200);
+  --color-brand-secondary:var(--_n500); --color-brand-accent:var(--_y400);
+  --color-border-subtle:rgba(107,158,208,0.12); --color-border-default:rgba(107,158,208,0.20);
+  --color-border-strong:rgba(107,158,208,0.35); --color-border-brand:var(--_y400);
+  --color-success-bg:rgba(45,140,122,0.15); --color-success-fg:var(--_teal-light); --color-success-bd:rgba(45,140,122,0.35);
+  --color-warning-bg:rgba(245,196,0,0.12); --color-warning-fg:var(--_y200); --color-warning-bd:rgba(245,196,0,0.30);
+  --color-danger-bg:rgba(232,96,96,0.14); --color-danger-fg:var(--_coral-light); --color-danger-bd:rgba(232,96,96,0.35);
+  --color-info-bg:rgba(45,107,168,0.20); --color-info-fg:var(--_n100); --color-info-bd:rgba(107,158,208,0.35);
+  --color-neutral-bg:rgba(255,255,255,0.05); --color-neutral-fg:var(--_n300); --color-neutral-bd:rgba(255,255,255,0.12);
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.50); --shadow-md:0 4px 12px rgba(0,0,0,0.50);
+  --shadow-lg:0 10px 30px rgba(0,0,0,0.60); --shadow-brand:0 4px 20px rgba(245,196,0,0.18);
+}
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background: #1A1A1A;
-    color: var(--dark);
+    font-family: var(--font-body);
+    background: var(--color-surface-page);
+    color: var(--color-text-primary);
     min-height: 100vh;
   }
 
+  /* ─── Theme Bar ─── */
+  .theme-bar { display:flex; gap:4px; padding:8px 16px; background:var(--color-surface-secondary); }
+  .theme-bar button {
+    padding:4px 14px; background:var(--color-surface-elevated); border:1px solid var(--color-border-default);
+    color:var(--color-text-secondary); border-radius:var(--r-sm); font-family:var(--font-display);
+    font-size:11px; font-weight:700; cursor:pointer; letter-spacing:0.5px; text-transform:uppercase;
+    transition:all 0.15s;
+  }
+  .theme-bar button:hover { color:var(--color-text-primary); border-color:var(--color-border-strong); }
+  .theme-bar button.active { background:var(--color-brand-primary); color:var(--color-text-on-brand); border-color:var(--color-brand-primary); }
+
   /* ─── Header ─── */
   .header {
-    background: linear-gradient(135deg, #1A1A1A 0%, #2B2B2B 100%);
-    border-bottom: 3px solid var(--yellow);
+    background: var(--color-surface-base);
+    border-bottom: 3px solid var(--color-brand-primary);
     padding: 28px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
   .header-left { display: flex; align-items: center; gap: 20px; }
-  .logo-badge {
-    width: 56px; height: 56px;
-    background: var(--yellow);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 24px; font-weight: 900; color: var(--dark);
-    letter-spacing: -1px;
-  }
-  .header-title { color: var(--white); }
-  .header-title h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.3px; }
-  .header-title p { font-size: 12px; color: #888; margin-top: 2px; }
+  .header-title { color: var(--color-text-primary); }
+  .header-title h1 { font-family: var(--font-display); font-size: 24px; font-weight: 800; letter-spacing: 0.3px; text-transform: uppercase; }
+  .header-title p { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
   .header-right { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
   .status-pill {
-    background: rgba(46,204,113,0.15);
-    border: 1px solid #2ECC71;
-    color: #2ECC71;
+    background: var(--color-success-bg);
+    border: 1px solid var(--color-success-bd);
+    color: var(--color-success-fg);
     font-size: 11px;
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: var(--r-pill);
     font-weight: 600;
     letter-spacing: 0.5px;
   }
   .live-pill {
-    background: rgba(231,76,60,0.15);
-    border: 1px solid #E74C3C;
-    color: #E74C3C;
+    background: var(--color-danger-bg);
+    border: 1px solid var(--color-danger-bd);
+    color: var(--color-danger-fg);
     font-size: 11px;
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: var(--r-pill);
     font-weight: 600;
     letter-spacing: 0.5px;
     display: flex;
@@ -77,7 +180,7 @@
   }
   .live-dot {
     width: 6px; height: 6px;
-    background: #E74C3C;
+    background: var(--color-danger-fg);
     border-radius: 50%;
     animation: pulse 1.5s ease-in-out infinite;
   }
@@ -86,12 +189,12 @@
     50% { opacity: 0.3; }
   }
   .updated-pill {
-    background: rgba(245,194,0,0.1);
-    border: 1px solid var(--yellow);
-    color: var(--yellow);
+    background: var(--color-warning-bg);
+    border: 1px solid var(--color-border-brand);
+    color: var(--color-brand-primary);
     font-size: 11px;
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: var(--r-pill);
     font-weight: 600;
   }
 
@@ -100,11 +203,12 @@
 
   /* ─── Section Labels ─── */
   .section-label {
+    font-family: var(--font-display);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #888;
+    color: var(--color-text-secondary);
     margin-bottom: 16px;
     margin-top: 36px;
     display: flex;
@@ -115,14 +219,14 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: #333;
+    background: var(--color-border-default);
   }
 
   /* ─── Summary Banner ─── */
   .summary-banner {
-    background: linear-gradient(135deg, #252525, #1E1E1E);
-    border: 1px solid var(--yellow);
-    border-radius: 14px;
+    background: var(--color-surface-base);
+    border: 1px solid var(--color-border-brand);
+    border-radius: var(--r-lg);
     padding: 24px 28px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -134,28 +238,30 @@
   }
   .stat { text-align: center; }
   .stat-num {
+    font-family: var(--font-display);
     font-size: 32px;
     font-weight: 900;
-    color: var(--yellow);
+    color: var(--color-brand-primary);
     line-height: 1;
     transition: all 0.3s ease;
   }
   .stat-num.loading { opacity: 0.3; }
-  .stat-label { font-size: 10px; color: #666; margin-top: 4px; letter-spacing: 0.5px; text-transform: uppercase; }
-  .stat-sub { font-size: 9px; color: #444; margin-top: 2px; }
+  .stat-label { font-family: var(--font-display); font-size: 10px; color: var(--color-text-tertiary); margin-top: 4px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .stat-sub { font-size: 9px; color: var(--color-text-tertiary); margin-top: 2px; }
 
   /* ─── Live Data Panel ─── */
   .live-panel {
-    background: #252525;
-    border: 1px solid #333;
-    border-radius: 14px;
+    background: var(--color-surface-base);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--r-lg);
     padding: 20px 24px;
     margin-bottom: 0;
   }
   .live-panel-title {
+    font-family: var(--font-display);
     font-size: 11px;
     font-weight: 700;
-    color: #888;
+    color: var(--color-text-secondary);
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 16px;
@@ -165,41 +271,42 @@
   }
   .area-bars { display: flex; flex-direction: column; gap: 10px; }
   .area-row { display: flex; align-items: center; gap: 12px; }
-  .area-name { font-size: 11px; font-weight: 600; color: #CCC; min-width: 80px; }
-  .area-bar-wrap { flex: 1; background: #333; border-radius: 4px; height: 8px; overflow: hidden; }
+  .area-name { font-size: 11px; font-weight: 600; color: var(--color-text-primary); min-width: 80px; }
+  .area-bar-wrap { flex: 1; background: var(--color-border-default); border-radius: 4px; height: 8px; overflow: hidden; }
   .area-bar-fill { height: 100%; border-radius: 4px; transition: width 0.8s ease; min-width: 4px; }
-  .area-count { font-size: 11px; color: #888; min-width: 32px; text-align: right; font-weight: 600; }
+  .area-count { font-size: 11px; color: var(--color-text-secondary); min-width: 32px; text-align: right; font-weight: 600; }
 
   /* ─── APEX Card ─── */
   .apex-wrapper { display: flex; justify-content: center; margin-bottom: 8px; }
   .apex-card {
-    background: linear-gradient(135deg, var(--yellow) 0%, #E6B800 100%);
-    border-radius: 16px;
+    background: var(--color-surface-brand);
+    border-radius: var(--r-xl);
     padding: 24px 40px;
     text-align: center;
     min-width: 340px;
     position: relative;
-    box-shadow: 0 8px 32px rgba(245,194,0,0.3);
+    box-shadow: var(--shadow-brand);
   }
-  .apex-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: rgba(0,0,0,0.5); margin-bottom: 6px; }
-  .apex-name { font-size: 28px; font-weight: 900; color: var(--dark); letter-spacing: 1px; }
-  .apex-role { font-size: 13px; color: rgba(0,0,0,0.6); font-weight: 500; margin-top: 4px; }
+  .apex-label { font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--color-text-on-brand); opacity: 0.6; margin-bottom: 6px; text-transform: uppercase; }
+  .apex-name { font-family: var(--font-display); font-size: 28px; font-weight: 900; color: var(--color-text-on-brand); letter-spacing: 1px; text-transform: uppercase; }
+  .apex-role { font-size: 13px; color: var(--color-text-on-brand); opacity: 0.7; font-weight: 500; margin-top: 4px; }
   .apex-model {
     display: inline-block;
     background: rgba(0,0,0,0.12);
     font-size: 10px;
     padding: 3px 10px;
-    border-radius: 20px;
-    color: rgba(0,0,0,0.7);
+    border-radius: var(--r-pill);
+    color: var(--color-text-on-brand);
+    opacity: 0.75;
     font-weight: 600;
     margin-top: 10px;
     letter-spacing: 0.5px;
   }
-  .apex-desc { font-size: 11px; color: rgba(0,0,0,0.55); margin-top: 10px; line-height: 1.5; }
+  .apex-desc { font-size: 11px; color: var(--color-text-on-brand); opacity: 0.6; margin-top: 10px; line-height: 1.5; }
 
   /* ─── Connector ─── */
   .connector-down { display: flex; justify-content: center; height: 24px; }
-  .connector-down::after { content: ''; width: 2px; background: #444; display: block; }
+  .connector-down::after { content: ''; width: 2px; background: var(--color-border-strong); display: block; }
 
   /* ─── Agent Grid ─── */
   .agents-grid {
@@ -212,39 +319,40 @@
   @media (max-width: 768px) { .agents-grid { grid-template-columns: repeat(2, 1fr); } }
 
   .agent-card {
-    background: #252525;
-    border-radius: 14px;
-    border: 1px solid #333;
+    background: var(--color-surface-base);
+    border-radius: var(--r-lg);
+    border: 1px solid var(--color-border-default);
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
   }
-  .agent-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
-  .agent-card.expanded { border-color: #555; }
+  .agent-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .agent-card.expanded { border-color: var(--color-border-strong); }
 
-  .agent-header { padding: 18px 16px 14px; border-bottom: 1px solid #333; }
+  .agent-header { padding: 18px 16px 14px; border-bottom: 1px solid var(--color-border-default); }
   .agent-accent { height: 4px; border-radius: 2px; margin-bottom: 14px; }
-  .agent-code { font-size: 20px; font-weight: 900; letter-spacing: 1px; }
-  .agent-title { font-size: 11px; color: #888; font-weight: 500; margin-top: 3px; }
+  .agent-code { font-family: var(--font-display); font-size: 20px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+  .agent-title { font-size: 11px; color: var(--color-text-secondary); font-weight: 500; margin-top: 3px; }
   .agent-model-badge {
     display: inline-block;
     font-size: 9px;
     padding: 2px 8px;
-    border-radius: 10px;
+    border-radius: var(--r-pill);
     font-weight: 700;
     letter-spacing: 0.5px;
     margin-top: 8px;
     text-transform: uppercase;
   }
-  .agent-invoke { font-size: 10px; color: #666; margin-top: 6px; font-family: 'Courier New', monospace; }
+  .agent-invoke { font-size: 10px; color: var(--color-text-tertiary); margin-top: 6px; font-family: 'Courier New', monospace; }
 
   .agent-body { padding: 14px 16px; }
   .agent-section-title {
+    font-family: var(--font-display);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #666;
+    color: var(--color-text-tertiary);
     margin-bottom: 8px;
     margin-top: 14px;
   }
@@ -254,144 +362,144 @@
   .tag {
     font-size: 10px;
     padding: 3px 8px;
-    border-radius: 6px;
+    border-radius: var(--r-sm);
     font-weight: 500;
-    background: #333;
-    color: #CCC;
-    border: 1px solid #444;
+    background: var(--color-neutral-bg);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-default);
   }
 
   .rule-list { list-style: none; }
   .rule-list li {
     font-size: 11px;
-    color: #999;
+    color: var(--color-text-secondary);
     padding: 4px 0;
-    border-bottom: 1px solid #2A2A2A;
+    border-bottom: 1px solid var(--color-border-subtle);
     line-height: 1.4;
     padding-left: 12px;
     position: relative;
   }
-  .rule-list li::before { content: '›'; position: absolute; left: 0; color: #555; }
+  .rule-list li::before { content: '›'; position: absolute; left: 0; color: var(--color-text-tertiary); }
   .rule-list li:last-child { border-bottom: none; }
 
   .expand-btn {
     width: 100%;
     padding: 8px;
-    background: #1E1E1E;
+    background: var(--color-surface-sunken);
     border: none;
-    border-top: 1px solid #333;
-    color: #666;
+    border-top: 1px solid var(--color-border-default);
+    color: var(--color-text-tertiary);
     font-size: 10px;
     cursor: pointer;
     letter-spacing: 0.5px;
     transition: background 0.15s, color 0.15s;
     font-family: inherit;
   }
-  .expand-btn:hover { background: #2A2A2A; color: #AAA; }
+  .expand-btn:hover { background: var(--color-surface-elevated); color: var(--color-text-primary); }
 
   .expandable-content { display: none; }
   .agent-card.expanded .expandable-content { display: block; }
 
   /* Model badges */
-  .badge-haiku { background: rgba(52,152,219,0.15); color: #3498DB; border: 1px solid rgba(52,152,219,0.3); }
-  .badge-sonnet { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
-  .badge-opus { background: rgba(155,89,182,0.15); color: #9B59B6; border: 1px solid rgba(155,89,182,0.3); }
+  .badge-haiku { background: var(--color-info-bg); color: var(--color-info-fg); border: 1px solid var(--color-info-bd); }
+  .badge-sonnet { background: var(--color-success-bg); color: var(--color-success-fg); border: 1px solid var(--color-success-bd); }
+  .badge-opus { background: rgba(155,125,191,0.15); color: var(--_violet); border: 1px solid rgba(155,125,191,0.30); }
 
-  /* Agent accent colours */
-  .accent-vault { background: #3498DB; }
-  .accent-haven { background: #2ECC71; }
-  .accent-prism { background: #9B59B6; }
-  .accent-striker { background: #E74C3C; }
-  .accent-sigma { background: #E67E22; }
-  .accent-blaze { background: #F5C200; }
+  /* Agent accent colours — use raw design tokens for stable agent identity across themes */
+  .accent-vault { background: var(--_n500); }
+  .accent-haven { background: var(--_teal); }
+  .accent-prism { background: var(--_violet); }
+  .accent-striker { background: var(--_coral); }
+  .accent-sigma { background: var(--_terra); }
+  .accent-blaze { background: var(--_y400); }
 
-  .color-vault { color: #3498DB; }
-  .color-haven { color: #2ECC71; }
-  .color-prism { color: #9B59B6; }
-  .color-striker { color: #E74C3C; }
-  .color-sigma { color: #E67E22; }
-  .color-blaze { color: #F5C200; }
+  .color-vault { color: var(--_n500); }
+  .color-haven { color: var(--_teal); }
+  .color-prism { color: var(--_violet); }
+  .color-striker { color: var(--_coral); }
+  .color-sigma { color: var(--_terra); }
+  .color-blaze { color: var(--_y400); }
 
   /* ─── Automations ─── */
   .automations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   @media (max-width: 900px) { .automations-grid { grid-template-columns: 1fr; } }
 
-  .automation-card { background: #252525; border: 1px solid #333; border-radius: 14px; padding: 20px; }
-  .auto-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 12px; }
-  .auto-name { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-  .auto-file { font-size: 10px; color: #666; font-family: 'Courier New', monospace; margin-bottom: 12px; word-break: break-all; }
-  .auto-desc { font-size: 11px; color: #888; line-height: 1.6; }
-  .auto-tag { display: inline-block; font-size: 9px; padding: 2px 7px; border-radius: 4px; font-weight: 700; letter-spacing: 0.5px; margin-top: 10px; text-transform: uppercase; }
-  .auto-tag-daily { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
-  .auto-tag-ondemand { background: rgba(52,152,219,0.15); color: #3498DB; border: 1px solid rgba(52,152,219,0.3); }
+  .automation-card { background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 20px; }
+  .auto-icon { width: 36px; height: 36px; border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 12px; background: var(--color-surface-elevated); }
+  .auto-name { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px; text-transform: uppercase; }
+  .auto-file { font-size: 10px; color: var(--color-text-tertiary); font-family: 'Courier New', monospace; margin-bottom: 12px; word-break: break-all; }
+  .auto-desc { font-size: 11px; color: var(--color-text-secondary); line-height: 1.6; }
+  .auto-tag { display: inline-block; font-size: 9px; padding: 2px 7px; border-radius: var(--r-sm); font-weight: 700; letter-spacing: 0.5px; margin-top: 10px; text-transform: uppercase; }
+  .auto-tag-daily { background: var(--color-success-bg); color: var(--color-success-fg); border: 1px solid var(--color-success-bd); }
+  .auto-tag-ondemand { background: var(--color-info-bg); color: var(--color-info-fg); border: 1px solid var(--color-info-bd); }
 
   .pipeline-steps { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
-  .pipeline-step { display: flex; align-items: flex-start; gap: 10px; font-size: 11px; color: #999; }
-  .step-num { min-width: 20px; height: 20px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: #CCC; flex-shrink: 0; }
+  .pipeline-step { display: flex; align-items: flex-start; gap: 10px; font-size: 11px; color: var(--color-text-secondary); }
+  .step-num { min-width: 20px; height: 20px; background: var(--color-surface-elevated); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: var(--color-text-primary); flex-shrink: 0; }
 
   /* ─── Systems ─── */
   .systems-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   @media (max-width: 900px) { .systems-grid { grid-template-columns: repeat(2, 1fr); } }
 
-  .system-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 16px; display: flex; align-items: flex-start; gap: 12px; }
-  .sys-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .system-card { background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 16px; display: flex; align-items: flex-start; gap: 12px; }
+  .sys-icon { width: 36px; height: 36px; border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; background: var(--color-surface-overlay); }
   .sys-info { flex: 1; min-width: 0; }
-  .sys-name { font-size: 13px; font-weight: 700; color: var(--white); }
-  .sys-type { font-size: 10px; color: #666; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .sys-name { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--color-text-primary); text-transform: uppercase; }
+  .sys-type { font-size: 10px; color: var(--color-text-tertiary); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
   .sys-used-by { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
-  .sys-agent-pill { font-size: 9px; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+  .sys-agent-pill { font-size: 9px; padding: 2px 6px; border-radius: var(--r-sm); font-weight: 700; }
 
   /* ─── PARA ─── */
   .para-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   @media (max-width: 900px) { .para-grid { grid-template-columns: repeat(2, 1fr); } }
-  .para-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 18px; }
-  .para-letter { font-size: 32px; font-weight: 900; margin-bottom: 4px; }
-  .para-name { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
-  .para-desc { font-size: 11px; color: #888; line-height: 1.5; margin-bottom: 12px; }
-  .para-example { font-size: 10px; color: #666; padding: 3px 0; border-bottom: 1px solid #2A2A2A; font-family: 'Courier New', monospace; }
+  .para-card { background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 18px; }
+  .para-letter { font-family: var(--font-display); font-size: 32px; font-weight: 900; margin-bottom: 4px; }
+  .para-name { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 6px; text-transform: uppercase; }
+  .para-desc { font-size: 11px; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 12px; }
+  .para-example { font-size: 10px; color: var(--color-text-tertiary); padding: 3px 0; border-bottom: 1px solid var(--color-border-subtle); font-family: 'Courier New', monospace; }
   .para-example:last-child { border-bottom: none; }
 
   /* ─── Notion Databases ─── */
   .notion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .notion-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 18px; }
-  .notion-db-name { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
-  .notion-db-id { font-size: 9px; color: #555; font-family: 'Courier New', monospace; margin-bottom: 12px; }
-  .field-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #2A2A2A; font-size: 11px; }
-  .field-name { color: #CCC; font-weight: 500; }
-  .field-type { font-size: 9px; background: #333; color: #777; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; }
+  .notion-card { background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 18px; }
+  .notion-db-name { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; }
+  .notion-db-id { font-size: 9px; color: var(--color-text-tertiary); font-family: 'Courier New', monospace; margin-bottom: 12px; }
+  .field-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid var(--color-border-subtle); font-size: 11px; }
+  .field-name { color: var(--color-text-primary); font-weight: 500; }
+  .field-type { font-size: 9px; background: var(--color-surface-elevated); color: var(--color-text-secondary); padding: 2px 6px; border-radius: var(--r-sm); font-family: 'Courier New', monospace; }
   .field-row:last-child { border-bottom: none; }
 
   /* ─── Escalation ─── */
   .escalation-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .esc-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 18px; }
-  .esc-agent { font-size: 12px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
-  .esc-rule { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 5px 0; border-bottom: 1px solid #2A2A2A; font-size: 11px; }
-  .esc-trigger { color: #999; flex: 1; }
-  .esc-dest { font-size: 9px; background: rgba(245,194,0,0.15); color: var(--yellow); border: 1px solid rgba(245,194,0,0.3); padding: 2px 6px; border-radius: 4px; font-weight: 700; white-space: nowrap; }
+  .esc-card { background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 18px; }
+  .esc-agent { font-family: var(--font-display); font-size: 12px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 10px; text-transform: uppercase; }
+  .esc-rule { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 5px 0; border-bottom: 1px solid var(--color-border-subtle); font-size: 11px; }
+  .esc-trigger { color: var(--color-text-secondary); flex: 1; }
+  .esc-dest { font-size: 9px; background: var(--color-warning-bg); color: var(--color-brand-primary); border: 1px solid var(--color-border-brand); padding: 2px 6px; border-radius: var(--r-sm); font-weight: 700; white-space: nowrap; }
   .esc-rule:last-child { border-bottom: none; }
 
   /* ─── Non-Negotiables ─── */
   .rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .rule-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 18px; }
-  .rule-card-title { font-size: 12px; font-weight: 700; color: var(--white); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-  .rule-item { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px solid #2A2A2A; font-size: 11px; color: #999; line-height: 1.4; }
+  .rule-card { background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 18px; }
+  .rule-card-title { font-family: var(--font-display); font-size: 12px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; }
+  .rule-item { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--color-border-subtle); font-size: 11px; color: var(--color-text-secondary); line-height: 1.4; }
   .rule-item .icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
   .rule-item:last-child { border-bottom: none; }
 
   /* ─── Notification flow ─── */
-  .notification-flow { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
-  .flow-node { background: #333; border-radius: 8px; padding: 10px 14px; font-size: 11px; font-weight: 600; color: #CCC; text-align: center; min-width: 100px; }
-  .flow-arrow { font-size: 18px; color: #555; padding: 0 10px; }
-  .flow-node.highlight { background: rgba(245,194,0,0.1); border: 1px solid var(--yellow); color: var(--yellow); }
-  .flow-desc { font-size: 10px; color: #666; margin-top: 4px; }
+  .notification-flow { background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 20px; display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
+  .flow-node { background: var(--color-surface-elevated); border-radius: var(--r-md); padding: 10px 14px; font-size: 11px; font-weight: 600; color: var(--color-text-primary); text-align: center; min-width: 100px; }
+  .flow-arrow { font-size: 18px; color: var(--color-text-tertiary); padding: 0 10px; }
+  .flow-node.highlight { background: var(--color-warning-bg); border: 1px solid var(--color-border-brand); color: var(--color-brand-primary); }
+  .flow-desc { font-size: 10px; color: var(--color-text-tertiary); margin-top: 4px; }
 
   /* ─── KPI Tab ─── */
   .kpi-tab-wrap { padding: 32px 40px; max-width: 1600px; margin: 0 auto; }
 
   .kpi-update-banner {
-    background: linear-gradient(135deg, #1a2a1a, #1E2A1E);
-    border: 1px solid #2ECC71;
-    border-radius: 14px;
+    background: var(--color-success-bg);
+    border: 1px solid var(--color-success-bd);
+    border-radius: var(--r-lg);
     padding: 20px 24px;
     display: flex;
     align-items: center;
@@ -401,40 +509,40 @@
     margin-bottom: 24px;
   }
   .kpi-update-left { display: flex; align-items: center; gap: 14px; }
-  .kpi-update-dot { width: 10px; height: 10px; background: #2ECC71; border-radius: 50%; box-shadow: 0 0 8px #2ECC71; }
-  .kpi-update-week { font-size: 17px; font-weight: 800; color: #fff; }
-  .kpi-update-sub { font-size: 11px; color: #666; margin-top: 2px; }
+  .kpi-update-dot { width: 10px; height: 10px; background: var(--color-success-fg); border-radius: 50%; box-shadow: 0 0 8px var(--color-success-fg); }
+  .kpi-update-week { font-family: var(--font-display); font-size: 17px; font-weight: 800; color: var(--color-text-primary); text-transform: uppercase; }
+  .kpi-update-sub { font-size: 11px; color: var(--color-text-tertiary); margin-top: 2px; }
   .kpi-update-right { text-align: right; }
-  .kpi-update-score { font-size: 24px; font-weight: 900; color: #2ECC71; }
-  .kpi-update-score-label { font-size: 10px; color: #555; letter-spacing: 1px; text-transform: uppercase; }
-  .kpi-open-link { display: inline-block; margin-top: 8px; font-size: 11px; color: #F5C200; text-decoration: none; font-weight: 600; }
-  .kpi-open-link:hover { color: #fff; }
+  .kpi-update-score { font-family: var(--font-display); font-size: 24px; font-weight: 900; color: var(--color-success-fg); }
+  .kpi-update-score-label { font-family: var(--font-display); font-size: 10px; color: var(--color-text-tertiary); letter-spacing: 1px; text-transform: uppercase; }
+  .kpi-open-link { display: inline-block; margin-top: 8px; font-size: 11px; color: var(--color-brand-primary); text-decoration: none; font-weight: 600; }
+  .kpi-open-link:hover { color: var(--color-text-primary); }
 
   .kpi-section-label {
-    font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-    color: #888; margin-bottom: 14px; margin-top: 28px;
+    font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--color-text-secondary); margin-bottom: 14px; margin-top: 28px;
     display: flex; align-items: center; gap: 10px;
   }
-  .kpi-section-label::after { content: ''; flex: 1; height: 1px; background: #2A2A2A; }
+  .kpi-section-label::after { content: ''; flex: 1; height: 1px; background: var(--color-border-subtle); }
 
   .kpi-headline-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   @media (max-width: 1000px) { .kpi-headline-grid { grid-template-columns: repeat(2, 1fr); } }
 
   .kpi-metric-card {
-    background: #252525; border: 1px solid #333; border-radius: 12px;
+    background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg);
     padding: 18px 20px; position: relative; overflow: hidden;
   }
-  .kpi-metric-card.red-border   { border-color: rgba(231,76,60,0.5); }
-  .kpi-metric-card.amber-border { border-color: rgba(230,126,34,0.5); }
-  .kpi-metric-card.green-border { border-color: rgba(46,204,113,0.5); }
-  .kpi-metric-label { font-size: 10px; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-  .kpi-metric-value { font-size: 22px; font-weight: 900; color: #fff; line-height: 1; }
+  .kpi-metric-card.red-border   { border-color: var(--color-danger-bd); }
+  .kpi-metric-card.amber-border { border-color: rgba(201,122,58,0.50); }
+  .kpi-metric-card.green-border { border-color: var(--color-success-bd); }
+  .kpi-metric-label { font-family: var(--font-display); font-size: 10px; font-weight: 700; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .kpi-metric-value { font-family: var(--font-display); font-size: 22px; font-weight: 900; color: var(--color-text-primary); line-height: 1; }
   .kpi-metric-delta { font-size: 11px; margin-top: 6px; font-weight: 600; }
-  .kpi-metric-delta.red    { color: #E74C3C; }
-  .kpi-metric-delta.amber  { color: #E67E22; }
-  .kpi-metric-delta.green  { color: #2ECC71; }
-  .kpi-metric-delta.muted  { color: #555; }
-  .kpi-metric-bar { height: 3px; background: #333; border-radius: 2px; margin-top: 10px; }
+  .kpi-metric-delta.red    { color: var(--color-danger-fg); }
+  .kpi-metric-delta.amber  { color: var(--_terra); }
+  .kpi-metric-delta.green  { color: var(--color-success-fg); }
+  .kpi-metric-delta.muted  { color: var(--color-text-tertiary); }
+  .kpi-metric-bar { height: 3px; background: var(--color-border-default); border-radius: 2px; margin-top: 10px; }
   .kpi-metric-bar-fill { height: 100%; border-radius: 2px; }
 
   .kpi-cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
@@ -442,83 +550,83 @@
   @media (max-width: 700px) { .kpi-cat-grid { grid-template-columns: 1fr 1fr; } }
 
   .kpi-cat-card {
-    background: #252525; border-radius: 12px; padding: 18px 16px;
-    border: 1px solid #333; position: relative;
+    background: var(--color-surface-base); border-radius: var(--r-lg); padding: 18px 16px;
+    border: 1px solid var(--color-border-default); position: relative;
   }
-  .kpi-cat-card.cat-scored  { border-color: rgba(46,204,113,0.4); background: #1A2A1A; }
-  .kpi-cat-card.cat-missing { border-color: rgba(230,126,34,0.3); }
-  .kpi-cat-id { font-size: 28px; font-weight: 900; line-height: 1; margin-bottom: 6px; }
-  .kpi-cat-id.scored  { color: #2ECC71; }
-  .kpi-cat-id.missing { color: #444; }
-  .kpi-cat-name { font-size: 11px; font-weight: 700; color: #CCC; margin-bottom: 4px; line-height: 1.3; }
-  .kpi-cat-weight { font-size: 10px; color: #666; margin-bottom: 10px; }
+  .kpi-cat-card.cat-scored  { border-color: var(--color-success-bd); background: var(--color-success-bg); }
+  .kpi-cat-card.cat-missing { border-color: rgba(201,122,58,0.30); }
+  .kpi-cat-id { font-family: var(--font-display); font-size: 28px; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+  .kpi-cat-id.scored  { color: var(--color-success-fg); }
+  .kpi-cat-id.missing { color: var(--color-text-tertiary); }
+  .kpi-cat-name { font-size: 11px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px; line-height: 1.3; }
+  .kpi-cat-weight { font-size: 10px; color: var(--color-text-tertiary); margin-bottom: 10px; }
   .kpi-cat-status {
     display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 8px;
-    border-radius: 6px; letter-spacing: 0.5px; text-transform: uppercase;
+    border-radius: var(--r-sm); letter-spacing: 0.5px; text-transform: uppercase;
   }
-  .kpi-cat-status.scored  { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
-  .kpi-cat-status.missing { background: rgba(230,126,34,0.1); color: #E67E22; border: 1px solid rgba(230,126,34,0.3); }
-  .kpi-cat-note { font-size: 10px; color: #555; margin-top: 8px; line-height: 1.5; }
+  .kpi-cat-status.scored  { background: var(--color-success-bg); color: var(--color-success-fg); border: 1px solid var(--color-success-bd); }
+  .kpi-cat-status.missing { background: rgba(201,122,58,0.10); color: var(--_terra); border: 1px solid rgba(201,122,58,0.30); }
+  .kpi-cat-note { font-size: 10px; color: var(--color-text-tertiary); margin-top: 8px; line-height: 1.5; }
 
   .kpi-rep-table-wrap { overflow-x: auto; }
   .kpi-rep-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-  .kpi-rep-table thead tr { background: #1E1E1E; }
-  .kpi-rep-table thead th { padding: 10px 12px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #666; white-space: nowrap; border-bottom: 1px solid #333; }
-  .kpi-rep-table tbody tr { border-bottom: 1px solid #2A2A2A; transition: background 0.15s; }
-  .kpi-rep-table tbody tr:hover { background: #2A2A2A; }
-  .kpi-rep-table tbody td { padding: 10px 12px; vertical-align: middle; color: #CCC; }
-  .kpi-rep-table tbody td:first-child { color: #fff; font-weight: 700; }
+  .kpi-rep-table thead tr { background: var(--color-surface-sunken); }
+  .kpi-rep-table thead th { padding: 10px 12px; text-align: left; font-family: var(--font-display); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--color-text-tertiary); white-space: nowrap; border-bottom: 1px solid var(--color-border-default); }
+  .kpi-rep-table tbody tr { border-bottom: 1px solid var(--color-border-subtle); transition: background 0.15s; }
+  .kpi-rep-table tbody tr:hover { background: var(--color-surface-elevated); }
+  .kpi-rep-table tbody td { padding: 10px 12px; vertical-align: middle; color: var(--color-text-primary); }
+  .kpi-rep-table tbody td:first-child { color: var(--color-text-primary); font-weight: 700; }
 
-  .kpi-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; white-space: nowrap; }
-  .kpi-badge.green  { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
-  .kpi-badge.red    { background: rgba(231,76,60,0.12); color: #E74C3C; border: 1px solid rgba(231,76,60,0.3); }
-  .kpi-badge.amber  { background: rgba(230,126,34,0.12); color: #E67E22; border: 1px solid rgba(230,126,34,0.3); }
-  .kpi-badge.nodata { background: rgba(85,85,85,0.15); color: #555; border: 1px solid #333; }
+  .kpi-badge { display: inline-block; padding: 2px 8px; border-radius: var(--r-pill); font-size: 10px; font-weight: 700; white-space: nowrap; }
+  .kpi-badge.green  { background: var(--color-success-bg); color: var(--color-success-fg); border: 1px solid var(--color-success-bd); }
+  .kpi-badge.red    { background: var(--color-danger-bg); color: var(--color-danger-fg); border: 1px solid var(--color-danger-bd); }
+  .kpi-badge.amber  { background: rgba(201,122,58,0.12); color: var(--_terra); border: 1px solid rgba(201,122,58,0.30); }
+  .kpi-badge.nodata { background: var(--color-neutral-bg); color: var(--color-text-tertiary); border: 1px solid var(--color-neutral-bd); }
 
   .kpi-gap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   @media (max-width: 900px) { .kpi-gap-grid { grid-template-columns: 1fr 1fr; } }
 
-  .kpi-gap-card { background: #252525; border: 1px solid #333; border-radius: 12px; padding: 18px; }
-  .kpi-gap-card.high   { border-left: 3px solid #E74C3C; }
-  .kpi-gap-card.medium { border-left: 3px solid #E67E22; }
-  .kpi-gap-card.low    { border-left: 3px solid #555; }
-  .kpi-gap-title { font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
-  .kpi-gap-pri { font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .kpi-gap-pri.high   { background: rgba(231,76,60,0.15); color: #E74C3C; }
-  .kpi-gap-pri.medium { background: rgba(230,126,34,0.15); color: #E67E22; }
-  .kpi-gap-pri.low    { background: rgba(85,85,85,0.15); color: #777; }
-  .kpi-gap-desc { font-size: 11px; color: #888; line-height: 1.5; margin-bottom: 8px; }
-  .kpi-gap-affects { font-size: 10px; color: #555; }
-  .kpi-gap-affects span { display: inline-block; background: #333; color: #888; border-radius: 4px; padding: 1px 5px; margin-left: 4px; font-weight: 700; }
+  .kpi-gap-card { background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 18px; }
+  .kpi-gap-card.high   { border-left: 3px solid var(--color-danger-fg); }
+  .kpi-gap-card.medium { border-left: 3px solid var(--_terra); }
+  .kpi-gap-card.low    { border-left: 3px solid var(--color-text-tertiary); }
+  .kpi-gap-title { font-family: var(--font-display); font-size: 12px; font-weight: 700; color: var(--color-text-primary); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; }
+  .kpi-gap-pri { font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: var(--r-sm); text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-gap-pri.high   { background: var(--color-danger-bg); color: var(--color-danger-fg); }
+  .kpi-gap-pri.medium { background: rgba(201,122,58,0.15); color: var(--_terra); }
+  .kpi-gap-pri.low    { background: var(--color-neutral-bg); color: var(--color-text-tertiary); }
+  .kpi-gap-desc { font-size: 11px; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 8px; }
+  .kpi-gap-affects { font-size: 10px; color: var(--color-text-tertiary); }
+  .kpi-gap-affects span { display: inline-block; background: var(--color-surface-elevated); color: var(--color-text-secondary); border-radius: var(--r-sm); padding: 1px 5px; margin-left: 4px; font-weight: 700; }
 
   .kpi-risk-list { display: flex; flex-direction: column; gap: 8px; }
-  .kpi-risk-item { display: flex; align-items: flex-start; gap: 12px; background: #252525; border: 1px solid #333; border-radius: 10px; padding: 12px 16px; font-size: 12px; color: #CCC; }
-  .kpi-risk-item.high   { border-left: 3px solid #E74C3C; }
-  .kpi-risk-item.medium { border-left: 3px solid #E67E22; }
-  .kpi-risk-sev { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; margin-top: 1px; }
-  .kpi-risk-sev.high   { background: rgba(231,76,60,0.15); color: #E74C3C; }
-  .kpi-risk-sev.medium { background: rgba(230,126,34,0.15); color: #E67E22; }
+  .kpi-risk-item { display: flex; align-items: flex-start; gap: 12px; background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 12px 16px; font-size: 12px; color: var(--color-text-primary); }
+  .kpi-risk-item.high   { border-left: 3px solid var(--color-danger-fg); }
+  .kpi-risk-item.medium { border-left: 3px solid var(--_terra); }
+  .kpi-risk-sev { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: var(--r-sm); text-transform: uppercase; white-space: nowrap; flex-shrink: 0; margin-top: 1px; }
+  .kpi-risk-sev.high   { background: var(--color-danger-bg); color: var(--color-danger-fg); }
+  .kpi-risk-sev.medium { background: rgba(201,122,58,0.15); color: var(--_terra); }
 
-  .kpi-history-row { display: flex; align-items: flex-start; gap: 14px; background: #252525; border: 1px solid #333; border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; }
-  .kpi-history-date { font-size: 12px; font-weight: 700; color: #F5C200; min-width: 100px; }
-  .kpi-history-week { font-size: 12px; color: #CCC; font-weight: 600; }
-  .kpi-history-files { font-size: 10px; color: #555; margin-top: 4px; }
+  .kpi-history-row { display: flex; align-items: flex-start; gap: 14px; background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 14px 18px; margin-bottom: 10px; }
+  .kpi-history-date { font-family: var(--font-display); font-size: 12px; font-weight: 700; color: var(--color-brand-primary); min-width: 100px; }
+  .kpi-history-week { font-size: 12px; color: var(--color-text-primary); font-weight: 600; }
+  .kpi-history-files { font-size: 10px; color: var(--color-text-tertiary); margin-top: 4px; }
   .kpi-history-scored { display: flex; gap: 6px; margin-top: 6px; }
 
   /* ─── Footer ─── */
-  .footer { margin-top: 48px; padding: 20px 40px; border-top: 1px solid #2A2A2A; display: flex; justify-content: space-between; align-items: center; }
-  .footer-left { font-size: 11px; color: #555; }
-  .footer-right { font-size: 11px; color: #555; }
-  .footer-right a { color: #666; text-decoration: none; }
-  .footer-right a:hover { color: var(--yellow); }
+  .footer { margin-top: 48px; padding: 20px 40px; border-top: 1px solid var(--color-border-subtle); display: flex; justify-content: space-between; align-items: center; }
+  .footer-left { font-size: 11px; color: var(--color-text-tertiary); }
+  .footer-right { font-size: 11px; color: var(--color-text-tertiary); }
+  .footer-right a { color: var(--color-text-secondary); text-decoration: none; }
+  .footer-right a:hover { color: var(--color-brand-primary); }
 
   /* ─── Kaizen Tab ─── */
   .kaizen-wrap { padding: 32px 40px; max-width: 1600px; margin: 0 auto; }
 
   .kaizen-summary-banner {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    border: 1px solid #3498DB;
-    border-radius: 14px;
+    background: var(--color-info-bg);
+    border: 1px solid var(--color-info-bd);
+    border-radius: var(--r-lg);
     padding: 24px 28px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -526,41 +634,37 @@
     margin-bottom: 24px;
   }
   .kaizen-stat { text-align: center; }
-  .kaizen-stat-num { font-size: 32px; font-weight: 900; color: #3498DB; line-height: 1; }
-  .kaizen-stat-num.pending { color: #E67E22; }
-  .kaizen-stat-num.triaged { color: #2ECC71; }
-  .kaizen-stat-label { font-size: 10px; color: #666; margin-top: 4px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .kaizen-stat-num { font-family: var(--font-display); font-size: 32px; font-weight: 900; color: var(--color-info-fg); line-height: 1; }
+  .kaizen-stat-num.pending { color: var(--_terra); }
+  .kaizen-stat-num.triaged { color: var(--color-success-fg); }
+  .kaizen-stat-label { font-family: var(--font-display); font-size: 10px; color: var(--color-text-tertiary); margin-top: 4px; letter-spacing: 0.5px; text-transform: uppercase; }
 
   .kaizen-section-label {
-    font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-    color: #888; margin-bottom: 14px; margin-top: 28px;
+    font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--color-text-secondary); margin-bottom: 14px; margin-top: 28px;
     display: flex; align-items: center; gap: 10px;
   }
-  .kaizen-section-label::after { content: ''; flex: 1; height: 1px; background: #2A2A2A; }
+  .kaizen-section-label::after { content: ''; flex: 1; height: 1px; background: var(--color-border-subtle); }
 
   /* Skills registry */
   .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   @media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr; } }
 
   .skill-card {
-    background: #252525; border: 1px solid #333; border-radius: 14px; padding: 20px;
-    border-left: 3px solid #3498DB;
+    background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 20px;
+    border-left: 3px solid var(--color-info-bd);
   }
   .skill-invoke {
-    font-size: 13px; font-weight: 900; color: #3498DB; font-family: 'Courier New', monospace;
+    font-size: 13px; font-weight: 900; color: var(--color-info-fg); font-family: 'Courier New', monospace;
     margin-bottom: 8px; letter-spacing: 0.5px;
   }
   .skill-owner-badge {
     display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 7px;
-    border-radius: 4px; letter-spacing: 0.5px; margin-bottom: 10px;
+    border-radius: var(--r-sm); letter-spacing: 0.5px; margin-bottom: 10px;
   }
-  .skill-desc { font-size: 11px; color: #888; line-height: 1.6; margin-bottom: 10px; }
-  .skill-cadence {
-    font-size: 10px; color: #555; font-style: italic;
-  }
-  .skill-file {
-    font-size: 9px; color: #444; font-family: 'Courier New', monospace; margin-top: 8px;
-  }
+  .skill-desc { font-size: 11px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 10px; }
+  .skill-cadence { font-size: 10px; color: var(--color-text-tertiary); font-style: italic; }
+  .skill-file { font-size: 9px; color: var(--color-text-tertiary); font-family: 'Courier New', monospace; margin-top: 8px; }
 
   /* Per-agent improvement cards */
   .kaizen-agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -568,110 +672,102 @@
   @media (max-width: 768px) { .kaizen-agents-grid { grid-template-columns: 1fr; } }
 
   .kaizen-agent-card {
-    background: #252525; border: 1px solid #333; border-radius: 14px; overflow: hidden;
+    background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); overflow: hidden;
   }
   .kaizen-agent-header {
-    padding: 14px 16px 12px; border-bottom: 1px solid #2A2A2A;
+    padding: 14px 16px 12px; border-bottom: 1px solid var(--color-border-subtle);
     display: flex; align-items: center; gap: 10px;
   }
-  .kaizen-agent-name { font-size: 15px; font-weight: 900; }
+  .kaizen-agent-name { font-family: var(--font-display); font-size: 15px; font-weight: 900; text-transform: uppercase; }
   .kaizen-count-badges { margin-left: auto; display: flex; gap: 6px; }
-  .kaizen-badge {
-    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 8px;
-  }
-  .kaizen-badge.pending { background: rgba(230,126,34,0.15); color: #E67E22; border: 1px solid rgba(230,126,34,0.3); }
-  .kaizen-badge.triaged { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
-  .kaizen-badge.none { background: rgba(85,85,85,0.1); color: #444; border: 1px solid #2A2A2A; }
+  .kaizen-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: var(--r-md); }
+  .kaizen-badge.pending { background: rgba(201,122,58,0.15); color: var(--_terra); border: 1px solid rgba(201,122,58,0.30); }
+  .kaizen-badge.triaged { background: var(--color-success-bg); color: var(--color-success-fg); border: 1px solid var(--color-success-bd); }
+  .kaizen-badge.none { background: var(--color-neutral-bg); color: var(--color-text-tertiary); border: 1px solid var(--color-border-subtle); }
 
   .kaizen-agent-body { padding: 14px 16px; }
   .kaizen-entry {
-    padding: 10px 12px; background: #1E1E1E; border-radius: 8px; margin-bottom: 8px;
-    border-left: 2px solid #333;
+    padding: 10px 12px; background: var(--color-surface-sunken); border-radius: var(--r-md); margin-bottom: 8px;
+    border-left: 2px solid var(--color-border-default);
   }
-  .kaizen-entry.pending-entry { border-left-color: #E67E22; }
-  .kaizen-entry.triaged-entry { border-left-color: #2ECC71; }
-  .kaizen-entry-date { font-size: 10px; color: #555; margin-bottom: 4px; font-family: 'Courier New', monospace; }
-  .kaizen-entry-task { font-size: 11px; font-weight: 600; color: #CCC; margin-bottom: 4px; }
-  .kaizen-friction { font-size: 10px; color: #666; margin-bottom: 3px; }
-  .kaizen-suggestion { font-size: 11px; color: #AAA; line-height: 1.4; }
-  .kaizen-suggestion.pending { color: #E67E22; }
-  .kaizen-empty { font-size: 11px; color: #444; font-style: italic; padding: 4px 0; }
+  .kaizen-entry.pending-entry { border-left-color: var(--_terra); }
+  .kaizen-entry.triaged-entry { border-left-color: var(--color-success-fg); }
+  .kaizen-entry-date { font-size: 10px; color: var(--color-text-tertiary); margin-bottom: 4px; font-family: 'Courier New', monospace; }
+  .kaizen-entry-task { font-size: 11px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 4px; }
+  .kaizen-friction { font-size: 10px; color: var(--color-text-tertiary); margin-bottom: 3px; }
+  .kaizen-suggestion { font-size: 11px; color: var(--color-text-secondary); line-height: 1.4; }
+  .kaizen-suggestion.pending { color: var(--_terra); }
+  .kaizen-empty { font-size: 11px; color: var(--color-text-tertiary); font-style: italic; padding: 4px 0; }
   .triaged-tag {
-    display: inline-block; font-size: 9px; padding: 1px 6px; border-radius: 4px;
-    background: rgba(46,204,113,0.1); color: #2ECC71; border: 1px solid rgba(46,204,113,0.2);
+    display: inline-block; font-size: 9px; padding: 1px 6px; border-radius: var(--r-sm);
+    background: var(--color-success-bg); color: var(--color-success-fg); border: 1px solid var(--color-success-bd);
     margin-left: 6px; vertical-align: middle; font-weight: 700;
   }
 
   /* How it works flow */
-  .kaizen-flow {
-    background: #252525; border: 1px solid #333; border-radius: 14px; padding: 24px 28px;
-  }
+  .kaizen-flow { background: var(--color-surface-base); border: 1px solid var(--color-border-default); border-radius: var(--r-lg); padding: 24px 28px; }
   .flow-steps { display: flex; align-items: flex-start; gap: 0; flex-wrap: wrap; }
   .flow-step-item { display: flex; align-items: flex-start; gap: 12px; flex: 1; min-width: 180px; }
   .flow-step-num {
-    width: 28px; height: 28px; border-radius: 50%; background: #333; display: flex;
+    width: 28px; height: 28px; border-radius: 50%; background: var(--color-surface-elevated); display: flex;
     align-items: center; justify-content: center; font-size: 11px; font-weight: 900;
-    color: #3498DB; flex-shrink: 0; margin-top: 2px;
+    color: var(--color-info-fg); flex-shrink: 0; margin-top: 2px;
   }
-  .flow-step-text { font-size: 11px; color: #888; line-height: 1.5; flex: 1; }
-  .flow-step-text strong { color: #CCC; display: block; margin-bottom: 2px; }
-  .flow-step-arrow { font-size: 20px; color: #333; padding: 4px 8px; align-self: center; flex-shrink: 0; }
+  .flow-step-text { font-size: 11px; color: var(--color-text-secondary); line-height: 1.5; flex: 1; }
+  .flow-step-text strong { color: var(--color-text-primary); display: block; margin-bottom: 2px; }
+  .flow-step-arrow { font-size: 20px; color: var(--color-border-default); padding: 4px 8px; align-self: center; flex-shrink: 0; }
   @media (max-width: 900px) { .flow-step-arrow { display: none; } }
 
   ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: #1A1A1A; }
-  ::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+  ::-webkit-scrollbar-track { background: var(--color-surface-page); }
+  ::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 3px; }
 
   /* ─── Tabs ─── */
   .tab-bar {
     display: flex;
     gap: 4px;
     padding: 0 40px;
-    background: #1A1A1A;
-    border-bottom: 2px solid #2A2A2A;
+    background: var(--color-surface-page);
+    border-bottom: 2px solid var(--color-border-subtle);
   }
   .tab-btn {
     padding: 14px 24px;
+    font-family: var(--font-display);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    color: #666;
+    color: var(--color-text-tertiary);
     background: none;
     border: none;
     border-bottom: 3px solid transparent;
     margin-bottom: -2px;
     cursor: pointer;
-    font-family: inherit;
     transition: color 0.15s, border-color 0.15s;
     text-transform: uppercase;
   }
-  .tab-btn:hover { color: #AAA; }
-  .tab-btn.active { color: var(--yellow); border-bottom-color: var(--yellow); }
+  .tab-btn:hover { color: var(--color-text-secondary); }
+  .tab-btn.active { color: var(--color-brand-primary); border-bottom-color: var(--color-brand-primary); }
 
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
 
   /* ─── OrganoGram ─── */
-  .org-wrap {
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  .org-wrap { padding: 40px; max-width: 1200px; margin: 0 auto; }
   .org-apex-row { display: flex; justify-content: center; margin-bottom: 0; }
   .org-apex-node {
-    background: linear-gradient(135deg, var(--yellow), #E6B800);
-    border-radius: 14px;
+    background: var(--color-surface-brand);
+    border-radius: var(--r-lg);
     padding: 18px 40px;
     text-align: center;
     min-width: 260px;
-    box-shadow: 0 6px 24px rgba(245,194,0,0.25);
+    box-shadow: var(--shadow-brand);
   }
-  .org-apex-node .on-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: rgba(0,0,0,0.45); margin-bottom: 4px; }
-  .org-apex-node .on-name { font-size: 22px; font-weight: 900; color: var(--dark); }
-  .org-apex-node .on-role { font-size: 11px; color: rgba(0,0,0,0.55); margin-top: 3px; }
+  .org-apex-node .on-label { font-family: var(--font-display); font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--color-text-on-brand); opacity: 0.6; margin-bottom: 4px; text-transform: uppercase; }
+  .org-apex-node .on-name { font-family: var(--font-display); font-size: 22px; font-weight: 900; color: var(--color-text-on-brand); text-transform: uppercase; }
+  .org-apex-node .on-role { font-size: 11px; color: var(--color-text-on-brand); opacity: 0.65; margin-top: 3px; }
 
   .org-line-down { display: flex; justify-content: center; }
-  .org-line-down::after { content: ''; display: block; width: 2px; height: 32px; background: #444; }
+  .org-line-down::after { content: ''; display: block; width: 2px; height: 32px; background: var(--color-border-strong); }
 
   .org-agents-row {
     display: grid;
@@ -682,29 +778,30 @@
   @media (max-width: 900px) { .org-agents-row { grid-template-columns: repeat(2, 1fr); } }
 
   .org-agent-node {
-    background: #252525;
-    border: 1px solid #333;
-    border-radius: 14px;
+    background: var(--color-surface-base);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--r-lg);
     overflow: hidden;
   }
   .org-agent-header {
     padding: 14px 16px 12px;
-    border-bottom: 1px solid #2A2A2A;
+    border-bottom: 1px solid var(--color-border-subtle);
     display: flex;
     align-items: center;
     gap: 10px;
   }
   .org-accent-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-  .org-agent-name { font-size: 15px; font-weight: 900; letter-spacing: 0.5px; }
-  .org-agent-role { font-size: 10px; color: #666; margin-left: auto; font-weight: 500; }
+  .org-agent-name { font-family: var(--font-display); font-size: 15px; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase; }
+  .org-agent-role { font-size: 10px; color: var(--color-text-tertiary); margin-left: auto; font-weight: 500; }
 
   .org-agent-body { padding: 14px 16px; }
   .org-section-title {
+    font-family: var(--font-display);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #555;
+    color: var(--color-text-tertiary);
     margin-bottom: 8px;
     margin-top: 14px;
   }
@@ -715,28 +812,28 @@
     align-items: flex-start;
     gap: 8px;
     padding: 6px 0;
-    border-bottom: 1px solid #2A2A2A;
+    border-bottom: 1px solid var(--color-border-subtle);
     font-size: 11px;
-    color: #CCC;
+    color: var(--color-text-primary);
     line-height: 1.4;
   }
   .org-link-item:last-child { border-bottom: none; }
-  .org-link-arrow { color: #555; flex-shrink: 0; margin-top: 1px; }
+  .org-link-arrow { color: var(--color-text-tertiary); flex-shrink: 0; margin-top: 1px; }
 
   .org-sched-badge {
     font-size: 9px;
     padding: 1px 6px;
-    border-radius: 4px;
+    border-radius: var(--r-sm);
     font-weight: 700;
     white-space: nowrap;
     flex-shrink: 0;
   }
-  .org-sched-daily { background: rgba(46,204,113,0.15); color: #2ECC71; border: 1px solid rgba(46,204,113,0.3); }
-  .org-sched-weekly { background: rgba(52,152,219,0.15); color: #3498DB; border: 1px solid rgba(52,152,219,0.3); }
-  .org-sched-ondemand { background: rgba(155,89,182,0.15); color: #9B59B6; border: 1px solid rgba(155,89,182,0.3); }
-  .org-sched-triggered { background: rgba(230,126,34,0.15); color: #E67E22; border: 1px solid rgba(230,126,34,0.3); }
+  .org-sched-daily { background: var(--color-success-bg); color: var(--color-success-fg); border: 1px solid var(--color-success-bd); }
+  .org-sched-weekly { background: var(--color-info-bg); color: var(--color-info-fg); border: 1px solid var(--color-info-bd); }
+  .org-sched-ondemand { background: rgba(155,125,191,0.15); color: var(--_violet); border: 1px solid rgba(155,125,191,0.30); }
+  .org-sched-triggered { background: rgba(201,122,58,0.15); color: var(--_terra); border: 1px solid rgba(201,122,58,0.30); }
 
-  .org-empty { font-size: 11px; color: #444; font-style: italic; padding: 4px 0; }
+  .org-empty { font-size: 11px; color: var(--color-text-tertiary); font-style: italic; padding: 4px 0; }
 
   .org-connector-row {
     display: flex;
@@ -749,17 +846,29 @@
     position: absolute;
     top: 0;
     height: 2px;
-    background: #333;
+    background: var(--color-border-default);
     width: calc(66.66% + 20px);
   }
 </style>
 </head>
 <body>
 
+<!-- ─── Theme Bar ─── -->
+<div class="theme-bar">
+  <button onclick="olyTheme('theme-light',this)">Light</button>
+  <button onclick="olyTheme('theme-dark',this)" class="active">Dark</button>
+  <button onclick="olyTheme('theme-brand',this)">Brand</button>
+  <button onclick="olyTheme('theme-navy',this)">Navy</button>
+</div>
+
 <!-- ─── Header ─── -->
 <div class="header">
   <div class="header-left">
-    <div class="logo-badge">OP</div>
+    <svg width="48" height="48" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Olympic Paints">
+      <circle cx="18" cy="18" r="18" fill="#F5C400"/>
+      <text x="18" y="14.5" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="8" fill="#0D0D0B" letter-spacing="0.5">OLYMPIC</text>
+      <text x="18" y="24" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="8" fill="#0D0D0B" letter-spacing="0.5">PAINTS</text>
+    </svg>
     <div class="header-title">
       <h1>Olympic Paints — AI Workspace</h1>
       <p>K &amp; K Paint Manufacturers CC · Agent Capability Dashboard</p>
@@ -776,8 +885,8 @@
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('main')">Main Page</button>
   <button class="tab-btn" onclick="switchTab('organogram')">OrganoGram Workflow</button>
-  <button class="tab-btn" id="kpi-tab-btn" onclick="switchTab('kpi')">KPI Report <span id="kpi-tab-badge" style="display:none;background:#E74C3C;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;vertical-align:middle;font-weight:700;"></span></button>
-  <button class="tab-btn" id="kaizen-tab-btn" onclick="switchTab('kaizen')">Kaizen <span id="kaizen-tab-badge" style="display:none;background:#E67E22;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;vertical-align:middle;font-weight:700;"></span></button>
+  <button class="tab-btn" id="kpi-tab-btn" onclick="switchTab('kpi')">KPI Report <span id="kpi-tab-badge" style="display:none;background:var(--color-danger-fg);color:var(--_g950);font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;vertical-align:middle;font-weight:700;"></span></button>
+  <button class="tab-btn" id="kaizen-tab-btn" onclick="switchTab('kaizen')">Kaizen <span id="kaizen-tab-badge" style="display:none;background:var(--_terra);color:var(--_g950);font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;vertical-align:middle;font-weight:700;"></span></button>
 </div>
 
 <!-- ─── Tab: Main Page ─── -->
@@ -822,7 +931,7 @@
   <!-- ─── Live Task Breakdown ─── -->
   <div class="live-panel">
     <div class="live-panel-title">
-      <span style="color:#E74C3C">●</span> Tasks by Area — Live from Notion
+      <span style="color:var(--color-danger-fg)">●</span> Tasks by Area — Live from Notion
     </div>
     <div class="area-bars" id="area-bars">
       <div class="area-row"><div class="area-name">Loading...</div></div>
@@ -877,7 +986,7 @@
         </ul>
       </div>
       <div class="expandable-content">
-        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+        <div class="agent-body" style="border-top:1px solid var(--color-border-default); padding-top:14px;">
           <div class="agent-section-title">Task Naming Convention</div>
           <ul class="rule-list">
             <li>STRIKER: Follow up on Acme quote</li>
@@ -930,7 +1039,7 @@
         </ul>
       </div>
       <div class="expandable-content">
-        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+        <div class="agent-body" style="border-top:1px solid var(--color-border-default); padding-top:14px;">
           <div class="agent-section-title">JD Output Format</div>
           <ul class="rule-list">
             <li>Node.js + docx library (branded template)</li>
@@ -988,7 +1097,7 @@
         </ul>
       </div>
       <div class="expandable-content">
-        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+        <div class="agent-body" style="border-top:1px solid var(--color-border-default); padding-top:14px;">
           <div class="agent-section-title">SQL Standards</div>
           <ul class="rule-list">
             <li>Use readable CTEs (no deep nesting)</li>
@@ -1034,7 +1143,7 @@
         </ul>
       </div>
       <div class="expandable-content">
-        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+        <div class="agent-body" style="border-top:1px solid var(--color-border-default); padding-top:14px;">
           <div class="agent-section-title">Quote Mandatory Fields</div>
           <ul class="rule-list">
             <li>Product code + volume / pack size</li>
@@ -1088,7 +1197,7 @@
         </ul>
       </div>
       <div class="expandable-content">
-        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+        <div class="agent-body" style="border-top:1px solid var(--color-border-default); padding-top:14px;">
           <div class="agent-section-title">SOP Required Sections (7)</div>
           <ul class="rule-list">
             <li>Purpose · Scope · Responsible Owner</li>
@@ -1136,7 +1245,7 @@
         </ul>
       </div>
       <div class="expandable-content">
-        <div class="agent-body" style="border-top:1px solid #333; padding-top:14px;">
+        <div class="agent-body" style="border-top:1px solid var(--color-border-default); padding-top:14px;">
           <div class="agent-section-title">Campaign Brief Required</div>
           <ul class="rule-list">
             <li>Objective (one sentence)</li>
@@ -1235,8 +1344,8 @@
         <div class="pipeline-step"><div class="step-num">4</div>Send status (OK / Overdue / Warning) via Telegram</div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;">
-        <span class="auto-tag" style="background:rgba(231,76,60,0.15);color:#E74C3C;border:1px solid rgba(231,76,60,0.3);">STRIKER · Weekly Tue 09:30</span>
-        <span id="vehicle-health-status" style="font-size:10px;color:#555;">Loading status...</span>
+        <span class="auto-tag" style="background:var(--color-danger-bg);color:var(--color-danger-fg);border:1px solid var(--color-danger-bd);">STRIKER · Weekly Tue 09:30</span>
+        <span id="vehicle-health-status" style="font-size:10px;color:var(--color-text-tertiary);">Loading status...</span>
       </div>
     </div>
 
@@ -1253,16 +1362,16 @@
     <div class="flow-arrow">→</div>
     <div class="flow-node">Quintus notified<div class="flow-desc">Baseline: Task complete</div></div>
     <div style="flex:1"></div>
-    <div class="flow-node" style="background:rgba(155,89,182,0.1);border:1px solid #9B59B6;color:#9B59B6;min-width:160px;">Two-way channel<div class="flow-desc">Telegram → Workspace</div></div>
-    <div class="flow-arrow" style="color:#9B59B6">⇄</div>
-    <div class="flow-node" style="background:rgba(155,89,182,0.1);border:1px solid #9B59B6;color:#9B59B6;min-width:160px;">Policy: allowlist<div class="flow-desc">Sender 8042233389 only</div></div>
+    <div class="flow-node" style="background:rgba(155,125,191,0.12);border:1px solid var(--_violet);color:var(--_violet);min-width:160px;">Two-way channel<div class="flow-desc">Telegram → Workspace</div></div>
+    <div class="flow-arrow" style="color:var(--_violet)">⇄</div>
+    <div class="flow-node" style="background:rgba(155,125,191,0.12);border:1px solid var(--_violet);color:var(--_violet);min-width:160px;">Policy: allowlist<div class="flow-desc">Sender 8042233389 only</div></div>
   </div>
 
   <!-- ─── PARA ─── -->
   <div class="section-label">PARA Filing Structure</div>
   <div class="para-grid">
     <div class="para-card">
-      <div class="para-letter" style="color:#E74C3C">P</div>
+      <div class="para-letter" style="color:var(--color-danger-fg)">P</div>
       <div class="para-name">Projects</div>
       <div class="para-desc">Time-bound work with a clear, defined outcome. Active until complete, then archived.</div>
       <div class="para-example">1.Projects/ → active campaigns</div>
@@ -1270,7 +1379,7 @@
       <div class="para-example">System rollout initiatives</div>
     </div>
     <div class="para-card">
-      <div class="para-letter" style="color:#E67E22">A</div>
+      <div class="para-letter" style="color:var(--_terra)">A</div>
       <div class="para-name">Areas</div>
       <div class="para-desc">Ongoing responsibilities with no end date. Maintained continuously.</div>
       <div class="para-example">2.Areas/ → OP Automations</div>
@@ -1278,7 +1387,7 @@
       <div class="para-example">2.Areas/14. Sales Admin/</div>
     </div>
     <div class="para-card">
-      <div class="para-letter" style="color:#3498DB">R</div>
+      <div class="para-letter" style="color:var(--color-info-fg)">R</div>
       <div class="para-name">Resources</div>
       <div class="para-desc">Reference material with long-term value. Contracts, SOPs, brand assets, JDs.</div>
       <div class="para-example">3.Resources/ → Contracts</div>
@@ -1286,7 +1395,7 @@
       <div class="para-example">3.Resources/9. Brand Assets/</div>
     </div>
     <div class="para-card">
-      <div class="para-letter" style="color:#888">A</div>
+      <div class="para-letter" style="color:var(--color-text-secondary)">A</div>
       <div class="para-name">Archive</div>
       <div class="para-desc">Completed or inactive items. Never deleted — always archived first. Quintus approval required.</div>
       <div class="para-example">4.Archive/ → completed projects</div>
@@ -1307,7 +1416,7 @@
       <div class="field-row"><span class="field-name">Due Date</span><span class="field-type">date</span></div>
       <div class="field-row"><span class="field-name">MM</span><span class="field-type">relation → Meetings</span></div>
       <div class="field-row"><span class="field-name">Action State</span><span class="field-type">relation</span></div>
-      <div style="margin-top:12px;font-size:10px;color:#555;">Areas: Olympic · Quintus · Timion · Flomatic · GOD<br>Default state: Committed</div>
+      <div style="margin-top:12px;font-size:10px;color:var(--color-text-tertiary);">Areas: Olympic · Quintus · Timion · Flomatic · GOD<br>Default state: Committed</div>
     </div>
     <div class="notion-card">
       <div class="notion-db-name">📄 Document Database</div>
@@ -1318,7 +1427,7 @@
       <div class="field-row"><span class="field-name">Multi-select</span><span class="field-type">multi_select</span></div>
       <div class="field-row"><span class="field-name">Today</span><span class="field-type">checkbox</span></div>
       <div class="field-row"><span class="field-name">Created Time</span><span class="field-type">date</span></div>
-      <div style="margin-top:12px;font-size:10px;color:#555;">Tags: Job Description · SOP<br>Linked: Tasks · Notes · Tags · Meetings · Job Titles</div>
+      <div style="margin-top:12px;font-size:10px;color:var(--color-text-tertiary);">Tags: Job Description · SOP<br>Linked: Tasks · Notes · Tags · Meetings · Job Titles</div>
     </div>
     <div class="notion-card">
       <div class="notion-db-name">🗓️ Meeting Database</div>
@@ -1329,7 +1438,7 @@
       <div class="field-row"><span class="field-name">Area</span><span class="field-type">relation</span></div>
       <div class="field-row"><span class="field-name">Notes</span><span class="field-type">rich_text</span></div>
       <div class="field-row"><span class="field-name">Page body</span><span class="field-type">blocks (API)</span></div>
-      <div style="margin-top:12px;font-size:10px;color:#555;">Extractor reads full block tree via /blocks API<br>Daily: last 24h extraction only</div>
+      <div style="margin-top:12px;font-size:10px;color:var(--color-text-tertiary);">Extractor reads full block tree via /blocks API<br>Daily: last 24h extraction only</div>
     </div>
   </div>
 
@@ -1342,9 +1451,9 @@
         <div class="sys-name">Notion</div>
         <div class="sys-type">Workspace / Database</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(52,152,219,0.2);color:#3498DB;">VAULT</span>
-          <span class="sys-agent-pill" style="background:rgba(46,204,113,0.2);color:#2ECC71;">HAVEN</span>
-          <span class="sys-agent-pill" style="background:rgba(155,89,182,0.2);color:#9B59B6;">PRISM</span>
+          <span class="sys-agent-pill" style="background:rgba(45,107,168,0.20);color:var(--_n500);">VAULT</span>
+          <span class="sys-agent-pill" style="background:rgba(45,140,122,0.20);color:var(--_teal);">HAVEN</span>
+          <span class="sys-agent-pill" style="background:rgba(155,125,191,0.20);color:var(--_violet);">PRISM</span>
         </div>
       </div>
     </div>
@@ -1354,7 +1463,7 @@
         <div class="sys-name">Telegram</div>
         <div class="sys-type">Notifications / Remote Control</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(245,194,0,0.2);color:#F5C200;">ALL AGENTS</span>
+          <span class="sys-agent-pill" style="background:rgba(245,196,0,0.20);color:var(--_y400);">ALL AGENTS</span>
         </div>
       </div>
     </div>
@@ -1364,7 +1473,7 @@
         <div class="sys-name">Zoho CRM</div>
         <div class="sys-type">CRM / Pipeline</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(231,76,60,0.2);color:#E74C3C;">STRIKER</span>
+          <span class="sys-agent-pill" style="background:rgba(232,96,96,0.20);color:var(--_coral);">STRIKER</span>
         </div>
       </div>
     </div>
@@ -1374,8 +1483,8 @@
         <div class="sys-name">Slack</div>
         <div class="sys-type">Team Communication</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(46,204,113,0.2);color:#2ECC71;">HAVEN</span>
-          <span class="sys-agent-pill" style="background:rgba(52,152,219,0.2);color:#3498DB;">VAULT</span>
+          <span class="sys-agent-pill" style="background:rgba(45,140,122,0.20);color:var(--_teal);">HAVEN</span>
+          <span class="sys-agent-pill" style="background:rgba(45,107,168,0.20);color:var(--_n500);">VAULT</span>
         </div>
       </div>
     </div>
@@ -1385,7 +1494,7 @@
         <div class="sys-name">Airtable</div>
         <div class="sys-type">Data / Secondary BI</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(155,89,182,0.2);color:#9B59B6;">PRISM</span>
+          <span class="sys-agent-pill" style="background:rgba(155,125,191,0.20);color:var(--_violet);">PRISM</span>
         </div>
       </div>
     </div>
@@ -1395,8 +1504,8 @@
         <div class="sys-name">n8n</div>
         <div class="sys-type">Workflow Automation</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(245,194,0,0.2);color:#F5C200;">APEX</span>
-          <span class="sys-agent-pill" style="background:rgba(52,152,219,0.2);color:#3498DB;">VAULT</span>
+          <span class="sys-agent-pill" style="background:rgba(245,196,0,0.20);color:var(--_y400);">APEX</span>
+          <span class="sys-agent-pill" style="background:rgba(45,107,168,0.20);color:var(--_n500);">VAULT</span>
         </div>
       </div>
     </div>
@@ -1406,7 +1515,7 @@
         <div class="sys-name">Canva</div>
         <div class="sys-type">Design / Visual</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(245,194,0,0.2);color:#F5C200;">BLAZE</span>
+          <span class="sys-agent-pill" style="background:rgba(245,196,0,0.20);color:var(--_y400);">BLAZE</span>
         </div>
       </div>
     </div>
@@ -1416,7 +1525,7 @@
         <div class="sys-name">Advius Biometric</div>
         <div class="sys-type">Clocking / Attendance</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(46,204,113,0.2);color:#2ECC71;">HAVEN</span>
+          <span class="sys-agent-pill" style="background:rgba(45,140,122,0.20);color:var(--_teal);">HAVEN</span>
         </div>
       </div>
     </div>
@@ -1426,7 +1535,7 @@
         <div class="sys-name">AWS QuickSight</div>
         <div class="sys-type">BI Dashboard</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(155,89,182,0.2);color:#9B59B6;">PRISM</span>
+          <span class="sys-agent-pill" style="background:rgba(155,125,191,0.20);color:var(--_violet);">PRISM</span>
         </div>
       </div>
     </div>
@@ -1436,7 +1545,7 @@
         <div class="sys-name">Claude API (Haiku)</div>
         <div class="sys-type">AI Extraction Engine</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(52,152,219,0.2);color:#3498DB;">VAULT</span>
+          <span class="sys-agent-pill" style="background:rgba(45,107,168,0.20);color:var(--_n500);">VAULT</span>
         </div>
       </div>
     </div>
@@ -1446,8 +1555,8 @@
         <div class="sys-name">Zoho Books</div>
         <div class="sys-type">Accounting / Finance</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(231,76,60,0.2);color:#E74C3C;">STRIKER</span>
-          <span class="sys-agent-pill" style="background:rgba(245,194,0,0.2);color:#F5C200;">APEX</span>
+          <span class="sys-agent-pill" style="background:rgba(232,96,96,0.20);color:var(--_coral);">STRIKER</span>
+          <span class="sys-agent-pill" style="background:rgba(245,196,0,0.20);color:var(--_y400);">APEX</span>
         </div>
       </div>
     </div>
@@ -1457,8 +1566,8 @@
         <div class="sys-name">JotForm / PAD</div>
         <div class="sys-type">Forms / Data Capture</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(231,76,60,0.2);color:#E74C3C;">STRIKER</span>
-          <span class="sys-agent-pill" style="background:rgba(46,204,113,0.2);color:#2ECC71;">HAVEN</span>
+          <span class="sys-agent-pill" style="background:rgba(232,96,96,0.20);color:var(--_coral);">STRIKER</span>
+          <span class="sys-agent-pill" style="background:rgba(45,140,122,0.20);color:var(--_teal);">HAVEN</span>
         </div>
       </div>
     </div>
@@ -1468,7 +1577,7 @@
         <div class="sys-name">Outlook</div>
         <div class="sys-type">Email / Notifications</div>
         <div class="sys-used-by">
-          <span class="sys-agent-pill" style="background:rgba(46,204,113,0.2);color:#2ECC71;">HAVEN</span>
+          <span class="sys-agent-pill" style="background:rgba(45,140,122,0.20);color:var(--_teal);">HAVEN</span>
         </div>
       </div>
     </div>
@@ -1478,39 +1587,39 @@
   <div class="section-label">Escalation Rules — All Agents</div>
   <div class="escalation-grid">
     <div class="esc-card">
-      <div class="esc-agent" style="color:#3498DB">VAULT</div>
+      <div class="esc-agent color-vault">VAULT</div>
       <div class="esc-rule"><span class="esc-trigger">Ambiguous PARA classification</span><span class="esc-dest">→ Quintus</span></div>
       <div class="esc-rule"><span class="esc-trigger">Deletion request (folder with files)</span><span class="esc-dest">→ Quintus</span></div>
       <div class="esc-rule"><span class="esc-trigger">Tasks with no clear owner</span><span class="esc-dest">→ APEX</span></div>
     </div>
     <div class="esc-card">
-      <div class="esc-agent" style="color:#2ECC71">HAVEN</div>
+      <div class="esc-agent color-haven">HAVEN</div>
       <div class="esc-rule"><span class="esc-trigger">Payroll decisions</span><span class="esc-dest">→ Quintus</span></div>
       <div class="esc-rule"><span class="esc-trigger">Disciplinary matters</span><span class="esc-dest">→ Quintus</span></div>
       <div class="esc-rule"><span class="esc-trigger">Missing or corrupt YTD file</span><span class="esc-dest">→ Quintus (halt)</span></div>
     </div>
     <div class="esc-card">
-      <div class="esc-agent" style="color:#9B59B6">PRISM</div>
+      <div class="esc-agent color-prism">PRISM</div>
       <div class="esc-rule"><span class="esc-trigger">Data access / credential issues (ops)</span><span class="esc-dest">→ SIGMA</span></div>
       <div class="esc-rule"><span class="esc-trigger">External system credentials</span><span class="esc-dest">→ Quintus</span></div>
       <div class="esc-rule"><span class="esc-trigger">Finding indicating significant business risk</span><span class="esc-dest">→ Quintus</span></div>
     </div>
     <div class="esc-card">
-      <div class="esc-agent" style="color:#E74C3C">STRIKER</div>
+      <div class="esc-agent color-striker">STRIKER</div>
       <div class="esc-rule"><span class="esc-trigger">Pricing outside standard band</span><span class="esc-dest">→ Quintus (before quoting)</span></div>
       <div class="esc-rule"><span class="esc-trigger">Non-standard payment terms</span><span class="esc-dest">→ Quintus</span></div>
       <div class="esc-rule"><span class="esc-trigger">Stockist disputes / account issues</span><span class="esc-dest">→ Quintus</span></div>
       <div class="esc-rule"><span class="esc-trigger">Deals stale &gt;60 days</span><span class="esc-dest">→ Quintus</span></div>
     </div>
     <div class="esc-card">
-      <div class="esc-agent" style="color:#E67E22">SIGMA</div>
+      <div class="esc-agent color-sigma">SIGMA</div>
       <div class="esc-rule"><span class="esc-trigger">Production delays &gt;24h</span><span class="esc-dest">→ Quintus (immediate)</span></div>
       <div class="esc-rule"><span class="esc-trigger">Supplier issues</span><span class="esc-dest">→ Quintus</span></div>
       <div class="esc-rule"><span class="esc-trigger">Stock discrepancy &gt;5%</span><span class="esc-dest">→ Quintus (before adjust)</span></div>
       <div class="esc-rule"><span class="esc-trigger">Safety incident on factory floor</span><span class="esc-dest">→ Quintus (immediate)</span></div>
     </div>
     <div class="esc-card">
-      <div class="esc-agent" style="color:#F5C200">BLAZE</div>
+      <div class="esc-agent color-blaze">BLAZE</div>
       <div class="esc-rule"><span class="esc-trigger">Budget &amp; ad spend decisions</span><span class="esc-dest">→ Quintus (sign-off)</span></div>
       <div class="esc-rule"><span class="esc-trigger">Paid promotions scheduling</span><span class="esc-dest">→ Quintus</span></div>
       <div class="esc-rule"><span class="esc-trigger">Regulatory product claims</span><span class="esc-dest">→ Quintus (review)</span></div>
@@ -1576,8 +1685,8 @@
       <!-- VAULT -->
       <div class="org-agent-node">
         <div class="org-agent-header">
-          <div class="org-accent-dot" style="background:#3498DB"></div>
-          <div class="org-agent-name" style="color:#3498DB">VAULT</div>
+          <div class="org-accent-dot accent-vault"></div>
+          <div class="org-agent-name color-vault">VAULT</div>
           <div class="org-agent-role">Admin &amp; Filing</div>
         </div>
         <div class="org-agent-body">
@@ -1619,8 +1728,8 @@
       <!-- HAVEN -->
       <div class="org-agent-node">
         <div class="org-agent-header">
-          <div class="org-accent-dot" style="background:#2ECC71"></div>
-          <div class="org-agent-name" style="color:#2ECC71">HAVEN</div>
+          <div class="org-accent-dot accent-haven"></div>
+          <div class="org-agent-name color-haven">HAVEN</div>
           <div class="org-agent-role">HR &amp; People Ops</div>
         </div>
         <div class="org-agent-body">
@@ -1652,8 +1761,8 @@
       <!-- PRISM -->
       <div class="org-agent-node">
         <div class="org-agent-header">
-          <div class="org-accent-dot" style="background:#9B59B6"></div>
-          <div class="org-agent-name" style="color:#9B59B6">PRISM</div>
+          <div class="org-accent-dot accent-prism"></div>
+          <div class="org-agent-name color-prism">PRISM</div>
           <div class="org-agent-role">Analytics &amp; BI</div>
         </div>
         <div class="org-agent-body">
@@ -1664,8 +1773,8 @@
       <!-- STRIKER -->
       <div class="org-agent-node">
         <div class="org-agent-header">
-          <div class="org-accent-dot" style="background:#E74C3C"></div>
-          <div class="org-agent-name" style="color:#E74C3C">STRIKER</div>
+          <div class="org-accent-dot accent-striker"></div>
+          <div class="org-agent-name color-striker">STRIKER</div>
           <div class="org-agent-role">Sales &amp; CRM</div>
         </div>
         <div class="org-agent-body">
@@ -1681,8 +1790,8 @@
       <!-- SIGMA -->
       <div class="org-agent-node">
         <div class="org-agent-header">
-          <div class="org-accent-dot" style="background:#E67E22"></div>
-          <div class="org-agent-name" style="color:#E67E22">SIGMA</div>
+          <div class="org-accent-dot accent-sigma"></div>
+          <div class="org-agent-name color-sigma">SIGMA</div>
           <div class="org-agent-role">Operations</div>
         </div>
         <div class="org-agent-body">
@@ -1693,8 +1802,8 @@
       <!-- BLAZE -->
       <div class="org-agent-node">
         <div class="org-agent-header">
-          <div class="org-accent-dot" style="background:#F5C200"></div>
-          <div class="org-agent-name" style="color:#F5C200">BLAZE</div>
+          <div class="org-accent-dot accent-blaze"></div>
+          <div class="org-agent-name color-blaze">BLAZE</div>
           <div class="org-agent-role">Marketing</div>
         </div>
         <div class="org-agent-body">
@@ -1705,8 +1814,8 @@
     </div><!-- /org-agents-row -->
 
     <!-- KPI Dashboard note (APEX-level, no single agent) -->
-    <div style="margin-top:32px;background:#252525;border:1px solid #333;border-radius:14px;padding:20px 24px;">
-      <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#555;margin-bottom:12px;">APEX-Level Automation</div>
+    <div style="margin-top:32px;background:var(--color-surface-base);border:1px solid var(--color-border-default);border-radius:var(--r-lg);padding:20px 24px;">
+      <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:12px;">APEX-Level Automation</div>
       <div class="org-link-item">
         <span class="org-link-arrow">›</span>
         <span>KPI Dashboard Auto-Update — reads Sales_Summary PDFs, regenerates KPI Dashboard.html, commits &amp; pushes to GitHub</span>
@@ -1748,20 +1857,20 @@
   <div class="kpi-section-label">Headline Metrics — Latest Week</div>
   <div class="kpi-headline-grid" id="kpi-headline-grid">
     <div class="kpi-metric-card"><div class="kpi-metric-label">MTD Sales</div><div class="kpi-metric-value" id="km-sales">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" id="km-sales-bar" style="width:0%"></div></div><div class="kpi-metric-delta" id="km-sales-delta">—</div></div>
-    <div class="kpi-metric-card"><div class="kpi-metric-label">Outstanding Debtors</div><div class="kpi-metric-value" id="km-debtors">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" style="width:100%;background:#E74C3C"></div></div><div class="kpi-metric-delta red" id="km-debtors-delta">—</div></div>
-    <div class="kpi-metric-card"><div class="kpi-metric-label">Rock Bottom % (avg)</div><div class="kpi-metric-value" id="km-rb">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" id="km-rb-bar" style="width:0%;background:#E67E22"></div></div><div class="kpi-metric-delta amber" id="km-rb-delta">—</div></div>
-    <div class="kpi-metric-card"><div class="kpi-metric-label">YOY Growth (Apr)</div><div class="kpi-metric-value" id="km-yoy">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" id="km-yoy-bar" style="width:60%;background:#2ECC71"></div></div><div class="kpi-metric-delta green" id="km-yoy-delta">vs Apr 2025</div></div>
-    <div class="kpi-metric-card"><div class="kpi-metric-label">% Overdue &gt;60 Days</div><div class="kpi-metric-value" id="km-overdue">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" id="km-overdue-bar" style="width:0%;background:#E74C3C"></div></div><div class="kpi-metric-delta red">Target: &lt;10%</div></div>
-    <div class="kpi-metric-card"><div class="kpi-metric-label">E-Commerce Orders</div><div class="kpi-metric-value" id="km-ecom">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" style="width:55%;background:#3498DB"></div></div><div class="kpi-metric-delta muted">Open orders in system</div></div>
-    <div class="kpi-metric-card"><div class="kpi-metric-label">Debtors &gt;90 Days</div><div class="kpi-metric-value" id="km-d90">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" style="width:100%;background:#E74C3C"></div></div><div class="kpi-metric-delta red">Requires collections action</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">Outstanding Debtors</div><div class="kpi-metric-value" id="km-debtors">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" style="width:100%;background:var(--_coral)"></div></div><div class="kpi-metric-delta red" id="km-debtors-delta">—</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">Rock Bottom % (avg)</div><div class="kpi-metric-value" id="km-rb">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" id="km-rb-bar" style="width:0%;background:var(--_terra)"></div></div><div class="kpi-metric-delta amber" id="km-rb-delta">—</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">YOY Growth (Apr)</div><div class="kpi-metric-value" id="km-yoy">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" id="km-yoy-bar" style="width:60%;background:var(--_teal)"></div></div><div class="kpi-metric-delta green" id="km-yoy-delta">vs Apr 2025</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">% Overdue &gt;60 Days</div><div class="kpi-metric-value" id="km-overdue">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" id="km-overdue-bar" style="width:0%;background:var(--_coral)"></div></div><div class="kpi-metric-delta red">Target: &lt;10%</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">E-Commerce Orders</div><div class="kpi-metric-value" id="km-ecom">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" style="width:55%;background:var(--_n500)"></div></div><div class="kpi-metric-delta muted">Open orders in system</div></div>
+    <div class="kpi-metric-card"><div class="kpi-metric-label">Debtors &gt;90 Days</div><div class="kpi-metric-value" id="km-d90">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" style="width:100%;background:var(--_coral)"></div></div><div class="kpi-metric-delta red">Requires collections action</div></div>
     <div class="kpi-metric-card"><div class="kpi-metric-label">Monthly Target</div><div class="kpi-metric-value" id="km-target">—</div><div class="kpi-metric-bar"><div class="kpi-metric-bar-fill" style="width:100%;background:#555"></div></div><div class="kpi-metric-delta muted" id="km-target-gap">—</div></div>
   </div>
 
   <!-- KPI Agreement Scorecard -->
   <div class="kpi-section-label">KPI Agreement Scorecard — What Can Be Scored</div>
   <div class="kpi-cat-grid" id="kpi-cat-grid">
-    <div class="kpi-metric-card" style="grid-column:1/-1;background:#1A1A1A;border-color:#333;padding:12px 16px;">
-      <span style="font-size:11px;color:#555;">Loading KPI categories...</span>
+    <div class="kpi-metric-card" style="grid-column:1/-1;background:var(--color-surface-sunken);border-color:var(--color-border-default);padding:12px 16px;">
+      <span style="font-size:11px;color:var(--color-text-tertiary);">Loading KPI categories...</span>
     </div>
   </div>
 
@@ -1785,30 +1894,30 @@
         </tr>
       </thead>
       <tbody id="kpi-rep-tbody">
-        <tr><td colspan="11" style="color:#555;padding:16px;">Loading rep data...</td></tr>
+        <tr><td colspan="11" style="color:var(--color-text-tertiary);padding:16px;">Loading rep data...</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:10px;color:#444;margin-top:8px;">KPI A scored from QuickSight sales data. KPIs B–E require CRM, store visit, and training data — see Data Gaps below.</p>
+  <p style="font-size:10px;color:var(--color-text-tertiary);margin-top:8px;">KPI A scored from QuickSight sales data. KPIs B–E require CRM, store visit, and training data — see Data Gaps below.</p>
 
   <!-- Data Gaps -->
   <div class="kpi-section-label">Data Gaps — What Is Needed to Complete KPI Scoring</div>
   <div class="kpi-gap-grid" id="kpi-gap-grid">
-    <div class="kpi-metric-card" style="background:#1A1A1A;border-color:#333;padding:12px 16px;">
-      <span style="font-size:11px;color:#555;">Loading data gaps...</span>
+    <div class="kpi-metric-card" style="background:var(--color-surface-sunken);border-color:var(--color-border-default);padding:12px 16px;">
+      <span style="font-size:11px;color:var(--color-text-tertiary);">Loading data gaps...</span>
     </div>
   </div>
 
   <!-- Risk Items -->
   <div class="kpi-section-label">Current Risk Items</div>
   <div class="kpi-risk-list" id="kpi-risk-list">
-    <div class="kpi-risk-item" style="border-left-color:#333;color:#555;">Loading...</div>
+    <div class="kpi-risk-item" style="border-left-color:var(--color-border-default);color:var(--color-text-tertiary);">Loading...</div>
   </div>
 
   <!-- Update History -->
   <div class="kpi-section-label">Update History</div>
   <div id="kpi-history-list">
-    <div style="font-size:11px;color:#555;padding:8px 0;">Loading history...</div>
+    <div style="font-size:11px;color:var(--color-text-tertiary);padding:8px 0;">Loading history...</div>
   </div>
 
   <div class="footer" style="margin-top:32px;">
@@ -1849,12 +1958,12 @@
     <div class="flow-steps">
       <div class="flow-step-item">
         <div class="flow-step-num">1</div>
-        <div class="flow-step-text"><strong>Agent completes a task</strong>If non-trivial, appends a learning entry to its <code style="font-size:9px;color:#3498DB;">## Accumulated Learnings</code> block — TASK, FRICTION, SUGGESTION.</div>
+        <div class="flow-step-text"><strong>Agent completes a task</strong>If non-trivial, appends a learning entry to its <code style="font-size:9px;color:var(--color-info-fg);">## Accumulated Learnings</code> block — TASK, FRICTION, SUGGESTION.</div>
       </div>
       <div class="flow-step-arrow">›</div>
       <div class="flow-step-item">
         <div class="flow-step-num">2</div>
-        <div class="flow-step-text"><strong>Every Monday — /kaizen</strong>VAULT reads all 6 agent profiles, extracts unprocessed suggestions, creates Notion tasks tagged <code style="font-size:9px;color:#E67E22;">[Agent Improvement]</code>.</div>
+        <div class="flow-step-text"><strong>Every Monday — /kaizen</strong>VAULT reads all 6 agent profiles, extracts unprocessed suggestions, creates Notion tasks tagged <code style="font-size:9px;color:var(--_terra);">[Agent Improvement]</code>.</div>
       </div>
       <div class="flow-step-arrow">›</div>
       <div class="flow-step-item">
@@ -1877,24 +1986,33 @@
   <!-- Skills Registry -->
   <div class="kaizen-section-label">Skills Registry — CI Loop Skills</div>
   <div class="skills-grid" id="kz-skills-grid">
-    <div style="font-size:11px;color:#555;padding:8px 0;">Loading skills...</div>
+    <div style="font-size:11px;color:var(--color-text-tertiary);padding:8px 0;">Loading skills...</div>
   </div>
 
   <!-- Per-Agent Improvement Log -->
   <div class="kaizen-section-label">Per-Agent Improvement Log</div>
   <div class="kaizen-agents-grid" id="kz-agents-grid">
-    <div style="font-size:11px;color:#555;padding:8px 0;">Loading agent learnings...</div>
+    <div style="font-size:11px;color:var(--color-text-tertiary);padding:8px 0;">Loading agent learnings...</div>
   </div>
 
   <div class="footer" style="margin-top:32px;">
     <div class="footer-left">Kaizen data sourced from: agent profile memory files · Refresh: run <code style="font-size:10px;">generate_kaizen_status.py</code></div>
-    <div class="footer-right" id="kz-generated-at" style="color:#555;"></div>
+    <div class="footer-right" id="kz-generated-at" style="color:var(--color-text-tertiary);"></div>
   </div>
 
 </div>
 </div><!-- /tab-kaizen -->
 
 <script>
+  // ─── Theme toggle ─────────────────────────────────────────────────────────
+  const OLY_THEMES=['theme-light','theme-dark','theme-brand','theme-navy'];
+  function olyTheme(t,btn){
+    document.documentElement.classList.remove(...OLY_THEMES);
+    document.documentElement.classList.add(t);
+    localStorage.setItem('oly-theme',t);
+    document.querySelectorAll('.theme-bar button').forEach(b=>b.classList.toggle('active',b===btn));
+  }
+
   // ─── Tab switching ────────────────────────────────────────────────────────
   function switchTab(name) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -1972,7 +2090,7 @@
     if (sales && target) {
       const pct = Math.min(sales/target*100, 100);
       setStyle('km-sales-bar', 'width', pct + '%');
-      setStyle('km-sales-bar', 'background', h.mtd_pct >= 0 ? '#2ECC71' : '#E67E22');
+      setStyle('km-sales-bar', 'background', h.mtd_pct >= 0 ? '#2D8C7A' : '#C97A3A');
     }
     if (h.above_rb_avg && h.above_rb_target) {
       setStyle('km-rb-bar', 'width', Math.min(h.above_rb_avg/h.above_rb_target*100, 100) + '%');
@@ -2014,7 +2132,7 @@
           : '—';
         const noData = '<span class="kpi-badge nodata">⚠ No data</span>';
         return `<tr>
-          <td>${r.code}<br><span style="font-size:10px;color:#666;font-weight:400;">${r.name}</span></td>
+          <td>${r.code}<br><span style="font-size:10px;color:var(--color-text-tertiary);font-weight:400;">${r.name}</span></td>
           <td>${fmtR(r.sales)}</td>
           <td>${tgtStr}</td>
           <td>${vsTarget}</td>
@@ -2099,14 +2217,14 @@
     btn.textContent = card.classList.contains('expanded') ? '▴ Less' : '▾ More details';
   }
 
-  // ─── Area bar colours ─────────────────────────────────────────────────────
+  // ─── Area bar colours — OP design system raw token values ────────────────
   const areaColors = {
-    Olympic:    '#F5C200',
-    Timion:     '#3498DB',
-    Quintus:    '#9B59B6',
-    Flomatic:   '#2ECC71',
-    GOD:        '#E74C3C',
-    Unassigned: '#555555',
+    Olympic:    '#F5C400',  // --_y400
+    Timion:     '#2D6BA8',  // --_n500
+    Quintus:    '#9B7DBF',  // --_violet
+    Flomatic:   '#2D8C7A',  // --_teal
+    GOD:        '#E86060',  // --_coral
+    Unassigned: '#5C6B7A',  // --_ink
   };
 
   // ─── Inject live stats from stats.json ───────────────────────────────────
@@ -2143,7 +2261,7 @@
       const vhEl = document.getElementById('vehicle-health-status');
       if (vhEl && data.vehicle_report_health) {
         const vh = data.vehicle_report_health;
-        const statusColors = { OK: '#2ECC71', OVERDUE: '#E74C3C', WARNING: '#E67E22', ERROR: '#E74C3C', UNKNOWN: '#555' };
+        const statusColors = { OK: '#2D8C7A', OVERDUE: '#E86060', WARNING: '#C97A3A', ERROR: '#E86060', UNKNOWN: '#5C6B7A' };
         const col = statusColors[vh.status] || '#555';
         vhEl.innerHTML = `<span style="color:${col};font-weight:700;">● ${vh.status}</span> · Last run: ${vh.last_run || '—'} · Data: ${vh.latest_file || '—'}`;
         const card = document.getElementById('vehicle-health-card');
@@ -2172,7 +2290,7 @@
               </div>`;
           }).join('');
       } else if (container) {
-        container.innerHTML = '<div style="font-size:11px;color:#555;padding:4px 0;">No task data available yet.</div>';
+        container.innerHTML = '<div style="font-size:11px;color:var(--color-text-tertiary);padding:4px 0;">No task data available yet.</div>';
       }
     })
     .catch(err => {
@@ -2180,7 +2298,7 @@
       const upd = document.getElementById('updated-pill');
       if (upd) upd.textContent = 'Stats unavailable';
       const bars = document.getElementById('area-bars');
-      if (bars) bars.innerHTML = '<div style="font-size:11px;color:#555;padding:4px 0;">Run generate_stats.py to populate live data.</div>';
+      if (bars) bars.innerHTML = '<div style="font-size:11px;color:var(--color-text-tertiary);padding:4px 0;">Run generate_stats.py to populate live data.</div>';
     });
 
   // ─── Kaizen status loader ─────────────────────────────────────────────────
@@ -2210,7 +2328,7 @@
     const skillsGrid = document.getElementById('kz-skills-grid');
     if (skillsGrid && skills.length) {
       skillsGrid.innerHTML = skills.map(sk => {
-        const ownerColor = {VAULT:'#3498DB',HAVEN:'#2ECC71',PRISM:'#9B59B6',STRIKER:'#E74C3C',SIGMA:'#E67E22',BLAZE:'#F5C200'}[sk.owner] || '#888';
+        const ownerColor = {VAULT:'#2D6BA8',HAVEN:'#2D8C7A',PRISM:'#9B7DBF',STRIKER:'#E86060',SIGMA:'#C97A3A',BLAZE:'#F5C400'}[sk.owner] || '#5C6B7A';
         return `
           <div class="skill-card">
             <div class="skill-invoke">${escHtml(sk.invoke)}</div>
@@ -2275,9 +2393,9 @@
     .catch(err => {
       console.warn('Could not load kaizen status:', err.message);
       const sg = document.getElementById('kz-skills-grid');
-      if (sg) sg.innerHTML = '<div style="font-size:11px;color:#555;padding:8px 0;">Run generate_kaizen_status.py to populate data.</div>';
+      if (sg) sg.innerHTML = '<div style="font-size:11px;color:var(--color-text-tertiary);padding:8px 0;">Run generate_kaizen_status.py to populate data.</div>';
       const ag = document.getElementById('kz-agents-grid');
-      if (ag) ag.innerHTML = '<div style="font-size:11px;color:#555;padding:8px 0;">No data — run generate_kaizen_status.py first.</div>';
+      if (ag) ag.innerHTML = '<div style="font-size:11px;color:var(--color-text-tertiary);padding:8px 0;">No data — run generate_kaizen_status.py first.</div>';
     });
 </script>
 </body>
