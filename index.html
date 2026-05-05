@@ -1081,6 +1081,7 @@
       <div class="agent-body">
         <div class="agent-section-title">Domain</div>
         <div class="tag-list">
+          <span class="tag">KPI Sales Dashboard</span>
           <span class="tag">QuickSight</span>
           <span class="tag">SQL / Athena</span>
           <span class="tag">Excel / Power Query</span>
@@ -1110,6 +1111,13 @@
             <li>Notion — operational metrics</li>
             <li>Airtable — secondary (activated when needed)</li>
             <li>n8n data tables — automation data</li>
+          </ul>
+          <div class="agent-section-title">Managed Dashboards</div>
+          <ul class="rule-list">
+            <li>KPI Sales Dashboard — build_kpi_dashboard.py → GitHub Pages (daily auto-update 07:00)</li>
+            <li>Source: Weekly_Sales_Report__*.pdf (QuickSight export) from KPI Report/Weekly Progress/</li>
+            <li>Tracks: MTD sales, target %, debtors, 60d overdue, rock bottom %, YoY, rep performance</li>
+            <li>Data is manually entered from PDFs — QuickSight renders charts as images, not extractable text</li>
           </ul>
         </div>
       </div>
@@ -1336,17 +1344,21 @@
     </div>
 
     <div class="automation-card">
-      <div class="auto-icon" style="background:rgba(155,89,182,0.15)">📊</div>
-      <div class="auto-name">KPI Dashboard Auto-Update</div>
+      <div class="auto-icon" style="background:rgba(155,125,191,0.15)">📊</div>
+      <div class="auto-name">KPI Sales Dashboard Auto-Update</div>
       <div class="auto-file">1.Projects/AWS Data/build_kpi_dashboard.py</div>
-      <div class="auto-desc">Reads all Sales_Summary_*.pdf snapshots from the Daily Reports Archive, extracts KPI data, regenerates KPI Dashboard.html, then commits and pushes to GitHub. Runs daily to keep the live sales dashboard current.</div>
+      <div class="auto-desc">PRISM-owned pipeline. Reads <strong style="color:var(--color-text-primary)">Weekly_Sales_Report__*.pdf</strong> files from KPI Report/Weekly Progress/, extracts manually-entered KPI data (QuickSight renders as images — no text extraction), regenerates KPI Dashboard.html with rep performance, YoY trends, rock bottom %, debtor aging, and e-commerce open orders, then commits and pushes to GitHub Pages. Note: <strong style="color:var(--color-text-primary)">Daily_Sales_Report_P_*.pdf</strong> is a debtor aging view for accounts — not a KPI data source.</div>
       <div class="pipeline-steps">
-        <div class="pipeline-step"><div class="step-num">1</div>Scan Daily Reports Archive for PDF snapshots</div>
-        <div class="pipeline-step"><div class="step-num">2</div>Extract KPI data via pdfplumber</div>
-        <div class="pipeline-step"><div class="step-num">3</div>Regenerate KPI Dashboard.html</div>
-        <div class="pipeline-step"><div class="step-num">4</div>Commit &amp; push to GitHub (auto-deploy)</div>
+        <div class="pipeline-step"><div class="step-num">1</div>Scan Weekly Progress/ for Weekly_Sales_Report__*.pdf (not daily PDFs)</div>
+        <div class="pipeline-step"><div class="step-num">2</div>Data manually entered into REPORT_WEEK, MTD_SALES, REPS, YOY, RB_BY_PRODUCT blocks</div>
+        <div class="pipeline-step"><div class="step-num">3</div>Regenerate index.html with all KPI sections + risk items + data gaps</div>
+        <div class="pipeline-step"><div class="step-num">4</div>Write kpi_status.json to workspace-dashboard/ for live feed on this dashboard</div>
+        <div class="pipeline-step"><div class="step-num">5</div>Commit &amp; push to olympic-paints-kpi repo (GitHub Pages auto-deploy)</div>
       </div>
-      <div><span class="auto-tag auto-tag-daily">Daily @ 07:00 SAST</span></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center;">
+        <span class="auto-tag auto-tag-daily">Daily 07:00 SAST · PRISM</span>
+        <a href="https://flomaticauto.github.io/olympic-paints-kpi/" target="_blank" style="font-size:10px;color:var(--color-brand-primary);text-decoration:none;font-weight:600;">Live Dashboard →</a>
+      </div>
     </div>
 
     <div class="automation-card" id="vehicle-health-card">
@@ -1411,7 +1423,6 @@
           <div class="sys-type">Daily @ 07:00 · build_kpi_dashboard.py</div>
           <div class="sys-used-by" style="margin-top:8px;">
             <span class="sys-agent-pill" style="background:rgba(155,125,191,0.20);color:var(--_violet);">PRISM</span>
-            <span class="sys-agent-pill" style="background:rgba(245,196,0,0.20);color:var(--_y400);">APEX</span>
           </div>
         </div>
       </div>
@@ -1882,7 +1893,23 @@
           <div class="org-agent-role">Analytics &amp; BI</div>
         </div>
         <div class="org-agent-body">
-          <div class="org-empty">No scheduled tasks or actions allocated to this agent.</div>
+          <div class="org-section-title">Scheduled Actions</div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>build_kpi_dashboard.py — reads Weekly_Sales_Report__*.pdf from KPI Report/Weekly Progress/, extracts KPI data, regenerates KPI Sales Dashboard, commits &amp; pushes to GitHub Pages</span>
+            <span class="org-sched-badge org-sched-daily">Daily 07:00</span>
+          </div>
+          <div class="org-section-title">Linked Tasks</div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>KPI analysis, QuickSight queries, YoY/MoM reports, rep performance breakdowns — triggered via /prism</span>
+            <span class="org-sched-badge org-sched-triggered">Triggered</span>
+          </div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>Weekly KPI report update — manually enter new PDF data into build_kpi_dashboard.py data block, run script</span>
+            <span class="org-sched-badge org-sched-weekly">Weekly (manual)</span>
+          </div>
         </div>
       </div>
 
@@ -1950,7 +1977,7 @@
       <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:12px;">Windows Task Scheduler — Active Tasks</div>
       <div class="org-link-item">
         <span class="org-link-arrow">›</span>
-        <span><strong style="color:var(--_y400)">\OlympicPaints_KPI_Dashboard_Update</strong> — build_kpi_dashboard.py — reads Weekly_Sales_Report__*.pdf, regenerates KPI dashboard, commits &amp; pushes to GitHub Pages</span>
+        <span><strong style="color:var(--_violet)">\OlympicPaints_KPI_Dashboard_Update</strong> — build_kpi_dashboard.py <span style="font-size:9px;background:rgba(155,125,191,0.15);color:var(--_violet);border:1px solid rgba(155,125,191,0.30);padding:1px 5px;border-radius:3px;font-weight:700;">PRISM</span> — reads Weekly_Sales_Report__*.pdf, regenerates KPI dashboard, commits &amp; pushes to GitHub Pages</span>
         <span class="org-sched-badge org-sched-daily">Daily 07:00 SAST</span>
       </div>
       <div class="org-link-item" style="margin-top:4px;">
