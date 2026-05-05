@@ -914,15 +914,15 @@
     <div class="stat">
       <div class="stat-num">6</div>
       <div class="stat-label">Specialist Agents</div>
-      <div class="stat-sub">+ 1 orchestrator</div>
+      <div class="stat-sub">+ 1 orchestrator (APEX)</div>
     </div>
     <div class="stat">
-      <div class="stat-num">5</div>
+      <div class="stat-num">8</div>
       <div class="stat-label">Automation Scripts</div>
-      <div class="stat-sub">daily + on-demand</div>
+      <div class="stat-sub">scheduled + on-demand</div>
     </div>
     <div class="stat">
-      <div class="stat-num">13</div>
+      <div class="stat-num">14</div>
       <div class="stat-label">Integrations</div>
       <div class="stat-sub">connected systems</div>
     </div>
@@ -1187,6 +1187,8 @@
           <span class="tag">Inventory</span>
           <span class="tag">Production Planning</span>
           <span class="tag">Supplier Coordination</span>
+          <span class="tag">Returns KPI System</span>
+          <span class="tag">Vehicle Analytics</span>
         </div>
         <div class="agent-section-title">Non-Negotiable Rules</div>
         <ul class="rule-list">
@@ -1211,6 +1213,21 @@
             <li>Product code + description</li>
             <li>Quantity · Driver name</li>
             <li>Proof of delivery reference</li>
+          </ul>
+          <div class="agent-section-title">Returns KPI System</div>
+          <ul class="rule-list">
+            <li>returns_app.py — Streamlit UI for review + reporting</li>
+            <li>ingest_returns_scan.py — DocA handwritten scan ingestion</li>
+            <li>returns_db.py — SQLite: line items, batches, deliveries, KPIs</li>
+            <li>DocC tracking: update_batch_status() (never add_batch_record)</li>
+            <li>Run: Start Returns Dashboard.bat</li>
+          </ul>
+          <div class="agent-section-title">Vehicle Analytics Pipeline</div>
+          <ul class="rule-list">
+            <li>process_vehicle_reports.py — consolidates trip XLS → master workbook</li>
+            <li>gen_vehicle_dashboard.py — fleet dashboard → GitHub Pages</li>
+            <li>Cross-references GPS hours, driver assignments, biometric clocking</li>
+            <li>Run: run_vehicle_reports.bat</li>
           </ul>
         </div>
       </div>
@@ -1349,6 +1366,93 @@
       </div>
     </div>
 
+    <div class="automation-card">
+      <div class="auto-icon" style="background:rgba(201,122,58,0.15)">🗃️</div>
+      <div class="auto-name">Vehicle Report Generator &amp; Fleet Dashboard</div>
+      <div class="auto-file">process_vehicle_reports.py · gen_vehicle_dashboard.py · run_vehicle_reports.bat</div>
+      <div class="auto-desc">Two-script SIGMA pipeline. <strong style="color:var(--color-text-primary)">process_vehicle_reports.py</strong> scans the Logistics Inbox for trip XLS files, consolidates them into a master "Vehicle In Out Report.xlsx", and archives inputs. <strong style="color:var(--color-text-primary)">gen_vehicle_dashboard.py</strong> cross-references GPS hours/km, driver assignments (from PDF), and biometric clocking data to generate a full fleet analytics HTML dashboard, committed and pushed to GitHub Pages.</div>
+      <div class="pipeline-steps">
+        <div class="pipeline-step"><div class="step-num">1</div>Scan Logistics Inbox/ for trip report .xls/.xlsx files</div>
+        <div class="pipeline-step"><div class="step-num">2</div>Consolidate → master "Vehicle In Out Report.xlsx" + archive inputs</div>
+        <div class="pipeline-step"><div class="step-num">3</div>Cross-reference GPS hours, driver assignments, biometric clocking</div>
+        <div class="pipeline-step"><div class="step-num">4</div>Generate fleet analytics dashboard → push to GitHub Pages</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center;">
+        <span class="auto-tag auto-tag-ondemand">On-demand · SIGMA</span>
+        <a href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" style="font-size:10px;color:var(--color-brand-primary);text-decoration:none;font-weight:600;">Live Dashboard →</a>
+      </div>
+    </div>
+
+    <div class="automation-card">
+      <div class="auto-icon" style="background:rgba(45,140,122,0.15)">↩️</div>
+      <div class="auto-name">Returns KPI System</div>
+      <div class="auto-file">returns_app.py · ingest_returns_scan.py · returns_db.py · generate_reports.py</div>
+      <div class="auto-desc">Full returns-management system built for SIGMA (May 2026). Ingests handwritten DocA scan data from Jagdish's return documents into a SQLite database (line items, batch tracking, deliveries, KPI records). A Streamlit dashboard allows reviewing, correcting, and reporting on product returns across the full DocA → DocB → DocC → Supplier lifecycle. Key rule: DocC batch tracking uses <strong style="color:var(--color-text-primary)">update_batch_status()</strong> — the record already exists from DocA ingestion.</div>
+      <div class="pipeline-steps">
+        <div class="pipeline-step"><div class="step-num">1</div>DocA scan: ingest_returns_scan.py reads handwritten return documents</div>
+        <div class="pipeline-step"><div class="step-num">2</div>Review &amp; correct in returns_app.py Streamlit UI (names, quantities)</div>
+        <div class="pipeline-step"><div class="step-num">3</div>DocC tracking: update_batch_status() tracks batch lifecycle</div>
+        <div class="pipeline-step"><div class="step-num">4</div>generate_reports.py outputs Excel KPI reports by product/supplier</div>
+        <div class="pipeline-step"><div class="step-num">5</div>Streamlit KPI view: returns rate, top products, trend charts</div>
+      </div>
+      <div><span class="auto-tag auto-tag-ondemand">On-demand · SIGMA · Start Returns Dashboard.bat</span></div>
+    </div>
+
+  </div>
+
+  <!-- ─── Live Dashboards ─── -->
+  <div class="section-label">Live GitHub Pages Dashboards</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:0;">
+    <a href="https://flomaticauto.github.io/olympic-paints-kpi/" target="_blank" style="text-decoration:none;">
+      <div class="system-card" style="cursor:pointer;border-color:var(--_y400);transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow=''">
+        <div class="sys-icon" style="background:rgba(245,196,0,0.12);">📊</div>
+        <div class="sys-info">
+          <div class="sys-name">KPI Sales Dashboard</div>
+          <div class="sys-type">Daily @ 07:00 · build_kpi_dashboard.py</div>
+          <div class="sys-used-by" style="margin-top:8px;">
+            <span class="sys-agent-pill" style="background:rgba(155,125,191,0.20);color:var(--_violet);">PRISM</span>
+            <span class="sys-agent-pill" style="background:rgba(245,196,0,0.20);color:var(--_y400);">APEX</span>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" style="text-decoration:none;">
+      <div class="system-card" style="cursor:pointer;border-color:var(--_teal);transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow=''">
+        <div class="sys-icon" style="background:rgba(45,140,122,0.12);">⏱️</div>
+        <div class="sys-info">
+          <div class="sys-name">HAVEN Clocking</div>
+          <div class="sys-type">Daily @ 08:00 · haven_dashboard_check.py</div>
+          <div class="sys-used-by" style="margin-top:8px;">
+            <span class="sys-agent-pill" style="background:rgba(45,140,122,0.20);color:var(--_teal);">HAVEN</span>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" style="text-decoration:none;">
+      <div class="system-card" style="cursor:pointer;border-color:var(--_terra);transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow=''">
+        <div class="sys-icon" style="background:rgba(201,122,58,0.12);">🚛</div>
+        <div class="sys-info">
+          <div class="sys-name">Vehicle Fleet</div>
+          <div class="sys-type">On-demand · gen_vehicle_dashboard.py</div>
+          <div class="sys-used-by" style="margin-top:8px;">
+            <span class="sys-agent-pill" style="background:rgba(201,122,58,0.20);color:var(--_terra);">SIGMA</span>
+            <span class="sys-agent-pill" style="background:rgba(232,96,96,0.20);color:var(--_coral);">STRIKER</span>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="https://flomaticauto.github.io/op-workspace-dashboard/" target="_blank" style="text-decoration:none;">
+      <div class="system-card" style="cursor:pointer;border-color:var(--_n500);transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow=''">
+        <div class="sys-icon" style="background:rgba(45,107,168,0.12);">🧠</div>
+        <div class="sys-info">
+          <div class="sys-name">AI Workspace</div>
+          <div class="sys-type">This dashboard · agent capabilities</div>
+          <div class="sys-used-by" style="margin-top:8px;">
+            <span class="sys-agent-pill" style="background:rgba(245,196,0,0.20);color:var(--_y400);">ALL AGENTS</span>
+          </div>
+        </div>
+      </div>
+    </a>
   </div>
 
   <!-- ─── Notification Flow ─── -->
@@ -1581,6 +1685,18 @@
         </div>
       </div>
     </div>
+    <div class="system-card">
+      <div class="sys-icon" style="background:rgba(255,255,255,0.05)">🐙</div>
+      <div class="sys-info">
+        <div class="sys-name">GitHub Pages</div>
+        <div class="sys-type">Live Dashboard Hosting (4 repos)</div>
+        <div class="sys-used-by">
+          <span class="sys-agent-pill" style="background:rgba(45,140,122,0.20);color:var(--_teal);">HAVEN</span>
+          <span class="sys-agent-pill" style="background:rgba(201,122,58,0.20);color:var(--_terra);">SIGMA</span>
+          <span class="sys-agent-pill" style="background:rgba(155,125,191,0.20);color:var(--_violet);">PRISM</span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ─── Escalation ─── -->
@@ -1654,7 +1770,7 @@
 
   <!-- ─── Footer ─── -->
   <div class="footer">
-    <div class="footer-left">Olympic Paints — K &amp; K Paint Manufacturers CC · AI Workspace v1.0</div>
+    <div class="footer-left">Olympic Paints — K &amp; K Paint Manufacturers CC · AI Workspace v1.1</div>
     <div class="footer-right">
       Auto-updated daily @ 08:00 SAST via GitHub Actions ·
       <a href="https://github.com/FlomaticAuto/op-workspace-dashboard" target="_blank">View on GitHub</a>
@@ -1795,7 +1911,23 @@
           <div class="org-agent-role">Operations</div>
         </div>
         <div class="org-agent-body">
-          <div class="org-empty">No scheduled tasks or actions allocated to this agent.</div>
+          <div class="org-section-title">On-Demand Systems</div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>Returns KPI System — returns_app.py Streamlit dashboard for DocA scan ingestion, batch tracking, product return analysis &amp; Excel report generation</span>
+            <span class="org-sched-badge org-sched-ondemand">On-demand</span>
+          </div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>Vehicle Report Generator — process_vehicle_reports.py consolidates trip XLS files; gen_vehicle_dashboard.py builds fleet analytics dashboard → GitHub Pages</span>
+            <span class="org-sched-badge org-sched-ondemand">On-demand</span>
+          </div>
+          <div class="org-section-title">Linked Tasks</div>
+          <div class="org-link-item">
+            <span class="org-link-arrow">›</span>
+            <span>SOP drafting, dispatch scheduling, inventory management, factory ops — triggered via /sigma</span>
+            <span class="org-sched-badge org-sched-triggered">Triggered</span>
+          </div>
         </div>
       </div>
 
@@ -1813,18 +1945,28 @@
 
     </div><!-- /org-agents-row -->
 
-    <!-- KPI Dashboard note (APEX-level, no single agent) -->
+    <!-- Windows Task Scheduler Registry -->
     <div style="margin-top:32px;background:var(--color-surface-base);border:1px solid var(--color-border-default);border-radius:var(--r-lg);padding:20px 24px;">
-      <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:12px;">APEX-Level Automation</div>
+      <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:12px;">Windows Task Scheduler — Active Tasks</div>
       <div class="org-link-item">
         <span class="org-link-arrow">›</span>
-        <span>KPI Dashboard Auto-Update — reads Sales_Summary PDFs, regenerates KPI Dashboard.html, commits &amp; pushes to GitHub</span>
-        <span class="org-sched-badge org-sched-daily">Daily 07:00</span>
+        <span><strong style="color:var(--_y400)">\OlympicPaints_KPI_Dashboard_Update</strong> — build_kpi_dashboard.py — reads Weekly_Sales_Report__*.pdf, regenerates KPI dashboard, commits &amp; pushes to GitHub Pages</span>
+        <span class="org-sched-badge org-sched-daily">Daily 07:00 SAST</span>
       </div>
       <div class="org-link-item" style="margin-top:4px;">
         <span class="org-link-arrow">›</span>
-        <span>Workspace Dashboard Stats Update — generate_stats.py pulls Notion counts, writes stats.json, pushes to GitHub Pages</span>
+        <span><strong style="color:var(--_teal)">\HAVEN Clocking Report Daily</strong> — process_inbox.py — scans HR Inbox for Advius exports, runs build_report.py, emails YTD Excel via Outlook</span>
+        <span class="org-sched-badge org-sched-daily">Daily 07:30 SAST</span>
+      </div>
+      <div class="org-link-item" style="margin-top:4px;">
+        <span class="org-link-arrow">›</span>
+        <span><strong style="color:var(--_teal)">\HAVEN — Daily Clocking Dashboard Check</strong> — haven_dashboard_check.py — regenerates HTML clocking dashboard, pushes to GitHub Pages, sends Telegram summary to Quintus</span>
         <span class="org-sched-badge org-sched-daily">Daily 08:00 SAST</span>
+      </div>
+      <div class="org-link-item" style="margin-top:4px;">
+        <span class="org-link-arrow">›</span>
+        <span><strong style="color:var(--_coral)">\STRIKER — Vehicle Report Health Check</strong> — striker_vehicle_health_check.py — verifies vehicle report pipeline is current, sends OK / Overdue / Warning to Quintus via Telegram</span>
+        <span class="org-sched-badge org-sched-weekly">Weekly Tue 09:30 SAST</span>
       </div>
     </div>
 
