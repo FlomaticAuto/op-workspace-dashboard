@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-navy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports Portal — Olympic Paints</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
+<style>
+/* ── TOKENS ──────────────────────────────────────────────────────────── */
+:root {
+  --_y50:#FEF9E0;--_y100:#FDF0A0;--_y200:#FAE04D;
+  --_y400:#F5C400;--_y600:#D4A800;--_y800:#A88000;--_y900:#6A5000;
+  --_n50:#E8EFF8;--_n100:#B8CCE8;--_n300:#6B9ED0;
+  --_n500:#2D6BA8;--_n700:#1A3D6E;--_n900:#0D2040;--_n950:#071022;
+  --_g0:#FFFFFF;--_g50:#F7F6F3;--_g100:#E8E7E2;--_g200:#C8C7C0;
+  --_g400:#949390;--_g600:#5C5B58;--_g800:#2E2E2C;--_g900:#1A1A18;--_g950:#0D0D0B;
+  --_teal:#2D8C7A;--_teal-light:#C8EDE7;--_teal-dark:#1a5c50;
+  --_coral:#E86060;--_terra:#C97A3A;
+  --font-display:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+.theme-light {
+  color-scheme:light;
+  --color-surface-page:var(--_g50);--color-surface-base:var(--_g0);
+  --color-surface-elevated:var(--_g0);--color-surface-sunken:var(--_g100);
+  --color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g950);--color-text-secondary:var(--_g600);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400);
+  --color-border-default:var(--_g200);--color-border-subtle:var(--_g100);
+  --shadow-card:0 2px 12px rgba(0,0,0,.07);
+}
+.theme-dark {
+  color-scheme:dark;
+  --color-surface-page:var(--_g950);--color-surface-base:var(--_g900);
+  --color-surface-elevated:var(--_g800);--color-surface-sunken:var(--_g950);
+  --color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g100);--color-text-secondary:var(--_g400);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400);
+  --color-border-default:rgba(255,255,255,.10);--color-border-subtle:rgba(255,255,255,.06);
+  --shadow-card:0 2px 12px rgba(0,0,0,.40);
+}
+.theme-brand {
+  color-scheme:light;
+  --color-surface-page:var(--_y400);--color-surface-base:var(--_y200);
+  --color-surface-elevated:var(--_y50);--color-surface-sunken:var(--_y600);
+  --color-surface-secondary:var(--_g950);
+  --color-text-primary:var(--_g950);--color-text-secondary:var(--_y900);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_g950);
+  --color-border-default:rgba(0,0,0,.14);--color-border-subtle:rgba(0,0,0,.08);
+  --shadow-card:0 2px 12px rgba(0,0,0,.12);
+}
+.theme-navy {
+  color-scheme:dark;
+  --color-surface-page:var(--_n950);--color-surface-base:var(--_n900);
+  --color-surface-elevated:var(--_n700);--color-surface-sunken:var(--_n950);
+  --color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g0);--color-text-secondary:var(--_n100);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400);
+  --color-border-default:rgba(107,158,208,.20);--color-border-subtle:rgba(107,158,208,.12);
+  --shadow-card:0 2px 12px rgba(0,0,0,.50);
+}
+
+/* ── RESET ───────────────────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--color-surface-page);
+  color:var(--color-text-primary);min-height:100vh}
+
+/* ── THEME BAR ───────────────────────────────────────────────────────── */
+.theme-bar{display:flex;gap:4px;padding:6px 40px;
+  background:var(--color-surface-secondary);border-bottom:1px solid var(--color-border-subtle)}
+.theme-bar button{background:transparent;border:1px solid transparent;
+  color:var(--color-text-on-navy);opacity:.55;padding:4px 12px;border-radius:4px;
+  font-family:var(--font-body);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s}
+.theme-bar button:hover{opacity:1}
+.theme-bar button.active{opacity:1;border-color:var(--color-brand-primary);color:var(--color-brand-primary)}
+
+/* ── HEADER ──────────────────────────────────────────────────────────── */
+.hdr{background:var(--color-surface-secondary);padding:20px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:2px solid var(--color-brand-primary);
+  box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.hdr-l{display:flex;align-items:center;gap:14px}
+.hdr-title{font-family:var(--font-display);font-size:24px;font-weight:900;
+  text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-on-navy)}
+.hdr-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px}
+.hdr-meta{font-size:11px;color:rgba(255,255,255,.35);text-align:right}
+
+/* ── TAB BAR ─────────────────────────────────────────────────────────── */
+.tab-bar{background:var(--color-surface-sunken);padding:0 40px;display:flex;gap:2px;
+  border-bottom:1px solid var(--color-border-subtle);overflow-x:auto}
+.tab-btn{background:transparent;border:none;color:var(--color-text-secondary);
+  padding:14px 22px;font-family:var(--font-display);font-size:14px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;cursor:pointer;
+  border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap}
+.tab-btn:hover{color:var(--color-text-primary)}
+.tab-btn.active{color:var(--color-brand-primary);border-bottom-color:var(--color-brand-primary)}
+
+/* ── MAIN ────────────────────────────────────────────────────────────── */
+.main{padding:36px 40px;max-width:1400px;margin:0 auto}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* ── DEPT INTRO ──────────────────────────────────────────────────────── */
+.dept-intro{margin-bottom:28px;padding:18px 22px;border-radius:10px;
+  background:var(--color-surface-base);border:1px solid var(--color-border-default);
+  display:flex;align-items:center;gap:16px}
+.dept-icon{width:48px;height:48px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.dept-intro-text h2{font-family:var(--font-display);font-size:18px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.dept-intro-text p{font-size:13px;color:var(--color-text-secondary);line-height:1.5}
+
+/* ── REPORT GRID ─────────────────────────────────────────────────────── */
+.report-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+
+/* ── REPORT CARD ─────────────────────────────────────────────────────── */
+.report-card{background:var(--color-surface-base);border-radius:14px;
+  border:1px solid var(--color-border-default);box-shadow:var(--shadow-card);
+  overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.report-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
+
+.card-accent{height:4px}
+
+.card-body{padding:22px;flex:1;display:flex;flex-direction:column;gap:12px}
+.card-dept{display:flex;align-items:center;gap:8px}
+.dept-pill{font-family:var(--font-display);font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:20px}
+.live-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;
+  background:rgba(45,140,122,.15);color:#C8EDE7;border:1px solid rgba(45,140,122,.3)}
+
+.card-title{font-family:var(--font-display);font-size:21px;font-weight:900;
+  text-transform:uppercase;letter-spacing:.03em;color:var(--color-text-primary);line-height:1.1}
+
+.card-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6;flex:1}
+
+.card-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;padding:2px 8px;border-radius:4px;
+  background:var(--color-surface-elevated);color:var(--color-text-secondary);
+  border:1px solid var(--color-border-subtle)}
+
+.card-footer{padding:16px 22px;border-top:1px solid var(--color-border-subtle);
+  display:flex;align-items:center;justify-content:space-between;gap:12px}
+.card-meta{font-size:11px;color:var(--color-text-secondary)}
+.card-meta strong{color:var(--color-text-primary)}
+
+.open-btn{display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-display);font-size:14px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;padding:9px 20px;border-radius:8px;border:none;cursor:pointer;
+  text-decoration:none;transition:all .15s;white-space:nowrap}
+
+/* ── COLOUR VARIANTS ─────────────────────────────────────────────────── */
+/* Sales — yellow */
+.accent-sales   { background:#F5C400 }
+.pill-sales     { background:rgba(245,196,0,.15);  color:#FAE04D;  border:1px solid rgba(245,196,0,.25) }
+.btn-sales      { background:#F5C400; color:#0D0D0B }
+.btn-sales:hover{ background:#FAE04D }
+.icon-sales     { background:rgba(245,196,0,.15) }
+
+/* HR — teal */
+.accent-hr      { background:#2D8C7A }
+.pill-hr        { background:rgba(45,140,122,.15); color:#C8EDE7;  border:1px solid rgba(45,140,122,.25) }
+.btn-hr         { background:#2D8C7A; color:#fff }
+.btn-hr:hover   { background:#3aad99 }
+.icon-hr        { background:rgba(45,140,122,.15) }
+
+/* Operations — blue */
+.accent-ops     { background:#6B9ED0 }
+.pill-ops       { background:rgba(107,158,208,.15);color:#B8CCE8;  border:1px solid rgba(107,158,208,.25) }
+.btn-ops        { background:#2D6BA8; color:#fff }
+.btn-ops:hover  { background:#3a7fc4 }
+.icon-ops       { background:rgba(107,158,208,.15) }
+
+/* ── ALL REPORTS DIVIDER ─────────────────────────────────────────────── */
+.section-label{font-family:var(--font-display);font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.5px;color:var(--color-brand-primary);
+  margin:32px 0 14px;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--color-border-default)}
+
+/* ── FOOTER ──────────────────────────────────────────────────────────── */
+footer{text-align:center;padding:24px 40px;font-size:11px;
+  color:var(--color-text-secondary);border-top:1px solid var(--color-border-subtle);
+  margin-top:48px;line-height:1.7}
+
+@media(max-width:860px){
+  .main,.hdr,.tab-bar,.theme-bar{padding-left:16px;padding-right:16px}
+  .report-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- THEME BAR -->
+<div class="theme-bar">
+  <button onclick="olyTheme('theme-light',this)">Light</button>
+  <button onclick="olyTheme('theme-dark',this)">Dark</button>
+  <button onclick="olyTheme('theme-brand',this)">Brand</button>
+  <button onclick="olyTheme('theme-navy',this)" class="active">Navy</button>
+</div>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-l">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Olympic Paints" style="flex-shrink:0">
+      <circle cx="24" cy="24" r="24" fill="#F5C400"/>
+      <text x="24" y="19" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="10.5" fill="#0D0D0B" letter-spacing="0.5">OLYMPIC</text>
+      <text x="24" y="32" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="10.5" fill="#0D0D0B" letter-spacing="0.5">PAINTS</text>
+    </svg>
+    <div>
+      <div class="hdr-title">Reports Portal</div>
+      <div class="hdr-sub">All live dashboards and reports — Olympic Paints Limpopo</div>
+    </div>
+  </div>
+  <div class="hdr-meta">
+    Olympic Paints · Limpopo, SA<br>
+    Powered by FlomaticAuto
+  </div>
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('all')">All Reports</button>
+  <button class="tab-btn"        onclick="showTab('sales')">Sales</button>
+  <button class="tab-btn"        onclick="showTab('hr')">HR &amp; People</button>
+  <button class="tab-btn"        onclick="showTab('ops')">Operations</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════ TAB: ALL REPORTS -->
+<div id="panel-all" class="tab-panel active">
+<div class="main">
+
+  <div class="section-label">Sales</div>
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-sales"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-sales">Sales</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">Sales Performance Dashboard</div>
+        <div class="card-desc">Full sales analytics platform covering year-on-year revenue comparison, monthly net sales, rep performance, product volume by category, debtor age analysis, rock-bottom price compliance, and sales activity tracking (store visits, leads, new accounts).</div>
+        <div class="card-tags">
+          <span class="tag">YOY Revenue</span>
+          <span class="tag">Rep Performance</span>
+          <span class="tag">Debtors</span>
+          <span class="tag">Price Analysis</span>
+          <span class="tag">Product Volume</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Updated:</strong> Daily · Auto-generated</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent accent-sales"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-sales">Sales</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">KPI Dashboard</div>
+        <div class="card-desc">Weekly KPI snapshot showing MTD sales vs target, rep-level performance scorecards, year-on-year monthly comparison, and rock-bottom pricing compliance by product group. Data manually extracted from QuickSight each week.</div>
+        <div class="card-tags">
+          <span class="tag">MTD Sales</span>
+          <span class="tag">vs Target</span>
+          <span class="tag">Weekly Update</span>
+          <span class="tag">Rock Bottom %</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi/" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-label">HR &amp; People</div>
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-hr"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-hr">HR &amp; People</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">HAVEN Clocking Dashboard</div>
+        <div class="card-desc">YTD attendance and hours dashboard for all 102 employees across Olympic Paints (74) and Primeserve (28). Tracks daily attendance, total hours worked, missed clock-outs, department breakdowns, and weekly hours trends. 45-minute break deduction applied per shift.</div>
+        <div class="card-tags">
+          <span class="tag">Attendance</span>
+          <span class="tag">Hours Worked</span>
+          <span class="tag">Missed Clock-Outs</span>
+          <span class="tag">Olympic + Primeserve</span>
+          <span class="tag">Departments</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Updated:</strong> On new Advius export</div>
+        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-label">Operations</div>
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-ops"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-ops">Operations</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">Workspace Health Report</div>
+        <div class="card-desc">Weekly executive summary of the Olympic Paints AI workspace — task completion rates, agent activity across HAVEN, PRISM, STRIKER, SIGMA, BLAZE and VAULT, cross-functional dependencies, and system health indicators.</div>
+        <div class="card-tags">
+          <span class="tag">Weekly</span>
+          <span class="tag">Agent Activity</span>
+          <span class="tag">Task Completion</span>
+          <span class="tag">Cross-Functional</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Updated:</strong> Fridays 16:00 SAST</div>
+        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/op-workspace-dashboard/health-report.html" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent accent-ops"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-ops">Operations</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">AI Workspace Dashboard</div>
+        <div class="card-desc">Live operational dashboard for the FlomaticAuto AI workspace. Shows current task status, agent utilisation, clocking pipeline state, and KPI data feed status across all active automations.</div>
+        <div class="card-tags">
+          <span class="tag">Live Stats</span>
+          <span class="tag">Pipeline Status</span>
+          <span class="tag">Automation Health</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Updated:</strong> Continuously</div>
+        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/op-workspace-dashboard/" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</div><!-- /all -->
+
+<!-- ══════════════════════════════════════════════════ TAB: SALES -->
+<div id="panel-sales" class="tab-panel">
+<div class="main">
+
+  <div class="dept-intro">
+    <div class="dept-icon icon-sales" style="font-size:24px">📊</div>
+    <div class="dept-intro-text">
+      <h2 style="color:#F5C400">Sales Reports</h2>
+      <p>Live and weekly reports tracking Olympic Paints sales performance — revenue against target, rep scorecards, product mix, debtor book, and price compliance. All figures are net of credit notes.</p>
+    </div>
+  </div>
+
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-sales"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-sales">Sales</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">Sales Performance Dashboard</div>
+        <div class="card-desc">The primary sales analysis platform. Eight tabs cover year-on-year revenue, FY2025 full year, FY2026 YTD, monthly deep-dive, product category volume, debtor age analysis, rock-bottom price compliance, and rep activity (store visits, leads, new accounts added).</div>
+        <div class="card-tags">
+          <span class="tag">YOY Revenue</span>
+          <span class="tag">FY2025 · FY2026</span>
+          <span class="tag">Monthly View</span>
+          <span class="tag">Product Volume (kL)</span>
+          <span class="tag">Debtors</span>
+          <span class="tag">Price Analysis</span>
+          <span class="tag">Activity</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet · Auto-rebuilt daily</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent accent-sales"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-sales">Sales</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">KPI Dashboard</div>
+        <div class="card-desc">Weekly management KPI snapshot. Shows MTD sales vs 30% growth target, individual rep scorecards with traffic-light status, YOY bar chart by calendar month, and rock-bottom pricing compliance by product group. Updated each week from QuickSight PDF reports.</div>
+        <div class="card-tags">
+          <span class="tag">MTD Sales</span>
+          <span class="tag">vs Target (+30%)</span>
+          <span class="tag">Rep Scorecards</span>
+          <span class="tag">YOY Bar Chart</span>
+          <span class="tag">Rock Bottom %</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Source:</strong> QuickSight PDFs · Weekly manual update</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi/" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div><!-- /sales -->
+
+<!-- ══════════════════════════════════════════════════ TAB: HR -->
+<div id="panel-hr" class="tab-panel">
+<div class="main">
+
+  <div class="dept-intro">
+    <div class="dept-icon icon-hr" style="font-size:24px">👥</div>
+    <div class="dept-intro-text">
+      <h2 style="color:#2D8C7A">HR &amp; People Reports</h2>
+      <p>Workforce attendance and hours reporting for Olympic Paints (74 employees) and Primeserve (28 employees, SD prefix). Data flows from the Advius biometric system through the HAVEN pipeline.</p>
+    </div>
+  </div>
+
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-hr"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-hr">HR &amp; People</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">HAVEN Clocking Dashboard</div>
+        <div class="card-desc">Year-to-date attendance dashboard for all 102 employees. Six tabs provide an overview, yesterday's missed clock-outs, daily attendance heatmap, department breakdown, weekly hours trend, and a full missing clock-out log. A 45-minute break deduction is applied to every worked shift. Employer split: Olympic Paints vs Primeserve (SD-prefix employees).</div>
+        <div class="card-tags">
+          <span class="tag">YTD Hours</span>
+          <span class="tag">Daily Attendance</span>
+          <span class="tag">Missed Clock-Outs</span>
+          <span class="tag">Department View</span>
+          <span class="tag">Weekly Hours</span>
+          <span class="tag">Olympic + Primeserve</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Source:</strong> Advius biometric export · Updated per run</div>
+        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div><!-- /hr -->
+
+<!-- ══════════════════════════════════════════════════ TAB: OPERATIONS -->
+<div id="panel-ops" class="tab-panel">
+<div class="main">
+
+  <div class="dept-intro">
+    <div class="dept-icon icon-ops" style="font-size:24px">⚙️</div>
+    <div class="dept-intro-text">
+      <h2 style="color:#6B9ED0">Operations Reports</h2>
+      <p>Workspace health and automation status reports for the FlomaticAuto AI platform running across Olympic Paints operations.</p>
+    </div>
+  </div>
+
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-ops"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-ops">Operations</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">Workspace Health Report</div>
+        <div class="card-desc">Weekly executive summary generated every Friday at 16:00 SAST. Covers task completion rates across all six agents (HAVEN, PRISM, STRIKER, SIGMA, BLAZE, VAULT), cross-functional dependencies, open blockers, and system health indicators for the week.</div>
+        <div class="card-tags">
+          <span class="tag">Weekly · Fridays 16:00</span>
+          <span class="tag">Agent Activity</span>
+          <span class="tag">Task Completion</span>
+          <span class="tag">Cross-Functional</span>
+          <span class="tag">Blockers</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Scope:</strong> All 6 agents · Current week</div>
+        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/op-workspace-dashboard/health-report.html" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent accent-ops"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-ops">Operations</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">AI Workspace Dashboard</div>
+        <div class="card-desc">Live operational dashboard showing current pipeline status across all active FlomaticAuto automations — clocking pipeline state, KPI data feed, task queue, and agent utilisation.</div>
+        <div class="card-tags">
+          <span class="tag">Live Stats</span>
+          <span class="tag">Pipeline Status</span>
+          <span class="tag">KPI Feed</span>
+          <span class="tag">Automation Health</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Updated:</strong> Continuously automated</div>
+        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/op-workspace-dashboard/" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div><!-- /ops -->
+
+<footer>
+  <strong>Olympic Paints Reports Portal</strong> · Limpopo, SA<br>
+  All reports open in a new tab · Data is live and updated automatically where indicated<br>
+  Powered by FlomaticAuto · Built with the Olympic Paints design system
+</footer>
+
+<script>
+const OLY_THEMES=['theme-light','theme-dark','theme-brand','theme-navy'];
+function olyTheme(t,btn){
+  document.documentElement.classList.remove(...OLY_THEMES);
+  document.documentElement.classList.add(t);
+  localStorage.setItem('oly-theme',t);
+  document.querySelectorAll('.theme-bar button').forEach(b=>b.classList.toggle('active',b===btn));
+}
+
+function showTab(id){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+</script>
+</body>
+</html>
