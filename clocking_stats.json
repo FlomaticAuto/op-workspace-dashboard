@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-05-06 11:01 SAST",
+  "generated_at": "2026-05-06 11:08 SAST",
   "report_file": "Clocking Report (06.05.2026).xlsx",
   "period": "26 Mar \u2013 05 May 2026",
   "total_employees": 102,
-  "total_records": 1765,
-  "missing_clockout": 303,
+  "total_records": 1853,
+  "missing_clockout": 311,
   "by_employer": {
     "Olympic Paints": {
       "employees": 74,
-      "total_hours": "9742:53",
-      "missing_clkout": 230
+      "total_hours": "10261:32",
+      "missing_clkout": 235
     },
     "Primeserve": {
       "employees": 28,
-      "total_hours": "3708:26",
-      "missing_clkout": 73
+      "total_hours": "3883:10",
+      "missing_clkout": 76
     }
   }
 }
