@@ -191,6 +191,132 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   .main,.hdr,.tab-bar,.theme-bar{padding-left:16px;padding-right:16px}
   .report-grid{grid-template-columns:1fr}
 }
+
+/* ── ARCHITECTURE TAB ────────────────────────────────────────────── */
+.accent-arch{background:#9B7DBF}
+.pill-arch{background:rgba(155,125,191,.15);color:#EDE0F7;border:1px solid rgba(155,125,191,.25)}
+.btn-arch{background:#9B7DBF;color:#fff}
+.btn-arch:hover{background:#b094d6}
+.icon-arch{background:rgba(155,125,191,.15)}
+
+.arch-intro{background:var(--color-surface-base);border:1px solid rgba(155,125,191,.35);
+  border-radius:12px;padding:22px 28px;margin-bottom:24px;border-left:5px solid #9B7DBF}
+.arch-intro-title{font-family:var(--font-display);font-size:20px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;color:#EDE0F7;margin-bottom:6px}
+.arch-intro p{font-size:13px;color:var(--color-text-secondary);line-height:1.6;max-width:780px}
+
+.arch-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-bottom:32px}
+.arch-stat{background:var(--color-surface-base);border:1px solid var(--color-border-default);
+  border-radius:10px;padding:14px 16px;text-align:center}
+.arch-stat-num{font-family:var(--font-display);font-size:34px;font-weight:900;color:#9B7DBF;line-height:1.1}
+.arch-stat-lbl{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;
+  color:var(--color-text-secondary);margin-top:4px}
+
+.pipeline-flow{display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;
+  gap:0;margin-bottom:8px;align-items:start}
+.pf-col{display:flex;flex-direction:column;gap:6px}
+.pf-header{font-family:var(--font-display);font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.12em;color:var(--color-brand-primary);
+  border-bottom:2px solid var(--color-brand-primary);padding-bottom:6px;
+  margin-bottom:6px;text-align:center}
+.pf-node{padding:9px 13px;border-radius:8px;font-size:12px;
+  color:var(--color-text-primary);border:1px solid var(--color-border-default)}
+.pf-node-src{background:rgba(107,158,208,.1);border-color:rgba(107,158,208,.3)}
+.pf-node-script{background:rgba(245,196,0,.07);border-color:rgba(245,196,0,.3)}
+.pf-node-out{background:rgba(45,140,122,.1);border-color:rgba(45,140,122,.3)}
+.pf-arrow{display:flex;align-items:flex-start;justify-content:center;
+  font-size:22px;color:var(--color-brand-primary);padding-top:46px}
+.pf-node-name{font-weight:600;margin-bottom:1px}
+.pf-node-sub{font-size:11px;color:var(--color-text-secondary)}
+
+.arch-table-wrap{background:var(--color-surface-base);border:1px solid var(--color-border-default);
+  border-radius:12px;overflow:hidden;margin-bottom:4px}
+.arch-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.arch-table th{font-family:var(--font-display);font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--color-brand-primary);
+  padding:11px 14px;border-bottom:2px solid var(--color-border-default);
+  background:var(--color-surface-sunken);text-align:left}
+.arch-table td{padding:11px 14px;border-bottom:1px solid var(--color-border-subtle);
+  color:var(--color-text-primary);vertical-align:top;line-height:1.5}
+.arch-table tr:last-child td{border-bottom:none}
+.arch-table tr:hover td{background:var(--color-surface-sunken)}
+.code-chip{font-family:'Courier New',monospace;font-size:11px;color:#B8CCE8;
+  background:rgba(107,158,208,.12);border:1px solid rgba(107,158,208,.2);
+  padding:2px 6px;border-radius:4px;white-space:nowrap;display:inline-block}
+.freq-badge{font-size:10px;padding:2px 9px;border-radius:10px;font-weight:600;display:inline-block}
+.freq-daily{background:rgba(45,140,122,.15);color:#C8EDE7;border:1px solid rgba(45,140,122,.3)}
+.freq-weekly{background:rgba(245,196,0,.12);color:#FAE04D;border:1px solid rgba(245,196,0,.25)}
+.freq-manual{background:rgba(201,122,58,.15);color:#F7E0C8;border:1px solid rgba(201,122,58,.3)}
+.freq-perrun{background:rgba(107,158,208,.15);color:#B8CCE8;border:1px solid rgba(107,158,208,.3)}
+.freq-quarterly{background:rgba(155,125,191,.15);color:#EDE0F7;border:1px solid rgba(155,125,191,.3)}
+
+.script-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px;margin-bottom:4px}
+.script-card{background:var(--color-surface-base);border:1px solid var(--color-border-default);
+  border-radius:10px;padding:18px 20px;border-top:3px solid #9B7DBF;
+  display:flex;flex-direction:column;gap:8px}
+.script-name{font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:#FAE04D}
+.script-location{font-size:11px;color:var(--color-text-secondary)}
+.script-desc{font-size:12.5px;color:var(--color-text-secondary);line-height:1.55}
+.script-io{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.io-label{font-family:var(--font-display);font-size:9px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--color-text-secondary);margin-bottom:3px}
+.io-item{font-size:11px;color:var(--color-text-primary);padding:2px 0;
+  border-bottom:1px dotted var(--color-border-subtle);line-height:1.5}
+.io-item:last-child{border-bottom:none}
+
+.kpi-weight{font-family:var(--font-display);font-size:22px;font-weight:900;color:#F5C400;line-height:1}
+
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:4px}
+.agent-card{background:var(--color-surface-base);border:1px solid var(--color-border-default);
+  border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.agent-name-tag{font-family:var(--font-display);font-size:24px;font-weight:900;
+  text-transform:uppercase;letter-spacing:.04em;color:var(--color-brand-primary);line-height:1}
+.agent-role-title{font-size:12px;font-weight:600;color:var(--color-text-primary)}
+.agent-role-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.agent-model-tag{font-size:10px;padding:2px 8px;border-radius:10px;
+  background:rgba(155,125,191,.15);color:#EDE0F7;border:1px solid rgba(155,125,191,.25);
+  font-weight:600;display:inline-block;width:fit-content;margin-top:2px}
+
+.entity-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:4px}
+.entity-card{background:var(--color-surface-base);border:1px solid var(--color-border-default);
+  border-radius:10px;padding:18px 22px}
+.entity-name{font-family:var(--font-display);font-size:20px;font-weight:900;
+  text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;color:var(--color-text-primary)}
+.entity-stat-row{display:flex;gap:24px;margin-bottom:12px}
+.entity-stat strong{font-family:var(--font-display);font-size:26px;font-weight:900;
+  color:var(--color-brand-primary);display:block;line-height:1.1}
+.entity-stat span{font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.06em}
+.entity-rule{font-size:12px;color:var(--color-text-secondary);padding:6px 10px;
+  background:var(--color-surface-sunken);border-radius:6px;border:1px solid var(--color-border-subtle)}
+
+.rep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px;margin-bottom:4px}
+.rep-card{background:var(--color-surface-base);border:1px solid var(--color-border-default);
+  border-radius:8px;padding:12px 14px;text-align:center}
+.rep-code{font-family:var(--font-display);font-size:30px;font-weight:900;
+  color:var(--color-brand-primary);line-height:1}
+.rep-name{font-size:12px;color:var(--color-text-primary);font-weight:500;margin-top:3px}
+
+.para-tree{background:var(--color-surface-base);border:1px solid var(--color-border-default);
+  border-radius:10px;padding:20px 26px;font-family:'Courier New',monospace;
+  font-size:12.5px;line-height:1.85;color:var(--color-text-primary);overflow-x:auto;
+  white-space:pre;margin-bottom:4px}
+.para-tree .comment{color:var(--color-text-secondary)}
+
+.notif-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:4px}
+.notif-card{background:var(--color-surface-base);border:1px solid rgba(245,196,0,.3);
+  border-radius:10px;padding:18px 22px;border-left:4px solid var(--color-brand-primary)}
+.notif-card h4{font-family:var(--font-display);font-size:14px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--color-brand-primary);margin-bottom:8px}
+.notif-card p,.notif-card li{font-size:12.5px;color:var(--color-text-secondary);line-height:1.6}
+.notif-card ul{padding-left:16px;margin-top:4px}
+
+@media(max-width:860px){
+  .pipeline-flow{grid-template-columns:1fr;gap:4px}
+  .pf-arrow{display:none}
+  .script-grid,.agent-grid{grid-template-columns:1fr}
+  .script-io{grid-template-columns:1fr}
+  .arch-stats{grid-template-columns:repeat(3,1fr)}
+}
 </style>
 </head>
 <body>
@@ -228,6 +354,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   <button class="tab-btn"        onclick="showTab('sales')">Sales</button>
   <button class="tab-btn"        onclick="showTab('hr')">HR &amp; People</button>
   <button class="tab-btn"        onclick="showTab('ops')">Operations</button>
+  <button class="tab-btn"        onclick="showTab('arch')">Org Architecture</button>
 </div>
 
 <!-- ══════════════════════════════════════════════════ TAB: ALL REPORTS -->
@@ -686,6 +813,646 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   </div>
 </div>
 </div><!-- /ops -->
+
+<!-- ══════════════════════════════════════════════════ TAB: ARCHITECTURE -->
+<div id="panel-arch" class="tab-panel">
+<div class="main">
+
+  <!-- INTRO -->
+  <div class="arch-intro">
+    <div class="arch-intro-title">Olympic Paints Automation Ecosystem</div>
+    <p>A complete map of every system, script, data source, scheduled task, KPI framework, and AI agent powering Olympic Paints Limpopo analytics infrastructure. Everything documented in one place — no stone unturned.</p>
+  </div>
+
+  <!-- STATS STRIP -->
+  <div class="arch-stats">
+    <div class="arch-stat"><div class="arch-stat-num">11</div><div class="arch-stat-lbl">Live Dashboards</div></div>
+    <div class="arch-stat"><div class="arch-stat-num">10</div><div class="arch-stat-lbl">Build Scripts</div></div>
+    <div class="arch-stat"><div class="arch-stat-num">9</div><div class="arch-stat-lbl">Data Sources</div></div>
+    <div class="arch-stat"><div class="arch-stat-num">11</div><div class="arch-stat-lbl">GitHub Repos</div></div>
+    <div class="arch-stat"><div class="arch-stat-num">7</div><div class="arch-stat-lbl">AI Agents</div></div>
+    <div class="arch-stat"><div class="arch-stat-num">4</div><div class="arch-stat-lbl">Scheduled Tasks</div></div>
+    <div class="arch-stat"><div class="arch-stat-num">102</div><div class="arch-stat-lbl">Employees Tracked</div></div>
+    <div class="arch-stat"><div class="arch-stat-num">186K+</div><div class="arch-stat-lbl">Invoice Rows</div></div>
+  </div>
+
+  <!-- DATA PIPELINE FLOW -->
+  <div class="section-label">Data Pipeline — End to End</div>
+  <div class="pipeline-flow">
+
+    <!-- Column 1: Source Systems -->
+    <div class="pf-col">
+      <div class="pf-header">Source Systems</div>
+      <div class="pf-node pf-node-src"><div class="pf-node-name">PAD System</div><div class="pf-node-sub">Sales invoices · Debtors · Outstanding orders</div></div>
+      <div class="pf-node pf-node-src"><div class="pf-node-name">Zoho CRM</div><div class="pf-node-sub">Store visits · Merch check-ins · Lead tracking</div></div>
+      <div class="pf-node pf-node-src"><div class="pf-node-name">Advius Biometric</div><div class="pf-node-sub">Employee punch-in / punch-out exports</div></div>
+      <div class="pf-node pf-node-src"><div class="pf-node-name">QuickSight PDFs</div><div class="pf-node-sub">Weekly KPI reports — manually extracted</div></div>
+      <div class="pf-node pf-node-src"><div class="pf-node-name">Manual Sheets</div><div class="pf-node-sub">New stores verified · WooCommerce exports</div></div>
+    </div>
+
+    <div class="pf-arrow">→</div>
+
+    <!-- Column 2: Build Scripts -->
+    <div class="pf-col">
+      <div class="pf-header">Build Scripts</div>
+      <div class="pf-node pf-node-script"><div class="pf-node-name">build_sales_dashboard.py</div><div class="pf-node-sub">Parquet + Zoho CSVs + PAD → Sales HTML</div></div>
+      <div class="pf-node pf-node-script"><div class="pf-node-name">build_kpi_dashboard.py</div><div class="pf-node-sub">Manual data + merch xlsx → KPI HTML + JSON</div></div>
+      <div class="pf-node pf-node-script"><div class="pf-node-name">build_rep_dashboards.py</div><div class="pf-node-sub">Manual + merch data → 5× rep HTML portals</div></div>
+      <div class="pf-node pf-node-script"><div class="pf-node-name">build_report.py + gen_dashboard.py</div><div class="pf-node-sub">Advius xlsx → YTD Excel → Clocking HTML</div></div>
+      <div class="pf-node pf-node-script"><div class="pf-node-name">build_ecommerce_dashboard.py</div><div class="pf-node-sub">WooCommerce export → E-Commerce HTML</div></div>
+      <div class="pf-node pf-node-script"><div class="pf-node-name">audit_funky_transactions.py</div><div class="pf-node-sub">Parquet → Funky Transactions Report.xlsx</div></div>
+    </div>
+
+    <div class="pf-arrow">→</div>
+
+    <!-- Column 3: Published Outputs -->
+    <div class="pf-col">
+      <div class="pf-header">Published Outputs</div>
+      <div class="pf-node pf-node-out"><div class="pf-node-name">olympic-paints-sales</div><div class="pf-node-sub">Sales Performance Dashboard — daily rebuild</div></div>
+      <div class="pf-node pf-node-out"><div class="pf-node-name">olympic-paints-kpi</div><div class="pf-node-sub">KPI Dashboard — weekly update</div></div>
+      <div class="pf-node pf-node-out"><div class="pf-node-name">olympic-paints-kpi-{ac/ap/bv/np/bm}</div><div class="pf-node-sub">5 rep portals — weekly update</div></div>
+      <div class="pf-node pf-node-out"><div class="pf-node-name">olympic-paints-clocking</div><div class="pf-node-sub">HAVEN Clocking — per Advius export</div></div>
+      <div class="pf-node pf-node-out"><div class="pf-node-name">olympic-paints-ecommerce</div><div class="pf-node-sub">E-Commerce Dashboard — daily 08:15</div></div>
+      <div class="pf-node pf-node-out"><div class="pf-node-name">kpi_status.json</div><div class="pf-node-sub">Written to workspace-dashboard for portal tiles</div></div>
+    </div>
+
+  </div>
+
+  <!-- LEGAL ENTITIES -->
+  <div class="section-label">Legal Entities &amp; Personnel</div>
+  <div class="entity-grid" style="margin-bottom:14px">
+
+    <div class="entity-card" style="border-top:3px solid #F5C400">
+      <div class="entity-name">Olympic Paints</div>
+      <div class="entity-stat-row">
+        <div class="entity-stat"><strong>74</strong><span>Employees</span></div>
+        <div class="entity-stat"><strong>OP</strong><span>Entity Code</span></div>
+      </div>
+      <div class="entity-rule">Employee IDs that do <strong>not</strong> start with <span class="code-chip">SD</span> belong to Olympic Paints. Primary trading entity for all sales operations.</div>
+    </div>
+
+    <div class="entity-card" style="border-top:3px solid #6B9ED0">
+      <div class="entity-name">Primeserve</div>
+      <div class="entity-stat-row">
+        <div class="entity-stat"><strong>28</strong><span>Employees</span></div>
+        <div class="entity-stat"><strong>SD*</strong><span>ID Prefix</span></div>
+      </div>
+      <div class="entity-rule">All employees with IDs starting with <span class="code-chip">SD</span> belong to Primeserve (cleaning / maintenance staff). All reports split metrics by employer.</div>
+    </div>
+
+  </div>
+
+  <div class="section-label" style="margin-top:4px">Sales Reps — Active Team</div>
+  <div class="rep-grid" style="margin-bottom:20px">
+    <div class="rep-card"><div class="rep-code">AC</div><div class="rep-name">Aboo Cassim</div></div>
+    <div class="rep-card"><div class="rep-code">AP</div><div class="rep-name">Amit Patel</div></div>
+    <div class="rep-card"><div class="rep-code">BV</div><div class="rep-name">Bhadresh Vallabh</div></div>
+    <div class="rep-card"><div class="rep-code">NP</div><div class="rep-name">Nikhil Panchal</div></div>
+    <div class="rep-card"><div class="rep-code">BM</div><div class="rep-name">Byron Minnie</div></div>
+  </div>
+
+  <!-- DATA SOURCES -->
+  <div class="section-label">Data Sources</div>
+  <div class="arch-table-wrap">
+    <table class="arch-table">
+      <thead>
+        <tr>
+          <th>Source File / Dataset</th>
+          <th>Origin System</th>
+          <th>Format</th>
+          <th>Update Freq</th>
+          <th>Consumed By</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="code-chip">Sales_Invoices_All.parquet</span><br><small style="color:var(--color-text-secondary)">3.Resources/16.Sales and Other data/</small></td>
+          <td>PAD System</td>
+          <td>Parquet (~186K rows, Mar 2024–present)</td>
+          <td><span class="freq-badge freq-daily">Daily</span></td>
+          <td>Sales Dashboard, audit_funky_transactions.py</td>
+        </tr>
+        <tr>
+          <td><span class="code-chip">Pad/debtors_age_analysis.csv</span></td>
+          <td>PAD System</td>
+          <td>CSV — current/30/60/90/120/150/180 day buckets</td>
+          <td><span class="freq-badge freq-daily">Daily</span></td>
+          <td>Sales Dashboard (Debtors tab + freshness banner)</td>
+        </tr>
+        <tr>
+          <td><span class="code-chip">Pad/sales_order_outstanding.csv</span></td>
+          <td>PAD System</td>
+          <td>CSV — open order lines per rep</td>
+          <td><span class="freq-badge freq-daily">Daily</span></td>
+          <td>Sales Dashboard (Monthly tab — outstanding orders)</td>
+        </tr>
+        <tr>
+          <td><span class="code-chip">Zoho/Meetings_Report_AWS.xlsx</span></td>
+          <td>Zoho CRM</td>
+          <td>Excel — one row per check-in event · header=6 (Zoho banner offset)</td>
+          <td><span class="freq-badge freq-daily">Daily</span></td>
+          <td>Sales Dashboard (Activity tab — store visits heatmap, Rep Visits YTD tile)</td>
+        </tr>
+        <tr>
+          <td><span class="code-chip">Zoho/Meetings_Report_AWS_Merchandising.xlsx</span></td>
+          <td>Zoho CRM</td>
+          <td>Excel — merchandising check-ins · header=6 · rep name in Note Content free-text</td>
+          <td><span class="freq-badge freq-daily">Daily</span></td>
+          <td>Sales Dashboard (merch heatmap) · KPI Dashboard (KPI E) · Rep Dashboards (KPI F)</td>
+        </tr>
+        <tr>
+          <td><span class="code-chip">Zoho/OP_Lead_Tracking_new.csv</span></td>
+          <td>Zoho CRM</td>
+          <td>CSV — lead owner, company, status, created time</td>
+          <td><span class="freq-badge freq-daily">Daily</span></td>
+          <td>Sales Dashboard (Activity tab — leads per rep per month)</td>
+        </tr>
+        <tr>
+          <td><span class="code-chip">New Stores Added By Reps_Quarter{q}_{y}.xlsx</span></td>
+          <td>Manual Entry</td>
+          <td>Excel — verified new store accounts per rep per quarter</td>
+          <td><span class="freq-badge freq-quarterly">Quarterly</span></td>
+          <td>Rep Dashboards (KPI D — new account acquisition)</td>
+        </tr>
+        <tr>
+          <td><span class="code-chip">Transaction*.xlsx</span> (Advius export)</td>
+          <td>Advius Biometric System</td>
+          <td>Excel — employee punch events (clock-in / clock-out)</td>
+          <td><span class="freq-badge freq-perrun">Per Export</span></td>
+          <td>build_report.py → Clocking Report YTD.xlsx → gen_dashboard.py</td>
+        </tr>
+        <tr>
+          <td><span class="code-chip">Weekly_Sales_Report__*.pdf</span></td>
+          <td>AWS QuickSight</td>
+          <td>PDF — KPI charts rendered as images (no text extraction possible)</td>
+          <td><span class="freq-badge freq-weekly">Weekly · Manual</span></td>
+          <td>build_kpi_dashboard.py + build_rep_dashboards.py — data block manually extracted and entered</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BUILD SCRIPTS -->
+  <div class="section-label">Build Scripts</div>
+  <div class="script-grid">
+
+    <div class="script-card">
+      <div class="script-name">build_sales_dashboard.py</div>
+      <div class="script-location">3.Resources/16.Sales and Other data/</div>
+      <div class="script-desc">The primary sales analytics builder (~2900 lines). Reads the parquet + all Zoho/PAD CSVs and produces a multi-tab HTML dashboard. Handles rep attribution via delno→dlref→smref linkage. Embeds chart data, heatmaps, and debtors freshness banner inline.</div>
+      <div class="script-io">
+        <div>
+          <div class="io-label">Inputs</div>
+          <div class="io-item">Sales_Invoices_All.parquet</div>
+          <div class="io-item">Zoho/Meetings_Report_AWS.xlsx</div>
+          <div class="io-item">Zoho/Meetings_Report_AWS_Merchandising.xlsx</div>
+          <div class="io-item">Zoho/OP_Lead_Tracking_new.csv</div>
+          <div class="io-item">Pad/debtors_age_analysis.csv</div>
+          <div class="io-item">Pad/sales_order_outstanding.csv</div>
+        </div>
+        <div>
+          <div class="io-label">Outputs</div>
+          <div class="io-item">Sales Dashboard/index.html</div>
+          <div class="io-item">→ git push → olympic-paints-sales</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-name">build_kpi_dashboard.py</div>
+      <div class="script-location">1.Projects/AWS Data/</div>
+      <div class="script-desc">Builds the weekly KPI summary dashboard. Revenue and rep data entered manually at the top of the script from QuickSight PDFs. Merchandising KPI E auto-calculated from Zoho xlsx. Writes kpi_status.json to the workspace-dashboard folder for portal tile updates.</div>
+      <div class="script-io">
+        <div>
+          <div class="io-label">Inputs</div>
+          <div class="io-item">Manual data block (REPS, MTD_SALES etc)</div>
+          <div class="io-item">Meetings_Report_AWS_Merchandising.xlsx</div>
+        </div>
+        <div>
+          <div class="io-label">Outputs</div>
+          <div class="io-item">index.html → olympic-paints-kpi</div>
+          <div class="io-item">kpi_status.json → workspace-dashboard/</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-name">build_rep_dashboards.py</div>
+      <div class="script-location">1.Projects/AWS Data/</div>
+      <div class="script-desc">Generates personalised quarterly KPI portals for all 5 sales reps. Each portal shows monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, store visits, debtors, and top accounts. Merchandising KPI F auto-graded from Zoho merch xlsx (target: 45 visits/quarter).</div>
+      <div class="script-io">
+        <div>
+          <div class="io-label">Inputs</div>
+          <div class="io-item">Manual data block per rep</div>
+          <div class="io-item">Meetings_Report_AWS_Merchandising.xlsx</div>
+          <div class="io-item">New Stores Added By Reps_*.xlsx</div>
+        </div>
+        <div>
+          <div class="io-label">Outputs</div>
+          <div class="io-item">index.html → olympic-paints-kpi-ac</div>
+          <div class="io-item">index.html → olympic-paints-kpi-ap</div>
+          <div class="io-item">index.html → olympic-paints-kpi-bv</div>
+          <div class="io-item">index.html → olympic-paints-kpi-np</div>
+          <div class="io-item">index.html → olympic-paints-kpi-bm</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-name">build_ecommerce_dashboard.py</div>
+      <div class="script-location">1.Projects/AWS Data/</div>
+      <div class="script-desc">Builds the WooCommerce e-commerce analytics dashboard. Reads product order exports and produces sales-by-product, order trends, and revenue summaries. Runs automatically via Windows Task Scheduler at 08:15 daily.</div>
+      <div class="script-io">
+        <div>
+          <div class="io-label">Inputs</div>
+          <div class="io-item">WooCommerce order exports</div>
+        </div>
+        <div>
+          <div class="io-label">Outputs</div>
+          <div class="io-item">index.html → olympic-paints-ecommerce</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-name">build_report.py</div>
+      <div class="script-location">2.Areas/11. HR/Clocking Reports/scripts/</div>
+      <div class="script-desc">Core HAVEN HR processor. Ingests raw Advius biometric exports and accumulates them into the YTD master workbook. Must always be run with --master flag against Clocking Report YTD.xlsx. Applies 45-minute break deduction per shift, per employee, no exceptions. Classifies by employer (SD-prefix = Primeserve).</div>
+      <div class="script-io">
+        <div>
+          <div class="io-label">Inputs</div>
+          <div class="io-item">Transaction*.xlsx (Advius export)</div>
+          <div class="io-item">--master: Clocking Report YTD.xlsx</div>
+        </div>
+        <div>
+          <div class="io-label">Outputs</div>
+          <div class="io-item">Clocking Report YTD.xlsx (updated master)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-name">gen_dashboard.py</div>
+      <div class="script-location">2.Areas/11. HR/Clocking Reports/scripts/</div>
+      <div class="script-desc">Reads the Clocking Report YTD.xlsx master and generates the HAVEN HTML dashboard. Pushes to olympic-paints-clocking via FlomaticAuto GitHub credentials. Six tabs: Overview · Yesterday · Daily Attendance · Departments · Weekly Hours · Missing Clock Out.</div>
+      <div class="script-io">
+        <div>
+          <div class="io-label">Inputs</div>
+          <div class="io-item">Output/Clocking Report YTD.xlsx</div>
+        </div>
+        <div>
+          <div class="io-label">Outputs</div>
+          <div class="io-item">Output/index.html</div>
+          <div class="io-item">→ git push → olympic-paints-clocking</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-name">process_inbox.py</div>
+      <div class="script-location">2.Areas/11. HR/Clocking Reports/scripts/</div>
+      <div class="script-desc">One-shot batch processor. Scans the Inbox folder for new Advius exports, calls build_report.py with --master, renames the output to the YTD master, then sends two Outlook emails: (1) YTD Excel to accounts@olympicpaints and quintusl@olympicpaints; (2) daily missed clock-out HTML summary. Moves processed files to Inbox/Archived/.</div>
+      <div class="script-io">
+        <div>
+          <div class="io-label">Inputs</div>
+          <div class="io-item">Inbox/*.xlsx (any new Advius export)</div>
+        </div>
+        <div>
+          <div class="io-label">Outputs</div>
+          <div class="io-item">Updated Clocking Report YTD.xlsx</div>
+          <div class="io-item">Email: YTD Excel + missed clock-out summary</div>
+          <div class="io-item">Moves source to Inbox/Archived/</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-name">haven_watcher.py</div>
+      <div class="script-location">2.Areas/11. HR/Clocking Reports/scripts/</div>
+      <div class="script-desc">Persistent file-system watcher using watchdog library. Monitors the Inbox folder and auto-triggers build_report.py whenever a new .xlsx file lands. Runs continuously as a background process — no manual intervention required when an Advius export is dropped.</div>
+      <div class="script-io">
+        <div>
+          <div class="io-label">Trigger</div>
+          <div class="io-item">New .xlsx file in Inbox/</div>
+        </div>
+        <div>
+          <div class="io-label">Action</div>
+          <div class="io-item">Calls build_report.py automatically</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-name">haven_dashboard_check.py</div>
+      <div class="script-location">2.Areas/11. HR/Clocking Reports/scripts/</div>
+      <div class="script-desc">Weekly scheduled check script. Regenerates the HAVEN clocking dashboard and sends a Telegram summary to chat ID 8042233389 with attendance highlights. Runs via Windows Task Scheduler on Mondays at 08:00.</div>
+      <div class="script-io">
+        <div>
+          <div class="io-label">Schedule</div>
+          <div class="io-item">Every Monday 08:00 (Task Scheduler)</div>
+        </div>
+        <div>
+          <div class="io-label">Outputs</div>
+          <div class="io-item">Regenerates HAVEN dashboard</div>
+          <div class="io-item">Telegram summary → chat 8042233389</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-name">audit_funky_transactions.py</div>
+      <div class="script-location">3.Resources/16.Sales and Other data/</div>
+      <div class="script-desc">Standalone audit script. Scans the full sales parquet for 16 categories of anomalous transactions: negative nets, sign mismatches, itemtotal discrepancies, zero-qty charges, future-dated lines, missing refs, outlier values, and error reason codes. Outputs a multi-sheet Excel workbook for manual review.</div>
+      <div class="script-io">
+        <div>
+          <div class="io-label">Inputs</div>
+          <div class="io-item">Sales_Invoices_All.parquet</div>
+        </div>
+        <div>
+          <div class="io-label">Outputs</div>
+          <div class="io-item">Funky Transactions Report.xlsx</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- GITHUB PAGES REPOS -->
+  <div class="section-label">Published Dashboards — GitHub Pages</div>
+  <div class="arch-table-wrap">
+    <table class="arch-table">
+      <thead>
+        <tr><th>Repository (FlomaticAuto)</th><th>Live URL</th><th>Dashboard</th><th>Build Script</th><th>Update</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="code-chip">olympic-paints-sales</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" style="color:#6B9ED0">…/olympic-paints-sales/</a></td><td>Sales Performance Dashboard</td><td>build_sales_dashboard.py</td><td><span class="freq-badge freq-daily">Daily</span></td></tr>
+        <tr><td><span class="code-chip">olympic-paints-kpi</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi/</a></td><td>KPI Dashboard + rep table</td><td>build_kpi_dashboard.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
+        <tr><td><span class="code-chip">olympic-paints-kpi-ac</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi-ac/</a></td><td>Rep KPI Portal — Aboo Cassim (AC)</td><td>build_rep_dashboards.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
+        <tr><td><span class="code-chip">olympic-paints-kpi-ap</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi-ap/</a></td><td>Rep KPI Portal — Amit Patel (AP)</td><td>build_rep_dashboards.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
+        <tr><td><span class="code-chip">olympic-paints-kpi-bv</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi-bv/</a></td><td>Rep KPI Portal — Bhadresh Vallabh (BV)</td><td>build_rep_dashboards.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
+        <tr><td><span class="code-chip">olympic-paints-kpi-np</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi-np/</a></td><td>Rep KPI Portal — Nikhil Panchal (NP)</td><td>build_rep_dashboards.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
+        <tr><td><span class="code-chip">olympic-paints-kpi-bm</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi-bm/</a></td><td>Rep KPI Portal — Byron Minnie (BM)</td><td>build_rep_dashboards.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
+        <tr><td><span class="code-chip">olympic-paints-clocking</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" style="color:#6B9ED0">…/olympic-paints-clocking/</a></td><td>HAVEN Clocking Dashboard</td><td>gen_dashboard.py</td><td><span class="freq-badge freq-perrun">Per export</span></td></tr>
+        <tr><td><span class="code-chip">olympic-paints-ecommerce</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" style="color:#6B9ED0">…/olympic-paints-ecommerce/</a></td><td>E-Commerce Dashboard</td><td>build_ecommerce_dashboard.py</td><td><span class="freq-badge freq-daily">Daily 08:15</span></td></tr>
+        <tr><td><span class="code-chip">olympic-paints-vehicles</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" style="color:#6B9ED0">…/olympic-paints-vehicles/</a></td><td>Vehicle In-Out Report</td><td>Manual upload</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
+        <tr><td><span class="code-chip">op-workspace-dashboard</span></td><td><a href="https://flomaticauto.github.io/op-workspace-dashboard/" target="_blank" style="color:#6B9ED0">…/op-workspace-dashboard/</a></td><td>Reports Portal (this portal)</td><td>portal.html — static</td><td><span class="freq-badge freq-manual">Manual</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:11px;color:var(--color-text-secondary);margin:6px 0 28px;padding-left:4px">All repos are under the <strong>FlomaticAuto</strong> GitHub account. Git pushes use <span class="code-chip">gh auth token --user FlomaticAuto</span> embedded in the remote URL. Never switch the active gh account — use the token pattern.</p>
+
+  <!-- SCHEDULED AUTOMATION -->
+  <div class="section-label">Scheduled Automation</div>
+  <div class="arch-table-wrap" style="margin-bottom:8px">
+    <table class="arch-table">
+      <thead>
+        <tr><th>Schedule</th><th>Script</th><th>What It Does</th><th>Method</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Daily 07:00</strong></td>
+          <td><span class="code-chip">build_sales_dashboard.py</span></td>
+          <td>Rebuilds the full Sales Performance Dashboard from latest parquet + Zoho/PAD files and pushes to GitHub Pages</td>
+          <td>Windows Task Scheduler</td>
+        </tr>
+        <tr>
+          <td><strong>Daily 08:15</strong></td>
+          <td><span class="code-chip">build_ecommerce_dashboard.py</span></td>
+          <td>Rebuilds the E-Commerce Dashboard from latest WooCommerce export and pushes to GitHub Pages</td>
+          <td>Windows Task Scheduler</td>
+        </tr>
+        <tr>
+          <td><strong>Monday 08:00</strong></td>
+          <td><span class="code-chip">haven_dashboard_check.py</span></td>
+          <td>Regenerates the HAVEN Clocking Dashboard and sends a weekly Telegram attendance summary to management</td>
+          <td>Windows Task Scheduler</td>
+        </tr>
+        <tr>
+          <td><strong>Friday 16:00</strong></td>
+          <td>Workspace Health Report script</td>
+          <td>Generates the weekly cross-system health report, emails to management, pushes to GitHub Pages, and sends Telegram notification</td>
+          <td>Windows Task Scheduler</td>
+        </tr>
+        <tr>
+          <td><strong>Continuous (file watch)</strong></td>
+          <td><span class="code-chip">haven_watcher.py</span></td>
+          <td>Watches the HR Inbox folder using watchdog. Automatically triggers build_report.py whenever a new Advius .xlsx export is dropped — no manual intervention needed</td>
+          <td>Persistent background process</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- KPI FRAMEWORK -->
+  <div class="section-label">KPI Agreement Framework — Categories A–F</div>
+  <div class="arch-table-wrap">
+    <table class="arch-table">
+      <thead>
+        <tr><th>Cat</th><th>Name</th><th style="text-align:center">Weight</th><th>Target / Scoring Method</th><th>Data Source</th><th>Scope</th></tr>
+      </thead>
+      <tbody>
+        <tr class="kpi-row-a">
+          <td><strong style="color:#F5C400">A</strong></td>
+          <td><strong>Revenue vs Monthly Target</strong></td>
+          <td style="text-align:center"><span class="kpi-weight">40%</span></td>
+          <td>Graded: actual ÷ monthly target. 100% = full 40 points</td>
+          <td>QuickSight PDF → manual entry</td>
+          <td>Main KPI · Per-rep</td>
+        </tr>
+        <tr class="kpi-row-b">
+          <td><strong style="color:#6B9ED0">B</strong></td>
+          <td><strong>Discount Management (Rock Bottom)</strong></td>
+          <td style="text-align:center"><span class="kpi-weight">20%</span></td>
+          <td>RB bands: (15%→20pts) (14%→16pts) (13%→12pts) (12%→8pts) (11%→4pts). % of lines below rock-bottom price per band</td>
+          <td>Sales_Invoices_All.parquet</td>
+          <td>Main KPI · Per-rep</td>
+        </tr>
+        <tr class="kpi-row-c">
+          <td><strong style="color:#2D8C7A">C</strong></td>
+          <td><strong>Debtors Management</strong></td>
+          <td style="text-align:center"><span class="kpi-weight">15%</span></td>
+          <td>Based on account current status — days overdue, balance proportion</td>
+          <td>Pad/debtors_age_analysis.csv</td>
+          <td>Main KPI · Per-rep</td>
+        </tr>
+        <tr class="kpi-row-d">
+          <td><strong style="color:#9B7DBF">D</strong></td>
+          <td><strong>New Store Account Acquisition</strong></td>
+          <td style="text-align:center"><span class="kpi-weight">10%</span></td>
+          <td>Graded: verified new stores ÷ quarterly target</td>
+          <td>New Stores Added By Reps_*.xlsx (manual)</td>
+          <td>Main KPI · Per-rep</td>
+        </tr>
+        <tr class="kpi-row-e">
+          <td><strong style="color:#C97A3A">E</strong></td>
+          <td><strong>Merchandising (main dashboard)</strong></td>
+          <td style="text-align:center"><span class="kpi-weight">10%</span></td>
+          <td>Graded: min(visits ÷ 15, 1.0) × 10%. Scored on last completed month with auto-fallback to most recent month with data. Scored rep column shows e.g. "✗ 33% · 5/15"</td>
+          <td>Meetings_Report_AWS_Merchandising.xlsx</td>
+          <td>Main KPI only</td>
+        </tr>
+        <tr class="kpi-row-f">
+          <td><strong style="color:#E86060">F</strong></td>
+          <td><strong>Merchandising (per-rep dashboards)</strong></td>
+          <td style="text-align:center"><span class="kpi-weight">10%</span></td>
+          <td>Graded: min(visits ÷ 45, 1.0) × 10%. Quarterly target = 45 visits (15/month × 3). Rep name extracted via regex from Note Content field: WHO IS THE REP THAT SERVICES THE STORE</td>
+          <td>Meetings_Report_AWS_Merchandising.xlsx</td>
+          <td>Per-rep only</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:11px;color:var(--color-text-secondary);margin:6px 0 28px;padding-left:4px">
+    Training was previously part of the Training &amp; Merchandising bucket (70/30 split). As of May 2026, training is <strong>excluded entirely</strong> from scoring — the full 10% weight goes to merchandising. The KPI category E/F was renamed from "Training &amp; Merchandising" → "Merchandising". Pill colours: ≥100% green · 50–99% amber · &lt;50% red.
+  </p>
+
+  <!-- AI AGENTS DIRECTORY -->
+  <div class="section-label">AI Agents Directory</div>
+  <div class="agent-grid">
+
+    <div class="agent-card" style="border-top:3px solid #F5C400">
+      <div class="agent-name-tag">APEX</div>
+      <div class="agent-role-title">Managing Director — Task Router</div>
+      <div class="agent-role-desc">Routes all incoming tasks to the correct functional agent. Entry point for any request that doesn't obviously belong to a specific domain. Oversees cross-functional coordination.</div>
+    </div>
+
+    <div class="agent-card" style="border-top:3px solid #2D8C7A">
+      <div class="agent-name-tag">HAVEN</div>
+      <div class="agent-model-tag">Claude Sonnet</div>
+      <div class="agent-role-title">HR &amp; People Operations</div>
+      <div class="agent-role-desc">Owns the HAVEN clocking pipeline. Processes Advius biometric exports, manages the YTD master workbook, generates the clocking dashboard, and handles onboarding / job description tasks. Enforces the 45-min break deduction rule without exception.</div>
+    </div>
+
+    <div class="agent-card" style="border-top:3px solid #9B7DBF">
+      <div class="agent-name-tag">PRISM</div>
+      <div class="agent-model-tag">Claude Opus</div>
+      <div class="agent-role-title">Analytics &amp; Business Intelligence</div>
+      <div class="agent-role-desc">Owns data analysis, QuickSight-sourced reports, sales data querying (parquet), and the weekly workspace health report. Applies SQL-standard data quality rules. PARA-owned Friday 16:00 health report.</div>
+    </div>
+
+    <div class="agent-card" style="border-top:3px solid #F5C400">
+      <div class="agent-name-tag">STRIKER</div>
+      <div class="agent-model-tag">Claude Sonnet</div>
+      <div class="agent-role-title">Sales &amp; CRM</div>
+      <div class="agent-role-desc">Manages Zoho CRM workflows, quote generation, stockist management, and rep follow-up cadence. Knows the full sales rep code map (AC/AP/BV/NP/BM) and account structures.</div>
+    </div>
+
+    <div class="agent-card" style="border-top:3px solid #6B9ED0">
+      <div class="agent-name-tag">SIGMA</div>
+      <div class="agent-model-tag">Claude Sonnet</div>
+      <div class="agent-role-title">Operations</div>
+      <div class="agent-role-desc">Handles SOPs, dispatch records, factory operations documentation, and inventory management. Maintains operational procedure documents in the PARA Resources folder.</div>
+    </div>
+
+    <div class="agent-card" style="border-top:3px solid #E87BAD">
+      <div class="agent-name-tag">BLAZE</div>
+      <div class="agent-model-tag">Claude Sonnet</div>
+      <div class="agent-role-title">Marketing</div>
+      <div class="agent-role-desc">Manages social media copy, product content, and campaign briefs. Applies the Olympic Paints brand voice — "Inspiration Yellow" as primary colour, Barlow Condensed display font, bold and direct communication style.</div>
+    </div>
+
+    <div class="agent-card" style="border-top:3px solid #C97A3A">
+      <div class="agent-name-tag">VAULT</div>
+      <div class="agent-model-tag">Claude Haiku</div>
+      <div class="agent-role-title">Admin &amp; Filing</div>
+      <div class="agent-role-desc">Owns PARA filing decisions, inbox triage, Notion task creation, and meeting minutes extraction. Trigger "New Task" to create tasks in Notion. Trigger "New Document" to file and classify a document. Runs daily meeting extraction pipeline.</div>
+    </div>
+
+  </div>
+
+  <!-- NOTIFICATION SYSTEM -->
+  <div class="section-label">Notification System</div>
+  <div class="notif-grid">
+    <div class="notif-card">
+      <h4>Telegram Bot — Primary Channel</h4>
+      <p><strong>Chat ID:</strong> <span class="code-chip">8042233389</span></p>
+      <ul>
+        <li>All agent task completions → baseline notification via Stop hook in Claude Code settings</li>
+        <li>HAVEN monday check → richer attendance summary with figures</li>
+        <li>Friday health report → cross-system status summary</li>
+        <li>Telegram messages from the user arrive with chat metadata; replies use the <code>reply</code> tool</li>
+      </ul>
+    </div>
+    <div class="notif-card">
+      <h4>Email (Outlook / win32com)</h4>
+      <p>Triggered after every successful HAVEN pipeline run:</p>
+      <ul>
+        <li><strong>To:</strong> accounts@olympicpaints.co.za · quintusl@olympicpaints.co.za</li>
+        <li>Email 1: Updated Clocking Report YTD.xlsx attached</li>
+        <li>Email 2: Daily missed clock-out summary (HTML formatted)</li>
+        <li>Sent by <span class="code-chip">process_inbox.py</span> after each Advius export is processed</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PARA STRUCTURE -->
+  <div class="section-label">Repository Structure — PARA Folder Layout</div>
+  <pre class="para-tree"><span class="comment">Olympic Paints (PARA-organised business repository — not a software project)</span>
+│
+├── 0.Inbox/                          <span class="comment">← Drop zone for incoming files awaiting processing</span>
+│
+├── 1.Projects/                       <span class="comment">← Active projects</span>
+│   ├── AWS Data/                     <span class="comment">← KPI + rep + ecommerce dashboard scripts</span>
+│   │   ├── build_kpi_dashboard.py
+│   │   ├── build_rep_dashboards.py
+│   │   └── build_ecommerce_dashboard.py
+│   └── KPI Report/
+│       └── Weekly Progress/          <span class="comment">← Weekly_Sales_Report__*.pdf (source for manual KPI entry)</span>
+│
+├── 2.Areas/                          <span class="comment">← Ongoing operational areas</span>
+│   └── 11. HR/
+│       └── Clocking Reports/
+│           ├── scripts/              <span class="comment">← HAVEN pipeline scripts</span>
+│           │   ├── build_report.py   <span class="comment">← Must always use --master flag</span>
+│           │   ├── gen_dashboard.py
+│           │   ├── process_inbox.py
+│           │   ├── haven_watcher.py
+│           │   └── haven_dashboard_check.py
+│           ├── Inbox/                <span class="comment">← Drop zone for new Advius exports</span>
+│           │   └── Archived/         <span class="comment">← Processed exports moved here</span>
+│           └── Output/               <span class="comment">← Master output location</span>
+│               ├── Clocking Report YTD.xlsx   <span class="comment">← YTD master accumulator</span>
+│               └── index.html                 <span class="comment">← GitHub Pages source (git repo)</span>
+│
+└── 3.Resources/                      <span class="comment">← Reference material</span>
+    ├── 9. Brand Assets &amp; Images/
+    │   └── Misc Pictures/
+    │       └── Olympic Paints Logo Digital.jpg   <span class="comment">← Official logo — always use this</span>
+    ├── 16. Sales and Other data/     <span class="comment">← Sales dashboard home</span>
+    │   ├── Sales_Invoices_All.parquet
+    │   ├── audit_funky_transactions.py
+    │   ├── build_sales_dashboard.py
+    │   ├── Sales Dashboard/          <span class="comment">← index.html pushed to olympic-paints-sales</span>
+    │   ├── Zoho/                     <span class="comment">← Daily Zoho CRM exports</span>
+    │   │   ├── Meetings_Report_AWS.xlsx
+    │   │   ├── Meetings_Report_AWS_Merchandising.xlsx
+    │   │   └── OP_Lead_Tracking_new.csv
+    │   └── Pad/                      <span class="comment">← Daily PAD system exports</span>
+    │       ├── debtors_age_analysis.csv
+    │       └── sales_order_outstanding.csv
+    └── Other/                        <span class="comment">← SOPs, product info, meeting minutes</span></pre>
+
+  <!-- DESIGN SYSTEM NOTE -->
+  <div class="section-label">Design System — HTML Standards</div>
+  <div class="arch-table-wrap">
+    <table class="arch-table">
+      <thead><tr><th>Rule</th><th>Standard</th></tr></thead>
+      <tbody>
+        <tr><td>Fonts</td><td><strong>Barlow Condensed</strong> (display/headlines, weights 300–900) · <strong>Barlow</strong> (body/UI) · Always imported from Google Fonts</td></tr>
+        <tr><td>Themes</td><td>4-theme toggle required on every HTML file: Light · Dark · Brand · Navy. Applied to <code>&lt;html&gt;</code> element. Default: <strong>theme-navy</strong> for this portal, all management-facing files. <strong>theme-dark</strong> for standard dashboards</td></tr>
+        <tr><td>Colours</td><td>Never hardcode hex in component CSS. Always use <span class="code-chip">--color-*</span> semantic token properties defined in the theme blocks</td></tr>
+        <tr><td>Logo</td><td><span class="code-chip">Olympic Paints Logo Digital.jpg</span> wrapped in <code>border-radius:50%;overflow:hidden</code> div. Never use old inline SVG badge. Min 28px size. Build scripts: <span class="code-chip">shutil.copy2(LOGO_SRC, OUT_DIR / 'logo.jpg')</span></td></tr>
+        <tr><td>Charts</td><td>Chart.js from cdnjs only when explicitly needed. Always include <code>barLabels</code> plugin. Use <span class="code-chip">_lblMap.set()</span> for all bar chart labels</td></tr>
+        <tr><td>Frameworks</td><td>Never use Tailwind, Bootstrap, or any external CSS framework. Vanilla CSS + vanilla JS only</td></tr>
+        <tr><td>Rep Attribution</td><td>Sales data: <strong>delno → dlref → smref</strong> is the primary chain. accno → curef fallback only for FY2024 legacy data. Never group by smno or accno directly</td></tr>
+        <tr><td>CRNOTE Convention</td><td>In this system, CRNOTE amounts are stored as <strong>positive values</strong>. The ivtype flag carries the sign — downstream code subtracts. Never flag positive CRNOTEs as anomalous</td></tr>
+        <tr><td>Break Deduction</td><td>45-minute break deducted from every worked shift for every employee (HAVEN). Applied upstream in build_report.py — never re-apply in dashboard or reports</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</div><!-- /arch -->
 
 <footer>
   <strong>Olympic Paints Reports Portal</strong> · Limpopo, SA<br>
