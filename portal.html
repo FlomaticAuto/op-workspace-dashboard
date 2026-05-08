@@ -1520,6 +1520,85 @@ function showTab(id){
   document.getElementById('panel-'+id).classList.add('active');
   event.currentTarget.classList.add('active');
 }
+
+// ── PORTAL TRIGGER WIRING ────────────────────────────────────────────────
+const TRIGGER_BASE = 'http://127.0.0.1:8765';
+
+async function pollHealth() {
+  try {
+    const r = await fetch(`${TRIGGER_BASE}/health`, {cache:'no-store'});
+    if (!r.ok) throw 0;
+    const j = await r.json();
+    document.querySelectorAll('.health-dot').forEach(d => {
+      const k = d.dataset.build;
+      const up = j.builds.includes(k);
+      d.classList.toggle('is-up', up);
+      const txt = d.parentElement.querySelector('.health-text');
+      if (txt) txt.textContent = up ? 'Service online' : 'Build not registered';
+      const btn = document.querySelector(`.regen-btn[data-build="${k}"]`);
+      if (btn) btn.disabled = !up;
+    });
+  } catch(e) {
+    document.querySelectorAll('.health-dot').forEach(d => d.classList.remove('is-up'));
+    document.querySelectorAll('.health-text').forEach(t => t.textContent = 'Service offline');
+    document.querySelectorAll('.regen-btn').forEach(b => b.disabled = true);
+  }
+}
+
+async function triggerBuild(btn) {
+  const key = btn.dataset.build;
+  btn.classList.remove('is-success','is-error');
+  btn.classList.add('is-running');
+  btn.textContent = 'Generating';
+  try {
+    const r = await fetch(`${TRIGGER_BASE}/trigger/${key}`, {method:'POST'});
+    if (!r.ok) throw new Error(`trigger failed: ${r.status}`);
+    const {job_id} = await r.json();
+    await pollJob(btn, job_id);
+  } catch(e) {
+    btn.classList.remove('is-running');
+    btn.classList.add('is-error');
+    btn.textContent = 'Failed';
+    btn.title = String(e);
+    setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
+  }
+}
+
+async function pollJob(btn, jobId) {
+  for (let i=0; i<150; i++) {     // 150 × 2s = 5 min cap
+    await new Promise(r => setTimeout(r, 2000));
+    const r = await fetch(`${TRIGGER_BASE}/status/${jobId}`, {cache:'no-store'});
+    if (!r.ok) continue;
+    const s = await r.json();
+    if (s.state === 'success') {
+      btn.classList.remove('is-running');
+      btn.classList.add('is-success');
+      btn.textContent = '✓ Updated';
+      btn.title = '';
+      setTimeout(() => { btn.classList.remove('is-success'); btn.textContent = 'Regenerate ↻'; }, 30000);
+      return;
+    }
+    if (s.state === 'error') {
+      btn.classList.remove('is-running');
+      btn.classList.add('is-error');
+      btn.textContent = '⚠ Failed';
+      btn.title = (s.log_tail || []).slice(-5).join('\n');
+      setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
+      return;
+    }
+  }
+  // Timed out
+  btn.classList.remove('is-running');
+  btn.classList.add('is-error');
+  btn.textContent = '⚠ Timeout';
+  setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
+}
+
+// Wire up buttons
+document.querySelectorAll('.regen-btn').forEach(b => b.addEventListener('click', () => triggerBuild(b)));
+// Initial + periodic health checks
+pollHealth();
+setInterval(pollHealth, 30000);
 </script>
 </body>
 </html>
