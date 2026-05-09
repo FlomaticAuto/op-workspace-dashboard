@@ -363,6 +363,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 <div class="tab-bar">
   <button class="tab-btn active" onclick="showTab('all')">All Reports</button>
   <button class="tab-btn"        onclick="showTab('sales')">Sales</button>
+  <button class="tab-btn"        onclick="showTab('pulse')">Sales Reps Pulse</button>
   <button class="tab-btn"        onclick="showTab('hr')">HR &amp; People</button>
   <button class="tab-btn"        onclick="showTab('ops')">Operations</button>
   <button class="tab-btn"        onclick="showTab('arch')">Org Architecture</button>
@@ -444,6 +445,54 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-footer">
         <div class="card-meta"><strong>Source:</strong> Woocommerce_Transactions.csv · Manual export</div>
         <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-label">Sales Reps PULSE</div>
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-sales"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-sales">Sales · PULSE</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">PULSE Live Leaderboard</div>
+        <div class="card-desc">Live ranking of all 5 sales reps for the current month. Sorted by % of monthly target (NET of VAT). Top 2 in green, bottom 2 in red. Refreshes weekday mornings at 06:30.</div>
+        <div class="card-tags">
+          <span class="tag">% Target</span>
+          <span class="tag">Rank</span>
+          <span class="tag">Plan Adherence</span>
+          <span class="tag">Ack Streak</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Updated:</strong> Mon–Fri 06:30 · Auto</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent accent-sales"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-sales">Sales · PULSE</span>
+          <span class="live-badge">● Bi-weekly</span>
+        </div>
+        <div class="card-title">PULSE Bi-Weekly Scorecard</div>
+        <div class="card-desc">14-day performance roll-up emailed to all reps + Quintus, archived publicly. Exec summary, rep ranking, new-stores prospected, product-dev conversations. Builds alt-Mondays 07:00.</div>
+        <div class="card-tags">
+          <span class="tag">14-day Window</span>
+          <span class="tag">Rep Ranking</span>
+          <span class="tag">New Stores</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Updated:</strong> Alt-Mondays 07:00</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard ↗</a>
       </div>
     </div>
 
@@ -770,6 +819,68 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   </div>
 </div>
 </div><!-- /sales -->
+
+<!-- ══════════════════════════════════════════════════ TAB: PULSE -->
+<div id="panel-pulse" class="tab-panel">
+<div class="main">
+
+  <div class="dept-intro">
+    <div class="dept-icon icon-sales" style="font-size:24px">🟡</div>
+    <div class="dept-intro-text">
+      <h2 style="color:#F5C400">Sales Reps PULSE</h2>
+      <p>Daily push system for the 5 sales reps (AC, AP, BV, NP, BM). PULSE drives daily ack discipline, tracks plan vs actual against the 4-week customer cycle, escalates silence to Quintus, and publishes a live performance leaderboard plus a bi-weekly scorecard. Targets are computed each month as the prior-year same-month actual + 30%, NET of VAT.</p>
+    </div>
+  </div>
+
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-sales"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-sales">Sales · PULSE</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">PULSE Live Leaderboard</div>
+        <div class="card-desc">Live ranking of all 5 sales reps for the current month. Sorted by % of monthly target (NET of VAT). Top 2 highlighted green, bottom 2 red. Includes plan adherence and ack streak per rep. Refreshes automatically every weekday morning at 06:30.</div>
+        <div class="card-tags">
+          <span class="tag">% Target</span>
+          <span class="tag">Rank</span>
+          <span class="tag">Plan Adherence</span>
+          <span class="tag">Ack Streak</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet + JotForm acks · Refreshes Mon–Fri 06:30</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent accent-sales"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-sales">Sales · PULSE</span>
+          <span class="live-badge">● Bi-weekly</span>
+        </div>
+        <div class="card-title">PULSE Bi-Weekly Scorecard</div>
+        <div class="card-desc">Fortnightly performance roll-up emailed to all 5 reps and Quintus, also archived publicly. Executive summary, full rep ranking with green/red highlights, new-stores prospected, product-dev conversations. Builds every alternate Monday at 07:00. Click below for the latest issue.</div>
+        <div class="card-tags">
+          <span class="tag">14-day Window</span>
+          <span class="tag">Rep Ranking</span>
+          <span class="tag">New Stores</span>
+          <span class="tag">Prod-Dev</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Source:</strong> 14-day rollup of sales + JotForm acks · Builds alt-Mondays 07:00</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard ↗</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div><!-- /pulse -->
 
 <!-- ══════════════════════════════════════════════════ TAB: HR -->
 <div id="panel-hr" class="tab-panel">
