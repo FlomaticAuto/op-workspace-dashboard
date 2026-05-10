@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-05-09T15:44:17.808428+00:00",
+  "run_date": "2026-05-09",
+  "sessions": 37,
+  "total_prompts": 462,
+  "analysis": {
+    "agents": [
+      {
+        "agent": "HAVEN",
+        "improvements": [
+          {
+            "friction": "User reports notification delivery unclear \u2014 Telegram and email confirmations not matching expectations or perceived as poor formatting.",
+            "suggestion": "Add rule to HAVEN memory: When sending clocking/mail notifications via Telegram or email, always include explicit confirmation in both channels with clear, formatted output (e.g., 'Unacknowledged clocks for [DATE]: [LIST]'). Follow up with user immediately if notification format complaint is logged."
+          }
+        ]
+      },
+      {
+        "agent": "PRISM",
+        "improvements": [
+          {
+            "friction": "Reps report reverted to old version; KPI fields (Activity daily, Month-level data) missing after context continuation or model switch.",
+            "suggestion": "Add rule to PRISM memory: Before delivering any report refresh or model update, verify schema integrity against the current KPI manifest. If context is split across sessions, always re-confirm the active report version with the user and lock critical KPI fields (Activity, Month) in the stored template to prevent accidental reversion."
+          },
+          {
+            "friction": "Session context overflow causing loss of dashboard customization requests (e.g., 'Organization Architecture' tab addition not retained).",
+            "suggestion": "Add rule to PRISM memory: For dashboard schema changes, store user requests in a dedicated 'pending-schema-updates' log file and re-surface them at session start. Do not rely on conversation context alone for feature additions."
+          }
+        ]
+      },
+      {
+        "agent": "STRIKER",
+        "improvements": [
+          {
+            "friction": "User confusion about hooks vs. memory \u2014 configuration guidance unclear when JSON settings errors occur.",
+            "suggestion": "Add rule to STRIKER memory: When a user asks to fix a JSON settings error, always first clarify: 'Do you want this to happen automatically (needs a hook in settings.json) or just update your saved preference (memory)?' Provide the distinction upfront before troubleshooting."
+          }
+        ]
+      },
+      {
+        "agent": "BLAZE",
+        "improvements": [
+          {
+            "friction": "Image/layout sizing not fitting row constraints; user unable to edit individual line fields after rendering.",
+            "suggestion": "Add rule to BLAZE memory: After any image or form layout render, confirm field editability is enabled by default. Include a test step: render a sample row, verify each field is clickable/editable, and report back to user with a screenshot before declaring the change complete."
+          }
+        ]
+      },
+      {
+        "agent": "VAULT",
+        "improvements": [
+          {
+            "friction": "PARA Inbox contains stale job description (Logistics_Manager_Job_Description_10032026.docx); Projects folder (1.Projects) has items >30 days old (Business Canvas, Non-Traditional Paint Stores, Automation, Aurik); large video file in HR Disciplinary folder (>100MB).",
+            "suggestion": "Add rule to VAULT memory: Implement weekly hygiene scan for PARA folders. Flag stale Inbox items (>14d without activity) for archival review. For Projects >30d, confirm with owner whether they are active or should be moved to Archive. For files >100MB in HR, check if they can be compressed or moved to external storage per data policy. Report findings to user in a standard 'Folder Hygiene Alert' each week."
+          }
+        ]
+      }
+    ],
+    "summary": "This week shows three critical agent gaps: PRISM is losing report schema and dashboard customization due to context overflow and version reversion; BLAZE has unresolved layout and editability issues blocking user workflows; and VAULT lacks a proactive folder hygiene process (stale inbox items, abandoned 30+ day projects, and oversized HR files are accumulating). HAVEN's notification clarity issue is minor. Recommend implementing persistent storage for schema changes in PRISM, field-editability verification in BLAZE, and a weekly VAULT hygiene audit to prevent data rot."
+  },
+  "written_to_memory": [
+    "HAVEN: 1 improvement(s)",
+    "PRISM: 2 improvement(s)",
+    "STRIKER: 1 improvement(s)",
+    "BLAZE: 1 improvement(s)",
+    "VAULT: 1 improvement(s)"
+  ]
+}
