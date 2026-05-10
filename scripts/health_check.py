@@ -48,7 +48,7 @@ MANIFEST = [
             {"label": "Debtors Age Analysis",       "path": SALES_BASE / "Pad" / "debtors_age_analysis.csv",                        "max_age_hours": "business_day", "source": "PAD daily export"},
             {"label": "Sales Orders Outstanding",   "path": SALES_BASE / "Pad" / "sales_order_outstanding.csv",                     "max_age_hours": "business_day", "source": "PAD daily export"},
             {"label": "Zoho Meetings",              "path": SALES_BASE / "Zoho" / "Meetings_Report_AWS.xlsx",                       "max_age_hours": "business_day", "source": "Zoho export"},
-            {"label": "Zoho Lead Tracking",         "path": SALES_BASE / "Zoho" / "OP_Lead_Tracking_new.csv",                       "max_age_hours": "business_day", "source": "Zoho export"},
+            {"label": "Zoho Lead Tracking",         "path": SALES_BASE / "Zoho" / "OP_Lead_Tracking.csv",                       "max_age_hours": "business_day", "source": "Zoho export"},
             {"label": "Merchandising Visits",       "path": SALES_BASE / "Zoho" / "Meetings_Report_AWS_Merchandising.xlsx",         "max_age_hours": "business_day", "source": "Zoho export"},
             {"label": "Delivery Details",           "path": SALES_BASE / "Manual" / "Delivery Details_Updated_2304.xlsx",           "max_age_hours": None, "source": "Manual reference"},
             {"label": "Product Categories",         "path": SALES_BASE / "Manual" / "Product Categories_05052026.xlsx",             "max_age_hours": None, "source": "Manual reference"},
