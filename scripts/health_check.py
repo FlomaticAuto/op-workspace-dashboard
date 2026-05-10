@@ -604,6 +604,138 @@ function olyTheme(t,btn){{
 </body></html>"""
 
 
+# ── Email alert ─────────────────────────────────────────────────────────────
+
+ALERT_TO = "quintusl@olympicpaints.co.za"
+
+
+def _build_alert_html(jobs, generated_at: str) -> str:
+    problem_jobs = [j for j in jobs if j["overall"] in ("fail", "warn")]
+    fail_count = sum(1 for j in problem_jobs if j["overall"] == "fail")
+    warn_count = sum(1 for j in problem_jobs if j["overall"] == "warn")
+
+    rows = []
+    for j in problem_jobs:
+        ts = j["task_status"]
+        last_result = ts.get("last_result")
+        exit_str = "—" if last_result is None else ("✓ 0" if last_result == 0 else str(last_result))
+        colour = "#C0392B" if j["overall"] == "fail" else "#7A5A00"
+        bg = "#FEF2F2" if j["overall"] == "fail" else "#FDF0A0"
+        badge = "FAILED" if j["overall"] == "fail" else "WARNING"
+        rows.append(f"""
+        <tr style="border-bottom:1px solid #E8E7E2;">
+          <td style="padding:10px 12px;font-family:'Arial',sans-serif;font-size:13px;font-weight:600;">{j['name']}</td>
+          <td style="padding:10px 12px;font-family:'Arial',sans-serif;font-size:12px;color:#5C5B58;">{j['agent']}</td>
+          <td style="padding:10px 12px;font-family:'Arial',sans-serif;font-size:12px;color:#5C5B58;">{ts.get('last_run_iso') or 'Never'}</td>
+          <td style="padding:10px 12px;font-family:'Arial',sans-serif;font-size:12px;color:#5C5B58;">{exit_str}</td>
+          <td style="padding:10px 12px;">
+            <span style="background:{bg};color:{colour};font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.06em;">{badge}</span>
+          </td>
+        </tr>""")
+
+    subject_tag = f"{fail_count} failed" if fail_count else f"{warn_count} warning"
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#F7F6F3;font-family:'Arial',sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#F7F6F3;padding:24px 0;">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+
+  <!-- Header -->
+  <tr><td style="background:#1A3D6E;padding:24px 32px;">
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          <div style="font-family:'Arial',sans-serif;font-weight:900;font-size:22px;color:#F5C400;text-transform:uppercase;letter-spacing:.04em;">
+            WORKSPACE UPDATES
+          </div>
+          <div style="color:#B8CCE8;font-size:12px;margin-top:4px;">
+            Health Check Alert · {generated_at}
+          </div>
+        </td>
+        <td align="right">
+          <span style="background:#E86060;color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:.06em;">
+            {subject_tag}
+          </span>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- Body -->
+  <tr><td style="padding:28px 32px;">
+    <p style="margin:0 0 20px;font-size:14px;color:#2E2E2C;line-height:1.6;">
+      The following scheduled jobs need your attention:
+    </p>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid #E8E7E2;border-radius:6px;overflow:hidden;">
+      <thead>
+        <tr style="background:#F7F6F3;">
+          <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#949390;font-weight:600;">Job</th>
+          <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#949390;font-weight:600;">Agent</th>
+          <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#949390;font-weight:600;">Last Run</th>
+          <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#949390;font-weight:600;">Exit</th>
+          <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#949390;font-weight:600;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {''.join(rows)}
+      </tbody>
+    </table>
+
+    <div style="margin-top:24px;text-align:center;">
+      <a href="https://flomaticauto.github.io/op-workspace-dashboard/"
+         style="background:#F5C400;color:#0D0D0B;font-size:13px;font-weight:700;padding:12px 28px;border-radius:6px;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;display:inline-block;">
+        View Full Dashboard
+      </a>
+    </div>
+  </td></tr>
+
+  <!-- Footer -->
+  <tr><td style="padding:16px 32px;border-top:1px solid #E8E7E2;text-align:center;color:#949390;font-size:11px;">
+    Olympic Paints · Workspace Health Check · auto-generated by health_check.py
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body></html>"""
+
+
+def send_alert_email(jobs, generated_at: str) -> None:
+    problem_jobs = [j for j in jobs if j["overall"] in ("fail", "warn")]
+    if not problem_jobs:
+        return
+    fail_count = sum(1 for j in problem_jobs if j["overall"] == "fail")
+    warn_count = sum(1 for j in problem_jobs if j["overall"] == "warn")
+    parts = []
+    if fail_count:
+        parts.append(f"{fail_count} failed")
+    if warn_count:
+        parts.append(f"{warn_count} warning{'s' if warn_count > 1 else ''}")
+    subject = f"⚠ PULSE Health Check — {', '.join(parts)}"
+    html_body = _build_alert_html(jobs, generated_at)
+    try:
+        import win32com.client
+        outlook = win32com.client.Dispatch("Outlook.Application")
+        mail = outlook.CreateItem(0)
+        mail.To = ALERT_TO
+        mail.Subject = subject
+        mail.HTMLBody = html_body
+        mail.Send()
+        # Force-flush Outbox
+        ns = outlook.GetNamespace("MAPI")
+        outbox = ns.GetDefaultFolder(4)
+        for item in list(outbox.Items):
+            try:
+                item.Send()
+            except Exception:
+                pass
+        print(f"[ok] alert email sent to {ALERT_TO} ({', '.join(parts)})")
+    except Exception as e:
+        print(f"[warn] alert email failed: {e}", file=sys.stderr)
+
+
 # ── Git push ────────────────────────────────────────────────────────────────
 
 def push_to_github():
@@ -658,6 +790,7 @@ def main(push=True):
     OUT_JSON.write_text(json.dumps(summary, indent=2))
     OUT_HTML.write_text(render_html(jobs), encoding="utf-8")
     print(f"[ok] wrote {OUT_HTML} · {summary['ok']}/{summary['total']} green")
+    send_alert_email(jobs, summary["generated_at"])
     if push:
         push_to_github()
 
