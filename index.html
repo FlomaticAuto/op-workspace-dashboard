@@ -1150,25 +1150,7 @@
   <button class="tab-btn" onclick="switchTab('orgstructure')">Org Structure</button>
   <button class="tab-btn" onclick="switchTab('orghealth')">Org Health</button>
   <button class="tab-btn" onclick="switchTab('info')">Information Insight</button>
-  <a class="tab-btn" href="updates.html" id="updates-tab-link" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Updates <span id="updates-badge" style="display:inline-block;min-width:18px;padding:2px 6px;border-radius:10px;font-size:10px;font-weight:800;background:rgba(255,255,255,.15);">…</span></a>
 </div>
-<script>
-(function(){
-  fetch('updates_status.json?t=' + Date.now()).then(r => r.ok ? r.json() : null).then(d => {
-    if (!d) return;
-    var badge = document.getElementById('updates-badge');
-    if (!badge) return;
-    var fail = d.fail || 0, warn = d.warn || 0, ok = d.ok || 0, total = d.total || 0;
-    var bg = fail > 0 ? '#E86060' : warn > 0 ? '#F5C400' : '#2D8C7A';
-    var txt = fail > 0 ? fail + ' fail' : warn > 0 ? warn + ' warn' : ok + '/' + total + ' ok';
-    badge.textContent = txt;
-    badge.style.background = bg;
-    badge.style.color = fail > 0 || warn === 0 ? '#fff' : '#0D0D0B';
-    var link = document.getElementById('updates-tab-link');
-    if (link && d.generated_at) link.title = 'Last refreshed ' + new Date(d.generated_at).toLocaleString();
-  }).catch(function(){});
-})();
-</script>
 
 <!-- ─── Tab: Main Page ─── -->
 <div id="tab-main" class="tab-panel active">
