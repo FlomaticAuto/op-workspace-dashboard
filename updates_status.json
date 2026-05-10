@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-10T20:44:42",
+  "generated_at": "2026-05-10T21:08:37",
   "total": 15,
-  "ok": 6,
-  "warn": 3,
+  "ok": 7,
+  "warn": 2,
   "fail": 6,
   "jobs": [
     {
@@ -11,7 +11,7 @@
       "name": "Sales Performance Dashboard",
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
-      "overall": "warn",
+      "overall": "ok",
       "task_last_run": "2026-05-10T07:15:15",
       "task_last_result": 0
     },
@@ -156,5 +156,5 @@
       "task_last_result": 3221225786
     }
   ],
-  "success_pct": 40
+  "success_pct": 47
 }
