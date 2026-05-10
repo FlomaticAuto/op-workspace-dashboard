@@ -1150,7 +1150,7 @@
   <button class="tab-btn" onclick="switchTab('orgstructure')">Org Structure</button>
   <button class="tab-btn" onclick="switchTab('orghealth')">Org Health</button>
   <button class="tab-btn" onclick="switchTab('info')">Information Insight</button>
-  <a class="tab-btn" href="updates.html" id="updates-tab-link" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Updates <span id="updates-badge" style="display:inline-block;min-width:18px;padding:2px 6px;border-radius:10px;font-size:10px;font-weight:800;background:rgba(255,255,255,.15);">…</span></a>
+  <button class="tab-btn" id="updates-tab-btn" onclick="switchTab('updates')">Updates <span id="updates-badge" style="display:inline-block;min-width:18px;padding:2px 6px;border-radius:10px;font-size:10px;font-weight:800;background:rgba(255,255,255,.15);">…</span></button>
 </div>
 <script>
 (function(){
@@ -1164,8 +1164,6 @@
     badge.textContent = txt;
     badge.style.background = bg;
     badge.style.color = fail > 0 || warn === 0 ? '#fff' : '#0D0D0B';
-    var link = document.getElementById('updates-tab-link');
-    if (link && d.generated_at) link.title = 'Last refreshed ' + new Date(d.generated_at).toLocaleString();
   }).catch(function(){});
 })();
 </script>
@@ -2676,6 +2674,13 @@
 </div>
 </div><!-- /tab-info -->
 
+<!-- ─── Tab: Updates / Health Check ─── -->
+<div id="tab-updates" class="tab-panel">
+  <div id="updates-content" style="padding:0;">
+    <div style="padding:48px;text-align:center;color:var(--color-text-tertiary);font-family:var(--font-body);">Loading health check…</div>
+  </div>
+</div><!-- /tab-updates -->
+
 
 <script>
 // ─── Information Insight data ──────────────────────────────────────────────
@@ -2928,11 +2933,39 @@ if (document.readyState !== 'loading') renderInfo();
   }
 
   // ─── Tab switching ────────────────────────────────────────────────────────
+  var _updatesLoaded = false;
   function switchTab(name) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + name).classList.add('active');
     event.currentTarget.classList.add('active');
+    if (name === 'updates' && !_updatesLoaded) {
+      _updatesLoaded = true;
+      fetch('updates.html?t=' + Date.now())
+        .then(function(r){ return r.text(); })
+        .then(function(html){
+          var parser = new DOMParser();
+          var doc = parser.parseFromString(html, 'text/html');
+          // Inject the styles that updates.html defines (scoped to avoid conflicts)
+          var style = doc.querySelector('style');
+          if (style) {
+            var s = document.createElement('style');
+            s.id = 'updates-injected-styles';
+            s.textContent = style.textContent;
+            document.head.appendChild(s);
+          }
+          // Inject summary bar + main content (strip the header/back-link/theme-bar/footer)
+          var summaryBar = doc.querySelector('.summary-bar');
+          var main = doc.querySelector('main');
+          var footer = doc.querySelector('.footer');
+          var container = document.getElementById('updates-content');
+          container.innerHTML = '';
+          if (summaryBar) container.appendChild(document.adoptNode(summaryBar));
+          if (main) container.appendChild(document.adoptNode(main));
+          if (footer) container.appendChild(document.adoptNode(footer));
+        })
+        .catch(function(){ document.getElementById('updates-content').innerHTML = '<div style="padding:48px;text-align:center;color:var(--color-text-tertiary);">Could not load health check data.</div>'; });
+    }
   }
 
   // ─── KPI formatting helpers ───────────────────────────────────────────────
