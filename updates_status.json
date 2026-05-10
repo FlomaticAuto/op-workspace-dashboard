@@ -1,0 +1,160 @@
+{
+  "generated_at": "2026-05-10T18:23:20",
+  "total": 15,
+  "ok": 4,
+  "warn": 5,
+  "fail": 6,
+  "jobs": [
+    {
+      "id": "sales_dashboard",
+      "agent": "PRISM",
+      "name": "Sales Performance Dashboard",
+      "task": "OlympicPaints_Sales_Dashboard_Refresh",
+      "cadence": "Daily \u00b7 07:15",
+      "overall": "warn",
+      "task_last_run": "2026-05-10T07:15:15",
+      "task_last_result": 0
+    },
+    {
+      "id": "kpi_rep_dashboards",
+      "agent": "PRISM",
+      "name": "Per-Rep KPI Dashboards (AC \u00b7 AP \u00b7 BV \u00b7 NP \u00b7 BM)",
+      "task": "OlympicPaints_KPI_Dashboard_Update",
+      "cadence": "Daily \u00b7 07:00",
+      "overall": "warn",
+      "task_last_run": "2026-05-10T07:00:00",
+      "task_last_result": 0
+    },
+    {
+      "id": "ecommerce_dashboard",
+      "agent": "PRISM",
+      "name": "E-Commerce Dashboard",
+      "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
+      "cadence": "Daily \u00b7 08:15",
+      "overall": "warn",
+      "task_last_run": "2026-05-10T08:15:15",
+      "task_last_result": 0
+    },
+    {
+      "id": "ecommerce_email",
+      "agent": "PRISM",
+      "name": "E-Commerce Email Digest",
+      "task": "OlympicPaints_EmailECommerceDashboard",
+      "cadence": "Daily morning",
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
+    },
+    {
+      "id": "haven_clocking",
+      "agent": "HAVEN",
+      "name": "HAVEN Clocking Report (Process Inbox)",
+      "task": "HAVEN Clocking Report Daily",
+      "cadence": "Daily \u00b7 07:30",
+      "overall": "warn",
+      "task_last_run": "2026-05-10T07:30:30",
+      "task_last_result": 267014
+    },
+    {
+      "id": "haven_dashboard_check",
+      "agent": "HAVEN",
+      "name": "HAVEN Dashboard Check (regenerate + Telegram)",
+      "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
+      "cadence": "Daily \u00b7 08:00",
+      "overall": "warn",
+      "task_last_run": "2026-05-10T08:00:00",
+      "task_last_result": 0
+    },
+    {
+      "id": "vehicle_report",
+      "agent": "SIGMA",
+      "name": "Vehicle In-Out Report",
+      "task": "Vehicle Report Weekly",
+      "cadence": "Weekly \u00b7 Mon",
+      "overall": "ok",
+      "task_last_run": "2026-05-04T09:00:00",
+      "task_last_result": 0
+    },
+    {
+      "id": "vehicle_health",
+      "agent": "STRIKER",
+      "name": "STRIKER Vehicle Report Health Check",
+      "task": "STRIKER \u2014 Vehicle Report Health Check",
+      "cadence": "Weekly \u00b7 Mon",
+      "overall": "ok",
+      "task_last_run": "2026-05-05T09:30:30",
+      "task_last_result": 0
+    },
+    {
+      "id": "kaizen_sync",
+      "agent": "VAULT",
+      "name": "Kaizen Daily Sync",
+      "task": "Olympic Paints - Kaizen Daily Sync",
+      "cadence": "Daily \u00b7 07:30",
+      "overall": "ok",
+      "task_last_run": "2026-05-10T07:30:30",
+      "task_last_result": 0
+    },
+    {
+      "id": "workspace_health",
+      "agent": "PRISM",
+      "name": "Workspace Weekly Health Report",
+      "task": "OlympicPaints_Workspace_Health_Report",
+      "cadence": "Weekly \u00b7 Fri 16:00",
+      "overall": "fail",
+      "task_last_run": "2026-05-08T16:00:00",
+      "task_last_result": 2147943623
+    },
+    {
+      "id": "friday_sales_meeting",
+      "agent": "STRIKER",
+      "name": "Friday Sales Meeting Pack",
+      "task": "OlympicPaints_Friday_Sales_Meeting",
+      "cadence": "Weekly \u00b7 Fri",
+      "overall": "ok",
+      "task_last_run": "2026-05-08T08:00:00",
+      "task_last_result": 0
+    },
+    {
+      "id": "meeting_extractor",
+      "agent": "VAULT",
+      "name": "Meeting Minutes Extractor",
+      "task": "Olympic Paints - Meeting Minutes Extractor",
+      "cadence": "Daily \u00b7 07:00",
+      "overall": "fail",
+      "task_last_run": "2026-05-10T07:00:00",
+      "task_last_result": 1
+    },
+    {
+      "id": "vault_meeting_extraction",
+      "agent": "VAULT",
+      "name": "VAULT Meeting Extraction (Notion tasks)",
+      "task": "VAULT Meeting Extraction Daily",
+      "cadence": "Daily \u00b7 07:00",
+      "overall": "fail",
+      "task_last_run": "2026-05-10T07:00:00",
+      "task_last_result": 1
+    },
+    {
+      "id": "cso_intelligence",
+      "agent": "PRISM",
+      "name": "CSO Strategic Intelligence Build",
+      "task": "CSO-Intelligence-Data",
+      "cadence": "Daily morning",
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
+    },
+    {
+      "id": "portal_trigger_server",
+      "agent": "VAULT",
+      "name": "Portal Trigger Server (localhost:8765)",
+      "task": "OlympicPortalTriggerServer",
+      "cadence": "Continuous",
+      "overall": "fail",
+      "task_last_run": "2026-05-08T16:20:20",
+      "task_last_result": 3221225786
+    }
+  ],
+  "success_pct": 27
+}

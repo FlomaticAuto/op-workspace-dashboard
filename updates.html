@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-navy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Updates · Olympic Paints Health Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
+<style>
+:root{
+  --_y50:#FEF9E0;--_y100:#FDF0A0;--_y200:#FAE04D;--_y400:#F5C400;--_y600:#D4A800;--_y800:#A88000;--_y900:#6A5000;
+  --_n50:#E8EFF8;--_n100:#B8CCE8;--_n300:#6B9ED0;--_n500:#2D6BA8;--_n700:#1A3D6E;--_n900:#0D2040;--_n950:#071022;
+  --_g0:#FFFFFF;--_g50:#F7F6F3;--_g100:#E8E7E2;--_g200:#C8C7C0;--_g400:#949390;--_g600:#5C5B58;--_g800:#2E2E2C;--_g900:#1A1A18;--_g950:#0D0D0B;
+  --_teal:#2D8C7A;--_teal-light:#C8EDE7;--_coral:#E86060;--_coral-light:#FDDCDC;
+  --font-display:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;
+  --r-sm:4px;--r-md:8px;--r-lg:12px;--r-xl:16px;--r-pill:50px;
+}
+.theme-light{color-scheme:light;--color-surface-page:var(--_g50);--color-surface-base:var(--_g0);--color-surface-elevated:var(--_g0);--color-surface-sunken:var(--_g100);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g950);--color-text-secondary:var(--_g600);--color-text-tertiary:var(--_g400);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-border-subtle:var(--_g100);--color-border-default:var(--_g200);--color-success-bg:#EDF7F5;--color-success-fg:#1a5c50;--color-success-bd:var(--_teal);--color-warning-bg:var(--_y50);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y600);--color-danger-bg:#FEF2F2;--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);--shadow-md:0 4px 12px rgba(0,0,0,0.08);--shadow-lg:0 10px 30px rgba(0,0,0,0.10);}
+.theme-dark{color-scheme:dark;--color-surface-page:var(--_g950);--color-surface-base:var(--_g900);--color-surface-elevated:var(--_g800);--color-surface-sunken:var(--_g950);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g100);--color-text-secondary:var(--_g400);--color-text-tertiary:var(--_g600);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-border-subtle:rgba(255,255,255,.06);--color-border-default:rgba(255,255,255,.10);--color-success-bg:rgba(45,140,122,.12);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,.30);--color-warning-bg:rgba(245,196,0,.10);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,.25);--color-danger-bg:rgba(232,96,96,.12);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,.30);--shadow-md:0 4px 12px rgba(0,0,0,.40);--shadow-lg:0 10px 30px rgba(0,0,0,.50);}
+.theme-brand{color-scheme:light;--color-surface-page:var(--_y400);--color-surface-base:var(--_y200);--color-surface-elevated:var(--_y50);--color-surface-sunken:var(--_y600);--color-surface-secondary:var(--_g950);--color-text-primary:var(--_g950);--color-text-secondary:var(--_y900);--color-text-tertiary:var(--_y800);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_g950);--color-border-subtle:rgba(0,0,0,.08);--color-border-default:rgba(0,0,0,.14);--color-success-bg:rgba(45,140,122,.12);--color-success-fg:#1a5c50;--color-success-bd:var(--_teal);--color-warning-bg:rgba(0,0,0,.08);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y900);--color-danger-bg:rgba(232,96,96,.12);--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);--shadow-md:0 4px 12px rgba(0,0,0,.14);--shadow-lg:0 10px 30px rgba(0,0,0,.18);}
+.theme-navy{color-scheme:dark;--color-surface-page:var(--_n950);--color-surface-base:var(--_n900);--color-surface-elevated:var(--_n700);--color-surface-sunken:var(--_n950);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g0);--color-text-secondary:var(--_n100);--color-text-tertiary:var(--_n300);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-border-subtle:rgba(107,158,208,.12);--color-border-default:rgba(107,158,208,.20);--color-success-bg:rgba(45,140,122,.15);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,.35);--color-warning-bg:rgba(245,196,0,.12);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,.30);--color-danger-bg:rgba(232,96,96,.14);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,.35);--shadow-md:0 4px 12px rgba(0,0,0,.50);--shadow-lg:0 10px 30px rgba(0,0,0,.60);}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font-body);background:var(--color-surface-page);color:var(--color-text-primary);}
+.theme-bar{display:flex;gap:4px;padding:8px 16px;background:var(--color-surface-secondary);}
+.theme-bar button{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:11px;padding:6px 14px;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--color-text-on-navy);cursor:pointer;border-radius:var(--r-sm);}
+.theme-bar button.active{background:var(--color-brand-primary);color:#000;border-color:var(--color-brand-primary);}
+.header{display:flex;align-items:center;gap:16px;padding:24px 32px;border-bottom:1px solid var(--color-border-subtle);background:var(--color-surface-base);}
+.logo-wrap{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;}
+.logo-wrap img{display:block;width:100%;height:100%;object-fit:cover;}
+.h-titles h1{font-family:var(--font-display);font-weight:900;font-size:32px;letter-spacing:.02em;text-transform:uppercase;margin:0;line-height:1;}
+.h-titles .sub{font-family:var(--font-body);color:var(--color-text-secondary);font-size:13px;margin-top:4px;}
+.header-actions{margin-left:auto;display:flex;gap:8px;align-items:center;}
+.back-link{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--color-text-secondary);text-decoration:none;padding:6px 12px;border:1px solid var(--color-border-default);border-radius:var(--r-sm);}
+.back-link:hover{color:var(--color-brand-primary);border-color:var(--color-brand-primary);}
+.summary-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;padding:24px 32px;background:var(--color-surface-base);border-bottom:1px solid var(--color-border-subtle);}
+.kpi{padding:18px 20px;background:var(--color-surface-elevated);border:1px solid var(--color-border-subtle);border-radius:var(--r-lg);}
+.kpi .lbl{font-family:var(--font-body);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--color-text-secondary);}
+.kpi .val{font-family:var(--font-display);font-weight:900;font-size:36px;line-height:1.1;margin-top:4px;}
+.kpi.ok .val{color:var(--_teal);}.kpi.warn .val{color:var(--_y400);}.kpi.fail .val{color:var(--_coral);}
+.main{padding:24px 32px;}
+.agent-section{margin-bottom:36px;}
+.agent-title{font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;color:var(--color-text-primary);}
+.agent-title::before{content:"";display:inline-block;width:6px;height:24px;background:var(--color-brand-primary);border-radius:3px;}
+.job-card{background:var(--color-surface-elevated);border:1px solid var(--color-border-subtle);border-radius:var(--r-lg);padding:20px 24px;margin-bottom:16px;box-shadow:var(--shadow-md);}
+.job-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:12px;}
+.job-name{font-family:var(--font-display);font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.02em;line-height:1.2;}
+.job-meta{font-family:var(--font-body);color:var(--color-text-secondary);font-size:12px;margin-top:4px;}
+.status-badge{font-family:var(--font-display);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:11px;padding:6px 12px;border-radius:var(--r-pill);border:1px solid;white-space:nowrap;}
+.s-ok{background:var(--color-success-bg);color:var(--color-success-fg);border-color:var(--color-success-bd);}
+.s-warn{background:var(--color-warning-bg);color:var(--color-warning-fg);border-color:var(--color-warning-bd);}
+.s-fail{background:var(--color-danger-bg);color:var(--color-danger-fg);border-color:var(--color-danger-bd);}
+.task-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 24px;padding:12px 0;border-top:1px solid var(--color-border-subtle);font-size:13px;}
+.task-row .k{color:var(--color-text-tertiary);font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-family:var(--font-body);font-weight:500;}
+.task-row .v{color:var(--color-text-primary);font-family:var(--font-body);font-weight:500;}
+.task-row .v a{color:var(--color-brand-primary);text-decoration:none;}.task-row .v a:hover{text-decoration:underline;}
+table.files{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.5px;}
+table.files th{text-align:left;font-family:var(--font-body);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;color:var(--color-text-tertiary);padding:8px 10px;border-bottom:1px solid var(--color-border-subtle);}
+table.files td{padding:10px;border-bottom:1px solid var(--color-border-subtle);color:var(--color-text-primary);vertical-align:top;}
+table.files td.path{font-family:'Barlow',sans-serif;font-size:11.5px;color:var(--color-text-secondary);word-break:break-all;}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle;}
+.dot.fresh{background:var(--_teal);}.dot.stale{background:var(--_y400);}.dot.old,.dot.missing{background:var(--_coral);}
+.footer{padding:18px 32px;text-align:center;color:var(--color-text-tertiary);font-size:12px;border-top:1px solid var(--color-border-subtle);}
+</style>
+</head>
+<body>
+<div class="theme-bar">
+  <button onclick="olyTheme('theme-light',this)">Light</button>
+  <button onclick="olyTheme('theme-dark',this)">Dark</button>
+  <button onclick="olyTheme('theme-brand',this)">Brand</button>
+  <button onclick="olyTheme('theme-navy',this)" class="active">Navy</button>
+</div>
+<header class="header">
+  <div class="logo-wrap"><img src="logo.jpg" alt="Olympic Paints" width="48" height="48"></div>
+  <div class="h-titles">
+    <h1>Updates · Health Check</h1>
+    <div class="sub">Every scheduled job across Olympic Paints · last refreshed Sun 10 May 2026 · 18:23</div>
+  </div>
+  <div class="header-actions">
+    <a class="back-link" href="portal.html">← Workspace Portal</a>
+  </div>
+</header>
+<div class="summary-bar">
+  <div class="kpi ok"><div class="lbl">Operational</div><div class="val">4<span style='font-size:18px;color:var(--color-text-tertiary);font-weight:500;'> / 15</span></div></div>
+  <div class="kpi warn"><div class="lbl">Warning</div><div class="val">5</div></div>
+  <div class="kpi fail"><div class="lbl">Failed</div><div class="val">6</div></div>
+  <div class="kpi ok"><div class="lbl">Success Rate</div><div class="val">27%</div></div>
+  <div class="kpi"><div class="lbl">Tracked Inputs</div><div class="val">14</div></div>
+</div>
+<main class="main">
+<section class='agent-section'><h2 class='agent-title'>PRISM</h2><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>Sales Performance Dashboard</div>
+      <div class='job-meta'>Daily · 07:15 · OlympicPaints_Sales_Dashboard_Refresh · <a href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank">View dashboard ↗</a></div>
+    </div>
+    <span class='status-badge s-warn'>Warning</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-10T07:15:15</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-11T07:15:15</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_teal);font-weight:600;'>0 (success)</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>Sales Dashboard index.html</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-10 07:15 (11.1h ago)</div></div>
+  </div>
+  <table class='files'><thead><tr><th>Source File</th><th>Modified</th><th>Age</th><th>Size</th><th>Path</th></tr></thead><tbody><tr><td><span class='dot old'></span>Sales Invoices (parquet)<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>Daily ledger build</div></td><td>2026-05-08 07:47</td><td>2.4d ago</td><td>3.2MB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Sales_Invoices_All.parquet</td></tr><tr><td><span class='dot fresh'></span>Debtors Age Analysis<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>PAD daily export</div></td><td>2026-05-10 17:30</td><td>54m ago</td><td>22.2KB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Pad\debtors_age_analysis.csv</td></tr><tr><td><span class='dot old'></span>Sales Orders Outstanding<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>PAD daily export</div></td><td>2026-05-08 18:00</td><td>2.0d ago</td><td>158.8KB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Pad\sales_order_outstanding.csv</td></tr><tr><td><span class='dot fresh'></span>Zoho Meetings<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>Zoho export</div></td><td>2026-05-10 11:35</td><td>6.8h ago</td><td>163.8KB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Zoho\Meetings_Report_AWS.xlsx</td></tr><tr><td><span class='dot stale'></span>Zoho Lead Tracking<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>Zoho export</div></td><td>2026-05-07 19:00</td><td>3.0d ago</td><td>24.0KB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Zoho\OP_Lead_Tracking_new.csv</td></tr><tr><td><span class='dot stale'></span>Merchandising Visits<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>Zoho export</div></td><td>2026-05-08 00:04</td><td>2.8d ago</td><td>9.6KB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Zoho\Meetings_Report_AWS_Merchandising.xlsx</td></tr><tr><td><span class='dot fresh'></span>Delivery Details<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>Manual reference</div></td><td>2026-05-09 00:44</td><td>41.6h ago</td><td>107.7KB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Manual\Delivery Details_Updated_2304.xlsx</td></tr><tr><td><span class='dot fresh'></span>Product Categories<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>Manual reference</div></td><td>2026-05-05 09:45</td><td>5.4d ago</td><td>153.3KB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Manual\Product Categories_05052026.xlsx</td></tr><tr><td><span class='dot fresh'></span>New Stores Q1/2026<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>Manual quarterly</div></td><td>2026-05-08 22:39</td><td>43.7h ago</td><td>12.3KB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Manual\New Stores Added By Reps_Quater1_2026.xlsx</td></tr></tbody></table>
+</div><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>Per-Rep KPI Dashboards (AC · AP · BV · NP · BM)</div>
+      <div class='job-meta'>Daily · 07:00 · OlympicPaints_KPI_Dashboard_Update · <a href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank">View dashboard ↗</a></div>
+    </div>
+    <span class='status-badge s-warn'>Warning</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-10T07:00:00</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-11T07:00:00</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_teal);font-weight:600;'>0 (success)</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>KPI Dashboard.html</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-10 07:00 (11.4h ago)</div></div>
+  </div>
+  <table class='files'><thead><tr><th>Source File</th><th>Modified</th><th>Age</th><th>Size</th><th>Path</th></tr></thead><tbody><tr><td><span class='dot old'></span>Sales Invoices (parquet)<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>Daily ledger build</div></td><td>2026-05-08 07:47</td><td>2.4d ago</td><td>3.2MB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Sales_Invoices_All.parquet</td></tr></tbody></table>
+</div><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>E-Commerce Dashboard</div>
+      <div class='job-meta'>Daily · 08:15 · OlympicPaints_Ecommerce_Dashboard_Refresh · <a href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank">View dashboard ↗</a></div>
+    </div>
+    <span class='status-badge s-warn'>Warning</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-10T08:15:15</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-11T08:15:15</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_teal);font-weight:600;'>0 (success)</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>build_ecommerce_dashboard.py</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-06 23:01 (3.8d ago)</div></div>
+  </div>
+  <table class='files'><thead><tr><th>Source File</th><th>Modified</th><th>Age</th><th>Size</th><th>Path</th></tr></thead><tbody><tr><td><span class='dot old'></span>Woocommerce_Transactions.csv<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>WooCommerce export</div></td><td>2026-05-08 01:00</td><td>2.7d ago</td><td>266.2KB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Manual\Woocommerce_Transactions.csv</td></tr></tbody></table>
+</div><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>E-Commerce Email Digest</div>
+      <div class='job-meta'>Daily morning · OlympicPaints_EmailECommerceDashboard</div>
+    </div>
+    <span class='status-badge s-fail'>Failed</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>Never</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-11T08:00:00</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_coral);font-weight:600;'>267011</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>run_email_ecommerce.bat</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-08 08:41 (2.4d ago)</div></div>
+  </div>
+  <div style='color:var(--color-text-tertiary);font-size:12px;font-style:italic;padding:8px 0;'>No tracked input files for this job.</div>
+</div><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>Workspace Weekly Health Report</div>
+      <div class='job-meta'>Weekly · Fri 16:00 · OlympicPaints_Workspace_Health_Report · <a href="https://flomaticauto.github.io/op-workspace-dashboard/health-report.html" target="_blank">View dashboard ↗</a></div>
+    </div>
+    <span class='status-badge s-fail'>Failed</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-08T16:00:00</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-15T16:00:00</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_coral);font-weight:600;'>2147943623</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>health-report.html</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-10 08:45 (9.6h ago)</div></div>
+  </div>
+  <div style='color:var(--color-text-tertiary);font-size:12px;font-style:italic;padding:8px 0;'>No tracked input files for this job.</div>
+</div><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>CSO Strategic Intelligence Build</div>
+      <div class='job-meta'>Daily morning · CSO-Intelligence-Data · <a href="https://flomaticauto.github.io/olympic-paints-cso-insights/" target="_blank">View dashboard ↗</a></div>
+    </div>
+    <span class='status-badge s-fail'>Failed</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>Never</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-11T06:00:00</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_coral);font-weight:600;'>267011</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>intelligence_data.json</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-10 10:34 (7.8h ago)</div></div>
+  </div>
+  <table class='files'><thead><tr><th>Source File</th><th>Modified</th><th>Age</th><th>Size</th><th>Path</th></tr></thead><tbody><tr><td><span class='dot old'></span>Sales Invoices (parquet)<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>Daily ledger build</div></td><td>2026-05-08 07:47</td><td>2.4d ago</td><td>3.2MB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\3.Resources\16.Sales and Other data\Sales_Invoices_All.parquet</td></tr></tbody></table>
+</div></section>
+<section class='agent-section'><h2 class='agent-title'>STRIKER</h2><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>STRIKER Vehicle Report Health Check</div>
+      <div class='job-meta'>Weekly · Mon · STRIKER — Vehicle Report Health Check</div>
+    </div>
+    <span class='status-badge s-ok'>Operational</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-05T09:30:30</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-12T09:30:30</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_teal);font-weight:600;'>0 (success)</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>striker_vehicle_health_check.py</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-04-30 09:43 (10.4d ago)</div></div>
+  </div>
+  <div style='color:var(--color-text-tertiary);font-size:12px;font-style:italic;padding:8px 0;'>No tracked input files for this job.</div>
+</div><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>Friday Sales Meeting Pack</div>
+      <div class='job-meta'>Weekly · Fri · OlympicPaints_Friday_Sales_Meeting</div>
+    </div>
+    <span class='status-badge s-ok'>Operational</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-08T08:00:00</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-15T08:00:00</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_teal);font-weight:600;'>0 (success)</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>run_friday_sales_meeting.bat</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-08 01:45 (2.7d ago)</div></div>
+  </div>
+  <div style='color:var(--color-text-tertiary);font-size:12px;font-style:italic;padding:8px 0;'>No tracked input files for this job.</div>
+</div></section>
+<section class='agent-section'><h2 class='agent-title'>HAVEN</h2><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>HAVEN Clocking Report (Process Inbox)</div>
+      <div class='job-meta'>Daily · 07:30 · HAVEN Clocking Report Daily · <a href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank">View dashboard ↗</a></div>
+    </div>
+    <span class='status-badge s-warn'>Warning</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-10T07:30:30</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-11T07:30:30</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_coral);font-weight:600;'>267014</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot old'></span>Clocking Report YTD.xlsx</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-08 07:47 (2.4d ago)</div></div>
+  </div>
+  <table class='files'><thead><tr><th>Source File</th><th>Modified</th><th>Age</th><th>Size</th><th>Path</th></tr></thead><tbody><tr><td><span class='dot fresh'></span>Inbox folder<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>Advius drop</div></td><td>2026-05-10 07:15</td><td>11.1h ago</td><td>4.0KB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\2.Areas\11. HR\Clocking Reports\Inbox</td></tr></tbody></table>
+</div><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>HAVEN Dashboard Check (regenerate + Telegram)</div>
+      <div class='job-meta'>Daily · 08:00 · HAVEN — Daily Clocking Dashboard Check · <a href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank">View dashboard ↗</a></div>
+    </div>
+    <span class='status-badge s-warn'>Warning</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-10T08:00:00</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-11T08:00:00</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_teal);font-weight:600;'>0 (success)</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>index.html (clocking)</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-10 08:00 (10.4h ago)</div></div>
+  </div>
+  <table class='files'><thead><tr><th>Source File</th><th>Modified</th><th>Age</th><th>Size</th><th>Path</th></tr></thead><tbody><tr><td><span class='dot old'></span>Clocking Report YTD.xlsx<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>build_report.py</div></td><td>2026-05-08 07:47</td><td>2.4d ago</td><td>407.9KB</td><td class='path'>C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\2.Areas\11. HR\Clocking Reports\Output\Clocking Report YTD.xlsx</td></tr></tbody></table>
+</div></section>
+<section class='agent-section'><h2 class='agent-title'>SIGMA</h2><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>Vehicle In-Out Report</div>
+      <div class='job-meta'>Weekly · Mon · Vehicle Report Weekly · <a href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank">View dashboard ↗</a></div>
+    </div>
+    <span class='status-badge s-ok'>Operational</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-04T09:00:00</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-11T09:00:00</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_teal);font-weight:600;'>0 (success)</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>gen_vehicle_dashboard.py</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-06 13:12 (4.2d ago)</div></div>
+  </div>
+  <div style='color:var(--color-text-tertiary);font-size:12px;font-style:italic;padding:8px 0;'>No tracked input files for this job.</div>
+</div></section>
+<section class='agent-section'><h2 class='agent-title'>VAULT</h2><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>Kaizen Daily Sync</div>
+      <div class='job-meta'>Daily · 07:30 · Olympic Paints - Kaizen Daily Sync</div>
+    </div>
+    <span class='status-badge s-ok'>Operational</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-10T07:30:30</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-11T07:30:30</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_teal);font-weight:600;'>0 (success)</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>kaizen_status_log.json</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-09 17:44 (24.7h ago)</div></div>
+  </div>
+  <div style='color:var(--color-text-tertiary);font-size:12px;font-style:italic;padding:8px 0;'>No tracked input files for this job.</div>
+</div><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>Meeting Minutes Extractor</div>
+      <div class='job-meta'>Daily · 07:00 · Olympic Paints - Meeting Minutes Extractor</div>
+    </div>
+    <span class='status-badge s-fail'>Failed</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-10T07:00:00</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-11T07:00:00</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_coral);font-weight:600;'>1</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>logs folder (most recent)</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-10 07:00 (11.4h ago)</div></div>
+  </div>
+  <div style='color:var(--color-text-tertiary);font-size:12px;font-style:italic;padding:8px 0;'>No tracked input files for this job.</div>
+</div><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>VAULT Meeting Extraction (Notion tasks)</div>
+      <div class='job-meta'>Daily · 07:00 · VAULT Meeting Extraction Daily</div>
+    </div>
+    <span class='status-badge s-fail'>Failed</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-10T07:00:00</div></div>
+    <div><div class='k'>Next run</div><div class='v'>2026-05-11T07:00:00</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_coral);font-weight:600;'>1</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>logs folder (most recent)</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-10 07:00 (11.4h ago)</div></div>
+  </div>
+  <div style='color:var(--color-text-tertiary);font-size:12px;font-style:italic;padding:8px 0;'>No tracked input files for this job.</div>
+</div><div class='job-card'>
+  <div class='job-head'>
+    <div>
+      <div class='job-name'>Portal Trigger Server (localhost:8765)</div>
+      <div class='job-meta'>Continuous · OlympicPortalTriggerServer</div>
+    </div>
+    <span class='status-badge s-fail'>Failed</span>
+  </div>
+  <div class='task-row'>
+    <div><div class='k'>Task last ran</div><div class='v'>2026-05-08T16:20:20</div></div>
+    <div><div class='k'>Next run</div><div class='v'>—</div></div>
+    <div><div class='k'>Last exit</div><div class='v'><span style='color:var(--_coral);font-weight:600;'>3221225786</span></div></div>
+    <div><div class='k'>Output</div><div class='v'><span class='dot fresh'></span>portal_trigger_server.py</div></div>
+    <div><div class='k'>Output modified</div><div class='v'>2026-05-08 16:09 (2.1d ago)</div></div>
+  </div>
+  <div style='color:var(--color-text-tertiary);font-size:12px;font-style:italic;padding:8px 0;'>No tracked input files for this job.</div>
+</div></section>
+</main>
+<footer class="footer">Olympic Paints · Updates Health Check · auto-generated by health_check.py · last run 2026-05-10 18:23:20</footer>
+<script>
+const OLY_THEMES=['theme-light','theme-dark','theme-brand','theme-navy'];
+function olyTheme(t,btn){
+  document.documentElement.classList.remove(...OLY_THEMES);
+  document.documentElement.classList.add(t);
+  localStorage.setItem('oly-theme',t);
+  document.querySelectorAll('.theme-bar button').forEach(b=>b.classList.toggle('active',b===btn));
+}
+</script>
+</body></html>
