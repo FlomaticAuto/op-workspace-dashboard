@@ -364,30 +364,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   <button class="tab-btn"        onclick="showTab('pulse')">Sales Reps Pulse</button>
   <button class="tab-btn"        onclick="showTab('hr')">HR &amp; People</button>
   <button class="tab-btn"        onclick="showTab('ops')">Operations</button>
-  <a class="tab-btn" href="updates.html" id="updates-tab-link" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Updates <span id="updates-badge" style="display:inline-block;min-width:18px;padding:2px 6px;border-radius:10px;font-size:10px;font-weight:800;background:rgba(255,255,255,.15);">…</span></a>
 </div>
-<script>
-// Live-update the Updates tab badge from updates_status.json (cache-busted)
-(function(){
-  fetch('updates_status.json?t=' + Date.now()).then(r => r.ok ? r.json() : null).then(d => {
-    if (!d) return;
-    var badge = document.getElementById('updates-badge');
-    if (!badge) return;
-    var fail = d.fail || 0, warn = d.warn || 0, ok = d.ok || 0, total = d.total || 0;
-    var label, bg;
-    if (fail > 0)      { label = fail + ' fail'; bg = 'rgba(232,96,96,.85)'; }
-    else if (warn > 0) { label = warn + ' warn'; bg = 'rgba(245,196,0,.85)'; }
-    else               { label = ok + '/' + total; bg = 'rgba(45,140,122,.85)'; }
-    badge.textContent = label;
-    badge.style.background = bg;
-    badge.style.color = '#fff';
-    var link = document.getElementById('updates-tab-link');
-    if (link && d.generated_at) {
-      link.title = 'Last refreshed ' + new Date(d.generated_at).toLocaleString();
-    }
-  }).catch(()=>{});
-})();
-</script>
 
 <!-- ══════════════════════════════════════════════════ TAB: ALL REPORTS -->
 <div id="panel-all" class="tab-panel active">
