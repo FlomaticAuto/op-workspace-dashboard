@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-10T18:27:03",
+  "generated_at": "2026-05-10T19:32:00",
   "total": 15,
-  "ok": 4,
-  "warn": 5,
+  "ok": 5,
+  "warn": 4,
   "fail": 6,
   "jobs": [
     {
@@ -21,7 +21,7 @@
       "name": "Per-Rep KPI Dashboards (AC \u00b7 AP \u00b7 BV \u00b7 NP \u00b7 BM)",
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "warn",
+      "overall": "ok",
       "task_last_run": "2026-05-10T07:00:00",
       "task_last_result": 0
     },
@@ -156,5 +156,5 @@
       "task_last_result": 3221225786
     }
   ],
-  "success_pct": 27
+  "success_pct": 33
 }
