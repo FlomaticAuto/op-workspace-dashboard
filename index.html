@@ -2788,6 +2788,44 @@ ratio > 2.0  → "Critical"</code></pre>
       </ol>
     `,
   },
+  {
+    section: "Decisions — Pending",
+    title: "PULSE Plan Adherence — Volume vs Route Fidelity (needs proper fix)",
+    summary: "The current plan adherence % in the PULSE scorecard measures raw visit count vs cycle daily target, not whether reps are visiting the right accounts. Capped at 100% for now. Needs a proper account-level fix.",
+    tags: ["pulse", "scorecard", "adherence", "cycle", "decision"],
+    updated: "2026-05-10",
+    body: `
+      <h3>What the current metric does</h3>
+      <p>The PULSE bi-weekly scorecard shows a <strong>Plan%</strong> column per rep. It is calculated as:</p>
+      <pre><code>plan_adherence = min(1.0, total_raw_visits / (cycle_daily_target × 10 working days))</code></pre>
+      <p>The cap at 100% was added on 2026-05-10 to prevent confusing ">100% adherence" numbers when reps visit more accounts than their cycle rate requires.</p>
+
+      <h3>Why this is wrong</h3>
+      <p>The metric rewards <strong>visit volume</strong>, not <strong>route fidelity</strong>. A rep can hit 100% by visiting any accounts — walk-ins, prospects, non-cycle stores — while completely ignoring their established cycle route.</p>
+      <p>Reps most affected:</p>
+      <ul>
+        <li><strong>AC (Aboo Cassim)</strong> — 35 visits in 10 days vs ~2/day cycle target → shows 100% but many visits are off-cycle</li>
+        <li><strong>BM (Byron Minnie)</strong> — 65 visits in 10 days vs ~3/day cycle target → shows 100% but visit spread unclear</li>
+      </ul>
+      <p>The cycle heatmap tiles in the activity log already correctly show cycle-account-only adherence — but that number is not surfaced in the rep ranking table.</p>
+
+      <h3>What the fix should be</h3>
+      <p>Replace the current ratio with an account-level due/visited check:</p>
+      <ol>
+        <li>For each cycle account, check whether it was visited within the scorecard period <em>and</em> within its expected cycle window</li>
+        <li>Plan adherence = accounts visited on schedule ÷ total cycle accounts due in the period</li>
+        <li>This correctly flags a rep doing 50 walk-ins but missing 10 of their top 20 cycle accounts</li>
+      </ol>
+      <p>The cycle account and visit data are already in the system. The change is in <code>pulse_scorecard.py → build_scorecard_inputs()</code>, replacing the <code>rep_visits_actual / rep_visits_planned</code> ratio with an account-level due/visited calculation.</p>
+
+      <h3>Questions to answer before fixing</h3>
+      <ul>
+        <li>Show both raw visit count and cycle adherence, or replace with cycle adherence only?</li>
+        <li>Weight by account revenue (missing a R500k account = worse than missing a R5k account)?</li>
+        <li>Should a rep visiting an account <em>ahead of</em> their cycle window still get credit?</li>
+      </ul>
+    `,
+  },
 ];
 
 // ─── Information Insight rendering ─────────────────────────────────────────
