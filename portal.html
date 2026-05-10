@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
 <style>
-/* â”€â”€ TOKENS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── TOKENS ──────────────────────────────────────────────────────────── */
 :root {
   --_y50:#FEF9E0;--_y100:#FDF0A0;--_y200:#FAE04D;
   --_y400:#F5C400;--_y600:#D4A800;--_y800:#A88000;--_y900:#6A5000;
@@ -67,12 +67,12 @@
   --shadow-card:0 2px 12px rgba(0,0,0,.50);
 }
 
-/* â”€â”€ RESET â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── RESET ───────────────────────────────────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font-body);background:var(--color-surface-page);
   color:var(--color-text-primary);min-height:100vh}
 
-/* â”€â”€ THEME BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── THEME BAR ───────────────────────────────────────────────────────── */
 .theme-bar{display:flex;gap:4px;padding:6px 40px;
   background:var(--color-surface-secondary);border-bottom:1px solid var(--color-border-subtle)}
 .theme-bar button{background:transparent;border:1px solid transparent;
@@ -81,7 +81,7 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
 .theme-bar button:hover{opacity:1}
 .theme-bar button.active{opacity:1;border-color:var(--color-brand-primary);color:var(--color-brand-primary)}
 
-/* â”€â”€ HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── HEADER ──────────────────────────────────────────────────────────── */
 .hdr{background:var(--color-surface-secondary);padding:20px 40px;
   display:flex;align-items:center;justify-content:space-between;
   border-bottom:2px solid var(--color-brand-primary);
@@ -92,7 +92,7 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
 .hdr-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px}
 .hdr-meta{font-size:11px;color:rgba(255,255,255,.35);text-align:right}
 
-/* â”€â”€ TAB BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── TAB BAR ─────────────────────────────────────────────────────────── */
 .tab-bar{background:var(--color-surface-sunken);padding:0 40px;display:flex;gap:2px;
   border-bottom:1px solid var(--color-border-subtle);overflow-x:auto}
 .tab-btn{background:transparent;border:none;color:var(--color-text-secondary);
@@ -102,11 +102,11 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
 .tab-btn:hover{color:var(--color-text-primary)}
 .tab-btn.active{color:var(--color-brand-primary);border-bottom-color:var(--color-brand-primary)}
 
-/* â”€â”€ MAIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── MAIN ────────────────────────────────────────────────────────────── */
 .main{padding:36px 40px;max-width:1400px;margin:0 auto}
 .tab-panel{display:none}.tab-panel.active{display:block}
 
-/* â”€â”€ DEPT INTRO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── DEPT INTRO ──────────────────────────────────────────────────────── */
 .dept-intro{margin-bottom:28px;padding:18px 22px;border-radius:10px;
   background:var(--color-surface-base);border:1px solid var(--color-border-default);
   display:flex;align-items:center;gap:16px}
@@ -116,10 +116,10 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
   text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
 .dept-intro-text p{font-size:13px;color:var(--color-text-secondary);line-height:1.5}
 
-/* â”€â”€ REPORT GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── REPORT GRID ─────────────────────────────────────────────────────── */
 .report-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
 
-/* â”€â”€ REPORT CARD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── REPORT CARD ─────────────────────────────────────────────────────── */
 .report-card{background:var(--color-surface-base);border-radius:14px;
   border:1px solid var(--color-border-default);box-shadow:var(--shadow-card);
   overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
@@ -154,7 +154,7 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
   letter-spacing:.06em;padding:9px 20px;border-radius:8px;border:none;cursor:pointer;
   text-decoration:none;transition:all .15s;white-space:nowrap}
 
-/* â”€â”€ COLOUR VARIANTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── COLOUR VARIANTS ─────────────────────────────────────────────────── */
 /* Sales — yellow */
 .accent-sales   { background:#F5C400 }
 .pill-sales     { background:rgba(245,196,0,.15);  color:#FAE04D;  border:1px solid rgba(245,196,0,.25) }
@@ -176,13 +176,13 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
 .btn-ops:hover  { background:#3a7fc4 }
 .icon-ops       { background:rgba(107,158,208,.15) }
 
-/* â”€â”€ ALL REPORTS DIVIDER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── ALL REPORTS DIVIDER ─────────────────────────────────────────────── */
 .section-label{font-family:var(--font-display);font-size:11px;font-weight:700;
   text-transform:uppercase;letter-spacing:1.5px;color:var(--color-brand-primary);
   margin:32px 0 14px;display:flex;align-items:center;gap:10px}
 .section-label::after{content:'';flex:1;height:1px;background:var(--color-border-default)}
 
-/* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── FOOTER ──────────────────────────────────────────────────────────── */
 footer{text-align:center;padding:24px 40px;font-size:11px;
   color:var(--color-text-secondary);border-top:1px solid var(--color-border-subtle);
   margin-top:48px;line-height:1.7}
@@ -192,7 +192,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   .report-grid{grid-template-columns:1fr}
 }
 
-/* â”€â”€ ARCHITECTURE TAB â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── ARCHITECTURE TAB ────────────────────────────────────────────── */
 .accent-arch{background:#9B7DBF}
 .pill-arch{background:rgba(155,125,191,.15);color:#EDE0F7;border:1px solid rgba(155,125,191,.25)}
 .btn-arch{background:#9B7DBF;color:#fff}
@@ -345,7 +345,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   <div class="hdr-l">
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Olympic Paints" style="flex-shrink:0">
       <circle cx="24" cy="24" r="24" fill="#F5C400"/>
-      <text x="24" y="23" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="12" fill="#0D0D0B">OLYMPIC<tspan dy="-5" font-size="6">â„¢</tspan></text>
+      <text x="24" y="23" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="12" fill="#0D0D0B">OLYMPIC<tspan dy="-5" font-size="6">™</tspan></text>
       <text x="24" y="37" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="12" fill="#0D0D0B">PAINTS</text>
     </svg>
     <div>
@@ -368,7 +368,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   <button class="tab-btn"        onclick="showTab('ops')">Operations</button>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TAB: ALL REPORTS -->
+<!-- ══════════════════════════════════════════════════ TAB: ALL REPORTS -->
 <div id="panel-all" class="tab-panel active">
 <div class="main">
 
@@ -394,7 +394,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Daily · Auto-generated</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report ↗</a>
       </div>
     </div>
 
@@ -417,8 +417,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-footer">
         <div class="card-meta"><span class="health-dot" data-build="merchandising"></span><span class="health-text" data-build="merchandising">Service offline</span></div>
         <div class="card-actions">
-          <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report â†—</a>
-          <button class="regen-btn" data-build="merchandising">Regenerate â†»</button>
+          <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report ↗</a>
+          <button class="regen-btn" data-build="merchandising">Regenerate ↻</button>
         </div>
       </div>
     </div>
@@ -443,7 +443,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Source:</strong> Woocommerce_Transactions.csv · Manual export</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" rel="noopener">Open Report â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" rel="noopener">Open Report ↗</a>
       </div>
     </div>
 
@@ -470,7 +470,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Mon–Fri 06:30 · Auto</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard ↗</a>
       </div>
     </div>
 
@@ -491,7 +491,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Alt-Mondays 07:00</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard ↗</a>
       </div>
     </div>
 
@@ -510,7 +510,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" rel="noopener">Open Portal â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" rel="noopener">Open Portal ↗</a>
       </div>
     </div>
 
@@ -524,7 +524,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" rel="noopener">Open Portal â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" rel="noopener">Open Portal ↗</a>
       </div>
     </div>
 
@@ -538,7 +538,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" rel="noopener">Open Portal â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" rel="noopener">Open Portal ↗</a>
       </div>
     </div>
 
@@ -552,7 +552,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" rel="noopener">Open Portal â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" rel="noopener">Open Portal ↗</a>
       </div>
     </div>
 
@@ -566,7 +566,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" rel="noopener">Open Portal â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" rel="noopener">Open Portal ↗</a>
       </div>
     </div>
 
@@ -594,7 +594,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> On new Advius export</div>
-        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report â†—</a>
+        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report ↗</a>
       </div>
     </div>
 
@@ -621,7 +621,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly trip report upload</div>
-        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" rel="noopener">Open Report â†—</a>
+        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" rel="noopener">Open Report ↗</a>
       </div>
     </div>
 
@@ -643,7 +643,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Platform:</strong> Streamlit · Live app</div>
-        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open App â†—</a>
+        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open App ↗</a>
       </div>
     </div>
 
@@ -652,12 +652,12 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 </div>
 </div><!-- /all -->
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TAB: SALES -->
+<!-- ══════════════════════════════════════════════════ TAB: SALES -->
 <div id="panel-sales" class="tab-panel">
 <div class="main">
 
   <div class="dept-intro">
-    <div class="dept-icon icon-sales" style="font-size:24px">ðŸ“Š</div>
+    <div class="dept-icon icon-sales" style="font-size:24px">📊</div>
     <div class="dept-intro-text">
       <h2 style="color:#F5C400">Sales Reports</h2>
       <p>Live and weekly reports tracking Olympic Paints sales performance — revenue against target, rep scorecards, product mix, debtor book, and price compliance. All figures are net of credit notes.</p>
@@ -687,7 +687,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet · Auto-rebuilt daily</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report ↗</a>
       </div>
     </div>
 
@@ -710,8 +710,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-footer">
         <div class="card-meta"><span class="health-dot" data-build="merchandising"></span><span class="health-text" data-build="merchandising">Service offline</span></div>
         <div class="card-actions">
-          <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report â†—</a>
-          <button class="regen-btn" data-build="merchandising">Regenerate â†»</button>
+          <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report ↗</a>
+          <button class="regen-btn" data-build="merchandising">Regenerate ↻</button>
         </div>
       </div>
     </div>
@@ -736,7 +736,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Source:</strong> Woocommerce_Transactions.csv · Manual export</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" rel="noopener">Open Report â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" rel="noopener">Open Report ↗</a>
       </div>
     </div>
 
@@ -755,7 +755,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" rel="noopener">Open Portal â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" rel="noopener">Open Portal ↗</a>
       </div>
     </div>
 
@@ -769,7 +769,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" rel="noopener">Open Portal â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" rel="noopener">Open Portal ↗</a>
       </div>
     </div>
 
@@ -783,7 +783,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" rel="noopener">Open Portal â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" rel="noopener">Open Portal ↗</a>
       </div>
     </div>
 
@@ -797,7 +797,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" rel="noopener">Open Portal â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" rel="noopener">Open Portal ↗</a>
       </div>
     </div>
 
@@ -811,7 +811,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" rel="noopener">Open Portal â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" rel="noopener">Open Portal ↗</a>
       </div>
     </div>
 
@@ -819,12 +819,12 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 </div>
 </div><!-- /sales -->
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TAB: PULSE -->
+<!-- ══════════════════════════════════════════════════ TAB: PULSE -->
 <div id="panel-pulse" class="tab-panel">
 <div class="main">
 
   <div class="dept-intro">
-    <div class="dept-icon icon-sales" style="font-size:24px">ðŸŸ¡</div>
+    <div class="dept-icon icon-sales" style="font-size:24px">🟡</div>
     <div class="dept-intro-text">
       <h2 style="color:#F5C400">Sales Reps PULSE</h2>
       <p>Daily push system for the 5 sales reps (AC, AP, BV, NP, BM). PULSE drives daily ack discipline, tracks plan vs actual against the 4-week customer cycle, escalates silence to Quintus, and publishes a live performance leaderboard plus a bi-weekly scorecard. Targets are computed each month as the prior-year same-month actual + 30%, NET of VAT.</p>
@@ -851,7 +851,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet + JotForm acks · Refreshes Mon–Fri 06:30</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard ↗</a>
       </div>
     </div>
 
@@ -873,7 +873,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Source:</strong> 14-day rollup of sales + JotForm acks · Builds alt-Mondays 07:00</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard â†—</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard ↗</a>
       </div>
     </div>
 
@@ -881,12 +881,12 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 </div>
 </div><!-- /pulse -->
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TAB: HR -->
+<!-- ══════════════════════════════════════════════════ TAB: HR -->
 <div id="panel-hr" class="tab-panel">
 <div class="main">
 
   <div class="dept-intro">
-    <div class="dept-icon icon-hr" style="font-size:24px">ðŸ‘¥</div>
+    <div class="dept-icon icon-hr" style="font-size:24px">👥</div>
     <div class="dept-intro-text">
       <h2 style="color:#2D8C7A">HR &amp; People Reports</h2>
       <p>Workforce attendance and hours reporting for Olympic Paints (74 employees) and Primeserve (28 employees, SD prefix). Data flows from the Advius biometric system through the HAVEN pipeline.</p>
@@ -915,7 +915,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Source:</strong> Advius biometric export · Updated per run</div>
-        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report â†—</a>
+        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report ↗</a>
       </div>
     </div>
 
@@ -923,12 +923,12 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 </div>
 </div><!-- /hr -->
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TAB: OPERATIONS -->
+<!-- ══════════════════════════════════════════════════ TAB: OPERATIONS -->
 <div id="panel-ops" class="tab-panel">
 <div class="main">
 
   <div class="dept-intro">
-    <div class="dept-icon icon-ops" style="font-size:24px">âš™ï¸</div>
+    <div class="dept-icon icon-ops" style="font-size:24px">⚙️</div>
     <div class="dept-intro-text">
       <h2 style="color:#6B9ED0">Operations Reports</h2>
       <p>Fleet and logistics reports for Olympic Paints operations — vehicle utilisation, trip analytics, and delivery network performance across the Limpopo region.</p>
@@ -955,7 +955,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly trip report upload</div>
-        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" rel="noopener">Open Report â†—</a>
+        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" rel="noopener">Open Report ↗</a>
       </div>
     </div>
 
@@ -977,7 +977,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Platform:</strong> Streamlit · Live app</div>
-        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open App â†—</a>
+        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open App ↗</a>
       </div>
     </div>
 
@@ -1008,7 +1008,7 @@ function showTab(id){
   event.currentTarget.classList.add('active');
 }
 
-// â”€â”€ PORTAL TRIGGER WIRING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── PORTAL TRIGGER WIRING ────────────────────────────────────────────────
 const TRIGGER_BASE = 'http://127.0.0.1:8765';
 
 async function pollHealth() {
@@ -1047,12 +1047,12 @@ async function triggerBuild(btn) {
     btn.classList.add('is-error');
     btn.textContent = 'Failed';
     btn.title = String(e);
-    setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate â†»'; }, 5000);
+    setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
   }
 }
 
 async function pollJob(btn, jobId) {
-  for (let i=0; i<150; i++) {     // 150 Ã— 2s = 5 min cap
+  for (let i=0; i<150; i++) {     // 150 × 2s = 5 min cap
     await new Promise(r => setTimeout(r, 2000));
     const r = await fetch(`${TRIGGER_BASE}/status/${jobId}`, {cache:'no-store'});
     if (!r.ok) continue;
@@ -1060,25 +1060,25 @@ async function pollJob(btn, jobId) {
     if (s.state === 'success') {
       btn.classList.remove('is-running');
       btn.classList.add('is-success');
-      btn.textContent = 'âœ“ Updated';
+      btn.textContent = '✓ Updated';
       btn.title = '';
-      setTimeout(() => { btn.classList.remove('is-success'); btn.textContent = 'Regenerate â†»'; }, 30000);
+      setTimeout(() => { btn.classList.remove('is-success'); btn.textContent = 'Regenerate ↻'; }, 30000);
       return;
     }
     if (s.state === 'error') {
       btn.classList.remove('is-running');
       btn.classList.add('is-error');
-      btn.textContent = 'âš  Failed';
+      btn.textContent = '⚠ Failed';
       btn.title = (s.log_tail || []).slice(-5).join('\n');
-      setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate â†»'; }, 5000);
+      setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
       return;
     }
   }
   // Timed out
   btn.classList.remove('is-running');
   btn.classList.add('is-error');
-  btn.textContent = 'âš  Timeout';
-  setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate â†»'; }, 5000);
+  btn.textContent = '⚠ Timeout';
+  setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
 }
 
 // Wire up buttons
