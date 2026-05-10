@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="theme-navy">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reports Portal — Olympic Paints</title>
+<title>Reports Portal â€” Olympic Paints</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
 <style>
-/* ── TOKENS ──────────────────────────────────────────────────────────── */
+/* â”€â”€ TOKENS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   --_y50:#FEF9E0;--_y100:#FDF0A0;--_y200:#FAE04D;
   --_y400:#F5C400;--_y600:#D4A800;--_y800:#A88000;--_y900:#6A5000;
@@ -67,12 +67,12 @@
   --shadow-card:0 2px 12px rgba(0,0,0,.50);
 }
 
-/* ── RESET ───────────────────────────────────────────────────────────── */
+/* â”€â”€ RESET â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font-body);background:var(--color-surface-page);
   color:var(--color-text-primary);min-height:100vh}
 
-/* ── THEME BAR ───────────────────────────────────────────────────────── */
+/* â”€â”€ THEME BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .theme-bar{display:flex;gap:4px;padding:6px 40px;
   background:var(--color-surface-secondary);border-bottom:1px solid var(--color-border-subtle)}
 .theme-bar button{background:transparent;border:1px solid transparent;
@@ -81,7 +81,7 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
 .theme-bar button:hover{opacity:1}
 .theme-bar button.active{opacity:1;border-color:var(--color-brand-primary);color:var(--color-brand-primary)}
 
-/* ── HEADER ──────────────────────────────────────────────────────────── */
+/* â”€â”€ HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hdr{background:var(--color-surface-secondary);padding:20px 40px;
   display:flex;align-items:center;justify-content:space-between;
   border-bottom:2px solid var(--color-brand-primary);
@@ -92,7 +92,7 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
 .hdr-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px}
 .hdr-meta{font-size:11px;color:rgba(255,255,255,.35);text-align:right}
 
-/* ── TAB BAR ─────────────────────────────────────────────────────────── */
+/* â”€â”€ TAB BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .tab-bar{background:var(--color-surface-sunken);padding:0 40px;display:flex;gap:2px;
   border-bottom:1px solid var(--color-border-subtle);overflow-x:auto}
 .tab-btn{background:transparent;border:none;color:var(--color-text-secondary);
@@ -102,11 +102,11 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
 .tab-btn:hover{color:var(--color-text-primary)}
 .tab-btn.active{color:var(--color-brand-primary);border-bottom-color:var(--color-brand-primary)}
 
-/* ── MAIN ────────────────────────────────────────────────────────────── */
+/* â”€â”€ MAIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .main{padding:36px 40px;max-width:1400px;margin:0 auto}
 .tab-panel{display:none}.tab-panel.active{display:block}
 
-/* ── DEPT INTRO ──────────────────────────────────────────────────────── */
+/* â”€â”€ DEPT INTRO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dept-intro{margin-bottom:28px;padding:18px 22px;border-radius:10px;
   background:var(--color-surface-base);border:1px solid var(--color-border-default);
   display:flex;align-items:center;gap:16px}
@@ -116,10 +116,10 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
   text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
 .dept-intro-text p{font-size:13px;color:var(--color-text-secondary);line-height:1.5}
 
-/* ── REPORT GRID ─────────────────────────────────────────────────────── */
+/* â”€â”€ REPORT GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .report-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
 
-/* ── REPORT CARD ─────────────────────────────────────────────────────── */
+/* â”€â”€ REPORT CARD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .report-card{background:var(--color-surface-base);border-radius:14px;
   border:1px solid var(--color-border-default);box-shadow:var(--shadow-card);
   overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
@@ -154,35 +154,35 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
   letter-spacing:.06em;padding:9px 20px;border-radius:8px;border:none;cursor:pointer;
   text-decoration:none;transition:all .15s;white-space:nowrap}
 
-/* ── COLOUR VARIANTS ─────────────────────────────────────────────────── */
-/* Sales — yellow */
+/* â”€â”€ COLOUR VARIANTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Sales â€” yellow */
 .accent-sales   { background:#F5C400 }
 .pill-sales     { background:rgba(245,196,0,.15);  color:#FAE04D;  border:1px solid rgba(245,196,0,.25) }
 .btn-sales      { background:#F5C400; color:#0D0D0B }
 .btn-sales:hover{ background:#FAE04D }
 .icon-sales     { background:rgba(245,196,0,.15) }
 
-/* HR — teal */
+/* HR â€” teal */
 .accent-hr      { background:#2D8C7A }
 .pill-hr        { background:rgba(45,140,122,.15); color:#C8EDE7;  border:1px solid rgba(45,140,122,.25) }
 .btn-hr         { background:#2D8C7A; color:#fff }
 .btn-hr:hover   { background:#3aad99 }
 .icon-hr        { background:rgba(45,140,122,.15) }
 
-/* Operations — blue */
+/* Operations â€” blue */
 .accent-ops     { background:#6B9ED0 }
 .pill-ops       { background:rgba(107,158,208,.15);color:#B8CCE8;  border:1px solid rgba(107,158,208,.25) }
 .btn-ops        { background:#2D6BA8; color:#fff }
 .btn-ops:hover  { background:#3a7fc4 }
 .icon-ops       { background:rgba(107,158,208,.15) }
 
-/* ── ALL REPORTS DIVIDER ─────────────────────────────────────────────── */
+/* â”€â”€ ALL REPORTS DIVIDER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section-label{font-family:var(--font-display);font-size:11px;font-weight:700;
   text-transform:uppercase;letter-spacing:1.5px;color:var(--color-brand-primary);
   margin:32px 0 14px;display:flex;align-items:center;gap:10px}
 .section-label::after{content:'';flex:1;height:1px;background:var(--color-border-default)}
 
-/* ── FOOTER ──────────────────────────────────────────────────────────── */
+/* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 footer{text-align:center;padding:24px 40px;font-size:11px;
   color:var(--color-text-secondary);border-top:1px solid var(--color-border-subtle);
   margin-top:48px;line-height:1.7}
@@ -192,7 +192,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   .report-grid{grid-template-columns:1fr}
 }
 
-/* ── ARCHITECTURE TAB ────────────────────────────────────────────── */
+/* â”€â”€ ARCHITECTURE TAB â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .accent-arch{background:#9B7DBF}
 .pill-arch{background:rgba(155,125,191,.15);color:#EDE0F7;border:1px solid rgba(155,125,191,.25)}
 .btn-arch{background:#9B7DBF;color:#fff}
@@ -345,16 +345,16 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   <div class="hdr-l">
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Olympic Paints" style="flex-shrink:0">
       <circle cx="24" cy="24" r="24" fill="#F5C400"/>
-      <text x="24" y="23" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="12" fill="#0D0D0B">OLYMPIC<tspan dy="-5" font-size="6">™</tspan></text>
+      <text x="24" y="23" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="12" fill="#0D0D0B">OLYMPIC<tspan dy="-5" font-size="6">â„¢</tspan></text>
       <text x="24" y="37" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="12" fill="#0D0D0B">PAINTS</text>
     </svg>
     <div>
       <div class="hdr-title">Reports Portal</div>
-      <div class="hdr-sub">All live dashboards and reports — Olympic Paints Limpopo</div>
+      <div class="hdr-sub">All live dashboards and reports â€” Olympic Paints Limpopo</div>
     </div>
   </div>
   <div class="hdr-meta">
-    Olympic Paints · Limpopo, SA<br>
+    Olympic Paints Â· Limpopo, SA<br>
     Powered by FlomaticAuto
   </div>
 </div>
@@ -366,10 +366,9 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   <button class="tab-btn"        onclick="showTab('pulse')">Sales Reps Pulse</button>
   <button class="tab-btn"        onclick="showTab('hr')">HR &amp; People</button>
   <button class="tab-btn"        onclick="showTab('ops')">Operations</button>
-  <button class="tab-btn"        onclick="showTab('arch')">Org Architecture</button>
 </div>
 
-<!-- ══════════════════════════════════════════════════ TAB: ALL REPORTS -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TAB: ALL REPORTS -->
 <div id="panel-all" class="tab-panel active">
 <div class="main">
 
@@ -381,7 +380,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-body">
         <div class="card-dept">
           <span class="dept-pill pill-sales">Sales</span>
-          <span class="live-badge">● Live</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">Sales Performance Dashboard</div>
         <div class="card-desc">Full sales analytics platform covering year-on-year revenue comparison, monthly net sales, rep performance, product volume by category, debtor age analysis, rock-bottom price compliance, and sales activity tracking (store visits, leads, new accounts).</div>
@@ -394,8 +393,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Daily · Auto-generated</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Daily Â· Auto-generated</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report â†—</a>
       </div>
     </div>
 
@@ -404,7 +403,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-body">
         <div class="card-dept">
           <span class="dept-pill pill-sales">Sales</span>
-          <span class="live-badge">● On-demand</span>
+          <span class="live-badge">â— On-demand</span>
         </div>
         <div class="card-title">Merchandising Impact Report</div>
         <div class="card-desc">Quantifies sales-growth correlation with formal merchandising at Kit Kat and Easy Build group stores. YoY same-month comparison, per-store breakdown, narrative auto-prose. Built on demand from the portal.</div>
@@ -418,8 +417,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-footer">
         <div class="card-meta"><span class="health-dot" data-build="merchandising"></span><span class="health-text" data-build="merchandising">Service offline</span></div>
         <div class="card-actions">
-          <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report ↗</a>
-          <button class="regen-btn" data-build="merchandising">Regenerate ↻</button>
+          <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report â†—</a>
+          <button class="regen-btn" data-build="merchandising">Regenerate â†»</button>
         </div>
       </div>
     </div>
@@ -428,8 +427,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · E-Commerce</span>
-          <span class="live-badge">● Live</span>
+          <span class="dept-pill pill-sales">Sales Â· E-Commerce</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">E-Commerce Dashboard</div>
         <div class="card-desc">WooCommerce sales performance dashboard. Tracks service level (days from order to dispatch) against the 5-day target, overdue orders, sales by province, order status mix, daily order volume trend, and the open dispatch queue. Mirrors the QuickSight WooCommerce tiles.</div>
@@ -443,8 +442,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Woocommerce_Transactions.csv · Manual export</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" rel="noopener">Open Report ↗</a>
+        <div class="card-meta"><strong>Source:</strong> Woocommerce_Transactions.csv Â· Manual export</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" rel="noopener">Open Report â†—</a>
       </div>
     </div>
 
@@ -457,8 +456,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · PULSE</span>
-          <span class="live-badge">● Live</span>
+          <span class="dept-pill pill-sales">Sales Â· PULSE</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">PULSE Live Leaderboard</div>
         <div class="card-desc">Live ranking of all 5 sales reps for the current month. Sorted by % of monthly target (NET of VAT). Top 2 in green, bottom 2 in red. Refreshes weekday mornings at 06:30.</div>
@@ -470,8 +469,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Mon–Fri 06:30 · Auto</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Monâ€“Fri 06:30 Â· Auto</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard â†—</a>
       </div>
     </div>
 
@@ -479,8 +478,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · PULSE</span>
-          <span class="live-badge">● Bi-weekly</span>
+          <span class="dept-pill pill-sales">Sales Â· PULSE</span>
+          <span class="live-badge">â— Bi-weekly</span>
         </div>
         <div class="card-title">PULSE Bi-Weekly Scorecard</div>
         <div class="card-desc">14-day performance roll-up emailed to all reps + Quintus, archived publicly. Exec summary, rep ranking, new-stores prospected, product-dev conversations. Builds alt-Mondays 07:00.</div>
@@ -492,7 +491,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Alt-Mondays 07:00</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard ↗</a>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard â†—</a>
       </div>
     </div>
 
@@ -504,70 +503,70 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
-        <div class="card-title">Aboo Cassim — AC</div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales Â· Rep</span><span class="live-badge">â— Live</span></div>
+        <div class="card-title">Aboo Cassim â€” AC</div>
         <div class="card-desc">Personal KPI portal. FY2026 YTD: R2.39M (+3.6% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
         <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Weekly Â· Manual entry</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" rel="noopener">Open Portal â†—</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
-        <div class="card-title">Amit Patel — AP</div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales Â· Rep</span><span class="live-badge">â— Live</span></div>
+        <div class="card-title">Amit Patel â€” AP</div>
         <div class="card-desc">Personal KPI portal. FY2026 YTD: R3.06M (+83.7% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
         <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Weekly Â· Manual entry</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" rel="noopener">Open Portal â†—</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
-        <div class="card-title">Bhadresh Vallabh — BV</div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales Â· Rep</span><span class="live-badge">â— Live</span></div>
+        <div class="card-title">Bhadresh Vallabh â€” BV</div>
         <div class="card-desc">Personal KPI portal. FY2026 YTD: R9.47M (+24.1% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
         <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Weekly Â· Manual entry</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" rel="noopener">Open Portal â†—</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
-        <div class="card-title">Nikhil Panchal — NP</div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales Â· Rep</span><span class="live-badge">â— Live</span></div>
+        <div class="card-title">Nikhil Panchal â€” NP</div>
         <div class="card-desc">Personal KPI portal. FY2026 YTD: R7.80M (+8.1% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
         <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Weekly Â· Manual entry</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" rel="noopener">Open Portal â†—</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
-        <div class="card-title">Byron Minnie — BM</div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales Â· Rep</span><span class="live-badge">â— Live</span></div>
+        <div class="card-title">Byron Minnie â€” BM</div>
         <div class="card-desc">Personal KPI portal. FY2026 YTD: R74.0K (new rep, no prior baseline). Covers monthly revenue, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
         <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Weekly Â· Manual entry</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" rel="noopener">Open Portal â†—</a>
       </div>
     </div>
 
@@ -581,7 +580,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-body">
         <div class="card-dept">
           <span class="dept-pill pill-hr">HR &amp; People</span>
-          <span class="live-badge">● Live</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">HAVEN Clocking Dashboard</div>
         <div class="card-desc">YTD attendance and hours dashboard for all 102 employees across Olympic Paints (74) and Primeserve (28). Tracks daily attendance, total hours worked, missed clock-outs, department breakdowns, and weekly hours trends. 45-minute break deduction applied per shift.</div>
@@ -595,7 +594,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> On new Advius export</div>
-        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report ↗</a>
+        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report â†—</a>
       </div>
     </div>
 
@@ -609,7 +608,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-body">
         <div class="card-dept">
           <span class="dept-pill pill-ops">Operations</span>
-          <span class="live-badge">● Live</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">Vehicle In-Out Report</div>
         <div class="card-desc">Fleet trip analytics covering all delivery vehicles. Tracks routes, driver assignments, trip distances, departure and arrival times, and per-vehicle utilisation across the Limpopo delivery network. Built from weekly Multi-Vehicles Trip Report exports.</div>
@@ -622,7 +621,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly trip report upload</div>
-        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" rel="noopener">Open Report ↗</a>
+        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" rel="noopener">Open Report â†—</a>
       </div>
     </div>
 
@@ -631,10 +630,10 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-body">
         <div class="card-dept">
           <span class="dept-pill pill-ops">Operations</span>
-          <span class="live-badge">● Live</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">Returns Manager</div>
-        <div class="card-desc">Interactive returns processing dashboard for Olympic Paints. Log, track, and manage customer product returns — capturing return reasons, quantities, customer details, and resolution status. Built on Streamlit for real-time data entry and reporting.</div>
+        <div class="card-desc">Interactive returns processing dashboard for Olympic Paints. Log, track, and manage customer product returns â€” capturing return reasons, quantities, customer details, and resolution status. Built on Streamlit for real-time data entry and reporting.</div>
         <div class="card-tags">
           <span class="tag">Returns Processing</span>
           <span class="tag">Customer Returns</span>
@@ -643,8 +642,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Platform:</strong> Streamlit · Live app</div>
-        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open App ↗</a>
+        <div class="card-meta"><strong>Platform:</strong> Streamlit Â· Live app</div>
+        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open App â†—</a>
       </div>
     </div>
 
@@ -653,15 +652,15 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 </div>
 </div><!-- /all -->
 
-<!-- ══════════════════════════════════════════════════ TAB: SALES -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TAB: SALES -->
 <div id="panel-sales" class="tab-panel">
 <div class="main">
 
   <div class="dept-intro">
-    <div class="dept-icon icon-sales" style="font-size:24px">📊</div>
+    <div class="dept-icon icon-sales" style="font-size:24px">ðŸ“Š</div>
     <div class="dept-intro-text">
       <h2 style="color:#F5C400">Sales Reports</h2>
-      <p>Live and weekly reports tracking Olympic Paints sales performance — revenue against target, rep scorecards, product mix, debtor book, and price compliance. All figures are net of credit notes.</p>
+      <p>Live and weekly reports tracking Olympic Paints sales performance â€” revenue against target, rep scorecards, product mix, debtor book, and price compliance. All figures are net of credit notes.</p>
     </div>
   </div>
 
@@ -672,13 +671,13 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-body">
         <div class="card-dept">
           <span class="dept-pill pill-sales">Sales</span>
-          <span class="live-badge">● Live</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">Sales Performance Dashboard</div>
         <div class="card-desc">The primary sales analysis platform. Eight tabs cover year-on-year revenue, FY2025 full year, FY2026 YTD, monthly deep-dive, product category volume, debtor age analysis, rock-bottom price compliance, and rep activity (store visits, leads, new accounts added).</div>
         <div class="card-tags">
           <span class="tag">YOY Revenue</span>
-          <span class="tag">FY2025 · FY2026</span>
+          <span class="tag">FY2025 Â· FY2026</span>
           <span class="tag">Monthly View</span>
           <span class="tag">Product Volume (kL)</span>
           <span class="tag">Debtors</span>
@@ -687,8 +686,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet · Auto-rebuilt daily</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report ↗</a>
+        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet Â· Auto-rebuilt daily</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report â†—</a>
       </div>
     </div>
 
@@ -697,7 +696,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-body">
         <div class="card-dept">
           <span class="dept-pill pill-sales">Sales</span>
-          <span class="live-badge">● On-demand</span>
+          <span class="live-badge">â— On-demand</span>
         </div>
         <div class="card-title">Merchandising Impact Report</div>
         <div class="card-desc">Quantifies sales-growth correlation with formal merchandising at Kit Kat and Easy Build group stores. YoY same-month comparison, per-store breakdown, narrative auto-prose. Built on demand from the portal.</div>
@@ -711,8 +710,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-footer">
         <div class="card-meta"><span class="health-dot" data-build="merchandising"></span><span class="health-text" data-build="merchandising">Service offline</span></div>
         <div class="card-actions">
-          <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report ↗</a>
-          <button class="regen-btn" data-build="merchandising">Regenerate ↻</button>
+          <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report â†—</a>
+          <button class="regen-btn" data-build="merchandising">Regenerate â†»</button>
         </div>
       </div>
     </div>
@@ -721,8 +720,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · E-Commerce</span>
-          <span class="live-badge">● Live</span>
+          <span class="dept-pill pill-sales">Sales Â· E-Commerce</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">E-Commerce Dashboard</div>
         <div class="card-desc">WooCommerce sales performance dashboard. Tracks service level (days from order to dispatch) against the 5-day target, overdue orders, sales by province, order status mix, daily order volume trend, and the open dispatch queue. Mirrors the QuickSight WooCommerce tiles.</div>
@@ -736,8 +735,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Woocommerce_Transactions.csv · Manual export</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" rel="noopener">Open Report ↗</a>
+        <div class="card-meta"><strong>Source:</strong> Woocommerce_Transactions.csv Â· Manual export</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" rel="noopener">Open Report â†—</a>
       </div>
     </div>
 
@@ -749,70 +748,70 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
-        <div class="card-title">Aboo Cassim — AC</div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales Â· Rep</span><span class="live-badge">â— Live</span></div>
+        <div class="card-title">Aboo Cassim â€” AC</div>
         <div class="card-desc">Personal KPI portal. FY2026 YTD: R2.39M (+3.6% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
         <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Weekly Â· Manual entry</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" rel="noopener">Open Portal â†—</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
-        <div class="card-title">Amit Patel — AP</div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales Â· Rep</span><span class="live-badge">â— Live</span></div>
+        <div class="card-title">Amit Patel â€” AP</div>
         <div class="card-desc">Personal KPI portal. FY2026 YTD: R3.06M (+83.7% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
         <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Weekly Â· Manual entry</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" rel="noopener">Open Portal â†—</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
-        <div class="card-title">Bhadresh Vallabh — BV</div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales Â· Rep</span><span class="live-badge">â— Live</span></div>
+        <div class="card-title">Bhadresh Vallabh â€” BV</div>
         <div class="card-desc">Personal KPI portal. FY2026 YTD: R9.47M (+24.1% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
         <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Weekly Â· Manual entry</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" rel="noopener">Open Portal â†—</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
-        <div class="card-title">Nikhil Panchal — NP</div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales Â· Rep</span><span class="live-badge">â— Live</span></div>
+        <div class="card-title">Nikhil Panchal â€” NP</div>
         <div class="card-desc">Personal KPI portal. FY2026 YTD: R7.80M (+8.1% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
         <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Weekly Â· Manual entry</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" rel="noopener">Open Portal â†—</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
-        <div class="card-title">Byron Minnie — BM</div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales Â· Rep</span><span class="live-badge">â— Live</span></div>
+        <div class="card-title">Byron Minnie â€” BM</div>
         <div class="card-desc">Personal KPI portal. FY2026 YTD: R74.0K (new rep, no prior baseline). Covers monthly revenue, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
         <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <div class="card-meta"><strong>Updated:</strong> Weekly Â· Manual entry</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" rel="noopener">Open Portal â†—</a>
       </div>
     </div>
 
@@ -820,12 +819,12 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 </div>
 </div><!-- /sales -->
 
-<!-- ══════════════════════════════════════════════════ TAB: PULSE -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TAB: PULSE -->
 <div id="panel-pulse" class="tab-panel">
 <div class="main">
 
   <div class="dept-intro">
-    <div class="dept-icon icon-sales" style="font-size:24px">🟡</div>
+    <div class="dept-icon icon-sales" style="font-size:24px">ðŸŸ¡</div>
     <div class="dept-intro-text">
       <h2 style="color:#F5C400">Sales Reps PULSE</h2>
       <p>Daily push system for the 5 sales reps (AC, AP, BV, NP, BM). PULSE drives daily ack discipline, tracks plan vs actual against the 4-week customer cycle, escalates silence to Quintus, and publishes a live performance leaderboard plus a bi-weekly scorecard. Targets are computed each month as the prior-year same-month actual + 30%, NET of VAT.</p>
@@ -838,8 +837,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · PULSE</span>
-          <span class="live-badge">● Live</span>
+          <span class="dept-pill pill-sales">Sales Â· PULSE</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">PULSE Live Leaderboard</div>
         <div class="card-desc">Live ranking of all 5 sales reps for the current month. Sorted by % of monthly target (NET of VAT). Top 2 highlighted green, bottom 2 red. Includes plan adherence and ack streak per rep. Refreshes automatically every weekday morning at 06:30.</div>
@@ -851,8 +850,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet + JotForm acks · Refreshes Mon–Fri 06:30</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard ↗</a>
+        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet + JotForm acks Â· Refreshes Monâ€“Fri 06:30</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard â†—</a>
       </div>
     </div>
 
@@ -860,8 +859,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · PULSE</span>
-          <span class="live-badge">● Bi-weekly</span>
+          <span class="dept-pill pill-sales">Sales Â· PULSE</span>
+          <span class="live-badge">â— Bi-weekly</span>
         </div>
         <div class="card-title">PULSE Bi-Weekly Scorecard</div>
         <div class="card-desc">Fortnightly performance roll-up emailed to all 5 reps and Quintus, also archived publicly. Executive summary, full rep ranking with green/red highlights, new-stores prospected, product-dev conversations. Builds every alternate Monday at 07:00. Click below for the latest issue.</div>
@@ -873,8 +872,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> 14-day rollup of sales + JotForm acks · Builds alt-Mondays 07:00</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard ↗</a>
+        <div class="card-meta"><strong>Source:</strong> 14-day rollup of sales + JotForm acks Â· Builds alt-Mondays 07:00</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard â†—</a>
       </div>
     </div>
 
@@ -882,12 +881,12 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 </div>
 </div><!-- /pulse -->
 
-<!-- ══════════════════════════════════════════════════ TAB: HR -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TAB: HR -->
 <div id="panel-hr" class="tab-panel">
 <div class="main">
 
   <div class="dept-intro">
-    <div class="dept-icon icon-hr" style="font-size:24px">👥</div>
+    <div class="dept-icon icon-hr" style="font-size:24px">ðŸ‘¥</div>
     <div class="dept-intro-text">
       <h2 style="color:#2D8C7A">HR &amp; People Reports</h2>
       <p>Workforce attendance and hours reporting for Olympic Paints (74 employees) and Primeserve (28 employees, SD prefix). Data flows from the Advius biometric system through the HAVEN pipeline.</p>
@@ -901,7 +900,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-body">
         <div class="card-dept">
           <span class="dept-pill pill-hr">HR &amp; People</span>
-          <span class="live-badge">● Live</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">HAVEN Clocking Dashboard</div>
         <div class="card-desc">Year-to-date attendance dashboard for all 102 employees. Six tabs provide an overview, yesterday's missed clock-outs, daily attendance heatmap, department breakdown, weekly hours trend, and a full missing clock-out log. A 45-minute break deduction is applied to every worked shift. Employer split: Olympic Paints vs Primeserve (SD-prefix employees).</div>
@@ -915,8 +914,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Advius biometric export · Updated per run</div>
-        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report ↗</a>
+        <div class="card-meta"><strong>Source:</strong> Advius biometric export Â· Updated per run</div>
+        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report â†—</a>
       </div>
     </div>
 
@@ -924,15 +923,15 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 </div>
 </div><!-- /hr -->
 
-<!-- ══════════════════════════════════════════════════ TAB: OPERATIONS -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TAB: OPERATIONS -->
 <div id="panel-ops" class="tab-panel">
 <div class="main">
 
   <div class="dept-intro">
-    <div class="dept-icon icon-ops" style="font-size:24px">⚙️</div>
+    <div class="dept-icon icon-ops" style="font-size:24px">âš™ï¸</div>
     <div class="dept-intro-text">
       <h2 style="color:#6B9ED0">Operations Reports</h2>
-      <p>Fleet and logistics reports for Olympic Paints operations — vehicle utilisation, trip analytics, and delivery network performance across the Limpopo region.</p>
+      <p>Fleet and logistics reports for Olympic Paints operations â€” vehicle utilisation, trip analytics, and delivery network performance across the Limpopo region.</p>
     </div>
   </div>
 
@@ -943,7 +942,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-body">
         <div class="card-dept">
           <span class="dept-pill pill-ops">Operations</span>
-          <span class="live-badge">● Live</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">Vehicle In-Out Report</div>
         <div class="card-desc">Fleet trip analytics covering all delivery vehicles. Tracks routes, driver assignments, trip distances, departure and arrival times, and per-vehicle utilisation across the Limpopo delivery network. Built from weekly Multi-Vehicles Trip Report exports.</div>
@@ -956,7 +955,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly trip report upload</div>
-        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" rel="noopener">Open Report ↗</a>
+        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" rel="noopener">Open Report â†—</a>
       </div>
     </div>
 
@@ -965,10 +964,10 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-body">
         <div class="card-dept">
           <span class="dept-pill pill-ops">Operations</span>
-          <span class="live-badge">● Live</span>
+          <span class="live-badge">â— Live</span>
         </div>
         <div class="card-title">Returns Manager</div>
-        <div class="card-desc">Interactive returns processing dashboard for Olympic Paints. Log, track, and manage customer product returns — capturing return reasons, quantities, customer details, and resolution status. Built on Streamlit for real-time data entry and reporting.</div>
+        <div class="card-desc">Interactive returns processing dashboard for Olympic Paints. Log, track, and manage customer product returns â€” capturing return reasons, quantities, customer details, and resolution status. Built on Streamlit for real-time data entry and reporting.</div>
         <div class="card-tags">
           <span class="tag">Returns Processing</span>
           <span class="tag">Customer Returns</span>
@@ -977,8 +976,8 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Platform:</strong> Streamlit · Live app</div>
-        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open App ↗</a>
+        <div class="card-meta"><strong>Platform:</strong> Streamlit Â· Live app</div>
+        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open App â†—</a>
       </div>
     </div>
 
@@ -986,650 +985,11 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 </div>
 </div><!-- /ops -->
 
-<!-- ══════════════════════════════════════════════════ TAB: ARCHITECTURE -->
-<div id="panel-arch" class="tab-panel">
-<div class="main">
-
-  <!-- INTRO -->
-  <div class="arch-intro">
-    <div class="arch-intro-title">Olympic Paints Automation Ecosystem</div>
-    <p>A complete map of every system, script, data source, scheduled task, KPI framework, and AI agent powering Olympic Paints Limpopo analytics infrastructure. Everything documented in one place — no stone unturned.</p>
-  </div>
-
-  <!-- STATS STRIP -->
-  <div class="arch-stats">
-    <div class="arch-stat"><div class="arch-stat-num">11</div><div class="arch-stat-lbl">Live Dashboards</div></div>
-    <div class="arch-stat"><div class="arch-stat-num">10</div><div class="arch-stat-lbl">Build Scripts</div></div>
-    <div class="arch-stat"><div class="arch-stat-num">9</div><div class="arch-stat-lbl">Data Sources</div></div>
-    <div class="arch-stat"><div class="arch-stat-num">11</div><div class="arch-stat-lbl">GitHub Repos</div></div>
-    <div class="arch-stat"><div class="arch-stat-num">7</div><div class="arch-stat-lbl">AI Agents</div></div>
-    <div class="arch-stat"><div class="arch-stat-num">4</div><div class="arch-stat-lbl">Scheduled Tasks</div></div>
-    <div class="arch-stat"><div class="arch-stat-num">102</div><div class="arch-stat-lbl">Employees Tracked</div></div>
-    <div class="arch-stat"><div class="arch-stat-num">186K+</div><div class="arch-stat-lbl">Invoice Rows</div></div>
-  </div>
-
-  <!-- DATA PIPELINE FLOW -->
-  <div class="section-label">Data Pipeline — End to End</div>
-  <div class="pipeline-flow">
-
-    <!-- Column 1: Source Systems -->
-    <div class="pf-col">
-      <div class="pf-header">Source Systems</div>
-      <div class="pf-node pf-node-src"><div class="pf-node-name">PAD System</div><div class="pf-node-sub">Sales invoices · Debtors · Outstanding orders</div></div>
-      <div class="pf-node pf-node-src"><div class="pf-node-name">Zoho CRM</div><div class="pf-node-sub">Store visits · Merch check-ins · Lead tracking</div></div>
-      <div class="pf-node pf-node-src"><div class="pf-node-name">Advius Biometric</div><div class="pf-node-sub">Employee punch-in / punch-out exports</div></div>
-      <div class="pf-node pf-node-src"><div class="pf-node-name">QuickSight PDFs</div><div class="pf-node-sub">Weekly KPI reports — manually extracted</div></div>
-      <div class="pf-node pf-node-src"><div class="pf-node-name">Manual Sheets</div><div class="pf-node-sub">New stores verified · WooCommerce exports</div></div>
-    </div>
-
-    <div class="pf-arrow">→</div>
-
-    <!-- Column 2: Build Scripts -->
-    <div class="pf-col">
-      <div class="pf-header">Build Scripts</div>
-      <div class="pf-node pf-node-script"><div class="pf-node-name">build_sales_dashboard.py</div><div class="pf-node-sub">Parquet + Zoho CSVs + PAD → Sales HTML</div></div>
-      <div class="pf-node pf-node-script"><div class="pf-node-name">build_kpi_dashboard.py</div><div class="pf-node-sub">Manual data + merch xlsx → KPI HTML + JSON</div></div>
-      <div class="pf-node pf-node-script"><div class="pf-node-name">build_rep_dashboards.py</div><div class="pf-node-sub">Manual + merch data → 5× rep HTML portals</div></div>
-      <div class="pf-node pf-node-script"><div class="pf-node-name">build_report.py + gen_dashboard.py</div><div class="pf-node-sub">Advius xlsx → YTD Excel → Clocking HTML</div></div>
-      <div class="pf-node pf-node-script"><div class="pf-node-name">build_ecommerce_dashboard.py</div><div class="pf-node-sub">WooCommerce export → E-Commerce HTML</div></div>
-      <div class="pf-node pf-node-script"><div class="pf-node-name">audit_funky_transactions.py</div><div class="pf-node-sub">Parquet → Funky Transactions Report.xlsx</div></div>
-    </div>
-
-    <div class="pf-arrow">→</div>
-
-    <!-- Column 3: Published Outputs -->
-    <div class="pf-col">
-      <div class="pf-header">Published Outputs</div>
-      <div class="pf-node pf-node-out"><div class="pf-node-name">olympic-paints-sales</div><div class="pf-node-sub">Sales Performance Dashboard — daily rebuild</div></div>
-      <div class="pf-node pf-node-out"><div class="pf-node-name">olympic-paints-kpi</div><div class="pf-node-sub">KPI Dashboard — weekly update</div></div>
-      <div class="pf-node pf-node-out"><div class="pf-node-name">olympic-paints-kpi-{ac/ap/bv/np/bm}</div><div class="pf-node-sub">5 rep portals — weekly update</div></div>
-      <div class="pf-node pf-node-out"><div class="pf-node-name">olympic-paints-clocking</div><div class="pf-node-sub">HAVEN Clocking — per Advius export</div></div>
-      <div class="pf-node pf-node-out"><div class="pf-node-name">olympic-paints-ecommerce</div><div class="pf-node-sub">E-Commerce Dashboard — daily 08:15</div></div>
-      <div class="pf-node pf-node-out"><div class="pf-node-name">kpi_status.json</div><div class="pf-node-sub">Written to workspace-dashboard for portal tiles</div></div>
-    </div>
-
-  </div>
-
-  <!-- LEGAL ENTITIES -->
-  <div class="section-label">Legal Entities &amp; Personnel</div>
-  <div class="entity-grid" style="margin-bottom:14px">
-
-    <div class="entity-card" style="border-top:3px solid #F5C400">
-      <div class="entity-name">Olympic Paints</div>
-      <div class="entity-stat-row">
-        <div class="entity-stat"><strong>74</strong><span>Employees</span></div>
-        <div class="entity-stat"><strong>OP</strong><span>Entity Code</span></div>
-      </div>
-      <div class="entity-rule">Employee IDs that do <strong>not</strong> start with <span class="code-chip">SD</span> belong to Olympic Paints. Primary trading entity for all sales operations.</div>
-    </div>
-
-    <div class="entity-card" style="border-top:3px solid #6B9ED0">
-      <div class="entity-name">Primeserve</div>
-      <div class="entity-stat-row">
-        <div class="entity-stat"><strong>28</strong><span>Employees</span></div>
-        <div class="entity-stat"><strong>SD*</strong><span>ID Prefix</span></div>
-      </div>
-      <div class="entity-rule">All employees with IDs starting with <span class="code-chip">SD</span> belong to Primeserve (cleaning / maintenance staff). All reports split metrics by employer.</div>
-    </div>
-
-  </div>
-
-  <div class="section-label" style="margin-top:4px">Sales Reps — Active Team</div>
-  <div class="rep-grid" style="margin-bottom:20px">
-    <div class="rep-card"><div class="rep-code">AC</div><div class="rep-name">Aboo Cassim</div></div>
-    <div class="rep-card"><div class="rep-code">AP</div><div class="rep-name">Amit Patel</div></div>
-    <div class="rep-card"><div class="rep-code">BV</div><div class="rep-name">Bhadresh Vallabh</div></div>
-    <div class="rep-card"><div class="rep-code">NP</div><div class="rep-name">Nikhil Panchal</div></div>
-    <div class="rep-card"><div class="rep-code">BM</div><div class="rep-name">Byron Minnie</div></div>
-  </div>
-
-  <!-- DATA SOURCES -->
-  <div class="section-label">Data Sources</div>
-  <div class="arch-table-wrap">
-    <table class="arch-table">
-      <thead>
-        <tr>
-          <th>Source File / Dataset</th>
-          <th>Origin System</th>
-          <th>Format</th>
-          <th>Update Freq</th>
-          <th>Consumed By</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="code-chip">Sales_Invoices_All.parquet</span><br><small style="color:var(--color-text-secondary)">3.Resources/16.Sales and Other data/</small></td>
-          <td>PAD System</td>
-          <td>Parquet (~186K rows, Mar 2024–present)</td>
-          <td><span class="freq-badge freq-daily">Daily</span></td>
-          <td>Sales Dashboard, audit_funky_transactions.py</td>
-        </tr>
-        <tr>
-          <td><span class="code-chip">Pad/debtors_age_analysis.csv</span></td>
-          <td>PAD System</td>
-          <td>CSV — current/30/60/90/120/150/180 day buckets</td>
-          <td><span class="freq-badge freq-daily">Daily</span></td>
-          <td>Sales Dashboard (Debtors tab + freshness banner)</td>
-        </tr>
-        <tr>
-          <td><span class="code-chip">Pad/sales_order_outstanding.csv</span></td>
-          <td>PAD System</td>
-          <td>CSV — open order lines per rep</td>
-          <td><span class="freq-badge freq-daily">Daily</span></td>
-          <td>Sales Dashboard (Monthly tab — outstanding orders)</td>
-        </tr>
-        <tr>
-          <td><span class="code-chip">Zoho/Meetings_Report_AWS.xlsx</span></td>
-          <td>Zoho CRM</td>
-          <td>Excel — one row per check-in event · header=6 (Zoho banner offset)</td>
-          <td><span class="freq-badge freq-daily">Daily</span></td>
-          <td>Sales Dashboard (Activity tab — store visits heatmap, Rep Visits YTD tile)</td>
-        </tr>
-        <tr>
-          <td><span class="code-chip">Zoho/Meetings_Report_AWS_Merchandising.xlsx</span></td>
-          <td>Zoho CRM</td>
-          <td>Excel — merchandising check-ins · header=6 · rep name in Note Content free-text</td>
-          <td><span class="freq-badge freq-daily">Daily</span></td>
-          <td>Sales Dashboard (merch heatmap) · KPI Dashboard (KPI E) · Rep Dashboards (KPI F)</td>
-        </tr>
-        <tr>
-          <td><span class="code-chip">Zoho/OP_Lead_Tracking_new.csv</span></td>
-          <td>Zoho CRM</td>
-          <td>CSV — lead owner, company, status, created time</td>
-          <td><span class="freq-badge freq-daily">Daily</span></td>
-          <td>Sales Dashboard (Activity tab — leads per rep per month)</td>
-        </tr>
-        <tr>
-          <td><span class="code-chip">New Stores Added By Reps_Quarter{q}_{y}.xlsx</span></td>
-          <td>Manual Entry</td>
-          <td>Excel — verified new store accounts per rep per quarter</td>
-          <td><span class="freq-badge freq-quarterly">Quarterly</span></td>
-          <td>Rep Dashboards (KPI D — new account acquisition)</td>
-        </tr>
-        <tr>
-          <td><span class="code-chip">Transaction*.xlsx</span> (Advius export)</td>
-          <td>Advius Biometric System</td>
-          <td>Excel — employee punch events (clock-in / clock-out)</td>
-          <td><span class="freq-badge freq-perrun">Per Export</span></td>
-          <td>build_report.py → Clocking Report YTD.xlsx → gen_dashboard.py</td>
-        </tr>
-        <tr>
-          <td><span class="code-chip">Weekly_Sales_Report__*.pdf</span></td>
-          <td>AWS QuickSight</td>
-          <td>PDF — KPI charts rendered as images (no text extraction possible)</td>
-          <td><span class="freq-badge freq-weekly">Weekly · Manual</span></td>
-          <td>build_kpi_dashboard.py + build_rep_dashboards.py — data block manually extracted and entered</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- BUILD SCRIPTS -->
-  <div class="section-label">Build Scripts</div>
-  <div class="script-grid">
-
-    <div class="script-card">
-      <div class="script-name">build_sales_dashboard.py</div>
-      <div class="script-location">3.Resources/16.Sales and Other data/</div>
-      <div class="script-desc">The primary sales analytics builder (~2900 lines). Reads the parquet + all Zoho/PAD CSVs and produces a multi-tab HTML dashboard. Handles rep attribution via delno→dlref→smref linkage. Embeds chart data, heatmaps, and debtors freshness banner inline.</div>
-      <div class="script-io">
-        <div>
-          <div class="io-label">Inputs</div>
-          <div class="io-item">Sales_Invoices_All.parquet</div>
-          <div class="io-item">Zoho/Meetings_Report_AWS.xlsx</div>
-          <div class="io-item">Zoho/Meetings_Report_AWS_Merchandising.xlsx</div>
-          <div class="io-item">Zoho/OP_Lead_Tracking_new.csv</div>
-          <div class="io-item">Pad/debtors_age_analysis.csv</div>
-          <div class="io-item">Pad/sales_order_outstanding.csv</div>
-        </div>
-        <div>
-          <div class="io-label">Outputs</div>
-          <div class="io-item">Sales Dashboard/index.html</div>
-          <div class="io-item">→ git push → olympic-paints-sales</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="script-card">
-      <div class="script-name">build_kpi_dashboard.py</div>
-      <div class="script-location">1.Projects/AWS Data/</div>
-      <div class="script-desc">Builds the weekly KPI summary dashboard. Revenue and rep data entered manually at the top of the script from QuickSight PDFs. Merchandising KPI E auto-calculated from Zoho xlsx. Writes kpi_status.json to the workspace-dashboard folder for portal tile updates.</div>
-      <div class="script-io">
-        <div>
-          <div class="io-label">Inputs</div>
-          <div class="io-item">Manual data block (REPS, MTD_SALES etc)</div>
-          <div class="io-item">Meetings_Report_AWS_Merchandising.xlsx</div>
-        </div>
-        <div>
-          <div class="io-label">Outputs</div>
-          <div class="io-item">index.html → olympic-paints-kpi</div>
-          <div class="io-item">kpi_status.json → workspace-dashboard/</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="script-card">
-      <div class="script-name">build_rep_dashboards.py</div>
-      <div class="script-location">1.Projects/AWS Data/</div>
-      <div class="script-desc">Generates personalised quarterly KPI portals for all 5 sales reps. Each portal shows monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, store visits, debtors, and top accounts. Merchandising KPI F auto-graded from Zoho merch xlsx (target: 45 visits/quarter).</div>
-      <div class="script-io">
-        <div>
-          <div class="io-label">Inputs</div>
-          <div class="io-item">Manual data block per rep</div>
-          <div class="io-item">Meetings_Report_AWS_Merchandising.xlsx</div>
-          <div class="io-item">New Stores Added By Reps_*.xlsx</div>
-        </div>
-        <div>
-          <div class="io-label">Outputs</div>
-          <div class="io-item">index.html → olympic-paints-kpi-ac</div>
-          <div class="io-item">index.html → olympic-paints-kpi-ap</div>
-          <div class="io-item">index.html → olympic-paints-kpi-bv</div>
-          <div class="io-item">index.html → olympic-paints-kpi-np</div>
-          <div class="io-item">index.html → olympic-paints-kpi-bm</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="script-card">
-      <div class="script-name">build_ecommerce_dashboard.py</div>
-      <div class="script-location">1.Projects/AWS Data/</div>
-      <div class="script-desc">Builds the WooCommerce e-commerce analytics dashboard. Reads product order exports and produces sales-by-product, order trends, and revenue summaries. Runs automatically via Windows Task Scheduler at 08:15 daily.</div>
-      <div class="script-io">
-        <div>
-          <div class="io-label">Inputs</div>
-          <div class="io-item">WooCommerce order exports</div>
-        </div>
-        <div>
-          <div class="io-label">Outputs</div>
-          <div class="io-item">index.html → olympic-paints-ecommerce</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="script-card">
-      <div class="script-name">build_report.py</div>
-      <div class="script-location">2.Areas/11. HR/Clocking Reports/scripts/</div>
-      <div class="script-desc">Core HAVEN HR processor. Ingests raw Advius biometric exports and accumulates them into the YTD master workbook. Must always be run with --master flag against Clocking Report YTD.xlsx. Applies 45-minute break deduction per shift, per employee, no exceptions. Classifies by employer (SD-prefix = Primeserve).</div>
-      <div class="script-io">
-        <div>
-          <div class="io-label">Inputs</div>
-          <div class="io-item">Transaction*.xlsx (Advius export)</div>
-          <div class="io-item">--master: Clocking Report YTD.xlsx</div>
-        </div>
-        <div>
-          <div class="io-label">Outputs</div>
-          <div class="io-item">Clocking Report YTD.xlsx (updated master)</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="script-card">
-      <div class="script-name">gen_dashboard.py</div>
-      <div class="script-location">2.Areas/11. HR/Clocking Reports/scripts/</div>
-      <div class="script-desc">Reads the Clocking Report YTD.xlsx master and generates the HAVEN HTML dashboard. Pushes to olympic-paints-clocking via FlomaticAuto GitHub credentials. Six tabs: Overview · Yesterday · Daily Attendance · Departments · Weekly Hours · Missing Clock Out.</div>
-      <div class="script-io">
-        <div>
-          <div class="io-label">Inputs</div>
-          <div class="io-item">Output/Clocking Report YTD.xlsx</div>
-        </div>
-        <div>
-          <div class="io-label">Outputs</div>
-          <div class="io-item">Output/index.html</div>
-          <div class="io-item">→ git push → olympic-paints-clocking</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="script-card">
-      <div class="script-name">process_inbox.py</div>
-      <div class="script-location">2.Areas/11. HR/Clocking Reports/scripts/</div>
-      <div class="script-desc">One-shot batch processor. Scans the Inbox folder for new Advius exports, calls build_report.py with --master, renames the output to the YTD master, then sends two Outlook emails: (1) YTD Excel to accounts@olympicpaints and quintusl@olympicpaints; (2) daily missed clock-out HTML summary. Moves processed files to Inbox/Archived/.</div>
-      <div class="script-io">
-        <div>
-          <div class="io-label">Inputs</div>
-          <div class="io-item">Inbox/*.xlsx (any new Advius export)</div>
-        </div>
-        <div>
-          <div class="io-label">Outputs</div>
-          <div class="io-item">Updated Clocking Report YTD.xlsx</div>
-          <div class="io-item">Email: YTD Excel + missed clock-out summary</div>
-          <div class="io-item">Moves source to Inbox/Archived/</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="script-card">
-      <div class="script-name">haven_watcher.py</div>
-      <div class="script-location">2.Areas/11. HR/Clocking Reports/scripts/</div>
-      <div class="script-desc">Persistent file-system watcher using watchdog library. Monitors the Inbox folder and auto-triggers build_report.py whenever a new .xlsx file lands. Runs continuously as a background process — no manual intervention required when an Advius export is dropped.</div>
-      <div class="script-io">
-        <div>
-          <div class="io-label">Trigger</div>
-          <div class="io-item">New .xlsx file in Inbox/</div>
-        </div>
-        <div>
-          <div class="io-label">Action</div>
-          <div class="io-item">Calls build_report.py automatically</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="script-card">
-      <div class="script-name">haven_dashboard_check.py</div>
-      <div class="script-location">2.Areas/11. HR/Clocking Reports/scripts/</div>
-      <div class="script-desc">Weekly scheduled check script. Regenerates the HAVEN clocking dashboard and sends a Telegram summary to chat ID 8042233389 with attendance highlights. Runs via Windows Task Scheduler on Mondays at 08:00.</div>
-      <div class="script-io">
-        <div>
-          <div class="io-label">Schedule</div>
-          <div class="io-item">Every Monday 08:00 (Task Scheduler)</div>
-        </div>
-        <div>
-          <div class="io-label">Outputs</div>
-          <div class="io-item">Regenerates HAVEN dashboard</div>
-          <div class="io-item">Telegram summary → chat 8042233389</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="script-card">
-      <div class="script-name">audit_funky_transactions.py</div>
-      <div class="script-location">3.Resources/16.Sales and Other data/</div>
-      <div class="script-desc">Standalone audit script. Scans the full sales parquet for 16 categories of anomalous transactions: negative nets, sign mismatches, itemtotal discrepancies, zero-qty charges, future-dated lines, missing refs, outlier values, and error reason codes. Outputs a multi-sheet Excel workbook for manual review.</div>
-      <div class="script-io">
-        <div>
-          <div class="io-label">Inputs</div>
-          <div class="io-item">Sales_Invoices_All.parquet</div>
-        </div>
-        <div>
-          <div class="io-label">Outputs</div>
-          <div class="io-item">Funky Transactions Report.xlsx</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- GITHUB PAGES REPOS -->
-  <div class="section-label">Published Dashboards — GitHub Pages</div>
-  <div class="arch-table-wrap">
-    <table class="arch-table">
-      <thead>
-        <tr><th>Repository (FlomaticAuto)</th><th>Live URL</th><th>Dashboard</th><th>Build Script</th><th>Update</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><span class="code-chip">olympic-paints-sales</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" style="color:#6B9ED0">…/olympic-paints-sales/</a></td><td>Sales Performance Dashboard</td><td>build_sales_dashboard.py</td><td><span class="freq-badge freq-daily">Daily</span></td></tr>
-        <tr><td><span class="code-chip">olympic-paints-kpi</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi/</a></td><td>KPI Dashboard + rep table</td><td>build_kpi_dashboard.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
-        <tr><td><span class="code-chip">olympic-paints-kpi-ac</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi-ac/</a></td><td>Rep KPI Portal — Aboo Cassim (AC)</td><td>build_rep_dashboards.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
-        <tr><td><span class="code-chip">olympic-paints-kpi-ap</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi-ap/</a></td><td>Rep KPI Portal — Amit Patel (AP)</td><td>build_rep_dashboards.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
-        <tr><td><span class="code-chip">olympic-paints-kpi-bv</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi-bv/</a></td><td>Rep KPI Portal — Bhadresh Vallabh (BV)</td><td>build_rep_dashboards.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
-        <tr><td><span class="code-chip">olympic-paints-kpi-np</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi-np/</a></td><td>Rep KPI Portal — Nikhil Panchal (NP)</td><td>build_rep_dashboards.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
-        <tr><td><span class="code-chip">olympic-paints-kpi-bm</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" style="color:#6B9ED0">…/olympic-paints-kpi-bm/</a></td><td>Rep KPI Portal — Byron Minnie (BM)</td><td>build_rep_dashboards.py</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
-        <tr><td><span class="code-chip">olympic-paints-clocking</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" style="color:#6B9ED0">…/olympic-paints-clocking/</a></td><td>HAVEN Clocking Dashboard</td><td>gen_dashboard.py</td><td><span class="freq-badge freq-perrun">Per export</span></td></tr>
-        <tr><td><span class="code-chip">olympic-paints-ecommerce</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" style="color:#6B9ED0">…/olympic-paints-ecommerce/</a></td><td>E-Commerce Dashboard</td><td>build_ecommerce_dashboard.py</td><td><span class="freq-badge freq-daily">Daily 08:15</span></td></tr>
-        <tr><td><span class="code-chip">olympic-paints-vehicles</span></td><td><a href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" style="color:#6B9ED0">…/olympic-paints-vehicles/</a></td><td>Vehicle In-Out Report</td><td>Manual upload</td><td><span class="freq-badge freq-weekly">Weekly</span></td></tr>
-        <tr><td><span class="code-chip">op-workspace-dashboard</span></td><td><a href="https://flomaticauto.github.io/op-workspace-dashboard/" target="_blank" style="color:#6B9ED0">…/op-workspace-dashboard/</a></td><td>Reports Portal (this portal)</td><td>portal.html — static</td><td><span class="freq-badge freq-manual">Manual</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p style="font-size:11px;color:var(--color-text-secondary);margin:6px 0 28px;padding-left:4px">All repos are under the <strong>FlomaticAuto</strong> GitHub account. Git pushes use <span class="code-chip">gh auth token --user FlomaticAuto</span> embedded in the remote URL. Never switch the active gh account — use the token pattern.</p>
-
-  <!-- SCHEDULED AUTOMATION -->
-  <div class="section-label">Scheduled Automation</div>
-  <div class="arch-table-wrap" style="margin-bottom:8px">
-    <table class="arch-table">
-      <thead>
-        <tr><th>Schedule</th><th>Script</th><th>What It Does</th><th>Method</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Daily 07:00</strong></td>
-          <td><span class="code-chip">build_sales_dashboard.py</span></td>
-          <td>Rebuilds the full Sales Performance Dashboard from latest parquet + Zoho/PAD files and pushes to GitHub Pages</td>
-          <td>Windows Task Scheduler</td>
-        </tr>
-        <tr>
-          <td><strong>Daily 08:15</strong></td>
-          <td><span class="code-chip">build_ecommerce_dashboard.py</span></td>
-          <td>Rebuilds the E-Commerce Dashboard from latest WooCommerce export and pushes to GitHub Pages</td>
-          <td>Windows Task Scheduler</td>
-        </tr>
-        <tr>
-          <td><strong>Monday 08:00</strong></td>
-          <td><span class="code-chip">haven_dashboard_check.py</span></td>
-          <td>Regenerates the HAVEN Clocking Dashboard and sends a weekly Telegram attendance summary to management</td>
-          <td>Windows Task Scheduler</td>
-        </tr>
-        <tr>
-          <td><strong>Friday 16:00</strong></td>
-          <td>Workspace Health Report script</td>
-          <td>Generates the weekly cross-system health report, emails to management, pushes to GitHub Pages, and sends Telegram notification</td>
-          <td>Windows Task Scheduler</td>
-        </tr>
-        <tr>
-          <td><strong>Continuous (file watch)</strong></td>
-          <td><span class="code-chip">haven_watcher.py</span></td>
-          <td>Watches the HR Inbox folder using watchdog. Automatically triggers build_report.py whenever a new Advius .xlsx export is dropped — no manual intervention needed</td>
-          <td>Persistent background process</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- KPI FRAMEWORK -->
-  <div class="section-label">KPI Agreement Framework — Categories A–F</div>
-  <div class="arch-table-wrap">
-    <table class="arch-table">
-      <thead>
-        <tr><th>Cat</th><th>Name</th><th style="text-align:center">Weight</th><th>Target / Scoring Method</th><th>Data Source</th><th>Scope</th></tr>
-      </thead>
-      <tbody>
-        <tr class="kpi-row-a">
-          <td><strong style="color:#F5C400">A</strong></td>
-          <td><strong>Revenue vs Monthly Target</strong></td>
-          <td style="text-align:center"><span class="kpi-weight">40%</span></td>
-          <td>Graded: actual ÷ monthly target. 100% = full 40 points</td>
-          <td>QuickSight PDF → manual entry</td>
-          <td>Main KPI · Per-rep</td>
-        </tr>
-        <tr class="kpi-row-b">
-          <td><strong style="color:#6B9ED0">B</strong></td>
-          <td><strong>Discount Management (Rock Bottom)</strong></td>
-          <td style="text-align:center"><span class="kpi-weight">20%</span></td>
-          <td>RB bands: (15%→20pts) (14%→16pts) (13%→12pts) (12%→8pts) (11%→4pts). % of lines below rock-bottom price per band</td>
-          <td>Sales_Invoices_All.parquet</td>
-          <td>Main KPI · Per-rep</td>
-        </tr>
-        <tr class="kpi-row-c">
-          <td><strong style="color:#2D8C7A">C</strong></td>
-          <td><strong>Debtors Management</strong></td>
-          <td style="text-align:center"><span class="kpi-weight">15%</span></td>
-          <td>Based on account current status — days overdue, balance proportion</td>
-          <td>Pad/debtors_age_analysis.csv</td>
-          <td>Main KPI · Per-rep</td>
-        </tr>
-        <tr class="kpi-row-d">
-          <td><strong style="color:#9B7DBF">D</strong></td>
-          <td><strong>New Store Account Acquisition</strong></td>
-          <td style="text-align:center"><span class="kpi-weight">10%</span></td>
-          <td>Graded: verified new stores ÷ quarterly target</td>
-          <td>New Stores Added By Reps_*.xlsx (manual)</td>
-          <td>Main KPI · Per-rep</td>
-        </tr>
-        <tr class="kpi-row-e">
-          <td><strong style="color:#C97A3A">E</strong></td>
-          <td><strong>Merchandising (main dashboard)</strong></td>
-          <td style="text-align:center"><span class="kpi-weight">10%</span></td>
-          <td>Graded: min(visits ÷ 15, 1.0) × 10%. Scored on last completed month with auto-fallback to most recent month with data. Scored rep column shows e.g. "✗ 33% · 5/15"</td>
-          <td>Meetings_Report_AWS_Merchandising.xlsx</td>
-          <td>Main KPI only</td>
-        </tr>
-        <tr class="kpi-row-f">
-          <td><strong style="color:#E86060">F</strong></td>
-          <td><strong>Merchandising (per-rep dashboards)</strong></td>
-          <td style="text-align:center"><span class="kpi-weight">10%</span></td>
-          <td>Graded: min(visits ÷ 45, 1.0) × 10%. Quarterly target = 45 visits (15/month × 3). Rep name extracted via regex from Note Content field: WHO IS THE REP THAT SERVICES THE STORE</td>
-          <td>Meetings_Report_AWS_Merchandising.xlsx</td>
-          <td>Per-rep only</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p style="font-size:11px;color:var(--color-text-secondary);margin:6px 0 28px;padding-left:4px">
-    Training was previously part of the Training &amp; Merchandising bucket (70/30 split). As of May 2026, training is <strong>excluded entirely</strong> from scoring — the full 10% weight goes to merchandising. The KPI category E/F was renamed from "Training &amp; Merchandising" → "Merchandising". Pill colours: ≥100% green · 50–99% amber · &lt;50% red.
-  </p>
-
-  <!-- AI AGENTS DIRECTORY -->
-  <div class="section-label">AI Agents Directory</div>
-  <div class="agent-grid">
-
-    <div class="agent-card" style="border-top:3px solid #F5C400">
-      <div class="agent-name-tag">APEX</div>
-      <div class="agent-role-title">Managing Director — Task Router</div>
-      <div class="agent-role-desc">Routes all incoming tasks to the correct functional agent. Entry point for any request that doesn't obviously belong to a specific domain. Oversees cross-functional coordination.</div>
-    </div>
-
-    <div class="agent-card" style="border-top:3px solid #2D8C7A">
-      <div class="agent-name-tag">HAVEN</div>
-      <div class="agent-model-tag">Claude Sonnet</div>
-      <div class="agent-role-title">HR &amp; People Operations</div>
-      <div class="agent-role-desc">Owns the HAVEN clocking pipeline. Processes Advius biometric exports, manages the YTD master workbook, generates the clocking dashboard, and handles onboarding / job description tasks. Enforces the 45-min break deduction rule without exception.</div>
-    </div>
-
-    <div class="agent-card" style="border-top:3px solid #9B7DBF">
-      <div class="agent-name-tag">PRISM</div>
-      <div class="agent-model-tag">Claude Opus</div>
-      <div class="agent-role-title">Analytics &amp; Business Intelligence</div>
-      <div class="agent-role-desc">Owns data analysis, QuickSight-sourced reports, sales data querying (parquet), and the weekly workspace health report. Applies SQL-standard data quality rules. PARA-owned Friday 16:00 health report.</div>
-    </div>
-
-    <div class="agent-card" style="border-top:3px solid #F5C400">
-      <div class="agent-name-tag">STRIKER</div>
-      <div class="agent-model-tag">Claude Sonnet</div>
-      <div class="agent-role-title">Sales &amp; CRM</div>
-      <div class="agent-role-desc">Manages Zoho CRM workflows, quote generation, stockist management, and rep follow-up cadence. Knows the full sales rep code map (AC/AP/BV/NP/BM) and account structures.</div>
-    </div>
-
-    <div class="agent-card" style="border-top:3px solid #6B9ED0">
-      <div class="agent-name-tag">SIGMA</div>
-      <div class="agent-model-tag">Claude Sonnet</div>
-      <div class="agent-role-title">Operations</div>
-      <div class="agent-role-desc">Handles SOPs, dispatch records, factory operations documentation, and inventory management. Maintains operational procedure documents in the PARA Resources folder.</div>
-    </div>
-
-    <div class="agent-card" style="border-top:3px solid #E87BAD">
-      <div class="agent-name-tag">BLAZE</div>
-      <div class="agent-model-tag">Claude Sonnet</div>
-      <div class="agent-role-title">Marketing</div>
-      <div class="agent-role-desc">Manages social media copy, product content, and campaign briefs. Applies the Olympic Paints brand voice — "Inspiration Yellow" as primary colour, Barlow Condensed display font, bold and direct communication style.</div>
-    </div>
-
-    <div class="agent-card" style="border-top:3px solid #C97A3A">
-      <div class="agent-name-tag">VAULT</div>
-      <div class="agent-model-tag">Claude Haiku</div>
-      <div class="agent-role-title">Admin &amp; Filing</div>
-      <div class="agent-role-desc">Owns PARA filing decisions, inbox triage, Notion task creation, and meeting minutes extraction. Trigger "New Task" to create tasks in Notion. Trigger "New Document" to file and classify a document. Runs daily meeting extraction pipeline.</div>
-    </div>
-
-  </div>
-
-  <!-- NOTIFICATION SYSTEM -->
-  <div class="section-label">Notification System</div>
-  <div class="notif-grid">
-    <div class="notif-card">
-      <h4>Telegram Bot — Primary Channel</h4>
-      <p><strong>Chat ID:</strong> <span class="code-chip">8042233389</span></p>
-      <ul>
-        <li>All agent task completions → baseline notification via Stop hook in Claude Code settings</li>
-        <li>HAVEN monday check → richer attendance summary with figures</li>
-        <li>Friday health report → cross-system status summary</li>
-        <li>Telegram messages from the user arrive with chat metadata; replies use the <code>reply</code> tool</li>
-      </ul>
-    </div>
-    <div class="notif-card">
-      <h4>Email (Outlook / win32com)</h4>
-      <p>Triggered after every successful HAVEN pipeline run:</p>
-      <ul>
-        <li><strong>To:</strong> accounts@olympicpaints.co.za · quintusl@olympicpaints.co.za</li>
-        <li>Email 1: Updated Clocking Report YTD.xlsx attached</li>
-        <li>Email 2: Daily missed clock-out summary (HTML formatted)</li>
-        <li>Sent by <span class="code-chip">process_inbox.py</span> after each Advius export is processed</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- PARA STRUCTURE -->
-  <div class="section-label">Repository Structure — PARA Folder Layout</div>
-  <pre class="para-tree"><span class="comment">Olympic Paints (PARA-organised business repository — not a software project)</span>
-│
-├── 0.Inbox/                          <span class="comment">← Drop zone for incoming files awaiting processing</span>
-│
-├── 1.Projects/                       <span class="comment">← Active projects</span>
-│   ├── AWS Data/                     <span class="comment">← KPI + rep + ecommerce dashboard scripts</span>
-│   │   ├── build_kpi_dashboard.py
-│   │   ├── build_rep_dashboards.py
-│   │   └── build_ecommerce_dashboard.py
-│   └── KPI Report/
-│       └── Weekly Progress/          <span class="comment">← Weekly_Sales_Report__*.pdf (source for manual KPI entry)</span>
-│
-├── 2.Areas/                          <span class="comment">← Ongoing operational areas</span>
-│   └── 11. HR/
-│       └── Clocking Reports/
-│           ├── scripts/              <span class="comment">← HAVEN pipeline scripts</span>
-│           │   ├── build_report.py   <span class="comment">← Must always use --master flag</span>
-│           │   ├── gen_dashboard.py
-│           │   ├── process_inbox.py
-│           │   ├── haven_watcher.py
-│           │   └── haven_dashboard_check.py
-│           ├── Inbox/                <span class="comment">← Drop zone for new Advius exports</span>
-│           │   └── Archived/         <span class="comment">← Processed exports moved here</span>
-│           └── Output/               <span class="comment">← Master output location</span>
-│               ├── Clocking Report YTD.xlsx   <span class="comment">← YTD master accumulator</span>
-│               └── index.html                 <span class="comment">← GitHub Pages source (git repo)</span>
-│
-└── 3.Resources/                      <span class="comment">← Reference material</span>
-    ├── 9. Brand Assets &amp; Images/
-    │   └── Misc Pictures/
-    │       └── Olympic Paints Logo Digital.jpg   <span class="comment">← Official logo — always use this</span>
-    ├── 16. Sales and Other data/     <span class="comment">← Sales dashboard home</span>
-    │   ├── Sales_Invoices_All.parquet
-    │   ├── audit_funky_transactions.py
-    │   ├── build_sales_dashboard.py
-    │   ├── Sales Dashboard/          <span class="comment">← index.html pushed to olympic-paints-sales</span>
-    │   ├── Zoho/                     <span class="comment">← Daily Zoho CRM exports</span>
-    │   │   ├── Meetings_Report_AWS.xlsx
-    │   │   ├── Meetings_Report_AWS_Merchandising.xlsx
-    │   │   └── OP_Lead_Tracking_new.csv
-    │   └── Pad/                      <span class="comment">← Daily PAD system exports</span>
-    │       ├── debtors_age_analysis.csv
-    │       └── sales_order_outstanding.csv
-    └── Other/                        <span class="comment">← SOPs, product info, meeting minutes</span></pre>
-
-  <!-- DESIGN SYSTEM NOTE -->
-  <div class="section-label">Design System — HTML Standards</div>
-  <div class="arch-table-wrap">
-    <table class="arch-table">
-      <thead><tr><th>Rule</th><th>Standard</th></tr></thead>
-      <tbody>
-        <tr><td>Fonts</td><td><strong>Barlow Condensed</strong> (display/headlines, weights 300–900) · <strong>Barlow</strong> (body/UI) · Always imported from Google Fonts</td></tr>
-        <tr><td>Themes</td><td>4-theme toggle required on every HTML file: Light · Dark · Brand · Navy. Applied to <code>&lt;html&gt;</code> element. Default: <strong>theme-navy</strong> for this portal, all management-facing files. <strong>theme-dark</strong> for standard dashboards</td></tr>
-        <tr><td>Colours</td><td>Never hardcode hex in component CSS. Always use <span class="code-chip">--color-*</span> semantic token properties defined in the theme blocks</td></tr>
-        <tr><td>Logo</td><td><span class="code-chip">Olympic Paints Logo Digital.jpg</span> wrapped in <code>border-radius:50%;overflow:hidden</code> div. Never use old inline SVG badge. Min 28px size. Build scripts: <span class="code-chip">shutil.copy2(LOGO_SRC, OUT_DIR / 'logo.jpg')</span></td></tr>
-        <tr><td>Charts</td><td>Chart.js from cdnjs only when explicitly needed. Always include <code>barLabels</code> plugin. Use <span class="code-chip">_lblMap.set()</span> for all bar chart labels</td></tr>
-        <tr><td>Frameworks</td><td>Never use Tailwind, Bootstrap, or any external CSS framework. Vanilla CSS + vanilla JS only</td></tr>
-        <tr><td>Rep Attribution</td><td>Sales data: <strong>delno → dlref → smref</strong> is the primary chain. accno → curef fallback only for FY2024 legacy data. Never group by smno or accno directly</td></tr>
-        <tr><td>CRNOTE Convention</td><td>In this system, CRNOTE amounts are stored as <strong>positive values</strong>. The ivtype flag carries the sign — downstream code subtracts. Never flag positive CRNOTEs as anomalous</td></tr>
-        <tr><td>Break Deduction</td><td>45-minute break deducted from every worked shift for every employee (HAVEN). Applied upstream in build_report.py — never re-apply in dashboard or reports</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-</div>
-</div><!-- /arch -->
 
 <footer>
-  <strong>Olympic Paints Reports Portal</strong> · Limpopo, SA<br>
-  All reports open in a new tab · Data is live and updated automatically where indicated<br>
-  Powered by FlomaticAuto · Built with the Olympic Paints design system
+  <strong>Olympic Paints Reports Portal</strong> Â· Limpopo, SA<br>
+  All reports open in a new tab Â· Data is live and updated automatically where indicated<br>
+  Powered by FlomaticAuto Â· Built with the Olympic Paints design system
 </footer>
 
 <script>
@@ -1648,7 +1008,7 @@ function showTab(id){
   event.currentTarget.classList.add('active');
 }
 
-// ── PORTAL TRIGGER WIRING ────────────────────────────────────────────────
+// â”€â”€ PORTAL TRIGGER WIRING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const TRIGGER_BASE = 'http://127.0.0.1:8765';
 
 async function pollHealth() {
@@ -1687,12 +1047,12 @@ async function triggerBuild(btn) {
     btn.classList.add('is-error');
     btn.textContent = 'Failed';
     btn.title = String(e);
-    setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
+    setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate â†»'; }, 5000);
   }
 }
 
 async function pollJob(btn, jobId) {
-  for (let i=0; i<150; i++) {     // 150 × 2s = 5 min cap
+  for (let i=0; i<150; i++) {     // 150 Ã— 2s = 5 min cap
     await new Promise(r => setTimeout(r, 2000));
     const r = await fetch(`${TRIGGER_BASE}/status/${jobId}`, {cache:'no-store'});
     if (!r.ok) continue;
@@ -1700,25 +1060,25 @@ async function pollJob(btn, jobId) {
     if (s.state === 'success') {
       btn.classList.remove('is-running');
       btn.classList.add('is-success');
-      btn.textContent = '✓ Updated';
+      btn.textContent = 'âœ“ Updated';
       btn.title = '';
-      setTimeout(() => { btn.classList.remove('is-success'); btn.textContent = 'Regenerate ↻'; }, 30000);
+      setTimeout(() => { btn.classList.remove('is-success'); btn.textContent = 'Regenerate â†»'; }, 30000);
       return;
     }
     if (s.state === 'error') {
       btn.classList.remove('is-running');
       btn.classList.add('is-error');
-      btn.textContent = '⚠ Failed';
+      btn.textContent = 'âš  Failed';
       btn.title = (s.log_tail || []).slice(-5).join('\n');
-      setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
+      setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate â†»'; }, 5000);
       return;
     }
   }
   // Timed out
   btn.classList.remove('is-running');
   btn.classList.add('is-error');
-  btn.textContent = '⚠ Timeout';
-  setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
+  btn.textContent = 'âš  Timeout';
+  setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate â†»'; }, 5000);
 }
 
 // Wire up buttons
