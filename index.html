@@ -862,6 +862,157 @@
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
 
+  /* ─── Information Insight ─── */
+  .info-wrap { padding:40px; max-width:1100px; margin:0 auto; }
+  .info-header { margin-bottom:24px; }
+  .info-title {
+    font-family:var(--font-display); font-weight:900; font-size:36px;
+    text-transform:uppercase; letter-spacing:0.02em; margin:0 0 6px;
+    color:var(--color-text-primary);
+  }
+  .info-sub { color:var(--color-text-secondary); font-size:14px; margin:0 0 24px; }
+  .info-search-wrap { position:relative; margin-bottom:28px; }
+  .info-search {
+    width:100%; box-sizing:border-box;
+    padding:14px 18px 14px 44px;
+    background:var(--color-surface-elevated);
+    border:1px solid var(--color-border-default);
+    border-radius:var(--r-md);
+    color:var(--color-text-primary);
+    font-family:var(--font-body); font-size:15px;
+    outline:none; transition:border-color 0.15s;
+  }
+  .info-search:focus { border-color:var(--color-brand-primary); }
+  .info-search-icon {
+    position:absolute; left:16px; top:50%; transform:translateY(-50%);
+    width:18px; height:18px; opacity:0.5; pointer-events:none;
+  }
+  .info-section { margin-bottom:32px; }
+  .info-section-head {
+    display:flex; align-items:baseline; gap:10px;
+    margin:0 0 14px; padding-bottom:8px;
+    border-bottom:1px solid var(--color-border-subtle);
+  }
+  .info-section-title {
+    font-family:var(--font-display); font-weight:800; font-size:18px;
+    text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--color-text-primary); margin:0;
+  }
+  .info-section-count {
+    font-size:11px; color:var(--color-text-tertiary);
+    background:var(--color-surface-sunken);
+    padding:2px 8px; border-radius:var(--r-pill);
+  }
+  .info-card {
+    background:var(--color-surface-elevated);
+    border:1px solid var(--color-border-subtle);
+    border-radius:var(--r-md);
+    margin-bottom:8px;
+    transition:border-color 0.15s, transform 0.15s;
+    overflow:hidden;
+  }
+  .info-card:hover { border-color:var(--color-border-default); }
+  .info-card.open { border-color:var(--color-brand-primary); }
+  .info-card-head {
+    padding:16px 20px;
+    cursor:pointer;
+    display:flex; align-items:center; gap:14px;
+    user-select:none;
+  }
+  .info-card-chevron {
+    width:18px; height:18px; flex-shrink:0;
+    color:var(--color-text-tertiary);
+    transition:transform 0.2s;
+  }
+  .info-card.open .info-card-chevron { transform:rotate(90deg); color:var(--color-brand-primary); }
+  .info-card-text { flex:1; min-width:0; }
+  .info-card-title {
+    font-family:var(--font-display); font-weight:700; font-size:16px;
+    color:var(--color-text-primary); margin:0 0 3px;
+    text-transform:uppercase; letter-spacing:0.02em;
+  }
+  .info-card-summary {
+    font-size:13px; color:var(--color-text-secondary);
+    margin:0; line-height:1.5;
+  }
+  .info-card-meta {
+    font-size:11px; color:var(--color-text-tertiary);
+    margin-left:14px; flex-shrink:0;
+  }
+  .info-card-body {
+    display:none;
+    padding:0 20px 20px 52px;
+    color:var(--color-text-primary);
+    font-size:14px; line-height:1.65;
+  }
+  .info-card.open .info-card-body { display:block; }
+  .info-card-body h3 {
+    font-family:var(--font-display); font-weight:800;
+    font-size:16px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--color-brand-primary);
+    margin:24px 0 10px; padding-top:8px;
+    border-top:1px solid var(--color-border-subtle);
+  }
+  .info-card-body h3:first-child { margin-top:0; padding-top:0; border-top:0; }
+  .info-card-body h4 {
+    font-family:var(--font-display); font-weight:700;
+    font-size:13px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--color-text-secondary);
+    margin:16px 0 6px;
+  }
+  .info-card-body p { margin:8px 0; }
+  .info-card-body ul, .info-card-body ol { margin:8px 0; padding-left:22px; }
+  .info-card-body li { margin:4px 0; }
+  .info-card-body code {
+    background:var(--color-surface-sunken);
+    padding:1px 6px; border-radius:3px;
+    font-size:12.5px; color:var(--color-brand-primary);
+    font-family:'Consolas','Courier New',monospace;
+  }
+  .info-card-body pre {
+    background:var(--color-surface-sunken);
+    border:1px solid var(--color-border-subtle);
+    border-radius:var(--r-md);
+    padding:12px 14px;
+    overflow-x:auto;
+    font-family:'Consolas','Courier New',monospace;
+    font-size:12px; line-height:1.5;
+    margin:10px 0;
+  }
+  .info-card-body pre code { background:none; padding:0; color:var(--color-text-primary); }
+  .info-card-body table {
+    border-collapse:collapse; width:100%; margin:12px 0; font-size:13px;
+  }
+  .info-card-body th, .info-card-body td {
+    padding:8px 12px; text-align:left;
+    border-bottom:1px solid var(--color-border-subtle);
+  }
+  .info-card-body th {
+    font-family:var(--font-display); font-weight:700;
+    text-transform:uppercase; letter-spacing:0.06em; font-size:11px;
+    color:var(--color-text-secondary);
+  }
+  .info-card-body strong { color:var(--color-brand-primary); font-weight:700; }
+  .info-card-body blockquote {
+    border-left:3px solid var(--color-brand-primary);
+    padding:8px 16px; margin:12px 0;
+    background:var(--color-surface-sunken);
+    color:var(--color-text-secondary);
+    font-style:italic;
+  }
+  .info-tag {
+    display:inline-block; font-size:10px; padding:2px 8px;
+    background:var(--color-surface-sunken); color:var(--color-text-tertiary);
+    border-radius:var(--r-pill); margin-right:4px;
+    text-transform:uppercase; letter-spacing:0.06em;
+  }
+  .info-empty {
+    text-align:center; padding:48px 20px;
+    color:var(--color-text-tertiary); font-size:14px;
+  }
+  .info-card.hidden { display:none; }
+  .info-section.hidden { display:none; }
+
   /* ─── OrganoGram ─── */
   .org-wrap { padding: 40px; max-width: 1200px; margin: 0 auto; }
   .org-apex-row { display: flex; justify-content: center; margin-bottom: 0; }
@@ -998,6 +1149,7 @@
   <button class="tab-btn" id="kaizen-tab-btn" onclick="switchTab('kaizen')">Kaizen <span id="kaizen-tab-badge" style="display:none;background:var(--_terra);color:var(--_g950);font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;vertical-align:middle;font-weight:700;"></span></button>
   <button class="tab-btn" onclick="switchTab('orgstructure')">Org Structure</button>
   <button class="tab-btn" onclick="switchTab('orghealth')">Org Health</button>
+  <button class="tab-btn" onclick="switchTab('info')">Information Insight</button>
 </div>
 
 <!-- ─── Tab: Main Page ─── -->
@@ -2483,6 +2635,230 @@
 
 </div>
 </div><!-- /tab-orghealth -->
+
+
+<!-- ─── Tab: Information Insight ─── -->
+<div id="tab-info" class="tab-panel">
+<div class="info-wrap">
+  <div class="info-header">
+    <h1 class="info-title">Information Insight</h1>
+    <p class="info-sub">Searchable knowledge base — methodologies, calculations, decisions, and reference notes. Click any item to expand.</p>
+  </div>
+
+  <div class="info-search-wrap">
+    <svg class="info-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+    </svg>
+    <input type="text" class="info-search" id="info-search"
+           placeholder="Search by title, section, tag, or content…"
+           oninput="filterInfo()">
+  </div>
+
+  <div id="info-content"></div>
+</div>
+</div><!-- /tab-info -->
+
+
+<script>
+// ─── Information Insight data ──────────────────────────────────────────────
+// Each item: { section, title, summary, tags, body (HTML string), updated }
+// Sections render in the order they first appear.
+const INFO_INSIGHT_DATA = [
+  {
+    section: "Calculations",
+    title: "Cycle Account Adherence — How It's Calculated",
+    summary: "Methodology behind the call cycle adherence metric used in the CSO Insights dashboard and the PULSE scorecard activity log heat map.",
+    tags: ["pulse", "scorecard", "cycle", "adherence", "cso", "zoho"],
+    updated: "2026-05-10",
+    body: `
+      <h3>Step 1 — Defining a "cycle account"</h3>
+      <p>Not every account has a real, repeating call cycle. Some are visited once and never again. Some are visited erratically. We need a rule for which accounts count as "regularly visited."</p>
+      <h4>The rule applied</h4>
+      <p>An account qualifies as a cycle account if:</p>
+      <ol>
+        <li>It has <strong>≥3 check-ins</strong> in the data window</li>
+        <li>The <strong>average gap between consecutive visits is ≤35 days</strong></li>
+      </ol>
+      <h4>Why those numbers</h4>
+      <ul>
+        <li><strong>3 visits minimum</strong> — with only 2 visits, you can't tell if a gap is meaningful or coincidence. 3 gives you at least 2 inter-visit gaps to average.</li>
+        <li><strong>35-day cap</strong> — roughly 5 weeks. Anything slower doesn't feel like a "cycle"; it feels like occasional contact. The gap distribution had a natural break here: P75 was 38 days, P90 was 53 days. Below 35d the visits look intentional; above 35d they look opportunistic.</li>
+      </ul>
+      <p>This produced <strong>201 cycle accounts</strong> out of 432 ever visited.</p>
+      <h4>Things to question</h4>
+      <ul>
+        <li>Should the threshold be 28 days (truly monthly) instead of 35? That would drop the count from 201 to 176.</li>
+        <li>Should it be ≥4 visits instead of ≥3? Stricter, but you lose accounts on a genuine 6-week cycle.</li>
+        <li>Should the rule be per-rep instead of global? BM has accounts on 4–7 day cycles that look like multiple buyer contacts at one location, not weekly stores.</li>
+      </ul>
+
+      <h3>Step 2 — Computing each account's expected cycle</h3>
+      <p>For each cycle account, compute its <strong>own historical average gap</strong> between visits:</p>
+      <pre><code>gaps = [(visit_2 - visit_1).days, (visit_3 - visit_2).days, ...]
+avg_gap = mean(gaps)</code></pre>
+      <p>Example: Patel Hardware visited Jan 5, Jan 30, Feb 25, Mar 22 → gaps 25, 26, 25 → average 25.3 days.</p>
+      <h4>Why historical average per account</h4>
+      <p>The alternative was a uniform target — e.g. "every account every 28 days." That ignores reality. Some accounts buy weekly and need fortnightly visits; others are happy with a monthly catch-up. Using each account's historical pattern as its own benchmark means the metric self-calibrates.</p>
+      <h4>Things to question</h4>
+      <ul>
+        <li>The historical average might bake in <strong>bad behaviour</strong>. If a rep has been under-visiting an account, the "expected cycle" becomes the under-visited rate. A truly strategic answer would set targets based on revenue/strategic importance, not historical visit frequency.</li>
+        <li>The mean is sensitive to outliers. A median would be more robust.</li>
+      </ul>
+
+      <h3>Step 3 — Adherence status (per account)</h3>
+      <pre><code>ratio = days_since_last_visit / avg_gap
+
+ratio ≤ 1.0  → "On Track"
+ratio ≤ 1.4  → "Due"
+ratio ≤ 2.0  → "Overdue"
+ratio > 2.0  → "Critical"</code></pre>
+      <h4>Why a ratio approach</h4>
+      <p>A 25-day cycle account that hasn't been seen in 30 days (ratio 1.2) is mildly overdue. A 7-day cycle account that hasn't been seen in 30 days (ratio 4.3) is critically overdue. Same absolute days mean very different things — the ratio scales urgency to the relationship.</p>
+      <h4>Why those thresholds</h4>
+      <ul>
+        <li><strong>1.0 → 1.4</strong>: a 40% buffer feels like normal slippage (sick day, weather, traffic). Not yet a problem.</li>
+        <li><strong>1.4 → 2.0</strong>: now the normal window has been missed. Real gap.</li>
+        <li><strong>&gt; 2.0</strong>: twice as long as normal. Relationship at risk.</li>
+      </ul>
+      <h4>Things to question</h4>
+      <ul>
+        <li>The 1.4 / 2.0 thresholds are educated guesses. Could be 1.2 / 1.8 or 1.5 / 2.5 — no industry standard.</li>
+        <li>A weekly cycle account at ratio 2.0 (14 days late) is worse than a monthly account at ratio 2.0 (60 days late). The ratio treats them the same.</li>
+      </ul>
+
+      <h3>Step 4 — Daily cycle target (PULSE activity log)</h3>
+      <p>This is where the biggest interpretive leap happens.</p>
+      <pre><code>daily_target = round(sum(1 / avg_gap for each cycle account))</code></pre>
+      <h4>The logic</h4>
+      <p>Each account "consumes" <code>1/avg_gap</code> of a visit per day. A 25-day cycle account consumes 0.04 visits/day. Sum across all the rep's cycle accounts gives the daily visit rate needed to maintain the whole portfolio.</p>
+      <h4>Worked example for AC</h4>
+      <ul>
+        <li>52 cycle accounts, avg gap ~26 days</li>
+        <li>Each contributes ~1/26 = 0.038 visits/day</li>
+        <li>Total: 52 × 0.038 ≈ <strong>2 visits/day</strong></li>
+      </ul>
+      <p>This is the "small number" on each heat map tile. The "big number" is the cycle account visits the rep actually logged that day.</p>
+      <h4>Things to question — the most important caveats</h4>
+      <ol>
+        <li><strong>The target is a rate, not a plan.</strong> It says "you need 2 cycle visits/day on average," not "visit account X today." A rep could visit the same 2 accounts every day and tick the box without rotating their portfolio.</li>
+        <li><strong>The target ignores working day variability.</strong> Holidays, sick days, training — none of that is built in.</li>
+        <li><strong>Only cycle accounts count as "actual."</strong> A rep doing legitimate prospecting/walk-ins gets a "0" on the tile even when busy. Deliberate — the heat map is now measuring cycle hygiene specifically — but worth knowing.</li>
+        <li><strong>The "Related To" field is the join key.</strong> If a rep checks in at "Patel Hardware" but the cycle account is "Patel (Nkomazi Imp. & Exp. CC)", they don't match. AP's 0% adherence may be a name-matching issue rather than behaviour.</li>
+        <li><strong>Two-week measurement window.</strong> Adherence % over a 14-day window is noisy for accounts with 25-day cycles. A monthly window would smooth it but lose immediacy.</li>
+      </ol>
+
+      <h3>What this is good at</h3>
+      <ul>
+        <li>Identifies reps whose visit volume looks fine but whose visits aren't landing on cycle accounts (BV's story)</li>
+        <li>Rewards consistency without prescribing rigid daily routes</li>
+        <li>Self-calibrates per account so reps aren't penalised for accounts that genuinely don't need weekly visits</li>
+      </ul>
+
+      <h3>What this is NOT good at</h3>
+      <ul>
+        <li><strong>Not strategic.</strong> Treats all cycle accounts as equally important. R500k/month and R5k/month accounts both contribute equally.</li>
+        <li><strong>Not predictive.</strong> Tells you which accounts are overdue today, not which were <em>worth</em> visiting.</li>
+        <li><strong>Not robust to data quality.</strong> Hinges entirely on Related To being filled in correctly.</li>
+      </ul>
+
+      <h3>Open decisions</h3>
+      <ol>
+        <li>Is the 35-day cap right or should it be 28 days?</li>
+        <li>Should the daily target weight accounts by revenue?</li>
+        <li>Is "Related To" reliable enough as a join key?</li>
+        <li>Two-week vs four-week measurement window for the scorecard?</li>
+      </ol>
+    `,
+  },
+];
+
+// ─── Information Insight rendering ─────────────────────────────────────────
+function renderInfo() {
+  const root = document.getElementById('info-content');
+  if (!root) return;
+  // Group by section in encounter order
+  const order = [];
+  const byS = {};
+  for (const item of INFO_INSIGHT_DATA) {
+    if (!byS[item.section]) { byS[item.section] = []; order.push(item.section); }
+    byS[item.section].push(item);
+  }
+  if (order.length === 0) {
+    root.innerHTML = '<div class="info-empty">No items yet. Add entries to <code>INFO_INSIGHT_DATA</code> in <code>index.html</code>.</div>';
+    return;
+  }
+  let html = '';
+  let idx = 0;
+  for (const sec of order) {
+    const items = byS[sec];
+    html += `<div class="info-section" data-section="${sec.toLowerCase()}">
+      <div class="info-section-head">
+        <h2 class="info-section-title">${sec}</h2>
+        <span class="info-section-count">${items.length}</span>
+      </div>`;
+    for (const it of items) {
+      const tagsHtml = (it.tags || []).map(t => `<span class="info-tag">${t}</span>`).join('');
+      const id = 'info-card-' + (idx++);
+      html += `<div class="info-card" id="${id}"
+                   data-title="${(it.title||'').toLowerCase()}"
+                   data-summary="${(it.summary||'').toLowerCase()}"
+                   data-section="${sec.toLowerCase()}"
+                   data-tags="${(it.tags||[]).join(' ').toLowerCase()}"
+                   data-body="${(it.body||'').replace(/<[^>]+>/g,' ').replace(/\\s+/g,' ').toLowerCase().replace(/"/g,'&quot;')}">
+        <div class="info-card-head" onclick="toggleInfoCard('${id}')">
+          <svg class="info-card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+          <div class="info-card-text">
+            <h3 class="info-card-title">${it.title}</h3>
+            <p class="info-card-summary">${it.summary || ''}</p>
+            <div style="margin-top:6px">${tagsHtml}</div>
+          </div>
+          <div class="info-card-meta">${it.updated || ''}</div>
+        </div>
+        <div class="info-card-body">${it.body}</div>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+  root.innerHTML = html;
+}
+
+function toggleInfoCard(id) {
+  const card = document.getElementById(id);
+  if (card) card.classList.toggle('open');
+}
+
+function filterInfo() {
+  const q = (document.getElementById('info-search').value || '').toLowerCase().trim();
+  const cards = document.querySelectorAll('.info-card');
+  const sections = document.querySelectorAll('.info-section');
+  // Reset
+  if (!q) {
+    cards.forEach(c => c.classList.remove('hidden'));
+    sections.forEach(s => s.classList.remove('hidden'));
+    return;
+  }
+  // Filter cards
+  cards.forEach(c => {
+    const blob = [
+      c.dataset.title, c.dataset.summary, c.dataset.section,
+      c.dataset.tags, c.dataset.body
+    ].join(' ');
+    c.classList.toggle('hidden', !blob.includes(q));
+  });
+  // Hide sections with no visible cards
+  sections.forEach(s => {
+    const visible = s.querySelectorAll('.info-card:not(.hidden)').length;
+    s.classList.toggle('hidden', visible === 0);
+  });
+}
+
+// Render once on load
+document.addEventListener('DOMContentLoaded', renderInfo);
+// Also render now in case DOMContentLoaded already fired
+if (document.readyState !== 'loading') renderInfo();
+</script>
 
 
 <script>
