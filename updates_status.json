@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-11T08:15:26",
+  "generated_at": "2026-05-11T09:00:33",
   "total": 15,
   "ok": 7,
   "warn": 3,
@@ -33,7 +33,7 @@
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
       "task_last_run": "2026-05-11T08:15:15",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "ecommerce_email",
@@ -72,8 +72,8 @@
       "task": "Vehicle Report Weekly",
       "cadence": "Weekly \u00b7 Mon",
       "overall": "ok",
-      "task_last_run": "2026-05-04T09:00:00",
-      "task_last_result": 0
+      "task_last_run": "2026-05-11T09:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vehicle_health",
