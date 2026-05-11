@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-11T07:30:15",
+  "generated_at": "2026-05-11T08:00:11",
   "total": 15,
   "ok": 7,
   "warn": 3,
@@ -42,8 +42,8 @@
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
       "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "task_last_run": "2026-05-11T08:00:00",
+      "task_last_result": 2147943623
     },
     {
       "id": "haven_clocking",
@@ -53,7 +53,7 @@
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
       "task_last_run": "2026-05-11T07:30:30",
-      "task_last_result": 267009
+      "task_last_result": 267014
     },
     {
       "id": "haven_dashboard_check",
@@ -62,8 +62,8 @@
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
       "overall": "warn",
-      "task_last_run": "2026-05-10T08:00:00",
-      "task_last_result": 0
+      "task_last_run": "2026-05-11T08:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vehicle_report",
@@ -93,7 +93,7 @@
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
       "task_last_run": "2026-05-11T07:30:30",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "workspace_health",
