@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-11T07:17:59",
+  "generated_at": "2026-05-11T07:30:06",
   "total": 15,
   "ok": 7,
   "warn": 3,
@@ -13,7 +13,7 @@
       "cadence": "Daily \u00b7 07:15",
       "overall": "ok",
       "task_last_run": "2026-05-11T07:15:15",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "kpi_rep_dashboards",
@@ -52,8 +52,8 @@
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
-      "task_last_run": "2026-05-10T07:30:30",
-      "task_last_result": 267014
+      "task_last_run": "2026-05-11T07:30:30",
+      "task_last_result": 267009
     },
     {
       "id": "haven_dashboard_check",
@@ -92,8 +92,8 @@
       "task": "Olympic Paints - Kaizen Daily Sync",
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
-      "task_last_run": "2026-05-10T07:30:30",
-      "task_last_result": 0
+      "task_last_run": "2026-05-11T07:30:30",
+      "task_last_result": 267009
     },
     {
       "id": "workspace_health",
