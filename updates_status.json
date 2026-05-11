@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-11T07:13:48",
+  "generated_at": "2026-05-11T07:17:59",
   "total": 15,
-  "ok": 8,
+  "ok": 7,
   "warn": 3,
-  "fail": 4,
+  "fail": 5,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -12,8 +12,8 @@
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
       "overall": "ok",
-      "task_last_run": "2026-05-10T07:15:15",
-      "task_last_result": 0
+      "task_last_run": "2026-05-11T07:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "kpi_rep_dashboards",
@@ -21,9 +21,9 @@
       "name": "Per-Rep KPI Dashboards (AC \u00b7 AP \u00b7 BV \u00b7 NP \u00b7 BM)",
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "ok",
-      "task_last_run": "2026-05-10T07:00:00",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": "2026-05-11T07:15:15",
+      "task_last_result": 1
     },
     {
       "id": "ecommerce_dashboard",
@@ -143,7 +143,7 @@
       "cadence": "Daily morning",
       "overall": "ok",
       "task_last_run": "2026-05-11T07:13:13",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "portal_trigger_server",
@@ -156,5 +156,5 @@
       "task_last_result": 267009
     }
   ],
-  "success_pct": 53
+  "success_pct": 47
 }
