@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-10T21:08:37",
+  "generated_at": "2026-05-11T07:13:48",
   "total": 15,
-  "ok": 7,
-  "warn": 2,
-  "fail": 6,
+  "ok": 8,
+  "warn": 3,
+  "fail": 4,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -91,7 +91,7 @@
       "name": "Kaizen Daily Sync",
       "task": "Olympic Paints - Kaizen Daily Sync",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-05-10T07:30:30",
       "task_last_result": 0
     },
@@ -122,7 +122,7 @@
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-10T07:00:00",
+      "task_last_run": "2026-05-11T07:13:13",
       "task_last_result": 1
     },
     {
@@ -132,7 +132,7 @@
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-10T07:00:00",
+      "task_last_run": "2026-05-11T07:13:13",
       "task_last_result": 1
     },
     {
@@ -141,9 +141,9 @@
       "name": "CSO Strategic Intelligence Build",
       "task": "CSO-Intelligence-Data",
       "cadence": "Daily morning",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "overall": "ok",
+      "task_last_run": "2026-05-11T07:13:13",
+      "task_last_result": 267009
     },
     {
       "id": "portal_trigger_server",
@@ -151,10 +151,10 @@
       "name": "Portal Trigger Server (localhost:8765)",
       "task": "OlympicPortalTriggerServer",
       "cadence": "Continuous",
-      "overall": "fail",
-      "task_last_run": "2026-05-08T16:20:20",
-      "task_last_result": 3221225786
+      "overall": "ok",
+      "task_last_run": "2026-05-11T05:41:41",
+      "task_last_result": 267009
     }
   ],
-  "success_pct": 47
+  "success_pct": 53
 }
