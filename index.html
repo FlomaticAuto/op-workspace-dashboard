@@ -1095,6 +1095,39 @@
   .org-sched-ondemand { background: rgba(155,125,191,0.15); color: var(--_violet); border: 1px solid rgba(155,125,191,0.30); }
   .org-sched-triggered { background: rgba(201,122,58,0.15); color: var(--_terra); border: 1px solid rgba(201,122,58,0.30); }
 
+  /* ── Status-pill visibility overrides — Light + Brand surfaces ─────────────
+     Default danger/info/success tokens are near-transparent on Brand (yellow
+     surface) and near-white on Light, which washes out the live / on-demand
+     badges. These overrides use opaque pastel fills with strong borders so the
+     pills remain readable. Dark and Navy themes are unchanged. */
+  .theme-light .live-pill,
+  .theme-brand .live-pill {
+    background: #FBD5D1; border-color: #C0392B; color: #8B1F12;
+  }
+  .theme-light .live-dot,
+  .theme-brand .live-dot { background: #C0392B; }
+
+  .theme-light .auto-tag-daily,
+  .theme-brand .auto-tag-daily,
+  .theme-light .org-sched-daily,
+  .theme-brand .org-sched-daily {
+    background: #C8EDE7; border-color: #1A5C50; color: #0F3A30;
+  }
+  .theme-light .auto-tag-ondemand,
+  .theme-brand .auto-tag-ondemand,
+  .theme-light .org-sched-weekly,
+  .theme-brand .org-sched-weekly {
+    background: #CFE0F5; border-color: #1A3D6E; color: #0D2040;
+  }
+  .theme-light .org-sched-ondemand,
+  .theme-brand .org-sched-ondemand {
+    background: #E0CFEC; border-color: #6B5A8A; color: #3E2F5A;
+  }
+  .theme-light .org-sched-triggered,
+  .theme-brand .org-sched-triggered {
+    background: #F3D7C0; border-color: #8B4F22; color: #5A2F10;
+  }
+
   .org-empty { font-size: 11px; color: var(--color-text-tertiary); font-style: italic; padding: 4px 0; }
 
   .org-connector-row {
