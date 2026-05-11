@@ -3170,6 +3170,164 @@
     </div>
   </div>
 
+  <!-- ── FORMS ADMIN SYSTEM ────────────────────────── -->
+  <div class="proc-hero" style="margin-top:28px;">
+    <div class="proc-hero-icon">📋</div>
+    <div class="proc-hero-text">
+      <h2>Forms Admin — Internal Form Management</h2>
+      <p>Two-repo system for building, publishing, and reviewing internal web forms without JotForm dependency. A public-facing form renderer hosted on GitHub Pages collects submissions into Supabase; a password-protected Next.js admin panel lets staff view responses and export CSV.</p>
+      <div class="proc-hero-pills">
+        <span class="proc-hero-pill" style="background:var(--color-success-bg);color:var(--color-success-fg);border:1px solid var(--color-success-bd);">● Built 11 May 2026</span>
+        <span class="proc-hero-pill" style="background:var(--color-info-bg);color:var(--color-info-fg);border:1px solid var(--color-info-bd);">Supabase + Next.js 15</span>
+        <span class="proc-hero-pill" style="background:var(--color-neutral-bg);color:var(--color-neutral-fg);border:1px solid var(--color-neutral-bd);">GitHub Pages · Vercel</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Architecture two-col -->
+  <div class="proc-two-col">
+
+    <!-- Repo 1 -->
+    <div class="proc-card">
+      <div class="proc-card-head">
+        <div class="proc-card-head-icon">🌐</div>
+        <div>
+          <div class="proc-card-title">REPO 1 — Public Form Renderer</div>
+          <div class="proc-card-subtitle">flomaticauto/olympic-paints-forms → GitHub Pages</div>
+        </div>
+      </div>
+      <div class="proc-card-body">
+        <div class="flow-list">
+          <div class="flow-item">
+            <div class="flow-icon">📄</div>
+            <div>
+              <div class="flow-name">index.html</div>
+              <div class="flow-desc">Single self-contained file. Reads <code style="font-size:10px;">?form_id=</code> from URL, fetches active form schema from Supabase anon key, renders fields dynamically, and POSTs submissions back.</div>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-icon">🔒</div>
+            <div>
+              <div class="flow-name">Security model</div>
+              <div class="flow-desc">Supabase anon key is public but safe — RLS restricts it to SELECT active forms + INSERT submissions only. No admin data is reachable from the browser.</div>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-icon">🔗</div>
+            <div>
+              <div class="flow-name">Share a form</div>
+              <div class="flow-desc">Copy the GitHub Pages URL and append <code style="font-size:10px;">?form_id=&lt;uuid&gt;</code>. Anyone with the link can submit. Expired forms return a friendly closed-form message.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repo 2 -->
+    <div class="proc-card">
+      <div class="proc-card-head">
+        <div class="proc-card-head-icon">🛡️</div>
+        <div>
+          <div class="proc-card-title">REPO 2 — Admin Panel</div>
+          <div class="proc-card-subtitle">flomaticauto/olympic-paints-forms-admin → Vercel</div>
+        </div>
+      </div>
+      <div class="proc-card-body">
+        <div class="flow-list">
+          <div class="flow-item">
+            <div class="flow-icon">🔑</div>
+            <div>
+              <div class="flow-name">Password-protected</div>
+              <div class="flow-desc">Edge middleware checks <code style="font-size:10px;">oly_admin_auth</code> httpOnly cookie. Login via <code style="font-size:10px;">ADMIN_SECRET</code> env var set in Vercel — never touches the browser.</div>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-icon">📊</div>
+            <div>
+              <div class="flow-name">Submissions table</div>
+              <div class="flow-desc">Per-form view with all responses in a sortable table. Column headers derived from the form schema field labels in order.</div>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-icon">⬇️</div>
+            <div>
+              <div class="flow-name">CSV export</div>
+              <div class="flow-desc">Client-side Blob export — all submissions for a form download instantly with no server round-trip. Filename includes form title and date.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /proc-two-col -->
+
+  <!-- Supabase backend -->
+  <div class="section-label">Supabase Backend</div>
+  <div class="proc-card" style="margin-bottom:20px;">
+    <div class="proc-card-body">
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-icon">🗂️</div>
+          <div>
+            <div class="flow-name">form_schemas table</div>
+            <div class="flow-desc">Stores form definitions: title, description, JSONB schema (field array), active_from / active_until dates, created_by.</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">📥</div>
+          <div>
+            <div class="flow-name">form_submissions table</div>
+            <div class="flow-desc">Stores each submission: form_id FK, submitted_by (optional), JSONB data keyed by field ID, submitted_at timestamp, metadata.</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">🛡️</div>
+          <div>
+            <div class="flow-name">Row Level Security</div>
+            <div class="flow-desc">Anon role: SELECT active forms only, INSERT submissions only. Service role (server-side admin): full access. No public reads on submissions.</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">⏱️</div>
+          <div>
+            <div class="flow-name">archive_expired_forms()</div>
+            <div class="flow-desc">SQL function that sets is_active=false on forms where active_until &lt; NOW(). Run manually or on a schedule — pg_cron not available on Supabase free tier.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pending setup -->
+  <div class="section-label">Pending Setup Steps</div>
+  <div class="proc-card" style="margin-bottom:20px;">
+    <div class="proc-card-body">
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-icon">⚠️</div>
+          <div>
+            <div class="flow-name">Fill Supabase credentials in REPO 1</div>
+            <div class="flow-desc">Open <code style="font-size:10px;">olympic-paints-forms/index.html</code> and replace the two placeholder constants: <code style="font-size:10px;">SUPABASE_URL</code> and <code style="font-size:10px;">SUPABASE_ANON</code> with values from the Supabase project dashboard.</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">⚠️</div>
+          <div>
+            <div class="flow-name">Deploy REPO 2 to Vercel</div>
+            <div class="flow-desc">Import <code style="font-size:10px;">flomaticauto/olympic-paints-forms-admin</code> in Vercel. Add env vars: <code style="font-size:10px;">NEXT_PUBLIC_SUPABASE_URL</code>, <code style="font-size:10px;">NEXT_PUBLIC_SUPABASE_ANON_KEY</code>, <code style="font-size:10px;">SUPABASE_SERVICE_ROLE_KEY</code>, <code style="font-size:10px;">ADMIN_SECRET</code>.</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">⚠️</div>
+          <div>
+            <div class="flow-name">Update portal.html admin card URL</div>
+            <div class="flow-desc">Once Vercel deploys, replace the placeholder URL in the Admin & Tools section of portal.html with the real Vercel deployment URL.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div><!-- /proc-wrap -->
 </div><!-- /tab-processes -->
 
