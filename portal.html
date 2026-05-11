@@ -176,6 +176,13 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
 .btn-ops:hover  { background:#3a7fc4 }
 .icon-ops       { background:rgba(107,158,208,.15) }
 
+/* Admin & Tools — violet */
+.accent-admin   { background:#9B7DBF }
+.pill-admin     { background:rgba(155,125,191,.15);color:#EDE0F7;  border:1px solid rgba(155,125,191,.25) }
+.btn-admin      { background:#9B7DBF; color:#fff }
+.btn-admin:hover{ background:#b094d4 }
+.icon-admin     { background:rgba(155,125,191,.15) }
+
 /* ── ALL REPORTS DIVIDER ─────────────────────────────────────────────── */
 .section-label{font-family:var(--font-display);font-size:11px;font-weight:700;
   text-transform:uppercase;letter-spacing:1.5px;color:var(--color-brand-primary);
@@ -364,6 +371,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   <button class="tab-btn"        onclick="showTab('pulse')">Sales Reps Pulse</button>
   <button class="tab-btn"        onclick="showTab('hr')">HR &amp; People</button>
   <button class="tab-btn"        onclick="showTab('ops')">Operations</button>
+  <button class="tab-btn"        onclick="showTab('admin')">Admin &amp; Tools</button>
 </div>
 
 <!-- ══════════════════════════════════════════════════ TAB: ALL REPORTS -->
@@ -637,6 +645,55 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> On new Advius export</div>
         <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-label">Admin &amp; Tools</div>
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-admin"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-admin">Admin · Tools</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">Form Renderer</div>
+        <div class="card-desc">Public-facing dynamic form portal hosted on GitHub Pages. Renders any form schema stored in Supabase — no code changes required to deploy a new form. Supports text, select, radio, checkbox, date, email, and textarea fields. Validates required fields and submits responses directly to the database.</div>
+        <div class="card-tags">
+          <span class="tag">Forms</span>
+          <span class="tag">GitHub Pages</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">No-Code Deploy</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Platform:</strong> Static HTML · GitHub Pages</div>
+        <a class="open-btn btn-admin" href="https://flomaticauto.github.io/forms/" target="_blank" rel="noopener">Open Portal ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent accent-admin"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-admin">Admin · Tools</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">Forms Admin Dashboard</div>
+        <div class="card-desc">Internal admin panel for the Olympic Paints form management system. Create new forms via API or curl, view all active forms with submission counts, read and export responses to CSV, and archive forms when no longer needed. Protected by password login — Vercel-hosted, Supabase-backed.</div>
+        <div class="card-tags">
+          <span class="tag">Forms Admin</span>
+          <span class="tag">Submissions</span>
+          <span class="tag">CSV Export</span>
+          <span class="tag">Vercel</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Platform:</strong> Next.js 15 · Vercel</div>
+        <a class="open-btn btn-admin" href="https://olympic-paints-forms-admin.vercel.app/admin/forms" target="_blank" rel="noopener">Open Admin ↗</a>
       </div>
     </div>
 
@@ -1094,6 +1151,70 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 </div>
 </div><!-- /ops -->
 
+
+<!-- ══════════════════════════════════════════════ TAB: ADMIN & TOOLS -->
+<div id="panel-admin" class="tab-panel">
+<div class="main">
+
+  <div class="dept-intro">
+    <div class="dept-icon icon-admin" style="font-size:24px">🛠️</div>
+    <div class="dept-intro-text">
+      <h2 style="color:#9B7DBF">Admin &amp; Tools</h2>
+      <p>Internal tooling for Olympic Paints operations — form management, data collection, and administrative dashboards. All tools are password-protected where applicable.</p>
+    </div>
+  </div>
+
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-admin"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-admin">Admin · Tools</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">Form Renderer</div>
+        <div class="card-desc">Public-facing dynamic form portal hosted on GitHub Pages. Renders any form schema stored in Supabase — no code changes required to deploy a new form. Supports text, select, radio, checkbox, date, email, and textarea fields. Validates required fields and submits responses directly to the database. Share the link with anyone; the form is accessible without login.</div>
+        <div class="card-tags">
+          <span class="tag">Forms</span>
+          <span class="tag">GitHub Pages</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">No-Code Deploy</span>
+          <span class="tag">Public Access</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Platform:</strong> Static HTML · GitHub Pages · No build step</div>
+        <a class="open-btn btn-admin" href="https://flomaticauto.github.io/forms/" target="_blank" rel="noopener">Open Portal ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent accent-admin"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-admin">Admin · Tools</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">Forms Admin Dashboard</div>
+        <div class="card-desc">Internal admin panel for the Olympic Paints form management system. Create new forms via API or curl, view all active forms with submission counts, read and export responses to CSV, and archive forms when no longer needed. Auto-archives expired forms daily. Protected by password — service role Supabase client runs server-side only, credentials never exposed to the browser.</div>
+        <div class="card-tags">
+          <span class="tag">Forms Admin</span>
+          <span class="tag">Submissions</span>
+          <span class="tag">CSV Export</span>
+          <span class="tag">Vercel</span>
+          <span class="tag">Next.js 15</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Platform:</strong> Next.js 15 App Router · Vercel · Supabase</div>
+        <a class="open-btn btn-admin" href="https://olympic-paints-forms-admin.vercel.app/admin/forms" target="_blank" rel="noopener">Open Admin ↗</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div><!-- /admin -->
 
 <footer>
   <strong>Olympic Paints Reports Portal</strong> · Limpopo, SA<br>
