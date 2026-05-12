@@ -1266,6 +1266,71 @@
     background: var(--color-border-default);
     width: calc(66.66% + 20px);
   }
+
+  /* ─── Mobile (≤860px) ─── */
+  @media (max-width: 860px) {
+    /* Chrome padding compression — matches the portal.html pattern */
+    .theme-bar { padding: 6px 12px; flex-wrap: wrap; }
+    .theme-bar button { padding: 4px 10px; font-size: 10px; }
+
+    .header { padding: 16px 16px; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .header-left { gap: 12px; }
+    .header-left svg { width: 36px; height: 36px; flex-shrink: 0; }
+    .header-title h1 { font-size: 18px; }
+    .header-title p { font-size: 11px; }
+    .header-right { gap: 6px; width: 100%; }
+    .header-right .status-pill,
+    .header-right .live-pill,
+    .header-right .updated-pill { font-size: 10px; padding: 3px 9px; }
+
+    /* Tab bar — horizontal scroll instead of wrapping */
+    .tab-bar {
+      padding: 0 12px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      padding: 12px 14px;
+      font-size: 11px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Main content */
+    .main { padding: 20px 14px; }
+    .section-label { margin-top: 28px; font-size: 9px; letter-spacing: 1.5px; }
+
+    /* Summary banner — 2 cols on phones */
+    .summary-banner { padding: 16px 14px; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .stat-num { font-size: 26px; }
+
+    /* APEX card */
+    .apex-card { min-width: 0; padding: 20px 24px; width: 100%; }
+    .apex-name { font-size: 22px; }
+
+    /* Agent grid — keep 2-col already covered at 768px, just tighten */
+    .agents-grid { gap: 12px; }
+
+    /* Information Insight wrap */
+    .info-wrap { padding: 24px 14px; }
+    .info-title { font-size: 26px !important; }
+
+    /* Org Structure — let the flexible grids breathe */
+    .org-h-line { display: none; }
+
+    /* Tables — allow horizontal scroll inside their containers */
+    table { font-size: 11px; }
+  }
+
+  /* ─── Very narrow phones (≤480px) ─── */
+  @media (max-width: 480px) {
+    .summary-banner { grid-template-columns: 1fr 1fr; }
+    .header-title h1 { font-size: 16px; }
+    .tab-btn { padding: 10px 12px; font-size: 10px; }
+  }
 </style>
 </head>
 <body>
