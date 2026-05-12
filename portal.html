@@ -139,6 +139,16 @@ body{font-family:var(--font-body);background:var(--color-surface-page);
 
 .card-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6;flex:1}
 
+.workflow-note{background:var(--color-surface-elevated);border:1px solid var(--color-border-subtle);
+  border-left:3px solid #6B9ED0;border-radius:6px;padding:10px 12px;font-size:12px;
+  color:var(--color-text-secondary);line-height:1.55}
+.workflow-note .wn-title{font-family:var(--font-display);font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-primary);margin-bottom:6px}
+.workflow-note ol{margin:0;padding-left:18px}
+.workflow-note li{margin-bottom:3px}
+.workflow-note code{background:rgba(255,255,255,.06);padding:1px 5px;border-radius:3px;
+  font-size:11px;color:var(--color-text-primary)}
+
 .card-tags{display:flex;flex-wrap:wrap;gap:6px}
 .tag{font-size:11px;padding:2px 8px;border-radius:4px;
   background:var(--color-surface-elevated);color:var(--color-text-secondary);
@@ -733,6 +743,16 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
         <div class="card-title">Returns Manager</div>
         <div class="card-desc">Interactive returns processing dashboard for Olympic Paints. Log, track, and manage customer product returns — capturing return reasons, quantities, customer details, and resolution status. Built on Streamlit for real-time data entry and reporting.</div>
+        <div class="workflow-note">
+          <div class="wn-title">How to ingest a new scan</div>
+          <ol>
+            <li>Project folder: <code>1.Projects\Returns KPI System\</code></li>
+            <li>Start the watcher once: double-click <code>Start Returns Watcher.bat</code> (keep the console open).</li>
+            <li>Drop the scanned Truck Offload PDF into <code>Inbox\</code>.</li>
+            <li>Watcher OCRs via Claude Opus, writes rows to <code>Returns_Database.xlsx</code>, moves the PDF to <code>Inbox\Archived\</code> on success (or <code>Inbox\Failed\</code> on error), and pings Telegram with the result.</li>
+            <li>Open the dashboard (<code>Start Returns Dashboard.bat</code>) to review / correct flagged rows.</li>
+          </ol>
+        </div>
         <div class="card-tags">
           <span class="tag">Returns Processing</span>
           <span class="tag">Customer Returns</span>
@@ -1134,6 +1154,16 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
         </div>
         <div class="card-title">Returns Manager</div>
         <div class="card-desc">Interactive returns processing dashboard for Olympic Paints. Log, track, and manage customer product returns — capturing return reasons, quantities, customer details, and resolution status. Built on Streamlit for real-time data entry and reporting.</div>
+        <div class="workflow-note">
+          <div class="wn-title">How to ingest a new scan</div>
+          <ol>
+            <li>Project folder: <code>1.Projects\Returns KPI System\</code></li>
+            <li>Start the watcher once: double-click <code>Start Returns Watcher.bat</code> (keep the console open).</li>
+            <li>Drop the scanned Truck Offload PDF into <code>Inbox\</code>.</li>
+            <li>Watcher OCRs via Claude Opus, writes rows to <code>Returns_Database.xlsx</code>, moves the PDF to <code>Inbox\Archived\</code> on success (or <code>Inbox\Failed\</code> on error), and pings Telegram with the result.</li>
+            <li>Open the dashboard (<code>Start Returns Dashboard.bat</code>) to review / correct flagged rows.</li>
+          </ol>
+        </div>
         <div class="card-tags">
           <span class="tag">Returns Processing</span>
           <span class="tag">Customer Returns</span>
