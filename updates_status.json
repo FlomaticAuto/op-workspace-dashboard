@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-11T09:08:14",
+  "generated_at": "2026-05-12T07:18:57",
   "total": 15,
-  "ok": 7,
-  "warn": 3,
+  "ok": 8,
+  "warn": 2,
   "fail": 5,
   "jobs": [
     {
@@ -11,9 +11,9 @@
       "name": "Sales Performance Dashboard",
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
-      "overall": "ok",
-      "task_last_run": "2026-05-11T07:15:15",
-      "task_last_result": 0
+      "overall": "warn",
+      "task_last_run": "2026-05-12T07:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "kpi_rep_dashboards",
@@ -51,7 +51,7 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "warn",
+      "overall": "ok",
       "task_last_run": "2026-05-11T07:30:30",
       "task_last_result": 267014
     },
@@ -61,7 +61,7 @@
       "name": "HAVEN Dashboard Check (regenerate + Telegram)",
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
-      "overall": "warn",
+      "overall": "ok",
       "task_last_run": "2026-05-11T08:00:00",
       "task_last_result": 0
     },
@@ -156,5 +156,5 @@
       "task_last_result": 267009
     }
   ],
-  "success_pct": 47
+  "success_pct": 53
 }
