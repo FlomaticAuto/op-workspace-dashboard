@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-13T08:15:52",
+  "generated_at": "2026-05-13T09:01:05",
   "total": 15,
   "ok": 7,
   "warn": 2,
@@ -22,7 +22,7 @@
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-12T07:22:22",
+      "task_last_run": "2026-05-13T09:00:00",
       "task_last_result": 1
     },
     {
@@ -33,7 +33,7 @@
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
       "task_last_run": "2026-05-13T08:15:15",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "ecommerce_email",
@@ -42,7 +42,7 @@
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
       "overall": "fail",
-      "task_last_run": "2026-05-12T08:00:00",
+      "task_last_run": "2026-05-13T09:00:00",
       "task_last_result": 2147943623
     },
     {
@@ -52,8 +52,8 @@
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
       "overall": "ok",
-      "task_last_run": "2026-05-12T07:30:30",
-      "task_last_result": 0
+      "task_last_run": "2026-05-13T09:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "haven_dashboard_check",
@@ -62,8 +62,8 @@
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
       "overall": "ok",
-      "task_last_run": "2026-05-12T08:00:00",
-      "task_last_result": 0
+      "task_last_run": "2026-05-13T09:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vehicle_report",
@@ -92,8 +92,8 @@
       "task": "Olympic Paints - Kaizen Daily Sync",
       "cadence": "Daily \u00b7 07:30",
       "overall": "fail",
-      "task_last_run": "2026-05-12T07:30:30",
-      "task_last_result": 3221225786
+      "task_last_run": "2026-05-13T09:00:00",
+      "task_last_result": 2147946720
     },
     {
       "id": "workspace_health",
@@ -122,7 +122,7 @@
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-12T07:22:22",
+      "task_last_run": "2026-05-13T09:00:00",
       "task_last_result": 1
     },
     {
@@ -132,8 +132,8 @@
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-12T07:22:22",
-      "task_last_result": 1
+      "task_last_run": "2026-05-13T09:00:00",
+      "task_last_result": 2147946720
     },
     {
       "id": "cso_intelligence",
