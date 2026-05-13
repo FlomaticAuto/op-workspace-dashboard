@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-12T20:06:11",
+  "generated_at": "2026-05-13T08:15:52",
   "total": 15,
-  "ok": 8,
-  "warn": 1,
+  "ok": 7,
+  "warn": 2,
   "fail": 6,
   "jobs": [
     {
@@ -11,7 +11,7 @@
       "name": "Sales Performance Dashboard",
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-05-12T07:15:15",
       "task_last_result": 0
     },
@@ -32,8 +32,8 @@
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
-      "task_last_run": "2026-05-12T08:15:15",
-      "task_last_result": 0
+      "task_last_run": "2026-05-13T08:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -152,9 +152,9 @@
       "task": "OlympicPortalTriggerServer",
       "cadence": "Continuous",
       "overall": "ok",
-      "task_last_run": "2026-05-12T07:25:25",
+      "task_last_run": "2026-05-13T07:52:52",
       "task_last_result": 267009
     }
   ],
-  "success_pct": 53
+  "success_pct": 47
 }
