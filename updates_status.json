@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-14T08:20:09",
+  "generated_at": "2026-05-14T09:37:21",
   "total": 15,
   "ok": 5,
-  "warn": 3,
-  "fail": 7,
+  "warn": 4,
+  "fail": 6,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -22,7 +22,7 @@
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-13T09:00:00",
+      "task_last_run": "2026-05-14T09:37:37",
       "task_last_result": 1
     },
     {
@@ -33,7 +33,7 @@
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
       "task_last_run": "2026-05-14T08:19:19",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "ecommerce_email",
@@ -42,7 +42,7 @@
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
       "overall": "fail",
-      "task_last_run": "2026-05-13T09:00:00",
+      "task_last_run": "2026-05-14T09:37:37",
       "task_last_result": 2147943623
     },
     {
@@ -52,8 +52,8 @@
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
-      "task_last_run": "2026-05-13T09:00:00",
-      "task_last_result": 0
+      "task_last_run": "2026-05-14T09:37:37",
+      "task_last_result": 267009
     },
     {
       "id": "haven_dashboard_check",
@@ -62,8 +62,8 @@
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
       "overall": "warn",
-      "task_last_run": "2026-05-13T09:00:00",
-      "task_last_result": 0
+      "task_last_run": "2026-05-14T09:37:37",
+      "task_last_result": 267009
     },
     {
       "id": "vehicle_report",
@@ -91,9 +91,9 @@
       "name": "Kaizen Daily Sync",
       "task": "Olympic Paints - Kaizen Daily Sync",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "fail",
-      "task_last_run": "2026-05-13T09:00:00",
-      "task_last_result": 2147946720
+      "overall": "warn",
+      "task_last_run": "2026-05-14T09:37:37",
+      "task_last_result": 267009
     },
     {
       "id": "workspace_health",
@@ -122,7 +122,7 @@
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-13T09:00:00",
+      "task_last_run": "2026-05-14T09:37:37",
       "task_last_result": 1
     },
     {
@@ -132,7 +132,7 @@
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-13T09:00:00",
+      "task_last_run": "2026-05-14T09:37:37",
       "task_last_result": 2147946720
     },
     {
