@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-13T09:01:18",
+  "generated_at": "2026-05-14T08:20:09",
   "total": 15,
-  "ok": 7,
-  "warn": 2,
-  "fail": 6,
+  "ok": 5,
+  "warn": 3,
+  "fail": 7,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -11,9 +11,9 @@
       "name": "Sales Performance Dashboard",
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
-      "overall": "warn",
-      "task_last_run": "2026-05-12T07:15:15",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": "2026-05-14T07:15:15",
+      "task_last_result": 3221225786
     },
     {
       "id": "kpi_rep_dashboards",
@@ -32,8 +32,8 @@
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
-      "task_last_run": "2026-05-13T08:15:15",
-      "task_last_result": 0
+      "task_last_run": "2026-05-14T08:19:19",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -51,9 +51,9 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-05-13T09:00:00",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "haven_dashboard_check",
@@ -61,9 +61,9 @@
       "name": "HAVEN Dashboard Check (regenerate + Telegram)",
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-05-13T09:00:00",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "vehicle_report",
@@ -152,9 +152,9 @@
       "task": "OlympicPortalTriggerServer",
       "cadence": "Continuous",
       "overall": "ok",
-      "task_last_run": "2026-05-13T07:52:52",
+      "task_last_run": "2026-05-14T07:12:12",
       "task_last_result": 267009
     }
   ],
-  "success_pct": 47
+  "success_pct": 33
 }
