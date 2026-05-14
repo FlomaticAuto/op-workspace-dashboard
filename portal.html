@@ -218,6 +218,13 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   .open-btn{justify-content:center}
 }
 
+/* ── MERCHANDISING — terra ───────────────────────────────────────── */
+.accent-merch   { background:#C97A3A }
+.pill-merch     { background:rgba(201,122,58,.15);color:#F7E0C8; border:1px solid rgba(201,122,58,.25) }
+.btn-merch      { background:#C97A3A; color:#fff }
+.btn-merch:hover{ background:#d9894a }
+.icon-merch     { background:rgba(201,122,58,.15) }
+
 /* ── ARCHITECTURE TAB ────────────────────────────────────────────── */
 .accent-arch{background:#9B7DBF}
 .pill-arch{background:rgba(155,125,191,.15);color:#EDE0F7;border:1px solid rgba(155,125,191,.25)}
@@ -391,6 +398,7 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   <button class="tab-btn"        onclick="showTab('hr')">HR &amp; People</button>
   <button class="tab-btn"        onclick="showTab('ops')">Operations</button>
   <button class="tab-btn"        onclick="showTab('admin')">Admin &amp; Tools</button>
+  <button class="tab-btn"        onclick="showTab('merch')">Merchandising</button>
 </div>
 
 <!-- ══════════════════════════════════════════════════ TAB: ALL REPORTS -->
@@ -636,6 +644,36 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
         <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" rel="noopener">Open Portal ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-label">Merchandising</div>
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-merch"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-merch">Merchandising</span>
+          <span class="live-badge">● On-demand</span>
+        </div>
+        <div class="card-title">Merchandising Impact Report</div>
+        <div class="card-desc">Quantifies sales-growth correlation with formal merchandising at Kit Kat and Easy Build group stores. YoY same-month comparison, per-store breakdown, narrative auto-prose. Built on demand from the portal.</div>
+        <div class="card-tags">
+          <span class="tag">YoY Same-Month</span>
+          <span class="tag">Per-Store</span>
+          <span class="tag">Kit Kat</span>
+          <span class="tag">Easy Build</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><span class="health-dot" data-build="merchandising"></span><span class="health-text" data-build="merchandising">Service offline</span></div>
+        <div class="card-actions">
+          <a class="open-btn btn-merch" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report ↗</a>
+          <button class="regen-btn" data-build="merchandising">Regenerate ↻</button>
+        </div>
       </div>
     </div>
 
@@ -1254,6 +1292,94 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   </div>
 </div>
 </div><!-- /admin -->
+
+<!-- ══════════════════════════════════════════ TAB: MERCHANDISING -->
+<div id="panel-merch" class="tab-panel">
+<div class="main">
+
+  <div class="dept-intro">
+    <div class="dept-icon icon-merch" style="font-size:24px">🏪</div>
+    <div class="dept-intro-text">
+      <h2 style="color:#C97A3A">Merchandising</h2>
+      <p>Field merchandising performance and impact reporting. Tracks in-store visit activity by rep, quantifies sales growth at formally merchandised accounts, and scores visit cadence per store. Data sourced from Zoho CRM activity logs and invoice history.</p>
+    </div>
+  </div>
+
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent accent-merch"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-merch">Merchandising</span>
+          <span class="live-badge">● On-demand</span>
+        </div>
+        <div class="card-title">Merchandising Impact Report</div>
+        <div class="card-desc">Quantifies the revenue impact of formal in-store merchandising at Kit Kat (5 accounts) and Easy Build (7 accounts) group stores. Shows YoY same-month revenue comparison, per-store breakdown, and auto-generated narrative prose. Regenerate any time from this portal.</div>
+        <div class="card-tags">
+          <span class="tag">YoY Same-Month</span>
+          <span class="tag">Per-Store Breakdown</span>
+          <span class="tag">Kit Kat — 5 Accounts</span>
+          <span class="tag">Easy Build — 7 Accounts</span>
+          <span class="tag">Auto-Prose</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><span class="health-dot" data-build="merchandising"></span><span class="health-text" data-build="merchandising">Service offline</span></div>
+        <div class="card-actions">
+          <a class="open-btn btn-merch" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report ↗</a>
+          <button class="regen-btn" data-build="merchandising">Regenerate ↻</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent accent-merch"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-merch">Merchandising</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">Store Health Score</div>
+        <div class="card-desc">Scores all 353 active accounts across five metrics — including rep visit cadence, which directly reflects merchandising discipline. Classifies stores into four tiers: Growing, Narrow, At-Risk, Dormant. Use the Visit Cadence column to identify accounts overdue for a formal merch call.</div>
+        <div class="card-tags">
+          <span class="tag">Visit Cadence</span>
+          <span class="tag">353 Accounts</span>
+          <span class="tag">4 Tiers</span>
+          <span class="tag">Per-Rep Filter</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet · Zoho visits · On-demand</div>
+        <a class="open-btn btn-merch" href="https://flomaticauto.github.io/olympic-paints-store-health/" target="_blank" rel="noopener">Open Report ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent accent-merch"></div>
+      <div class="card-body">
+        <div class="card-dept">
+          <span class="dept-pill pill-merch">Merchandising</span>
+          <span class="live-badge">● Live</span>
+        </div>
+        <div class="card-title">Sales Performance — Activity View</div>
+        <div class="card-desc">The Activity tab inside the Sales Performance Dashboard shows the daily Rep × Date merchandising heatmap — total visits + leads per rep per day, with a green bar overlay indicating lead share. Newest date shown first. Covers all 5 reps and distinguishes formal merchandising visits from standard store calls.</div>
+        <div class="card-tags">
+          <span class="tag">Daily Heatmap</span>
+          <span class="tag">Rep × Date</span>
+          <span class="tag">Visits + Leads</span>
+          <span class="tag">All 5 Reps</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Source:</strong> Zoho Meetings · meetings.parquet · Auto-rebuilt daily</div>
+        <a class="open-btn btn-merch" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Dashboard ↗</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div><!-- /merch -->
 
 <footer>
   <strong>Olympic Paints Reports Portal</strong> · Limpopo, SA<br>
