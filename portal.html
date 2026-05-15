@@ -345,9 +345,10 @@ footer{
 
 <!-- ── DESKTOP TAB BAR ────────────────────────────────────────── -->
 <div class="tab-bar">
-  <button class="tab-btn active" data-tab="all"   onclick="showTab('all',this)">All Reports</button>
-  <button class="tab-btn"        data-tab="sales"  onclick="showTab('sales',this)">Sales</button>
-  <button class="tab-btn"        data-tab="pulse"  onclick="showTab('pulse',this)">Sales Reps PULSE</button>
+  <button class="tab-btn active" data-tab="all"          onclick="showTab('all',this)">All Reports</button>
+  <button class="tab-btn"        data-tab="sales"         onclick="showTab('sales',this)">Sales</button>
+  <button class="tab-btn"        data-tab="store-health"  onclick="showTab('store-health',this)">Store Health</button>
+  <button class="tab-btn"        data-tab="pulse"         onclick="showTab('pulse',this)">Sales Reps PULSE</button>
   <button class="tab-btn"        data-tab="hr"     onclick="showTab('hr',this)">HR &amp; People</button>
   <button class="tab-btn"        data-tab="ops"    onclick="showTab('ops',this)">Operations</button>
   <button class="tab-btn"        data-tab="admin"  onclick="showTab('admin',this)">Admin &amp; Tools</button>
@@ -833,6 +834,159 @@ footer{
 </div>
 </div><!-- /sales -->
 
+<!-- ════════════════════════════════════════ TAB: STORE HEALTH ═══ -->
+<div id="panel-store-health" class="tab-panel">
+<div class="main">
+  <div class="dept-intro">
+    <div style="font-size:24px">🏥</div>
+    <div class="dept-intro-text">
+      <h2 style="color:#F5C400">Store Vitality Index</h2>
+      <p>A 0–100 composite score for every active account across five metrics: purchase frequency, rep visit cadence, basket category coverage, SKU depth, and rand value trend. The bottom 25% of each rep's book is automatically flagged as <strong>Recovery Accounts</strong> — surfaced in daily PULSE briefings and each rep's KPI portal.</p>
+    </div>
+  </div>
+
+  <div class="section-label">Interactive Dashboard</div>
+  <div class="report-grid">
+    <div class="report-card">
+      <div class="card-accent accent-sales"></div>
+      <div class="card-body">
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Store Health</span><span class="live-badge">● Live</span></div>
+        <div class="card-title">Store Health Score Dashboard</div>
+        <div class="card-desc">Full interactive view of all scored accounts. Filter by tier (Growing / Narrow / At-Risk / Dormant), by rep, or toggle the Recovery filter to see bottom-25% flagged stores only. Each row shows individual metric sub-scores and days since last purchase. Rebuilt on demand.</div>
+        <div class="card-tags"><span class="tag">5 Metrics</span><span class="tag">4 Tiers</span><span class="tag">Recovery Filter</span><span class="tag">All 5 Reps</span><span class="tag">Sub-scores</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Source:</strong> Sales parquet · Zoho meetings · health_tiers.json</div>
+        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-store-health/" target="_blank" rel="noopener">Open Dashboard ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Recovery Accounts — By Rep</div>
+  <div style="font-size:12.5px;color:var(--color-text-secondary);margin-bottom:14px;line-height:1.55">Bottom 25% of each rep's book by Store Vitality Score. Automatically surfaced in each rep's PULSE daily email. Each rep's KPI portal has a dedicated <strong>Recovery</strong> tab showing store name, score, tier, and days since last purchase.</div>
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="card-accent" style="background:var(--_coral)"></div>
+      <div class="card-body">
+        <div class="card-dept"><span class="dept-pill" style="background:rgba(232,96,96,.12);color:var(--_coral-light);border-color:rgba(232,96,96,.25)">Recovery · AC</span></div>
+        <div class="card-title">Aboo Cassim — Recovery Accounts</div>
+        <div class="card-desc">Bottom 25% of AC's account book by Store Vitality Score. Any Zoho check-in at a flagged store is auto-detected as a recovery visit. Open AC's KPI portal and go to the Recovery tab.</div>
+        <div class="card-tags"><span class="tag">Store Vitality Score</span><span class="tag">Recovery Tab</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Tab:</strong> Recovery — in AC's KPI Portal</div>
+        <a class="open-btn" style="background:var(--_coral);color:#fff;border:none" href="/kpi/ac/" target="_blank" rel="noopener">Open AC ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent" style="background:var(--_coral)"></div>
+      <div class="card-body">
+        <div class="card-dept"><span class="dept-pill" style="background:rgba(232,96,96,.12);color:var(--_coral-light);border-color:rgba(232,96,96,.25)">Recovery · AP</span></div>
+        <div class="card-title">Amit Patel — Recovery Accounts</div>
+        <div class="card-desc">Bottom 25% of AP's account book by Store Vitality Score. Any Zoho check-in at a flagged store is auto-detected as a recovery visit. Open AP's KPI portal and go to the Recovery tab.</div>
+        <div class="card-tags"><span class="tag">Store Vitality Score</span><span class="tag">Recovery Tab</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Tab:</strong> Recovery — in AP's KPI Portal</div>
+        <a class="open-btn" style="background:var(--_coral);color:#fff;border:none" href="/kpi/ap/" target="_blank" rel="noopener">Open AP ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent" style="background:var(--_coral)"></div>
+      <div class="card-body">
+        <div class="card-dept"><span class="dept-pill" style="background:rgba(232,96,96,.12);color:var(--_coral-light);border-color:rgba(232,96,96,.25)">Recovery · BV</span></div>
+        <div class="card-title">Bhadresh Vallabh — Recovery Accounts</div>
+        <div class="card-desc">Bottom 25% of BV's account book by Store Vitality Score. Any Zoho check-in at a flagged store is auto-detected as a recovery visit. Open BV's KPI portal and go to the Recovery tab.</div>
+        <div class="card-tags"><span class="tag">Store Vitality Score</span><span class="tag">Recovery Tab</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Tab:</strong> Recovery — in BV's KPI Portal</div>
+        <a class="open-btn" style="background:var(--_coral);color:#fff;border:none" href="/kpi/bv/" target="_blank" rel="noopener">Open BV ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent" style="background:var(--_coral)"></div>
+      <div class="card-body">
+        <div class="card-dept"><span class="dept-pill" style="background:rgba(232,96,96,.12);color:var(--_coral-light);border-color:rgba(232,96,96,.25)">Recovery · NP</span></div>
+        <div class="card-title">Nikhil Panchal — Recovery Accounts</div>
+        <div class="card-desc">Bottom 25% of NP's account book by Store Vitality Score. Any Zoho check-in at a flagged store is auto-detected as a recovery visit. Open NP's KPI portal and go to the Recovery tab.</div>
+        <div class="card-tags"><span class="tag">Store Vitality Score</span><span class="tag">Recovery Tab</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Tab:</strong> Recovery — in NP's KPI Portal</div>
+        <a class="open-btn" style="background:var(--_coral);color:#fff;border:none" href="/kpi/np/" target="_blank" rel="noopener">Open NP ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent" style="background:var(--_coral)"></div>
+      <div class="card-body">
+        <div class="card-dept"><span class="dept-pill" style="background:rgba(232,96,96,.12);color:var(--_coral-light);border-color:rgba(232,96,96,.25)">Recovery · BM</span></div>
+        <div class="card-title">Byron Minnie — Recovery Accounts</div>
+        <div class="card-desc">Bottom 25% of BM's account book by Store Vitality Score. Any Zoho check-in at a flagged store is auto-detected as a recovery visit. Open BM's KPI portal and go to the Recovery tab.</div>
+        <div class="card-tags"><span class="tag">Store Vitality Score</span><span class="tag">Recovery Tab</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Tab:</strong> Recovery — in BM's KPI Portal</div>
+        <a class="open-btn" style="background:var(--_coral);color:#fff;border:none" href="/kpi/bm/" target="_blank" rel="noopener">Open BM ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-label">Score Methodology</div>
+  <div style="background:var(--color-surface-base);border:1px solid var(--color-border-default);border-radius:var(--r-lg);padding:16px 18px;">
+    <table style="width:100%;border-collapse:collapse;font-size:12.5px">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding:6px 8px 6px 0;font-family:var(--font-display);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-tertiary);border-bottom:1px solid var(--color-border-subtle)">Metric</th>
+          <th style="text-align:right;padding:6px 8px;font-family:var(--font-display);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-tertiary);border-bottom:1px solid var(--color-border-subtle)">Weight</th>
+          <th style="text-align:left;padding:6px 0 6px 12px;font-family:var(--font-display);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-tertiary);border-bottom:1px solid var(--color-border-subtle)">What it measures</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:8px 8px 8px 0;color:var(--color-text-primary);font-weight:500;border-bottom:1px solid var(--color-border-subtle)">Purchase Frequency</td>
+          <td style="text-align:right;padding:8px;color:var(--_y400);font-weight:700;border-bottom:1px solid var(--color-border-subtle)">25%</td>
+          <td style="padding:8px 0 8px 12px;color:var(--color-text-secondary);border-bottom:1px solid var(--color-border-subtle)">Orders per month over 3 / 6 / 12-month windows</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 8px 8px 0;color:var(--color-text-primary);font-weight:500;border-bottom:1px solid var(--color-border-subtle)">Basket Coverage</td>
+          <td style="text-align:right;padding:8px;color:var(--_y400);font-weight:700;border-bottom:1px solid var(--color-border-subtle)">30%</td>
+          <td style="padding:8px 0 8px 12px;color:var(--color-text-secondary);border-bottom:1px solid var(--color-border-subtle)">% of 11 product categories purchased (weighted to 12m)</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 8px 8px 0;color:var(--color-text-primary);font-weight:500;border-bottom:1px solid var(--color-border-subtle)">Rep Visit Cadence</td>
+          <td style="text-align:right;padding:8px;color:var(--_y400);font-weight:700;border-bottom:1px solid var(--color-border-subtle)">15%</td>
+          <td style="padding:8px 0 8px 12px;color:var(--color-text-secondary);border-bottom:1px solid var(--color-border-subtle)">Visits per month from Zoho, matched by store name</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 8px 8px 0;color:var(--color-text-primary);font-weight:500;border-bottom:1px solid var(--color-border-subtle)">SKU Depth</td>
+          <td style="text-align:right;padding:8px;color:var(--_y400);font-weight:700;border-bottom:1px solid var(--color-border-subtle)">15%</td>
+          <td style="padding:8px 0 8px 12px;color:var(--color-text-secondary);border-bottom:1px solid var(--color-border-subtle)">Within purchased categories, % of available SKUs bought</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 8px 8px 0;color:var(--color-text-primary);font-weight:500">Rand Value Trend</td>
+          <td style="text-align:right;padding:8px;color:var(--_y400);font-weight:700">15%</td>
+          <td style="padding:8px 0 8px 12px;color:var(--color-text-secondary)">6-month linear trend in monthly spend (normalised slope)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-size:11.5px">
+      <span style="padding:4px 10px;border-radius:var(--r-pill);background:rgba(45,140,122,.15);color:var(--_teal-light);border:1px solid rgba(45,140,122,.35)">🟢 Growing ≥ 65</span>
+      <span style="padding:4px 10px;border-radius:var(--r-pill);background:rgba(245,196,0,.12);color:var(--_y200);border:1px solid rgba(245,196,0,.30)">🟡 Narrow 45–64</span>
+      <span style="padding:4px 10px;border-radius:var(--r-pill);background:rgba(201,122,58,.12);color:var(--_terra-light);border:1px solid rgba(201,122,58,.30)">🟠 At-Risk 25–44</span>
+      <span style="padding:4px 10px;border-radius:var(--r-pill);background:rgba(232,96,96,.12);color:var(--_coral-light);border:1px solid rgba(232,96,96,.30)">🔴 Dormant &lt; 25</span>
+    </div>
+  </div>
+
+</div>
+</div><!-- /store-health -->
+
 <!-- ══════════════════════════════════════════════════ TAB: PULSE ═══ -->
 <div id="panel-pulse" class="tab-panel">
 <div class="main">
@@ -1072,6 +1226,10 @@ footer{
   <button class="bot-btn" data-tab="sales" onclick="showTab('sales',this)">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 19h2v-5H5v5m4 0h2v-8H9v8m4 0h2V8h-2v11m4 0h2V5h-2v14M3 21h18v-2H3v2"/></svg>
     Sales
+  </button>
+  <button class="bot-btn" data-tab="store-health" onclick="showTab('store-health',this)">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.518 3.386 1 6.386 1 8.57 1 10.366 2.15 11.5 3.775 12.634 2.15 14.43 1 16.614 1 19.614 1 22 3.518 22 7.191c0 4.105-5.37 8.863-11 14.402z"/></svg>
+    Health
   </button>
   <button class="bot-btn" data-tab="pulse" onclick="showTab('pulse',this)">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2l4.5 9H8l5 11L17 12h-3.5L17 2z"/></svg>
