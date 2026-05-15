@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T08:32:04",
+  "generated_at": "2026-05-15T10:15:08",
   "total": 15,
   "ok": 9,
   "warn": 2,
@@ -13,7 +13,7 @@
       "cadence": "Daily \u00b7 07:15",
       "overall": "fail",
       "task_last_run": "2026-05-15T08:30:30",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "kpi_rep_dashboards",
@@ -22,7 +22,7 @@
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-14T09:37:37",
+      "task_last_run": "2026-05-15T08:45:45",
       "task_last_result": 1
     },
     {
