@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-15T07:48:16",
+  "generated_at": "2026-05-15T07:48:32",
   "total": 15,
-  "ok": 7,
+  "ok": 9,
   "warn": 2,
-  "fail": 6,
+  "fail": 4,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -51,7 +51,7 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "fail",
+      "overall": "ok",
       "task_last_run": "2026-05-15T07:47:47",
       "task_last_result": 267009
     },
@@ -61,7 +61,7 @@
       "name": "HAVEN Dashboard Check (regenerate + Telegram)",
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
-      "overall": "fail",
+      "overall": "ok",
       "task_last_run": "2026-05-14T09:37:37",
       "task_last_result": 0
     },
@@ -93,7 +93,7 @@
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
       "task_last_run": "2026-05-15T07:47:47",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "workspace_health",
@@ -156,5 +156,5 @@
       "task_last_result": 267009
     }
   ],
-  "success_pct": 47
+  "success_pct": 60
 }
