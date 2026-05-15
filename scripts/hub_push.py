@@ -6,7 +6,7 @@ Usage in any build script:
     push_to_hub(subfolder="store-health", message="Store Health — 2026-05-15")
 
 The hub repo is op-workspace-dashboard at C:\\Users\\quint\\workspace-dashboard.
-Vercel auto-deploys from GitHub on every push to main.
+Vercel auto-deploys from GitHub on every push to master.
 """
 
 import subprocess
@@ -17,7 +17,7 @@ HUB_DIR = Path(r"C:\Users\quint\workspace-dashboard")
 
 
 def push_to_hub(subfolder: str, message: str | None = None) -> bool:
-    """Stage subfolder changes in the hub repo and push to origin/main."""
+    """Stage subfolder changes in the hub repo and push to origin/master."""
     if message is None:
         message = f"{subfolder} update — {datetime.now():%Y-%m-%d %H:%M}"
 
@@ -45,18 +45,18 @@ def push_to_hub(subfolder: str, message: str | None = None) -> bool:
     # Pull before push to avoid conflicts
     if token:
         auth_header = "basic " + base64.b64encode(f"x-access-token:{token}".encode()).decode()
-        run(["git", "-c", f"http.extraheader=AUTHORIZATION: {auth_header}", "pull", "--rebase", "origin", "main"])
+        run(["git", "-c", f"http.extraheader=AUTHORIZATION: {auth_header}", "pull", "--rebase", "origin", "master"])
     else:
-        run(["git", "pull", "--rebase", "origin", "main"])
+        run(["git", "pull", "--rebase", "origin", "master"])
 
     run(["git", "add", subfolder])
     run(["git", "commit", "-m", message])
 
     if token:
         auth_header = "basic " + base64.b64encode(f"x-access-token:{token}".encode()).decode()
-        ok = run(["git", "-c", f"http.extraheader=AUTHORIZATION: {auth_header}", "push", "origin", "main"])
+        ok = run(["git", "-c", f"http.extraheader=AUTHORIZATION: {auth_header}", "push", "origin", "master"])
     else:
-        ok = run(["git", "push", "origin", "main"])
+        ok = run(["git", "push", "origin", "master"])
 
     if ok:
         print(f"  ✓ Pushed {subfolder}/ to hub → Vercel will auto-deploy")
