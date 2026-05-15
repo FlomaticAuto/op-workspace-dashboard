@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-15T06:15:05",
+  "generated_at": "2026-05-15T07:48:16",
   "total": 15,
-  "ok": 5,
-  "warn": 3,
-  "fail": 7,
+  "ok": 7,
+  "warn": 2,
+  "fail": 6,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -52,8 +52,8 @@
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
       "overall": "fail",
-      "task_last_run": "2026-05-14T09:37:37",
-      "task_last_result": 3221225786
+      "task_last_run": "2026-05-15T07:47:47",
+      "task_last_result": 267009
     },
     {
       "id": "haven_dashboard_check",
@@ -61,7 +61,7 @@
       "name": "HAVEN Dashboard Check (regenerate + Telegram)",
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
-      "overall": "warn",
+      "overall": "fail",
       "task_last_run": "2026-05-14T09:37:37",
       "task_last_result": 0
     },
@@ -92,8 +92,8 @@
       "task": "Olympic Paints - Kaizen Daily Sync",
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
-      "task_last_run": "2026-05-14T09:37:37",
-      "task_last_result": 0
+      "task_last_run": "2026-05-15T07:47:47",
+      "task_last_result": 267009
     },
     {
       "id": "workspace_health",
@@ -121,9 +121,9 @@
       "name": "Meeting Minutes Extractor",
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "fail",
-      "task_last_run": "2026-05-14T09:37:37",
-      "task_last_result": 1
+      "overall": "ok",
+      "task_last_run": "2026-05-15T07:00:00",
+      "task_last_result": 0
     },
     {
       "id": "vault_meeting_extraction",
@@ -131,9 +131,9 @@
       "name": "VAULT Meeting Extraction (Notion tasks)",
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "fail",
-      "task_last_run": "2026-05-14T09:37:37",
-      "task_last_result": 2147946720
+      "overall": "ok",
+      "task_last_run": "2026-05-15T07:00:00",
+      "task_last_result": 0
     },
     {
       "id": "cso_intelligence",
@@ -156,5 +156,5 @@
       "task_last_result": 267009
     }
   ],
-  "success_pct": 33
+  "success_pct": 47
 }
