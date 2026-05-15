@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T08:15:40",
+  "generated_at": "2026-05-15T08:32:04",
   "total": 15,
   "ok": 9,
   "warn": 2,
@@ -12,8 +12,8 @@
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
       "overall": "fail",
-      "task_last_run": "2026-05-15T08:04:04",
-      "task_last_result": 0
+      "task_last_run": "2026-05-15T08:30:30",
+      "task_last_result": 267009
     },
     {
       "id": "kpi_rep_dashboards",
@@ -33,7 +33,7 @@
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
       "task_last_run": "2026-05-15T08:15:15",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "ecommerce_email",
