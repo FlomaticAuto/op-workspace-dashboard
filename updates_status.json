@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T07:48:32",
+  "generated_at": "2026-05-15T08:00:20",
   "total": 15,
   "ok": 9,
   "warn": 2,
@@ -42,7 +42,7 @@
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
       "overall": "fail",
-      "task_last_run": "2026-05-14T09:37:37",
+      "task_last_run": "2026-05-15T08:00:00",
       "task_last_result": 2147943623
     },
     {
@@ -62,8 +62,8 @@
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
       "overall": "ok",
-      "task_last_run": "2026-05-14T09:37:37",
-      "task_last_result": 0
+      "task_last_run": "2026-05-15T08:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vehicle_report",
@@ -112,8 +112,8 @@
       "task": "OlympicPaints_Friday_Sales_Meeting",
       "cadence": "Weekly \u00b7 Fri",
       "overall": "ok",
-      "task_last_run": "2026-05-08T08:00:00",
-      "task_last_result": 0
+      "task_last_run": "2026-05-15T08:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "meeting_extractor",
