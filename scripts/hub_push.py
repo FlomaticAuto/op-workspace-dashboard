@@ -6,7 +6,8 @@ Usage in any build script:
     push_to_hub(subfolder="store-health", message="Store Health — 2026-05-15")
 
 The hub repo is op-workspace-dashboard at C:\\Users\\quint\\workspace-dashboard.
-Vercel auto-deploys from GitHub on every push to master.
+Vercel production branch is 'main'; we push master:master and master:main in a
+single call so both branches always stay in sync and Vercel always gets the latest.
 """
 
 import subprocess
@@ -54,10 +55,11 @@ def push_to_hub(subfolder: str, message: str | None = None) -> bool:
 
     if token:
         auth_header = "basic " + base64.b64encode(f"x-access-token:{token}".encode()).decode()
-        ok = run(["git", "-c", f"http.extraheader=AUTHORIZATION: {auth_header}", "push", "origin", "master"])
+        ok = run(["git", "-c", f"http.extraheader=AUTHORIZATION: {auth_header}",
+                  "push", "origin", "master", "master:main"])
     else:
-        ok = run(["git", "push", "origin", "master"])
+        ok = run(["git", "push", "origin", "master", "master:main"])
 
     if ok:
-        print(f"  ✓ Pushed {subfolder}/ to hub → Vercel will auto-deploy")
+        print(f"  ✓ Pushed {subfolder}/ to hub (master + main) → Vercel will auto-deploy")
     return ok
