@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Loading — Olympic Paints</title>
+<meta http-equiv="refresh" content="0; url=https://flomaticauto.github.io/olympic-paints-kpi-ac/">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#071022;color:#B8CCE8;font-family:'Barlow',sans-serif;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    min-height:100dvh;gap:16px;text-align:center;padding:24px}
+  .logo{width:48px;height:48px;border-radius:50%;overflow:hidden}
+  .logo img{width:100%;height:100%;object-fit:cover;display:block}
+  .spinner{width:32px;height:32px;border:3px solid rgba(245,196,0,.2);
+    border-top-color:#F5C400;border-radius:50%;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  p{font-size:13px;opacity:.6}
+</style>
+</head>
+<body>
+  <div class="logo">
+    <img src="https://flomaticauto.github.io/olympic-paints-clocking/logo.jpg" alt="Olympic Paints">
+  </div>
+  <div class="spinner"></div>
+  <p>Loading dashboard...</p>
+  <script>window.location.replace('https://flomaticauto.github.io/olympic-paints-kpi-ac/');</script>
+</body>
+</html>

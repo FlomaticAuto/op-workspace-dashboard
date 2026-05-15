@@ -1,0 +1,262 @@
+{
+  "report_week": "1 May 2026",
+  "report_date": "2026-05-01",
+  "generated_at": "2026-05-13 23:24 UTC",
+  "kpi_dashboard_url": "https://flomaticauto.github.io/olympic-paints-kpi/",
+  "update_history": [
+    {
+      "date": "2026-05-13",
+      "week": "1 May 2026",
+      "by": "build_kpi_dashboard.py",
+      "source_files": [
+        "Daily_Eccomerce_Repo_2026-05-02T06_01_33.pdf",
+        "Daily_Eccomerce_Repo_2026-05-02T06_01_51.pdf",
+        "Daily_Eccomerce_Repo_2026-05-02T06_01_53.pdf",
+        "Daily_Eccomerce_Repo_2026-05-03T06_01_06.pdf",
+        "Daily_Eccomerce_Repo_2026-05-03T06_01_09.pdf",
+        "Daily_Eccomerce_Repo_2026-05-03T06_01_33.pdf",
+        "Daily_Eccomerce_Repo_2026-05-04T06_01_32.pdf",
+        "Daily_Eccomerce_Repo_2026-05-04T06_01_50.pdf",
+        "Daily_Eccomerce_Repo_2026-05-04T06_01_53.pdf",
+        "Daily_Eccomerce_Repo_2026-05-05T06_00_48.pdf",
+        "Daily_Eccomerce_Repo_2026-05-05T06_01_06.pdf",
+        "Daily_Eccomerce_Repo_2026-05-05T06_01_09.pdf",
+        "Daily_Eccomerce_Repo_2026-05-06T06_00_48.pdf",
+        "Daily_Eccomerce_Repo_2026-05-06T06_01_06.pdf",
+        "Daily_Eccomerce_Repo_2026-05-06T06_01_09.pdf",
+        "Daily_Eccomerce_Repo_2026-05-07T06_00_47.pdf",
+        "Daily_Eccomerce_Repo_2026-05-07T06_01_06.pdf",
+        "Daily_Eccomerce_Repo_2026-05-07T06_01_09.pdf",
+        "Daily_Sales_Report_P_2026-05-01T13_44_14.pdf",
+        "Sales_Summary_2026-04-12T06_00_42.pdf",
+        "Weekly_Sales_Report__2026-04-25T07_56_05.pdf",
+        "Weekly_Sales_Report__2026-04-25T08_25_15.pdf",
+        "Weekly_Sales_Report__2026-04-25T08_37_46.pdf",
+        "Weekly_Sales_Report__2026-04-30T15_42_57.pdf",
+        "Weekly_Sales_Report__2026-04-30T15_45_31.pdf",
+        "Weekly_Sales_Report__2026-04-30T15_47_53.pdf",
+        "Weekly_Sales_Report__2026-05-01T04_50_35.pdf",
+        "Weekly_Sales_Report__2026-05-01T04_50_57.pdf",
+        "Weekly_Sales_Report__2026-05-08T04_50_35.pdf",
+        "Weekly_Sales_Report__2026-05-08T04_50_43.pdf",
+        "Weekly_Sales_Report__2026-05-08T04_50_56.pdf"
+      ],
+      "kpis_scored": [
+        "A"
+      ],
+      "kpis_missing": [
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    }
+  ],
+  "headline": {
+    "mtd_sales": 12796044.69,
+    "mtd_target": 12814305.26,
+    "mtd_pct": -0.14,
+    "debtors_total": 20922618.5,
+    "debtors_90d": 4495542.11,
+    "overdue_60d_pct": 21.49,
+    "above_rb_avg": 9.75,
+    "above_rb_target": 15.0,
+    "yoy_apr_pct": 29.81,
+    "ecom_open_orders": 69
+  },
+  "reps": [
+    {
+      "code": "AC",
+      "name": "Aboo Cassim",
+      "sales": 1626404.3,
+      "target": 1160055.78,
+      "pct_target": 28.67,
+      "yoy": null,
+      "rb_pct": null
+    },
+    {
+      "code": "AP",
+      "name": "Amit Patel",
+      "sales": 1996047.54,
+      "target": 1582503.57,
+      "pct_target": 20.72,
+      "yoy": null,
+      "rb_pct": 8.85
+    },
+    {
+      "code": "BV",
+      "name": "Bhadresh Vallabh",
+      "sales": 4411457.73,
+      "target": 5131146.02,
+      "pct_target": -16.31,
+      "yoy": null,
+      "rb_pct": null
+    },
+    {
+      "code": "NP",
+      "name": "Nikhil Panchal",
+      "sales": 4738186.05,
+      "target": 4940599.89,
+      "pct_target": -4.27,
+      "yoy": null,
+      "rb_pct": 8.82
+    },
+    {
+      "code": "BM",
+      "name": "Byron Minnie",
+      "sales": 23949.07,
+      "target": null,
+      "pct_target": null,
+      "yoy": null,
+      "rb_pct": null
+    }
+  ],
+  "kpi_categories": [
+    {
+      "id": "A",
+      "name": "Sales Growth & Collections",
+      "weight": 30,
+      "status": "scored",
+      "data_available": true,
+      "description": "Must exceed 10% YoY growth. Commission on sales above prior \u00d7 1.10.",
+      "note": "Sales data available from QuickSight. Collections settlement audit still needed."
+    },
+    {
+      "id": "B",
+      "name": "Discount Management",
+      "weight": 20,
+      "status": "missing",
+      "data_available": false,
+      "description": "Average markup above Rock Bottom \u2014 banded: \u226515%=20pts, \u226514%=16, \u226513%=12, \u226512%=8, \u226511%=4, below=0.",
+      "note": "Needs: Zoho CRM export of new and reactivated customers per rep."
+    },
+    {
+      "id": "C",
+      "name": "Customer Development & CRM",
+      "weight": 20,
+      "status": "missing",
+      "data_available": false,
+      "description": "Min 5 new leads created in CRM per month (15/quarter). Hit or Miss.",
+      "note": "Needs: CRM upsell activity log with product, customer, date, evidence."
+    },
+    {
+      "id": "D",
+      "name": "Product Development",
+      "weight": 10,
+      "status": "missing",
+      "data_available": false,
+      "description": "Min 1 upsell/week (4-5/month) of focus products.",
+      "note": "Needs: Credit application confirmed + first invoice + CRM log per new account."
+    },
+    {
+      "id": "E",
+      "name": "New Customer Onboarding",
+      "weight": 10,
+      "status": "missing",
+      "data_available": false,
+      "description": "Min 2 new verified trading customers per month (6/quarter full, 3/quarter half).",
+      "note": "Needs: Attendance lists, training photos, POS compliance evidence per rep."
+    },
+    {
+      "id": "F",
+      "name": "Merchandising",
+      "weight": 10,
+      "status": "missing",
+      "data_available": false,
+      "description": "Merchandising visits \u2014 graded vs 15 visits/rep/month (45/quarter). Training excluded until data feed exists.",
+      "note": "Needs: Attendance lists, training photos, POS compliance evidence per rep."
+    }
+  ],
+  "data_gaps": [
+    {
+      "id": "CRM_export",
+      "label": "Zoho CRM Export",
+      "affects_kpis": [
+        "B",
+        "C",
+        "D"
+      ],
+      "priority": "high",
+      "description": "Monthly Zoho CRM export per rep showing new/reactivated customers, upsell activities, and new account onboarding."
+    },
+    {
+      "id": "collections",
+      "label": "Invoice Settlement Audit",
+      "affects_kpis": [
+        "A"
+      ],
+      "priority": "high",
+      "description": "Per-rep list of which invoices have been settled within 30-60 days. Only settled invoices qualify for KPI A commission."
+    },
+    {
+      "id": "training",
+      "label": "Training Records",
+      "affects_kpis": [
+        "E"
+      ],
+      "priority": "medium",
+      "description": "Attendance lists, photos, and reports for key account trainings. Minimum 1 per key account per month."
+    },
+    {
+      "id": "store_visits",
+      "label": "Store Visit Log",
+      "affects_kpis": [
+        "B"
+      ],
+      "priority": "medium",
+      "description": "Store visit count per rep from Zoho or manual log. QuickSight shows No Data."
+    },
+    {
+      "id": "leads",
+      "label": "Leads Created",
+      "affects_kpis": [
+        "B",
+        "D"
+      ],
+      "priority": "medium",
+      "description": "Leads created per rep from CRM. QuickSight shows No Data."
+    },
+    {
+      "id": "rb_per_rep",
+      "label": "Rock Bottom % Per Rep",
+      "affects_kpis": [],
+      "priority": "low",
+      "description": "Rock bottom % by rep (only AP and NP available). Full per-rep margin data needed."
+    }
+  ],
+  "scoreable_weight_pct": 50,
+  "risk_items": [
+    {
+      "item": "BV -16.3% vs target MTD",
+      "severity": "high"
+    },
+    {
+      "item": "NP -4.3% vs target MTD",
+      "severity": "high"
+    },
+    {
+      "item": "13 product groups trading below rock bottom",
+      "severity": "high"
+    },
+    {
+      "item": "Cassim Tayob customer at -37.14% rock bottom",
+      "severity": "high"
+    },
+    {
+      "item": "21.49% of debtors overdue >60 days (target <10%)",
+      "severity": "high"
+    },
+    {
+      "item": "MTD sales R18.3K below monthly target",
+      "severity": "medium"
+    },
+    {
+      "item": "Rock bottom avg 9.75% vs 15.0% target",
+      "severity": "medium"
+    },
+    {
+      "item": "22 e-commerce orders aged 15+ days",
+      "severity": "medium"
+    }
+  ]
+}

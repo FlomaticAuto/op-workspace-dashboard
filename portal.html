@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="theme-navy">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Reports Portal — Olympic Paints</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
 <style>
-/* ── TOKENS ──────────────────────────────────────────────────────────── */
+/* ── RAW DESIGN TOKENS ─────────────────────────────────────────── */
 :root {
   --_y50:#FEF9E0;--_y100:#FDF0A0;--_y200:#FAE04D;
   --_y400:#F5C400;--_y600:#D4A800;--_y800:#A88000;--_y900:#6A5000;
@@ -18,354 +18,310 @@
   --_g0:#FFFFFF;--_g50:#F7F6F3;--_g100:#E8E7E2;--_g200:#C8C7C0;
   --_g400:#949390;--_g600:#5C5B58;--_g800:#2E2E2C;--_g900:#1A1A18;--_g950:#0D0D0B;
   --_teal:#2D8C7A;--_teal-light:#C8EDE7;--_teal-dark:#1a5c50;
-  --_coral:#E86060;--_terra:#C97A3A;
+  --_terra:#C97A3A;--_terra-light:#F7E0C8;
+  --_coral:#E86060;--_coral-light:#FDDCDC;
+  --_pink:#E87BAD;--_pink-light:#FCE4EF;
+  --_violet:#9B7DBF;--_violet-light:#EDE0F7;
+  --_sage:#7A8C55;--_ink:#5C6B7A;
   --font-display:'Barlow Condensed',sans-serif;
   --font-body:'Barlow',sans-serif;
+  --r-sm:4px;--r-md:8px;--r-lg:12px;--r-xl:16px;--r-pill:50px;
 }
-.theme-light {
-  color-scheme:light;
-  --color-surface-page:var(--_g50);--color-surface-base:var(--_g0);
-  --color-surface-elevated:var(--_g0);--color-surface-sunken:var(--_g100);
-  --color-surface-secondary:var(--_n700);
-  --color-text-primary:var(--_g950);--color-text-secondary:var(--_g600);
-  --color-text-on-navy:var(--_g0);
-  --color-brand-primary:var(--_y400);
-  --color-border-default:var(--_g200);--color-border-subtle:var(--_g100);
-  --shadow-card:0 2px 12px rgba(0,0,0,.07);
-}
-.theme-dark {
-  color-scheme:dark;
-  --color-surface-page:var(--_g950);--color-surface-base:var(--_g900);
-  --color-surface-elevated:var(--_g800);--color-surface-sunken:var(--_g950);
-  --color-surface-secondary:var(--_n700);
-  --color-text-primary:var(--_g100);--color-text-secondary:var(--_g400);
-  --color-text-on-navy:var(--_g0);
-  --color-brand-primary:var(--_y400);
-  --color-border-default:rgba(255,255,255,.10);--color-border-subtle:rgba(255,255,255,.06);
-  --shadow-card:0 2px 12px rgba(0,0,0,.40);
-}
-.theme-brand {
-  color-scheme:light;
-  --color-surface-page:var(--_y400);--color-surface-base:var(--_y200);
-  --color-surface-elevated:var(--_y50);--color-surface-sunken:var(--_y600);
-  --color-surface-secondary:var(--_g950);
-  --color-text-primary:var(--_g950);--color-text-secondary:var(--_y900);
-  --color-text-on-navy:var(--_g0);
-  --color-brand-primary:var(--_g950);
-  --color-border-default:rgba(0,0,0,.14);--color-border-subtle:rgba(0,0,0,.08);
-  --shadow-card:0 2px 12px rgba(0,0,0,.12);
-}
-.theme-navy {
-  color-scheme:dark;
-  --color-surface-page:var(--_n950);--color-surface-base:var(--_n900);
-  --color-surface-elevated:var(--_n700);--color-surface-sunken:var(--_n950);
-  --color-surface-secondary:var(--_n700);
-  --color-text-primary:var(--_g0);--color-text-secondary:var(--_n100);
-  --color-text-on-navy:var(--_g0);
-  --color-brand-primary:var(--_y400);
-  --color-border-default:rgba(107,158,208,.20);--color-border-subtle:rgba(107,158,208,.12);
-  --shadow-card:0 2px 12px rgba(0,0,0,.50);
-}
+.theme-light{color-scheme:light;--color-surface-page:var(--_g50);--color-surface-base:var(--_g0);--color-surface-elevated:var(--_g0);--color-surface-sunken:var(--_g100);--color-surface-overlay:rgba(0,0,0,0.04);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g950);--color-text-secondary:var(--_g600);--color-text-tertiary:var(--_g400);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-brand-hover:var(--_y600);--color-brand-secondary:var(--_n700);--color-brand-accent:var(--_y400);--color-border-subtle:var(--_g100);--color-border-default:var(--_g200);--color-border-strong:var(--_g400);--color-border-brand:var(--_y400);--color-success-bg:#EDF7F5;--color-success-fg:var(--_teal-dark);--color-success-bd:var(--_teal);--color-warning-bg:var(--_y50);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y600);--color-danger-bg:#FEF2F2;--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);--color-info-bg:var(--_n50);--color-info-fg:var(--_n700);--color-info-bd:var(--_n500);--color-neutral-bg:var(--_g100);--color-neutral-fg:var(--_g600);--color-neutral-bd:var(--_g400);--shadow-sm:0 1px 3px rgba(0,0,0,0.08);--shadow-md:0 4px 12px rgba(0,0,0,0.08);--shadow-lg:0 10px 30px rgba(0,0,0,0.10);--shadow-brand:0 4px 16px rgba(245,196,0,0.20);}
+.theme-dark{color-scheme:dark;--color-surface-page:var(--_g950);--color-surface-base:var(--_g900);--color-surface-elevated:var(--_g800);--color-surface-sunken:var(--_g950);--color-surface-overlay:rgba(255,255,255,0.04);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g100);--color-text-secondary:var(--_g400);--color-text-tertiary:var(--_g600);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-brand-hover:var(--_y200);--color-brand-secondary:var(--_n700);--color-brand-accent:var(--_y400);--color-border-subtle:rgba(255,255,255,0.06);--color-border-default:rgba(255,255,255,0.10);--color-border-strong:rgba(255,255,255,0.20);--color-border-brand:var(--_y400);--color-success-bg:rgba(45,140,122,0.12);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,0.30);--color-warning-bg:rgba(245,196,0,0.10);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,0.25);--color-danger-bg:rgba(232,96,96,0.12);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,0.30);--color-info-bg:rgba(26,61,110,0.30);--color-info-fg:var(--_n100);--color-info-bd:rgba(107,158,208,0.30);--color-neutral-bg:rgba(255,255,255,0.05);--color-neutral-fg:var(--_g400);--color-neutral-bd:rgba(255,255,255,0.10);--shadow-sm:0 1px 3px rgba(0,0,0,0.40);--shadow-md:0 4px 12px rgba(0,0,0,0.40);--shadow-lg:0 10px 30px rgba(0,0,0,0.50);--shadow-brand:0 4px 20px rgba(245,196,0,0.15);}
+.theme-brand{color-scheme:light;--color-surface-page:var(--_y400);--color-surface-base:var(--_y200);--color-surface-elevated:var(--_y50);--color-surface-sunken:var(--_y600);--color-surface-overlay:rgba(0,0,0,0.05);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_g950);--color-text-primary:var(--_g950);--color-text-secondary:var(--_y900);--color-text-tertiary:var(--_y800);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_g950);--color-brand-hover:var(--_n700);--color-brand-secondary:var(--_n700);--color-brand-accent:var(--_g950);--color-border-subtle:rgba(0,0,0,0.08);--color-border-default:rgba(0,0,0,0.14);--color-border-strong:rgba(0,0,0,0.25);--color-border-brand:var(--_g950);--color-success-bg:rgba(45,140,122,0.12);--color-success-fg:var(--_teal-dark);--color-success-bd:var(--_teal);--color-warning-bg:rgba(0,0,0,0.08);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y900);--color-danger-bg:rgba(232,96,96,0.12);--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);--color-info-bg:rgba(26,61,110,0.10);--color-info-fg:var(--_n900);--color-info-bd:var(--_n700);--color-neutral-bg:rgba(0,0,0,0.06);--color-neutral-fg:var(--_y900);--color-neutral-bd:rgba(0,0,0,0.15);--shadow-sm:0 1px 3px rgba(0,0,0,0.12);--shadow-md:0 4px 12px rgba(0,0,0,0.14);--shadow-lg:0 10px 30px rgba(0,0,0,0.18);--shadow-brand:0 4px 16px rgba(0,0,0,0.15);}
+.theme-navy{color-scheme:dark;--color-surface-page:var(--_n950);--color-surface-base:var(--_n900);--color-surface-elevated:var(--_n700);--color-surface-sunken:var(--_n950);--color-surface-overlay:rgba(255,255,255,0.04);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g0);--color-text-secondary:var(--_n100);--color-text-tertiary:var(--_n300);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-brand-hover:var(--_y200);--color-brand-secondary:var(--_n500);--color-brand-accent:var(--_y400);--color-border-subtle:rgba(107,158,208,0.12);--color-border-default:rgba(107,158,208,0.20);--color-border-strong:rgba(107,158,208,0.35);--color-border-brand:var(--_y400);--color-success-bg:rgba(45,140,122,0.15);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,0.35);--color-warning-bg:rgba(245,196,0,0.12);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,0.30);--color-danger-bg:rgba(232,96,96,0.14);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,0.35);--color-info-bg:rgba(45,107,168,0.20);--color-info-fg:var(--_n100);--color-info-bd:rgba(107,158,208,0.35);--color-neutral-bg:rgba(255,255,255,0.05);--color-neutral-fg:var(--_n300);--color-neutral-bd:rgba(255,255,255,0.12);--shadow-sm:0 1px 3px rgba(0,0,0,0.50);--shadow-md:0 4px 12px rgba(0,0,0,0.50);--shadow-lg:0 10px 30px rgba(0,0,0,0.60);--shadow-brand:0 4px 20px rgba(245,196,0,0.18);}
 
-/* ── RESET ───────────────────────────────────────────────────────────── */
+/* ── RESET ─────────────────────────────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
 body{font-family:var(--font-body);background:var(--color-surface-page);
-  color:var(--color-text-primary);min-height:100vh}
+  color:var(--color-text-primary);min-height:100dvh;overflow-x:hidden}
 
-/* ── THEME BAR ───────────────────────────────────────────────────────── */
-.theme-bar{display:flex;gap:4px;padding:6px 40px;
-  background:var(--color-surface-secondary);border-bottom:1px solid var(--color-border-subtle)}
-.theme-bar button{background:transparent;border:1px solid transparent;
+/* ── MOBILE APP HEADER ─────────────────────────────────────────── */
+.mob-hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:200;
+  height:56px;padding:0 16px;
+  background:var(--color-surface-secondary);
+  border-bottom:2px solid var(--color-brand-primary);
+  box-shadow:0 4px 16px rgba(0,0,0,.4);
+}
+.mob-hdr-l{display:flex;align-items:center;gap:10px}
+.mob-hdr-title{
+  font-family:var(--font-display);font-size:17px;font-weight:900;
+  text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-on-navy);
+  line-height:1.1
+}
+.mob-hdr-sub{font-size:10px;color:rgba(255,255,255,.45);line-height:1}
+.mob-theme-btn{
+  background:transparent;border:1px solid rgba(255,255,255,.18);
+  color:var(--color-brand-primary);padding:6px 10px;border-radius:var(--r-md);
+  font-family:var(--font-display);font-size:11px;font-weight:700;
+  letter-spacing:.06em;cursor:pointer;transition:all .15s;
+  -webkit-tap-highlight-color:transparent;white-space:nowrap;
+}
+.mob-theme-btn:active{background:rgba(245,196,0,.15)}
+
+/* ── DESKTOP THEME BAR ─────────────────────────────────────────── */
+.theme-bar{
+  display:none;
+  gap:4px;padding:6px 40px;
+  background:var(--color-surface-secondary);border-bottom:1px solid var(--color-border-subtle);
+}
+.theme-bar button{
+  background:transparent;border:1px solid transparent;
   color:var(--color-text-on-navy);opacity:.55;padding:4px 12px;border-radius:4px;
-  font-family:var(--font-body);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s}
+  font-family:var(--font-body);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s;
+}
 .theme-bar button:hover{opacity:1}
 .theme-bar button.active{opacity:1;border-color:var(--color-brand-primary);color:var(--color-brand-primary)}
 
-/* ── HEADER ──────────────────────────────────────────────────────────── */
-.hdr{background:var(--color-surface-secondary);padding:20px 40px;
-  display:flex;align-items:center;justify-content:space-between;
+/* ── DESKTOP HEADER ────────────────────────────────────────────── */
+.hdr{
+  display:none;
+  background:var(--color-surface-secondary);padding:20px 40px;
+  align-items:center;justify-content:space-between;
   border-bottom:2px solid var(--color-brand-primary);
-  box-shadow:0 4px 20px rgba(0,0,0,.4)}
+  box-shadow:0 4px 20px rgba(0,0,0,.4);
+}
 .hdr-l{display:flex;align-items:center;gap:14px}
 .hdr-title{font-family:var(--font-display);font-size:24px;font-weight:900;
   text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-on-navy)}
 .hdr-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px}
 .hdr-meta{font-size:11px;color:rgba(255,255,255,.35);text-align:right}
 
-/* ── TAB BAR ─────────────────────────────────────────────────────────── */
-.tab-bar{background:var(--color-surface-sunken);padding:0 40px;display:flex;gap:2px;
-  border-bottom:1px solid var(--color-border-subtle);overflow-x:auto}
-.tab-btn{background:transparent;border:none;color:var(--color-text-secondary);
+/* ── DESKTOP TAB BAR ───────────────────────────────────────────── */
+.tab-bar{
+  display:none;
+  background:var(--color-surface-sunken);padding:0 40px;
+  gap:2px;border-bottom:1px solid var(--color-border-subtle);overflow-x:auto;
+}
+.tab-btn{
+  background:transparent;border:none;color:var(--color-text-secondary);
   padding:14px 22px;font-family:var(--font-display);font-size:14px;font-weight:700;
   text-transform:uppercase;letter-spacing:.06em;cursor:pointer;
-  border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap}
+  border-bottom:3px solid transparent;transition:all .15s;white-space:nowrap;
+}
 .tab-btn:hover{color:var(--color-text-primary)}
 .tab-btn.active{color:var(--color-brand-primary);border-bottom-color:var(--color-brand-primary)}
 
-/* ── MAIN ────────────────────────────────────────────────────────────── */
-.main{padding:36px 40px;max-width:1400px;margin:0 auto}
-.tab-panel{display:none}.tab-panel.active{display:block}
+/* ── TAB PANELS ────────────────────────────────────────────────── */
+.tab-panel{display:none}
+.tab-panel.active{display:block}
 
-/* ── DEPT INTRO ──────────────────────────────────────────────────────── */
-.dept-intro{margin-bottom:28px;padding:18px 22px;border-radius:10px;
-  background:var(--color-surface-base);border:1px solid var(--color-border-default);
-  display:flex;align-items:center;gap:16px}
-.dept-icon{width:48px;height:48px;border-radius:50%;display:flex;
-  align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.dept-intro-text h2{font-family:var(--font-display);font-size:18px;font-weight:800;
-  text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
-.dept-intro-text p{font-size:13px;color:var(--color-text-secondary);line-height:1.5}
+/* ── MAIN CONTENT AREA ─────────────────────────────────────────── */
+.main{
+  padding:14px 12px;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom));
+}
 
-/* ── REPORT GRID ─────────────────────────────────────────────────────── */
-.report-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
-
-/* ── REPORT CARD ─────────────────────────────────────────────────────── */
-.report-card{background:var(--color-surface-base);border-radius:14px;
-  border:1px solid var(--color-border-default);box-shadow:var(--shadow-card);
-  overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
-.report-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
-
-.card-accent{height:4px}
-
-.card-body{padding:22px;flex:1;display:flex;flex-direction:column;gap:12px}
-.card-dept{display:flex;align-items:center;gap:8px}
-.dept-pill{font-family:var(--font-display);font-size:10px;font-weight:700;
-  text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:20px}
-.live-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;
-  background:rgba(45,140,122,.15);color:#C8EDE7;border:1px solid rgba(45,140,122,.3)}
-
-.card-title{font-family:var(--font-display);font-size:21px;font-weight:900;
-  text-transform:uppercase;letter-spacing:.03em;color:var(--color-text-primary);line-height:1.1}
-
-.card-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6;flex:1}
-
-.workflow-note{background:var(--color-surface-elevated);border:1px solid var(--color-border-subtle);
-  border-left:3px solid #6B9ED0;border-radius:6px;padding:10px 12px;font-size:12px;
-  color:var(--color-text-secondary);line-height:1.55}
-.workflow-note .wn-title{font-family:var(--font-display);font-size:10px;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-primary);margin-bottom:6px}
-.workflow-note ol{margin:0;padding-left:18px}
-.workflow-note li{margin-bottom:3px}
-.workflow-note code{background:rgba(255,255,255,.06);padding:1px 5px;border-radius:3px;
-  font-size:11px;color:var(--color-text-primary)}
-
-.card-tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{font-size:11px;padding:2px 8px;border-radius:4px;
-  background:var(--color-surface-elevated);color:var(--color-text-secondary);
-  border:1px solid var(--color-border-subtle)}
-
-.card-footer{padding:16px 22px;border-top:1px solid var(--color-border-subtle);
-  display:flex;align-items:center;justify-content:space-between;gap:12px}
-.card-meta{font-size:11px;color:var(--color-text-secondary)}
-.card-meta strong{color:var(--color-text-primary)}
-
-.open-btn{display:inline-flex;align-items:center;gap:6px;
-  font-family:var(--font-display);font-size:14px;font-weight:700;text-transform:uppercase;
-  letter-spacing:.06em;padding:9px 20px;border-radius:8px;border:none;cursor:pointer;
-  text-decoration:none;transition:all .15s;white-space:nowrap}
-
-/* ── COLOUR VARIANTS ─────────────────────────────────────────────────── */
-/* Sales — yellow */
-.accent-sales   { background:#F5C400 }
-.pill-sales     { background:rgba(245,196,0,.15);  color:#FAE04D;  border:1px solid rgba(245,196,0,.25) }
-.btn-sales      { background:#F5C400; color:#0D0D0B }
-.btn-sales:hover{ background:#FAE04D }
-.icon-sales     { background:rgba(245,196,0,.15) }
-
-/* HR — teal */
-.accent-hr      { background:#2D8C7A }
-.pill-hr        { background:rgba(45,140,122,.15); color:#C8EDE7;  border:1px solid rgba(45,140,122,.25) }
-.btn-hr         { background:#2D8C7A; color:#fff }
-.btn-hr:hover   { background:#3aad99 }
-.icon-hr        { background:rgba(45,140,122,.15) }
-
-/* Operations — blue */
-.accent-ops     { background:#6B9ED0 }
-.pill-ops       { background:rgba(107,158,208,.15);color:#B8CCE8;  border:1px solid rgba(107,158,208,.25) }
-.btn-ops        { background:#2D6BA8; color:#fff }
-.btn-ops:hover  { background:#3a7fc4 }
-.icon-ops       { background:rgba(107,158,208,.15) }
-
-/* Admin & Tools — violet */
-.accent-admin   { background:#9B7DBF }
-.pill-admin     { background:rgba(155,125,191,.15);color:#EDE0F7;  border:1px solid rgba(155,125,191,.25) }
-.btn-admin      { background:#9B7DBF; color:#fff }
-.btn-admin:hover{ background:#b094d4 }
-.icon-admin     { background:rgba(155,125,191,.15) }
-
-/* ── ALL REPORTS DIVIDER ─────────────────────────────────────────────── */
-.section-label{font-family:var(--font-display);font-size:11px;font-weight:700;
-  text-transform:uppercase;letter-spacing:1.5px;color:var(--color-brand-primary);
-  margin:32px 0 14px;display:flex;align-items:center;gap:10px}
+/* ── SECTION LABELS ────────────────────────────────────────────── */
+.section-label{
+  font-family:var(--font-display);font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.14em;color:var(--color-text-tertiary);
+  display:flex;align-items:center;gap:10px;margin:20px 0 10px;
+}
+.section-label:first-child{margin-top:0}
 .section-label::after{content:'';flex:1;height:1px;background:var(--color-border-default)}
 
-/* ── FOOTER ──────────────────────────────────────────────────────────── */
-footer{text-align:center;padding:24px 40px;font-size:11px;
-  color:var(--color-text-secondary);border-top:1px solid var(--color-border-subtle);
-  margin-top:48px;line-height:1.7}
+/* ── DEPT INTRO ────────────────────────────────────────────────── */
+.dept-intro{
+  background:var(--color-surface-base);border:1px solid var(--color-border-default);
+  border-radius:var(--r-lg);padding:14px 16px;margin-bottom:16px;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.dept-intro-text h2{
+  font-family:var(--font-display);font-size:18px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;
+}
+.dept-intro-text p{font-size:12.5px;color:var(--color-text-secondary);line-height:1.55}
 
-@media(max-width:860px){
-  .main,.hdr,.tab-bar,.theme-bar{padding-left:14px;padding-right:14px}
-  .report-grid{grid-template-columns:1fr}
-  .hdr{flex-direction:column;align-items:flex-start;gap:8px;padding-top:14px;padding-bottom:14px}
-  .hdr-meta{text-align:left}
-  .hdr-title{font-size:18px}
-  .hdr-sub{font-size:11px}
-  .tab-btn{padding:11px 14px;font-size:12px}
-  .main{padding-top:22px;padding-bottom:22px}
-  .dept-intro{padding:14px;gap:12px}
-  .card-footer{flex-direction:column;align-items:stretch;gap:10px}
-  .open-btn{justify-content:center}
+/* ── REPORT GRID ────────────────────────────────────────────────── */
+.report-grid{
+  display:grid;grid-template-columns:1fr;gap:8px;
 }
 
-/* ── MERCHANDISING — terra ───────────────────────────────────────── */
-.accent-merch   { background:#C97A3A }
-.pill-merch     { background:rgba(201,122,58,.15);color:#F7E0C8; border:1px solid rgba(201,122,58,.25) }
-.btn-merch      { background:#C97A3A; color:#fff }
-.btn-merch:hover{ background:#d9894a }
-.icon-merch     { background:rgba(201,122,58,.15) }
-
-/* ── ARCHITECTURE TAB ────────────────────────────────────────────── */
-.accent-arch{background:#9B7DBF}
-.pill-arch{background:rgba(155,125,191,.15);color:#EDE0F7;border:1px solid rgba(155,125,191,.25)}
-.btn-arch{background:#9B7DBF;color:#fff}
-.btn-arch:hover{background:#b094d6}
-.icon-arch{background:rgba(155,125,191,.15)}
-
-.arch-intro{background:var(--color-surface-base);border:1px solid rgba(155,125,191,.35);
-  border-radius:12px;padding:22px 28px;margin-bottom:24px;border-left:5px solid #9B7DBF}
-.arch-intro-title{font-family:var(--font-display);font-size:20px;font-weight:800;
-  text-transform:uppercase;letter-spacing:.04em;color:#EDE0F7;margin-bottom:6px}
-.arch-intro p{font-size:13px;color:var(--color-text-secondary);line-height:1.6;max-width:780px}
-
-.arch-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-bottom:32px}
-.arch-stat{background:var(--color-surface-base);border:1px solid var(--color-border-default);
-  border-radius:10px;padding:14px 16px;text-align:center}
-.arch-stat-num{font-family:var(--font-display);font-size:34px;font-weight:900;color:#9B7DBF;line-height:1.1}
-.arch-stat-lbl{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;
-  color:var(--color-text-secondary);margin-top:4px}
-
-.pipeline-flow{display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;
-  gap:0;margin-bottom:8px;align-items:start}
-.pf-col{display:flex;flex-direction:column;gap:6px}
-.pf-header{font-family:var(--font-display);font-size:10px;font-weight:700;
-  text-transform:uppercase;letter-spacing:.12em;color:var(--color-brand-primary);
-  border-bottom:2px solid var(--color-brand-primary);padding-bottom:6px;
-  margin-bottom:6px;text-align:center}
-.pf-node{padding:9px 13px;border-radius:8px;font-size:12px;
-  color:var(--color-text-primary);border:1px solid var(--color-border-default)}
-.pf-node-src{background:rgba(107,158,208,.1);border-color:rgba(107,158,208,.3)}
-.pf-node-script{background:rgba(245,196,0,.07);border-color:rgba(245,196,0,.3)}
-.pf-node-out{background:rgba(45,140,122,.1);border-color:rgba(45,140,122,.3)}
-.pf-arrow{display:flex;align-items:flex-start;justify-content:center;
-  font-size:22px;color:var(--color-brand-primary);padding-top:46px}
-.pf-node-name{font-weight:600;margin-bottom:1px}
-.pf-node-sub{font-size:11px;color:var(--color-text-secondary)}
-
-.arch-table-wrap{background:var(--color-surface-base);border:1px solid var(--color-border-default);
-  border-radius:12px;overflow:hidden;margin-bottom:4px}
-.arch-table{width:100%;border-collapse:collapse;font-size:12.5px}
-.arch-table th{font-family:var(--font-display);font-size:10px;font-weight:700;
-  text-transform:uppercase;letter-spacing:.1em;color:var(--color-brand-primary);
-  padding:11px 14px;border-bottom:2px solid var(--color-border-default);
-  background:var(--color-surface-sunken);text-align:left}
-.arch-table td{padding:11px 14px;border-bottom:1px solid var(--color-border-subtle);
-  color:var(--color-text-primary);vertical-align:top;line-height:1.5}
-.arch-table tr:last-child td{border-bottom:none}
-.arch-table tr:hover td{background:var(--color-surface-sunken)}
-.code-chip{font-family:'Courier New',monospace;font-size:11px;color:#B8CCE8;
-  background:rgba(107,158,208,.12);border:1px solid rgba(107,158,208,.2);
-  padding:2px 6px;border-radius:4px;white-space:nowrap;display:inline-block}
-.freq-badge{font-size:10px;padding:2px 9px;border-radius:10px;font-weight:600;display:inline-block}
-.freq-daily{background:rgba(45,140,122,.15);color:#C8EDE7;border:1px solid rgba(45,140,122,.3)}
-.freq-weekly{background:rgba(245,196,0,.12);color:#FAE04D;border:1px solid rgba(245,196,0,.25)}
-.freq-manual{background:rgba(201,122,58,.15);color:#F7E0C8;border:1px solid rgba(201,122,58,.3)}
-.freq-perrun{background:rgba(107,158,208,.15);color:#B8CCE8;border:1px solid rgba(107,158,208,.3)}
-.freq-quarterly{background:rgba(155,125,191,.15);color:#EDE0F7;border:1px solid rgba(155,125,191,.3)}
-
-.script-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px;margin-bottom:4px}
-.script-card{background:var(--color-surface-base);border:1px solid var(--color-border-default);
-  border-radius:10px;padding:18px 20px;border-top:3px solid #9B7DBF;
-  display:flex;flex-direction:column;gap:8px}
-.script-name{font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:#FAE04D}
-.script-location{font-size:11px;color:var(--color-text-secondary)}
-.script-desc{font-size:12.5px;color:var(--color-text-secondary);line-height:1.55}
-.script-io{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
-.io-label{font-family:var(--font-display);font-size:9px;font-weight:700;text-transform:uppercase;
-  letter-spacing:.1em;color:var(--color-text-secondary);margin-bottom:3px}
-.io-item{font-size:11px;color:var(--color-text-primary);padding:2px 0;
-  border-bottom:1px dotted var(--color-border-subtle);line-height:1.5}
-.io-item:last-child{border-bottom:none}
-
-.kpi-weight{font-family:var(--font-display);font-size:22px;font-weight:900;color:#F5C400;line-height:1}
-
-.agent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:4px}
-.agent-card{background:var(--color-surface-base);border:1px solid var(--color-border-default);
-  border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
-.agent-name-tag{font-family:var(--font-display);font-size:24px;font-weight:900;
-  text-transform:uppercase;letter-spacing:.04em;color:var(--color-brand-primary);line-height:1}
-.agent-role-title{font-size:12px;font-weight:600;color:var(--color-text-primary)}
-.agent-role-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
-.agent-model-tag{font-size:10px;padding:2px 8px;border-radius:10px;
-  background:rgba(155,125,191,.15);color:#EDE0F7;border:1px solid rgba(155,125,191,.25);
-  font-weight:600;display:inline-block;width:fit-content;margin-top:2px}
-
-.entity-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:4px}
-.entity-card{background:var(--color-surface-base);border:1px solid var(--color-border-default);
-  border-radius:10px;padding:18px 22px}
-.entity-name{font-family:var(--font-display);font-size:20px;font-weight:900;
-  text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;color:var(--color-text-primary)}
-.entity-stat-row{display:flex;gap:24px;margin-bottom:12px}
-.entity-stat strong{font-family:var(--font-display);font-size:26px;font-weight:900;
-  color:var(--color-brand-primary);display:block;line-height:1.1}
-.entity-stat span{font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.06em}
-.entity-rule{font-size:12px;color:var(--color-text-secondary);padding:6px 10px;
-  background:var(--color-surface-sunken);border-radius:6px;border:1px solid var(--color-border-subtle)}
-
-.rep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px;margin-bottom:4px}
-.rep-card{background:var(--color-surface-base);border:1px solid var(--color-border-default);
-  border-radius:8px;padding:12px 14px;text-align:center}
-.rep-code{font-family:var(--font-display);font-size:30px;font-weight:900;
-  color:var(--color-brand-primary);line-height:1}
-.rep-name{font-size:12px;color:var(--color-text-primary);font-weight:500;margin-top:3px}
-
-.para-tree{background:var(--color-surface-base);border:1px solid var(--color-border-default);
-  border-radius:10px;padding:20px 26px;font-family:'Courier New',monospace;
-  font-size:12.5px;line-height:1.85;color:var(--color-text-primary);overflow-x:auto;
-  white-space:pre;margin-bottom:4px}
-.para-tree .comment{color:var(--color-text-secondary)}
-
-.notif-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:4px}
-.notif-card{background:var(--color-surface-base);border:1px solid rgba(245,196,0,.3);
-  border-radius:10px;padding:18px 22px;border-left:4px solid var(--color-brand-primary)}
-.notif-card h4{font-family:var(--font-display);font-size:14px;font-weight:800;
-  text-transform:uppercase;letter-spacing:.06em;color:var(--color-brand-primary);margin-bottom:8px}
-.notif-card p,.notif-card li{font-size:12.5px;color:var(--color-text-secondary);line-height:1.6}
-.notif-card ul{padding-left:16px;margin-top:4px}
-
-@media(max-width:860px){
-  .pipeline-flow{grid-template-columns:1fr;gap:4px}
-  .pf-arrow{display:none}
-  .script-grid,.agent-grid{grid-template-columns:1fr}
-  .script-io{grid-template-columns:1fr}
-  .arch-stats{grid-template-columns:repeat(3,1fr)}
+/* ── REPORT CARD ────────────────────────────────────────────────── */
+.report-card{
+  background:var(--color-surface-base);
+  border:1px solid var(--color-border-default);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .15s;
 }
-.regen-btn{background:transparent;border:1px solid var(--color-brand-primary);color:var(--color-brand-primary);padding:6px 14px;border-radius:var(--r-md);font-family:var(--font-body);font-size:12px;font-weight:600;cursor:pointer;margin-left:8px;transition:all .15s}
+.report-card:hover{box-shadow:var(--shadow-md)}
+
+.card-accent{height:3px;flex-shrink:0}
+.card-body{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-dept{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.card-title{
+  font-family:var(--font-display);font-size:16px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.03em;color:var(--color-text-primary);
+  line-height:1.2;
+}
+.card-desc{
+  font-size:12.5px;color:var(--color-text-secondary);line-height:1.55;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.card-tags{display:none;flex-wrap:wrap;gap:4px;margin-top:4px}
+.tag{
+  font-size:10px;padding:2px 8px;border-radius:var(--r-pill);
+  background:var(--color-neutral-bg);color:var(--color-neutral-fg);
+  border:1px solid var(--color-neutral-bd);font-weight:500;
+}
+.card-footer{
+  padding:10px 14px;border-top:1px solid var(--color-border-subtle);
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  background:var(--color-surface-sunken);flex-wrap:wrap;
+}
+.card-meta{font-size:11px;color:var(--color-text-tertiary);flex:1;min-width:0}
+.card-meta strong{color:var(--color-text-secondary)}
+.card-actions{display:flex;align-items:center;gap:8px}
+
+/* ── DEPT PILLS ─────────────────────────────────────────────────── */
+.dept-pill{font-size:10px;padding:2px 8px;border-radius:var(--r-pill);font-weight:600;border:1px solid transparent}
+.live-badge{font-size:10px;color:var(--color-success-fg);font-weight:600;letter-spacing:.02em}
+
+/* ── OPEN BUTTON ────────────────────────────────────────────────── */
+.open-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:9px 16px;border-radius:var(--r-md);
+  font-family:var(--font-body);font-size:12px;font-weight:600;
+  text-decoration:none;cursor:pointer;transition:all .15s;
+  white-space:nowrap;-webkit-tap-highlight-color:transparent;
+  min-height:36px;
+}
+
+/* ── REGEN BUTTON ───────────────────────────────────────────────── */
+.regen-btn{
+  background:transparent;border:1px solid var(--color-brand-primary);
+  color:var(--color-brand-primary);padding:7px 12px;border-radius:var(--r-md);
+  font-family:var(--font-body);font-size:11px;font-weight:600;cursor:pointer;
+  transition:all .15s;min-height:36px;-webkit-tap-highlight-color:transparent;
+}
 .regen-btn:hover:not(:disabled){background:var(--color-brand-primary);color:var(--color-surface-page)}
 .regen-btn:disabled{opacity:.4;cursor:not-allowed}
-.regen-btn.is-running{background:var(--color-brand-primary);color:var(--color-surface-page);}
-.regen-btn.is-running::after{content:'';display:inline-block;width:8px;height:8px;border:1.5px solid currentColor;border-top-color:transparent;border-radius:50%;margin-left:6px;animation:spin 1s linear infinite;vertical-align:middle;}
+.regen-btn.is-running{background:var(--color-brand-primary);color:var(--color-surface-page)}
+.regen-btn.is-running::after{content:'';display:inline-block;width:8px;height:8px;border:1.5px solid currentColor;border-top-color:transparent;border-radius:50%;margin-left:6px;animation:spin .9s linear infinite;vertical-align:middle}
 @keyframes spin{to{transform:rotate(360deg)}}
 .regen-btn.is-success{background:#2D8C7A;border-color:#2D8C7A;color:#fff}
 .regen-btn.is-error{background:#E86060;border-color:#E86060;color:#fff}
-.health-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#5C5B58;margin-right:6px;vertical-align:middle}
+.health-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--color-neutral-fg);margin-right:5px;vertical-align:middle}
 .health-dot.is-up{background:#2D8C7A;box-shadow:0 0 0 2px rgba(45,140,122,.25)}
-.card-actions{display:flex;align-items:center;gap:8px}
+
+/* ── WORKFLOW NOTE ──────────────────────────────────────────────── */
+.workflow-note{
+  background:var(--color-surface-sunken);border:1px solid var(--color-border-subtle);
+  border-radius:var(--r-md);padding:10px 12px;margin-top:6px;
+}
+.wn-title{font-family:var(--font-display);font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--color-brand-primary);margin-bottom:6px}
+.workflow-note ol{padding-left:16px;font-size:11.5px;color:var(--color-text-secondary);line-height:1.65}
+.workflow-note code{font-family:'Courier New',monospace;font-size:10.5px;
+  background:rgba(107,158,208,.12);border:1px solid rgba(107,158,208,.2);
+  padding:1px 5px;border-radius:3px;color:var(--color-info-fg)}
+
+/* ── DEPARTMENT ACCENT COLOURS ──────────────────────────────────── */
+.accent-sales{background:var(--_y400)}
+.pill-sales{background:rgba(245,196,0,.12);color:var(--_y200);border-color:rgba(245,196,0,.25)}
+.btn-sales{background:var(--_y400);color:var(--_g950)}
+.btn-sales:hover{background:var(--_y200)}
+.icon-sales{background:rgba(245,196,0,.12)}
+
+.accent-hr{background:var(--_teal)}
+.pill-hr{background:rgba(45,140,122,.12);color:var(--_teal-light);border-color:rgba(45,140,122,.25)}
+.btn-hr{background:var(--_teal);color:#fff}
+.btn-hr:hover{background:var(--_teal-dark)}
+.icon-hr{background:rgba(45,140,122,.12)}
+
+.accent-ops{background:var(--_n300)}
+.pill-ops{background:rgba(107,158,208,.12);color:var(--_n100);border-color:rgba(107,158,208,.25)}
+.btn-ops{background:var(--_n500);color:#fff}
+.btn-ops:hover{background:var(--_n700)}
+.icon-ops{background:rgba(107,158,208,.12)}
+
+.accent-admin{background:var(--_violet)}
+.pill-admin{background:rgba(155,125,191,.12);color:var(--_violet-light);border-color:rgba(155,125,191,.25)}
+.btn-admin{background:var(--_violet);color:#fff}
+.btn-admin:hover{background:#b094d6}
+.icon-admin{background:rgba(155,125,191,.12)}
+
+.accent-merch{background:var(--_terra)}
+.pill-merch{background:rgba(201,122,58,.12);color:var(--_terra-light);border-color:rgba(201,122,58,.25)}
+.btn-merch{background:var(--_terra);color:#fff}
+.btn-merch:hover{background:#d9894a}
+.icon-merch{background:rgba(201,122,58,.12)}
+
+/* ── BOTTOM NAV (mobile only) ──────────────────────────────────── */
+.bot-nav{
+  display:flex;
+  position:fixed;bottom:0;left:0;right:0;z-index:300;
+  height:56px;
+  padding-bottom:env(safe-area-inset-bottom);
+  background:var(--color-surface-secondary);
+  border-top:1px solid var(--color-border-default);
+  box-shadow:0 -4px 16px rgba(0,0,0,.3);
+}
+.bot-btn{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;background:transparent;border:none;
+  color:rgba(255,255,255,.45);
+  font-family:var(--font-body);font-size:9px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.04em;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;transition:color .12s;
+  padding:0 0 env(safe-area-inset-bottom);
+}
+.bot-btn.active{color:var(--color-brand-primary)}
+.bot-btn svg{width:22px;height:22px}
+
+/* ── FOOTER ─────────────────────────────────────────────────────── */
+footer{
+  display:none;
+  text-align:center;padding:24px 40px;font-size:11px;
+  color:var(--color-text-secondary);border-top:1px solid var(--color-border-subtle);
+  margin-top:48px;line-height:1.7;
+}
+
+/* ── DESKTOP OVERRIDES (769px+) ────────────────────────────────── */
+@media(min-width:769px){
+  .mob-hdr{display:none}
+  .theme-bar{display:flex}
+  .hdr{display:flex}
+  .tab-bar{display:flex}
+  .bot-nav{display:none}
+  footer{display:block}
+
+  .main{padding:24px 40px;padding-bottom:48px}
+  .report-grid{grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+  .card-tags{display:flex}
+  .card-title{font-size:16px}
+  .card-desc{-webkit-line-clamp:unset;overflow:visible;display:block}
+  .card-footer{flex-wrap:nowrap}
+  .dept-intro{padding:18px 24px}
+  .dept-intro-text h2{font-size:22px}
+}
 </style>
 </head>
 <body>
 
-<!-- THEME BAR -->
+<!-- ── MOBILE HEADER ──────────────────────────────────────────── -->
+<div class="mob-hdr">
+  <div class="mob-hdr-l">
+    <div style="width:34px;height:34px;border-radius:50%;overflow:hidden;flex-shrink:0">
+      <img src="https://flomaticauto.github.io/olympic-paints-clocking/logo.jpg" alt="Olympic Paints" width="34" height="34" style="display:block;width:100%;height:100%;object-fit:cover">
+    </div>
+    <div>
+      <div class="mob-hdr-title">Reports Portal</div>
+      <div class="mob-hdr-sub">Olympic Paints · All Dashboards</div>
+    </div>
+  </div>
+  <button class="mob-theme-btn" onclick="cycleTheme(this)" id="mob-theme-lbl">NAVY</button>
+</div>
+
+<!-- ── DESKTOP THEME BAR ──────────────────────────────────────── -->
 <div class="theme-bar">
   <button onclick="olyTheme('theme-light',this)">Light</button>
   <button onclick="olyTheme('theme-dark',this)">Dark</button>
@@ -373,35 +329,32 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
   <button onclick="olyTheme('theme-navy',this)" class="active">Navy</button>
 </div>
 
-<!-- HEADER -->
+<!-- ── DESKTOP HEADER ─────────────────────────────────────────── -->
 <div class="hdr">
   <div class="hdr-l">
-    <div style="width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;">
-      <img src="https://flomaticauto.github.io/olympic-paints-clocking/logo.jpg" alt="Olympic Paints" width="48" height="48" style="display:block;width:100%;height:100%;object-fit:cover;">
+    <div style="width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0">
+      <img src="https://flomaticauto.github.io/olympic-paints-clocking/logo.jpg" alt="Olympic Paints" width="48" height="48" style="display:block;width:100%;height:100%;object-fit:cover">
     </div>
     <div>
       <div class="hdr-title">Reports Portal</div>
       <div class="hdr-sub">All live dashboards and reports</div>
     </div>
   </div>
-  <div class="hdr-meta">
-    Olympic Paints · Limpopo, SA<br>
-    Powered by FlomaticAuto
-  </div>
+  <div class="hdr-meta">Olympic Paints · Limpopo, SA<br>Powered by FlomaticAuto</div>
 </div>
 
-<!-- TAB BAR -->
+<!-- ── DESKTOP TAB BAR ────────────────────────────────────────── -->
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="showTab('all')">All Reports</button>
-  <button class="tab-btn"        onclick="showTab('sales')">Sales</button>
-  <button class="tab-btn"        onclick="showTab('pulse')">Sales Reps Pulse</button>
-  <button class="tab-btn"        onclick="showTab('hr')">HR &amp; People</button>
-  <button class="tab-btn"        onclick="showTab('ops')">Operations</button>
-  <button class="tab-btn"        onclick="showTab('admin')">Admin &amp; Tools</button>
-  <button class="tab-btn"        onclick="showTab('merch')">Merchandising</button>
+  <button class="tab-btn active" data-tab="all"   onclick="showTab('all',this)">All Reports</button>
+  <button class="tab-btn"        data-tab="sales"  onclick="showTab('sales',this)">Sales</button>
+  <button class="tab-btn"        data-tab="pulse"  onclick="showTab('pulse',this)">Sales Reps PULSE</button>
+  <button class="tab-btn"        data-tab="hr"     onclick="showTab('hr',this)">HR &amp; People</button>
+  <button class="tab-btn"        data-tab="ops"    onclick="showTab('ops',this)">Operations</button>
+  <button class="tab-btn"        data-tab="admin"  onclick="showTab('admin',this)">Admin &amp; Tools</button>
+  <button class="tab-btn"        data-tab="merch"  onclick="showTab('merch',this)">Merchandising</button>
 </div>
 
-<!-- ══════════════════════════════════════════════════ TAB: ALL REPORTS -->
+<!-- ══════════════════════════════════════════ TAB: ALL REPORTS ═══ -->
 <div id="panel-all" class="tab-panel active">
 <div class="main">
 
@@ -411,113 +364,83 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Sales Performance Dashboard</div>
-        <div class="card-desc">Full sales analytics platform covering year-on-year revenue comparison, monthly net sales, rep performance, product volume by category, debtor age analysis, rock-bottom price compliance, and sales activity tracking (store visits, leads, new accounts).</div>
-        <div class="card-tags">
-          <span class="tag">YOY Revenue</span>
-          <span class="tag">Rep Performance</span>
-          <span class="tag">Debtors</span>
-          <span class="tag">Price Analysis</span>
-          <span class="tag">Product Volume</span>
-        </div>
+        <div class="card-desc">Full sales analytics platform covering year-on-year revenue, monthly net sales, rep performance, product volume by category, debtor age analysis, rock-bottom price compliance, and sales activity tracking.</div>
+        <div class="card-tags"><span class="tag">YOY Revenue</span><span class="tag">Rep Performance</span><span class="tag">Debtors</span><span class="tag">Price Analysis</span><span class="tag">Product Volume</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Daily · Auto-generated</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report ↗</a>
+        <a class="open-btn btn-sales" href="/sales/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · E-Commerce</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales</span><span class="live-badge">● Live</span></div>
+        <div class="card-title">Store Health Score</div>
+        <div class="card-desc">Scores every active account across five metrics: purchase frequency, rep visit cadence, basket category coverage, SKU depth, and rand value trend. Classifies 353 stores into Growing / Narrow / At-Risk / Dormant tiers.</div>
+        <div class="card-tags"><span class="tag">353 Accounts</span><span class="tag">5 Metrics</span><span class="tag">Tier Classification</span><span class="tag">All 5 Reps</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta"><strong>Source:</strong> Sales parquet · Zoho visits</div>
+        <a class="open-btn btn-sales" href="/store-health/" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="card-accent accent-sales"></div>
+      <div class="card-body">
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales · E-Commerce</span><span class="live-badge">● Live</span></div>
         <div class="card-title">E-Commerce Dashboard</div>
-        <div class="card-desc">WooCommerce sales performance dashboard. Tracks service level (days from order to dispatch) against the 5-day target, overdue orders, sales by province, order status mix, daily order volume trend, and the open dispatch queue. Mirrors the QuickSight WooCommerce tiles.</div>
-        <div class="card-tags">
-          <span class="tag">Service Level</span>
-          <span class="tag">Overdue Orders</span>
-          <span class="tag">Provinces</span>
-          <span class="tag">Order Status</span>
-          <span class="tag">Dispatch Queue</span>
-          <span class="tag">Sales Per Product</span>
-        </div>
+        <div class="card-desc">WooCommerce sales performance. Tracks service level against the 5-day target, overdue orders, sales by province, order status mix, daily order volume trend, and open dispatch queue.</div>
+        <div class="card-tags"><span class="tag">Service Level</span><span class="tag">Overdue Orders</span><span class="tag">Provinces</span><span class="tag">Dispatch Queue</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Woocommerce_Transactions.csv · Manual export</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" rel="noopener">Open Report ↗</a>
+        <div class="card-meta"><strong>Source:</strong> Woocommerce_Transactions.csv</div>
+        <a class="open-btn btn-sales" href="/ecommerce/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Revenue Velocity</div>
-        <div class="card-desc">Per-account growth trajectory analysis. Measures whether each store is buying faster or slower this year versus last year — not just whether revenue is up or down. Classifies all accounts into five categories: Rocket, Growing, Stable, Cooling, Falling.</div>
-        <div class="card-tags">
-          <span class="tag">Growth Trajectory</span>
-          <span class="tag">Per-Account</span>
-          <span class="tag">Acceleration</span>
-          <span class="tag">5 Categories</span>
-        </div>
+        <div class="card-desc">Per-account growth trajectory analysis. Measures whether each store is buying faster or slower than last year. Classifies all accounts into five categories: Rocket, Growing, Stable, Cooling, Falling.</div>
+        <div class="card-tags"><span class="tag">Growth Trajectory</span><span class="tag">Per-Account</span><span class="tag">Acceleration</span><span class="tag">5 Categories</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet · Auto-rebuilt daily</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-velocity/" target="_blank" rel="noopener">Open Report ↗</a>
+        <div class="card-meta"><strong>Source:</strong> Sales parquet · Auto-rebuilt daily</div>
+        <a class="open-btn btn-sales" href="/velocity/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Fallen-Off Accounts</div>
-        <div class="card-desc">Identifies accounts that were active buyers in a prior period but have gone quiet — revenue has dropped significantly or stopped entirely. Helps prioritise win-back calls and flag dormant relationships before they become permanent losses.</div>
-        <div class="card-tags">
-          <span class="tag">Win-Back</span>
-          <span class="tag">Dormant Accounts</span>
-          <span class="tag">Churn Risk</span>
-          <span class="tag">Per-Account</span>
-        </div>
+        <div class="card-desc">Identifies accounts that were active buyers in a prior period but have gone quiet. Helps prioritise win-back calls and flag dormant relationships before they become permanent losses.</div>
+        <div class="card-tags"><span class="tag">Win-Back</span><span class="tag">Dormant Accounts</span><span class="tag">Churn Risk</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet · Auto-rebuilt daily</div>
-        <a class="open-btn btn-sales" href="http://localhost:8766/" target="_blank" rel="noopener">Open Report ↗</a>
+        <div class="card-meta"><strong>Source:</strong> Sales parquet · Auto-rebuilt daily</div>
+        <a class="open-btn btn-sales" href="/fallen-off/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · Geo</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Geo</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Territory Geo Map</div>
-        <div class="card-desc">Interactive map of all GPS-located accounts. Bubbles are sized by 12-month NET sales and coloured by assigned rep territory. Border colour shows store health grade (A–F) based on visit recency — A (visited ≤30 days) through F (dormant, no visits or trade in 90 days). A second view overlays check-in heat density to reveal coverage gaps and cold pockets.</div>
-        <div class="card-tags">
-          <span class="tag">Store Locations</span>
-          <span class="tag">Rep Territories</span>
-          <span class="tag">Health Grades</span>
-          <span class="tag">Visit Coverage</span>
-          <span class="tag">GPS</span>
-        </div>
+        <div class="card-desc">Interactive map of all GPS-located accounts. Bubbles sized by 12-month NET sales, coloured by rep territory. Border colour shows store health grade (A–F) based on visit recency.</div>
+        <div class="card-tags"><span class="tag">Store Locations</span><span class="tag">Rep Territories</span><span class="tag">Health Grades</span><span class="tag">GPS</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Zoho Meetings check-ins · Sales_Invoices_All.parquet</div>
+        <div class="card-meta"><strong>Source:</strong> Zoho check-ins · Sales parquet</div>
         <a class="open-btn btn-sales" href="https://olympic-paints-geo-map.vercel.app/" target="_blank" rel="noopener">Open Map ↗</a>
       </div>
     </div>
@@ -530,43 +453,28 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · PULSE</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales · PULSE</span><span class="live-badge">● Live</span></div>
         <div class="card-title">PULSE Live Leaderboard</div>
-        <div class="card-desc">Live ranking of all 5 sales reps for the current month. Sorted by % of monthly target (NET of VAT). Top 2 in green, bottom 2 in red. Refreshes weekday mornings at 06:30.</div>
-        <div class="card-tags">
-          <span class="tag">% Target</span>
-          <span class="tag">Rank</span>
-          <span class="tag">Plan Adherence</span>
-          <span class="tag">Ack Streak</span>
-        </div>
+        <div class="card-desc">Live ranking of all 5 reps for the current month. Sorted by % of monthly target (NET of VAT). Top 2 green, bottom 2 red. Includes plan adherence and ack streak. Refreshes weekday mornings 06:30.</div>
+        <div class="card-tags"><span class="tag">% Target</span><span class="tag">Rank</span><span class="tag">Plan Adherence</span><span class="tag">Ack Streak</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Mon–Fri 06:30 · Auto</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard ↗</a>
+        <a class="open-btn btn-sales" href="https://olympic-paints-pulse-web.vercel.app/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
 
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · PULSE</span>
-          <span class="live-badge">● Bi-weekly</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales · PULSE</span><span class="live-badge">● Bi-weekly</span></div>
         <div class="card-title">PULSE Bi-Weekly Scorecard</div>
-        <div class="card-desc">14-day performance roll-up emailed to all reps + Quintus, archived publicly. Exec summary, rep ranking, new-stores prospected, product-dev conversations. Builds alt-Mondays 07:00.</div>
-        <div class="card-tags">
-          <span class="tag">14-day Window</span>
-          <span class="tag">Rep Ranking</span>
-          <span class="tag">New Stores</span>
-        </div>
+        <div class="card-desc">14-day performance roll-up emailed to all reps + management. Exec summary, rep ranking, new-stores prospected, product-dev conversations. Builds alternate Mondays 07:00.</div>
+        <div class="card-tags"><span class="tag">14-day Window</span><span class="tag">Rep Ranking</span><span class="tag">New Stores</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Alt-Mondays 07:00</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard ↗</a>
+        <a class="open-btn btn-sales" href="https://olympic-paints-pulse-web.vercel.app/scorecard/latest" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
 
@@ -574,804 +482,584 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 
   <div class="section-label">Rep KPI Portals</div>
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Aboo Cassim — AC</div>
-        <div class="card-desc">Personal KPI portal. FY2026 YTD: R2.39M (+3.6% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
-        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
+        <div class="card-desc">Personal KPI portal. FY2026 YTD: R2.39M (+3.6% YoY). Monthly revenue vs FY2025 baseline, rock-bottom pricing, CRM store visits, debtors, and top accounts.</div>
+        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <a class="open-btn btn-sales" href="/kpi/ac/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Amit Patel — AP</div>
-        <div class="card-desc">Personal KPI portal. FY2026 YTD: R3.06M (+83.7% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
-        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
+        <div class="card-desc">Personal KPI portal. FY2026 YTD: R3.06M (+83.7% YoY). Monthly revenue vs FY2025 baseline, rock-bottom pricing, CRM store visits, debtors, and top accounts.</div>
+        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <a class="open-btn btn-sales" href="/kpi/ap/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Bhadresh Vallabh — BV</div>
-        <div class="card-desc">Personal KPI portal. FY2026 YTD: R9.47M (+24.1% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
-        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
+        <div class="card-desc">Personal KPI portal. FY2026 YTD: R9.47M (+24.1% YoY). Monthly revenue vs FY2025 baseline, rock-bottom pricing, CRM store visits, debtors, and top accounts.</div>
+        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <a class="open-btn btn-sales" href="/kpi/bv/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Nikhil Panchal — NP</div>
-        <div class="card-desc">Personal KPI portal. FY2026 YTD: R7.80M (+8.1% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
-        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
+        <div class="card-desc">Personal KPI portal. FY2026 YTD: R7.80M (+8.1% YoY). Monthly revenue vs FY2025 baseline, rock-bottom pricing, CRM store visits, debtors, and top accounts.</div>
+        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <a class="open-btn btn-sales" href="/kpi/np/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Byron Minnie — BM</div>
-        <div class="card-desc">Personal KPI portal. FY2026 YTD: R74.0K (new rep, no prior baseline). Covers monthly revenue, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
-        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
+        <div class="card-desc">Personal KPI portal. FY2026 YTD: R74.0K (new rep, no prior baseline). Monthly revenue, rock-bottom pricing, CRM store visits, debtors, and top accounts.</div>
+        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <a class="open-btn btn-sales" href="/kpi/bm/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
   </div>
 
   <div class="section-label">Merchandising</div>
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-merch"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-merch">Merchandising</span>
-          <span class="live-badge">● On-demand</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-merch">Merchandising</span><span class="live-badge">● On-demand</span></div>
         <div class="card-title">Merchandising Impact Report</div>
-        <div class="card-desc">Quantifies sales-growth correlation with formal merchandising at Kit Kat and Easy Build group stores. YoY same-month comparison, per-store breakdown, narrative auto-prose. Built on demand from the portal.</div>
-        <div class="card-tags">
-          <span class="tag">YoY Same-Month</span>
-          <span class="tag">Per-Store</span>
-          <span class="tag">Kit Kat</span>
-          <span class="tag">Easy Build</span>
-        </div>
+        <div class="card-desc">Quantifies revenue-growth correlation with formal in-store merchandising at Kit Kat (5 accounts) and Easy Build (7 accounts). YoY same-month comparison, per-store breakdown, auto-prose.</div>
+        <div class="card-tags"><span class="tag">YoY Same-Month</span><span class="tag">Kit Kat</span><span class="tag">Easy Build</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><span class="health-dot" data-build="merchandising"></span><span class="health-text" data-build="merchandising">Service offline</span></div>
         <div class="card-actions">
-          <a class="open-btn btn-merch" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report ↗</a>
-          <button class="regen-btn" data-build="merchandising">Regenerate ↻</button>
+          <a class="open-btn btn-merch" href="/merchandising/" target="_blank" rel="noopener">Open ↗</a>
+          <button class="regen-btn" data-build="merchandising">Regen ↻</button>
         </div>
       </div>
     </div>
-
   </div>
 
   <div class="section-label">HR &amp; People</div>
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-hr"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-hr">HR &amp; People</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-hr">HR &amp; People</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Clocking Dashboard</div>
-        <div class="card-desc">YTD attendance and hours dashboard for all 102 employees across Olympic Paints (74) and Primeserve (28). Tracks daily attendance, total hours worked, missed clock-outs, department breakdowns, and weekly hours trends. 45-minute break deduction applied per shift.</div>
-        <div class="card-tags">
-          <span class="tag">Attendance</span>
-          <span class="tag">Hours Worked</span>
-          <span class="tag">Missed Clock-Outs</span>
-          <span class="tag">Olympic + Primeserve</span>
-          <span class="tag">Departments</span>
-        </div>
+        <div class="card-desc">YTD attendance and hours for all 102 employees across Olympic Paints (74) and Primeserve (28). Tracks daily attendance, total hours, missed clock-outs, department breakdowns, and weekly trends. 45-minute break deduction applied per shift.</div>
+        <div class="card-tags"><span class="tag">Attendance</span><span class="tag">Hours Worked</span><span class="tag">Missed Clock-Outs</span><span class="tag">Olympic + Primeserve</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> On new Advius export</div>
-        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report ↗</a>
+        <a class="open-btn btn-hr" href="/clocking/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
   </div>
 
   <div class="section-label">Admin &amp; Tools</div>
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-admin"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-admin">Admin · Tools</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-admin">Admin · Tools</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Form Renderer</div>
-        <div class="card-desc">Public-facing dynamic form portal hosted on GitHub Pages. Renders any form schema stored in Supabase — no code changes required to deploy a new form. Supports text, select, radio, checkbox, date, email, and textarea fields. Validates required fields and submits responses directly to the database.</div>
-        <div class="card-tags">
-          <span class="tag">Forms</span>
-          <span class="tag">GitHub Pages</span>
-          <span class="tag">Supabase</span>
-          <span class="tag">No-Code Deploy</span>
-        </div>
+        <div class="card-desc">Public-facing dynamic form portal. Renders any form schema stored in Supabase — no code changes required to deploy a new form. Validates required fields and submits responses directly to the database.</div>
+        <div class="card-tags"><span class="tag">Forms</span><span class="tag">Supabase</span><span class="tag">No-Code Deploy</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Platform:</strong> Static HTML · GitHub Pages</div>
-        <a class="open-btn btn-admin" href="https://flomaticauto.github.io/forms/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <a class="open-btn btn-admin" href="https://flomaticauto.github.io/forms/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-admin"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-admin">Admin · Tools</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-admin">Admin · Tools</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Forms Admin Dashboard</div>
-        <div class="card-desc">Internal admin panel for the Olympic Paints form management system. Create new forms via API or curl, view all active forms with submission counts, read and export responses to CSV, and archive forms when no longer needed. Protected by password login — Vercel-hosted, Supabase-backed.</div>
-        <div class="card-tags">
-          <span class="tag">Forms Admin</span>
-          <span class="tag">Submissions</span>
-          <span class="tag">CSV Export</span>
-          <span class="tag">Vercel</span>
-        </div>
+        <div class="card-desc">Internal admin panel. Create new forms, view all active forms with submission counts, read and export responses to CSV, and archive forms. Protected by password — Vercel-hosted, Supabase-backed.</div>
+        <div class="card-tags"><span class="tag">Forms Admin</span><span class="tag">Submissions</span><span class="tag">CSV Export</span><span class="tag">Vercel</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Platform:</strong> Next.js 15 · Vercel</div>
-        <a class="open-btn btn-admin" href="https://olympic-paints-forms-admin.vercel.app/admin/forms" target="_blank" rel="noopener">Open Admin ↗</a>
+        <a class="open-btn btn-admin" href="https://olympic-paints-forms-admin.vercel.app/admin/forms" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
   </div>
 
   <div class="section-label">Operations</div>
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-ops"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-ops">Operations</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-ops">Operations</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Vehicle In-Out Report</div>
-        <div class="card-desc">Fleet trip analytics covering all delivery vehicles. Tracks routes, driver assignments, trip distances, departure and arrival times, and per-vehicle utilisation across the Limpopo delivery network. Built from weekly Multi-Vehicles Trip Report exports.</div>
-        <div class="card-tags">
-          <span class="tag">Fleet Tracking</span>
-          <span class="tag">Trip Analytics</span>
-          <span class="tag">Driver Utilisation</span>
-          <span class="tag">Routes</span>
-        </div>
+        <div class="card-desc">Fleet trip analytics covering all delivery vehicles. Tracks routes, driver assignments, trip distances, departure and arrival times, and per-vehicle utilisation across the Limpopo delivery network.</div>
+        <div class="card-tags"><span class="tag">Fleet Tracking</span><span class="tag">Trip Analytics</span><span class="tag">Driver Utilisation</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly trip report upload</div>
-        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" rel="noopener">Open Report ↗</a>
+        <a class="open-btn btn-ops" href="/vehicles/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-ops"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-ops">Operations</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-ops">Operations</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Returns Manager</div>
-        <div class="card-desc">Interactive returns processing dashboard for Olympic Paints. Log, track, and manage customer product returns — capturing return reasons, quantities, customer details, and resolution status. Built on Streamlit for real-time data entry and reporting.</div>
+        <div class="card-desc">Interactive returns processing dashboard. Log, track, and manage customer product returns — capturing return reasons, quantities, customer details, and resolution status.</div>
         <div class="workflow-note">
           <div class="wn-title">How to ingest a new scan</div>
           <ol>
             <li>Project folder: <code>1.Projects\Returns KPI System\</code></li>
-            <li>Start the watcher once: double-click <code>Start Returns Watcher.bat</code> (keep the console open).</li>
-            <li>Drop the scanned Truck Offload PDF into <code>Inbox\</code>.</li>
-            <li>Watcher OCRs via Claude Opus, writes rows to <code>Returns_Database.xlsx</code>, moves the PDF to <code>Inbox\Archived\</code> on success (or <code>Inbox\Failed\</code> on error), and pings Telegram with the result.</li>
-            <li>Open the dashboard (<code>Start Returns Dashboard.bat</code>) to review / correct flagged rows.</li>
+            <li>Double-click <code>Start Returns Watcher.bat</code> (keep console open).</li>
+            <li>Drop scanned PDF into <code>Inbox\</code> — watcher OCRs via Claude Opus.</li>
+            <li>Open dashboard (<code>Start Returns Dashboard.bat</code>) to review rows.</li>
           </ol>
         </div>
-        <div class="card-tags">
-          <span class="tag">Returns Processing</span>
-          <span class="tag">Customer Returns</span>
-          <span class="tag">Stock Returns</span>
-          <span class="tag">Resolution Tracking</span>
-        </div>
+        <div class="card-tags"><span class="tag">Returns Processing</span><span class="tag">Customer Returns</span><span class="tag">Resolution Tracking</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Platform:</strong> Streamlit · Live app</div>
-        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open App ↗</a>
+        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
   </div>
 
 </div>
 </div><!-- /all -->
 
-<!-- ══════════════════════════════════════════════════ TAB: SALES -->
+<!-- ══════════════════════════════════════════════════ TAB: SALES ═══ -->
 <div id="panel-sales" class="tab-panel">
 <div class="main">
-
   <div class="dept-intro">
-    <div class="dept-icon icon-sales" style="font-size:24px">📊</div>
+    <div style="font-size:24px">📊</div>
     <div class="dept-intro-text">
       <h2 style="color:#F5C400">Sales Reports</h2>
-      <p>Live and weekly reports tracking Olympic Paints sales performance — revenue against target, rep scorecards, product mix, debtor book, and price compliance. All figures are net of credit notes.</p>
+      <p>Live and weekly reports tracking Olympic Paints sales performance — revenue vs target, rep scorecards, product mix, debtor book, price compliance and activity. All figures net of credit notes.</p>
     </div>
   </div>
-
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Sales Performance Dashboard</div>
-        <div class="card-desc">The primary sales analysis platform. Eight tabs cover year-on-year revenue, FY2025 full year, FY2026 YTD, monthly deep-dive, product category volume, debtor age analysis, rock-bottom price compliance, and rep activity (store visits, leads, new accounts added).</div>
-        <div class="card-tags">
-          <span class="tag">YOY Revenue</span>
-          <span class="tag">FY2025 · FY2026</span>
-          <span class="tag">Monthly View</span>
-          <span class="tag">Product Volume (kL)</span>
-          <span class="tag">Debtors</span>
-          <span class="tag">Price Analysis</span>
-          <span class="tag">Activity</span>
-        </div>
+        <div class="card-desc">The primary sales analysis platform. Eight tabs: year-on-year revenue, FY2025 full year, FY2026 YTD, monthly deep-dive, product category volume, debtor age analysis, rock-bottom price compliance, and rep activity.</div>
+        <div class="card-tags"><span class="tag">YOY Revenue</span><span class="tag">FY2025 · FY2026</span><span class="tag">Monthly View</span><span class="tag">Product Volume</span><span class="tag">Debtors</span><span class="tag">Activity</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet · Auto-rebuilt daily</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_blank" rel="noopener">Open Report ↗</a>
+        <a class="open-btn btn-sales" href="/sales/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales</span>
-          <span class="live-badge">&#9679; Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Store Health Score</div>
-        <div class="card-desc">Scores every active account across five metrics: purchase frequency, rep visit cadence, basket category coverage, SKU depth, and rand value trend. Classifies all 353 stores into four tiers &mdash; Growing, Narrow, At-Risk, Dormant &mdash; with full per-store drill-down.</div>
-        <div class="card-tags">
-          <span class="tag">353 Accounts</span>
-          <span class="tag">5 Metrics</span>
-          <span class="tag">Tier Classification</span>
-          <span class="tag">All 5 Reps</span>
-        </div>
+        <div class="card-desc">Scores every active account across five metrics: purchase frequency, rep visit cadence, basket category coverage, SKU depth, and rand value trend. Classifies all 353 stores into four tiers — Growing, Narrow, At-Risk, Dormant.</div>
+        <div class="card-tags"><span class="tag">353 Accounts</span><span class="tag">5 Metrics</span><span class="tag">Tier Classification</span><span class="tag">All 5 Reps</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet &middot; Zoho visits &middot; On-demand</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-store-health/" target="_blank" rel="noopener">Open Report &nearr;</a>
+        <div class="card-meta"><strong>Source:</strong> Sales parquet · Zoho visits · On-demand</div>
+        <a class="open-btn btn-sales" href="/store-health/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · E-Commerce</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales · E-Commerce</span><span class="live-badge">● Live</span></div>
         <div class="card-title">E-Commerce Dashboard</div>
-        <div class="card-desc">WooCommerce sales performance dashboard. Tracks service level (days from order to dispatch) against the 5-day target, overdue orders, sales by province, order status mix, daily order volume trend, and the open dispatch queue. Mirrors the QuickSight WooCommerce tiles.</div>
-        <div class="card-tags">
-          <span class="tag">Service Level</span>
-          <span class="tag">Overdue Orders</span>
-          <span class="tag">Provinces</span>
-          <span class="tag">Order Status</span>
-          <span class="tag">Dispatch Queue</span>
-          <span class="tag">Sales Per Product</span>
-        </div>
+        <div class="card-desc">WooCommerce sales performance. Tracks service level against the 5-day target, overdue orders, sales by province, order status mix, daily order volume trend, and the open dispatch queue.</div>
+        <div class="card-tags"><span class="tag">Service Level</span><span class="tag">Overdue Orders</span><span class="tag">Provinces</span><span class="tag">Order Status</span><span class="tag">Dispatch Queue</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Source:</strong> Woocommerce_Transactions.csv · Manual export</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-ecommerce/" target="_blank" rel="noopener">Open Report ↗</a>
+        <a class="open-btn btn-sales" href="/ecommerce/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Revenue Velocity</div>
-        <div class="card-desc">Per-account growth trajectory analysis. Measures whether each store is buying faster or slower this year versus last year — not just whether revenue is up or down. Classifies all accounts into five categories: Rocket, Growing, Stable, Cooling, Falling. Filtered by rep. Accounts need ≥ R10 000 revenue in the comparison window.</div>
-        <div class="card-tags">
-          <span class="tag">Growth Trajectory</span>
-          <span class="tag">Per-Account</span>
-          <span class="tag">Acceleration</span>
-          <span class="tag">5 Categories</span>
-          <span class="tag">All 5 Reps</span>
-        </div>
+        <div class="card-desc">Per-account growth trajectory analysis. Measures whether each store is buying faster or slower than last year. Classifies accounts into five categories: Rocket, Growing, Stable, Cooling, Falling. Accounts need ≥ R10,000 revenue in the comparison window.</div>
+        <div class="card-tags"><span class="tag">Growth Trajectory</span><span class="tag">Per-Account</span><span class="tag">Acceleration</span><span class="tag">5 Categories</span><span class="tag">All 5 Reps</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet · Auto-rebuilt daily</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-velocity/" target="_blank" rel="noopener">Open Report ↗</a>
+        <div class="card-meta"><strong>Source:</strong> Sales parquet · Auto-rebuilt daily</div>
+        <a class="open-btn btn-sales" href="/velocity/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Fallen-Off Accounts</div>
-        <div class="card-desc">Identifies accounts that were active buyers in a prior period but have gone quiet — revenue has dropped significantly or stopped entirely. Helps prioritise win-back calls and flag dormant relationships before they become permanent losses.</div>
-        <div class="card-tags">
-          <span class="tag">Win-Back</span>
-          <span class="tag">Dormant Accounts</span>
-          <span class="tag">Churn Risk</span>
-          <span class="tag">Per-Account</span>
-        </div>
+        <div class="card-desc">Identifies accounts that were active buyers in a prior period but have gone quiet. Helps prioritise win-back calls and flag dormant relationships before they become permanent losses.</div>
+        <div class="card-tags"><span class="tag">Win-Back</span><span class="tag">Dormant Accounts</span><span class="tag">Churn Risk</span><span class="tag">Per-Account</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet · Auto-rebuilt daily</div>
-        <a class="open-btn btn-sales" href="http://localhost:8766/" target="_blank" rel="noopener">Open Report ↗</a>
+        <div class="card-meta"><strong>Source:</strong> Sales parquet · Auto-rebuilt daily</div>
+        <a class="open-btn btn-sales" href="/fallen-off/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · Geo</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales · Geo</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Territory Geo Map</div>
-        <div class="card-desc">Interactive map of all GPS-located accounts. Bubbles are sized by 12-month NET sales and coloured by assigned rep territory. Border colour shows store health grade (A–F) based on visit recency — A (visited ≤30 days) through F (dormant, no visits or trade in 90 days). A second view overlays check-in heat density to reveal coverage gaps and cold pockets.</div>
-        <div class="card-tags">
-          <span class="tag">Store Locations</span>
-          <span class="tag">Rep Territories</span>
-          <span class="tag">Health Grades</span>
-          <span class="tag">Visit Coverage</span>
-          <span class="tag">GPS</span>
-        </div>
+        <div class="card-desc">Interactive map of all GPS-located accounts. Bubbles sized by 12-month NET sales, coloured by rep territory. Border colour shows store health grade (A–F) based on visit recency.</div>
+        <div class="card-tags"><span class="tag">Store Locations</span><span class="tag">Rep Territories</span><span class="tag">Health Grades</span><span class="tag">Visit Coverage</span><span class="tag">GPS</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Zoho Meetings check-ins · Sales_Invoices_All.parquet</div>
+        <div class="card-meta"><strong>Source:</strong> Zoho check-ins · Sales parquet</div>
         <a class="open-btn btn-sales" href="https://olympic-paints-geo-map.vercel.app/" target="_blank" rel="noopener">Open Map ↗</a>
       </div>
     </div>
-
   </div>
 
   <div class="section-label">Rep KPI Portals</div>
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Aboo Cassim — AC</div>
-        <div class="card-desc">Personal KPI portal. FY2026 YTD: R2.39M (+3.6% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
-        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
+        <div class="card-desc">FY2026 YTD: R2.39M (+3.6% YoY). Monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors, and top accounts.</div>
+        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ac/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <a class="open-btn btn-sales" href="/kpi/ac/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Amit Patel — AP</div>
-        <div class="card-desc">Personal KPI portal. FY2026 YTD: R3.06M (+83.7% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
-        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
+        <div class="card-desc">FY2026 YTD: R3.06M (+83.7% YoY). Monthly revenue vs FY2025 baseline, rock-bottom pricing, CRM store visits, debtors, and top accounts.</div>
+        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-ap/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <a class="open-btn btn-sales" href="/kpi/ap/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Bhadresh Vallabh — BV</div>
-        <div class="card-desc">Personal KPI portal. FY2026 YTD: R9.47M (+24.1% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
-        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
+        <div class="card-desc">FY2026 YTD: R9.47M (+24.1% YoY). Monthly revenue vs FY2025 baseline, rock-bottom pricing, CRM store visits, debtors, and top accounts.</div>
+        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bv/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <a class="open-btn btn-sales" href="/kpi/bv/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Nikhil Panchal — NP</div>
-        <div class="card-desc">Personal KPI portal. FY2026 YTD: R7.80M (+8.1% YoY). Covers monthly revenue vs FY2025 baseline, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
-        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
+        <div class="card-desc">FY2026 YTD: R7.80M (+8.1% YoY). Monthly revenue vs FY2025 baseline, rock-bottom pricing, CRM store visits, debtors, and top accounts.</div>
+        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-np/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <a class="open-btn btn-sales" href="/kpi/np/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
         <div class="card-dept"><span class="dept-pill pill-sales">Sales · Rep</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Byron Minnie — BM</div>
-        <div class="card-desc">Personal KPI portal. FY2026 YTD: R74.0K (new rep, no prior baseline). Covers monthly revenue, rock-bottom pricing compliance, CRM store visits, debtors position, and top accounts by revenue.</div>
-        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span><span class="tag">Accounts</span></div>
+        <div class="card-desc">FY2026 YTD: R74.0K (new rep, no prior baseline). Monthly revenue, rock-bottom pricing, CRM store visits, debtors, and top accounts.</div>
+        <div class="card-tags"><span class="tag">Sales</span><span class="tag">Pricing</span><span class="tag">Activity</span><span class="tag">Debtors</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly · Manual entry</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-kpi-bm/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <a class="open-btn btn-sales" href="/kpi/bm/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
   </div>
 </div>
 </div><!-- /sales -->
 
-<!-- ══════════════════════════════════════════════════ TAB: PULSE -->
+<!-- ══════════════════════════════════════════════════ TAB: PULSE ═══ -->
 <div id="panel-pulse" class="tab-panel">
 <div class="main">
-
   <div class="dept-intro">
-    <div class="dept-icon icon-sales" style="font-size:24px">🟡</div>
+    <div style="font-size:24px">⚡</div>
     <div class="dept-intro-text">
       <h2 style="color:#F5C400">Sales Reps PULSE</h2>
-      <p>Daily push system for the 5 sales reps (AC, AP, BV, NP, BM). PULSE drives daily ack discipline, tracks plan vs actual against the 4-week customer cycle, escalates silence to Quintus, and publishes a live performance leaderboard plus a bi-weekly scorecard. Targets are computed each month as the prior-year same-month actual + 30%, NET of VAT.</p>
+      <p>Daily push system for the 5 reps (AC, AP, BV, NP, BM). Drives daily ack discipline, tracks plan vs actual against the 4-week cycle, and publishes a live leaderboard plus bi-weekly scorecard. Targets: prior-year same-month + 30%, NET of VAT.</p>
     </div>
   </div>
-
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · PULSE</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales · PULSE</span><span class="live-badge">● Live</span></div>
         <div class="card-title">PULSE Live Leaderboard</div>
-        <div class="card-desc">Live ranking of all 5 sales reps for the current month. Sorted by % of monthly target (NET of VAT). Top 2 highlighted green, bottom 2 red. Includes plan adherence and ack streak per rep. Refreshes automatically every weekday morning at 06:30.</div>
-        <div class="card-tags">
-          <span class="tag">% Target</span>
-          <span class="tag">Rank</span>
-          <span class="tag">Plan Adherence</span>
-          <span class="tag">Ack Streak</span>
-        </div>
+        <div class="card-desc">Live ranking of all 5 reps for the current month. Sorted by % of monthly target (NET of VAT). Top 2 green, bottom 2 red. Includes plan adherence and ack streak. Refreshes weekday mornings 06:30.</div>
+        <div class="card-tags"><span class="tag">% Target</span><span class="tag">Rank</span><span class="tag">Plan Adherence</span><span class="tag">Ack Streak</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> Sales_Invoices_All.parquet + JotForm acks · Refreshes Mon–Fri 06:30</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/" target="_blank" rel="noopener">Open Leaderboard ↗</a>
+        <div class="card-meta"><strong>Source:</strong> Sales parquet + JotForm acks · Mon–Fri 06:30</div>
+        <a class="open-btn btn-sales" href="https://olympic-paints-pulse-web.vercel.app/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-sales"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-sales">Sales · PULSE</span>
-          <span class="live-badge">● Bi-weekly</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-sales">Sales · PULSE</span><span class="live-badge">● Bi-weekly</span></div>
         <div class="card-title">PULSE Bi-Weekly Scorecard</div>
-        <div class="card-desc">Fortnightly performance roll-up emailed to all 5 reps and Quintus, also archived publicly. Executive summary, full rep ranking with green/red highlights, new-stores prospected, product-dev conversations. Builds every alternate Monday at 07:00. Click below for the latest issue.</div>
-        <div class="card-tags">
-          <span class="tag">14-day Window</span>
-          <span class="tag">Rep Ranking</span>
-          <span class="tag">New Stores</span>
-          <span class="tag">Prod-Dev</span>
-        </div>
+        <div class="card-desc">Fortnightly performance roll-up emailed to all 5 reps and management. Exec summary, rep ranking, new-stores prospected, product-dev conversations. Builds alternate Mondays 07:00.</div>
+        <div class="card-tags"><span class="tag">14-day Window</span><span class="tag">Rep Ranking</span><span class="tag">New Stores</span><span class="tag">Prod-Dev</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Source:</strong> 14-day rollup of sales + JotForm acks · Builds alt-Mondays 07:00</div>
-        <a class="open-btn btn-sales" href="https://flomaticauto.github.io/olympic-paints-pulse-leaderboard/scorecard/" target="_blank" rel="noopener">Open Latest Scorecard ↗</a>
+        <div class="card-meta"><strong>Source:</strong> 14-day rollup · Alt-Mondays 07:00</div>
+        <a class="open-btn btn-sales" href="https://olympic-paints-pulse-web.vercel.app/scorecard/latest" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
   </div>
 </div>
 </div><!-- /pulse -->
 
-<!-- ══════════════════════════════════════════════════ TAB: HR -->
+<!-- ════════════════════════════════════════════════════ TAB: HR ═══ -->
 <div id="panel-hr" class="tab-panel">
 <div class="main">
-
   <div class="dept-intro">
-    <div class="dept-icon icon-hr" style="font-size:24px">👥</div>
+    <div style="font-size:24px">👥</div>
     <div class="dept-intro-text">
       <h2 style="color:#2D8C7A">HR &amp; People Reports</h2>
-      <p>Workforce attendance and hours reporting for Olympic Paints (74 employees) and Primeserve (28 employees, SD prefix). Data flows from the Advius biometric system.</p>
+      <p>Workforce attendance and hours reporting for Olympic Paints (74 employees) and Primeserve (28 employees, SD prefix). Data from the Advius biometric system.</p>
     </div>
   </div>
-
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-hr"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-hr">HR &amp; People</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-hr">HR &amp; People</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Clocking Dashboard</div>
-        <div class="card-desc">Year-to-date attendance dashboard for all 102 employees. Six tabs provide an overview, yesterday's missed clock-outs, daily attendance heatmap, department breakdown, weekly hours trend, and a full missing clock-out log. A 45-minute break deduction is applied to every worked shift. Employer split: Olympic Paints vs Primeserve (SD-prefix employees).</div>
-        <div class="card-tags">
-          <span class="tag">YTD Hours</span>
-          <span class="tag">Daily Attendance</span>
-          <span class="tag">Missed Clock-Outs</span>
-          <span class="tag">Department View</span>
-          <span class="tag">Weekly Hours</span>
-          <span class="tag">Olympic + Primeserve</span>
-        </div>
+        <div class="card-desc">YTD attendance dashboard for all 102 employees. Six tabs: overview, yesterday's missed clock-outs, daily attendance heatmap, department breakdown, weekly hours trend, and full missing clock-out log. 45-minute break deduction per shift. Olympic Paints vs Primeserve split throughout.</div>
+        <div class="card-tags"><span class="tag">YTD Hours</span><span class="tag">Daily Attendance</span><span class="tag">Missed Clock-Outs</span><span class="tag">Department View</span><span class="tag">Olympic + Primeserve</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Source:</strong> Advius biometric export · Updated per run</div>
-        <a class="open-btn btn-hr" href="https://flomaticauto.github.io/olympic-paints-clocking/" target="_blank" rel="noopener">Open Report ↗</a>
+        <a class="open-btn btn-hr" href="/clocking/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
   </div>
 </div>
 </div><!-- /hr -->
 
-<!-- ══════════════════════════════════════════════════ TAB: OPERATIONS -->
+<!-- ══════════════════════════════════════════════ TAB: OPERATIONS ═══ -->
 <div id="panel-ops" class="tab-panel">
 <div class="main">
-
   <div class="dept-intro">
-    <div class="dept-icon icon-ops" style="font-size:24px">⚙️</div>
+    <div style="font-size:24px">⚙️</div>
     <div class="dept-intro-text">
       <h2 style="color:#6B9ED0">Operations Reports</h2>
-      <p>Fleet and logistics reports for Olympic Paints operations — vehicle utilisation, trip analytics, and delivery network performance across the Limpopo region.</p>
+      <p>Fleet and logistics reports for Olympic Paints — vehicle utilisation, trip analytics, and delivery network performance across the Limpopo region.</p>
     </div>
   </div>
-
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-ops"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-ops">Operations</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-ops">Operations</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Vehicle In-Out Report</div>
-        <div class="card-desc">Fleet trip analytics covering all delivery vehicles. Tracks routes, driver assignments, trip distances, departure and arrival times, and per-vehicle utilisation across the Limpopo delivery network. Built from weekly Multi-Vehicles Trip Report exports.</div>
-        <div class="card-tags">
-          <span class="tag">Fleet Tracking</span>
-          <span class="tag">Trip Analytics</span>
-          <span class="tag">Driver Utilisation</span>
-          <span class="tag">Routes</span>
-        </div>
+        <div class="card-desc">Fleet trip analytics covering all delivery vehicles. Routes, driver assignments, trip distances, departure/arrival times, and per-vehicle utilisation across the Limpopo network.</div>
+        <div class="card-tags"><span class="tag">Fleet Tracking</span><span class="tag">Trip Analytics</span><span class="tag">Driver Utilisation</span><span class="tag">Routes</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Updated:</strong> Weekly trip report upload</div>
-        <a class="open-btn btn-ops" href="https://flomaticauto.github.io/olympic-paints-vehicles/" target="_blank" rel="noopener">Open Report ↗</a>
+        <a class="open-btn btn-ops" href="/vehicles/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-ops"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-ops">Operations</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-ops">Operations</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Returns Manager</div>
-        <div class="card-desc">Interactive returns processing dashboard for Olympic Paints. Log, track, and manage customer product returns — capturing return reasons, quantities, customer details, and resolution status. Built on Streamlit for real-time data entry and reporting.</div>
+        <div class="card-desc">Interactive returns processing dashboard. Log, track, and manage customer product returns — capturing return reasons, quantities, customer details, and resolution status.</div>
         <div class="workflow-note">
           <div class="wn-title">How to ingest a new scan</div>
           <ol>
-            <li>Project folder: <code>1.Projects\Returns KPI System\</code></li>
-            <li>Start the watcher once: double-click <code>Start Returns Watcher.bat</code> (keep the console open).</li>
-            <li>Drop the scanned Truck Offload PDF into <code>Inbox\</code>.</li>
-            <li>Watcher OCRs via Claude Opus, writes rows to <code>Returns_Database.xlsx</code>, moves the PDF to <code>Inbox\Archived\</code> on success (or <code>Inbox\Failed\</code> on error), and pings Telegram with the result.</li>
-            <li>Open the dashboard (<code>Start Returns Dashboard.bat</code>) to review / correct flagged rows.</li>
+            <li>Project: <code>1.Projects\Returns KPI System\</code></li>
+            <li>Double-click <code>Start Returns Watcher.bat</code> (keep console open).</li>
+            <li>Drop scanned Truck Offload PDF into <code>Inbox\</code>.</li>
+            <li>Open dashboard (<code>Start Returns Dashboard.bat</code>) to review.</li>
           </ol>
         </div>
-        <div class="card-tags">
-          <span class="tag">Returns Processing</span>
-          <span class="tag">Customer Returns</span>
-          <span class="tag">Stock Returns</span>
-          <span class="tag">Resolution Tracking</span>
-        </div>
+        <div class="card-tags"><span class="tag">Returns</span><span class="tag">Customer Returns</span><span class="tag">Resolution Tracking</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Platform:</strong> Streamlit · Live app</div>
-        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open App ↗</a>
+        <a class="open-btn btn-ops" href="https://olympic-returns-manager.streamlit.app/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
   </div>
 </div>
 </div><!-- /ops -->
 
-
-<!-- ══════════════════════════════════════════════ TAB: ADMIN & TOOLS -->
+<!-- ══════════════════════════════════════════ TAB: ADMIN &amp; TOOLS ═══ -->
 <div id="panel-admin" class="tab-panel">
 <div class="main">
-
   <div class="dept-intro">
-    <div class="dept-icon icon-admin" style="font-size:24px">🛠️</div>
+    <div style="font-size:24px">🛠️</div>
     <div class="dept-intro-text">
       <h2 style="color:#9B7DBF">Admin &amp; Tools</h2>
-      <p>Internal tooling for Olympic Paints operations — form management, data collection, and administrative dashboards. All tools are password-protected where applicable.</p>
+      <p>Internal tooling — form management, data collection, and administrative dashboards. Password-protected where applicable.</p>
     </div>
   </div>
-
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-admin"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-admin">Admin · Tools</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-admin">Admin · Tools</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Form Renderer</div>
-        <div class="card-desc">Public-facing dynamic form portal hosted on GitHub Pages. Renders any form schema stored in Supabase — no code changes required to deploy a new form. Supports text, select, radio, checkbox, date, email, and textarea fields. Validates required fields and submits responses directly to the database. Share the link with anyone; the form is accessible without login.</div>
-        <div class="card-tags">
-          <span class="tag">Forms</span>
-          <span class="tag">GitHub Pages</span>
-          <span class="tag">Supabase</span>
-          <span class="tag">No-Code Deploy</span>
-          <span class="tag">Public Access</span>
-        </div>
+        <div class="card-desc">Public-facing dynamic form portal. Renders any form schema from Supabase — no code changes required. Validates required fields and submits responses directly to the database. Share the link with anyone.</div>
+        <div class="card-tags"><span class="tag">Forms</span><span class="tag">Supabase</span><span class="tag">No-Code Deploy</span><span class="tag">Public Access</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Platform:</strong> Static HTML · GitHub Pages · No build step</div>
-        <a class="open-btn btn-admin" href="https://flomaticauto.github.io/forms/" target="_blank" rel="noopener">Open Portal ↗</a>
+        <div class="card-meta"><strong>Platform:</strong> Static HTML · GitHub Pages</div>
+        <a class="open-btn btn-admin" href="https://flomaticauto.github.io/forms/" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-admin"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-admin">Admin · Tools</span>
-          <span class="live-badge">● Live</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-admin">Admin · Tools</span><span class="live-badge">● Live</span></div>
         <div class="card-title">Forms Admin Dashboard</div>
-        <div class="card-desc">Internal admin panel for the Olympic Paints form management system. Create new forms via API or curl, view all active forms with submission counts, read and export responses to CSV, and archive forms when no longer needed. Auto-archives expired forms daily. Protected by password — service role Supabase client runs server-side only, credentials never exposed to the browser.</div>
-        <div class="card-tags">
-          <span class="tag">Forms Admin</span>
-          <span class="tag">Submissions</span>
-          <span class="tag">CSV Export</span>
-          <span class="tag">Vercel</span>
-          <span class="tag">Next.js 15</span>
-        </div>
+        <div class="card-desc">Internal admin panel. Create new forms, view active forms with submission counts, read and export responses to CSV, and archive forms. Service-role Supabase client runs server-side only.</div>
+        <div class="card-tags"><span class="tag">Forms Admin</span><span class="tag">Submissions</span><span class="tag">CSV Export</span><span class="tag">Next.js 15</span></div>
       </div>
       <div class="card-footer">
-        <div class="card-meta"><strong>Platform:</strong> Next.js 15 App Router · Vercel · Supabase</div>
-        <a class="open-btn btn-admin" href="https://olympic-paints-forms-admin.vercel.app/admin/forms" target="_blank" rel="noopener">Open Admin ↗</a>
+        <div class="card-meta"><strong>Platform:</strong> Next.js 15 · Vercel · Supabase</div>
+        <a class="open-btn btn-admin" href="https://olympic-paints-forms-admin.vercel.app/admin/forms" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
-
   </div>
 </div>
 </div><!-- /admin -->
 
-<!-- ══════════════════════════════════════════ TAB: MERCHANDISING -->
+<!-- ══════════════════════════════════════════ TAB: MERCHANDISING ═══ -->
 <div id="panel-merch" class="tab-panel">
 <div class="main">
-
   <div class="dept-intro">
-    <div class="dept-icon icon-merch" style="font-size:24px">🏪</div>
+    <div style="font-size:24px">🏪</div>
     <div class="dept-intro-text">
       <h2 style="color:#C97A3A">Merchandising</h2>
       <p>Field merchandising performance and impact reporting. Submit activity records, log inventory counts, and view the impact report for Kit Kat and Easy Build group stores.</p>
     </div>
   </div>
-
   <div class="report-grid">
-
     <div class="report-card">
       <div class="card-accent accent-merch"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-merch">Merchandising</span>
-          <span class="live-badge">● On-demand</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-merch">Merchandising</span><span class="live-badge">● On-demand</span></div>
         <div class="card-title">Merchandising Impact Report</div>
-        <div class="card-desc">Quantifies the revenue impact of formal in-store merchandising at Kit Kat (5 accounts) and Easy Build (7 accounts) group stores. YoY same-month revenue comparison, per-store breakdown, and auto-generated narrative prose.</div>
-        <div class="card-tags">
-          <span class="tag">YoY Same-Month</span>
-          <span class="tag">Kit Kat — 5 Accounts</span>
-          <span class="tag">Easy Build — 7 Accounts</span>
-        </div>
+        <div class="card-desc">Quantifies revenue-growth correlation with formal in-store merchandising at Kit Kat (5 accounts) and Easy Build (7 accounts) group stores. YoY same-month revenue comparison, per-store breakdown, and auto-generated narrative prose.</div>
+        <div class="card-tags"><span class="tag">YoY Same-Month</span><span class="tag">Kit Kat — 5 Accounts</span><span class="tag">Easy Build — 7 Accounts</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><span class="health-dot" data-build="merchandising"></span><span class="health-text" data-build="merchandising">Service offline</span></div>
         <div class="card-actions">
-          <a class="open-btn btn-merch" href="https://flomaticauto.github.io/olympic-paints-merchandising/" target="_blank" rel="noopener">Open Report ↗</a>
-          <button class="regen-btn" data-build="merchandising">Regenerate ↻</button>
+          <a class="open-btn btn-merch" href="/merchandising/" target="_blank" rel="noopener">Open ↗</a>
+          <button class="regen-btn" data-build="merchandising">Regen ↻</button>
         </div>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-merch"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-merch">Merchandising</span>
-          <span class="live-badge">● Form</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-merch">Merchandising</span><span class="live-badge">● Form</span></div>
         <div class="card-title">Merchandising Inventory Count</div>
-        <div class="card-desc">George's stock count form. Submit shelf inventory tallies for Olympic Paints products at merchandised stores. Opens the JotForm in a new tab.</div>
-        <div class="card-tags">
-          <span class="tag">Inventory Count</span>
-          <span class="tag">George</span>
-          <span class="tag">JotForm</span>
-        </div>
+        <div class="card-desc">George's stock count form. Submit shelf inventory tallies for Olympic Paints products at merchandised stores.</div>
+        <div class="card-tags"><span class="tag">Inventory Count</span><span class="tag">George</span><span class="tag">JotForm</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Platform:</strong> JotForm</div>
         <a class="open-btn btn-merch" href="https://form.jotform.com/261334959338063" target="_blank" rel="noopener">Open Form ↗</a>
       </div>
     </div>
-
     <div class="report-card">
       <div class="card-accent accent-merch"></div>
       <div class="card-body">
-        <div class="card-dept">
-          <span class="dept-pill pill-merch">Merchandising</span>
-          <span class="live-badge">● Form</span>
-        </div>
+        <div class="card-dept"><span class="dept-pill pill-merch">Merchandising</span><span class="live-badge">● Form</span></div>
         <div class="card-title">Merchandising Recording</div>
-        <div class="card-desc">Submit in-store visit activity records for Olympic Paints. Opens the JotForm in a new tab.</div>
-        <div class="card-tags">
-          <span class="tag">Activity Recording</span>
-          <span class="tag">JotForm</span>
-        </div>
+        <div class="card-desc">Submit in-store visit activity records for Olympic Paints.</div>
+        <div class="card-tags"><span class="tag">Activity Recording</span><span class="tag">JotForm</span></div>
       </div>
       <div class="card-footer">
         <div class="card-meta"><strong>Platform:</strong> JotForm</div>
         <a class="open-btn btn-merch" href="https://form.jotform.com/253393531597567" target="_blank" rel="noopener">Open Form ↗</a>
       </div>
     </div>
-
   </div>
-
 </div>
 </div><!-- /merch -->
+
+<!-- ── MOBILE BOTTOM NAV ──────────────────────────────────────── -->
+<nav class="bot-nav" role="navigation" aria-label="Main navigation">
+  <button class="bot-btn active" data-tab="all" onclick="showTab('all',this)">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h8v8H3V3zm0 10h8v8H3v-8zm10-10h8v8h-8V3zm0 10h8v8h-8v-8z"/></svg>
+    All
+  </button>
+  <button class="bot-btn" data-tab="sales" onclick="showTab('sales',this)">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 19h2v-5H5v5m4 0h2v-8H9v8m4 0h2V8h-2v11m4 0h2V5h-2v14M3 21h18v-2H3v2"/></svg>
+    Sales
+  </button>
+  <button class="bot-btn" data-tab="pulse" onclick="showTab('pulse',this)">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2l4.5 9H8l5 11L17 12h-3.5L17 2z"/></svg>
+    PULSE
+  </button>
+  <button class="bot-btn" data-tab="hr" onclick="showTab('hr',this)">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3m-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3m0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5m8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5"/></svg>
+    HR
+  </button>
+  <button class="bot-btn" data-tab="merch" onclick="showTab('merch',this)">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm6 16H6V8h12v12z"/></svg>
+    Merch
+  </button>
+</nav>
 
 <footer>
   <strong>Olympic Paints Reports Portal</strong> · Limpopo, SA<br>
@@ -1381,98 +1069,124 @@ footer{text-align:center;padding:24px 40px;font-size:11px;
 
 <script>
 const OLY_THEMES=['theme-light','theme-dark','theme-brand','theme-navy'];
+const THEME_LABELS={
+  'theme-light':'LIGHT','theme-dark':'DARK',
+  'theme-brand':'BRAND','theme-navy':'NAVY'
+};
+
 function olyTheme(t,btn){
   document.documentElement.classList.remove(...OLY_THEMES);
   document.documentElement.classList.add(t);
   localStorage.setItem('oly-theme',t);
   document.querySelectorAll('.theme-bar button').forEach(b=>b.classList.toggle('active',b===btn));
+  const lbl=document.getElementById('mob-theme-lbl');
+  if(lbl)lbl.textContent=THEME_LABELS[t]||t;
 }
 
-function showTab(id){
+function cycleTheme(btn){
+  const cur=document.documentElement.className.match(/theme-\w+/)?.[0]||'theme-navy';
+  const idx=OLY_THEMES.indexOf(cur);
+  const next=OLY_THEMES[(idx+1)%OLY_THEMES.length];
+  document.documentElement.classList.remove(...OLY_THEMES);
+  document.documentElement.classList.add(next);
+  localStorage.setItem('oly-theme',next);
+  btn.textContent=THEME_LABELS[next]||next;
+  document.querySelectorAll('.theme-bar button').forEach(b=>{
+    b.classList.toggle('active',b.textContent.toLowerCase()===next.replace('theme-',''));
+  });
+}
+
+function showTab(id,btn){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('panel-'+id).classList.add('active');
-  event.currentTarget.classList.add('active');
+  const panel=document.getElementById('panel-'+id);
+  if(panel)panel.classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+  document.querySelectorAll('.bot-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+  panel?.scrollIntoView({behavior:'instant',block:'start'});
+  window.scrollTo({top:0,behavior:'instant'});
 }
 
-// ── PORTAL TRIGGER WIRING ────────────────────────────────────────────────
-const TRIGGER_BASE = 'http://127.0.0.1:8765';
+// Sync mobile theme label on load
+(function(){
+  const cur=document.documentElement.className.match(/theme-\w+/)?.[0]||'theme-navy';
+  const lbl=document.getElementById('mob-theme-lbl');
+  if(lbl)lbl.textContent=THEME_LABELS[cur]||'NAVY';
+})();
 
-async function pollHealth() {
-  try {
-    const r = await fetch(`${TRIGGER_BASE}/health`, {cache:'no-store'});
-    if (!r.ok) throw 0;
-    const j = await r.json();
-    document.querySelectorAll('.health-dot').forEach(d => {
-      const k = d.dataset.build;
-      const up = j.builds.includes(k);
-      d.classList.toggle('is-up', up);
-      const txt = d.parentElement.querySelector('.health-text');
-      if (txt) txt.textContent = up ? 'Service online' : 'Build not registered';
-      const btn = document.querySelector(`.regen-btn[data-build="${k}"]`);
-      if (btn) btn.disabled = !up;
+// ── PORTAL TRIGGER WIRING ──────────────────────────────────────
+const TRIGGER_BASE='http://127.0.0.1:8765';
+
+async function pollHealth(){
+  try{
+    const r=await fetch(`${TRIGGER_BASE}/health`,{cache:'no-store'});
+    if(!r.ok)throw 0;
+    const j=await r.json();
+    document.querySelectorAll('.health-dot').forEach(d=>{
+      const k=d.dataset.build;
+      const up=j.builds.includes(k);
+      d.classList.toggle('is-up',up);
+      const txt=d.parentElement.querySelector('.health-text');
+      if(txt)txt.textContent=up?'Service online':'Build not registered';
+      const btn=document.querySelector(`.regen-btn[data-build="${k}"]`);
+      if(btn)btn.disabled=!up;
     });
-  } catch(e) {
-    document.querySelectorAll('.health-dot').forEach(d => d.classList.remove('is-up'));
-    document.querySelectorAll('.health-text').forEach(t => t.textContent = 'Service offline');
-    document.querySelectorAll('.regen-btn').forEach(b => b.disabled = true);
+  }catch(e){
+    document.querySelectorAll('.health-dot').forEach(d=>d.classList.remove('is-up'));
+    document.querySelectorAll('.health-text').forEach(t=>t.textContent='Service offline');
+    document.querySelectorAll('.regen-btn').forEach(b=>b.disabled=true);
   }
 }
 
-async function triggerBuild(btn) {
-  const key = btn.dataset.build;
+async function triggerBuild(btn){
+  const key=btn.dataset.build;
   btn.classList.remove('is-success','is-error');
   btn.classList.add('is-running');
-  btn.textContent = 'Generating';
-  try {
-    const r = await fetch(`${TRIGGER_BASE}/trigger/${key}`, {method:'POST'});
-    if (!r.ok) throw new Error(`trigger failed: ${r.status}`);
-    const {job_id} = await r.json();
-    await pollJob(btn, job_id);
-  } catch(e) {
+  btn.textContent='Generating';
+  try{
+    const r=await fetch(`${TRIGGER_BASE}/trigger/${key}`,{method:'POST'});
+    if(!r.ok)throw new Error(`trigger failed: ${r.status}`);
+    const{job_id}=await r.json();
+    await pollJob(btn,job_id);
+  }catch(e){
     btn.classList.remove('is-running');
     btn.classList.add('is-error');
-    btn.textContent = 'Failed';
-    btn.title = String(e);
-    setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
+    btn.textContent='Failed';
+    btn.title=String(e);
+    setTimeout(()=>{btn.classList.remove('is-error');btn.textContent='Regen ↻';},5000);
   }
 }
 
-async function pollJob(btn, jobId) {
-  for (let i=0; i<150; i++) {     // 150 × 2s = 5 min cap
-    await new Promise(r => setTimeout(r, 2000));
-    const r = await fetch(`${TRIGGER_BASE}/status/${jobId}`, {cache:'no-store'});
-    if (!r.ok) continue;
-    const s = await r.json();
-    if (s.state === 'success') {
+async function pollJob(btn,jobId){
+  for(let i=0;i<150;i++){
+    await new Promise(r=>setTimeout(r,2000));
+    const r=await fetch(`${TRIGGER_BASE}/status/${jobId}`,{cache:'no-store'});
+    if(!r.ok)continue;
+    const s=await r.json();
+    if(s.state==='success'){
       btn.classList.remove('is-running');
       btn.classList.add('is-success');
-      btn.textContent = '✓ Updated';
-      btn.title = '';
-      setTimeout(() => { btn.classList.remove('is-success'); btn.textContent = 'Regenerate ↻'; }, 30000);
+      btn.textContent='✓ Updated';
+      setTimeout(()=>{btn.classList.remove('is-success');btn.textContent='Regen ↻';},30000);
       return;
     }
-    if (s.state === 'error') {
+    if(s.state==='error'){
       btn.classList.remove('is-running');
       btn.classList.add('is-error');
-      btn.textContent = '⚠ Failed';
-      btn.title = (s.log_tail || []).slice(-5).join('\n');
-      setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
+      btn.textContent='⚠ Failed';
+      btn.title=(s.log_tail||[]).slice(-5).join('\n');
+      setTimeout(()=>{btn.classList.remove('is-error');btn.textContent='Regen ↻';},5000);
       return;
     }
   }
-  // Timed out
   btn.classList.remove('is-running');
   btn.classList.add('is-error');
-  btn.textContent = '⚠ Timeout';
-  setTimeout(() => { btn.classList.remove('is-error'); btn.textContent = 'Regenerate ↻'; }, 5000);
+  btn.textContent='⚠ Timeout';
+  setTimeout(()=>{btn.classList.remove('is-error');btn.textContent='Regen ↻';},5000);
 }
 
-// Wire up buttons
-document.querySelectorAll('.regen-btn').forEach(b => b.addEventListener('click', () => triggerBuild(b)));
-// Initial + periodic health checks
+document.querySelectorAll('.regen-btn').forEach(b=>b.addEventListener('click',()=>triggerBuild(b)));
 pollHealth();
-setInterval(pollHealth, 30000);
+setInterval(pollHealth,30000);
 </script>
 </body>
 </html>
