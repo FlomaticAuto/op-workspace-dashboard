@@ -307,6 +307,63 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
   #wk-week-chips{gap:4px}
   .wk-chip{padding:6px 10px;font-size:11px;min-height:36px}
 }
+
+/* ────────────────────────────────────────────────────────────────────────
+   AGGRESSIVE MOBILE OVERRIDES — HAVEN clocking is table-heavy
+   ──────────────────────────────────────────────────────────────────────── */
+@media (max-width:768px){
+  body{font-size:15px}
+
+  /* Header slimmer */
+  header{padding:8px 12px !important;padding-top:calc(8px + env(safe-area-inset-top)) !important;gap:8px}
+  header h1{font-size:15px !important;letter-spacing:.02em;line-height:1.1}
+  header .brand-lockup{gap:8px}
+  header .logo-circle{width:34px !important;height:34px !important}
+  header .logo-circle img{width:34px !important;height:34px !important}
+  header .meta{display:none}
+
+  /* Sticky tab nav under header */
+  nav{top:calc(50px + env(safe-area-inset-top)) !important;padding:0 8px !important}
+  nav button{padding:12px 12px !important;font-size:11px !important;min-height:44px}
+
+  /* Main near edge-to-edge */
+  main{padding:12px 10px calc(28px + env(safe-area-inset-bottom)) !important;max-width:none}
+
+  /* All grids collapse */
+  .charts-row,.summary-grid,.g2,.g3{grid-template-columns:1fr !important;gap:12px}
+
+  /* KPI tiles */
+  .kpi,.summary-card,.summary-tile{padding:12px 10px !important}
+  .summary-num,.kpi-value{font-size:22px !important}
+  .summary-label,.kpi-label{font-size:9px !important}
+
+  /* The big employee tables — h-scroll + sticky first col (employee name) */
+  .table-wrap,.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r-md)}
+  table{min-width:max-content;font-size:11px}
+  thead th,tbody td{padding:6px 8px !important;font-size:11px !important}
+  table thead th:first-child,table tbody td:first-child{
+    position:sticky;left:0;background:var(--color-surface-base);z-index:2;
+    box-shadow:2px 0 4px rgba(0,0,0,.15);
+    max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+
+  /* Week chip strip h-scrolls so it doesn't wrap a 52-week pile */
+  #wk-week-chips{flex-wrap:nowrap !important;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  #wk-week-chips::-webkit-scrollbar{display:none}
+  .wk-chip{flex-shrink:0;padding:8px 12px;min-height:40px}
+  .wk-toolbar{flex-wrap:wrap;gap:6px}
+  .wk-preset,.btn-export{min-height:40px;padding:8px 12px}
+
+  /* Charts */
+  canvas{max-width:100% !important;height:auto !important}
+}
+
+@media (max-width:480px){
+  header h1{font-size:13px !important}
+  .summary-num,.kpi-value{font-size:20px !important}
+  nav button{padding:11px 10px !important;font-size:10px !important}
+  table thead th:first-child,table tbody td:first-child{max-width:110px}
+}
 </style>
 </head>
 <body>
