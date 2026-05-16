@@ -1,29 +1,2066 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Loading — Olympic Paints</title>
-<meta http-equiv="refresh" content="0; url=https://flomaticauto.github.io/olympic-paints-kpi-ap/">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Amit Patel KPI &mdash; Olympic Paints</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#071022;color:#B8CCE8;font-family:'Barlow',sans-serif;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    min-height:100dvh;gap:16px;text-align:center;padding:24px}
-  .logo{width:48px;height:48px;border-radius:50%;overflow:hidden}
-  .logo img{width:100%;height:100%;object-fit:cover;display:block}
-  .spinner{width:32px;height:32px;border:3px solid rgba(245,196,0,.2);
-    border-top-color:#F5C400;border-radius:50%;animation:spin .8s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  p{font-size:13px;opacity:.6}
+
+/* ── RAW DESIGN TOKENS ─────────────────────────────────── */
+:root {
+  --_y50:#FEF9E0;--_y100:#FDF0A0;--_y200:#FAE04D;
+  --_y400:#F5C400;--_y600:#D4A800;--_y800:#A88000;--_y900:#6A5000;
+  --_n50:#E8EFF8;--_n100:#B8CCE8;--_n300:#6B9ED0;
+  --_n500:#2D6BA8;--_n700:#1A3D6E;--_n900:#0D2040;--_n950:#071022;
+  --_g0:#FFFFFF;--_g50:#F7F6F3;--_g100:#E8E7E2;--_g200:#C8C7C0;
+  --_g400:#949390;--_g600:#5C5B58;--_g800:#2E2E2C;
+  --_g900:#1A1A18;--_g950:#0D0D0B;
+  --_teal:#2D8C7A;--_teal-light:#C8EDE7;--_teal-dark:#1a5c50;
+  --_coral:#E86060;--_coral-light:#FDDCDC;
+  --font-display:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  --r-sm:4px;--r-md:8px;--r-lg:12px;--r-xl:16px;--r-pill:50px;
+}
+/* ── LIGHT THEME ─────────────────────────────────────────── */
+.theme-light {
+  color-scheme:light;
+  --color-surface-page:var(--_g50);--color-surface-base:var(--_g0);
+  --color-surface-elevated:var(--_g0);--color-surface-sunken:var(--_g100);
+  --color-surface-overlay:rgba(0,0,0,0.04);
+  --color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g950);--color-text-secondary:var(--_g600);
+  --color-text-tertiary:var(--_g400);--color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400);--color-brand-hover:var(--_y600);
+  --color-brand-secondary:var(--_n700);--color-brand-accent:var(--_y400);
+  --color-border-subtle:var(--_g100);--color-border-default:var(--_g200);
+  --color-border-strong:var(--_g400);--color-border-brand:var(--_y400);
+  --color-success-bg:#EDF7F5;--color-success-fg:var(--_teal-dark);--color-success-bd:var(--_teal);
+  --color-warning-bg:var(--_y50);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y600);
+  --color-danger-bg:#FEF2F2;--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);
+  --color-neutral-bg:var(--_g100);--color-neutral-fg:var(--_g600);--color-neutral-bd:var(--_g400);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 4px 12px rgba(0,0,0,.08);
+}
+/* ── DARK THEME ──────────────────────────────────────────── */
+.theme-dark {
+  color-scheme:dark;
+  --color-surface-page:var(--_g950);--color-surface-base:var(--_g900);
+  --color-surface-elevated:var(--_g800);--color-surface-sunken:var(--_g950);
+  --color-surface-overlay:rgba(255,255,255,0.04);
+  --color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g100);--color-text-secondary:var(--_g400);
+  --color-text-tertiary:var(--_g600);--color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400);--color-brand-hover:var(--_y200);
+  --color-brand-secondary:var(--_n700);--color-brand-accent:var(--_y400);
+  --color-border-subtle:rgba(255,255,255,0.06);--color-border-default:rgba(255,255,255,0.10);
+  --color-border-strong:rgba(255,255,255,0.20);--color-border-brand:var(--_y400);
+  --color-success-bg:rgba(45,140,122,.12);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,.30);
+  --color-warning-bg:rgba(245,196,0,.10);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,.25);
+  --color-danger-bg:rgba(232,96,96,.12);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,.30);
+  --color-neutral-bg:rgba(255,255,255,.05);--color-neutral-fg:var(--_g400);--color-neutral-bd:rgba(255,255,255,.10);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.40);--shadow-md:0 4px 12px rgba(0,0,0,.40);
+}
+/* ── BRAND THEME ─────────────────────────────────────────── */
+.theme-brand {
+  color-scheme:light;
+  --color-surface-page:var(--_y400);--color-surface-base:var(--_y200);
+  --color-surface-elevated:var(--_y50);--color-surface-sunken:var(--_y600);
+  --color-surface-overlay:rgba(0,0,0,0.05);
+  --color-surface-brand:var(--_y400);--color-surface-secondary:var(--_g950);
+  --color-text-primary:var(--_g950);--color-text-secondary:var(--_y900);
+  --color-text-tertiary:var(--_y800);--color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_g950);--color-brand-hover:var(--_n700);
+  --color-brand-secondary:var(--_n700);--color-brand-accent:var(--_g950);
+  --color-border-subtle:rgba(0,0,0,.08);--color-border-default:rgba(0,0,0,.14);
+  --color-border-strong:rgba(0,0,0,.25);--color-border-brand:var(--_g950);
+  --color-success-bg:rgba(45,140,122,.12);--color-success-fg:var(--_teal-dark);--color-success-bd:var(--_teal);
+  --color-warning-bg:rgba(0,0,0,.08);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y900);
+  --color-danger-bg:rgba(232,96,96,.12);--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);
+  --color-neutral-bg:rgba(0,0,0,.06);--color-neutral-fg:var(--_y900);--color-neutral-bd:rgba(0,0,0,.15);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.12);--shadow-md:0 4px 12px rgba(0,0,0,.14);
+}
+/* ── NAVY EXECUTIVE THEME ────────────────────────────────── */
+.theme-navy {
+  color-scheme:dark;
+  --color-surface-page:var(--_n950);--color-surface-base:var(--_n900);
+  --color-surface-elevated:var(--_n700);--color-surface-sunken:var(--_n950);
+  --color-surface-overlay:rgba(255,255,255,0.04);
+  --color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g0);--color-text-secondary:var(--_n100);
+  --color-text-tertiary:var(--_n300);--color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400);--color-brand-hover:var(--_y200);
+  --color-brand-secondary:var(--_n500);--color-brand-accent:var(--_y400);
+  --color-border-subtle:rgba(107,158,208,.12);--color-border-default:rgba(107,158,208,.20);
+  --color-border-strong:rgba(107,158,208,.35);--color-border-brand:var(--_y400);
+  --color-success-bg:rgba(45,140,122,.15);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,.35);
+  --color-warning-bg:rgba(245,196,0,.12);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,.30);
+  --color-danger-bg:rgba(232,96,96,.14);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,.35);
+  --color-neutral-bg:rgba(255,255,255,.05);--color-neutral-fg:var(--_n300);--color-neutral-bd:rgba(255,255,255,.12);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.50);--shadow-md:0 4px 12px rgba(0,0,0,.50);
+}
+/* ── RESET & BASE ────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+/* ── THEME BAR ───────────────────────────────────────────── */
+.theme-bar{display:flex;gap:6px;padding:8px 24px;background:var(--color-surface-secondary);justify-content:flex-end;align-items:center}
+.theme-bar span{font-family:var(--font-body);font-size:11px;font-weight:500;color:var(--color-text-on-navy);opacity:.6;margin-right:4px;letter-spacing:.04em;text-transform:uppercase}
+.theme-bar button{font-family:var(--font-body);font-size:11px;font-weight:600;padding:4px 12px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.25);background:transparent;color:rgba(255,255,255,.6);cursor:pointer;transition:all .15s;text-transform:uppercase;letter-spacing:.04em}
+.theme-bar button:hover{background:rgba(255,255,255,.12);color:#fff}
+.theme-bar button.active{background:var(--color-brand-primary);border-color:var(--color-brand-primary);color:var(--color-text-on-brand)}
+/* ── PAGE HEADER ─────────────────────────────────────────── */
+.page-hdr{background:var(--color-surface-secondary);color:var(--color-text-on-navy);
+  padding:20px 32px;display:flex;align-items:center;justify-content:space-between;
+  box-shadow:var(--shadow-md);gap:16px}
+.hdr-l{display:flex;align-items:center;gap:16px}
+.hdr-title{font-family:var(--font-display);font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.hdr-sub{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.55);margin-top:3px;letter-spacing:.03em}
+.hdr-r{text-align:right}
+.hdr-ytd{font-family:var(--font-display);font-size:22px;font-weight:900;color:var(--color-brand-primary)}
+.hdr-meta{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.4);margin-top:3px}
+/* ── TAB NAV ─────────────────────────────────────────────── */
+.tab-nav{background:var(--color-surface-page);border-bottom:1px solid var(--color-border-default);
+  padding:0 32px;display:flex;gap:2px}
+.tab-btn{font-family:var(--font-display);font-size:14px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;background:transparent;border:none;padding:14px 20px;
+  color:var(--color-text-tertiary);cursor:pointer;border-bottom:3px solid transparent;
+  transition:color .15s,border-color .15s}
+.tab-btn:hover{color:var(--color-text-primary)}
+.tab-btn.active{color:var(--color-brand-primary);border-bottom-color:var(--color-brand-primary)}
+/* ── MAIN CONTENT ────────────────────────────────────────── */
+.page-main{padding:28px 32px;max-width:1440px;margin:0 auto}
+.tab-panel{display:none}.tab-panel.active{display:block}
+/* ── SECTION HEADING ─────────────────────────────────────── */
+.sec-h{font-family:var(--font-display);font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--color-brand-primary);margin:32px 0 16px;
+  display:flex;align-items:center;gap:12px}
+.sec-h::after{content:'';flex:1;height:1px;background:var(--color-border-default)}
+/* ── KPI GRID ────────────────────────────────────────────── */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:24px}
+.kpi{background:var(--color-surface-base);border-radius:var(--r-lg);padding:18px 20px;
+  border:1px solid var(--color-border-default);box-shadow:var(--shadow-sm);transition:transform .15s}
+.kpi:hover{transform:translateY(-2px)}
+.kpi-label{font-family:var(--font-body);font-size:10px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--color-text-secondary);margin-bottom:8px}
+.kpi-value{font-family:var(--font-display);font-size:26px;font-weight:900;line-height:1;color:var(--color-text-primary)}
+.kpi-delta{margin-top:7px;font-family:var(--font-body);font-size:12px;font-weight:500}
+.kpi-delta.up,.kpi-value.up{color:var(--color-success-fg)}
+.kpi-delta.dn,.kpi-value.dn{color:var(--color-danger-fg)}
+.kpi-delta.warn,.kpi-value.warn{color:var(--color-warning-fg)}
+.kpi-delta.neu,.kpi-value.neu{color:var(--color-text-secondary)}
+/* ── CARDS ───────────────────────────────────────────────── */
+.card{background:var(--color-surface-base);border-radius:var(--r-lg);padding:22px;
+  border:1px solid var(--color-border-default);box-shadow:var(--shadow-sm)}
+.card-title{font-family:var(--font-display);font-size:15px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.04em;color:var(--color-text-primary);margin-bottom:4px}
+.card-sub{font-family:var(--font-body);font-size:11px;color:var(--color-text-secondary)}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.chart-wrap{position:relative;margin-top:14px}
+.h260{height:260px}.h300{height:300px}.h280{height:280px}.h340{height:340px}
+/* ── HEATMAP ─────────────────────────────────────────────── */
+.hm-pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 14px}
+.hm-pill{font-family:var(--font-display);font-size:12px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.05em;padding:5px 12px;border-radius:var(--r-pill);border:1px solid var(--color-border-default);
+  background:transparent;color:var(--color-text-secondary);cursor:pointer;transition:all .15s}
+.hm-pill:hover{border-color:var(--color-brand-primary);color:var(--color-text-primary)}
+.hm-pill.active{background:var(--color-brand-primary);color:var(--color-text-on-brand);border-color:var(--color-brand-primary)}
+.hm-wrap{overflow-x:auto;padding-bottom:6px;margin-top:4px}
+.hm-row{display:flex;gap:10px;min-width:max-content;align-items:stretch}
+.hm-wk{display:flex;gap:4px;padding:5px;border-radius:10px;border:1px solid var(--color-border-subtle);
+  background:transparent;transition:border-color .15s,box-shadow .15s}
+.hm-wk.wk-a .hm-cell.empty{background:rgba(255,255,255,0.04)}
+.hm-wk.wk-b .hm-cell.empty{background:rgba(245,196,0,0.06)}
+.hm-wk.wk-current{border:2px solid var(--color-brand-primary);padding:4px;
+  box-shadow:0 0 0 3px rgba(245,196,0,0.12)}
+.hm-cell{position:relative;width:46px;min-width:46px;border-radius:6px;padding:7px 4px 10px;text-align:center;cursor:default;
+  transition:transform .1s;overflow:hidden;display:flex;flex-direction:column;align-items:stretch}
+.hm-cell:hover{transform:scale(1.08)}
+.hm-date{font-size:10px;font-family:var(--font-body);margin-bottom:3px;display:block}
+.hm-count{font-size:20px;font-weight:900;font-family:var(--font-display);line-height:1;
+  display:block;min-height:20px}
+/* Lead-visit fill: bottom-up bright-green bar whose HEIGHT is proportional
+   to the share of meetings linked to Leads on that day:
+     fill% = leads / max(visits, leads) × 100
+   So 9 of 10 visits as leads = 90% green; 1 of 10 = 10% green; leads only
+   (no check-in) = 100% green over the empty cell. Visit count/date sit on
+   top via z-index. */
+.hm-lstrip{position:absolute;left:0;right:0;bottom:0;background:#4ade80;
+  pointer-events:none;z-index:0}
+.hm-date,.hm-count{position:relative;z-index:1}
+.hm-legend-row{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.hm-leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-secondary)}
+.hm-leg-swatch{width:14px;height:14px;border-radius:3px;flex-shrink:0}
+/* ── TABLES ──────────────────────────────────────────────── */
+.tw{overflow-x:auto;margin-top:14px}
+table{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:13px}
+thead tr{background:var(--color-surface-secondary)}
+thead th{padding:10px 14px;text-align:left;font-family:var(--font-display);font-size:10px;
+  font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--color-text-on-navy);white-space:nowrap}
+thead th[style*="right"]{text-align:right}
+tbody tr{border-bottom:1px solid var(--color-border-subtle);transition:background .12s}
+tbody tr:hover{background:var(--color-surface-overlay)}
+tbody td{padding:9px 14px;vertical-align:middle;color:var(--color-text-primary)}
+/* ── ACCOUNTS TAB FILTER PILLS (matches Sales Dashboard credits tab) ─── */
+.acct-filter-block{display:flex;flex-direction:column;gap:8px;margin:0 0 18px}
+.acct-filter-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.acct-filter-label{font-family:var(--font-display);font-weight:800;font-size:11px;
+  text-transform:uppercase;letter-spacing:.10em;color:var(--color-text-secondary);
+  min-width:54px;flex-shrink:0}
+.acct-pill-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;flex:1}
+.acct-pill{padding:6px 14px;border-radius:6px;border:1px solid var(--color-border-default);
+  background:var(--color-surface-elevated);color:var(--color-text-primary);
+  font-family:var(--font-display);font-size:12px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:all .15s}
+.acct-pill:hover{border-color:var(--color-brand-primary);color:var(--color-brand-primary)}
+.acct-pill.active{background:var(--color-brand-primary);color:#0D0D0B;border-color:var(--color-brand-primary)}
+.acct-pill-mo{border-style:dashed;color:var(--color-text-secondary)}
+.acct-pill-mo.active{border-style:solid}
+.acct-pill-sep{display:inline-block;width:1px;height:24px;
+  background:var(--color-border-default);margin:0 4px;align-self:center}
+/* ── STATUS PILLS ────────────────────────────────────────── */
+.pill{display:inline-block;padding:3px 10px;border-radius:var(--r-pill);
+  font-family:var(--font-body);font-size:11px;font-weight:700;white-space:nowrap;border:1px solid}
+.pill.grn{background:var(--color-success-bg);color:var(--color-success-fg);border-color:var(--color-success-bd)}
+.pill.red{background:var(--color-danger-bg);color:var(--color-danger-fg);border-color:var(--color-danger-bd)}
+.pill.amb{background:var(--color-warning-bg);color:var(--color-warning-fg);border-color:var(--color-warning-bd)}
+.pill.neu{background:var(--color-neutral-bg);color:var(--color-neutral-fg);border-color:var(--color-neutral-bd)}
+/* ── QUARTER SELECTOR ────────────────────────────────────── */
+.qnav{display:flex;gap:6px;margin:8px 0 16px;flex-wrap:wrap}
+.qbtn{flex:1;min-width:120px;background:var(--color-surface-base);
+  border:1px solid var(--color-border-default);color:var(--color-text-secondary);
+  padding:12px 14px;border-radius:var(--r-md);cursor:pointer;
+  font-family:var(--font-display);font-size:14px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.04em;display:flex;flex-direction:column;align-items:center;gap:2px;
+  transition:all .15s}
+.qbtn:hover{border-color:var(--color-brand-primary);color:var(--color-text-primary)}
+.qbtn.active{background:var(--color-brand-primary);color:var(--color-text-on-brand);
+  border-color:var(--color-brand-primary)}
+.qbtn-sub{font-family:var(--font-body);font-size:10px;font-weight:500;
+  letter-spacing:.04em;opacity:.75;text-transform:uppercase}
+/* ── MONTH NAVIGATION ────────────────────────────────────── */
+.month-nav{display:flex;align-items:center;gap:10px;margin:18px 0 22px;flex-wrap:wrap}
+.nav-btn{background:var(--color-surface-base);border:1px solid var(--color-border-default);
+  color:var(--color-text-primary);width:36px;height:36px;border-radius:var(--r-md);
+  font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .15s,border-color .15s}
+.nav-btn:hover{background:var(--color-surface-elevated);border-color:var(--color-brand-primary)}
+.nav-btn:disabled{opacity:.35;cursor:not-allowed}
+.month-label{font-family:var(--font-display);font-size:22px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;color:var(--color-text-primary);
+  min-width:200px;text-align:center}
+.month-select{font-family:var(--font-body);font-size:13px;padding:8px 12px;
+  border-radius:var(--r-md);border:1px solid var(--color-border-default);
+  background:var(--color-surface-base);color:var(--color-text-primary);cursor:pointer}
+/* ── FOOTER ──────────────────────────────────────────────── */
+.page-footer{text-align:center;padding:28px 32px;font-family:var(--font-body);
+  font-size:11px;color:var(--color-text-secondary);
+  border-top:1px solid var(--color-border-default);margin-top:48px;line-height:1.8}
+/* ── RESPONSIVE ──────────────────────────────────────────────
+   Approach: desktop baseline above is left intact; the rules below
+   are mobile overrides at Tailwind-aligned breakpoints (lg 1024, md
+   768, sm 640, xs 375). All media in this block follows the same
+   principles the user requested: fluid containers, stack-on-mobile
+   flex direction, responsive text, no fixed pixel widths on
+   anything that needs to flow.
+   ─────────────────────────────────────────────────────────── */
+
+/* All media stays inside its container at every viewport */
+img,canvas,svg,video{max-width:100%;height:auto}
+/* Tables keep their horizontal-scroll fallback (.tw{overflow-x:auto}) */
+table{width:100%;table-layout:auto}
+/* Prevent body horizontal scroll from any rogue child */
+html,body{overflow-x:hidden}
+
+/* ── lg and below (≤1024px) ─────────────────────────────────── */
+@media (max-width:1024px){
+  .page-main{padding:22px 20px}
+  .page-hdr{padding:18px 20px}
+  .tab-nav{padding:0 16px}
+  .g2{grid-template-columns:1fr;gap:14px}
+}
+
+/* ── md and below (≤768px) — tablet portrait & phones ───────── */
+@media (max-width:768px){
+  .page-main{padding:18px 16px}
+  .page-hdr{padding:14px 16px;flex-wrap:wrap;gap:10px}
+  /* Tab bar becomes horizontally scrollable so the rep doesn't lose tabs */
+  .tab-nav{padding:0 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tab-nav::-webkit-scrollbar{display:none}
+  .tab-btn{padding:12px 14px;font-size:13px;flex-shrink:0}
+  .hdr-title{font-size:18px}
+  .hdr-sub{font-size:11px}
+  .hdr-ytd{font-size:20px}
+  .hdr-meta{font-size:10px}
+  .month-label{font-size:18px;min-width:0;flex:1;text-align:left}
+  .month-nav{gap:6px}
+  .theme-bar{padding:6px 12px;flex-wrap:wrap;justify-content:flex-start}
+  .theme-bar span{display:none}                /* "Theme:" label is dead weight on mobile */
+  .page-footer{padding:20px 16px;font-size:11px}
+  .kpi{padding:14px 16px}
+  .kpi-value{font-size:22px}
+  .card{padding:16px}
+  .card-title{font-size:14px}
+  .qbtn{flex:1 1 calc(50% - 4px);min-width:0;font-size:13px;padding:10px 8px}
+  .qnav{gap:4px}
+  .sec-h{margin:22px 0 12px;font-size:10px}
+}
+
+/* ── sm and below (≤640px) — phones in portrait ─────────────── */
+@media (max-width:640px){
+  .page-hdr{flex-direction:column;align-items:stretch}
+  .hdr-l{gap:12px}
+  .hdr-r{text-align:left}
+  .hdr-title{font-size:16px}
+  .hdr-ytd{font-size:18px}
+  .tab-btn{font-size:12px;padding:11px 12px;letter-spacing:.03em}
+  .kpi-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .kpi{padding:12px 14px}
+  .kpi-label{font-size:9px}
+  .kpi-value{font-size:20px}
+  .kpi-delta{font-size:11px}
+  .card-title{font-size:13px}
+  .card-sub{font-size:10px}
+  .month-label{font-size:16px}
+  .month-nav{margin:12px 0 16px}
+  thead th{padding:8px 10px;font-size:9px}
+  tbody td{padding:7px 10px;font-size:12px}
+  /* Heatmap cells slightly tighter on phones (still horizontally scrollable) */
+  .hm-cell{width:40px;min-width:40px;padding:6px 3px 5px}
+  .hm-count{font-size:17px}
+  .page-footer{padding:16px 12px;font-size:10px}
+}
+
+/* ── xs (≤375px) — iPhone SE / Mini baseline ────────────────── */
+@media (max-width:375px){
+  .page-main{padding:14px 12px}
+  .kpi-grid{grid-template-columns:1fr}
+  .kpi-value{font-size:22px}
+  .hdr-title{font-size:15px}
+  .qbtn{flex:1 1 100%;font-size:12px;padding:8px 6px}
+}
+
 </style>
 </head>
-<body>
-  <div class="logo">
-    <img src="https://flomaticauto.github.io/olympic-paints-clocking/logo.jpg" alt="Olympic Paints">
+<body style="background:var(--color-surface-page);color:var(--color-text-primary);font-family:var(--font-body);margin:0;">
+
+<!-- ── THEME BAR ── -->
+<div class="theme-bar">
+  <span>Theme</span>
+  <button onclick="olyTheme('theme-light',this)">Light</button>
+  <button onclick="olyTheme('theme-dark',this)" class="active">Dark</button>
+  <button onclick="olyTheme('theme-brand',this)">Brand</button>
+  <button onclick="olyTheme('theme-navy',this)">Navy</button>
+</div>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-hdr">
+  <div class="hdr-l">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Olympic Paints"><circle cx="20" cy="20" r="20" fill="#F5C400"/><text x="20" y="19" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="10" fill="#0D0D0B">OLYMPIC<tspan dy="-4" font-size="5">™</tspan></text><text x="20" y="31" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="10" fill="#0D0D0B">PAINTS</text></svg>
+    <div>
+      <div class="hdr-title">Amit Patel</div>
+      <div class="hdr-sub">Personal KPI Dashboard &middot; FY2026 Year to Date</div>
+    </div>
   </div>
-  <div class="spinner"></div>
-  <p>Loading dashboard...</p>
-  <script>window.location.replace('https://flomaticauto.github.io/olympic-paints-kpi-ap/');</script>
+  <div class="hdr-r">
+    <div class="hdr-ytd">R3.24M</div>
+    <div class="hdr-meta">Week ending 16 May 2026 &middot; Generated 16 May 2026 10:48</div>
+  </div>
+</div>
+
+<!-- ── TAB NAV ── -->
+<div class="tab-nav">
+  <button class="tab-btn active" data-tab="monthly"   onclick="showTab('monthly')">Monthly</button>
+  <button class="tab-btn"        data-tab="overview"  onclick="showTab('overview')">Overview</button>
+  <button class="tab-btn"        data-tab="sales"     onclick="showTab('sales')">Sales</button>
+  <button class="tab-btn"        data-tab="pricing"   onclick="showTab('pricing')">Pricing</button>
+  <button class="tab-btn"        data-tab="activity"  onclick="showTab('activity')">Activity</button>
+  <button class="tab-btn"        data-tab="debtors"   onclick="showTab('debtors')">Debtors</button>
+  <button class="tab-btn"        data-tab="accounts"  onclick="showTab('accounts')">Accounts</button>
+  <button class="tab-btn"        data-tab="nonstock"  onclick="showTab('nonstock')">Non Stock</button>
+  <button class="tab-btn"        data-tab="prodev"    onclick="showTab('prodev')">Product Development</button>
+
+
+  <button class="tab-btn" data-tab="recovery" onclick="showTab('recovery')" style="color:var(--_coral);">🚨 Recovery (22)</button>
+</div>
+
+<div class="page-main">
+
+<!-- ── OVERVIEW TAB ── -->
+<div id="panel-overview" class="tab-panel">
+  <div class="sec-h">Performance Summary &mdash; FY2026 YTD</div>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">FY2026 YTD Revenue</div>
+      <div class="kpi-value">R3.24M</div>
+      <div class="kpi-delta neu">FY2025 same period: R2.21M</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">30% Growth Target (YTD)</div>
+      <div class="kpi-value">R2.88M</div>
+      <div class="kpi-delta up">+R364.7K ahead</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">YOY Growth &mdash; KPI A</div>
+      <div class="kpi-value up">+46.5%</div>
+      <div class="kpi-delta up"><span class="pill grn">✓ +46.5% YoY</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Lines Above Rock Bottom</div>
+      <div class="kpi-value up">91.2%</div>
+      <div class="kpi-delta neu">2,122 of 2,326 lines</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Debtors Total</div>
+      <div class="kpi-value">R2.52M</div>
+      <div class="kpi-delta warn">51 accounts</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Overdue &gt;60 Days</div>
+      <div class="kpi-value dn">28.0%</div>
+      <div class="kpi-delta dn">R705.7K at collections risk</div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">Monthly Revenue &mdash; 2025 vs 2026</div>
+      <div class="card-sub">Net revenue per calendar month &mdash; 2026 to date alongside the same months in 2025</div>
+      <div class="chart-wrap h280"><canvas id="cOvRev"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Revenue by Category &mdash; FY2026 YTD</div>
+      <div class="card-sub">Top 8 product categories by revenue</div>
+      <div class="chart-wrap h280"><canvas id="cOvCat"></canvas></div>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:18px">
+    <div class="card">
+      <div class="card-title">Top 5 Accounts &mdash; YTD Revenue</div>
+      <div class="card-sub">Highest-revenue accounts in FY2026</div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Account</th><th style="text-align:right">Revenue</th></tr></thead>
+          <tbody><tr><td>Power Hardware</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R456.8K</td></tr><tr><td>Mr Build Musina (PTY) LTD</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R237.4K</td></tr><tr><td>Choice Build Hardware</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R204.2K</td></tr><tr><td>Ace Hardware & Furniture</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R189.2K</td></tr><tr><td>Al Soud Traders</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R180.3K</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Debtors Breakdown</div>
+      <div class="card-sub">Collections position &mdash; 51 accounts</div>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--color-surface-sunken);border-radius:var(--r-md)">
+          <span style="font-size:12px;color:var(--color-text-secondary)">Current (within terms)</span>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--color-success-fg)">R281.7K</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--color-surface-sunken);border-radius:var(--r-md)">
+          <span style="font-size:12px;color:var(--color-text-secondary)">30 Days</span>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--color-warning-fg)">R1.53M</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--color-surface-sunken);border-radius:var(--r-md)">
+          <span style="font-size:12px;color:var(--color-text-secondary)">Over 60 Days</span>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--color-danger-fg)">R705.7K (28.0%)</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--color-surface-elevated);border-radius:var(--r-md);border:1px solid var(--color-border-default)">
+          <span style="font-size:12px;font-weight:600;color:var(--color-text-primary)">Total Outstanding</span>
+          <span style="font-family:var(--font-display);font-weight:900;font-size:20px;color:var(--color-text-primary)">R2.52M</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <div class="card-title">Products Most Often Below Rock Bottom</div>
+    <div class="card-sub">Top 5 by frequency of below-RB transactions in FY2026 YTD</div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Product</th><th style="text-align:right">Avg vs RB</th></tr></thead>
+        <tbody><tr><td style="font-size:12px">200mm x 10m Membrane</td><td style="text-align:right"><span class="pill red">-87.3%</span></td></tr><tr><td style="font-size:12px">10KG PUTTY</td><td style="text-align:right"><span class="pill red">-11.7%</span></td></tr><tr><td style="font-size:12px">5KG PUTTY</td><td style="text-align:right"><span class="pill red">-5.4%</span></td></tr><tr><td style="font-size:12px">75mm x 10m Membrane</td><td style="text-align:right"><span class="pill red">-100.0%</span></td></tr><tr><td style="font-size:12px">20KG PUTTY</td><td style="text-align:right"><span class="pill red">-11.8%</span></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec-h">Rep KPI Agreement Scorecard &mdash; 2026</div>
+  <div class="card-sub" style="margin:-8px 0 14px;font-family:var(--font-body)">
+    Sales Reps Incentive &amp; KPI Framework &mdash; 6 weighted categories &middot;
+    Commission = (Actual &minus; Baseline &times; 1.10) &times; 4% &times; KPI Score%
+  </div>
+
+  <div id="qYtdBanner" class="card" style="margin:0 0 14px;background:var(--color-surface-secondary);
+       color:var(--color-text-on-navy);border:1px solid var(--color-border-default)">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
+      <div>
+        <div style="font-family:var(--font-display);font-size:11px;font-weight:700;text-transform:uppercase;
+                    letter-spacing:.12em;color:var(--color-brand-primary);margin-bottom:4px">
+          2026 Year-to-date Commission
+        </div>
+        <div style="font-family:var(--font-display);font-size:30px;font-weight:900;line-height:1" id="qYtdEarned">R0</div>
+        <div style="font-family:var(--font-body);font-size:12px;opacity:.75;margin-top:4px" id="qYtdSub">&mdash;</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-family:var(--font-display);font-size:10px;font-weight:600;text-transform:uppercase;
+                    letter-spacing:.08em;opacity:.6;margin-bottom:4px">Max @ 100% KPI</div>
+        <div style="font-family:var(--font-display);font-size:18px;font-weight:800" id="qYtdMax">R0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="qnav" id="qnav"><button class="qbtn" data-q="Q1" onclick="selectQuarter('Q1')">Q1 <span class="qbtn-sub">Jan–Mar</span></button><button class="qbtn active" data-q="Q2" onclick="selectQuarter('Q2')">Q2 <span class="qbtn-sub">Apr–Jun</span></button><button class="qbtn" data-q="Q3" onclick="selectQuarter('Q3')">Q3 <span class="qbtn-sub">Jul–Sep</span></button><button class="qbtn" data-q="Q4" onclick="selectQuarter('Q4')">Q4 <span class="qbtn-sub">Oct–Dec</span></button></div>
+
+  <div class="kpi-grid" id="qKpis"></div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="card-title" id="qDetailTitle">Category Detail</div>
+    <div class="card-sub" id="qDetailSub">Status &amp; score earned per KPI category</div>
+    <div class="tw">
+      <table>
+        <thead><tr>
+          <th>KPI</th><th>Status</th><th>Detail</th>
+          <th style="text-align:right">Earned / Max</th>
+        </tr></thead>
+        <tbody id="qRows"></tbody>
+      </table>
+    </div>
+    <div style="margin-top:14px;padding:12px 14px;background:var(--color-info-bg);
+                border:1px solid var(--color-info-bd);border-radius:var(--r-md);
+                font-size:12px;color:var(--color-info-fg);line-height:1.6">
+      <strong style="font-family:var(--font-display);text-transform:uppercase;letter-spacing:.06em;font-size:11px">Data still needed</strong><br>
+      <strong>D (Product Development):</strong> upsell log keyed to focus products (Natural Elegance, 7-in-1 PVA, Fibre Restore, etc.) per rep per week.<br>
+      <strong>F (Merchandising):</strong> fully scored from the Zoho Meetings export &mdash; graded against 8 visits/rep/month (24/quarter). Training is no longer part of F until a register feed exists.<br>
+      <strong>Settled-invoice qualifier:</strong> KPI A commission is only payable on invoices settled within 30&ndash;60 days. The collections check is not yet automated &mdash; commission shown above assumes full settlement.
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="card-title" id="qCommissionTitle">Commission Calculation</div>
+    <div class="card-sub" id="qCommissionSub">Step-by-step working &mdash; what the rep is liable to earn</div>
+    <div id="qCommissionBody" style="margin-top:14px"></div>
+  </div>
+
+  <div class="card" id="qVerified" style="margin-top:14px"></div>
+
+  <script id="qScorecardData" type="application/json">{"Q1": {"label": "Q1 2026", "months": "Jan\u2013Mar 2026", "sales": 2426921.25, "prev": 2131190.71, "markup_pct": 12.71, "markup_lines": 2001, "new_accts": 4, "verified": [{"store": "AA Hardware \u2013 LTT", "status": "", "dlref": "KA008, KA008/1, KA008/2", "curef": "KA008"}, {"store": "MAS Hardware \u2013 Hennenman", "status": "", "dlref": "KM164", "curef": "KM164"}, {"store": "African Hardware \u2013 Musina", "status": "", "dlref": "KA117", "curef": "KA117"}, {"store": "Raj Wholesalers \u2013 Alldays", "status": "", "dlref": "KR044", "curef": "KR044"}, {"store": "KI016 \u2013 Iconic Hardware", "status": "", "dlref": "KI016", "curef": "KI016"}, {"store": "KC056 \u2013 Cheap Cheap Hardware", "status": "", "dlref": "KC056", "curef": "KC056"}, {"store": "KB114 \u2013 Builderstown Hyper", "status": "", "dlref": "KB114", "curef": "KB114"}, {"store": "KA115 \u2013 Amin Supermarket", "status": "", "dlref": "KA115", "curef": "KA115"}], "verified_count": 8, "leads_count": 16, "merch_visits": 4, "merch_target": 24, "merch_weight": 10}, "Q2": {"label": "Q2 2026", "months": "Apr\u2013Jun 2026", "sales": 2275546.1, "prev": 2442730.32, "markup_pct": 23.47, "markup_lines": 1370, "new_accts": 3, "verified": [], "verified_count": 0, "leads_count": 0, "merch_visits": 0, "merch_target": 24, "merch_weight": 10}, "Q3": {"label": "Q3 2026", "months": "Jul\u2013Sep 2026", "sales": 0.0, "prev": 3746062.25, "markup_pct": null, "markup_lines": 0, "new_accts": 0, "verified": [], "verified_count": 0, "leads_count": 0, "merch_visits": 0, "merch_target": 24, "merch_weight": 10}, "Q4": {"label": "Q4 2026", "months": "Oct\u2013Dec 2026", "sales": 0.0, "prev": 5455365.65, "markup_pct": null, "markup_lines": 0, "new_accts": 0, "verified": [], "verified_count": 0, "leads_count": 0, "merch_visits": 0, "merch_target": 24, "merch_weight": 10}}</script>
+
+  <div class="sec-h">Approved Outstanding Orders</div>
+  <div class="kpi-grid" style="grid-template-columns:repeat(3,minmax(160px,1fr))">
+    <div class="kpi">
+      <div class="kpi-label">Orders Approved</div>
+      <div class="kpi-value">8</div>
+      <div class="kpi-delta neu">Awaiting dispatch</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total Lines</div>
+      <div class="kpi-value">164</div>
+      <div class="kpi-delta neu">Across all approved orders</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total Value (Incl. VAT)</div>
+      <div class="kpi-value up">R411.1K</div>
+      <div class="kpi-delta up">Ready for delivery</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Approved Orders — Awaiting Dispatch</div>
+    <div class="card-sub">Orders with APPROVED status in the PAD system — data as at last script run</div>
+    <div class="tw">
+      <table>
+        <thead><tr>
+          <th>Order #</th><th>Date</th><th>Account</th><th>Customer Name</th>
+          <th style="text-align:right">Lines</th>
+          <th style="text-align:right">Value (Incl. VAT)</th>
+        </tr></thead>
+        <tbody><tr><td style="font-family:var(--font-display);font-weight:700">15313</td><td>07/05/2026</td><td style="color:var(--color-text-tertiary);font-size:11px">KU005</td><td>&mdash;</td><td style="text-align:right">29</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R28,283.81</td></tr><tr><td style="font-family:var(--font-display);font-weight:700">15315</td><td>07/05/2026</td><td style="color:var(--color-text-tertiary);font-size:11px">KH029</td><td>&mdash;</td><td style="text-align:right">9</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R13,262.38</td></tr><tr><td style="font-family:var(--font-display);font-weight:700">15316</td><td>07/05/2026</td><td style="color:var(--color-text-tertiary);font-size:11px">KS080</td><td>Sehlware (Pty) Ltd</td><td style="text-align:right">44</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R117,803.34</td></tr><tr><td style="font-family:var(--font-display);font-weight:700">15325</td><td>08/05/2026</td><td style="color:var(--color-text-tertiary);font-size:11px">KF028</td><td>Fayaz  and Brother 891 Pty Ltd</td><td style="text-align:right">1</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R5,520.00</td></tr><tr><td style="font-family:var(--font-display);font-weight:700">15350</td><td>11/05/2026</td><td style="color:var(--color-text-tertiary);font-size:11px">KA038</td><td>Ace Hardware & Furniture</td><td style="text-align:right">11</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R16,084.24</td></tr><tr><td style="font-family:var(--font-display);font-weight:700">15351</td><td>11/05/2026</td><td style="color:var(--color-text-tertiary);font-size:11px">KS045</td><td>Delli 786 (PTY) LTD</td><td style="text-align:right">12</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R34,059.57</td></tr><tr><td style="font-family:var(--font-display);font-weight:700">15369</td><td>13/05/2026</td><td style="color:var(--color-text-tertiary);font-size:11px">KH005</td><td>&mdash;</td><td style="text-align:right">6</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R4,871.36</td></tr><tr><td style="font-family:var(--font-display);font-weight:700">15370</td><td>13/05/2026</td><td style="color:var(--color-text-tertiary);font-size:11px">KP002</td><td>Power Hardware</td><td style="text-align:right">52</td><td style="text-align:right;font-family:var(--font-display);font-weight:700">R191,176.80</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ── MONTHLY TAB ── -->
+<div id="panel-monthly" class="tab-panel active">
+  <div class="sec-h">Monthly KPI Snapshot &mdash; Amit Patel</div>
+  <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-secondary);margin:-8px 0 6px">
+    Year-on-year comparison for any single calendar month. Target = prior-year same month &times; 1.30 (KPI A).
+  </p>
+
+  <div class="month-nav">
+    <button class="nav-btn" id="monthPrev" onclick="prevMonth()" title="Previous month">&#8592;</button>
+    <div class="month-label" id="monthLabel">&mdash;</div>
+    <button class="nav-btn" id="monthNext" onclick="nextMonth()" title="Next month">&#8594;</button>
+    <select class="month-select" id="monthSelect" onchange="jumpToMonth(this.value)">
+      <option value="2026-5">May 2026</option><option value="2026-4">April 2026</option><option value="2026-3">March 2026</option><option value="2026-2">February 2026</option><option value="2026-1">January 2026</option><option value="2025-12">December 2025</option><option value="2025-11">November 2025</option><option value="2025-10">October 2025</option><option value="2025-9">September 2025</option><option value="2025-8">August 2025</option><option value="2025-7">July 2025</option><option value="2025-6">June 2025</option><option value="2025-5">May 2025</option><option value="2025-4">April 2025</option><option value="2025-3">March 2025</option><option value="2025-2">February 2025</option><option value="2025-1">January 2025</option><option value="2024-12">December 2024</option><option value="2024-11">November 2024</option><option value="2024-10">October 2024</option><option value="2024-9">September 2024</option><option value="2024-8">August 2024</option><option value="2024-7">July 2024</option><option value="2024-6">June 2024</option><option value="2024-5">May 2024</option><option value="2024-4">April 2024</option><option value="2024-3">March 2024</option>
+    </select>
+  </div>
+
+  <div class="kpi-grid" id="monthlyKpis"></div>
+
+  <div class="card" style="margin-top:18px;margin-bottom:18px">
+    <div class="card-title">Daily Meetings &mdash; Activity Heatmap</div>
+    <div class="card-sub">CRM check-in meetings per weekday &middot; select a month to filter</div>
+    <div class="hm-pills js-hm-pills"></div>
+    <div class="hm-wrap"><div class="hm-row js-hm-grid"></div></div>
+    <div class="hm-legend-row">
+      <span style="font-size:11px;color:var(--color-text-tertiary);font-family:var(--font-body)">Visits:</span>
+      <span class="hm-leg-item"><span class="hm-leg-swatch" style="background:rgba(255,255,255,0.06);border:1px solid var(--color-border-subtle)"></span>0</span>
+      <span class="hm-leg-item"><span class="hm-leg-swatch" style="background:#1A3D6E"></span>1&ndash;2</span>
+      <span class="hm-leg-item"><span class="hm-leg-swatch" style="background:#2D6BA8"></span>3&ndash;5</span>
+      <span class="hm-leg-item"><span class="hm-leg-swatch" style="background:#6B9ED0"></span>6&ndash;9</span>
+      <span class="hm-leg-item"><span class="hm-leg-swatch" style="background:#F5C400"></span>10+</span>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:18px">
+    <div class="card">
+      <div class="card-title">Last 12 Months Trend</div>
+      <div class="card-sub">Net revenue ending at the selected month &mdash; selected month highlighted</div>
+      <div class="chart-wrap h300"><canvas id="cMonthTrend"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Three-Year Comparison &mdash; Selected Month</div>
+      <div class="card-sub">Same calendar month across the available years</div>
+      <div class="chart-wrap h300"><canvas id="cMonthCompare"></canvas></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <div class="card-title">Approved Outstanding Orders &mdash; Dated Within Selected Month</div>
+    <div class="card-sub">Filtered from the live PAD outstanding-orders snapshot</div>
+    <div class="tw">
+      <table>
+        <thead><tr>
+          <th>Order #</th><th>Date</th><th>Account</th><th>Customer Name</th>
+          <th style="text-align:right">Lines</th>
+          <th style="text-align:right">Value (Incl. VAT)</th>
+        </tr></thead>
+        <tbody id="monthlyOrdersTbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ── SALES TAB ── -->
+<div id="panel-sales" class="tab-panel">
+  <div class="sec-h">Revenue Performance &mdash; FY2026</div>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">FY2026 YTD Revenue</div>
+      <div class="kpi-value">R3.24M</div>
+      <div class="kpi-delta neu">vs FY2025 same period: R2.21M</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">FY2025 Full Year</div>
+      <div class="kpi-value">R13.80M</div>
+      <div class="kpi-delta neu">FY2024: R11.53M</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">YoY Growth &mdash; KPI A</div>
+      <div class="kpi-value up">+46.5%</div>
+      <div class="kpi-delta up"><span class="pill grn">✓ +46.5% YoY</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">30% Growth Target (YTD)</div>
+      <div class="kpi-value">R2.88M</div>
+      <div class="kpi-delta up">+R364.7K ahead</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Monthly Revenue &mdash; 2025 vs 2026</div>
+    <div class="card-sub">Net revenue per calendar month &mdash; 2026 to date alongside the same months in 2025</div>
+    <div class="chart-wrap h300"><canvas id="cSalesRev"></canvas></div>
+  </div>
+</div>
+
+<!-- ── PRICING TAB ── -->
+<div id="panel-pricing" class="tab-panel">
+  <div class="sec-h">Rock Bottom Pricing Analysis</div>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">Lines Above Rock Bottom</div>
+      <div class="kpi-value up">91.2%</div>
+      <div class="kpi-delta neu">2,122 of 2,326 lines</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Avg Price vs Rock Bottom</div>
+      <div class="kpi-value up">+inf%</div>
+      <div class="kpi-delta neu">Average margin above RB</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Revenue Below Rock Bottom</div>
+      <div class="kpi-value dn">R344.4K</div>
+      <div class="kpi-delta dn">Requires pricing correction</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Invoice Lines Below RB</div>
+      <div class="kpi-value">204</div>
+      <div class="kpi-delta warn">Lines sold below rock bottom</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Products Most Often Below Rock Bottom</div>
+    <div class="card-sub">Ranked by frequency of below-RB transactions in FY2026 YTD</div>
+    <div class="tw">
+      <table>
+        <thead><tr>
+          <th>Product</th>
+          <th style="text-align:right">Lines Below RB</th>
+          <th style="text-align:right">Avg % vs RB</th>
+        </tr></thead>
+        <tbody><tr><td>200mm x 10m Membrane</td><td style="text-align:right">22</td><td style="text-align:right"><span class="pill red">-87.3%</span></td></tr><tr><td>10KG PUTTY</td><td style="text-align:right">20</td><td style="text-align:right"><span class="pill red">-11.7%</span></td></tr><tr><td>5KG PUTTY</td><td style="text-align:right">16</td><td style="text-align:right"><span class="pill red">-5.4%</span></td></tr><tr><td>75mm x 10m Membrane</td><td style="text-align:right">9</td><td style="text-align:right"><span class="pill red">-100.0%</span></td></tr><tr><td>20KG PUTTY</td><td style="text-align:right">9</td><td style="text-align:right"><span class="pill red">-11.8%</span></td></tr><tr><td>24x500GM RED OXIDE</td><td style="text-align:right">8</td><td style="text-align:right"><span class="pill red">-4.2%</span></td></tr><tr><td>24x500GM OXIDE BLACK</td><td style="text-align:right">6</td><td style="text-align:right"><span class="pill red">-1.7%</span></td></tr><tr><td>12X2KG PUTTY</td><td style="text-align:right">5</td><td style="text-align:right"><span class="pill red">-0.8%</span></td></tr><tr><td>40KG PUTTY</td><td style="text-align:right">4</td><td style="text-align:right"><span class="pill red">-9.6%</span></td></tr><tr><td>24X1KG PUTTY</td><td style="text-align:right">3</td><td style="text-align:right"><span class="pill red">-0.3%</span></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ── ACTIVITY TAB ── -->
+<div id="panel-activity" class="tab-panel">
+  <div class="sec-h">CRM Activity &amp; Pipeline</div>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">Store Visits (All Time)</div>
+      <div class="kpi-value">5</div>
+      <div class="kpi-delta neu">Logged check-ins in Zoho CRM</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Leads in Pipeline</div>
+      <div class="kpi-value">17</div>
+      <div class="kpi-delta neu">Open leads — Zoho CRM</div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:18px">
+    <div class="card-title">Daily Meetings &mdash; Activity Heatmap</div>
+    <div class="card-sub">CRM check-in meetings per weekday &middot; select a month to filter</div>
+    <div class="hm-pills js-hm-pills" id="hm-pills"></div>
+    <div class="hm-wrap"><div class="hm-row js-hm-grid" id="hm-grid"></div></div>
+    <div class="hm-legend-row">
+      <span style="font-size:11px;color:var(--color-text-tertiary);font-family:var(--font-body)">Visits:</span>
+      <span class="hm-leg-item"><span class="hm-leg-swatch" style="background:rgba(255,255,255,0.06);border:1px solid var(--color-border-subtle)"></span>0</span>
+      <span class="hm-leg-item"><span class="hm-leg-swatch" style="background:#1A3D6E"></span>1&ndash;2</span>
+      <span class="hm-leg-item"><span class="hm-leg-swatch" style="background:#2D6BA8"></span>3&ndash;5</span>
+      <span class="hm-leg-item"><span class="hm-leg-swatch" style="background:#6B9ED0"></span>6&ndash;9</span>
+      <span class="hm-leg-item"><span class="hm-leg-swatch" style="background:#F5C400"></span>10+</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Store Visits vs Meetings per Month</div>
+    <div class="card-sub">Store visits (merchandising check-ins) compared with CRM meetings logged per month</div>
+    <div class="chart-wrap h280"><canvas id="cActivity"></canvas></div>
+  </div>
+</div>
+
+<!-- ── DEBTORS TAB ── -->
+<div id="panel-debtors" class="tab-panel">
+  <div class="sec-h">Debtors &amp; Collections Position</div>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">Total Outstanding</div>
+      <div class="kpi-value">R2.52M</div>
+      <div class="kpi-delta neu">51 accounts</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Current</div>
+      <div class="kpi-value up">R281.7K</div>
+      <div class="kpi-delta up">Within terms</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">30 Days</div>
+      <div class="kpi-value">R1.53M</div>
+      <div class="kpi-delta warn">Follow-up required</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Over 60 Days</div>
+      <div class="kpi-value dn">R705.7K</div>
+      <div class="kpi-delta dn">28.0% of book &mdash; collections risk</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Collections Note</div>
+    <div class="card-sub">KPI A commission qualifying condition</div>
+    <p style="font-family:var(--font-body);font-size:13px;color:var(--color-text-secondary);
+      line-height:1.7;margin-top:14px">
+      Only invoices settled within 30&ndash;60 days qualify for KPI A commission under the
+      Sales Rep KPI Agreement 2025. A collections audit is required to determine which
+      invoices in this book have been settled within the qualifying window.
+    </p>
+  </div>
+</div>
+
+<!-- ── ACCOUNTS TAB ── -->
+<div id="panel-accounts" class="tab-panel">
+  <div class="sec-h">Top Accounts &amp; Product Mix</div>
+
+  <!-- Filter bar — two independent pill rows that AND together -->
+  <div class="acct-filter-block">
+    <div class="acct-filter-row">
+      <span class="acct-filter-label">Period</span>
+      <div class="acct-pill-row"><button class="acct-pill acct-pill-fy active" data-fy="all" onclick="setAcctFy('all',this)">All Time</button><button class="acct-pill acct-pill-fy" data-fy="2024" onclick="setAcctFy('2024',this)">FY2024</button><button class="acct-pill acct-pill-fy" data-fy="2025" onclick="setAcctFy('2025',this)">FY2025</button><button class="acct-pill acct-pill-fy" data-fy="2026" onclick="setAcctFy('2026',this)">FY2026</button></div>
+    </div>
+    <div class="acct-filter-row">
+      <span class="acct-filter-label">Month</span>
+      <div class="acct-pill-row"><button class="acct-pill acct-pill-month active" data-month="all" onclick="setAcctMonth('all',this)">All</button><button class="acct-pill acct-pill-month" data-month="1" onclick="setAcctMonth('1',this)">Jan</button><button class="acct-pill acct-pill-month" data-month="2" onclick="setAcctMonth('2',this)">Feb</button><button class="acct-pill acct-pill-month" data-month="3" onclick="setAcctMonth('3',this)">Mar</button><button class="acct-pill acct-pill-month" data-month="4" onclick="setAcctMonth('4',this)">Apr</button><button class="acct-pill acct-pill-month" data-month="5" onclick="setAcctMonth('5',this)">May</button><button class="acct-pill acct-pill-month" data-month="6" onclick="setAcctMonth('6',this)">Jun</button><button class="acct-pill acct-pill-month" data-month="7" onclick="setAcctMonth('7',this)">Jul</button><button class="acct-pill acct-pill-month" data-month="8" onclick="setAcctMonth('8',this)">Aug</button><button class="acct-pill acct-pill-month" data-month="9" onclick="setAcctMonth('9',this)">Sep</button><button class="acct-pill acct-pill-month" data-month="10" onclick="setAcctMonth('10',this)">Oct</button><button class="acct-pill acct-pill-month" data-month="11" onclick="setAcctMonth('11',this)">Nov</button><button class="acct-pill acct-pill-month" data-month="12" onclick="setAcctMonth('12',this)">Dec</button></div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="card-title" id="acctTopTitle">Top Accounts &mdash; All Time</div>
+      <div class="card-sub">Top 10 ranked by revenue for the selected period</div>
+      <div class="tw">
+        <table>
+          <thead><tr>
+            <th>Account</th><th>Area</th><th style="text-align:right">Revenue</th>
+          </tr></thead>
+          <tbody id="acctTopBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title" id="acctCatTitle">Revenue by Category &mdash; All Time</div>
+      <div class="card-sub">Top 8 product categories by revenue for the selected period</div>
+      <div class="chart-wrap h300"><canvas id="cAccCat"></canvas></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:18px">
+    <div class="card-title" id="acctAllCatTitle">All Categories &mdash; All Time</div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Category</th><th style="text-align:right">Revenue</th></tr></thead>
+        <tbody id="acctAllCatBody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card" style="margin-top:18px">
+    <div class="card-title" id="acctAllTitle">All Allocated Accounts &mdash; All Time</div>
+    <div class="card-sub">Every account serviced by Amit Patel, ranked by revenue for the selected period (highest to lowest)</div>
+    <div class="tw" style="max-height:520px;overflow-y:auto">
+      <table>
+        <thead><tr>
+          <th style="text-align:right;width:36px">#</th>
+          <th style="width:72px">Code</th>
+          <th>Account Name</th>
+          <th style="text-align:center;width:64px">Area</th>
+          <th style="text-align:right;width:140px" id="acctAllRevHead">Revenue</th>
+        </tr></thead>
+        <tbody id="acctAllBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ── NON STOCK TAB ── -->
+<div id="panel-nonstock" class="tab-panel">
+  <div class="sec-h">Non-Stock Transactions</div>
+  <div style="background:var(--color-warning-bg);border:1px solid var(--color-warning-bd);border-radius:var(--r-md);
+       padding:10px 16px;margin-bottom:20px;font-family:var(--font-body);font-size:12px;color:var(--color-warning-fg)">
+    <strong>Excluded from KPI reporting.</strong> Transactions where <code style="font-size:11px">prodno = *</code>
+    are non-catalogued items (pallets, transport, commissions, write-offs, etc.) and are
+    excluded from all revenue, growth, and margin calculations across this dashboard.
+  </div>
+  <div class="kpi-grid" style="grid-template-columns:repeat(4,minmax(160px,1fr))">
+    <div class="kpi">
+      <div class="kpi-label">Net Value</div>
+      <div class="kpi-value up">R8.1K</div>
+      <div class="kpi-delta neu">Invoices less credit notes — sum of all rows below</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Invoiced</div>
+      <div class="kpi-value up">R29.4K</div>
+      <div class="kpi-delta up">Total invoice value</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Credit Notes</div>
+      <div class="kpi-value dn">(R21.2K)</div>
+      <div class="kpi-delta dn">Total credit note value</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Transactions</div>
+      <div class="kpi-value">19</div>
+      <div class="kpi-delta neu">Lines in this set</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:18px">
+    <div class="card-title">Non-Stock Value by Product Name</div>
+    <div class="card-sub">Net value per non-stock item description — sorted highest to lowest</div>
+    <div class="chart-wrap h340"><canvas id="cNsBar"></canvas></div>
+  </div>
+
+  <div class="card" style="margin-bottom:18px">
+    <div class="card-title">Summary by Product Name</div>
+    <div class="card-sub">Invoices, credit notes, and net per non-stock description</div>
+    <div class="tw" style="max-height:400px;overflow-y:auto">
+      <table>
+        <thead><tr>
+          <th>Product / Description</th>
+          <th style="text-align:right">Invoiced</th>
+          <th style="text-align:right">Credits</th>
+          <th style="text-align:right">Net</th>
+          <th style="text-align:right">Lines</th>
+        </tr></thead>
+        <tbody><tr><td style="font-size:12px">20L NAT ELEGANCE 8883-1</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R11.0K</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R0)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-success-fg)">R11.0K</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">20LT DECOR BLUE</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R9.9K</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R0)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-success-fg)">R9.9K</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">20L 3IN1 ROOF WHITE</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R2.8K</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R0)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-success-fg)">R2.8K</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">20LT HIGH GLOSS SUMMER BLUE</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R1.9K</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R0)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-success-fg)">R1.9K</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">20L HIGH GLOSS S/BLUE (8X5L)</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R1.7K</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R0)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-success-fg)">R1.7K</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">20LT RAINPROOF TERRACOTTA</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R1.5K</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R0)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-success-fg)">R1.5K</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">2</td></tr><tr><td style="font-size:12px">20L EMPTY BUCKETS</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R600</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R0)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-success-fg)">R600</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">20L QD GREEN</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R0</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R0)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-success-fg)">R0</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">50ML STAINER LOOSE BOTTLE</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R0</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R39)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-danger-fg)">(R39)</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">HANDLING FEE</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R0</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R168)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-danger-fg)">(R168)</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">2</td></tr><tr><td style="font-size:12px">500ML HIGH GLOSS MIX COLOURS</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R0</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R1.1K)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-danger-fg)">(R1.1K)</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">100ML STAINER LOOSE BOTTLE</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R0</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R1.2K)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-danger-fg)">(R1.2K)</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">1L HIGH GLOSS MIX COLOURS</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R0</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R1.8K)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-danger-fg)">(R1.8K)</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">WRITE OFF</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R0</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R3.1K)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-danger-fg)">(R3.1K)</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">5L HIGH GLOSS MIX COLOURS</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R0</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R3.4K)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-danger-fg)">(R3.4K)</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">1</td></tr><tr><td style="font-size:12px">ADVERTISING</td><td style="text-align:right;font-size:12px;color:var(--color-success-fg)">R0</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R10.4K)</td><td style="text-align:right;font-family:var(--font-display);font-weight:700;color:var(--color-danger-fg)">(R10.4K)</td><td style="text-align:right;color:var(--color-text-secondary);font-size:11px">2</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">All Non-Stock Transactions &mdash; Date Order</div>
+    <div class="card-sub">Every non-stock line in chronological order, oldest to newest</div>
+    <div class="tw" style="max-height:560px;overflow-y:auto">
+      <table>
+        <thead><tr>
+          <th style="width:90px">Date</th>
+          <th style="width:70px">Type</th>
+          <th style="width:80px">Ref</th>
+          <th>Account</th>
+          <th>Description</th>
+          <th style="text-align:right;width:110px">Amount</th>
+        </tr></thead>
+        <tbody><tr><td style="font-size:11px;white-space:nowrap">12 Mar 2025</td><td><span class="pill grn" style="font-size:10px">INVOICE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KP002</td><td style="font-size:12px">Power Hardware</td><td style="font-size:12px">20L NAT ELEGANCE 8883-1</td><td style="text-align:right;font-size:12px">R11.0K</td></tr><tr><td style="font-size:11px;white-space:nowrap">28 Mar 2025</td><td><span class="pill red" style="font-size:10px">CRNOTE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KC021</td><td style="font-size:12px">Choice Hardware & Electrical</td><td style="font-size:12px">1L HIGH GLOSS MIX COLOURS</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R1.8K)</td></tr><tr><td style="font-size:11px;white-space:nowrap">28 Mar 2025</td><td><span class="pill red" style="font-size:10px">CRNOTE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KC021</td><td style="font-size:12px">Choice Hardware & Electrical</td><td style="font-size:12px">500ML HIGH GLOSS MIX COLOURS</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R1.1K)</td></tr><tr><td style="font-size:11px;white-space:nowrap">28 Mar 2025</td><td><span class="pill red" style="font-size:10px">CRNOTE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KC021</td><td style="font-size:12px">Choice Hardware & Electrical</td><td style="font-size:12px">5L HIGH GLOSS MIX COLOURS</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R3.4K)</td></tr><tr><td style="font-size:11px;white-space:nowrap">08 Apr 2025</td><td><span class="pill grn" style="font-size:10px">INVOICE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KN018</td><td style="font-size:12px">Naaz Hardware & Furniture</td><td style="font-size:12px">20L HIGH GLOSS S/BLUE (8X5L)</td><td style="text-align:right;font-size:12px">R1.7K</td></tr><tr><td style="font-size:11px;white-space:nowrap">05 May 2025</td><td><span class="pill red" style="font-size:10px">CRNOTE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KL020</td><td style="font-size:12px">Light Centre</td><td style="font-size:12px">100ML STAINER LOOSE BOTTLE</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R1.2K)</td></tr><tr><td style="font-size:11px;white-space:nowrap">05 May 2025</td><td><span class="pill red" style="font-size:10px">CRNOTE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KL020</td><td style="font-size:12px">Light Centre</td><td style="font-size:12px">50ML STAINER LOOSE BOTTLE</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R39)</td></tr><tr><td style="font-size:11px;white-space:nowrap">08 Jul 2025</td><td><span class="pill grn" style="font-size:10px">INVOICE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KM098</td><td style="font-size:12px">Mahriya General Trading CC</td><td style="font-size:12px">20L EMPTY BUCKETS</td><td style="text-align:right;font-size:12px">R600</td></tr><tr><td style="font-size:11px;white-space:nowrap">14 Jul 2025</td><td><span class="pill grn" style="font-size:10px">INVOICE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KM105</td><td style="font-size:12px">Monyakeng Hardware</td><td style="font-size:12px">20L 3IN1 ROOF WHITE</td><td style="text-align:right;font-size:12px">R2.8K</td></tr><tr><td style="font-size:11px;white-space:nowrap">01 Aug 2025</td><td><span class="pill grn" style="font-size:10px">INVOICE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KM160</td><td style="font-size:12px">Mr Build Musina (PTY) LTD</td><td style="font-size:12px">20LT RAINPROOF TERRACOTTA</td><td style="text-align:right;font-size:12px">R1.2K</td></tr><tr><td style="font-size:11px;white-space:nowrap">21 Aug 2025</td><td><span class="pill grn" style="font-size:10px">INVOICE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KM160</td><td style="font-size:12px">Mr Build Musina (PTY) LTD</td><td style="font-size:12px">20LT RAINPROOF TERRACOTTA</td><td style="text-align:right;font-size:12px">R300</td></tr><tr><td style="font-size:11px;white-space:nowrap">10 Sep 2025</td><td><span class="pill grn" style="font-size:10px">INVOICE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KH029</td><td style="font-size:12px">Hadid Hardware & Furniture</td><td style="font-size:12px">20L QD GREEN</td><td style="text-align:right;font-size:12px">R0</td></tr><tr><td style="font-size:11px;white-space:nowrap">23 Oct 2025</td><td><span class="pill grn" style="font-size:10px">INVOICE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KP002</td><td style="font-size:12px">Power Hardware</td><td style="font-size:12px">20LT DECOR BLUE</td><td style="text-align:right;font-size:12px">R9.9K</td></tr><tr><td style="font-size:11px;white-space:nowrap">27 Nov 2025</td><td><span class="pill red" style="font-size:10px">CRNOTE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KM048</td><td style="font-size:12px">A A Hardware 2</td><td style="font-size:12px">WRITE OFF</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R3.1K)</td></tr><tr><td style="font-size:11px;white-space:nowrap">06 Mar 2026</td><td><span class="pill grn" style="font-size:10px">INVOICE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KF028</td><td style="font-size:12px">Fayaz and Brother 891 Pty Ltd</td><td style="font-size:12px">20LT HIGH GLOSS SUMMER BLUE</td><td style="text-align:right;font-size:12px">R1.9K</td></tr><tr><td style="font-size:11px;white-space:nowrap">27 Mar 2026</td><td><span class="pill red" style="font-size:10px">CRNOTE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KA038</td><td style="font-size:12px">Ace Hardware & Furniture</td><td style="font-size:12px">ADVERTISING</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R1.7K)</td></tr><tr><td style="font-size:11px;white-space:nowrap">20 Apr 2026</td><td><span class="pill red" style="font-size:10px">CRNOTE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KP018</td><td style="font-size:12px">Khotawala 786 Traders CC</td><td style="font-size:12px">ADVERTISING</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R8.7K)</td></tr><tr><td style="font-size:11px;white-space:nowrap">15 May 2026</td><td><span class="pill red" style="font-size:10px">CRNOTE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KT005</td><td style="font-size:12px">Delli 786 TATshaulu HW</td><td style="font-size:12px">HANDLING FEE</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R139)</td></tr><tr><td style="font-size:11px;white-space:nowrap">15 May 2026</td><td><span class="pill red" style="font-size:10px">CRNOTE</span></td><td style="font-size:11px;color:var(--color-text-tertiary)">KL020</td><td style="font-size:12px">Light Centre</td><td style="font-size:12px">HANDLING FEE</td><td style="text-align:right;font-size:12px;color:var(--color-danger-fg)">(R29)</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRODUCT DEVELOPMENT TAB ── -->
+<div id="panel-prodev" class="tab-panel">
+  <div class="sec-h">RAP KPI &mdash; Product Development &middot; Q1 2026 (Jan-Mar)</div>
+
+  <div style="background:var(--color-info-bg);border:1px solid var(--color-info-bd);border-radius:var(--r-md);
+       padding:10px 16px;margin-bottom:18px;font-family:var(--font-body);font-size:12px;color:var(--color-info-fg);line-height:1.6">
+    <strong>What this measures.</strong> Every (store &times; SKU) pair you delivered in Q1 2026
+    where that store had not bought that SKU in the prior 12 months.
+    Placing genuinely new products into existing stores is the core product-development behaviour the RAP rewards.
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">New Product Placements</div>
+      <div class="kpi-value">463</div>
+      <div class="kpi-delta neu">store &times; SKU first-time pairs</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Stores Reached</div>
+      <div class="kpi-value">47</div>
+      <div class="kpi-delta neu">of 51 active in Q1</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Distinct SKUs Placed</div>
+      <div class="kpi-value">251</div>
+      <div class="kpi-delta neu">unique product codes</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Q1 Net Revenue from New</div>
+      <div class="kpi-value">R 345,718</div>
+      <div class="kpi-delta neu">net of VAT</div>
+    </div>
+  </div>
+
+  <div class="sec-h">How well was this done?</div>
+
+  <div class="card" style="padding:20px 22px;margin-bottom:18px">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap">
+      <div style="font-family:var(--font-display);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary)">Overall Grade</div>
+      <div class="kpi-value up" style="font-size:32px">Excellent</div>
+    </div>
+    <div class="g2" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+      <div style="padding:14px 16px;background:var(--color-surface-sunken);border-radius:var(--r-md);border-left:3px solid var(--color-success-bd)">
+        <div class="kpi-label">Store Coverage %</div>
+        <div class="kpi-value up">92.2%</div>
+        <div class="kpi-delta neu">Excellent &middot; share of your Q1-active stores that got a new product</div>
+      </div>
+      <div style="padding:14px 16px;background:var(--color-surface-sunken);border-radius:var(--r-md);border-left:3px solid var(--color-success-bd)">
+        <div class="kpi-label">Revenue % from new placements</div>
+        <div class="kpi-value up">14.2%</div>
+        <div class="kpi-delta neu">Excellent &middot; of your total Q1 net revenue (R2,427K)</div>
+      </div>
+      <div style="padding:14px 16px;background:var(--color-surface-sunken);border-radius:var(--r-md);border-left:3px solid var(--color-success-bd)">
+        <div class="kpi-label">Category Breadth</div>
+        <div class="kpi-value up">11</div>
+        <div class="kpi-delta neu">Excellent &middot; distinct L1 categories with new placements</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:11.5px;color:var(--color-text-tertiary);line-height:1.5">
+      Thresholds: Coverage &ge; 60% Excellent / &ge; 35% Good
+      &middot; Revenue &ge; 8% Excellent / &ge; 3% Good
+      &middot; Categories &ge; 8 Excellent / &ge; 5 Good. Overall = majority of the three.
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="card-title">Categories Driven</div>
+      <div class="card-sub">Where your range development landed this quarter</div>
+      <div class="tw">
+        <table>
+          <thead><tr>
+            <th>Category</th>
+            <th style="text-align:right">Placements</th>
+            <th style="text-align:right">Stores</th>
+            <th style="text-align:right">Q1 Net</th>
+            <th style="width:140px"></th>
+          </tr></thead>
+          <tbody><tr><td>PVA Paints</td><td style="text-align:right">118</td><td style="text-align:right">20</td><td style="text-align:right">R 119,070</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:100.0%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>Enamel</td><td style="text-align:right">103</td><td style="text-align:right">28</td><td style="text-align:right">R 59,243</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:87.3%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>QD Enamel</td><td style="text-align:right">71</td><td style="text-align:right">18</td><td style="text-align:right">R 64,552</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:60.2%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>Woodcare</td><td style="text-align:right">42</td><td style="text-align:right">13</td><td style="text-align:right">R 15,934</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:35.6%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>Floor & Roof Paints</td><td style="text-align:right">32</td><td style="text-align:right">13</td><td style="text-align:right">R 38,592</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:27.1%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>Waterproofing</td><td style="text-align:right">27</td><td style="text-align:right">11</td><td style="text-align:right">R 12,978</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:22.9%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>General</td><td style="text-align:right">22</td><td style="text-align:right">10</td><td style="text-align:right">R 7,242</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:18.6%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>Accessories</td><td style="text-align:right">16</td><td style="text-align:right">9</td><td style="text-align:right">R 10,844</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:13.6%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>Primers</td><td style="text-align:right">16</td><td style="text-align:right">8</td><td style="text-align:right">R 12,152</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:13.6%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>Putty</td><td style="text-align:right">11</td><td style="text-align:right">6</td><td style="text-align:right">R 3,786</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:9.3%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr><tr><td>Specialised Coatings</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td style="text-align:right">R 173</td><td><div style="height:8px;width:100%;background:var(--color-surface-sunken);border-radius:50px"><div style="height:100%;width:0.8%;background:var(--color-brand-primary);border-radius:50px"></div></div></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Top New Products Placed</div>
+      <div class="card-sub">Ranked by Q1 net revenue contribution</div>
+      <div class="tw">
+        <table>
+          <thead><tr>
+            <th>SKU</th>
+            <th>Product</th>
+            <th style="text-align:right">Stores</th>
+            <th style="text-align:right">Q1 Net</th>
+          </tr></thead>
+          <tbody><tr><td style="font-size:11px;color:var(--color-text-tertiary)">139401</td><td>20L DECOR WHITE PVA</td><td style="text-align:right">5</td><td style="text-align:right">R 12,850</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">139430</td><td>20LT DECOR DARK GREY PVA</td><td style="text-align:right">5</td><td style="text-align:right">R 7,572</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">QD9822</td><td>5L Q D BRONZE ENAMEL</td><td style="text-align:right">2</td><td style="text-align:right">R 7,520</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">309421</td><td>20L UNIVERSAL ROOF BLACK</td><td style="text-align:right">3</td><td style="text-align:right">R 6,858</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">299811</td><td>5L HIGH GLOSS (MQ) CREAM</td><td style="text-align:right">6</td><td style="text-align:right">R 6,790</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">299841</td><td>5L HIGH GLOSS (MQ) BR GREEN</td><td style="text-align:right">5</td><td style="text-align:right">R 6,461</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">QD9856</td><td>5L Q.D. BURGUNDY</td><td style="text-align:right">3</td><td style="text-align:right">R 5,262</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">309442</td><td>20L UNIVERSAL ROOF GREEN</td><td style="text-align:right">3</td><td style="text-align:right">R 5,177</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">139414</td><td>20L DECOR PEACH PVA</td><td style="text-align:right">4</td><td style="text-align:right">R 4,981</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">QD9871</td><td>5L Q D SIGNAL RED ENAMEL</td><td style="text-align:right">3</td><td style="text-align:right">R 4,880</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <div class="card-title">Top Stores Reached</div>
+    <div class="card-sub">Stores that took the broadest range of new products this quarter</div>
+    <div class="tw">
+      <table>
+        <thead><tr>
+          <th>Account</th>
+          <th>Store</th>
+          <th style="text-align:right">New SKUs</th>
+          <th style="text-align:right">Placements</th>
+          <th style="text-align:right">Q1 Net</th>
+        </tr></thead>
+        <tbody><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KB114</td><td>Builderstown Hyper (PTY) LTD</td><td style="text-align:right">96</td><td style="text-align:right">96</td><td style="text-align:right">R 91,460</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KA115</td><td>Amin Supermarket T/A Ayat HW</td><td style="text-align:right">74</td><td style="text-align:right">74</td><td style="text-align:right">R 26,901</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KM164</td><td>Mas Hardware</td><td style="text-align:right">27</td><td style="text-align:right">27</td><td style="text-align:right">R 10,442</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KU005</td><td>Candyland General Trading</td><td style="text-align:right">24</td><td style="text-align:right">24</td><td style="text-align:right">R 15,238</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KF028</td><td>Fayaz and Brother 891 Pty Ltd</td><td style="text-align:right">21</td><td style="text-align:right">21</td><td style="text-align:right">R 11,305</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KC053</td><td>Choice Build Hardware Siloam</td><td style="text-align:right">18</td><td style="text-align:right">18</td><td style="text-align:right">R 34,047</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KC029</td><td>Choice Build Hardware</td><td style="text-align:right">13</td><td style="text-align:right">13</td><td style="text-align:right">R 19,342</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KL020</td><td>Light Centre</td><td style="text-align:right">13</td><td style="text-align:right">13</td><td style="text-align:right">R 3,812</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KM098</td><td>Mahriya General Trading CC</td><td style="text-align:right">13</td><td style="text-align:right">13</td><td style="text-align:right">R 1,676</td></tr><tr><td style="font-size:11px;color:var(--color-text-tertiary)">KB032</td><td>Bonanza Plumbing & Electrical</td><td style="text-align:right">12</td><td style="text-align:right">12</td><td style="text-align:right">R 3,749</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="panel-recovery" class="tab-panel">
+  <div class="sec-h">Recovery Accounts — 22 Flagged (Bottom 25% of Book)</div>
+  <div style="margin-bottom:16px;padding:12px 16px;background:var(--color-danger-bg);border:1px solid var(--color-danger-bd);border-radius:var(--r-md);font-size:13px;color:var(--color-danger-fg);line-height:1.5">
+    These accounts are in the lowest quartile of your book by health score. A rep visit to any flagged account is automatically recorded as a recovery visit.
+    Health score is built from purchase frequency, visit cadence, basket coverage, SKU depth, and spend trend.
+  </div>
+  <div class="tw">
+    <table style="width:100%;border-collapse:collapse;font-size:13px">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding:10px 14px;font-family:var(--font-display);font-size:10px;text-transform:uppercase;letter-spacing:.10em;color:var(--color-text-secondary);border-bottom:1px solid var(--color-border-default)">Store</th>
+          <th style="text-align:center;padding:10px 6px;font-family:var(--font-display);font-size:10px;text-transform:uppercase;letter-spacing:.10em;color:var(--color-text-secondary);border-bottom:1px solid var(--color-border-default)">Health Score</th>
+          <th style="text-align:center;padding:10px 6px;font-family:var(--font-display);font-size:10px;text-transform:uppercase;letter-spacing:.10em;color:var(--color-text-secondary);border-bottom:1px solid var(--color-border-default)">Tier</th>
+          <th style="text-align:right;padding:10px 14px;font-family:var(--font-display);font-size:10px;text-transform:uppercase;letter-spacing:.10em;color:var(--color-text-secondary);border-bottom:1px solid var(--color-border-default)">Last Purchase</th>
+        </tr>
+      </thead>
+      <tbody><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">Amods Electrical & Plumbing</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">4</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">721d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">BRM Investments</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">6</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">639d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">Family Hardware</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">6</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">515d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">Maserumo Xpress</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">8</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">522d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">Discount Hardware</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">10</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">525d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">A N Hardware</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">10</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">512d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">Mevish Cash & Carry</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">11</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">225d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">Jane Furse Building Supply</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">11</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">512d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">Bobras Hardware</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">12</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">146d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">Builders at Bloem Pty Ltd</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">15</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">217d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">African Hardware</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">15</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:rgba(201,122,58,0.15);color:var(--_terra-light,#F7E0C8)">At-Risk</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">43d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">Azhari Auto Spares</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">16</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">155d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">Mekka Hardware</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">17</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">305d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">Iconic Hardware</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">18</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">231d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">V S General  Dealers</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">20</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">231d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">Mykatrade 510 (Pty) Ltd</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">23</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">213d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">Memel Hardware</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">24</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:rgba(201,122,58,0.15);color:var(--_terra-light,#F7E0C8)">At-Risk</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">25d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">Builderstown Hyper (PTY) LTD</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">25</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:rgba(201,122,58,0.15);color:var(--_terra-light,#F7E0C8)">At-Risk</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">11d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">U Save Glass and Hardware</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">28</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:rgba(201,122,58,0.15);color:var(--_terra-light,#F7E0C8)">At-Risk</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">25d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">Moosas Supermarket</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">28</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">197d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">Z Build Khubvi</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">29</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">99d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">Candyland General Trading</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">29</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">102d</td>
+</tr></tbody>
+    </table>
+  </div>
+  <div style="margin-top:16px;padding:12px 16px;background:var(--color-surface-elevated);border-radius:var(--r-md);font-size:12px;color:var(--color-text-secondary)">
+    Score 0–100: &lt;20 = Dead/Dormant · 20–39 = At-Risk · 40–64 = Narrow · ≥65 = Growing.
+    Last Purchase = days since most recent invoice in the sales data.
+    Refresh by running <code>python build_store_health.py</code>.
+  </div>
+</div>
+</div><!-- .page-main -->
+
+<footer class="page-footer">
+  <strong>Olympic Paints</strong> &mdash; Amit Patel Personal KPI Dashboard &mdash; Week ending 16 May 2026<br>
+  Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
+  KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
+  Generated 16 May 2026 10:48 &middot; <em>Confidential &mdash; for internal use only</em>
+</footer>
+
+<script>
+/* ── THEME SWITCHER ── */
+const OLY_THEMES=['theme-light','theme-dark','theme-brand','theme-navy'];
+function olyTheme(t,btn){
+  document.documentElement.classList.remove(...OLY_THEMES);
+  document.documentElement.classList.add(t);
+  localStorage.setItem('oly-theme',t);
+  document.querySelectorAll('.theme-bar button').forEach(b=>b.classList.toggle('active',b===btn));
+}
+
+/* ── TAB SWITCHER ── */
+function showTab(id){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  const btn=document.querySelector('.tab-btn[data-tab="'+id+'"]');
+  if(btn)btn.classList.add('active');
+  const panel=document.getElementById('panel-'+id);
+  if(panel)panel.classList.add('active');
+}
+
+/* ── CHART DEFAULTS ── */
+Chart.defaults.font.family="'Barlow',sans-serif";
+Chart.defaults.font.size=12;
+Chart.defaults.color='#949390';
+const gridLine={color:'rgba(255,255,255,0.06)'};
+const fmtR=v=>v>=1e6?'R'+(v/1e6).toFixed(1)+'M':v>=1e3?'R'+(v/1e3).toFixed(0)+'K':'R'+v;
+
+/* ── BAR LABEL PLUGIN ── */
+const _lblMap=new Map();
+Chart.register({
+  id:'barLabels',
+  afterDraw(chart){
+    const opts=_lblMap.get(chart.canvas&&chart.canvas.id);
+    if(!opts)return;
+    const {ctx}=chart;
+    const mode=opts.mode||'v-top';
+    const fnt='bold '+(opts.fs||10)+"px 'Barlow',sans-serif";
+    try{
+      chart.data.datasets.forEach((ds,i)=>{
+        const meta=chart.getDatasetMeta(i);
+        if(!meta||meta.hidden)return;
+        meta.data.forEach((el,j)=>{
+          if(!el||isNaN(el.x)||isNaN(el.y))return;
+          const val=ds.data[j];
+          if(val==null||val===0)return;
+          const text=opts.fmt?opts.fmt(val):String(Math.round(val));
+          if(!text)return;
+          const base=el.base??el.y;
+          ctx.save();ctx.font=fnt;
+          const textW=ctx.measureText(text).width;
+          const inColor=(opts.dsColors&&opts.dsColors[i])||opts.color||'#fff';
+          const outColor=Chart.defaults.color||'#949390';
+          if(mode==='h-inside'){
+            const barW=Math.abs(el.x-base);
+            ctx.textBaseline='middle';
+            if(barW>=textW+10){
+              ctx.fillStyle=inColor;ctx.textAlign='center';
+              ctx.fillText(text,(el.x+base)/2,el.y);
+            }else if(barW>4){
+              ctx.fillStyle=outColor;
+              ctx.textAlign=val>=0?'left':'right';
+              ctx.fillText(text,val>=0?el.x+4:el.x-4,el.y);
+            }
+          }else if(mode==='v-stacked'){
+            const segH=Math.abs(base-el.y);
+            const fs=opts.fs||10;
+            if(segH>=fs+6){
+              ctx.fillStyle=inColor;
+              ctx.textAlign='center';ctx.textBaseline='middle';
+              ctx.fillText(text,el.x,(el.y+base)/2);
+            }else if(segH>=4){
+              ctx.fillStyle=outColor;
+              ctx.textAlign='center';ctx.textBaseline='bottom';
+              ctx.fillText(text,el.x,Math.min(el.y,base)-2);
+            }
+          }else{
+            ctx.fillStyle=outColor;
+            ctx.textAlign='center';ctx.textBaseline='bottom';
+            ctx.fillText(text,el.x,el.y-3);
+          }
+          ctx.restore();
+        });
+      });
+    }catch(e){}
+  }
+});
+
+/* ── OVERVIEW REVENUE CHART ── */
+_lblMap.set('cOvRev',{mode:'v-stacked',fmt:v=>fmtR(v),fs:9,dsColors:['#fff','#0D0D0B']});
+new Chart(document.getElementById('cOvRev'),{
+  type:'bar',
+  data:{
+    labels:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    datasets:[
+      {label:'2025',data:[630228.34,810768.36,690194.01,968787.69,553931.56,920011.07,1126193.08,1390393.99,1229475.18,1321149.08,2285863.38,1848353.19],backgroundColor:'rgba(26,61,110,0.65)',borderRadius:5},
+      {label:'2026',data:[785147.22,675807.3,965966.73,1810009.61,465536.49,0.0,0.0,0.0,0.0,0.0,0.0,0.0],backgroundColor:'rgba(245,196,0,0.85)',borderRadius:5}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    layout:{padding:{top:22}},
+    plugins:{legend:{position:'bottom',labels:{padding:16,boxWidth:12}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmtR(c.parsed.y)}}},
+    scales:{y:{grid:gridLine,ticks:{callback:v=>fmtR(v)}},x:{grid:{display:false}}}
+  }
+});
+
+/* ── OVERVIEW CATEGORY CHART ── */
+_lblMap.set('cOvCat',{mode:'h-inside',fmt:v=>'R'+v.toFixed(2)+'M',fs:9,color:'#0D0D0B'});
+new Chart(document.getElementById('cOvCat'),{
+  type:'bar',
+  data:{
+    labels:["PVA Paints","Enamel","QD Enamel","Accessories","Putty","Floor & Roof Paints","Waterproofing","Woodcare"],
+    datasets:[{label:'Revenue (R million)',data:[0.73,0.63,0.49,0.34,0.27,0.21,0.2,0.18],backgroundColor:'#F5C400',borderRadius:5}]
+  },
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>'R'+(c.parsed.x).toFixed(2)+'M'}}},
+    scales:{x:{grid:gridLine,ticks:{callback:v=>'R'+v.toFixed(1)+'M'}},y:{grid:{display:false},ticks:{font:{size:10}}}}
+  }
+});
+
+/* ── MONTHLY REVENUE CHART ── */
+_lblMap.set('cSalesRev',{mode:'v-stacked',fmt:v=>fmtR(v),fs:9,dsColors:['#fff','#0D0D0B']});
+new Chart(document.getElementById('cSalesRev'),{
+  type:'bar',
+  data:{
+    labels:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    datasets:[
+      {label:'2025',data:[630228.34,810768.36,690194.01,968787.69,553931.56,920011.07,1126193.08,1390393.99,1229475.18,1321149.08,2285863.38,1848353.19],backgroundColor:'rgba(26,61,110,0.65)',borderRadius:5},
+      {label:'2026',data:[785147.22,675807.3,965966.73,1810009.61,465536.49,0.0,0.0,0.0,0.0,0.0,0.0,0.0],backgroundColor:'rgba(245,196,0,0.85)',borderRadius:5}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    layout:{padding:{top:22}},
+    plugins:{legend:{position:'bottom',labels:{padding:16,boxWidth:12}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmtR(c.parsed.y)}}},
+    scales:{y:{grid:gridLine,ticks:{callback:v=>fmtR(v)}},x:{grid:{display:false}}}
+  }
+});
+
+/* ── DAILY HEATMAP ── */
+(function(){
+  const DV={"2025-05-04": 1, "2025-05-14": 5, "2025-05-26": 9, "2025-05-27": 10, "2025-05-28": 15, "2025-06-02": 2, "2025-06-03": 4, "2025-06-04": 4, "2025-06-24": 5, "2025-06-26": 12, "2025-07-02": 9, "2025-07-07": 3, "2025-07-08": 4, "2025-07-09": 6, "2025-07-21": 3, "2025-07-22": 7, "2025-07-23": 7, "2025-07-28": 4, "2025-07-29": 9, "2025-07-30": 15, "2025-08-04": 4, "2025-08-07": 6, "2025-08-13": 2, "2025-08-18": 4, "2025-08-19": 4, "2025-08-20": 7, "2025-08-25": 6, "2025-08-26": 13, "2025-08-27": 15, "2025-09-02": 4, "2025-09-03": 6, "2025-09-04": 3, "2025-09-22": 5, "2025-09-23": 7, "2025-09-25": 7, "2025-09-29": 5, "2025-09-30": 15, "2025-10-01": 17, "2025-10-06": 4, "2025-10-07": 6, "2025-10-13": 8, "2025-10-14": 8, "2025-10-27": 9, "2025-10-28": 15, "2025-10-29": 14, "2025-11-03": 2, "2025-11-04": 5, "2025-11-17": 3, "2025-11-18": 9, "2025-11-20": 5, "2025-11-24": 7, "2025-11-25": 14, "2025-11-26": 10, "2025-12-02": 3, "2025-12-03": 4, "2025-12-08": 4, "2025-12-09": 8, "2025-12-10": 4, "2026-01-12": 1, "2026-01-13": 4, "2026-01-14": 4, "2026-01-19": 3, "2026-01-20": 10, "2026-01-21": 5, "2026-01-26": 8, "2026-01-27": 11, "2026-01-28": 9, "2026-01-29": 1, "2026-02-04": 4, "2026-02-09": 3, "2026-02-10": 2, "2026-02-16": 5, "2026-02-23": 5, "2026-02-24": 12, "2026-02-25": 17, "2026-03-02": 3, "2026-03-03": 9, "2026-03-24": 15, "2026-03-25": 18, "2026-04-20": 6, "2026-04-21": 11, "2026-04-22": 11, "2026-05-05": 3, "2026-05-06": 5, "2026-05-12": 4, "2026-05-13": 2};
+  // DL[iso] = number of meetings on that day where $se_module=='Leads'.
+  // When > 0 the cell switches to a green ramp; brighter = more leads visited.
+  // (Eventually scope this to the rep's Hunting Week / cycle_week=4 only.)
+  const DL={"2026-02-09": 1, "2026-03-04": 1, "2026-03-11": 1, "2026-04-14": 1, "2026-04-22": 1, "2026-05-05": 1, "2026-05-11": 1, "2026-05-13": 2};
+  const DNAMES=['','Mon','Tue','Wed','Thu','Fri'];
+  const MNF=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  // Months come from EITHER visits OR lead visits — so a day with only a
+  // lead-linked meeting (no Check-In Time) still appears in the picker.
+  const dvMonths=[...new Set(
+    Object.keys(DV).concat(Object.keys(DL)).map(function(d){return d.slice(0,7);})
+  )].sort();
+  if(!dvMonths.length)return;
+  let hmCur=dvMonths[dvMonths.length-1];
+
+  function hmBg(n){
+    if(n===0)return'rgba(255,255,255,0.06)';
+    if(n<=2)return'#1A3D6E';
+    if(n<=5)return'#2D6BA8';
+    if(n<=9)return'#6B9ED0';
+    return'#F5C400';
+  }
+  // Lead-visit strip fill % = leads / (visits + leads) × 100.
+  // visits and leads are disjoint (built from parquet) so the denominator is
+  // the day's total activity. 9 store visits + 1 lead = 10%; 0 visits + 1 lead = 100%.
+  function leadFill(n,nL){
+    if(!nL || nL<=0) return 0;
+    var total=(n||0)+nL;
+    if(total<=0) return 0;
+    return Math.min(100, Math.round((nL/total)*100));
+  }
+  function hmFg(n,fill){
+    // Bright green strip covers most of the cell when fill is high — date sits at the top.
+    if(fill>=70) return '#0D2040';
+    return n>=10?'#0D0D0B':'var(--color-text-secondary)';
+  }
+  function hmCntFg(n,fill){
+    // Count is more vertically central — it goes dark whenever the strip
+    // reaches roughly the middle of the cell.
+    if(fill>=30) return '#0D2040';
+    return n>=10?'#0D2040':(n>0?'var(--color-text-primary)':'rgba(255,255,255,0.15)');
+  }
+  function pad2(v){return String(v).padStart(2,'0');}
+  function isoWk(d){
+    var dt=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));
+    var dn=dt.getUTCDay()||7;
+    dt.setUTCDate(dt.getUTCDate()+4-dn);
+    var ys=new Date(Date.UTC(dt.getUTCFullYear(),0,1));
+    return {y:dt.getUTCFullYear(),w:Math.ceil(((dt-ys)/86400000+1)/7)};
+  }
+
+  function renderHm(ym){
+    var parts=ym.split('-');
+    var yr=+parts[0],mo=+parts[1];
+    var dim=new Date(yr,mo,0).getDate();
+    var today=new Date();
+    var tWk=isoWk(today);
+
+    // Bucket weekdays by ISO week so each week renders as one bordered block
+    var weeks=[];var wkMap={};
+    for(var d=1;d<=dim;d++){
+      var dt=new Date(yr,mo-1,d);
+      var dow=dt.getDay();
+      if(dow<1||dow>5)continue;
+      var wk=isoWk(dt);var key=wk.y+'-W'+wk.w;
+      if(!(key in wkMap)){wkMap[key]=weeks.length;weeks.push({key:key,y:wk.y,w:wk.w,days:[]});}
+      weeks[wkMap[key]].days.push({d:d,dow:dow});
+    }
+
+    var html='';
+    weeks.forEach(function(week,wkIdx){
+      var bandCls=wkIdx%2===0?'wk-a':'wk-b';
+      var isCurrent=(week.y===tWk.y && week.w===tWk.w);
+      var cls='hm-wk '+bandCls+(isCurrent?' wk-current':'');
+      html+='<div class="'+cls+'" title="Week '+week.w+', '+week.y+'">';
+      week.days.forEach(function(o){
+        var iso=yr+'-'+pad2(mo)+'-'+pad2(o.d);
+        var n=DV[iso]||0;
+        var nL=DL[iso]||0;
+        var total=n+nL;
+        var fill=leadFill(n,nL);
+        // Background ramp uses the combined total so a heavy lead day reads as
+        // busy too (not just an empty cell with a green bar).
+        var fg=hmFg(total,fill);var cf=hmCntFg(total,fill);
+        var inline=total===0?'':'background:'+hmBg(total);
+        var isEmpty=(total===0);
+        var stripHtml=fill>0?('<div class="hm-lstrip" style="height:'+fill+'%"></div>'):'';
+        var tipTxt=total
+          ? (iso+': '+n+' visit'+(n!==1?'s':'')+' + '+nL+' lead'+(nL!==1?'s':'')+' = '+total+' total')
+          : (iso+': no activity');
+        html+='<div class="hm-cell'+(isEmpty?' empty':'')+'" style="'+inline+'" title="'+tipTxt+'">'
+             +stripHtml
+             +'<div class="hm-date" style="color:'+fg+'">'+DNAMES[o.dow]+' '+pad2(o.d)+'</div>'
+             +'<div class="hm-count" style="color:'+cf+'">'+(total||'')+'</div>'
+             +'</div>';
+      });
+      html+='</div>';
+    });
+
+    var fallback='<span style="font-size:12px;color:var(--color-text-tertiary);font-family:var(--font-body);padding:8px">No visit data for this month</span>';
+    // Render into every heatmap grid on the page (Activity tab + Monthly tab).
+    document.querySelectorAll('.js-hm-grid').forEach(function(el){el.innerHTML=html||fallback;});
+    document.querySelectorAll('.hm-pill').forEach(function(p){p.classList.toggle('active',p.dataset.ym===ym);});
+  }
+
+  window.renderHm=renderHm;
+
+  var pillHtml=dvMonths.map(function(ym){
+    var parts=ym.split('-');
+    var label=MNF[+parts[1]-1]+' '+parts[0];
+    return'<button class="hm-pill'+(ym===hmCur?' active':'')+'" data-ym="'+ym+'" onclick="renderHm(this.dataset.ym)">'+label+'</button>';
+  }).join('');
+  // Mount the same pill row into every heatmap container on the page.
+  document.querySelectorAll('.js-hm-pills').forEach(function(el){el.innerHTML=pillHtml;});
+
+  renderHm(hmCur);
+})();
+/* ── STORE VISITS vs MEETINGS CHART ── */
+_lblMap.set('cActivity',{mode:'v',fmt:v=>String(Math.round(v)),fs:9,color:'#fff'});
+new Chart(document.getElementById('cActivity'),{
+  type:'bar',
+  data:{
+    labels:["Dec 2025","Jan 2026","Feb 2026","Mar 2026","Apr 2026","May 2026"],
+    datasets:[
+      {label:'Store Visits',data:[0,0,3,1,0,0],backgroundColor:'#2D8C7A',borderRadius:4},
+      {label:'Meetings',    data:[23,56,49,47,30,18],backgroundColor:'#F5C400',borderRadius:4}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    layout:{padding:{top:22}},
+    plugins:{
+      legend:{display:true,position:'top',labels:{color:'var(--color-text-secondary)',font:{size:11}}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.y}}
+    },
+    scales:{y:{grid:gridLine,ticks:{stepSize:10}},x:{grid:{display:false}}}
+  }
+});
+
+/* ── CATEGORY CHART (reactive — rebuilt by renderAccountsTab) ── */
+_lblMap.set('cAccCat',{mode:'h-inside',fmt:v=>'R'+v.toFixed(2)+'M',fs:9,color:'#0D0D0B'});
+var _acctCatChart = new Chart(document.getElementById('cAccCat'),{
+  type:'bar',
+  data:{labels:[],datasets:[{label:'Revenue (R million)',data:[],backgroundColor:'#F5C400',borderRadius:5}]},
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>'R'+(c.parsed.x).toFixed(2)+'M'}}},
+    scales:{x:{grid:gridLine,ticks:{callback:v=>'R'+v.toFixed(1)+'M'}},y:{grid:{display:false},ticks:{font:{size:11}}}}
+  }
+});
+
+/* ── ACCOUNTS TAB FILTER (two-axis: FY + Month, AND together) ── */
+var ACCT_DATA = {"meta": {"KB036": {"name": "BRM Investments", "arref": "AP2"}, "KA072": {"name": "Amods Electrical & Plumbing", "arref": "AP3"}, "KD017": {"name": "Discount Hardware", "arref": "AP3"}, "KM116": {"name": "Maserumo Xpress", "arref": "AP3"}, "KF011": {"name": "Family Hardware", "arref": "AP2"}, "KA056": {"name": "A N Hardware", "arref": "AP3"}, "KJ022": {"name": "Jane Furse Building Supply", "arref": "AP3"}, "KB053": {"name": "Mekka Hardware", "arref": "AP2"}, "KI016": {"name": "Iconic Hardware", "arref": "AP1"}, "KV010": {"name": "V S General  Dealers", "arref": "NP2"}, "KM101": {"name": "Mevish Cash & Carry", "arref": "AP3"}, "KS052": {"name": "Oriant Invest TA Smart Build", "arref": "AP1"}, "KM096": {"name": "Mykatrade 510 (Pty) Ltd", "arref": "AP2"}, "KB084": {"name": "Builders at Bloem Pty Ltd", "arref": "AP2"}, "KM076": {"name": "Moosas Supermarket", "arref": "AP3"}, "KB075": {"name": "Burgersfort Wood Centre", "arref": "AP3"}, "KS007": {"name": "Star Hardware", "arref": "AP1"}, "KA108": {"name": "Azhari Auto Spares", "arref": "AP1"}, "KH029": {"name": "Hadid Hardware & Furniture", "arref": "AP3"}, "KB082": {"name": "Bobras Hardware", "arref": "AP1"}, "KM105": {"name": "Monyakeng Hardware", "arref": "AP2"}, "KM164": {"name": "Mas Hardware", "arref": "AP2"}, "KA115": {"name": "Amin Supermarket T/A Ayat HW", "arref": "AP?"}, "KS089": {"name": "S.A. Hardware (Makhado)", "arref": "N2"}, "KU005": {"name": "Candyland General Trading", "arref": "AP2"}, "KZ011": {"name": "Z Build Khubvi", "arref": "AP1"}, "KV001": {"name": "Vuwani Hardware & Furniture cc", "arref": "AP1"}, "KM094": {"name": "Al-Kauthar Inv TA Mas HW", "arref": "AP2"}, "KN018": {"name": "Naaz Hardware & Furniture", "arref": "AP2"}, "KM027": {"name": "Discount HW", "arref": "AP3"}, "KD033": {"name": "DIY Depo ( Petrus Styne)", "arref": "AP2"}, "KV007": {"name": "Vendaland H W & Furniture", "arref": "AP1"}, "KM077": {"name": "Manglasi Hardware", "arref": "AP1"}, "KM070": {"name": "Max Hardware", "arref": "AP1"}, "KM098": {"name": "Mahriya General Trading CC", "arref": "AP1"}, "KM043": {"name": "Goldville SM  ta Meem H/War", "arref": "AP1"}, "KC056": {"name": "Cheap Cheap Hardware", "arref": "AP2"}, "KT036": {"name": "Tshino Hardware", "arref": "AP1"}, "KS131": {"name": "Strong Build", "arref": "AP1"}, "KL034": {"name": "Lucky Save 2", "arref": "AP3"}, "KA090": {"name": "A A Owaish Maize Depot Pty Ltd", "arref": "AP1"}, "KR044": {"name": "Raj Wholesalers", "arref": "AP1"}, "KA117": {"name": "African Hardware", "arref": "AP1"}, "KC053": {"name": "Choice Build Hardware Siloam", "arref": "AP1"}, "KS021": {"name": "Shalom Hardware", "arref": "AP2"}, "KS080": {"name": "Sehlware (Pty) Ltd", "arref": "AP3"}, "KM087": {"name": "Mangera's Hardware City", "arref": "AP3"}, "KA054": {"name": "Al Soud Traders", "arref": "AP3"}, "KB013": {"name": "New Bafana Bafana H Ware", "arref": "AP1"}, "KL023": {"name": "MA Hardware", "arref": "AP1"}, "KS045": {"name": "Siloam Hardware", "arref": "AP1"}, "KR034": {"name": "Jeelani Investment TA Matanda", "arref": "AP1"}, "KC029": {"name": "Choice Build Hardware", "arref": "AP1"}, "KU006": {"name": "U Save Glass and Hardware", "arref": "AP2"}, "KM141": {"name": "Memel Hardware", "arref": "AP2"}, "KG022": {"name": "Rosendal Hardware & Building M", "arref": "AP2"}, "KR027": {"name": "Easy Hardware", "arref": "AP1"}, "KB046": {"name": "Powerbuild Express", "arref": "AP3"}, "KM022": {"name": "Makhumi S Market TA Mambose H", "arref": "AP1"}, "KA095": {"name": "Sure Build", "arref": "NP2"}, "KP018": {"name": "Khotawala 786 Traders TA", "arref": "AP1"}, "KM004": {"name": "MAGEZI HW WHOLESALE VILLAGE", "arref": "AP1"}, "KB086": {"name": "Best Build Hardware  Elim", "arref": "AP1"}, "KB032": {"name": "Bonanza Plumbing & Electrical", "arref": "AP2"}, "KC054": {"name": "Choice Build Matanda", "arref": "AP1"}, "KL022": {"name": "Lucky Save Hardware", "arref": "AP3"}, "KC021": {"name": "Choice Hardware & Electrical", "arref": "AP3"}, "KC031": {"name": "Masiqhame Trading 1629", "arref": "AP3"}, "KB114": {"name": "Builderstown Hyper (PTY) LTD", "arref": "AP4"}, "KS061": {"name": "SAFARI HARDWARE", "arref": "AP1"}, "KF028": {"name": "Fayaz and Brother 891 Pty Ltd", "arref": "AP1"}, "KL004": {"name": "World Focus 1932 CC", "arref": "AP1"}, "KA008": {"name": "AA Hardware 2", "arref": "AP1"}, "KB003": {"name": "New Best Build Hardware", "arref": "AP1"}, "KM160": {"name": "Mr Build Musina (PTY) LTD", "arref": "AP1"}, "KA038": {"name": "Ace Hardware & Furniture", "arref": "AP3"}, "KH005": {"name": "HMG Wholesalers", "arref": "AP3"}, "KP002": {"name": "Power Hardware", "arref": "AP3"}, "KT005": {"name": "Delli 786 TATshaulu HW", "arref": "AP1"}, "KL020": {"name": "Light Centre", "arref": "AP1"}}, "accounts": {"KA008": {"2024-3": 12935.84, "2024-4": 9450.75, "2024-5": 5493.87, "2024-6": 5336.22, "2024-8": 13989.92, "2024-9": 13093.97, "2024-10": 16430.78, "2025-1": 7973.59, "2025-3": 10785.65, "2025-4": 14354.78, "2025-5": 38935.69, "2025-7": 41024.54, "2025-8": 8264.67, "2025-9": 35280.95, "2025-10": 12633.43, "2025-11": 8544.09, "2025-12": 21049.08, "2026-2": 9502.5, "2026-3": 38983.34, "2026-4": 24773.5, "2026-5": -525.0}, "KA038": {"2024-3": 16166.65, "2024-4": 36977.19, "2024-5": 64757.12, "2024-6": 8042.28, "2024-7": 50058.32, "2024-8": 42448.31, "2024-9": 42523.34, "2024-10": 39230.17, "2024-11": 142825.64, "2024-12": 29074.33, "2025-1": 43363.01, "2025-2": 156896.8, "2025-3": 6020.35, "2025-4": 3048.16, "2025-5": 14043.17, "2025-6": 31409.13, "2025-7": 40472.79, "2025-8": 230556.37, "2025-9": 13318.52, "2025-10": 52246.68, "2025-11": 164068.75, "2025-12": 30058.15, "2026-1": 63629.52, "2026-2": 15914.88, "2026-3": 129060.19, "2026-4": 15506.33, "2026-5": 44587.29}, "KA054": {"2024-5": 68154.35, "2024-8": 34466.28, "2024-9": 20178.08, "2024-11": 29388.55, "2024-12": 46526.76, "2025-2": 65427.23, "2025-4": 55822.85, "2025-6": 16825.92, "2025-7": 51125.1, "2025-8": 38355.7, "2025-10": 29984.45, "2025-11": 65077.74, "2025-12": 76429.27, "2026-1": 43073.95, "2026-3": 40086.16, "2026-4": 140245.7}, "KA056": {"2024-10": 69695.61, "2024-12": 90508.94}, "KA072": {"2024-5": 9645.6, "2024-9": -1994.3}, "KA090": {"2024-3": 13662.28, "2024-4": 5459.81, "2024-6": 7260.84, "2024-8": 6749.57, "2024-10": 9489.56, "2024-11": 4407.8, "2024-12": 17004.26, "2025-1": 12364.46, "2025-2": -4899.47, "2025-4": 10186.58, "2025-5": 12172.63, "2025-6": 5872.06, "2025-7": 7821.6, "2025-8": 6927.85, "2025-9": 1469.44, "2025-10": 6298.96, "2025-11": 2694.65, "2025-12": 10884.62, "2026-1": 5361.48, "2026-2": 4382.42, "2026-3": 6808.8, "2026-4": 7053.93}, "KA095": {"2025-9": 2659.34, "2025-12": 7266.95, "2026-4": 8320.55}, "KA108": {"2025-2": 6470.0, "2025-5": 9300.0, "2025-7": 7190.0, "2025-9": 5750.0, "2025-12": 4650.0}, "KA115": {"2026-1": 26901.2}, "KA117": {"2026-4": 16150.0}, "KB003": {"2024-3": 3900.56, "2024-4": 24548.45, "2024-5": 12408.54, "2024-6": 37308.12, "2024-8": 20291.57, "2024-11": 17386.45, "2024-12": 25712.08, "2025-1": 1970.19, "2025-2": 4146.76, "2025-3": 8185.36, "2025-4": 8122.19, "2025-5": 19591.25, "2025-6": 18273.69, "2025-7": 38117.08, "2025-8": 12175.31, "2025-9": 24788.65, "2025-10": 4760.63, "2025-11": 19804.19, "2025-12": 42082.07, "2026-1": 18552.37, "2026-3": 11698.08, "2026-4": 22936.28, "2026-5": -1358.75}, "KB013": {"2024-3": 23423.16, "2024-6": 8165.62, "2024-7": 11350.85, "2024-8": 13028.28, "2024-11": 2694.0, "2024-12": 7648.05, "2025-1": 10130.15, "2025-3": 7858.25, "2025-4": 19151.07, "2025-5": 12000.0, "2025-6": 13017.6, "2025-8": 9767.45, "2025-9": 23134.84, "2025-12": 26764.35, "2026-2": 17154.59, "2026-3": 30510.3, "2026-4": 18027.9}, "KB032": {"2024-3": 29056.89, "2024-6": 44045.68, "2024-8": 40365.56, "2024-11": 59625.99, "2024-12": 36335.51, "2025-4": 27561.05, "2025-7": 25934.42, "2025-9": 38666.99, "2025-11": 55663.54, "2026-3": 97324.52, "2026-4": -48662.26}, "KB036": {"2024-3": 4044.46, "2024-8": 2094.47}, "KB046": {"2024-3": 273093.03, "2024-4": 40760.55, "2024-7": 110496.37, "2024-8": 63988.9, "2024-9": 75016.95, "2024-12": 134255.05, "2025-3": 74689.15, "2025-7": 113823.84, "2025-8": -19974.51, "2025-9": 144679.82, "2025-11": 365946.7, "2026-1": 58193.9, "2026-2": 18600.0, "2026-4": 166525.97}, "KB053": {"2024-5": 10045.05, "2025-4": 5020.55, "2025-7": 8959.94}, "KB075": {"2024-3": 9980.69, "2024-5": 15098.22, "2024-8": 4551.2, "2024-10": 3933.06, "2025-3": 3337.6, "2025-4": 0.0, "2025-8": 10028.4, "2025-11": 2990.0}, "KB082": {"2024-7": 7740.0, "2025-12": 28000.0}, "KB084": {"2024-3": 24738.3, "2024-4": -733.2, "2024-5": 24063.47, "2024-8": 14367.73, "2024-11": 13561.5, "2025-10": 3520.0}, "KB086": {"2024-6": 4307.4, "2024-8": 6177.15, "2024-9": 18705.39, "2024-10": 2514.6, "2025-4": 3459.46, "2025-7": 6721.4, "2025-9": 2505.0, "2025-10": 17361.7, "2026-3": 10217.85, "2026-4": 16381.74}, "KB114": {"2026-3": 91460.0, "2026-5": 14670.0}, "KC021": {"2024-6": 43530.28, "2024-7": 51333.59, "2024-8": 36029.9, "2024-9": 14194.3, "2024-11": 9462.7, "2024-12": 42254.1, "2025-1": 16196.71, "2025-3": 34691.55, "2025-4": 23740.9, "2025-6": 32274.44, "2025-7": 29755.63, "2025-8": 17253.41, "2025-10": 35308.66, "2025-11": 121680.68, "2025-12": -303.6, "2026-2": 3891.97, "2026-5": 48466.3}, "KC029": {"2025-2": 31332.85, "2025-3": 48631.59, "2025-4": 0.0, "2025-5": 9671.5, "2025-7": 99963.46, "2025-8": 4600.0, "2025-9": 67908.11, "2025-11": 129250.84, "2025-12": 102294.09, "2026-1": 123036.32, "2026-2": 30600.0, "2026-4": 204164.73}, "KC031": {"2024-3": 34154.95, "2024-4": 38354.9, "2024-5": 56056.38, "2024-7": 35968.64, "2024-8": 68351.28, "2024-9": 24143.12, "2024-10": 49126.65, "2024-11": 128600.74, "2024-12": 82692.45, "2025-1": 13645.15, "2025-2": 30278.62, "2025-3": 10415.6, "2025-4": 39338.84, "2025-6": 81792.75, "2025-7": 26256.5, "2025-8": 89416.47, "2025-9": 25377.5, "2025-10": 24326.6, "2025-11": 116495.1, "2025-12": 44490.79, "2026-1": 8082.35, "2026-3": 40923.7, "2026-4": 85388.91, "2026-5": 41201.6}, "KC053": {"2026-2": 34046.72, "2026-4": 28799.63}, "KC054": {"2024-3": 17785.49, "2024-4": 15556.6, "2024-5": 7819.14, "2024-6": 18718.75, "2024-7": 3932.48, "2024-8": 29881.53, "2024-10": 16226.72, "2024-11": 7237.47, "2024-12": -395.82, "2025-1": 7611.43, "2025-3": 19296.08, "2025-4": 3154.71, "2025-6": 31613.92, "2025-7": 13806.39, "2025-8": 11613.47, "2025-9": 32536.98, "2025-10": 43791.48, "2025-11": 30457.28, "2025-12": 28052.97, "2026-2": 11645.8, "2026-3": 5008.12, "2026-4": 7794.4, "2026-5": 19907.57}, "KC056": {"2025-10": 29030.0, "2025-11": 32129.88, "2026-3": 35518.0}, "KD017": {"2024-5": 43090.61, "2024-6": 41182.63, "2024-8": 38543.4, "2024-9": 50697.37, "2024-10": 40263.24, "2024-12": 57279.24}, "KD033": {"2024-3": 15268.21, "2024-5": 8003.04, "2024-8": 8732.07, "2025-4": 19293.53, "2025-7": 26690.6, "2025-9": 23750.23, "2025-12": 21241.98, "2026-1": 7854.64, "2026-2": 8420.95}, "KF011": {"2024-8": 13383.84, "2024-11": 12439.87, "2024-12": 3204.1}, "KF028": {"2024-5": 13756.04, "2024-8": 14592.72, "2024-11": 10499.26, "2025-1": 21704.66, "2025-3": 5920.0, "2025-5": 18929.64, "2025-6": 6298.21, "2025-9": 31433.98, "2025-10": 11349.17, "2025-11": 21382.27, "2025-12": 21853.28, "2026-2": 24470.71, "2026-3": 10574.86, "2026-5": 25419.44}, "KG022": {"2024-5": 12853.0, "2025-7": 32615.9, "2025-11": 14474.41, "2026-4": 7057.37}, "KH005": {"2024-3": 4323.05, "2024-4": 11938.15, "2024-5": 8716.9, "2024-6": 2416.11, "2024-7": 9652.26, "2024-9": 8711.76, "2024-11": 8996.76, "2025-1": 9066.75, "2025-2": 16112.88, "2025-5": 9665.47, "2025-7": 5095.66, "2025-8": 11189.55, "2025-10": 6423.43, "2025-11": 5439.21, "2025-12": 10722.37, "2026-1": 5227.86, "2026-2": 3073.74, "2026-4": 8749.88, "2026-5": 4917.18}, "KH029": {"2024-3": 17775.33, "2024-4": 14024.75, "2024-5": 12383.0, "2024-7": 15756.05, "2024-8": 14841.92, "2024-9": 15918.9, "2024-10": 93240.38, "2024-11": 149447.54, "2024-12": 16786.35, "2025-2": 105454.0, "2025-3": 94936.93, "2025-4": 64415.58, "2025-6": 46515.0, "2025-8": 103050.55, "2025-9": 60625.4, "2025-10": 225602.8, "2025-11": 150000.0, "2025-12": 108684.99}, "KI016": {"2025-9": 12064.0}, "KJ022": {"2024-5": 78808.02, "2024-6": 33174.0, "2024-7": 39420.39, "2024-12": 113531.39}, "KL004": {"2024-3": 23802.77, "2024-4": 48878.11, "2024-6": 7010.32, "2024-7": 11511.04, "2024-8": 17719.31, "2024-9": 5917.04, "2024-10": 27578.56, "2024-11": 23558.74, "2024-12": 42719.26, "2025-1": 27148.68, "2025-2": -348.6, "2025-3": 21175.46, "2025-4": 34032.29, "2025-6": 30701.92, "2025-7": 42655.94, "2025-8": 30084.98, "2025-9": 30434.03, "2025-10": 14948.08, "2025-11": 55819.77, "2025-12": 34990.36, "2026-1": 37465.89, "2026-2": 37827.83, "2026-3": 18267.86, "2026-4": 5116.07, "2026-5": 31259.5}, "KL020": {"2024-3": 2236.87, "2024-4": 14051.65, "2024-5": 15385.21, "2024-6": 7928.72, "2024-7": 16760.4, "2024-8": 24120.6, "2024-10": 29227.47, "2024-11": 31096.48, "2024-12": 3507.99, "2025-1": 26533.32, "2025-2": 1699.7, "2025-3": 15834.72, "2025-5": -22343.32, "2025-7": 21681.53, "2025-9": 27346.93, "2025-10": 26565.31, "2025-11": 11845.13, "2026-2": 42537.08, "2026-3": 15486.54, "2026-5": 32150.08}, "KL022": {"2024-3": 11663.11, "2024-4": 43622.62, "2024-5": 21031.19, "2024-8": 90860.97, "2024-11": 48981.51, "2024-12": 50804.76, "2025-3": 40480.46, "2025-4": 31712.64, "2025-5": 14249.77, "2025-7": 35607.71, "2025-8": 25510.48, "2025-10": 71527.02, "2025-11": 33376.06, "2025-12": 50095.79, "2026-3": 28385.41, "2026-4": 59984.78, "2026-5": 10949.83}, "KL023": {"2024-3": 4401.58, "2024-4": 11717.37, "2024-5": 5297.52, "2024-6": 5391.74, "2024-7": 7195.56, "2024-8": 61747.73, "2024-10": 4988.31, "2024-11": 27686.26, "2024-12": -150.0, "2025-1": 5862.09, "2025-3": 34507.74, "2025-4": 7126.56, "2025-6": 4803.09, "2025-7": 12879.47, "2025-9": 12966.9, "2025-10": 12504.15, "2025-11": 30291.7, "2025-12": 30374.6, "2026-4": 32489.1}, "KL034": {"2024-3": 9031.81, "2024-4": 10776.5, "2024-5": 31809.81, "2024-7": 30966.31, "2024-8": 42169.63, "2024-9": 22287.9, "2024-10": 32402.22, "2024-11": 34416.3, "2024-12": 50575.87, "2025-1": 168730.97, "2025-2": 2907.0, "2025-3": 20854.75, "2025-4": 36600.75, "2025-5": 30245.69, "2025-6": 27786.65, "2025-8": 56746.83, "2025-10": 36009.24, "2025-11": 11663.7, "2025-12": 38594.28, "2026-1": 68315.17, "2026-2": 9016.5, "2026-3": 13571.4, "2026-4": 73605.48}, "KM004": {"2024-3": 9152.37, "2024-4": 5411.75, "2024-5": 5928.8, "2024-6": 9173.83, "2024-8": 27380.72, "2024-9": 17403.35, "2024-10": 22501.54, "2025-4": 10524.2, "2025-5": 20803.76, "2025-6": 51621.18, "2025-7": 13515.89, "2025-9": 56064.45, "2025-10": 20265.4, "2025-11": 71162.08, "2025-12": 57112.22, "2026-1": 42906.65, "2026-2": 26989.56, "2026-4": 103961.28}, "KM022": {"2024-3": 53077.75, "2025-2": 28715.17, "2025-9": 32687.6, "2025-11": 38943.04, "2025-12": 54690.41, "2026-4": 84003.22}, "KM027": {"2025-8": 66993.24, "2025-10": 37045.99, "2025-11": 99738.4, "2025-12": -598.8, "2026-2": 50752.08}, "KM043": {"2024-3": 5900.79, "2024-4": 6283.81, "2024-6": 9416.79, "2024-7": 11146.58, "2024-8": 15493.49, "2024-9": 5788.44, "2024-10": 13184.29, "2024-11": 4714.92, "2024-12": 6129.03, "2025-1": 7514.62, "2025-4": 17226.72, "2025-6": 20385.69, "2025-7": 6627.69, "2025-8": 7485.41, "2025-9": 16588.88, "2025-10": 4998.15, "2025-11": 10633.15, "2026-1": 7489.08, "2026-3": 15652.48}, "KM070": {"2024-3": 5434.7, "2024-5": 10315.13, "2024-8": 6009.61, "2024-9": 551.9, "2024-10": 1075.89, "2024-12": 4149.53, "2025-2": 7329.59, "2025-6": 5175.0, "2025-7": 3408.55, "2025-9": 2300.96, "2025-10": 4166.79, "2025-12": 7094.62, "2026-3": 12065.23}, "KM076": {"2024-11": 5787.6, "2025-7": 4657.7, "2025-10": 8859.11}, "KM077": {"2024-4": 13625.71, "2024-5": 11305.06, "2024-7": 11571.92, "2024-9": 22861.8, "2024-10": 1049.75, "2024-11": 13698.88, "2024-12": 4999.72, "2025-1": 7085.66, "2025-4": 27696.57, "2025-5": 6868.54, "2025-6": 15454.77, "2025-7": 10127.49, "2025-10": 12378.87, "2025-11": 12238.29, "2026-2": 14133.05, "2026-3": 1900.0}, "KM087": {"2024-3": 33440.89, "2024-4": 21057.85, "2024-6": 30582.19, "2024-7": 31921.79, "2024-8": 40099.66, "2024-9": 13358.71, "2024-10": 38258.28, "2024-11": 74305.71, "2024-12": 20009.26, "2025-2": 27337.13, "2025-3": 19964.27, "2025-4": 39039.12, "2025-6": 37455.03, "2025-7": 32913.7, "2025-8": 65987.87, "2025-9": 1920.0, "2025-10": 33177.18, "2025-11": 32938.44, "2025-12": 55058.75, "2026-1": 45129.08, "2026-2": 9600.0, "2026-3": 39565.02, "2026-4": 28885.31}, "KM094": {"2024-5": 24174.94, "2024-9": 55897.35, "2025-7": 53858.14, "2026-2": 17358.7}, "KM096": {"2024-5": 11696.96, "2024-11": 25272.72, "2025-9": 33046.08, "2025-10": 5536.5}, "KM098": {"2024-4": 8364.55, "2024-6": 14165.88, "2024-7": 9381.71, "2024-8": 10295.68, "2024-9": 16933.34, "2024-10": 5799.01, "2024-12": 8189.0, "2025-4": 16353.32, "2025-7": 20743.3, "2025-10": 19596.39, "2025-12": 11360.46, "2026-2": 6942.67, "2026-3": 5389.88}, "KM101": {"2024-3": -280.0, "2024-5": 7393.65, "2024-6": 17573.44, "2024-7": -4157.66, "2024-8": 5059.45, "2024-10": 8708.11, "2024-11": 15187.25, "2025-4": 11514.13, "2025-10": 12265.0}, "KM105": {"2024-3": 6591.07, "2024-5": 14009.49, "2024-6": 8893.37, "2024-8": 13908.48, "2024-9": 13248.81, "2024-11": 13346.11, "2025-2": 16173.66, "2025-4": 16720.32, "2025-7": 21435.5, "2025-9": 12732.56, "2025-11": 15829.38, "2026-1": 8762.89}, "KM116": {"2024-5": 23556.33, "2024-12": 21457.99}, "KM141": {"2024-11": 12007.6, "2024-12": 14416.04, "2025-10": 22218.92, "2026-4": 16822.65}, "KM160": {"2024-8": 152184.8, "2024-10": 103977.8, "2024-11": 192260.28, "2024-12": 53710.84, "2025-1": 88920.87, "2025-2": 43392.15, "2025-4": 103863.52, "2025-5": 113149.1, "2025-6": 131517.34, "2025-7": 0.0, "2025-8": 209046.12, "2025-9": 201453.14, "2025-11": 294988.26, "2025-12": 159025.38, "2026-2": 174450.4, "2026-4": 238092.0, "2026-5": -686.8}, "KM164": {"2026-1": 10442.5}, "KN018": {"2024-3": 17322.77, "2024-5": 22300.44, "2024-7": 11725.48, "2024-8": 14338.61, "2024-9": 13989.87, "2024-11": 34528.81, "2024-12": 7723.61, "2025-2": 24879.92, "2025-4": 36534.15, "2025-6": 9818.73, "2025-7": 8560.7, "2025-8": 26065.35, "2025-9": 13870.26, "2025-10": 17278.44, "2025-11": 25270.74, "2025-12": 9996.86, "2026-1": 15881.62, "2026-2": 12232.15}, "KP002": {"2024-3": 93620.21, "2024-4": 269549.62, "2024-5": 80694.9, "2024-6": 35154.8, "2024-7": 149626.08, "2024-8": 102390.66, "2024-9": 69623.07, "2024-10": 158945.05, "2024-11": 211644.64, "2024-12": 340061.67, "2025-1": 13212.0, "2025-2": 128726.91, "2025-3": 65077.21, "2025-4": 168771.72, "2025-5": 176740.04, "2025-6": 84633.42, "2025-7": 126134.51, "2025-8": 236123.29, "2025-9": 99618.83, "2025-10": 233570.01, "2025-11": 85257.13, "2025-12": 337049.77, "2026-1": 77997.2, "2026-3": 117012.14, "2026-4": 178644.7, "2026-5": 161170.1}, "KP018": {"2024-5": 10258.43, "2024-9": 18405.65, "2024-10": 20841.65, "2024-11": 17842.59, "2024-12": 41567.3, "2025-3": 13712.62, "2025-4": 5562.86, "2025-5": 12929.68, "2025-6": 12527.51, "2025-7": 17518.98, "2025-8": 22644.36, "2025-9": 23604.13, "2025-10": 17876.56, "2025-11": 18831.77, "2025-12": 18034.83, "2026-1": 27552.62, "2026-3": 21284.3, "2026-4": 28263.66}, "KR027": {"2024-3": 4097.48, "2024-4": 9167.57, "2024-6": 7133.17, "2024-7": 13727.7, "2024-9": 4326.0, "2024-10": 21630.46, "2024-11": -1882.14, "2024-12": 7973.39, "2025-1": 9537.79, "2025-3": 3257.8, "2025-4": 4044.94, "2025-5": 6717.78, "2025-6": 12655.56, "2025-8": 3889.78, "2025-9": 4625.84, "2025-10": 8185.87, "2025-11": 5660.64, "2025-12": 33789.24, "2026-3": 7881.89, "2026-4": 4761.49}, "KR034": {"2024-3": 8327.57, "2024-4": 15092.46, "2024-5": 9055.86, "2024-6": 5413.37, "2024-7": 6113.86, "2024-8": 34437.15, "2024-9": -1253.84, "2024-10": 8028.16, "2024-11": 31436.49, "2025-2": 7304.75, "2025-3": 12783.49, "2025-4": 9139.85, "2025-5": 2800.0, "2025-6": 9135.4, "2025-7": 14963.2, "2025-8": 6754.97, "2025-9": 5685.37, "2025-10": 9854.04, "2025-11": 22168.83, "2025-12": 31747.45, "2026-1": 6385.9, "2026-3": 52372.24, "2026-4": 17923.23}, "KR044": {"2026-4": 24761.0}, "KS007": {"2024-3": 5484.17, "2024-10": 10830.98, "2025-3": 9674.84, "2025-7": 4955.99, "2025-12": 25407.83}, "KS021": {"2024-4": 31792.35, "2024-6": 50761.93, "2024-9": 52297.18, "2024-11": 34612.11, "2024-12": 33974.35, "2025-2": 41244.11, "2025-6": 49137.03, "2025-10": 56328.86, "2025-12": 47134.45, "2026-4": 45450.61}, "KS045": {"2024-3": 8300.74, "2024-4": 12253.72, "2024-5": 7268.39, "2024-7": 11134.03, "2024-8": 15986.36, "2024-10": 26447.36, "2024-11": 40512.19, "2024-12": -907.2, "2025-2": 26751.65, "2025-3": 33328.87, "2025-4": 0.0, "2025-5": 17702.82, "2025-6": 12197.91, "2025-7": 17809.29, "2025-8": 24830.06, "2025-9": 19449.09, "2025-10": 14715.44, "2025-11": 17864.86, "2025-12": 21200.35, "2026-2": 24408.28, "2026-3": 17748.66, "2026-4": 43246.75}, "KS052": {"2024-8": 31273.61, "2024-9": 6122.75, "2024-11": 35619.05, "2024-12": 8996.2, "2025-6": 26776.43, "2025-7": 9123.18, "2025-10": 7134.16}, "KS061": {"2024-6": 6959.55, "2024-8": 7003.85, "2024-9": 7410.8, "2024-10": 9425.16, "2024-11": 6354.87, "2025-1": 10341.5, "2025-3": 5963.72, "2025-4": 13388.12, "2025-6": 10798.29, "2025-7": 1300.0, "2025-8": 5113.32, "2025-9": 13044.92, "2025-10": 3634.41, "2025-11": 4745.04, "2025-12": 10675.01, "2026-2": 12801.03, "2026-4": 28062.86, "2026-5": 7781.4}, "KS080": {"2024-3": 11445.6, "2024-4": 86866.71, "2024-5": 37414.26, "2024-6": 30717.17, "2024-7": 44903.13, "2024-8": 25000.26, "2024-9": 53308.13, "2024-10": 57777.86, "2024-11": 57367.4, "2024-12": 24217.36, "2025-1": 72121.85, "2025-2": -2462.0, "2025-3": 40070.7, "2025-4": 13393.19, "2025-7": 20267.44, "2025-8": 23080.58, "2025-9": 18200.0, "2025-10": 28716.75, "2025-11": 12206.6, "2025-12": 155538.44, "2026-1": 32934.91, "2026-2": 17482.05, "2026-4": 26939.2}, "KS089": {"2024-4": 7372.96, "2024-6": 3337.86, "2024-7": 4780.97, "2024-11": 2974.2, "2025-2": 11608.53, "2025-4": 6894.88, "2025-6": 5260.23, "2025-7": 2974.2, "2025-9": 6330.75, "2025-11": 5380.87, "2025-12": 5107.82, "2026-2": 7083.55}, "KS131": {"2026-4": 32690.0}, "KT005": {"2024-3": 24066.21, "2024-5": 32809.47, "2024-7": 30067.45, "2024-9": 11002.1, "2024-10": 20806.84, "2024-11": 21436.84, "2024-12": 30730.18, "2025-1": 14088.94, "2025-3": 13340.78, "2025-4": 31775.99, "2025-6": 11549.51, "2025-8": 32482.58, "2025-9": 22575.62, "2025-10": 23225.38, "2025-11": 16132.1, "2025-12": 41575.26, "2026-3": 14159.35, "2026-5": 25626.75}, "KT036": {"2024-4": 13515.87, "2024-7": 23105.42, "2024-11": 29566.76, "2024-12": 8674.91, "2025-1": 16183.55, "2025-4": 15109.23, "2025-7": 14903.2, "2025-10": 20510.83, "2025-12": 11326.65, "2026-3": 29045.17}, "KU005": {"2024-3": 14870.81, "2024-5": 18465.12, "2024-8": 16542.84, "2024-9": 7624.87, "2024-10": -480.0, "2024-11": 23251.59, "2024-12": 31435.89, "2025-2": 22585.3, "2025-4": 15092.37, "2025-6": 26566.3, "2025-7": 13922.83, "2025-10": 27996.82, "2025-11": 34008.63, "2026-1": 43771.14, "2026-2": 2493.95}, "KU006": {"2024-3": 10921.58, "2024-5": 3880.53, "2024-8": 5653.87, "2024-11": 12382.3, "2025-2": 5704.32, "2025-6": 6450.56, "2025-8": 3751.99, "2025-11": 11601.24, "2026-1": 1633.58, "2026-4": 7091.66}, "KV001": {"2024-4": 4815.64, "2024-6": 6514.06, "2024-7": 7511.41, "2024-9": 9809.2, "2024-10": 8678.41, "2025-1": 18920.4, "2025-5": 11799.05, "2025-6": 7173.55, "2025-8": 9409.89, "2025-10": 7421.42, "2026-2": 15295.75}, "KV007": {"2024-3": 5618.8, "2024-4": 3462.09, "2024-6": 11017.86, "2024-8": 7251.04, "2024-9": 13766.1, "2024-12": 8599.42, "2025-6": 10536.65, "2025-8": 1168.2, "2025-9": 8839.25, "2025-11": 1168.2, "2026-3": 8005.24}, "KV010": {"2024-10": 24701.15, "2025-3": 15398.47, "2025-6": 16000.6, "2025-9": 11935.46}, "KZ011": {"2024-3": 17489.72, "2024-5": 9681.43, "2024-8": 17322.0, "2024-11": 2321.54, "2024-12": 20843.44, "2025-2": 5999.4, "2025-5": 17959.3, "2025-7": 18272.1, "2025-9": 8204.38, "2025-12": 17749.8, "2026-1": -1434.6, "2026-2": 12698.39}}, "categories": {"Accessories": {"2024-3": 79277.25, "2024-4": 94827.25, "2024-5": 93300.84, "2024-6": 41983.56, "2024-7": 81028.0, "2024-8": 160293.22, "2024-9": 69913.19, "2024-10": 99176.05, "2024-11": 150343.13, "2024-12": 177861.68, "2025-1": 45852.69, "2025-2": 93049.55, "2025-3": 78657.16, "2025-4": 99831.43, "2025-5": 67153.96, "2025-6": 127235.78, "2025-7": 93113.81, "2025-8": 159187.96, "2025-9": 93790.57, "2025-10": 125586.21, "2025-11": 233251.26, "2025-12": 164892.26, "2026-1": 49575.63, "2026-2": 81722.36, "2026-3": 80173.36, "2026-4": 175917.61, "2026-5": 82266.5}, "Enamel": {"2024-3": 153544.38, "2024-4": 156648.39, "2024-5": 166177.51, "2024-6": 152479.73, "2024-7": 130066.65, "2024-8": 316200.92, "2024-9": 171687.1, "2024-10": 191369.89, "2024-11": 388645.67, "2024-12": 286811.55, "2025-1": 119257.37, "2025-2": 187080.76, "2025-3": 125108.28, "2025-4": 258100.75, "2025-5": 171953.5, "2025-6": 221868.07, "2025-7": 238754.03, "2025-8": 263210.99, "2025-9": 259493.52, "2025-10": 200847.21, "2025-11": 534905.48, "2025-12": 443277.01, "2026-1": 152042.91, "2026-2": 126301.09, "2026-3": 180332.81, "2026-4": 352716.97, "2026-5": 98607.64}, "Floor & Roof Paints": {"2024-3": 53534.64, "2024-4": 26121.12, "2024-5": 47547.92, "2024-6": 28048.64, "2024-7": 27979.07, "2024-8": 73594.86, "2024-9": 12755.72, "2024-10": 49775.79, "2024-11": 28340.37, "2024-12": 83229.7, "2025-1": 28127.92, "2025-2": 10795.14, "2025-3": 42501.63, "2025-4": 29646.47, "2025-5": 1310.24, "2025-6": 36463.7, "2025-7": 66521.68, "2025-8": 83867.99, "2025-9": 155501.84, "2025-10": 83134.03, "2025-11": 136427.77, "2025-12": 109848.08, "2026-1": 82673.18, "2026-2": 28085.08, "2026-3": 62391.49, "2026-4": 115826.2, "2026-5": 27330.76}, "General": {"2024-3": 27703.28, "2024-4": 29398.13, "2024-5": 14872.92, "2024-6": 19027.77, "2024-7": 22965.84, "2024-8": 27885.19, "2024-9": 30641.97, "2024-10": 33471.66, "2024-11": 38153.83, "2024-12": 50276.76, "2025-1": 24676.45, "2025-2": 3885.58, "2025-3": 17029.58, "2025-4": 32779.47, "2025-5": 5580.81, "2025-6": 28342.03, "2025-7": 11618.42, "2025-8": 37329.73, "2025-9": 29675.22, "2025-10": 46454.09, "2025-11": 36134.68, "2025-12": 45496.14, "2026-1": 6302.48, "2026-2": 18876.08, "2026-3": 16539.3, "2026-4": 35857.63, "2026-5": 22690.21}, "PVA Paints": {"2024-3": 213110.88, "2024-4": 147228.27, "2024-5": 220735.28, "2024-6": 117005.41, "2024-7": 220202.49, "2024-8": 212957.24, "2024-9": 194459.66, "2024-10": 163239.68, "2024-11": 230601.1, "2024-12": 356094.82, "2025-1": 76690.64, "2025-2": 138034.58, "2025-3": 148279.18, "2025-4": 145824.48, "2025-5": 92560.55, "2025-6": 128843.04, "2025-7": 336467.26, "2025-8": 415513.76, "2025-9": 195242.37, "2025-10": 291175.65, "2025-11": 581978.03, "2025-12": 243632.24, "2026-1": 184698.24, "2026-2": 101929.73, "2026-3": 291185.47, "2026-4": 373289.44, "2026-5": 65618.08}, "Primers": {"2024-3": 22730.21, "2024-4": 32371.59, "2024-5": 36519.82, "2024-6": 30314.44, "2024-7": 19293.29, "2024-8": 34605.01, "2024-9": 23475.52, "2024-10": 48950.75, "2024-11": 77080.04, "2024-12": 56730.0, "2025-1": 20115.22, "2025-2": 45304.85, "2025-3": 24782.81, "2025-4": 38678.44, "2025-5": 14660.82, "2025-6": 32410.5, "2025-7": 57355.28, "2025-8": 38548.2, "2025-9": 48417.89, "2025-10": 39515.72, "2025-11": 59388.59, "2025-12": 70978.72, "2026-1": 32513.5, "2026-2": 28725.39, "2026-3": 10714.46, "2026-4": 83537.08, "2026-5": 13031.5}, "Putty": {"2024-3": 74128.38, "2024-4": 70094.6, "2024-5": 80004.75, "2024-6": 24445.61, "2024-7": 75613.47, "2024-8": 111466.14, "2024-9": 30385.41, "2024-10": 90479.87, "2024-11": 261613.45, "2024-12": 138607.92, "2025-1": 43733.55, "2025-2": 78748.17, "2025-3": 48197.14, "2025-4": 88039.27, "2025-5": 50724.01, "2025-6": 108139.5, "2025-7": 114099.67, "2025-8": 111505.71, "2025-9": 57739.99, "2025-10": 118829.81, "2025-11": 115551.23, "2025-12": 137151.31, "2026-1": 65773.8, "2026-2": 27510.57, "2026-3": 76346.28, "2026-4": 127074.19, "2026-5": 67906.75}, "QD Enamel": {"2024-3": 116619.99, "2024-4": 159469.12, "2024-5": 131683.8, "2024-6": 51275.54, "2024-7": 84726.51, "2024-8": 190742.53, "2024-9": 73726.11, "2024-10": 161188.63, "2024-11": 139736.32, "2024-12": 221210.9, "2025-1": 109199.49, "2025-2": 125106.52, "2025-3": 104025.9, "2025-4": 124446.5, "2025-5": 127314.07, "2025-6": 149768.41, "2025-7": 113363.97, "2025-8": 132943.42, "2025-9": 212768.91, "2025-10": 221640.4, "2025-11": 304342.28, "2025-12": 286504.28, "2026-1": 95142.65, "2026-2": 170844.8, "2026-3": 127198.74, "2026-4": 323863.1, "2026-5": 38168.55}, "Specialised Coatings": {"2024-3": 1142.71, "2024-4": 2505.18, "2024-6": 2789.45, "2024-7": 1426.5, "2024-8": 11659.51, "2024-9": 2387.16, "2024-10": -384.21, "2024-11": 6240.46, "2024-12": 886.14, "2025-1": 5381.88, "2025-2": 4444.68, "2025-3": 2920.32, "2025-4": 5252.04, "2025-6": 4580.66, "2025-7": 968.26, "2025-8": 2589.48, "2025-9": 7605.42, "2025-10": 597.93, "2025-11": 10416.26, "2025-12": 4229.0, "2026-1": 1276.04, "2026-3": 851.16, "2026-4": 6877.96, "2026-5": 2840.0}, "Waterproofing": {"2024-3": 96434.78, "2024-4": 68914.3, "2024-5": 42584.22, "2024-6": 17423.74, "2024-7": 49095.97, "2024-8": 93545.35, "2024-9": 72759.6, "2024-10": 95662.36, "2024-11": 307975.67, "2024-12": 113447.77, "2025-1": 103958.85, "2025-2": 71427.44, "2025-3": 50163.21, "2025-4": 98898.51, "2025-5": 5095.15, "2025-6": 42698.92, "2025-7": 42816.74, "2025-8": 100784.09, "2025-9": 103027.03, "2025-10": 135901.33, "2025-11": 137762.48, "2025-12": 225940.94, "2026-1": 56623.48, "2026-2": 56726.0, "2026-3": 76548.98, "2026-4": 99614.63, "2026-5": 19648.35}, "Woodcare": {"2024-3": 48101.76, "2024-4": 46438.91, "2024-5": 31458.21, "2024-6": 35840.09, "2024-7": 52304.34, "2024-8": 38176.01, "2024-9": 39677.96, "2024-10": 63188.61, "2024-11": 50133.83, "2024-12": 61669.36, "2025-1": 53234.28, "2025-2": 52891.09, "2025-3": 48528.8, "2025-4": 47290.33, "2025-5": 17578.45, "2025-6": 39660.46, "2025-7": 51113.96, "2025-8": 44912.66, "2025-9": 66041.94, "2025-10": 57466.7, "2025-11": 134992.34, "2025-12": 113766.81, "2026-1": 57974.57, "2026-2": 34202.08, "2026-3": 43204.68, "2026-4": 113952.8, "2026-5": 27428.15}}, "periods": [[2024, 2024, 3], [2024, 2024, 4], [2024, 2024, 5], [2024, 2024, 6], [2024, 2024, 7], [2024, 2024, 8], [2024, 2024, 9], [2024, 2024, 10], [2024, 2024, 11], [2024, 2024, 12], [2024, 2025, 1], [2024, 2025, 2], [2025, 2025, 3], [2025, 2025, 4], [2025, 2025, 5], [2025, 2025, 6], [2025, 2025, 7], [2025, 2025, 8], [2025, 2025, 9], [2025, 2025, 10], [2025, 2025, 11], [2025, 2025, 12], [2025, 2026, 1], [2025, 2026, 2], [2026, 2026, 3], [2026, 2026, 4], [2026, 2026, 5]]};
+var MONTH_FULL_JS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var ACCT_FY = 'all';     // 'all' | '<fyYear>'
+var ACCT_MONTH = 'all';  // 'all' | '1'..'12'
+function _acctFmtMoney(v){
+  if(v==null||isNaN(v))return '—';
+  var av=Math.abs(v);
+  if(av>=1e6)return 'R'+(v/1e6).toFixed(2)+'M';
+  if(av>=1e3)return 'R'+(v/1e3).toFixed(1)+'K';
+  return 'R'+v.toFixed(0);
+}
+function setAcctFy(val, btn){
+  ACCT_FY = String(val);
+  document.querySelectorAll('.acct-pill-fy').forEach(function(b){ b.classList.remove('active'); });
+  if(btn) btn.classList.add('active');
+  renderAccountsTab();
+}
+function setAcctMonth(val, btn){
+  ACCT_MONTH = String(val);
+  document.querySelectorAll('.acct-pill-month').forEach(function(b){ b.classList.remove('active'); });
+  if(btn) btn.classList.add('active');
+  renderAccountsTab();
+}
+function _periodKeys(){
+  // Return "year-month" keys whose period matches BOTH the FY and Month filters.
+  var keys = [];
+  var fy = ACCT_FY;
+  var mo = ACCT_MONTH;
+  (ACCT_DATA.periods || []).forEach(function(p){
+    if(fy !== 'all' && p[0] !== parseInt(fy, 10)) return;
+    if(mo !== 'all' && p[2] !== parseInt(mo, 10)) return;
+    keys.push(p[1]+'-'+p[2]);
+  });
+  return keys;
+}
+function _periodLabel(){
+  var moTxt = (ACCT_MONTH === 'all') ? '' : MONTH_FULL_JS[parseInt(ACCT_MONTH,10)-1];
+  var fyTxt = (ACCT_FY === 'all') ? 'All Time' : ('FY'+ACCT_FY);
+  if(moTxt && ACCT_FY === 'all') return moTxt + ' (all years)';
+  if(moTxt) return moTxt + ' ' + fyTxt;
+  return fyTxt;
+}
+function _sumOverKeys(map, keys){
+  if(!map) return 0;
+  var s = 0;
+  keys.forEach(function(k){ if(map[k]!=null) s += map[k]; });
+  return s;
+}
+function renderAccountsTab(){
+  var label = _periodLabel();
+  var keys = _periodKeys();
+
+  // Section titles
+  var tt = document.getElementById('acctTopTitle');     if(tt) tt.innerHTML = 'Top Accounts &mdash; '+label;
+  var ct = document.getElementById('acctCatTitle');     if(ct) ct.innerHTML = 'Revenue by Category &mdash; '+label;
+  var at = document.getElementById('acctAllCatTitle');  if(at) at.innerHTML = 'All Categories &mdash; '+label;
+  var lt = document.getElementById('acctAllTitle');     if(lt) lt.innerHTML = 'All Allocated Accounts &mdash; '+label;
+  var rh = document.getElementById('acctAllRevHead');   if(rh) rh.textContent = label;
+
+  // ── Top Accounts (top 10) ──
+  var acctRows = [];
+  var meta = ACCT_DATA.meta || {};
+  var accounts = ACCT_DATA.accounts || {};
+  Object.keys(accounts).forEach(function(accno){
+    var v = _sumOverKeys(accounts[accno], keys);
+    if(v <= 0) return;
+    var m = meta[accno] || {name:'Account '+accno, arref:''};
+    acctRows.push({accno:accno, name:m.name, arref:m.arref, rev:v});
+  });
+  acctRows.sort(function(a,b){return b.rev-a.rev;});
+  var topBody = document.getElementById('acctTopBody');
+  if(topBody){
+    topBody.innerHTML = acctRows.slice(0,10).map(function(r){
+      return '<tr><td>'+r.name+'</td>'+
+        '<td style="color:var(--color-text-tertiary);font-size:11px">'+r.arref+'</td>'+
+        '<td style="text-align:right;font-family:var(--font-display);font-weight:700">'+_acctFmtMoney(r.rev)+'</td></tr>';
+    }).join('') || '<tr><td colspan="3" style="text-align:center;color:var(--color-text-tertiary);padding:14px">No revenue in this period</td></tr>';
+  }
+
+  // ── All Allocated Accounts table — every account with any revenue OR known metadata ──
+  var allRows = acctRows.slice();  // already includes only accounts with rev>0
+  // Include zero-rev accounts at the bottom (so the rep can see the gap)
+  Object.keys(meta).forEach(function(accno){
+    if(!accounts[accno] || _sumOverKeys(accounts[accno], keys) <= 0){
+      var m = meta[accno] || {name:'Account '+accno, arref:''};
+      allRows.push({accno:accno, name:m.name, arref:m.arref, rev:0});
+    }
+  });
+  var allBody = document.getElementById('acctAllBody');
+  if(allBody){
+    allBody.innerHTML = allRows.map(function(r,i){
+      return '<tr>'+
+        '<td style="color:var(--color-text-tertiary);font-size:11px;text-align:right;padding-right:10px">'+(i+1)+'</td>'+
+        '<td style="font-size:11px;color:var(--color-text-tertiary)">'+r.accno+'</td>'+
+        '<td>'+r.name+'</td>'+
+        '<td style="text-align:center">'+r.arref+'</td>'+
+        '<td style="text-align:right;font-family:var(--font-display);font-weight:700">'+_acctFmtMoney(r.rev)+'</td>'+
+        '</tr>';
+    }).join('');
+  }
+
+  // ── Category rollups ──
+  var catRows = [];
+  var cats = ACCT_DATA.categories || {};
+  Object.keys(cats).forEach(function(cat){
+    var v = _sumOverKeys(cats[cat], keys);
+    if(v <= 0) return;
+    catRows.push({name:cat, rev:v});
+  });
+  catRows.sort(function(a,b){return b.rev-a.rev;});
+
+  // Chart: top 8 (values in R-millions for matching tick formatter)
+  var top8 = catRows.slice(0,8);
+  _acctCatChart.data.labels = top8.map(function(r){return r.name;});
+  _acctCatChart.data.datasets[0].data = top8.map(function(r){return +(r.rev/1e6).toFixed(3);});
+  _acctCatChart.update();
+
+  // Table: all categories
+  var allCatBody = document.getElementById('acctAllCatBody');
+  if(allCatBody){
+    allCatBody.innerHTML = catRows.map(function(r){
+      return '<tr><td>'+r.name+'</td>'+
+        '<td style="text-align:right;font-family:var(--font-display);font-weight:700">'+_acctFmtMoney(r.rev)+'</td></tr>';
+    }).join('') || '<tr><td colspan="2" style="text-align:center;color:var(--color-text-tertiary);padding:14px">No category revenue in this period</td></tr>';
+  }
+}
+renderAccountsTab();
+
+/* ── NON-STOCK BAR CHART ── */
+(function(){
+  var el=document.getElementById('cNsBar');
+  if(!el)return;
+  var nsLabels=["20L NAT ELEGANCE 8883-1", "20LT DECOR BLUE", "20L 3IN1 ROOF WHITE", "20LT HIGH GLOSS SUMMER BLUE", "20L HIGH GLOSS S/BLUE (8X5L)", "20LT RAINPROOF TERRACOTTA", "20L EMPTY BUCKETS", "20L QD GREEN", "50ML STAINER LOOSE BOTTLE", "HANDLING FEE", "500ML HIGH GLOSS MIX COLOURS", "100ML STAINER LOOSE BOTTLE", "1L HIGH GLOSS MIX COLOURS", "WRITE OFF", "5L HIGH GLOSS MIX COLOURS", "ADVERTISING"];
+  var nsVals=[11000.0, 9870.0, 2800.0, 1900.0, 1700.0, 1500.0, 600.0, 0.0, -39.21, -167.79, -1110.0, -1225.53, -1770.0, -3139.4, -3360.0, -10434.78];
+  if(!nsLabels.length){
+    el.parentElement.innerHTML='<p style="font-family:var(--font-body);font-size:13px;color:var(--color-text-secondary);padding:20px 0">No non-stock transactions for this rep.</p>';
+    return;
+  }
+  var colors=nsVals.map(function(v){return v>=0?'#2D8C7A':'#E86060';});
+  _lblMap.set('cNsBar',{mode:'h-inside',fmt:function(v){return(v<0?'(R'+Math.abs(v/1000).toFixed(1)+'K)':'R'+(v/1000).toFixed(1)+'K');},fs:9,color:'#fff'});
+  new Chart(el,{
+    type:'bar',
+    data:{
+      labels:nsLabels,
+      datasets:[{label:'Net Value',data:nsVals,backgroundColor:colors,borderRadius:5}]
+    },
+    options:{
+      indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},
+        tooltip:{callbacks:{label:function(c){var v=c.parsed.x;return v<0?'(R'+Math.abs(v).toLocaleString(undefined,{maximumFractionDigits:2})+')':'R'+v.toLocaleString(undefined,{maximumFractionDigits:2});}}}},
+      scales:{
+        x:{grid:gridLine,ticks:{callback:function(v){return'R'+(v/1000).toFixed(0)+'K';}}},
+        y:{grid:{display:false},ticks:{font:{size:10},color:'var(--color-text-secondary)'}}
+      }
+    }
+  });
+})();
+
+/* ── MONTHLY TAB ── */
+const MR        = {"2024-3": 886328.26, "2024-4": 834016.86, "2024-5": 864885.27, "2024-6": 520633.98, "2024-7": 764702.13, "2024-8": 1271125.98, "2024-9": 721869.4, "2024-10": 996535.08, "2024-11": 1678863.87, "2024-12": 1546826.6, "2025-1": 630228.34, "2025-2": 810768.36, "2025-3": 690194.01, "2025-4": 968787.69, "2025-5": 553931.56, "2025-6": 920011.07, "2025-7": 1126193.08, "2025-8": 1390393.99, "2025-9": 1229475.18, "2025-10": 1321149.08, "2025-11": 2285863.38, "2025-12": 1848353.19, "2026-1": 785147.22, "2026-2": 675807.3, "2026-3": 965966.73, "2026-4": 1810009.61, "2026-5": 465536.49};
+const AVAIL     = [[2024, 3], [2024, 4], [2024, 5], [2024, 6], [2024, 7], [2024, 8], [2024, 9], [2024, 10], [2024, 11], [2024, 12], [2025, 1], [2025, 2], [2025, 3], [2025, 4], [2025, 5], [2025, 6], [2025, 7], [2025, 8], [2025, 9], [2025, 10], [2025, 11], [2025, 12], [2026, 1], [2026, 2], [2026, 3], [2026, 4], [2026, 5]];
+const MN        = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MNF       = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const APPROVED   = [{"ordno": "15313", "orddate": "07/05/2026", "accno": "KU005", "customer": "", "lines": 29, "total": 28283.81}, {"ordno": "15315", "orddate": "07/05/2026", "accno": "KH029", "customer": "", "lines": 9, "total": 13262.38}, {"ordno": "15316", "orddate": "07/05/2026", "accno": "KS080", "customer": "Sehlware (Pty) Ltd", "lines": 44, "total": 117803.33999999995}, {"ordno": "15325", "orddate": "08/05/2026", "accno": "KF028", "customer": "Fayaz  and Brother 891 Pty Ltd", "lines": 1, "total": 5520.0}, {"ordno": "15350", "orddate": "11/05/2026", "accno": "KA038", "customer": "Ace Hardware & Furniture", "lines": 11, "total": 16084.239999999998}, {"ordno": "15351", "orddate": "11/05/2026", "accno": "KS045", "customer": "Delli 786 (PTY) LTD", "lines": 12, "total": 34059.57000000001}, {"ordno": "15369", "orddate": "13/05/2026", "accno": "KH005", "customer": "", "lines": 6, "total": 4871.360000000001}, {"ordno": "15370", "orddate": "13/05/2026", "accno": "KP002", "customer": "Power Hardware", "lines": 52, "total": 191176.79999999996}];
+const PURCHASERS = {"2024-3": 28, "2024-4": 23, "2024-5": 34, "2024-6": 22, "2024-7": 23, "2024-8": 34, "2024-9": 25, "2024-10": 25, "2024-11": 35, "2024-12": 31, "2025-1": 17, "2025-2": 24, "2025-3": 30, "2025-4": 44, "2025-5": 24, "2025-6": 36, "2025-7": 46, "2025-8": 34, "2025-9": 45, "2025-10": 44, "2025-11": 44, "2025-12": 43, "2026-1": 24, "2026-2": 32, "2026-3": 33, "2026-4": 39, "2026-5": 15};
+const PORTFOLIO  = 88;
+const GROWTH    = 1.3;
+let curY = 2026, curM = 5;
+
+function mrev(y, m){ return MR[y+'-'+m] || 0; }
+function pctStr(v){ return v===null?'—':(v>=0?'+':'')+v.toFixed(1)+'%'; }
+function safePct(num, denom){ return (denom && denom>0) ? (num/denom-1)*100 : null; }
+
+function isAvail(y, m){ return AVAIL.some(a => a[0]===y && a[1]===m); }
+
+function renderMonthly(){
+  const y = curY, m = curM;
+  document.getElementById('monthLabel').textContent = MNF[m-1] + ' ' + y;
+  const sel = document.getElementById('monthSelect');
+  const key = y+'-'+m;
+  for (const opt of sel.options){ if (opt.value===key){ sel.value=key; break; } }
+
+  // Disable nav buttons at the boundaries
+  let prevY=y, prevM=m-1; if (prevM<1){prevM=12;prevY--;}
+  let nextY=y, nextM=m+1; if (nextM>12){nextM=1;nextY++;}
+  document.getElementById('monthPrev').disabled = !isAvail(prevY, prevM);
+  document.getElementById('monthNext').disabled = !isAvail(nextY, nextM);
+
+  // KPIs
+  const cur  = mrev(y, m);
+  const prev = mrev(y-1, m);
+  const tgt  = prev * GROWTH;
+  const yoy  = safePct(cur, prev);
+  const vsT  = safePct(cur, tgt);
+
+  const cmp24 = mrev(y-2, m);
+  const yoy2  = safePct(prev, cmp24);
+
+  const yoyCls = yoy===null?'neu':(yoy>=30?'up':yoy>=0?'warn':'dn');
+  const vsTCls = vsT===null?'neu':(vsT>=0?'up':'dn');
+
+  document.getElementById('monthlyKpis').innerHTML =
+    '<div class="kpi"><div class="kpi-label">'+MN[m-1]+' '+y+' Sales</div>'+
+      '<div class="kpi-value">'+fmtR(cur)+'</div>'+
+      '<div class="kpi-delta neu">Net revenue (excl. VAT)</div></div>'+
+    '<div class="kpi"><div class="kpi-label">'+MN[m-1]+' '+(y-1)+' (Prior Year)</div>'+
+      '<div class="kpi-value">'+fmtR(prev)+'</div>'+
+      '<div class="kpi-delta neu">Same calendar month</div></div>'+
+    '<div class="kpi"><div class="kpi-label">Target ('+MN[m-1]+' '+y+')</div>'+
+      '<div class="kpi-value">'+fmtR(tgt)+'</div>'+
+      '<div class="kpi-delta neu">Prior year &times; 1.30</div></div>'+
+    '<div class="kpi"><div class="kpi-label">YoY Growth</div>'+
+      '<div class="kpi-value '+yoyCls+'">'+pctStr(yoy)+'</div>'+
+      '<div class="kpi-delta '+yoyCls+'">vs '+MN[m-1]+' '+(y-1)+'</div></div>'+
+    '<div class="kpi"><div class="kpi-label">vs Target</div>'+
+      '<div class="kpi-value '+vsTCls+'">'+pctStr(vsT)+'</div>'+
+      '<div class="kpi-delta '+vsTCls+'">'+(cur>=tgt?'▲ Ahead of target':'▼ Behind target')+'</div></div>'+
+    '<div class="kpi"><div class="kpi-label">Prior YoY ('+(y-1)+' vs '+(y-2)+')</div>'+
+      '<div class="kpi-value">'+pctStr(yoy2)+'</div>'+
+      '<div class="kpi-delta neu">For context</div></div>';
+
+  // ── Purchasing coverage (this month) ──
+  const purchasers = PURCHASERS[y+'-'+m] || 0;
+  const portfolio  = PORTFOLIO || 0;
+  const coverage   = portfolio > 0 ? (purchasers / portfolio) * 100 : null;
+  const covCls = coverage === null ? 'neu' : (coverage >= 75 ? 'up' : coverage >= 40 ? 'warn' : 'dn');
+  const covStr = coverage === null ? '—' : coverage.toFixed(0) + '%';
+  document.getElementById('monthlyKpis').innerHTML +=
+    '<div class="kpi" style="border-left:3px solid var(--color-brand-primary)">'+
+      '<div class="kpi-label">Total Customer Portfolio</div>'+
+      '<div class="kpi-value">'+portfolio+'</div>'+
+      '<div class="kpi-delta neu">Unique delivery accounts (all-time)</div></div>'+
+    '<div class="kpi" style="border-left:3px solid var(--color-brand-primary)">'+
+      '<div class="kpi-label">Customers Purchased — '+MN[m-1]+' '+y+'</div>'+
+      '<div class="kpi-value">'+purchasers+'</div>'+
+      '<div class="kpi-delta neu">Unique accounts invoiced this month</div></div>'+
+    '<div class="kpi" style="border-left:3px solid var(--color-brand-primary)">'+
+      '<div class="kpi-label">Coverage</div>'+
+      '<div class="kpi-value '+covCls+'">'+covStr+'</div>'+
+      '<div class="kpi-delta '+covCls+'">'+purchasers+' purchased ÷ '+portfolio+' accounts</div></div>';
+
+  renderTrendChart(y, m);
+  renderCompareChart(y, m);
+  renderMonthlyOrders(y, m);
+}
+
+let _trendChart=null, _cmpChart=null;
+function renderTrendChart(y, m){
+  const labels=[], vals=[];
+  for (let i=11; i>=0; i--){
+    let pm=m-i, py=y;
+    while (pm<1){pm+=12;py--;}
+    labels.push(MN[pm-1]+' '+String(py).slice(2));
+    vals.push(mrev(py, pm));
+  }
+  if (_trendChart) _trendChart.destroy();
+  _lblMap.set('cMonthTrend', {mode:'v-stacked', fmt:v=>fmtR(v), fs:9, dsColors:['#0D0D0B']});
+  _trendChart = new Chart(document.getElementById('cMonthTrend'),{
+    type:'bar',
+    data:{labels, datasets:[{
+      label:'Net Revenue', data:vals,
+      backgroundColor: vals.map((_,i)=> i===11 ? 'rgba(245,196,0,0.95)' : 'rgba(245,196,0,0.35)'),
+      borderRadius:5
+    }]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmtR(c.parsed.y)}}},
+      scales:{y:{grid:gridLine,ticks:{callback:v=>fmtR(v)}},x:{grid:{display:false}}}
+    }
+  });
+}
+
+function renderCompareChart(y, m){
+  const labels = [String(y-2), String(y-1), String(y)];
+  const vals   = [mrev(y-2,m), mrev(y-1,m), mrev(y,m)];
+  if (_cmpChart) _cmpChart.destroy();
+  _lblMap.set('cMonthCompare', {mode:'v-stacked', fmt:v=>fmtR(v), fs:10, dsColors:['#0D0D0B']});
+  _cmpChart = new Chart(document.getElementById('cMonthCompare'),{
+    type:'bar',
+    data:{labels, datasets:[{
+      label: MN[m-1] + ' Net Revenue', data:vals,
+      backgroundColor:['rgba(26,61,110,0.55)','rgba(26,61,110,0.85)','rgba(245,196,0,0.95)'],
+      borderRadius:5
+    }]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmtR(c.parsed.y)}}},
+      scales:{y:{grid:gridLine,ticks:{callback:v=>fmtR(v)}},x:{grid:{display:false}}}
+    }
+  });
+}
+
+function renderMonthlyOrders(y, m){
+  // orddate is "DD/MM/YYYY"
+  const tbody = document.getElementById('monthlyOrdersTbody');
+  const filt = APPROVED.filter(o => {
+    const p = o.orddate.split('/');
+    return p.length===3 && parseInt(p[1])===m && parseInt(p[2])===y;
+  });
+  if (!filt.length){
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--color-text-tertiary);padding:18px">No approved orders dated in this month.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = filt.map(o =>
+    '<tr><td style="font-family:var(--font-display);font-weight:700">'+o.ordno+'</td>'+
+    '<td>'+o.orddate+'</td>'+
+    '<td style="color:var(--color-text-tertiary);font-size:11px">'+o.accno+'</td>'+
+    '<td>'+(o.customer||'—')+'</td>'+
+    '<td style="text-align:right">'+o.lines+'</td>'+
+    '<td style="text-align:right;font-family:var(--font-display);font-weight:700">R'+o.total.toLocaleString('en-ZA',{minimumFractionDigits:2,maximumFractionDigits:2})+'</td></tr>'
+  ).join('');
+}
+
+function prevMonth(){
+  let m=curM-1, y=curY; if (m<1){m=12;y--;}
+  if (isAvail(y,m)){ curY=y; curM=m; renderMonthly(); }
+}
+function nextMonth(){
+  let m=curM+1, y=curY; if (m>12){m=1;y++;}
+  if (isAvail(y,m)){ curY=y; curM=m; renderMonthly(); }
+}
+function jumpToMonth(v){
+  const p=v.split('-'); curY=parseInt(p[0]); curM=parseInt(p[1]); renderMonthly();
+}
+
+// Initial render (deferred so the canvas elements exist)
+if (AVAIL.length){ renderMonthly(); }
+
+/* ── KPI SCORECARD (QUARTERLY) ── */
+const Q_DATA = JSON.parse(document.getElementById('qScorecardData').textContent);
+let curQ = document.querySelector('.qbtn.active') ? document.querySelector('.qbtn.active').dataset.q : 'Q1';
+
+function selectQuarter(q){
+  curQ = q;
+  document.querySelectorAll('.qbtn').forEach(b => b.classList.toggle('active', b.dataset.q === q));
+  renderScorecard();
+}
+
+function _kpiRow(letter, name, weight, pillCls, pillText, status, earned){
+  return '<tr>'
+    + '<td><strong>'+letter+'</strong> &mdash; '+name+'<br>'
+    + '<span style="color:var(--color-text-tertiary);font-size:11px">'+weight+'% weight</span></td>'
+    + '<td><span class="pill '+pillCls+'">'+pillText+'</span></td>'
+    + '<td style="font-size:12px;color:var(--color-text-secondary)">'+status+'</td>'
+    + '<td style="text-align:right;font-family:var(--font-display);font-weight:700">'+earned.toFixed(1)+'% / '+weight+'%</td>'
+    + '</tr>';
+}
+
+const RB_BANDS = [
+  // [min markup %, score earned out of 20]
+  [15, 20], [12, 16], [9, 12], [6, 8], [3, 4]
+];
+
+function _scoreQuarter(d){
+  // Returns scores A..F, growthAbove, maxCommission, totalScore, commission, yoy, vsTarget, target, baselinePlus10
+  const cur  = d.sales || 0;
+  const prev = d.prev  || 0;
+  const target = prev * 1.30;
+  const baselinePlus10 = prev * 1.10;
+  const yoy = prev > 0 ? (cur/prev - 1) * 100 : null;
+  const vsTarget = target > 0 ? (cur/target - 1) * 100 : null;
+  const growthAbove = Math.max(0, cur - baselinePlus10);
+
+  // A. Sales Growth & Collections (30%)
+  let aScore=0, aPill=['neu','&mdash;'], aStatus='No prior-year data for comparison.';
+  if (yoy !== null){
+    if (yoy >= 10){ aScore = 30; aPill = ['grn','✓ +'+yoy.toFixed(1)+'% YoY']; aStatus = 'Qualifies — '+yoy.toFixed(1)+'% above prior year (R'+(cur/1e6).toFixed(2)+'M vs R'+(prev/1e6).toFixed(2)+'M)'; }
+    else if (yoy >= 0){ aScore = +(yoy/10*30).toFixed(1); aPill = ['amb','⚠ +'+yoy.toFixed(1)+'% YoY']; aStatus = 'Below 10% threshold — partial credit'; }
+    else { aScore = 0; aPill = ['red','✗ '+yoy.toFixed(1)+'% YoY']; aStatus = 'Declining vs prior year'; }
+  }
+
+  // B. Discount Management (20%)
+  let bScore=0, bPill=['neu','⚠ No data'], bStatus='No invoice lines with rock-bottom prices in this quarter.';
+  if (d.markup_pct !== null && d.markup_lines > 0){
+    const m = d.markup_pct;
+    let earned = 0;
+    for (const [thr, pts] of RB_BANDS){ if (m >= thr){ earned = pts; break; } }
+    bScore = earned;
+    if (earned === 20){ bPill = ['grn','✓ +'+m.toFixed(1)+'% above RB']; bStatus = 'Excellent (≥15%) — '+d.markup_lines.toLocaleString()+' lines averaged +'+m.toFixed(2)+'% above Rock Bottom'; }
+    else if (earned >= 16){ bPill = ['amb','⚠ +'+m.toFixed(1)+'% above RB']; bStatus = 'Good (≥12%) — '+d.markup_lines.toLocaleString()+' lines averaged +'+m.toFixed(2)+'% above Rock Bottom'; }
+    else if (earned >= 12){ bPill = ['amb','⚠ +'+m.toFixed(1)+'% above RB']; bStatus = 'Fair (≥9%) — '+d.markup_lines.toLocaleString()+' lines averaged +'+m.toFixed(2)+'% above Rock Bottom'; }
+    else if (earned >= 8){ bPill = ['amb','⚠ +'+m.toFixed(1)+'% above RB']; bStatus = 'Weak (≥6%) — '+d.markup_lines.toLocaleString()+' lines averaged +'+m.toFixed(2)+'% above Rock Bottom'; }
+    else if (earned > 0){ bPill = ['amb','⚠ +'+m.toFixed(1)+'% above RB']; bStatus = 'Poor (≥3%) — '+d.markup_lines.toLocaleString()+' lines averaged +'+m.toFixed(2)+'% above Rock Bottom'; }
+    else { bPill = ['red','✗ +'+m.toFixed(1)+'% above RB']; bStatus = 'Below +3% — '+d.markup_lines.toLocaleString()+' lines averaged +'+m.toFixed(2)+'% above Rock Bottom'; }
+  }
+
+  // C. Customer Dev & CRM (20%) — Hit/Miss vs 15 leads/quarter
+  const lc = d.leads_count || 0;
+  const vc = d.verified_count;
+  let cScore=0, cPill, cStatus;
+  if (lc >= 15){ cScore = 20; cPill = ['grn','✓ '+lc+' leads']; cStatus = 'Hit — '+lc+' CRM leads created this quarter (target 15)'; }
+  else { cScore = 0; cPill = ['red','✗ '+lc+' / 15']; cStatus = 'Miss — '+lc+' leads vs 15 required (5/month over the quarter)'; }
+
+  // D. Product Development (10%) — needs upsell log
+  const dScore = 0, dPill = ['neu','⚠ No data'], dStatus = 'Awaiting upsell tracking source (focus products, weekly count).';
+
+  // E. New Customer Onboarding (10%)
+  let eScore=0, ePill, eStatus;
+  if (vc >= 6){ eScore = 10; ePill = ['grn','✓ '+vc+' verified']; eStatus = 'Full credit — '+vc+' new trading customers verified this quarter (target 6)'; }
+  else if (vc >= 3){ eScore = 5; ePill = ['amb','⚠ '+vc+' / 6']; eStatus = 'Half credit — '+vc+' new trading customers (avg ≥ 1/month)'; }
+  else { eScore = 0; ePill = ['red','✗ '+vc+' / 6']; eStatus = 'No credit — '+vc+' verified vs 6 required (2/month over the quarter)'; }
+
+  // F. Merchandising (10%) — Graded
+  const merchVisits = d.merch_visits || 0;
+  const merchTarget = d.merch_target || 24;
+  const merchWeight = d.merch_weight || 10;
+  const merchRatio  = merchTarget > 0 ? Math.min(merchVisits / merchTarget, 1) : 0;
+  const merchPct    = merchRatio * 100;
+  const fScore      = +(merchRatio * merchWeight).toFixed(1);
+  let fPill, fStatus;
+  if (merchPct >= 100){
+    fPill = ['grn','✓ '+merchPct.toFixed(0)+'% · '+merchVisits+'/'+merchTarget];
+    fStatus = 'Full credit — '+merchVisits+' visits this quarter (target '+merchTarget+', i.e. 8/month)';
+  } else if (merchPct >= 50){
+    fPill = ['amb','⚠ '+merchPct.toFixed(0)+'% · '+merchVisits+'/'+merchTarget];
+    fStatus = 'Partial credit — '+merchVisits+' visits this quarter vs '+merchTarget+' target ('+merchPct.toFixed(0)+'% of target)';
+  } else if (merchVisits > 0){
+    fPill = ['red','✗ '+merchPct.toFixed(0)+'% · '+merchVisits+'/'+merchTarget];
+    fStatus = 'Low — '+merchVisits+' visits this quarter vs '+merchTarget+' target ('+merchPct.toFixed(0)+'% of target)';
+  } else {
+    fPill = ['red','✗ 0% · 0/'+merchTarget];
+    fStatus = 'No merchandising visits logged this quarter';
+  }
+
+  const totalScore = aScore + bScore + cScore + dScore + eScore + fScore;
+  const maxCommission = growthAbove * 0.04;
+  const commission = maxCommission * (totalScore / 100);
+
+  return {
+    cur, prev, target, baselinePlus10, yoy, vsTarget, growthAbove, maxCommission, totalScore, commission,
+    A:[aScore, aPill, aStatus, 30],  B:[bScore, bPill, bStatus, 20],  C:[cScore, cPill, cStatus, 20],
+    D:[dScore, dPill, dStatus, 10],  E:[eScore, ePill, eStatus, 10],  F:[fScore, fPill, fStatus, 10],
+  };
+}
+
+function _zar(v){ return 'R' + Math.round(v).toLocaleString('en-ZA'); }
+
+function renderScorecard(){
+  const d = Q_DATA[curQ];
+  if (!d){ return; }
+  const s = _scoreQuarter(d);
+  const cur=s.cur, prev=s.prev, target=s.target, baselinePlus10=s.baselinePlus10;
+  const yoy=s.yoy, vsTarget=s.vsTarget, growthAbove=s.growthAbove;
+  const totalScore=s.totalScore, maxCommission=s.maxCommission, curCommission=s.commission;
+  const aScore=s.A[0], aPill=s.A[1], aStatus=s.A[2];
+  const bScore=s.B[0], bPill=s.B[1], bStatus=s.B[2];
+  const cScore=s.C[0], cPill=s.C[1], cStatus=s.C[2];
+  const dScore=s.D[0], dPill=s.D[1], dStatus=s.D[2];
+  const eScore=s.E[0], ePill=s.E[1], eStatus=s.E[2];
+  const fScore=s.F[0], fPill=s.F[1], fStatus=s.F[2];
+
+  // Top KPI strip
+  const yoyStr = yoy === null ? '—' : (yoy>=0?'+':'')+yoy.toFixed(1)+'%';
+  const vsTStr = vsTarget === null ? '—' : (vsTarget>=0?'+':'')+vsTarget.toFixed(1)+'%';
+  const yoyCls = yoy === null ? 'neu' : (yoy>=10?'up':yoy>=0?'warn':'dn');
+  const vsTCls = vsTarget === null ? 'neu' : (vsTarget>=0?'up':'dn');
+
+  document.getElementById('qKpis').innerHTML =
+    '<div class="kpi"><div class="kpi-label">Quarterly Sales</div>'
+      +'<div class="kpi-value">'+fmtR(cur)+'</div>'
+      +'<div class="kpi-delta neu">'+d.months+'</div></div>'
+    +'<div class="kpi"><div class="kpi-label">Target (Prior &times; 1.30)</div>'
+      +'<div class="kpi-value">'+fmtR(target)+'</div>'
+      +'<div class="kpi-delta neu">Same quarter last year: '+fmtR(prev)+'</div></div>'
+    +'<div class="kpi"><div class="kpi-label">vs Target</div>'
+      +'<div class="kpi-value '+vsTCls+'">'+vsTStr+'</div>'
+      +'<div class="kpi-delta '+vsTCls+'">'+(vsTarget!==null?(vsTarget>=0?'Ahead of target':'Behind target'):'—')+'</div></div>'
+    +'<div class="kpi"><div class="kpi-label">YoY Growth</div>'
+      +'<div class="kpi-value '+yoyCls+'">'+yoyStr+'</div>'
+      +'<div class="kpi-delta '+yoyCls+'">vs same quarter prior year</div></div>'
+    +'<div class="kpi"><div class="kpi-label">Total KPI Score</div>'
+      +'<div class="kpi-value">'+totalScore.toFixed(1)+'%</div>'
+      +'<div class="kpi-delta neu">Calculable now: A + B + C + E + F (max 90%)</div></div>'
+    +'<div class="kpi"><div class="kpi-label">Est. Commission</div>'
+      +'<div class="kpi-value">R'+curCommission.toLocaleString('en-ZA',{maximumFractionDigits:0})+'</div>'
+      +'<div class="kpi-delta neu">Max @ 100% KPI: R'+maxCommission.toLocaleString('en-ZA',{maximumFractionDigits:0})+'</div></div>';
+
+  // Detail rows
+  document.getElementById('qDetailTitle').textContent = 'Category Detail — ' + d.label;
+  document.getElementById('qDetailSub').textContent = 'Status & score earned per KPI category — ' + d.months;
+  document.getElementById('qRows').innerHTML =
+      _kpiRow('A', 'Sales Growth & Collections',  30, aPill[0], aPill[1], aStatus, aScore)
+    + _kpiRow('B', 'Discount Management',          20, bPill[0], bPill[1], bStatus, bScore)
+    + _kpiRow('C', 'Customer Development & CRM',   20, cPill[0], cPill[1], cStatus, cScore)
+    + _kpiRow('D', 'Product Development',          10, dPill[0], dPill[1], dStatus, dScore)
+    + _kpiRow('E', 'New Customer Onboarding',      10, ePill[0], ePill[1], eStatus, eScore)
+    + _kpiRow('F', 'Merchandising',                10, fPill[0], fPill[1], fStatus, fScore);
+
+  // Commission breakdown — step-by-step working
+  document.getElementById('qCommissionTitle').textContent = 'Commission Calculation — ' + d.label;
+  document.getElementById('qCommissionSub').textContent =
+    'Qualifying growth × 4% × KPI Score% — what the rep is liable to earn this quarter';
+
+  const kpiBreakdownRows = [
+    ['A', 'Sales Growth & Collections',  30, aScore],
+    ['B', 'Discount Management',         20, bScore],
+    ['C', 'Customer Development & CRM',  20, cScore],
+    ['D', 'Product Development',         10, dScore],
+    ['E', 'New Customer Onboarding',     10, eScore],
+    ['F', 'Merchandising',               10, fScore],
+  ].map(([letter, name, weight, score]) => {
+    const contrib = maxCommission * (score / 100);
+    const cls = score === weight ? 'up' : score > 0 ? 'warn' : 'neu';
+    return '<tr>'
+      + '<td><strong>'+letter+'</strong> &mdash; '+name+'</td>'
+      + '<td style="text-align:right;color:var(--color-text-secondary)">'+score.toFixed(1)+'% / '+weight+'%</td>'
+      + '<td style="text-align:right;font-family:var(--font-display);font-weight:700" class="'+cls+'">'+_zar(contrib)+'</td>'
+      + '</tr>';
+  }).join('');
+
+  document.getElementById('qCommissionBody').innerHTML =
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:14px">'
+      + '<div style="padding:12px;border:1px solid var(--color-border-default);border-radius:var(--r-md);background:var(--color-surface-sunken)">'
+        + '<div style="font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.06em">Sales (period)</div>'
+        + '<div style="font-family:var(--font-display);font-size:18px;font-weight:800;margin-top:4px">'+_zar(cur)+'</div></div>'
+      + '<div style="padding:12px;border:1px solid var(--color-border-default);border-radius:var(--r-md);background:var(--color-surface-sunken)">'
+        + '<div style="font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.06em">Baseline (PY)</div>'
+        + '<div style="font-family:var(--font-display);font-size:18px;font-weight:800;margin-top:4px">'+_zar(prev)+'</div></div>'
+      + '<div style="padding:12px;border:1px solid var(--color-border-default);border-radius:var(--r-md);background:var(--color-surface-sunken)">'
+        + '<div style="font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.06em">Baseline + 10%</div>'
+        + '<div style="font-family:var(--font-display);font-size:18px;font-weight:800;margin-top:4px">'+_zar(baselinePlus10)+'</div></div>'
+      + '<div style="padding:12px;border:1px solid var(--color-success-bd);border-radius:var(--r-md);background:var(--color-success-bg)">'
+        + '<div style="font-size:11px;color:var(--color-success-fg);text-transform:uppercase;letter-spacing:.06em">Qualifying Growth</div>'
+        + '<div style="font-family:var(--font-display);font-size:18px;font-weight:800;margin-top:4px;color:var(--color-success-fg)">'+_zar(growthAbove)+'</div></div>'
+      + '<div style="padding:12px;border:1px solid var(--color-border-default);border-radius:var(--r-md);background:var(--color-surface-sunken)">'
+        + '<div style="font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.06em">Max Pool (× 4%)</div>'
+        + '<div style="font-family:var(--font-display);font-size:18px;font-weight:800;margin-top:4px">'+_zar(maxCommission)+'</div></div>'
+      + '<div style="padding:12px;border:1px solid var(--color-warning-bd);border-radius:var(--r-md);background:var(--color-warning-bg)">'
+        + '<div style="font-size:11px;color:var(--color-warning-fg);text-transform:uppercase;letter-spacing:.06em">KPI Score &times; Pool</div>'
+        + '<div style="font-family:var(--font-display);font-size:18px;font-weight:800;margin-top:4px;color:var(--color-warning-fg)">'+_zar(curCommission)+'</div></div>'
+    + '</div>'
+    + '<div class="tw"><table>'
+    + '<thead><tr><th>KPI</th><th style="text-align:right">Earned</th><th style="text-align:right">Commission Earned</th></tr></thead>'
+    + '<tbody>'+kpiBreakdownRows+'</tbody>'
+    + '<tfoot><tr style="background:var(--color-surface-secondary);color:var(--color-text-on-navy)">'
+      + '<td style="padding:10px 14px;font-family:var(--font-display);text-transform:uppercase;letter-spacing:.06em;font-weight:800">Total</td>'
+      + '<td style="text-align:right;padding:10px 14px;font-family:var(--font-display);font-weight:800">'+totalScore.toFixed(1)+'%</td>'
+      + '<td style="text-align:right;padding:10px 14px;font-family:var(--font-display);font-weight:900;font-size:15px">'+_zar(curCommission)+'</td>'
+    + '</tr></tfoot>'
+    + '</table></div>';
+
+  // YTD across all quarters of the displayed year
+  let ytdEarned = 0, ytdMax = 0;
+  for (const qk of ['Q1','Q2','Q3','Q4']){
+    const qd = Q_DATA[qk]; if (!qd) continue;
+    const qs = _scoreQuarter(qd);
+    ytdEarned += qs.commission;
+    ytdMax    += qs.maxCommission;
+  }
+  document.getElementById('qYtdEarned').textContent = _zar(ytdEarned);
+  document.getElementById('qYtdMax').textContent    = _zar(ytdMax);
+  document.getElementById('qYtdSub').textContent    =
+    'Sum of estimated commission across Q1–Q4 ' + d.label.split(' ')[1] + ' at current scores';
+
+  // Verified-stores card
+  let vHtml = '<div class="card-title">Verified New Stores — '+d.label+'</div>'
+    + '<div class="card-sub">Source: <em>New Stores Added By Reps_Quater'+d.label.replace(/Q(\d).*/, '$1')+'_'+d.label.split(' ')[1]+'.xlsx</em> — Combined tab</div>';
+  if (vc > 0){
+    vHtml += '<div class="tw"><table><thead><tr><th>Store</th><th>Status</th><th>dlref</th><th>curef</th></tr></thead><tbody>'
+      + d.verified.map(s =>
+          '<tr><td>'+(s.store||'—')+'</td><td>'+(s.status||'—')+'</td>'
+          +'<td style="color:var(--color-text-tertiary);font-size:11px">'+(s.dlref||'—')+'</td>'
+          +'<td style="color:var(--color-text-tertiary);font-size:11px">'+(s.curef||'—')+'</td></tr>'
+        ).join('')
+      + '</tbody></table></div>';
+  } else {
+    vHtml += '<p style="font-family:var(--font-body);font-size:13px;margin-top:14px;padding:12px;'
+      + 'background:var(--color-warning-bg);border:1px solid var(--color-warning-bd);border-radius:var(--r-md);'
+      + 'color:var(--color-warning-fg)">No verified new stores for this quarter — KPI C and KPI E score 0%.</p>';
+  }
+  document.getElementById('qVerified').innerHTML = vHtml;
+}
+
+renderScorecard();
+</script>
 </body>
 </html>
