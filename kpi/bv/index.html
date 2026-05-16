@@ -512,10 +512,12 @@ html,body{overflow-x:hidden}
     line-height:1;color:var(--color-brand-primary);
   }
   .ms-big-num.up{color:var(--color-success-fg)}
+  .ms-big-num.warn{color:var(--color-warning-fg)}
   .ms-big-num.dn{color:var(--color-danger-fg)}
   .ms-big-sub{font-size:11px;color:var(--color-text-secondary);margin-top:8px;line-height:1.4}
 
   .ms-stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
+  .ms-stat-grid-2x2{grid-template-columns:1fr 1fr}
   .ms-stat{
     background:var(--color-surface-base);
     border:1px solid var(--color-border-default);
@@ -534,9 +536,11 @@ html,body{overflow-x:hidden}
   }
   .ms-stat-val.dn{color:var(--color-danger-fg)}
   .ms-stat-val.up{color:var(--color-success-fg)}
-  .ms-stat-sub{font-size:10px;color:var(--color-text-secondary);margin-top:3px;font-weight:600}
+  .ms-stat-val.warn{color:var(--color-warning-fg)}
+  .ms-stat-sub{font-size:10px;color:var(--color-text-secondary);margin-top:3px;font-weight:600;line-height:1.3}
   .ms-stat-sub.up{color:var(--color-success-fg)}
   .ms-stat-sub.dn{color:var(--color-danger-fg)}
+  .ms-stat-sub.neu{color:var(--color-text-tertiary)}
 
   .ms-card{
     background:var(--color-surface-base);
@@ -621,15 +625,20 @@ html,body{overflow-x:hidden}
   </div>
 
   <div class="ms-big-card">
-    <div class="ms-big-label">YoY Growth (KPI A)</div>
-    <div class="ms-big-num dn">-6.9%</div>
-    <div class="ms-big-sub">FY26 YTD revenue vs FY25 same period</div>
+    <div class="ms-big-label">Monthly Target Status · May 2026</div>
+    <div class="ms-big-num dn">29<span style="font-size:30px;opacity:.7">%</span></div>
+    <div class="ms-big-sub">R1.63M <span style="opacity:.5">of</span> R5.53M</div>
   </div>
 
-  <div class="ms-stat-grid">
+  <div class="ms-stat-grid ms-stat-grid-2x2">
     <div class="ms-stat">
       <div class="ms-stat-label">YTD Revenue</div>
       <div class="ms-stat-val">R11.04M</div>
+    </div>
+    <div class="ms-stat">
+      <div class="ms-stat-label">Q2 KPI Score</div>
+      <div class="ms-stat-val dn">23<span style="font-size:11px;opacity:.6">/100</span></div>
+      <div class="ms-stat-sub neu">Current quarter</div>
     </div>
     <div class="ms-stat">
       <div class="ms-stat-label">YTD Target</div>
@@ -639,7 +648,7 @@ html,body{overflow-x:hidden}
     <div class="ms-stat">
       <div class="ms-stat-label">Debtors &gt;60d</div>
       <div class="ms-stat-val dn">16.0%</div>
-      <div class="ms-stat-sub dn">R880.1K</div>
+      <div class="ms-stat-sub neu">0.0% vs prior · flat</div>
     </div>
   </div>
   
@@ -662,12 +671,12 @@ html,body{overflow-x:hidden}
             onclick="document.body.classList.add('full-view');window.scrollTo(0,0)">
       Open full dashboard ›
     </button>
-    <a class="ms-btn-link" href="https://olympic-paints-pulse-web.vercel.app/">
-      PULSE Leaderboard ›
+    <a class="ms-btn-link" href="https://op-merch-calendar.vercel.app/">
+      Merchandising Calendar ›
     </a>
   </div>
 
-  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 16 May 2026 15:33</div>
+  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 16 May 2026 16:15</div>
 </div>
 
 <button class="ms-back-to-summary" type="button"
@@ -696,7 +705,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R11.04M</div>
-    <div class="hdr-meta">Week ending 16 May 2026 &middot; Generated 16 May 2026 15:33</div>
+    <div class="hdr-meta">Week ending 16 May 2026 &middot; Generated 16 May 2026 16:15</div>
   </div>
 </div>
 
@@ -1519,7 +1528,7 @@ html,body{overflow-x:hidden}
   <strong>Olympic Paints</strong> &mdash; Bhadresh Vallabh Personal KPI Dashboard &mdash; Week ending 16 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 16 May 2026 15:33 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 16 May 2026 16:15 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
