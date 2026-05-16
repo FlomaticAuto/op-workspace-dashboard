@@ -1,29 +1,458 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="theme-navy">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Loading — Olympic Paints</title>
-<meta http-equiv="refresh" content="0; url=https://flomaticauto.github.io/olympic-paints-merchandising/">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Merch Impact">
+<meta name="theme-color" content="#071022">
+<title>Merchandising Impact Report — Olympic Paints</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#071022;color:#B8CCE8;font-family:'Barlow',sans-serif;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    min-height:100dvh;gap:16px;text-align:center;padding:24px}
-  .logo{width:48px;height:48px;border-radius:50%;overflow:hidden}
-  .logo img{width:100%;height:100%;object-fit:cover;display:block}
-  .spinner{width:32px;height:32px;border:3px solid rgba(245,196,0,.2);
-    border-top-color:#F5C400;border-radius:50%;animation:spin .8s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  p{font-size:13px;opacity:.6}
+:root {
+  --_y50:#FEF9E0;--_y100:#FDF0A0;--_y200:#FAE04D;--_y400:#F5C400;--_y600:#D4A800;--_y800:#A88000;--_y900:#6A5000;
+  --_n50:#E8EFF8;--_n100:#B8CCE8;--_n300:#6B9ED0;--_n500:#2D6BA8;--_n700:#1A3D6E;--_n900:#0D2040;--_n950:#071022;
+  --_g0:#FFFFFF;--_g50:#F7F6F3;--_g100:#E8E7E2;--_g200:#C8C7C0;--_g400:#949390;--_g600:#5C5B58;--_g800:#2E2E2C;--_g900:#1A1A18;--_g950:#0D0D0B;
+  --_teal:#2D8C7A;--_teal-light:#C8EDE7;--_teal-dark:#1a5c50;--_coral:#E86060;
+  --font-display:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;
+  --r-sm:4px;--r-md:8px;--r-lg:12px;--r-xl:16px;--r-pill:50px;
+}
+.theme-light{color-scheme:light;--color-surface-page:var(--_g50);--color-surface-base:var(--_g0);--color-surface-elevated:var(--_g0);--color-surface-sunken:var(--_g100);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g950);--color-text-secondary:var(--_g600);--color-text-tertiary:var(--_g400);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-border-default:var(--_g200);--color-border-subtle:var(--_g100);--shadow-card:0 2px 12px rgba(0,0,0,.07);}
+.theme-dark{color-scheme:dark;--color-surface-page:var(--_g950);--color-surface-base:var(--_g900);--color-surface-elevated:var(--_g800);--color-surface-sunken:var(--_g950);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g100);--color-text-secondary:var(--_g400);--color-text-tertiary:var(--_g600);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-border-default:rgba(255,255,255,.10);--color-border-subtle:rgba(255,255,255,.06);--shadow-card:0 2px 12px rgba(0,0,0,.40);}
+.theme-brand{color-scheme:light;--color-surface-page:var(--_y400);--color-surface-base:var(--_y200);--color-surface-elevated:var(--_y50);--color-surface-sunken:var(--_y600);--color-surface-secondary:var(--_g950);--color-text-primary:var(--_g950);--color-text-secondary:var(--_y900);--color-text-tertiary:var(--_y800);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_g950);--color-border-default:rgba(0,0,0,.14);--color-border-subtle:rgba(0,0,0,.08);--shadow-card:0 2px 12px rgba(0,0,0,.12);}
+.theme-navy{color-scheme:dark;--color-surface-page:var(--_n950);--color-surface-base:var(--_n900);--color-surface-elevated:var(--_n700);--color-surface-sunken:var(--_n950);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g0);--color-text-secondary:var(--_n100);--color-text-tertiary:var(--_n300);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-border-default:rgba(107,158,208,.20);--color-border-subtle:rgba(107,158,208,.12);--shadow-card:0 2px 12px rgba(0,0,0,.50);}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--color-surface-page);color:var(--color-text-primary);min-height:100vh}
+.theme-bar{display:flex;gap:4px;padding:6px 40px;background:var(--color-surface-secondary);border-bottom:1px solid var(--color-border-subtle)}
+.theme-bar button{background:transparent;border:1px solid transparent;color:var(--color-text-on-navy);opacity:.55;padding:4px 12px;border-radius:4px;font-family:var(--font-body);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s}
+.theme-bar button:hover{opacity:1}
+.theme-bar button.active{opacity:1;border-color:var(--color-brand-primary);color:var(--color-brand-primary)}
+.hdr{background:var(--color-surface-secondary);padding:20px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--color-brand-primary);box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.hdr-l{display:flex;align-items:center;gap:14px}
+.hdr-title{font-family:var(--font-display);font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-on-navy)}
+.hdr-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px}
+.hdr-meta{font-size:11px;color:rgba(255,255,255,.35);text-align:right}
+.tab-bar{background:var(--color-surface-sunken);padding:0 40px;display:flex;gap:2px;border-bottom:1px solid var(--color-border-subtle)}
+.tab-btn{background:transparent;border:none;color:var(--color-text-secondary);padding:14px 22px;font-family:var(--font-display);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;border-bottom:2px solid transparent;transition:all .15s}
+.tab-btn:hover{color:var(--color-text-primary)}
+.tab-btn.active{color:var(--color-brand-primary);border-bottom-color:var(--color-brand-primary)}
+.tab-panel{display:none;padding:32px 40px}
+.tab-panel.active{display:block}
+.hero{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.hero-card{background:var(--color-surface-elevated);border:1px solid var(--color-border-subtle);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow-card)}
+.hero-label{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:6px}
+.hero-value{font-family:var(--font-display);font-size:32px;font-weight:900;color:var(--color-brand-primary)}
+.section-title{font-family:var(--font-display);font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin:24px 0 10px}
+.prose{font-size:14px;color:var(--color-text-secondary);line-height:1.5;margin-bottom:18px}
+.chart-container{background:var(--color-surface-elevated);border:1px solid var(--color-border-subtle);border-radius:var(--r-lg);padding:16px;margin-bottom:18px}
+.chart-title{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:8px}
+table{width:100%;border-collapse:collapse;background:var(--color-surface-elevated);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-card)}
+th{background:var(--color-surface-sunken);text-align:left;padding:10px 14px;font-family:var(--font-display);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-secondary)}
+td{padding:10px 14px;border-top:1px solid var(--color-border-subtle);font-size:14px}
+.badge{display:inline-block;padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:600}
+.badge-strong{background:rgba(45,140,122,.15);color:var(--_teal-light);border:1px solid rgba(45,140,122,.35)}
+.badge-mixed{background:rgba(245,196,0,.12);color:var(--_y200);border:1px solid rgba(245,196,0,.30)}
+.badge-declined{background:rgba(232,96,96,.14);color:rgba(253,220,220,1);border:1px solid rgba(232,96,96,.35)}
+details{background:var(--color-surface-elevated);border:1px solid var(--color-border-subtle);border-radius:var(--r-lg);padding:14px;margin-top:24px;font-size:13px;color:var(--color-text-secondary)}
+summary{cursor:pointer;font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-primary)}
+.metric-help{font-size:11px;color:var(--color-text-tertiary);margin-top:6px;font-style:italic;line-height:1.35}
+.chart-help{font-size:12px;color:var(--color-text-tertiary);margin:-4px 0 10px;font-style:italic;line-height:1.4}
+.section-intro{font-size:13px;color:var(--color-text-secondary);margin:-4px 0 12px;line-height:1.5}
+.deduction-box{background:linear-gradient(135deg,rgba(245,196,0,.05),rgba(107,158,208,.05));border:1px solid var(--color-brand-primary);border-radius:var(--r-lg);padding:22px 24px;margin:8px 0 28px;box-shadow:var(--shadow-card)}
+.deduction-label{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--color-brand-primary);margin-bottom:10px}
+.deduction-headline{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--color-text-primary);margin-bottom:14px;line-height:1.25}
+.deduction-body{font-size:14px;color:var(--color-text-secondary);line-height:1.6}
+.deduction-body strong{color:var(--color-text-primary)}
+.deduction-table{margin:14px 0 4px;border-radius:var(--r-md);overflow:hidden;width:100%}
+.deduction-table th,.deduction-table td{padding:8px 12px;font-size:13px;background:var(--color-surface-sunken);border-top:1px solid var(--color-border-subtle)}
+.deduction-table th{text-transform:none;letter-spacing:0;font-weight:700;color:var(--color-text-primary);font-family:var(--font-body)}
+.verdict-pill{display:inline-block;padding:3px 12px;border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-left:8px}
+.verdict-positive{background:rgba(45,140,122,.18);color:var(--_teal-light);border:1px solid rgba(45,140,122,.4)}
+.verdict-mixed{background:rgba(245,196,0,.15);color:var(--_y200);border:1px solid rgba(245,196,0,.35)}
+.verdict-negative{background:rgba(232,96,96,.18);color:rgba(253,220,220,1);border:1px solid rgba(232,96,96,.4)}
+
+/* ── MOBILE APP-SHELL (≤768px) ──────────────────────────────────────────── */
+@media (max-width:768px){
+  html{-webkit-text-size-adjust:100%}
+  body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+
+  /* Sticky compact header with safe-area-top */
+  .hdr{
+    position:sticky;top:0;z-index:90;
+    padding:10px 14px;
+    padding-top:calc(10px + env(safe-area-inset-top));
+    gap:8px;flex-wrap:nowrap;
+    box-shadow:var(--shadow-sm,0 2px 6px rgba(0,0,0,.4));
+  }
+  .hdr-title{font-size:15px;letter-spacing:.02em}
+  .hdr-sub{font-size:10px}
+  .hdr-meta{font-size:9px;white-space:nowrap}
+  .hdr-l{gap:8px}
+
+  /* Tab bar sticky under header, horizontally scrollable */
+  .tab-bar{
+    position:sticky;top:calc(58px + env(safe-area-inset-top));z-index:80;
+    padding:0 8px;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    box-shadow:var(--shadow-sm,0 2px 6px rgba(0,0,0,.3));
+  }
+  .tab-bar::-webkit-scrollbar{display:none}
+  .tab-btn{padding:14px 14px;font-size:12px;min-height:44px;flex-shrink:0}
+
+  .tab-panel{padding:18px 12px calc(28px + env(safe-area-inset-bottom))}
+  .theme-bar{padding:6px 12px;flex-wrap:wrap}
+
+  .deduction-body{font-size:13px}
+  .deduction-table th,.deduction-table td{padding:6px 8px;font-size:12px}
+}
 </style>
+
 </head>
 <body>
-  <div class="logo">
-    <img src="https://flomaticauto.github.io/olympic-paints-clocking/logo.jpg" alt="Olympic Paints">
+<div class="theme-bar">
+  <button onclick="olyTheme('theme-light',this)">Light</button>
+  <button onclick="olyTheme('theme-dark',this)">Dark</button>
+  <button onclick="olyTheme('theme-brand',this)">Brand</button>
+  <button onclick="olyTheme('theme-navy',this)" class="active">Navy</button>
+</div>
+<div class="hdr">
+  <div class="hdr-l">
+    <div style="width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;">
+      <img src="logo.jpg" alt="Olympic Paints" width="48" height="48" style="display:block;width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div>
+      <div class="hdr-title">Merchandising Impact Report</div>
+      <div class="hdr-sub">Kit Kat &amp; Easy Build — sales correlation with formal merchandising visits</div>
+    </div>
   </div>
-  <div class="spinner"></div>
-  <p>Loading dashboard...</p>
-  <script>window.location.replace('https://flomaticauto.github.io/olympic-paints-merchandising/');</script>
-</body>
-</html>
+  <div class="hdr-meta">Generated 2026-05-16 15:02<br>Source: AWS sales · Visits log</div>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('overview',this)">Overview</button>
+  <button class="tab-btn" onclick="showTab('kitkat',this)">Kit Kat</button>
+  <button class="tab-btn" onclick="showTab('easybuild',this)">Easy Build</button>
+</div>
+<div id="tab-overview" class="tab-panel active">
+  <p class="section-intro" style="margin-top:0;margin-bottom:18px;">
+    This page summarises the impact of the formal merchandising program at Kit Kat and Easy Build.
+    Each card below answers one question; hover or read the helper line beneath the value to see how to interpret it.
+  </p>
+  <div class="hero">
+    <div class="hero-card">
+      <div class="hero-label">Reporting Window</div>
+      <div class="hero-value" style="font-size:18px;">Oct 2025 → present (7 months)</div>
+      <div class="metric-help">The time period this report covers — from the first logged merchandising visit until today.</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">Combined YoY (volume)</div>
+      <div class="hero-value">+5.5%</div>
+      <div class="metric-help">Price-adjusted growth: how much more volume we're selling vs the same month last year. The 10% April 2026 price increase has been stripped out — this reflects real demand growth.</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">Extra Revenue (vol-adj)</div>
+      <div class="hero-value">R129K</div>
+      <div class="metric-help">Incremental Rand value above last year, after removing the price-inflation component. Represents genuine volume growth in revenue terms.</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">53 Visits · R2K/visit</div>
+      <div class="hero-value" style="font-size:18px;">all rep NP</div>
+      <div class="metric-help">Total store visits logged in the window, divided into the extra revenue. Useful as a rough ROI check against rep time and travel cost.</div>
+    </div>
+  </div>
+
+  <div class="deduction-box">
+    <div class="deduction-label">★ Deduction <span class="verdict-pill verdict-mixed">Mixed signal</span></div>
+    <div class="deduction-headline">Merchandising is clearly working at Kit Kat; results at Easy Build are inconclusive against the macro baseline.</div>
+    <div class="deduction-body"><p style='margin-bottom:10px'>Kit Kat posted <strong>+17.5%</strong> gross nominal YoY growth and Easy Build <strong>+8.9%</strong>. After subtracting the <strong>+10.0%</strong> Olympic Paints April 2026 price increase (which would lift all accounts' Rand figures regardless of volume), the merchandising-attributable volume component is:</p><table class="deduction-table">
+  <tr><th>Group</th><th>Gross YoY</th><th>Less baseline</th><th>Net (merchandising-attributable)</th><th>Estimated R lift</th></tr>
+  <tr><td>Kit Kat</td><td>+17.5%</td><td>-10.0%</td><td><strong>+7.5%</strong></td><td><strong>R552K</strong></td></tr>
+  <tr><td>Easy Build</td><td>+8.9%</td><td>-10.0%</td><td><strong>-1.1%</strong></td><td><strong>-R31K</strong></td></tr>
+</table><p style='margin-bottom:10px'><strong>Recommendation:</strong> Continue the Kit Kat program — it is generating approximately R552K of incremental revenue above baseline expectations. For Easy Build, investigate why the program hasn't translated to outperformance: rep-visit cadence, store-by-store coverage gaps, or product mix issues are likely candidates.</p></div>
+  </div>
+
+  <div class="section-title">Group breakdown</div>
+  <p class="section-intro">Click into either tab above for the full per-group story (visits, monthly sales chart, year-over-year comparison, per-store breakdown).</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px;">
+    <div class="chart-container">
+      <div class="chart-title">Kit Kat — at a glance</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px;">
+        <div><strong style="color:var(--color-brand-primary);font-size:18px;">+7.5%</strong><br>YoY growth (vol-adj)<br><span style="font-size:11px;color:var(--color-text-tertiary)">gross +17.5%</span></div>
+        <div><strong style="color:var(--color-brand-primary);font-size:18px;">R460K</strong><br>extra revenue (vol-adj)</div>
+        <div><strong>33</strong> visits</div>
+        <div><strong>R14K</strong>/visit</div>
+      </div>
+      <div style="margin-top:10px;"><a href="#" onclick="document.querySelectorAll('.tab-btn')[1].click();return false;" style="color:var(--color-brand-primary);font-weight:600;">View full Kit Kat report →</a></div>
+    </div>
+    <div class="chart-container">
+      <div class="chart-title">Easy Build — at a glance</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px;">
+        <div><strong style="color:var(--color-brand-primary);font-size:18px;">-1.1%</strong><br>YoY growth (vol-adj)<br><span style="font-size:11px;color:var(--color-text-tertiary)">gross +8.9%</span></div>
+        <div><strong style="color:var(--color-brand-primary);font-size:18px;">-R330K</strong><br>extra revenue (vol-adj)</div>
+        <div><strong>20</strong> visits</div>
+        <div><strong>-R17K</strong>/visit</div>
+      </div>
+      <div style="margin-top:10px;"><a href="#" onclick="document.querySelectorAll('.tab-btn')[2].click();return false;" style="color:var(--color-brand-primary);font-weight:600;">View full Easy Build report →</a></div>
+    </div>
+  </div>
+  <details>
+<summary>Methodology &amp; Caveats</summary>
+<ul style="margin-top:10px;padding-left:18px;line-height:1.6;">
+<li><strong>Account list (Kit Kat):</strong> KK021, KK021/1, KK021/2, KK021/4, KK022. Sub-accounts (/1, /2, /4) consolidated into KK021 in Feb 2025.</li>
+<li><strong>Account list (Easy Build):</strong> KE005, KE005/1, KE008, KE009, KE010, KE012, KE023. KE005/1 consolidated into KE005 in Jan 2025.</li>
+<li><strong>Excluded:</strong> KE035 (Easytile &amp; Sanware — different customer).</li>
+<li><strong>Sales source:</strong> <code>Sales_Invoices_All.parquet</code> — accno-based filter.</li>
+<li><strong>Visits source:</strong> <code>Merchandising_Visits_Log.xlsx</code> — store-name regex match.</li>
+<li><strong>Comparison method:</strong> Year-over-year same-month comparison, post-merchandising months only.</li>
+<li><strong>Price adjustment (10%):</strong> Olympic Paints implemented a price increase in April 2026. All YoY % figures and cumulative revenue comparisons in this report are <em>deflated by 10%</em> to reflect real volume growth rather than nominal Rand growth inflated by price. Hero cards, per-store %∆, and the Deduction block all use this adjusted figure. Gross (unadjusted) numbers are shown as secondary context. Set in <code>PRICE_INCREASE_PCT</code>.</li>
+<li><strong>Caveat:</strong> April 2026 visit data may be incomplete (known Zoho export gap).</li>
+<li><strong>Caveat:</strong> Correlation, not causation. Other factors (macro, rep effort, product mix) may contribute beyond the price adjustment. The 10% figure is a reasonable estimate of the price increase impact, not a precise measurement.</li>
+</ul>
+</details>
+</div>
+<div id="tab-kitkat" class="tab-panel">
+  <div class="hero">
+    <div class="hero-card">
+      <div class="hero-label">YoY Growth (volume)</div>
+      <div class="hero-value">+7.5%</div>
+      <div class="metric-help">Price-adjusted YoY: the 10% April 2026 price increase has been stripped out, so this reflects real volume growth. Gross nominal figure: +17.5%.</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">Extra Revenue (vol-adj)</div>
+      <div class="hero-value">R460K</div>
+      <div class="metric-help">Incremental revenue above last year's matched months, after removing the price-inflation component. Gross (before adjustment): R1.2M.</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">Visits</div>
+      <div class="hero-value">33</div>
+      <div class="metric-help">Number of formal merchandising visits logged in this window. More visits = more attention, but quality matters too.</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">R per Visit</div>
+      <div class="hero-value">R14K</div>
+      <div class="metric-help">Cumulative extra revenue divided by visits — a rough ROI signal. The bigger this number, the more bang per visit.</div>
+    </div>
+  </div>
+
+  <div class="section-title">1 — What we did</div>
+  <p class="section-intro">This section shows the activity side of the program — how many visits happened, where, and when.</p>
+  <p class="prose">33 visits across 16 unique Kit Kat stores between Oct 2025 and May 2026, peaking in Jan 2026 with 9 visits. Average visit duration 3 minutes.</p>
+  <div class="chart-container">
+    <div class="chart-title">Visits per Month — Kit Kat</div>
+    <p class="chart-help">Each bar is one calendar month. Bar height = number of visits logged that month. Empty months either had no visits or fall outside the merchandising window.</p>
+    <canvas id="kitkat-visits" height="80"></canvas>
+  </div>
+
+  <div class="section-title">2 — What happened</div>
+  <p class="section-intro">This section shows what happened to revenue during and around the merchandising window. The first chart is the long view; the second is the apples-to-apples comparison.</p>
+  <p class="prose">6 of 7 months posted positive YoY growth, averaging +17.5%. Strongest gain: Nov 2025 (+61% vs Nov 2024). Weakest month: Oct 2025 (-27% vs Oct 2024).</p>
+  <div class="chart-container">
+    <div class="chart-title">Monthly Sales — Kit Kat (yellow = merchandising era)</div>
+    <p class="chart-help">Each bar = one month's net sales. <strong>Blue bars</strong> are months <em>before</em> formal merchandising. <strong>Yellow bars</strong> are months <em>after</em> the program started. Look for whether the yellow bars are visibly taller than the blue bars on average.</p>
+    <canvas id="kitkat-sales" height="100"></canvas>
+  </div>
+  <div class="chart-container">
+    <div class="chart-title">YoY Same-Month % — Kit Kat</div>
+    <p class="chart-help">Each bar compares one post-merchandising month to the <em>same month one year earlier</em>. <strong style="color:#2D8C7A">Green</strong> = grew vs same month last year. <strong style="color:#E86060">Red</strong> = shrunk. This view removes seasonal noise — December's normal spike doesn't fool the comparison.</p>
+    <canvas id="kitkat-yoy" height="80"></canvas>
+  </div>
+
+  <div class="section-title">3 — Per-store breakdown</div>
+  <p class="section-intro">Each row is one customer account in this group. The <strong>%∆</strong> column compares post-merchandising monthly revenue to pre-merchandising, so it answers: "Has this store's typical monthly revenue gone up since merchandising started?" The <strong>Status</strong> badge translates that to a quick traffic-light: 🟢 strong (≥ +15%), 🟡 mixed (-5% to +15%), 🔴 declined (< -5%).</p>
+  <p class="prose">1 of 2 active accounts are up post-merch. Strongest mover: KK021 at +95%. 1 active store declined: KK022 (-32%).</p>
+  <table>
+    <thead>
+      <tr><th>Acc#</th><th>Store</th><th>Pre-merch avg/mo</th><th>Post-merch avg/mo</th><th>%∆ (vol-adj)</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>KK021</code></td><td>Kit Kat Group (Pty) Ltd</td><td>R473K</td><td>R970K</td><td>+95.2%</td><td><span class='badge badge-strong'>🟢 Strong</span></td></tr>
+<tr><td><code>KK022</code></td><td>Kit Kat Group (Pty) Ltd</td><td>R179K</td><td>R141K</td><td>-31.5%</td><td><span class='badge badge-declined'>🔴 Declined</span></td></tr>
+<tr><td><code>KK021/1</code></td><td>—</td><td>R115K</td><td><em style='color:var(--color-text-tertiary);font-size:12px;'>consolidated Feb 2025 into KK021</em></td><td>—</td><td></td></tr>
+<tr><td><code>KK021/2</code></td><td>—</td><td>R116K</td><td><em style='color:var(--color-text-tertiary);font-size:12px;'>consolidated Feb 2025 into KK021</em></td><td>—</td><td></td></tr>
+<tr><td><code>KK021/4</code></td><td>—</td><td>R114K</td><td><em style='color:var(--color-text-tertiary);font-size:12px;'>consolidated Feb 2025 into KK021</em></td><td>—</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <details>
+<summary>Methodology &amp; Caveats</summary>
+<ul style="margin-top:10px;padding-left:18px;line-height:1.6;">
+<li><strong>Account list (Kit Kat):</strong> KK021, KK021/1, KK021/2, KK021/4, KK022. Sub-accounts (/1, /2, /4) consolidated into KK021 in Feb 2025.</li>
+<li><strong>Account list (Easy Build):</strong> KE005, KE005/1, KE008, KE009, KE010, KE012, KE023. KE005/1 consolidated into KE005 in Jan 2025.</li>
+<li><strong>Excluded:</strong> KE035 (Easytile &amp; Sanware — different customer).</li>
+<li><strong>Sales source:</strong> <code>Sales_Invoices_All.parquet</code> — accno-based filter.</li>
+<li><strong>Visits source:</strong> <code>Merchandising_Visits_Log.xlsx</code> — store-name regex match.</li>
+<li><strong>Comparison method:</strong> Year-over-year same-month comparison, post-merchandising months only.</li>
+<li><strong>Price adjustment (10%):</strong> Olympic Paints implemented a price increase in April 2026. All YoY % figures and cumulative revenue comparisons in this report are <em>deflated by 10%</em> to reflect real volume growth rather than nominal Rand growth inflated by price. Hero cards, per-store %∆, and the Deduction block all use this adjusted figure. Gross (unadjusted) numbers are shown as secondary context. Set in <code>PRICE_INCREASE_PCT</code>.</li>
+<li><strong>Caveat:</strong> April 2026 visit data may be incomplete (known Zoho export gap).</li>
+<li><strong>Caveat:</strong> Correlation, not causation. Other factors (macro, rep effort, product mix) may contribute beyond the price adjustment. The 10% figure is a reasonable estimate of the price increase impact, not a precise measurement.</li>
+</ul>
+</details>
+
+  <script>
+  (function() {
+    new Chart(document.getElementById('kitkat-sales'),{
+      type:'bar',
+      data:{ labels:['Mar 24', 'Apr 24', 'May 24', 'Jun 24', 'Jul 24', 'Aug 24', 'Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'May 26'], datasets:[{label:'Sales',data:[1285439.44, 774527.9, 540081.16, 1162689.15, 752797.64, 612865.99, 1099905.36, 1037995.05, 934518.5, 1606609.79, 816006.25, 1562767.54, 378006.99, 1030447.77, 1012369.23, 1193301.66, 820762.31, 671610.07, 1658055.15, 754905.63, 1507813.46, 1731830.0, 1014824.78, 1775124.32, 418455.49, 1359696.99, 325431.53],backgroundColor:['#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400']}]},
+      options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'R'+(v/1e6).toFixed(1)+'M'}}}}
+    });
+    new Chart(document.getElementById('kitkat-visits'),{
+      type:'bar',
+      data:{ labels:['Mar 24', 'Apr 24', 'May 24', 'Jun 24', 'Jul 24', 'Aug 24', 'Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'May 26'], datasets:[{label:'Visits',data:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 6, 9, 5, 5, 1, 2],backgroundColor:'#FAE04D'}]},
+      options:{plugins:{legend:{display:false}}}
+    });
+    new Chart(document.getElementById('kitkat-yoy'),{
+      type:'bar',
+      data:{ labels:['Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26'], datasets:[{label:'YoY %',data:[-27.272713872768474, 61.34656082249843, 7.794064917281498, 24.364829313500973, 13.588507219698204, 10.700463502010903, 31.95205323215945],backgroundColor:['#E86060', '#2D8C7A', '#2D8C7A', '#2D8C7A', '#2D8C7A', '#2D8C7A', '#2D8C7A']}]},
+      options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v.toFixed(0)+'%'}}}}
+    });
+  })();
+  </script>
+</div>
+<div id="tab-easybuild" class="tab-panel">
+  <div class="hero">
+    <div class="hero-card">
+      <div class="hero-label">YoY Growth (volume)</div>
+      <div class="hero-value">-1.1%</div>
+      <div class="metric-help">Price-adjusted YoY: the 10% April 2026 price increase has been stripped out, so this reflects real volume growth. Gross nominal figure: +8.9%.</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">Extra Revenue (vol-adj)</div>
+      <div class="hero-value">-R330K</div>
+      <div class="metric-help">Incremental revenue above last year's matched months, after removing the price-inflation component. Gross (before adjustment): -R43K.</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">Visits</div>
+      <div class="hero-value">20</div>
+      <div class="metric-help">Number of formal merchandising visits logged in this window. More visits = more attention, but quality matters too.</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">R per Visit</div>
+      <div class="hero-value">-R17K</div>
+      <div class="metric-help">Cumulative extra revenue divided by visits — a rough ROI signal. The bigger this number, the more bang per visit.</div>
+    </div>
+  </div>
+
+  <div class="section-title">1 — What we did</div>
+  <p class="section-intro">This section shows the activity side of the program — how many visits happened, where, and when.</p>
+  <p class="prose">20 visits across 9 unique Easy Build stores between Nov 2025 and May 2026, peaking in Dec 2025 with 6 visits. Average visit duration 15 minutes.</p>
+  <div class="chart-container">
+    <div class="chart-title">Visits per Month — Easy Build</div>
+    <p class="chart-help">Each bar is one calendar month. Bar height = number of visits logged that month. Empty months either had no visits or fall outside the merchandising window.</p>
+    <canvas id="easybuild-visits" height="80"></canvas>
+  </div>
+
+  <div class="section-title">2 — What happened</div>
+  <p class="section-intro">This section shows what happened to revenue during and around the merchandising window. The first chart is the long view; the second is the apples-to-apples comparison.</p>
+  <p class="prose">5 of 6 months posted positive YoY growth, averaging +8.9%. Strongest gain: Jan 2026 (+39% vs Jan 2025). Weakest month: Nov 2025 (-49% vs Nov 2024). Cumulative same-month delta is dragged negative by an unusually strong Nov 2024 prior-year baseline (~2.7× the median month); the rest of the window is broadly positive.</p>
+  <div class="chart-container">
+    <div class="chart-title">Monthly Sales — Easy Build (yellow = merchandising era)</div>
+    <p class="chart-help">Each bar = one month's net sales. <strong>Blue bars</strong> are months <em>before</em> formal merchandising. <strong>Yellow bars</strong> are months <em>after</em> the program started. Look for whether the yellow bars are visibly taller than the blue bars on average.</p>
+    <canvas id="easybuild-sales" height="100"></canvas>
+  </div>
+  <div class="chart-container">
+    <div class="chart-title">YoY Same-Month % — Easy Build</div>
+    <p class="chart-help">Each bar compares one post-merchandising month to the <em>same month one year earlier</em>. <strong style="color:#2D8C7A">Green</strong> = grew vs same month last year. <strong style="color:#E86060">Red</strong> = shrunk. This view removes seasonal noise — December's normal spike doesn't fool the comparison.</p>
+    <canvas id="easybuild-yoy" height="80"></canvas>
+  </div>
+
+  <div class="section-title">3 — Per-store breakdown</div>
+  <p class="section-intro">Each row is one customer account in this group. The <strong>%∆</strong> column compares post-merchandising monthly revenue to pre-merchandising, so it answers: "Has this store's typical monthly revenue gone up since merchandising started?" The <strong>Status</strong> badge translates that to a quick traffic-light: 🟢 strong (≥ +15%), 🟡 mixed (-5% to +15%), 🔴 declined (< -5%).</p>
+  <p class="prose">4 of 6 active accounts are up post-merch. Strongest mover: KE008 at +52%. 2 active stores declined: KE009 (-22%), KE010 (-18%).</p>
+  <table>
+    <thead>
+      <tr><th>Acc#</th><th>Store</th><th>Pre-merch avg/mo</th><th>Post-merch avg/mo</th><th>%∆ (vol-adj)</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>KE005</code></td><td>Easy Build Hardware</td><td>R169K</td><td>R196K</td><td>+6.1%</td><td><span class='badge badge-mixed'>🟡 Mixed</span></td></tr>
+<tr><td><code>KE008</code></td><td>Easy Build</td><td>R55K</td><td>R89K</td><td>+52.1%</td><td><span class='badge badge-strong'>🟢 Strong</span></td></tr>
+<tr><td><code>KE023</code></td><td>Easy Build Hardware Jubilee</td><td>R55K</td><td>R62K</td><td>+3.7%</td><td><span class='badge badge-mixed'>🟡 Mixed</span></td></tr>
+<tr><td><code>KE009</code></td><td>Easy Build</td><td>R54K</td><td>R48K</td><td>-21.8%</td><td><span class='badge badge-declined'>🔴 Declined</span></td></tr>
+<tr><td><code>KE012</code></td><td>Easy Build Hardware</td><td>R33K</td><td>R37K</td><td>+4.1%</td><td><span class='badge badge-mixed'>🟡 Mixed</span></td></tr>
+<tr><td><code>KE010</code></td><td>Easy Build Soweto</td><td>R40K</td><td>R36K</td><td>-18.0%</td><td><span class='badge badge-declined'>🔴 Declined</span></td></tr>
+<tr><td><code>KE005/1</code></td><td>—</td><td>R26K</td><td><em style='color:var(--color-text-tertiary);font-size:12px;'>consolidated Jan 2025 into KE005</em></td><td>—</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <details>
+<summary>Methodology &amp; Caveats</summary>
+<ul style="margin-top:10px;padding-left:18px;line-height:1.6;">
+<li><strong>Account list (Kit Kat):</strong> KK021, KK021/1, KK021/2, KK021/4, KK022. Sub-accounts (/1, /2, /4) consolidated into KK021 in Feb 2025.</li>
+<li><strong>Account list (Easy Build):</strong> KE005, KE005/1, KE008, KE009, KE010, KE012, KE023. KE005/1 consolidated into KE005 in Jan 2025.</li>
+<li><strong>Excluded:</strong> KE035 (Easytile &amp; Sanware — different customer).</li>
+<li><strong>Sales source:</strong> <code>Sales_Invoices_All.parquet</code> — accno-based filter.</li>
+<li><strong>Visits source:</strong> <code>Merchandising_Visits_Log.xlsx</code> — store-name regex match.</li>
+<li><strong>Comparison method:</strong> Year-over-year same-month comparison, post-merchandising months only.</li>
+<li><strong>Price adjustment (10%):</strong> Olympic Paints implemented a price increase in April 2026. All YoY % figures and cumulative revenue comparisons in this report are <em>deflated by 10%</em> to reflect real volume growth rather than nominal Rand growth inflated by price. Hero cards, per-store %∆, and the Deduction block all use this adjusted figure. Gross (unadjusted) numbers are shown as secondary context. Set in <code>PRICE_INCREASE_PCT</code>.</li>
+<li><strong>Caveat:</strong> April 2026 visit data may be incomplete (known Zoho export gap).</li>
+<li><strong>Caveat:</strong> Correlation, not causation. Other factors (macro, rep effort, product mix) may contribute beyond the price adjustment. The 10% figure is a reasonable estimate of the price increase impact, not a precise measurement.</li>
+</ul>
+</details>
+
+  <script>
+  (function() {
+    new Chart(document.getElementById('easybuild-sales'),{
+      type:'bar',
+      data:{ labels:['Mar 24', 'Apr 24', 'May 24', 'Jun 24', 'Jul 24', 'Aug 24', 'Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'May 26'], datasets:[{label:'Sales',data:[307360.09, 390016.02, 395386.81, 373638.13, 494644.36, 321640.2, 351965.2, 391193.79, 934958.94, 632526.08, 294502.13, 319166.01, 338758.4, 348228.27, 366546.89, 335570.39, 303498.87, 504452.19, 427871.39, 476961.85, 474899.23, 815597.35, 409346.25, 325635.72, 394582.96, 404704.09, 339694.36],backgroundColor:['#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400']}]},
+      options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'R'+(v/1e6).toFixed(1)+'M'}}}}
+    });
+    new Chart(document.getElementById('easybuild-visits'),{
+      type:'bar',
+      data:{ labels:['Mar 24', 'Apr 24', 'May 24', 'Jun 24', 'Jul 24', 'Aug 24', 'Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'May 26'], datasets:[{label:'Visits',data:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 6, 5, 3, 1, 0, 4],backgroundColor:'#FAE04D'}]},
+      options:{plugins:{legend:{display:false}}}
+    });
+    new Chart(document.getElementById('easybuild-yoy'),{
+      type:'bar',
+      data:{ labels:['Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26'], datasets:[{label:'YoY %',data:[-49.20640793059853, 28.942880900657887, 38.99602356016916, 2.0270673559505794, 16.479166273072487, 16.21804570892536],backgroundColor:['#E86060', '#2D8C7A', '#2D8C7A', '#2D8C7A', '#2D8C7A', '#2D8C7A']}]},
+      options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v.toFixed(0)+'%'}}}}
+    });
+  })();
+  </script>
+</div>
+<script>
+const OLY_THEMES=['theme-light','theme-dark','theme-brand','theme-navy'];
+function olyTheme(t,btn){
+  document.documentElement.classList.remove(...OLY_THEMES);
+  document.documentElement.classList.add(t);
+  localStorage.setItem('oly-theme',t);
+  document.querySelectorAll('.theme-bar button').forEach(b=>b.classList.toggle('active',b===btn));
+}
+function showTab(name,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='tab-'+name));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b===btn));
+}
+// Chart.js label plugin (per design system)
+const barLabels = {
+  id:'barLabels',
+  afterDatasetsDraw(chart){
+    const {ctx} = chart;
+    ctx.save();
+    ctx.font='600 11px Barlow';
+    chart.data.datasets.forEach((ds,di)=>{
+      const meta = chart.getDatasetMeta(di);
+      meta.data.forEach((bar,i)=>{
+        const v = ds.data[i];
+        const lbl = (chart._lblMap && chart._lblMap.get(`${di}:${i}`)) ?? null;
+        if(lbl===null) return;
+        const {x,y,base} = bar.getProps(['x','y','base']);
+        const fits = Math.abs(base - y) > 24;
+        ctx.fillStyle = fits ? '#0D2040' : '#F5C400';
+        ctx.textAlign='center';
+        ctx.textBaseline = fits ? 'middle' : 'bottom';
+        const yy = fits ? (y+base)/2 : y-4;
+        ctx.fillText(lbl, x, yy);
+      });
+    });
+    ctx.restore();
+  }
+};
+Chart.register(barLabels);
+Chart.defaults.font.family = 'Barlow';
+Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue('--color-text-secondary').trim() || '#B8CCE8';
+</script>
+</body></html>
