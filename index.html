@@ -915,6 +915,7 @@ const DASHBOARDS = [
 const REPORTS = [
   { id: 'friday-sales',     title: 'Friday Sales Meeting',    agent: 'STRIKER', cadence: 'Weekly · Fri 09:00', job_id: 'olympicpaints-friday-sales-meeting' },
   { id: 'vehicle-weekly',   title: 'Vehicle Report Weekly',   agent: 'SIGMA',   cadence: 'Weekly · Mon 09:00', job_id: 'vehicle-report-weekly' },
+  { id: 'hs-weekly',        title: 'Health & Safety Report',  agent: 'SIGMA',   cadence: 'Weekly · Mon 07:00', job_id: 'h-s-weekly-refresh', url: '/health-safety/' },
   { id: 'workspace-health', title: 'Workspace Health Report', agent: 'PRISM',   cadence: 'Weekly · Fri 16:00', job_id: 'olympicpaints-workspace-health-report' },
   { id: 'cso-intelligence', title: 'CSO Intelligence Data',   agent: 'PRISM',   cadence: 'Weekly · Sun 06:00', job_id: 'cso-intelligence-data' }
 ];
@@ -924,7 +925,7 @@ const AGENTS = [
   { id: 'HAVEN',   name: 'HAVEN',   tagline: 'HR & People — clocking, JDs, onboarding',      slash: '/haven',   task_ids: ['haven-clocking-report-daily'] },
   { id: 'PRISM',   name: 'PRISM',   tagline: 'Analytics — QuickSight, formulas, YoY',        slash: '/prism',   task_ids: ['build-schedule-manifest','olympicpaints-kpi-dashboard-update','olympicpaints-sales-dashboard-refresh','olympicpaints-workspace-health-report','cso-intelligence-data'] },
   { id: 'STRIKER', name: 'STRIKER', tagline: 'Sales & CRM — Zoho, quotes, stockists',        slash: '/striker', task_ids: ['olympic-paints-zoho-meetings-pull','olympicpaints-friday-sales-meeting','zoho-leads-pull','vehicle-report-health-check'] },
-  { id: 'SIGMA',   name: 'SIGMA',   tagline: 'Operations — SOPs, dispatch, factory',         slash: '/sigma',   task_ids: ['olympic-portal-trigger-server','vehicle-report-weekly'] },
+  { id: 'SIGMA',   name: 'SIGMA',   tagline: 'Operations — SOPs, dispatch, factory',         slash: '/sigma',   task_ids: ['olympic-portal-trigger-server','vehicle-report-weekly','h-s-weekly-refresh'] },
   { id: 'BLAZE',   name: 'BLAZE',   tagline: 'Marketing — social, copy, campaigns',          slash: '/blaze',   task_ids: [] },
   { id: 'VAULT',   name: 'VAULT',   tagline: 'Admin & Filing — PARA, inbox, Notion docs',    slash: '/vault',   task_ids: ['sync-claude-todos','olympic-paints-kaizen-daily-sync','vault-meeting-extraction-daily','meeting-minutes-extractor'] },
   { id: 'PULSE',   name: 'PULSE',   tagline: 'Sales & Ops Manager — daily ack, leaderboard', slash: '/pulse',   task_ids: [] },
@@ -1530,12 +1531,15 @@ function renderReports(){
     const task = MANIFEST_STATE.data?.tasks?.find(t => t.job_id === r.job_id);
     const lastRun = task?.last_run?.finished_at;
     const lastStr = lastRun ? humanizeAgo(lastRun) : 'never';
+    const openBtn = r.url
+      ? `<a class="r-open" href="${escapeAttr(r.url)}" target="_blank" rel="noopener">Open ↗</a>`
+      : `<button class="r-open" onclick="jumpToScheduleTask('${escapeAttr(r.job_id)}')">View</button>`;
     return `
       <div class="report-row">
         <span class="r-title">${escapeHtml(r.title)}</span>
         <span class="r-meta">${escapeHtml(r.agent)} &middot; ${escapeHtml(r.cadence)}</span>
         <span class="r-last">Last: ${lastStr}</span>
-        <button class="r-open" onclick="jumpToScheduleTask('${escapeAttr(r.job_id)}')">View</button>
+        ${openBtn}
       </div>
     `;
   }).join('');
