@@ -6,7 +6,7 @@ import json
 import os
 import tempfile
 from pathlib import Path
-from typing import Any, Dict, Iterable, List
+from typing import Any, Dict, List
 
 DEFAULT_ROOT = Path(r"C:\Users\quint\.claude\heartbeats")
 HISTORY_LIMIT = 100
