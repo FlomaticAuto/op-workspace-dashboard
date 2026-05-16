@@ -7,9 +7,9 @@
     Three tasks were originally created by an elevated process and rejected
     modification by the non-admin user during automated migration:
 
-      1. \Vehicle Report Weekly                                — duplicate (clean wrapped copy already at \Olympic Paints\SIGMA\Vehicle Report Weekly)
-      2. \VAULT Meeting Extraction Daily                       — duplicate (clean wrapped copy already at \Olympic Paints\VAULT\VAULT Meeting Extraction Daily)
-      3. \Olympic Paints\Olympic Paints - Meeting Minutes Extractor — never migrated; this script wraps it and moves it under VAULT
+      1. \Vehicle Report Weekly                                -- duplicate (clean wrapped copy already at \Olympic Paints\SIGMA\Vehicle Report Weekly)
+      2. \VAULT Meeting Extraction Daily                       -- duplicate (clean wrapped copy already at \Olympic Paints\VAULT\VAULT Meeting Extraction Daily)
+      3. \Olympic Paints\Olympic Paints - Meeting Minutes Extractor -- never migrated; this script wraps it and moves it under VAULT
 
     This script must run in an elevated PowerShell session (Run as Administrator).
 
@@ -43,7 +43,7 @@ $wrapper   = 'C:\Users\quint\workspace-dashboard\scripts\olympic_platform\run_jo
 $backupDir = "C:\Users\quint\.claude\heartbeats\_migration-backups\cleanup-{0}" -f (Get-Date -Format 'yyyyMMdd-HHmmss')
 
 if (-not $Apply) {
-    Write-Host "DRY RUN — re-run with -Apply to perform the cleanup." -ForegroundColor Green
+    Write-Host "DRY RUN -- re-run with -Apply to perform the cleanup." -ForegroundColor Green
     Write-Host "Will perform:" -ForegroundColor Cyan
     Write-Host "  1. Delete root duplicate: \Vehicle Report Weekly"
     Write-Host "  2. Delete root duplicate: \VAULT Meeting Extraction Daily"

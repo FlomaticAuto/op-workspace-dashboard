@@ -30,7 +30,7 @@ if (-not $Apply) {
 }
 
 foreach ($xml in $xmls) {
-    # Prefer the .name.txt sidecar written by migrate_tasks.ps1 — it carries the
+    # Prefer the .name.txt sidecar written by migrate_tasks.ps1 -- it carries the
     # exact original task name including any characters that were sanitized out
     # of the XML filename. Fall back to the legacy underscore→space heuristic
     # for backups produced before the sidecar was introduced.
