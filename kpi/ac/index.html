@@ -2,7 +2,12 @@
 <html lang="en" class="theme-dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Aboo Cassim KPI">
+<meta name="theme-color" content="#0D0D0B" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F6F3" media="(prefers-color-scheme: light)">
 <title>Aboo Cassim KPI &mdash; Olympic Paints</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -288,26 +293,49 @@ html,body{overflow-x:hidden}
 
 /* ── md and below (≤768px) — tablet portrait & phones ───────── */
 @media (max-width:768px){
-  .page-main{padding:18px 16px}
-  .page-hdr{padding:14px 16px;flex-wrap:wrap;gap:10px}
-  /* Tab bar becomes horizontally scrollable so the rep doesn't lose tabs */
-  .tab-nav{padding:0 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  /* Body safe-area for landscape notch */
+  body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+  html{-webkit-text-size-adjust:100%}
+
+  /* Theme bar — hidden on mobile (theme switching via the next iteration of the dashboard) */
+  .theme-bar{display:none}
+
+  .page-main{padding:18px 14px calc(28px + env(safe-area-inset-bottom))}
+
+  /* Sticky compact header — pinned at top so it doesn't scroll away */
+  .page-hdr{
+    position:sticky;top:0;z-index:90;
+    padding:12px 14px;
+    padding-top:calc(12px + env(safe-area-inset-top));
+    flex-wrap:nowrap;gap:10px;
+    background:var(--color-surface-base);
+    border-bottom:2px solid var(--color-brand-primary);
+    box-shadow:var(--shadow-sm);
+  }
+
+  /* Tab bar — sticky under the header, horizontally scrollable */
+  .tab-nav{
+    position:sticky;top:calc(64px + env(safe-area-inset-top));z-index:80;
+    padding:0 8px;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    background:var(--color-surface-page);
+    box-shadow:var(--shadow-sm);
+  }
   .tab-nav::-webkit-scrollbar{display:none}
-  .tab-btn{padding:12px 14px;font-size:13px;flex-shrink:0}
-  .hdr-title{font-size:18px}
+  .tab-btn{padding:14px 14px;font-size:13px;flex-shrink:0;min-height:44px}
+
+  .hdr-title{font-size:17px}
   .hdr-sub{font-size:11px}
-  .hdr-ytd{font-size:20px}
-  .hdr-meta{font-size:10px}
+  .hdr-ytd{font-size:18px}
+  .hdr-meta{font-size:10px;white-space:nowrap}
   .month-label{font-size:18px;min-width:0;flex:1;text-align:left}
   .month-nav{gap:6px}
-  .theme-bar{padding:6px 12px;flex-wrap:wrap;justify-content:flex-start}
-  .theme-bar span{display:none}                /* "Theme:" label is dead weight on mobile */
   .page-footer{padding:20px 16px;font-size:11px}
   .kpi{padding:14px 16px}
   .kpi-value{font-size:22px}
   .card{padding:16px}
   .card-title{font-size:14px}
-  .qbtn{flex:1 1 calc(50% - 4px);min-width:0;font-size:13px;padding:10px 8px}
+  .qbtn{flex:1 1 calc(50% - 4px);min-width:0;font-size:13px;padding:10px 8px;min-height:44px}
   .qnav{gap:4px}
   .sec-h{margin:22px 0 12px;font-size:10px}
 }
@@ -370,7 +398,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R3.04M</div>
-    <div class="hdr-meta">Week ending 16 May 2026 &middot; Generated 16 May 2026 10:48</div>
+    <div class="hdr-meta">Week ending 16 May 2026 &middot; Generated 16 May 2026 12:31</div>
   </div>
 </div>
 
@@ -1307,7 +1335,7 @@ async function submitNewStore(ev){
   <strong>Olympic Paints</strong> &mdash; Aboo Cassim Personal KPI Dashboard &mdash; Week ending 16 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 16 May 2026 10:48 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 16 May 2026 12:31 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
