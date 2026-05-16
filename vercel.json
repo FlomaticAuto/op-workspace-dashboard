@@ -4,9 +4,6 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    { "source": "/", "destination": "/portal", "permanent": false }
-  ],
   "headers": [
     {
       "source": "/(.*)",
