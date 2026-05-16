@@ -442,9 +442,239 @@ html,body{overflow-x:hidden}
   .hdr-r{text-align:right;min-width:60px}
 }
 
+/* ────────────────────────────────────────────────────────────────────────
+   MOBILE SUMMARY VIEW — replaces the dense desktop layout on phones.
+   Tap "Open full dashboard" to switch to the desktop view in-page.
+   ──────────────────────────────────────────────────────────────────────── */
+.mob-summary{display:none}
+.ms-back-to-summary{display:none}
+
+@media (max-width:768px){
+  /* Hide the desktop chrome unless user opts into full view */
+  body:not(.full-view) .theme-bar,
+  body:not(.full-view) .page-hdr,
+  body:not(.full-view) .tab-nav,
+  body:not(.full-view) .page-main,
+  body:not(.full-view) .page-footer{display:none !important}
+
+  body.full-view .mob-summary{display:none}
+
+  /* Show the back-to-summary pill when in full-view mode */
+  body.full-view .ms-back-to-summary{
+    display:block;position:fixed;
+    top:calc(8px + env(safe-area-inset-top));left:8px;z-index:200;
+    padding:8px 14px;
+    background:var(--color-brand-primary);color:var(--color-text-on-brand);
+    border:none;border-radius:var(--r-pill);
+    font-family:var(--font-display);font-weight:700;font-size:11px;
+    text-transform:uppercase;letter-spacing:.06em;
+    box-shadow:var(--shadow-md);
+    cursor:pointer;
+  }
+
+  /* The summary itself */
+  .mob-summary{
+    display:block;
+    padding:16px 14px calc(28px + env(safe-area-inset-bottom));
+    padding-top:calc(14px + env(safe-area-inset-top));
+    max-width:640px;margin:0 auto;
+  }
+
+  .ms-hero{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .ms-hero-logo{width:44px;height:44px;flex-shrink:0;border-radius:50%;overflow:hidden;background:var(--_y400)}
+  .ms-hero-logo svg,.ms-hero-logo img{width:100%;height:100%;display:block}
+  .ms-rep{
+    font-family:var(--font-display);font-weight:900;font-size:20px;
+    text-transform:uppercase;letter-spacing:.02em;line-height:1;
+    color:var(--color-text-primary);
+  }
+  .ms-period{
+    font-family:var(--font-display);font-weight:600;font-size:10px;
+    text-transform:uppercase;letter-spacing:.1em;
+    color:var(--color-text-tertiary);margin-top:4px;
+  }
+
+  .ms-big-card{
+    background:var(--color-surface-elevated);
+    border:1px solid var(--color-border-default);
+    border-radius:var(--r-lg);
+    padding:22px 18px;text-align:center;
+    margin-bottom:14px;
+    box-shadow:var(--shadow-sm);
+  }
+  .ms-big-label{
+    font-family:var(--font-display);font-weight:700;font-size:10px;
+    text-transform:uppercase;letter-spacing:.12em;
+    color:var(--color-text-tertiary);margin-bottom:6px;
+  }
+  .ms-big-num{
+    font-family:var(--font-display);font-weight:900;font-size:48px;
+    line-height:1;color:var(--color-brand-primary);
+  }
+  .ms-big-num.up{color:var(--color-success-fg)}
+  .ms-big-num.dn{color:var(--color-danger-fg)}
+  .ms-big-sub{font-size:11px;color:var(--color-text-secondary);margin-top:8px;line-height:1.4}
+
+  .ms-stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
+  .ms-stat{
+    background:var(--color-surface-base);
+    border:1px solid var(--color-border-default);
+    border-radius:var(--r-md);
+    padding:12px 8px;text-align:center;
+  }
+  .ms-stat-label{
+    font-family:var(--font-display);font-weight:700;font-size:9px;
+    text-transform:uppercase;letter-spacing:.08em;
+    color:var(--color-text-tertiary);line-height:1.2;
+  }
+  .ms-stat-val{
+    font-family:var(--font-display);font-weight:900;font-size:17px;
+    color:var(--color-text-primary);margin-top:6px;line-height:1.05;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .ms-stat-val.dn{color:var(--color-danger-fg)}
+  .ms-stat-val.up{color:var(--color-success-fg)}
+  .ms-stat-sub{font-size:10px;color:var(--color-text-secondary);margin-top:3px;font-weight:600}
+  .ms-stat-sub.up{color:var(--color-success-fg)}
+  .ms-stat-sub.dn{color:var(--color-danger-fg)}
+
+  .ms-card{
+    background:var(--color-surface-base);
+    border:1px solid var(--color-border-default);
+    border-radius:var(--r-md);
+    padding:14px;margin-bottom:14px;
+  }
+  .ms-card.danger{border-color:var(--color-danger-bd);background:var(--color-danger-bg)}
+  .ms-card-title{
+    font-family:var(--font-display);font-weight:800;font-size:11px;
+    text-transform:uppercase;letter-spacing:.1em;
+    color:var(--color-text-secondary);
+    margin-bottom:10px;padding-bottom:8px;
+    border-bottom:1px solid var(--color-border-subtle);
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .ms-card.danger .ms-card-title{color:var(--color-danger-fg);border-bottom-color:var(--color-danger-bd)}
+  .ms-card-count{
+    font-size:11px;font-weight:700;padding:2px 8px;
+    background:var(--color-neutral-bg);color:var(--color-neutral-fg);
+    border-radius:var(--r-pill);
+  }
+  .ms-card.danger .ms-card-count{background:rgba(232,96,96,.2);color:var(--color-danger-fg)}
+
+  .ms-list{list-style:none;margin:0;padding:0}
+  .ms-list li{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:9px 0;gap:10px;font-size:13px;
+    border-bottom:1px solid var(--color-border-subtle);
+  }
+  .ms-list li:last-child{border-bottom:none}
+  .ms-list-name{
+    flex:1;color:var(--color-text-primary);font-weight:500;
+    min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .ms-list-meta{font-size:11px;color:var(--color-text-tertiary);flex-shrink:0}
+  .ms-list-val{
+    font-family:var(--font-display);font-weight:700;font-size:14px;
+    color:var(--color-text-primary);flex-shrink:0;min-width:38px;text-align:right;
+  }
+  .ms-list-val.dn{color:var(--color-danger-fg)}
+  .ms-list-foot{
+    font-size:11px;color:var(--color-text-tertiary);
+    margin-top:10px;padding-top:8px;text-align:center;
+    border-top:1px solid var(--color-border-subtle);
+  }
+
+  .ms-actions{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+  .ms-btn-primary{
+    width:100%;min-height:52px;padding:14px 16px;
+    background:var(--color-brand-primary);color:var(--color-text-on-brand);
+    border:none;border-radius:var(--r-md);
+    font-family:var(--font-display);font-weight:700;font-size:14px;
+    text-transform:uppercase;letter-spacing:.06em;cursor:pointer;
+    box-shadow:var(--shadow-brand);
+  }
+  .ms-btn-link{
+    display:block;width:100%;
+    padding:14px 16px;text-align:center;
+    color:var(--color-text-secondary);text-decoration:none;
+    background:var(--color-surface-base);
+    border:1px solid var(--color-border-default);border-radius:var(--r-md);
+    font-family:var(--font-display);font-weight:600;font-size:12px;
+    text-transform:uppercase;letter-spacing:.06em;
+  }
+  .ms-footer{text-align:center;font-size:10px;color:var(--color-text-tertiary);margin-top:18px;letter-spacing:.04em}
+}
+
 </style>
 </head>
 <body style="background:var(--color-surface-page);color:var(--color-text-primary);font-family:var(--font-body);margin:0;">
+
+
+<!-- ── MOBILE SUMMARY (visible on phones; toggle to full dashboard) ── -->
+<div class="mob-summary">
+  <div class="ms-hero">
+    <div class="ms-hero-logo"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Olympic Paints"><circle cx="20" cy="20" r="20" fill="#F5C400"/><text x="20" y="19" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="10" fill="#0D0D0B">OLYMPIC<tspan dy="-4" font-size="5">™</tspan></text><text x="20" y="31" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="10" fill="#0D0D0B">PAINTS</text></svg></div>
+    <div>
+      <div class="ms-rep">Bhadresh Vallabh</div>
+      <div class="ms-period">FY2026 YTD · Week 16 May 2026</div>
+    </div>
+  </div>
+
+  <div class="ms-big-card">
+    <div class="ms-big-label">YoY Growth (KPI A)</div>
+    <div class="ms-big-num dn">-6.9%</div>
+    <div class="ms-big-sub">FY26 YTD revenue vs FY25 same period</div>
+  </div>
+
+  <div class="ms-stat-grid">
+    <div class="ms-stat">
+      <div class="ms-stat-label">YTD Revenue</div>
+      <div class="ms-stat-val">R11.04M</div>
+    </div>
+    <div class="ms-stat">
+      <div class="ms-stat-label">YTD Target</div>
+      <div class="ms-stat-val">R15.42M</div>
+      <div class="ms-stat-sub dn">Gap R4.38M</div>
+    </div>
+    <div class="ms-stat">
+      <div class="ms-stat-label">Debtors &gt;60d</div>
+      <div class="ms-stat-val dn">16.0%</div>
+      <div class="ms-stat-sub dn">R880.1K</div>
+    </div>
+  </div>
+  
+  <div class="ms-card danger">
+    <div class="ms-card-title">
+      Recovery Accounts
+      <span class="ms-card-count">5 shown</span>
+    </div>
+    <ul class="ms-list"><li><span class="ms-list-name">Applemint Properties 91 Pty Lt</span><span class="ms-list-meta">531d</span><span class="ms-list-val dn">2</span></li><li><span class="ms-list-name">Border Plumbing & Hardware</span><span class="ms-list-meta">543d</span><span class="ms-list-val dn">2</span></li><li><span class="ms-list-name">Scenic Route Trading 580 cc</span><span class="ms-list-meta">617d</span><span class="ms-list-val dn">2</span></li><li><span class="ms-list-name">Priyanka Supermarket</span><span class="ms-list-meta">557d</span><span class="ms-list-val dn">4</span></li><li><span class="ms-list-name">Discount Build Hardware</span><span class="ms-list-meta">471d</span><span class="ms-list-val dn">6</span></li></ul>
+    <div class="ms-list-foot">Tap "Open full dashboard" to see all flagged accounts</div>
+  </div>
+
+  <div class="ms-card">
+    <div class="ms-card-title">Top 5 Accounts · YTD Revenue</div>
+    <ul class="ms-list"><li><span class="ms-list-name">Brits Hardware & Glass</span><span class="ms-list-val">R2.54M</span></li><li><span class="ms-list-name">Patel (Nkomazi Imp. & Exp. CC)</span><span class="ms-list-val">R836.5K</span></li><li><span class="ms-list-name">Buildware ta Siam Trading</span><span class="ms-list-val">R721.8K</span></li><li><span class="ms-list-name">HGM Steelboys CC</span><span class="ms-list-val">R671.7K</span></li><li><span class="ms-list-name">Dada's World of Hardware CC</span><span class="ms-list-val">R581.1K</span></li></ul>
+  </div>
+
+  <div class="ms-actions">
+    <button class="ms-btn-primary" type="button"
+            onclick="document.body.classList.add('full-view');window.scrollTo(0,0)">
+      Open full dashboard ›
+    </button>
+    <a class="ms-btn-link" href="https://olympic-paints-pulse-web.vercel.app/">
+      PULSE Leaderboard ›
+    </a>
+  </div>
+
+  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 16 May 2026 15:33</div>
+</div>
+
+<button class="ms-back-to-summary" type="button"
+        onclick="document.body.classList.remove('full-view');window.scrollTo(0,0)">
+  ‹ Back to summary
+</button>
+
 
 <!-- ── THEME BAR ── -->
 <div class="theme-bar">
@@ -466,7 +696,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R11.04M</div>
-    <div class="hdr-meta">Week ending 16 May 2026 &middot; Generated 16 May 2026 14:54</div>
+    <div class="hdr-meta">Week ending 16 May 2026 &middot; Generated 16 May 2026 15:33</div>
   </div>
 </div>
 
@@ -1289,7 +1519,7 @@ html,body{overflow-x:hidden}
   <strong>Olympic Paints</strong> &mdash; Bhadresh Vallabh Personal KPI Dashboard &mdash; Week ending 16 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 16 May 2026 14:54 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 16 May 2026 15:33 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
