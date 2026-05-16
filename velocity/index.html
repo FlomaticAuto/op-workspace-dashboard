@@ -1,29 +1,547 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="theme-navy">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Loading — Olympic Paints</title>
-<meta http-equiv="refresh" content="0; url=https://flomaticauto.github.io/olympic-paints-velocity/">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Velocity">
+<meta name="theme-color" content="#071022">
+<title>Revenue Velocity — Olympic Paints</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#071022;color:#B8CCE8;font-family:'Barlow',sans-serif;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    min-height:100dvh;gap:16px;text-align:center;padding:24px}
-  .logo{width:48px;height:48px;border-radius:50%;overflow:hidden}
-  .logo img{width:100%;height:100%;object-fit:cover;display:block}
-  .spinner{width:32px;height:32px;border:3px solid rgba(245,196,0,.2);
-    border-top-color:#F5C400;border-radius:50%;animation:spin .8s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  p{font-size:13px;opacity:.6}
+/* ── RAW DESIGN TOKENS ─────────────────────────────────────────────────── */
+:root {
+  --_y50:#FEF9E0;--_y100:#FDF0A0;--_y200:#FAE04D;
+  --_y400:#F5C400;--_y600:#D4A800;--_y800:#A88000;--_y900:#6A5000;
+  --_n50:#E8EFF8;--_n100:#B8CCE8;--_n300:#6B9ED0;
+  --_n500:#2D6BA8;--_n700:#1A3D6E;--_n900:#0D2040;--_n950:#071022;
+  --_g0:#FFFFFF;--_g50:#F7F6F3;--_g100:#E8E7E2;--_g200:#C8C7C0;
+  --_g400:#949390;--_g600:#5C5B58;--_g800:#2E2E2C;
+  --_g900:#1A1A18;--_g950:#0D0D0B;
+  --font-display:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  --r-sm:4px;--r-md:8px;--r-lg:12px;--r-xl:16px;--r-pill:50px;
+}
+.theme-light{color-scheme:light;--color-surface-page:var(--_g50);--color-surface-base:var(--_g0);--color-surface-elevated:var(--_g0);--color-surface-sunken:var(--_g100);--color-surface-overlay:rgba(0,0,0,0.04);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g950);--color-text-secondary:var(--_g600);--color-text-tertiary:var(--_g400);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-brand-hover:var(--_y600);--color-brand-secondary:var(--_n700);--color-brand-accent:var(--_y400);--color-border-subtle:var(--_g100);--color-border-default:var(--_g200);--color-border-strong:var(--_g400);--color-border-brand:var(--_y400);--color-success-bg:#EDF7F5;--color-success-fg:var(--_teal-dark);--color-success-bd:var(--_teal);--color-warning-bg:var(--_y50);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y600);--color-danger-bg:#FEF2F2;--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);--color-info-bg:var(--_n50);--color-info-fg:var(--_n700);--color-info-bd:var(--_n500);--color-neutral-bg:var(--_g100);--color-neutral-fg:var(--_g600);--color-neutral-bd:var(--_g400);--shadow-sm:0 1px 3px rgba(0,0,0,0.08);--shadow-md:0 4px 12px rgba(0,0,0,0.08);--shadow-lg:0 10px 30px rgba(0,0,0,0.10);--shadow-brand:0 4px 16px rgba(245,196,0,0.20);}
+.theme-dark{color-scheme:dark;--color-surface-page:var(--_g950);--color-surface-base:var(--_g900);--color-surface-elevated:var(--_g800);--color-surface-sunken:var(--_g950);--color-surface-overlay:rgba(255,255,255,0.04);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g100);--color-text-secondary:var(--_g400);--color-text-tertiary:var(--_g600);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-brand-hover:var(--_y200);--color-brand-secondary:var(--_n700);--color-brand-accent:var(--_y400);--color-border-subtle:rgba(255,255,255,0.06);--color-border-default:rgba(255,255,255,0.10);--color-border-strong:rgba(255,255,255,0.20);--color-border-brand:var(--_y400);--color-success-bg:rgba(45,140,122,0.12);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,0.30);--color-warning-bg:rgba(245,196,0,0.10);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,0.25);--color-danger-bg:rgba(232,96,96,0.12);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,0.30);--color-info-bg:rgba(26,61,110,0.30);--color-info-fg:var(--_n100);--color-info-bd:rgba(107,158,208,0.30);--color-neutral-bg:rgba(255,255,255,0.05);--color-neutral-fg:var(--_g400);--color-neutral-bd:rgba(255,255,255,0.10);--shadow-sm:0 1px 3px rgba(0,0,0,0.40);--shadow-md:0 4px 12px rgba(0,0,0,0.40);--shadow-lg:0 10px 30px rgba(0,0,0,0.50);--shadow-brand:0 4px 20px rgba(245,196,0,0.15);}
+.theme-brand{color-scheme:light;--color-surface-page:var(--_y400);--color-surface-base:var(--_y200);--color-surface-elevated:var(--_y50);--color-surface-sunken:var(--_y600);--color-surface-overlay:rgba(0,0,0,0.05);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_g950);--color-text-primary:var(--_g950);--color-text-secondary:var(--_y900);--color-text-tertiary:var(--_y800);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_g950);--color-brand-hover:var(--_n700);--color-brand-secondary:var(--_n700);--color-brand-accent:var(--_g950);--color-border-subtle:rgba(0,0,0,0.08);--color-border-default:rgba(0,0,0,0.14);--color-border-strong:rgba(0,0,0,0.25);--color-border-brand:var(--_g950);--color-success-bg:rgba(45,140,122,0.12);--color-success-fg:var(--_teal-dark);--color-success-bd:var(--_teal);--color-warning-bg:rgba(0,0,0,0.08);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y900);--color-danger-bg:rgba(232,96,96,0.12);--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);--color-info-bg:rgba(26,61,110,0.10);--color-info-fg:var(--_n900);--color-info-bd:var(--_n700);--color-neutral-bg:rgba(0,0,0,0.06);--color-neutral-fg:var(--_y900);--color-neutral-bd:rgba(0,0,0,0.15);--shadow-sm:0 1px 3px rgba(0,0,0,0.12);--shadow-md:0 4px 12px rgba(0,0,0,0.14);--shadow-lg:0 10px 30px rgba(0,0,0,0.18);--shadow-brand:0 4px 16px rgba(0,0,0,0.15);}
+.theme-navy{color-scheme:dark;--color-surface-page:var(--_n950);--color-surface-base:var(--_n900);--color-surface-elevated:var(--_n700);--color-surface-sunken:var(--_n950);--color-surface-overlay:rgba(255,255,255,0.04);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g0);--color-text-secondary:var(--_n100);--color-text-tertiary:var(--_n300);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-brand-hover:var(--_y200);--color-brand-secondary:var(--_n500);--color-brand-accent:var(--_y400);--color-border-subtle:rgba(107,158,208,0.12);--color-border-default:rgba(107,158,208,0.20);--color-border-strong:rgba(107,158,208,0.35);--color-border-brand:var(--_y400);--color-success-bg:rgba(45,140,122,0.15);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,0.35);--color-warning-bg:rgba(245,196,0,0.12);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,0.30);--color-danger-bg:rgba(232,96,96,0.14);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,0.35);--color-info-bg:rgba(45,107,168,0.20);--color-info-fg:var(--_n100);--color-info-bd:rgba(107,158,208,0.35);--color-neutral-bg:rgba(255,255,255,0.05);--color-neutral-fg:var(--_n300);--color-neutral-bd:rgba(255,255,255,0.12);--shadow-sm:0 1px 3px rgba(0,0,0,0.50);--shadow-md:0 4px 12px rgba(0,0,0,0.50);--shadow-lg:0 10px 30px rgba(0,0,0,0.60);--shadow-brand:0 4px 20px rgba(245,196,0,0.18);}
+
+/* ── RESET & BASE ──────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--color-surface-page);color:var(--color-text-primary);font-family:var(--font-body);font-size:14px;line-height:1.5}
+
+/* ── THEME BAR ─────────────────────────────────────────────────────────── */
+.theme-bar{background:var(--color-surface-secondary);display:flex;gap:4px;padding:6px 40px;align-items:center}
+.theme-bar button{background:transparent;border:1px solid transparent;color:var(--color-text-on-navy);border-radius:var(--r-sm);padding:4px 12px;font-family:var(--font-body);font-size:12px;cursor:pointer;transition:all .15s}
+.theme-bar button:hover,.theme-bar button.active{background:var(--color-brand-primary);color:var(--color-text-on-brand);border-color:var(--color-brand-primary)}
+.theme-bar .tb-back{margin-right:auto;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:var(--color-text-on-navy);text-decoration:none;display:inline-block;padding:4px 12px;border-radius:var(--r-sm);font-size:12px;font-family:var(--font-body)}
+.theme-bar .tb-back:hover{background:rgba(255,255,255,.15)}
+
+/* ── HEADER ─────────────────────────────────────────────────────────────── */
+.hdr{background:var(--color-surface-secondary);color:var(--color-text-on-navy);
+  padding:18px 40px;display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 4px 20px rgba(0,0,0,.4);border-bottom:2px solid var(--color-brand-primary)}
+.hdr-l{display:flex;align-items:center;gap:14px}
+.hdr-title{font-family:var(--font-display);font-size:26px;font-weight:900;text-transform:uppercase;letter-spacing:.02em;color:var(--color-text-on-navy)}
+.hdr-sub{font-size:12px;color:var(--color-text-on-navy);opacity:.7;margin-top:2px}
+.hdr-gen{font-size:11px;color:var(--color-text-on-navy);opacity:.6}
+.partial-badge{display:inline-block;background:rgba(245,196,0,.2);color:var(--color-brand-primary);border:1px solid rgba(245,196,0,.35);border-radius:var(--r-sm);padding:2px 8px;font-size:11px;font-weight:700;margin-left:10px}
+
+/* ── MAIN CONTENT ───────────────────────────────────────────────────────── */
+.main{max-width:1400px;margin:0 auto;padding:28px 40px}
+.stitle{font-family:var(--font-display);font-size:13px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--color-text-secondary);margin-bottom:16px;margin-top:8px}
+
+/* ── TABLE ──────────────────────────────────────────────────────────────── */
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:var(--color-surface-secondary);color:var(--color-text-on-navy)}
+thead th{padding:9px 11px;text-align:left;font-family:var(--font-display);
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--color-border-subtle)}
+tbody tr:hover{background:var(--color-surface-elevated)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+
+/* ── VELOCITY TAB — HOW TO USE BANNER ─────────────────────────────────── */
+.vl-guide{border-radius:var(--r-xl,16px);margin-bottom:32px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.theme-navy .vl-guide{background:#F5C400}
+.theme-navy .vl-guide-hero{background:#F5C400}
+.theme-navy .vl-guide-eyebrow{color:rgba(0,0,0,.55)}
+.theme-navy .vl-guide-headline{color:#0D2040}
+.theme-navy .vl-guide-sub{color:#1A3D6E}
+.theme-navy .vl-guide-body{background:#0D2040;border-top:3px solid #F5C400}
+.theme-navy .vl-step-num{background:#F5C400;color:#0D2040}
+.theme-navy .vl-step-text{color:#B8CCE8}
+.theme-navy .vl-step-text strong{color:#FFFFFF}
+.theme-navy .vl-step-text em{color:#F5C400;font-style:normal;font-weight:700}
+.theme-navy .vl-formula-bar{background:#071022;border:1px solid rgba(107,158,208,.25)}
+.theme-navy .vl-formula-label{color:#6B9ED0}
+.theme-navy .vl-formula-text{color:#FFFFFF}
+.theme-navy .vl-guide-footer{background:#1A3D6E;border-top:1px solid rgba(107,158,208,.2)}
+.theme-navy .vl-footer-note{color:#B8CCE8}
+.theme-navy .vl-footer-badge{background:#F5C400;color:#0D2040}
+.theme-navy .vl-window-tag{background:#1A3D6E;color:#F5C400;border:1px solid rgba(245,196,0,.35)}
+.theme-dark .vl-guide{background:#1A1A18}
+.theme-dark .vl-guide-hero{background:linear-gradient(135deg,#1A1A18 0%,#2E2E2C 100%)}
+.theme-dark .vl-guide-eyebrow{color:#949390}
+.theme-dark .vl-guide-headline{color:#F5C400}
+.theme-dark .vl-guide-sub{color:#C8C7C0}
+.theme-dark .vl-guide-body{background:#0D0D0B;border-top:3px solid #F5C400}
+.theme-dark .vl-step-num{background:#F5C400;color:#0D0D0B}
+.theme-dark .vl-step-text{color:#949390}
+.theme-dark .vl-step-text strong{color:#E8E7E2}
+.theme-dark .vl-step-text em{color:#F5C400;font-style:normal;font-weight:700}
+.theme-dark .vl-formula-bar{background:#1A1A18;border:1px solid rgba(255,255,255,.08)}
+.theme-dark .vl-formula-label{color:#949390}
+.theme-dark .vl-formula-text{color:#E8E7E2}
+.theme-dark .vl-guide-footer{background:#1A1A18;border-top:1px solid rgba(255,255,255,.06)}
+.theme-dark .vl-footer-note{color:#5C5B58}
+.theme-dark .vl-footer-badge{background:#F5C400;color:#0D0D0B}
+.theme-dark .vl-window-tag{background:rgba(245,196,0,.12);color:#F5C400;border:1px solid rgba(245,196,0,.25)}
+.theme-light .vl-guide{background:#FDF0A0;border:1px solid #D4A800}
+.theme-light .vl-guide-hero{background:#FDF0A0}
+.theme-light .vl-guide-eyebrow{color:#A88000}
+.theme-light .vl-guide-headline{color:#0D2040}
+.theme-light .vl-guide-sub{color:#2D6BA8}
+.theme-light .vl-guide-body{background:#FFFFFF;border-top:3px solid #F5C400}
+.theme-light .vl-step-num{background:#F5C400;color:#0D2040}
+.theme-light .vl-step-text{color:#5C5B58}
+.theme-light .vl-step-text strong{color:#0D0D0B}
+.theme-light .vl-step-text em{color:#D4A800;font-style:normal;font-weight:700}
+.theme-light .vl-formula-bar{background:#F7F6F3;border:1px solid #E8E7E2}
+.theme-light .vl-formula-label{color:#949390}
+.theme-light .vl-formula-text{color:#0D0D0B}
+.theme-light .vl-guide-footer{background:#FEF9E0;border-top:1px solid #FAE04D}
+.theme-light .vl-footer-note{color:#A88000}
+.theme-light .vl-footer-badge{background:#0D2040;color:#FFFFFF}
+.theme-light .vl-window-tag{background:#FAE04D;color:#6A5000;border:1px solid #D4A800}
+.theme-brand .vl-guide{background:#0D2040;border:2px solid #F5C400}
+.theme-brand .vl-guide-hero{background:#0D2040}
+.theme-brand .vl-guide-eyebrow{color:#6B9ED0}
+.theme-brand .vl-guide-headline{color:#F5C400}
+.theme-brand .vl-guide-sub{color:#B8CCE8}
+.theme-brand .vl-guide-body{background:#071022;border-top:3px solid #F5C400}
+.theme-brand .vl-step-num{background:#F5C400;color:#0D2040}
+.theme-brand .vl-step-text{color:#B8CCE8}
+.theme-brand .vl-step-text strong{color:#FFFFFF}
+.theme-brand .vl-step-text em{color:#F5C400;font-style:normal;font-weight:700}
+.theme-brand .vl-formula-bar{background:#0D2040;border:1px solid rgba(245,196,0,.3)}
+.theme-brand .vl-formula-label{color:#6B9ED0}
+.theme-brand .vl-formula-text{color:#FFFFFF}
+.theme-brand .vl-guide-footer{background:#0D2040;border-top:1px solid rgba(245,196,0,.2)}
+.theme-brand .vl-footer-note{color:#6B9ED0}
+.theme-brand .vl-footer-badge{background:#F5C400;color:#0D2040}
+.theme-brand .vl-window-tag{background:rgba(245,196,0,.15);color:#F5C400;border:1px solid rgba(245,196,0,.35)}
+.vl-guide-hero{padding:28px 32px 24px}
+.vl-guide-eyebrow{font-family:var(--font-display);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+.vl-guide-headline{font-family:var(--font-display);font-size:28px;font-weight:900;text-transform:uppercase;line-height:1.1;margin-bottom:10px}
+.vl-guide-sub{font-size:14px;line-height:1.5;max-width:640px;margin-bottom:16px}
+.vl-window-tag{display:inline-block;padding:4px 12px;border-radius:var(--r-pill);font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.06em}
+.vl-guide-body{padding:24px 32px}
+.vl-guide-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px}
+.vl-guide-step{display:flex;gap:14px;align-items:flex-start}
+.vl-step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:14px;font-weight:900}
+.vl-step-text{font-size:13px;line-height:1.6}
+.vl-formula-bar{display:flex;align-items:baseline;gap:12px;padding:10px 16px;border-radius:var(--r-md);margin-top:4px}
+.vl-formula-label{font-family:var(--font-display);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+.vl-formula-text{font-size:13px;font-family:var(--font-body)}
+.vl-guide-footer{display:flex;align-items:center;gap:16px;padding:12px 32px}
+.vl-footer-note{font-size:12px;flex:1}
+.vl-footer-badge{flex-shrink:0;padding:4px 12px;border-radius:var(--r-pill);font-family:var(--font-display);font-size:11px;font-weight:700;white-space:nowrap}
+.vl-pill{padding:6px 14px;border-radius:6px;border:1px solid var(--color-border-default);background:var(--color-surface-elevated);color:var(--color-text-primary);font-family:var(--font-display);font-size:13px;font-weight:700;cursor:pointer;transition:background .15s,color .15s,border-color .15s;}
+.vl-pill.active,.vl-pill:hover{background:var(--color-brand-primary);color:var(--color-text-on-brand);border-color:var(--color-brand-primary);}
+.vl-cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}
+.vl-cat-tile{background:var(--color-surface-base);border:1px solid var(--color-border-default);border-radius:var(--r-lg);padding:14px 16px}
+.vl-cat-label{font-family:var(--font-display);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-secondary);margin-bottom:6px}
+.vl-cat-value{font-family:var(--font-display);font-size:28px;font-weight:900;line-height:1;margin-bottom:4px}
+.vl-badge-rocket{color:#2D8C7A}.vl-badge-growing{color:#6B9ED0}.vl-badge-stable{color:var(--color-text-secondary)}.vl-badge-cooling{color:#C97A3A}.vl-badge-falling{color:#E86060}
+.vl-cat-sub{font-size:11px;color:var(--color-text-secondary)}
+#vl-table tbody tr:nth-child(even){background:var(--color-surface-sunken)}
+.vl-vel-pos{color:#2D8C7A;font-weight:700;font-family:var(--font-display);font-size:15px}
+.vl-vel-neg{color:#E86060;font-weight:700;font-family:var(--font-display);font-size:15px}
+.vl-vel-neu{color:var(--color-text-secondary);font-family:var(--font-display);font-size:15px}
+.vl-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;font-family:var(--font-display);text-transform:uppercase;letter-spacing:.05em}
+.vl-b-rocket{background:rgba(45,140,122,.15);color:#2D8C7A;border:1px solid rgba(45,140,122,.3)}
+.vl-b-growing{background:rgba(107,158,208,.15);color:#6B9ED0;border:1px solid rgba(107,158,208,.3)}
+.vl-b-stable{background:rgba(255,255,255,.08);color:var(--color-text-secondary);border:1px solid var(--color-border-default)}
+.vl-b-cooling{background:rgba(201,122,58,.15);color:#C97A3A;border:1px solid rgba(201,122,58,.3)}
+.vl-b-falling{background:rgba(232,96,96,.15);color:#E86060;border:1px solid rgba(232,96,96,.3)}
+
+@media(max-width:900px){
+  .main{padding:16px}
+  .hdr{padding:14px 16px}
+  .theme-bar{padding-left:16px;padding-right:16px}
+  .vl-guide-steps{grid-template-columns:1fr}
+  .vl-cat-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* ── MOBILE APP-SHELL (≤768px) ──────────────────────────────────────────── */
+@media (max-width:768px){
+  html{-webkit-text-size-adjust:100%}
+  body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+
+  /* Sticky compact header */
+  .hdr{
+    position:sticky;top:0;z-index:90;
+    padding:10px 12px;
+    padding-top:calc(10px + env(safe-area-inset-top));
+    gap:8px;flex-wrap:nowrap;
+    box-shadow:var(--shadow-sm);
+  }
+  .hdr-title{font-size:15px;letter-spacing:.02em;line-height:1.15}
+  .hdr-sub{font-size:10px}
+  .hdr-gen{display:none}
+  .hdr-r{display:none}
+
+  /* Theme bar hidden on mobile */
+  .theme-bar{display:none}
+
+  /* Main near edge-to-edge */
+  .main{padding:14px 12px calc(28px + env(safe-area-inset-bottom));max-width:none}
+
+  /* Velocity grids: 2 cols max on phones */
+  .vl-cat-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .vl-cat-card{padding:12px 10px}
+  .vl-cat-count{font-size:22px}
+  .vl-cat-label{font-size:9px}
+  .vl-guide-steps{grid-template-columns:1fr;gap:10px}
+
+  /* Generic grids collapse */
+  .g2,.g3,.row,.summary-grid{grid-template-columns:1fr !important;gap:12px}
+
+  /* Cards/KPIs/charts */
+  .kpi,.card{padding:14px 14px}
+  .kpi-value{font-size:22px}
+  .chart-wrap,.chart-card{height:240px}
+
+  /* Tables scroll horizontally */
+  .table-wrap,.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{font-size:12px}
+  th,td{padding:7px 9px}
+
+  /* Pills/badges smaller */
+  .vl-badge{font-size:10px;padding:3px 8px}
+}
+
+@media (max-width:480px){
+  .hdr-title{font-size:14px}
+  .vl-cat-grid{grid-template-columns:1fr 1fr;gap:8px}
+}
 </style>
 </head>
 <body>
-  <div class="logo">
-    <img src="https://flomaticauto.github.io/olympic-paints-clocking/logo.jpg" alt="Olympic Paints">
+
+<!-- THEME TOGGLE -->
+<div class="theme-bar">
+  <a class="tb-back" href="https://flomaticauto.github.io/olympic-paints-sales/" target="_self">← Sales Dashboard</a>
+  <button onclick="olyTheme('theme-light',this)">Light</button>
+  <button onclick="olyTheme('theme-dark',this)">Dark</button>
+  <button onclick="olyTheme('theme-brand',this)">Brand</button>
+  <button onclick="olyTheme('theme-navy',this)" class="active">Navy</button>
+</div>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-l">
+    <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;">
+      <img src="logo.jpg" alt="Olympic Paints" width="44" height="44" style="display:block;width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div>
+      <div class="hdr-title">Revenue Velocity</div>
+      <div class="hdr-sub">Account Growth Trajectory · Mar–May window · 183 accounts<span class="partial-badge">⚡ Partial — May data in progress</span></div>
+    </div>
   </div>
-  <div class="spinner"></div>
-  <p>Loading dashboard...</p>
-  <script>window.location.replace('https://flomaticauto.github.io/olympic-paints-velocity/');</script>
+  <div class="hdr-r">
+    <div class="hdr-gen">Generated 16 May 2026 14:49</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="stitle" style="margin-top:8px">Account Growth Trajectory</div>
+
+  <!-- ── How to use — full-width guide banner ──────────────────────── -->
+  <div class="vl-guide">
+
+    <!-- Hero: big headline, window tag -->
+    <div class="vl-guide-hero">
+      <div class="vl-guide-eyebrow">Revenue Velocity · How to Read This Report</div>
+      <div class="vl-guide-headline">Are Your Stores Speeding Up or Slowing Down?</div>
+      <div class="vl-guide-sub">
+        Velocity shows whether an account is growing <strong>faster or slower</strong> this year compared to the same period last year — not just whether sales are up or down. A store buying R200K this year is a very different signal if last year it was R100K versus R400K.
+      </div>
+      <span class="vl-window-tag" id="vl-window-badge">Loading window…</span>
+    </div>
+
+    <!-- Body: 3-step grid + formula -->
+    <div class="vl-guide-body">
+      <div class="vl-guide-steps">
+
+        <div class="vl-guide-step">
+          <div class="vl-step-num">1</div>
+          <div class="vl-step-text">
+            <strong>Same window, three years.</strong><br>
+            We only look at <em id="vl-win-label-a">this period</em> of data — the same calendar months in FY2024, FY2025, and FY2026. This keeps the comparison fair even though FY2026 is not complete yet.
+          </div>
+        </div>
+
+        <div class="vl-guide-step">
+          <div class="vl-step-num">2</div>
+          <div class="vl-step-text">
+            <strong>Two YoY growth rates.</strong><br>
+            <em>FY25 rate</em> = how much a store grew in <em id="vl-win-label-b">this period</em> FY25 vs FY24.<br>
+            <em>FY26 rate</em> = how much it grew in <em id="vl-win-label-c">this period</em> FY26 vs FY25.
+          </div>
+        </div>
+
+        <div class="vl-guide-step">
+          <div class="vl-step-num">3</div>
+          <div class="vl-step-text">
+            <strong>Velocity = FY26 rate minus FY25 rate.</strong><br>
+            <em>Positive</em> = accelerating (buying more aggressively than this time last year).<br>
+            <em>Negative</em> = decelerating (slowing down, even if still growing).
+          </div>
+        </div>
+
+      </div>
+
+      <div class="vl-formula-bar">
+        <span class="vl-formula-label">Formula</span>
+        <span class="vl-formula-text">
+          Velocity (ppts) = [ (FY26<sub id="vl-win-sub-a"></sub> &divide; FY25<sub id="vl-win-sub-b"></sub> &minus; 1) &minus; (FY25<sub id="vl-win-sub-c"></sub> &divide; FY24<sub id="vl-win-sub-d"></sub> &minus; 1) ] &times; 100
+        </span>
+      </div>
+    </div>
+
+    <!-- Footer: live notes injected by JS -->
+    <div class="vl-guide-footer">
+      <div class="vl-footer-note" id="vl-method-notes"></div>
+      <span class="vl-footer-badge" id="vl-footer-badge">Loading…</span>
+    </div>
+
+  </div>
+
+  <!-- Rep filter pills -->
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;flex-wrap:wrap">
+    <span style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-secondary)">Rep</span>
+    <button class="vl-pill active" onclick="setVelRep('ALL',this)">All Reps</button>
+    <button class="vl-pill" onclick="setVelRep('BV',this)">BV — Bhadresh</button>
+    <button class="vl-pill" onclick="setVelRep('NP',this)">NP — Nikhil</button>
+    <button class="vl-pill" onclick="setVelRep('AP',this)">AP — Amit</button>
+    <button class="vl-pill" onclick="setVelRep('AC',this)">AC — Aboo</button>
+    <button class="vl-pill" onclick="setVelRep('BM',this)">BM — Byron</button>
+  </div>
+
+  <!-- Category KPI tiles -->
+  <div class="vl-cat-grid" id="vl-cat-grid"></div>
+
+  <!-- Velocity bar chart -->
+  <div style="margin:24px 0 20px">
+    <div class="stitle" style="font-size:14px;margin-bottom:12px">Category Distribution</div>
+    <div style="position:relative;height:220px"><canvas id="vl-chart"></canvas></div>
+  </div>
+
+  <!-- Store table -->
+  <div class="stitle" style="font-size:14px;margin-top:24px;margin-bottom:8px">
+    All Stores — Worst to Best
+    <span id="vl-tbl-count" style="font-size:11px;font-weight:400;color:var(--color-text-secondary);margin-left:8px"></span>
+  </div>
+  <div style="overflow-x:auto">
+    <table id="vl-table">
+      <thead><tr>
+        <th onclick="sortVel('store')" style="cursor:pointer">Account &#8597;</th>
+        <th>Acc No</th>
+        <th onclick="sortVel('rep')" style="cursor:pointer">Rep &#8597;</th>
+        <th onclick="sortVel('w25')" style="cursor:pointer;text-align:right" id="vl-th-w25">FY25 Window &#8597;</th>
+        <th onclick="sortVel('w26')" style="cursor:pointer;text-align:right" id="vl-th-w26">FY26 Window &#8597;</th>
+        <th onclick="sortVel('g25')" style="cursor:pointer;text-align:right">FY25 YoY &#8597;</th>
+        <th onclick="sortVel('g26')" style="cursor:pointer;text-align:right">FY26 YoY &#8597;</th>
+        <th onclick="sortVel('velocity')" style="cursor:pointer;text-align:right">Velocity &#8597;</th>
+        <th style="text-align:center">Category</th>
+      </tr></thead>
+      <tbody id="vl-tbody"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<footer style="padding:20px 40px;font-size:11px;color:var(--color-text-tertiary);border-top:1px solid var(--color-border-subtle);margin-top:40px">
+  <strong>Olympic Paints</strong> &middot; Revenue Velocity Report<br>
+  Data: <em>Sales_Invoices_All.parquet</em> &middot; Accounts with &ge; R10&thinsp;000 revenue in FY25 window and known rep &middot; Generated 16 May 2026 14:49
+</footer>
+
+<script>
+const DATA = {"velocity_accounts": [{"accno": "KF018", "store": "Fairplay Hardware Bochum", "rep": "BV", "w24": 24413.48, "w25": 345388.79, "w26": 187675.13, "g25": 1314.7, "g26": -45.7, "velocity": -1360.4, "category": "falling"}, {"accno": "KH029", "store": "Hadid Hardware & Furniture", "rep": "AP", "w24": 44635.18, "w25": 390104.69, "w26": 0.0, "g25": 774.0, "g26": -100.0, "velocity": -874.0, "category": "falling"}, {"accno": "KS026", "store": "S.A. Hardware", "rep": "NP", "w24": 4411.53, "w25": 24425.67, "w26": 15715.29, "g25": 453.7, "g26": -35.7, "velocity": -489.3, "category": "falling"}, {"accno": "KS011", "store": "Tiger build Hardware", "rep": "NP", "w24": 47912.98, "w25": 281991.25, "w26": 330910.52, "g25": 488.5, "g26": 17.3, "velocity": -471.2, "category": "falling"}, {"accno": "KM027", "store": "Maliks TA Power Build", "rep": "AC", "w24": 171830.11, "w25": 957327.38, "w26": 1082901.22, "g25": 457.1, "g26": 13.1, "velocity": -444.0, "category": "falling"}, {"accno": "KL011", "store": "Lalita Supermarket& Hardware", "rep": "BV", "w24": 7161.74, "w25": 33373.21, "w26": 8739.76, "g25": 366.0, "g26": -73.8, "velocity": -439.8, "category": "falling"}, {"accno": "KB066", "store": "Bala & Sons ta BNS Supermark", "rep": "BV", "w24": 5820.3, "w25": 25210.1, "w26": 0.0, "g25": 333.1, "g26": -100.0, "velocity": -433.1, "category": "falling"}, {"accno": "KB093", "store": "Baskid Nondabuya General Trd", "rep": "NP", "w24": 36691.9, "w25": 158715.5, "w26": 76211.8, "g25": 332.6, "g26": -52.0, "velocity": -384.5, "category": "falling"}, {"accno": "KS019", "store": "S.I. Hardware", "rep": "NP", "w24": 239293.32, "w25": 1126730.14, "w26": 1310599.78, "g25": 370.9, "g26": 16.3, "velocity": -354.5, "category": "falling"}, {"accno": "KI015", "store": "Iskcon Steel", "rep": "NP", "w24": 60986.96, "w25": 274951.45, "w26": 383784.7, "g25": 350.8, "g26": 39.6, "velocity": -311.3, "category": "falling"}, {"accno": "KL023", "store": "MA Hardware", "rep": "AP", "w24": 22992.73, "w25": 79218.84, "w26": 32489.1, "g25": 244.5, "g26": -59.0, "velocity": -303.5, "category": "falling"}, {"accno": "KP018", "store": "Khotawala 786 Traders TA", "rep": "AP", "w24": 10258.43, "w25": 42675.58, "w26": 49547.96, "g25": 316.0, "g26": 16.1, "velocity": -299.9, "category": "falling"}, {"accno": "KS045", "store": "Siloam Hardware", "rep": "AP", "w24": 27822.85, "w25": 105722.13, "w26": 96492.73, "g25": 280.0, "g26": -8.7, "velocity": -288.7, "category": "falling"}, {"accno": "KN024", "store": "Navisha Investments Pty Ltd", "rep": "NP", "w24": 113662.0, "w25": 367078.43, "w26": 225850.35, "g25": 223.0, "g26": -38.5, "velocity": -261.4, "category": "falling"}, {"accno": "KT007", "store": "Tourist Bazaar", "rep": "BV", "w24": 5515.71, "w25": 14270.14, "w26": 0.0, "g25": 158.7, "g26": -100.0, "velocity": -258.7, "category": "falling"}, {"accno": "KH008", "store": "Honest Electrical & Plumbing", "rep": "NP", "w24": 8332.44, "w25": 22846.79, "w26": 4991.18, "g25": 174.2, "g26": -78.2, "velocity": -252.3, "category": "falling"}, {"accno": "KP058", "store": "Paint Max", "rep": "AC", "w24": 63320.92, "w25": 188206.01, "w26": 111119.51, "g25": 197.2, "g26": -41.0, "velocity": -238.2, "category": "falling"}, {"accno": "KA100", "store": "Absolute Hardware And Tools", "rep": "AC", "w24": 15827.48, "w25": 47768.01, "w26": 32297.83, "g25": 201.8, "g26": -32.4, "velocity": -234.2, "category": "falling"}, {"accno": "KR003", "store": "Ammo Distributors (PTY) LTD", "rep": "NP", "w24": 32069.35, "w25": 69705.88, "w26": 0.0, "g25": 117.4, "g26": -100.0, "velocity": -217.4, "category": "falling"}, {"accno": "KK021", "store": "Kit Kat Group (Pty) Ltd", "rep": "NP", "w24": 662221.5, "w25": 1979347.74, "w26": 1660096.28, "g25": 198.9, "g26": -16.1, "velocity": -215.0, "category": "falling"}, {"accno": "KN022", "store": "M H I Hardware (Nkambako H/W", "rep": "BV", "w24": 135508.99, "w25": 278596.09, "w26": 0.0, "g25": 105.6, "g26": -100.0, "velocity": -205.6, "category": "falling"}, {"accno": "KR036", "store": "Royal Water Pty Ltd", "rep": "NP", "w24": 29772.37, "w25": 61034.84, "w26": 0.0, "g25": 105.0, "g26": -100.0, "velocity": -205.0, "category": "falling"}, {"accno": "KV001", "store": "Vuwani Hardware & Furniture cc", "rep": "AP", "w24": 6150.34, "w25": 11799.05, "w26": 0.0, "g25": 91.8, "g26": -100.0, "velocity": -191.8, "category": "falling"}, {"accno": "KB109", "store": "S.R. Mullas Hardware & Superma", "rep": "AC", "w24": 5373.52, "w25": 10255.96, "w26": 0.0, "g25": 90.9, "g26": -100.0, "velocity": -190.9, "category": "falling"}, {"accno": "KG004", "store": "Gani Osman Hardware (Pty) Ltd", "rep": "NP", "w24": 27946.96, "w25": 58165.88, "w26": 17209.46, "g25": 108.1, "g26": -70.4, "velocity": -178.5, "category": "falling"}, {"accno": "KH048", "store": "Hardware City", "rep": "AC", "w24": 5212.48, "w25": 11952.54, "w26": 6318.4, "g25": 129.3, "g26": -47.1, "velocity": -176.4, "category": "falling"}, {"accno": "KB064", "store": "Builders Hyper C.C.", "rep": "AC", "w24": 47594.58, "w25": 147626.03, "w26": 199437.28, "g25": 210.2, "g26": 35.1, "velocity": -175.1, "category": "falling"}, {"accno": "KS017", "store": "Femac Hyper CC  ta Spaza Hyper", "rep": "NP", "w24": 51416.22, "w25": 142920.48, "w26": 159099.54, "g25": 178.0, "g26": 11.3, "velocity": -166.6, "category": "falling"}, {"accno": "KL009", "store": "Low Cost Hardware", "rep": "NP", "w24": 8612.78, "w25": 17475.66, "w26": 7191.05, "g25": 102.9, "g26": -58.9, "velocity": -161.8, "category": "falling"}, {"accno": "KA101", "store": "AD Fancy Goods TA", "rep": "BV", "w24": 10911.06, "w25": 26714.89, "w26": 22865.25, "g25": 144.8, "g26": -14.4, "velocity": -159.3, "category": "falling"}, {"accno": "KP005", "store": "Patel (Nkomazi Imp. & Exp. CC)", "rep": "BV", "w24": 411355.18, "w25": 998376.96, "w26": 851249.43, "g25": 142.7, "g26": -14.7, "velocity": -157.4, "category": "falling"}, {"accno": "KM101", "store": "Mevish Cash & Carry", "rep": "AP", "w24": 7673.65, "w25": 11514.13, "w26": 0.0, "g25": 50.0, "g26": -100.0, "velocity": -150.0, "category": "falling"}, {"accno": "KM025", "store": "Masons Hardware", "rep": "AC", "w24": 20949.84, "w25": 36498.16, "w26": 10943.0, "g25": 74.2, "g26": -70.0, "velocity": -144.2, "category": "falling"}, {"accno": "KS022", "store": "Super Blue Supermarket", "rep": "BV", "w24": 63871.47, "w25": 111864.32, "w26": 37177.45, "g25": 75.1, "g26": -66.8, "velocity": -141.9, "category": "falling"}, {"accno": "KT019", "store": "Trendleaders Trading & Inv. CC", "rep": "NP", "w24": 128516.86, "w25": 270079.12, "w26": 191347.49, "g25": 110.2, "g26": -29.2, "velocity": -139.3, "category": "falling"}, {"accno": "KU008", "store": "Uzzi Hardware PTY LTD", "rep": "BV", "w24": 28478.96, "w25": 54444.31, "w26": 30621.33, "g25": 91.2, "g26": -43.8, "velocity": -134.9, "category": "falling"}, {"accno": "KE024", "store": "East End General Dealer", "rep": "BV", "w24": 43711.04, "w25": 70771.01, "w26": 19341.75, "g25": 61.9, "g26": -72.7, "velocity": -134.6, "category": "falling"}, {"accno": "KB110", "store": "Best Build HW Giyani", "rep": "NP", "w24": 7658.99, "w25": 12130.78, "w26": 3065.02, "g25": 58.4, "g26": -74.7, "velocity": -133.1, "category": "falling"}, {"accno": "KM077", "store": "Manglasi Hardware", "rep": "AP", "w24": 24946.73, "w25": 34565.11, "w26": 1900.0, "g25": 38.6, "g26": -94.5, "velocity": -133.1, "category": "falling"}, {"accno": "KA008", "store": "AA Hardware 2", "rep": "AP", "w24": 28061.94, "w25": 65029.02, "w26": 64281.84, "g25": 131.7, "g26": -1.1, "velocity": -132.9, "category": "falling"}, {"accno": "KS029", "store": "Duro Build", "rep": "BV", "w24": 358874.06, "w25": 530243.6, "w26": 83999.97, "g25": 47.8, "g26": -84.2, "velocity": -131.9, "category": "falling"}, {"accno": "KB094", "store": "Builders Den Pty Ltd", "rep": "AC", "w24": 10940.9, "w25": 13547.94, "w26": 0.0, "g25": 23.8, "g26": -100.0, "velocity": -123.8, "category": "falling"}, {"accno": "KR008", "store": "Shingwedzi B.M.CC", "rep": "NP", "w24": 68613.94, "w25": 123179.81, "w26": 70341.39, "g25": 79.5, "g26": -42.9, "velocity": -122.4, "category": "falling"}, {"accno": "KC012", "store": "Cassim Tayob", "rep": "NP", "w24": 230313.05, "w25": 349421.82, "w26": 115333.24, "g25": 51.7, "g26": -67.0, "velocity": -118.7, "category": "falling"}, {"accno": "KQ001", "store": "Khavhande Trading store", "rep": "NP", "w24": 19994.58, "w25": 26910.52, "w26": 6715.5, "g25": 34.6, "g26": -75.0, "velocity": -109.6, "category": "falling"}, {"accno": "KB100", "store": "Builders Direct Depot Pty Ltd", "rep": "NP", "w24": 985000.83, "w25": 1348362.26, "w26": 386441.58, "g25": 36.9, "g26": -71.3, "velocity": -108.2, "category": "falling"}, {"accno": "KK016", "store": "Faiz Hardware (Pty) Ltd", "rep": "BV", "w24": 28861.63, "w25": 47607.13, "w26": 27773.08, "g25": 64.9, "g26": -41.7, "velocity": -106.6, "category": "falling"}, {"accno": "KB010", "store": "Beras Hardware Wholesaler", "rep": "BV", "w24": 69845.23, "w25": 97265.66, "w26": 37642.4, "g25": 39.3, "g26": -61.3, "velocity": -100.6, "category": "falling"}, {"accno": "KM098", "store": "Mahriya General Trading CC", "rep": "AP", "w24": 10664.55, "w25": 16353.32, "w26": 9107.48, "g25": 53.3, "g26": -44.3, "velocity": -97.7, "category": "falling"}, {"accno": "KA095", "store": "Sure Build", "rep": "AP", "w24": 27779.58, "w25": 45278.04, "w26": 29892.94, "g25": 63.0, "g26": -34.0, "velocity": -97.0, "category": "falling"}, {"accno": "KF009", "store": "Fairplay Store", "rep": "BV", "w24": 26427.08, "w25": 50423.83, "w26": 47664.83, "g25": 90.8, "g26": -5.5, "velocity": -96.3, "category": "falling"}, {"accno": "KF020", "store": "Fast Build Hardware", "rep": "NP", "w24": 33656.3, "w25": 77692.51, "w26": 108918.32, "g25": 130.8, "g26": 40.2, "velocity": -90.6, "category": "falling"}, {"accno": "KB013", "store": "New Bafana Bafana H Ware", "rep": "AP", "w24": 23423.16, "w25": 45865.32, "w26": 48538.2, "g25": 95.8, "g26": 5.8, "velocity": -90.0, "category": "falling"}, {"accno": "KN018", "store": "Naaz Hardware & Furniture", "rep": "AP", "w24": 40576.41, "w25": 36534.15, "w26": 0.0, "g25": -10.0, "g26": -100.0, "velocity": -90.0, "category": "falling"}, {"accno": "KQ008", "store": "Silver Solution TA QUICK SAVE", "rep": "NP", "w24": 12327.5, "w25": 23645.38, "w26": 24751.41, "g25": 91.8, "g26": 4.7, "velocity": -87.1, "category": "falling"}, {"accno": "KC041", "store": "Central Build It", "rep": "AC", "w24": 7055.7, "w25": 10204.9, "w26": 5900.88, "g25": 44.6, "g26": -42.2, "velocity": -86.8, "category": "falling"}, {"accno": "KD033", "store": "DIY Depo ( Petrus Styne)", "rep": "AP", "w24": 23271.25, "w25": 19293.53, "w26": 0.0, "g25": -17.1, "g26": -100.0, "velocity": -82.9, "category": "falling"}, {"accno": "KA031", "store": "Ash Building Supplies", "rep": "BV", "w24": 63126.68, "w25": 98423.03, "w26": 72047.86, "g25": 55.9, "g26": -26.8, "velocity": -82.7, "category": "falling"}, {"accno": "KD002", "store": "Dhaval Patel Ent", "rep": "BV", "w24": 73385.7, "w25": 59840.21, "w26": 0.0, "g25": -18.5, "g26": -100.0, "velocity": -81.5, "category": "falling"}, {"accno": "KM105", "store": "Monyakeng Hardware", "rep": "AP", "w24": 20600.56, "w25": 16720.32, "w26": 0.0, "g25": -18.8, "g26": -100.0, "velocity": -81.2, "category": "falling"}, {"accno": "KG027", "store": "Emgwenya Investments Pty Ltd", "rep": "BV", "w24": 21871.38, "w25": 33241.06, "w26": 23967.59, "g25": 52.0, "g26": -27.9, "velocity": -79.9, "category": "falling"}, {"accno": "KA057", "store": "Abies Security Gates", "rep": "AC", "w24": 11439.11, "w25": 10246.91, "w26": 1022.64, "g25": -10.4, "g26": -90.0, "velocity": -79.6, "category": "falling"}, {"accno": "KD030", "store": "Desai Hardware", "rep": "AC", "w24": 24960.99, "w25": 24511.88, "w26": 4560.0, "g25": -1.8, "g26": -81.4, "velocity": -79.6, "category": "falling"}, {"accno": "KD015", "store": "Discount Hardware Kanyamazane", "rep": "BV", "w24": 128759.9, "w25": 100971.22, "w26": 0.0, "g25": -21.6, "g26": -100.0, "velocity": -78.4, "category": "falling"}, {"accno": "KM127", "store": "Myka Trade 2  Mankweng", "rep": "BV", "w24": 334719.68, "w25": 566685.31, "w26": 526243.8, "g25": 69.3, "g26": -7.1, "velocity": -76.4, "category": "falling"}, {"accno": "KP015", "store": "Steel Hub", "rep": "BV", "w24": 341089.9, "w25": 526819.68, "w26": 412066.89, "g25": 54.5, "g26": -21.8, "velocity": -76.2, "category": "falling"}, {"accno": "KL034", "store": "Lucky Save 2", "rep": "AP", "w24": 51618.12, "w25": 88793.35, "w26": 87176.88, "g25": 72.0, "g26": -1.8, "velocity": -73.8, "category": "falling"}, {"accno": "KM007", "store": "Marshall Hardware & Furniture", "rep": "AC", "w24": 116563.6, "w25": 153903.19, "w26": 93861.74, "g25": 32.0, "g26": -39.0, "velocity": -71.0, "category": "falling"}, {"accno": "KS050", "store": "Sheffield Paints & Hardware", "rep": "AC", "w24": 15190.7, "w25": 22836.06, "w26": 18131.8, "g25": 50.3, "g26": -20.6, "velocity": -70.9, "category": "falling"}, {"accno": "KD001", "store": "Dainty's Wholesale Hardware", "rep": "BV", "w24": 493829.11, "w25": 716046.12, "w26": 532054.7, "g25": 45.0, "g26": -25.7, "velocity": -70.7, "category": "falling"}, {"accno": "KH021", "store": "Ebrahim Abramjee Traders CC", "rep": "AC", "w24": 272531.02, "w25": 560730.63, "w26": 764490.35, "g25": 105.7, "g26": 36.3, "velocity": -69.4, "category": "falling"}, {"accno": "KM064", "store": "Masons Home Hardware", "rep": "AC", "w24": 41872.29, "w25": 55049.17, "w26": 34328.1, "g25": 31.5, "g26": -37.6, "velocity": -69.1, "category": "falling"}, {"accno": "KP054", "store": "Premium Build Hardware", "rep": "AC", "w24": 44832.96, "w25": 30385.68, "w26": 0.0, "g25": -32.2, "g26": -100.0, "velocity": -67.8, "category": "falling"}, {"accno": "KW013", "store": "Wood Corner Pty Ltd", "rep": "BV", "w24": 50212.1, "w25": 42551.72, "w26": 7374.64, "g25": -15.3, "g26": -82.7, "velocity": -67.4, "category": "falling"}, {"accno": "KZ011", "store": "Z Build Khubvi", "rep": "AP", "w24": 27171.15, "w25": 17959.3, "w26": 0.0, "g25": -33.9, "g26": -100.0, "velocity": -66.1, "category": "falling"}, {"accno": "KR018", "store": "Sonu Supermarket (Raj)", "rep": "BV", "w24": 65644.96, "w25": 88783.22, "w26": 62275.85, "g25": 35.2, "g26": -29.9, "velocity": -65.1, "category": "falling"}, {"accno": "KM159", "store": "MTS Hardware", "rep": "AC", "w24": 29476.0, "w25": 44078.95, "w26": 37331.51, "g25": 49.5, "g26": -15.3, "velocity": -64.8, "category": "falling"}, {"accno": "KM079", "store": "Mohamedys Hardware", "rep": "BV", "w24": 28068.17, "w25": 33282.84, "w26": 18855.33, "g25": 18.6, "g26": -43.3, "velocity": -61.9, "category": "falling"}, {"accno": "KJ019", "store": "Jiva Auto Paints", "rep": "AC", "w24": 21000.72, "w25": 24778.93, "w26": 14050.44, "g25": 18.0, "g26": -43.3, "velocity": -61.3, "category": "falling"}, {"accno": "KL032", "store": "Mala Hardware ta Limpopo HW", "rep": "NP", "w24": 39870.32, "w25": 39464.13, "w26": 15304.72, "g25": -1.0, "g26": -61.2, "velocity": -60.2, "category": "falling"}, {"accno": "KL035", "store": "Lucky Domestic Hardware", "rep": "NP", "w24": 47258.22, "w25": 54612.25, "w26": 30612.9, "g25": 15.6, "g26": -43.9, "velocity": -59.5, "category": "falling"}, {"accno": "KE009", "store": "Easy Build", "rep": "NP", "w24": 118865.61, "w25": 125015.38, "w26": 57804.22, "g25": 5.2, "g26": -53.8, "velocity": -58.9, "category": "falling"}, {"accno": "KK012", "store": "Pacfic Beach Trading 8cc", "rep": "BV", "w24": 32923.55, "w25": 46381.15, "w26": 38331.25, "g25": 40.9, "g26": -17.4, "velocity": -58.2, "category": "falling"}, {"accno": "KH035", "store": "HGM Steelboys CC", "rep": "BV", "w24": 548780.15, "w25": 783639.0, "w26": 671694.0, "g25": 42.8, "g26": -14.3, "velocity": -57.1, "category": "falling"}, {"accno": "KN004", "store": "Neha HW & Bldg. Mat.", "rep": "NP", "w24": 107618.7, "w25": 61358.24, "w26": 0.0, "g25": -43.0, "g26": -100.0, "velocity": -57.0, "category": "falling"}, {"accno": "KC011", "store": "Molepo Coal Centre Pty Ltd", "rep": "BV", "w24": 12189.41, "w25": 13546.65, "w26": 7753.29, "g25": 11.1, "g26": -42.8, "velocity": -53.9, "category": "falling"}, {"accno": "KB071", "store": "Intshebe Props 216 Pty Ltd", "rep": "NP", "w24": 241433.15, "w25": 352984.41, "w26": 326605.16, "g25": 46.2, "g26": -7.5, "velocity": -53.7, "category": "falling"}, {"accno": "KA002", "store": "Angamia Building Material", "rep": "BV", "w24": 17616.0, "w25": 22562.29, "w26": 16884.43, "g25": 28.1, "g26": -25.2, "velocity": -53.2, "category": "falling"}, {"accno": "KL004", "store": "World Focus 1932 CC", "rep": "AP", "w24": 72680.88, "w25": 86059.25, "w26": 56883.89, "g25": 18.4, "g26": -33.9, "velocity": -52.3, "category": "falling"}, {"accno": "KA055", "store": "A K Distributors (Pty) Ltd", "rep": "BV", "w24": 62980.08, "w25": 76618.84, "w26": 53617.14, "g25": 21.7, "g26": -30.0, "velocity": -51.7, "category": "falling"}, {"accno": "KB002", "store": "Bright Build", "rep": "BV", "w24": 115653.52, "w25": 133516.86, "w26": 85047.71, "g25": 15.4, "g26": -36.3, "velocity": -51.7, "category": "falling"}, {"accno": "KC023", "store": "Choice Hardware & Electrical", "rep": "BV", "w24": 68526.97, "w25": 79744.99, "w26": 52379.69, "g25": 16.4, "g26": -34.3, "velocity": -50.7, "category": "falling"}, {"accno": "KM043", "store": "Goldville SM  ta Meem H/War", "rep": "AP", "w24": 12184.6, "w25": 17226.72, "w26": 15652.48, "g25": 41.4, "g26": -9.1, "velocity": -50.5, "category": "falling"}, {"accno": "KM123", "store": "Honest Electrial and Plumbing", "rep": "NP", "w24": 93757.35, "w25": 46812.33, "w26": 0.0, "g25": -50.1, "g26": -100.0, "velocity": -49.9, "category": "cooling"}, {"accno": "KL047", "store": "", "rep": "BV", "w24": 35549.65, "w25": 19532.98, "w26": 1135.64, "g25": -45.1, "g26": -94.2, "velocity": -49.1, "category": "cooling"}, {"accno": "KB098", "store": "Bismillah Hardware", "rep": "AC", "w24": 72382.46, "w25": 87987.42, "w26": 65463.72, "g25": 21.6, "g26": -25.6, "velocity": -47.2, "category": "cooling"}, {"accno": "KD004", "store": "Discount Hardware", "rep": "BV", "w24": 36919.43, "w25": 27013.76, "w26": 7394.95, "g25": -26.8, "g26": -72.6, "velocity": -45.8, "category": "cooling"}, {"accno": "KB038", "store": "Bob's Hardware C.C.", "rep": "AC", "w24": 77449.98, "w25": 107023.57, "w26": 99285.3, "g25": 38.2, "g26": -7.2, "velocity": -45.4, "category": "cooling"}, {"accno": "KE012", "store": "Easy Build Hardware", "rep": "NP", "w24": 96731.35, "w25": 88918.94, "w26": 42538.02, "g25": -8.1, "g26": -52.2, "velocity": -44.1, "category": "cooling"}, {"accno": "KC008", "store": "C G Industrial Equipment P L", "rep": "NP", "w24": 87885.66, "w25": 73910.52, "w26": 30133.44, "g25": -15.9, "g26": -59.2, "velocity": -43.3, "category": "cooling"}, {"accno": "KT027", "store": "Totalbuild", "rep": "AC", "w24": 40786.12, "w25": 17658.04, "w26": 0.0, "g25": -56.7, "g26": -100.0, "velocity": -43.3, "category": "cooling"}, {"accno": "KB075", "store": "Burgersfort Wood Centre", "rep": "AP", "w24": 25078.91, "w25": 10012.8, "w26": 0.0, "g25": -60.1, "g26": -100.0, "velocity": -39.9, "category": "cooling"}, {"accno": "KU005", "store": "Candyland General Trading", "rep": "AP", "w24": 38742.97, "w25": 15092.37, "w26": 0.0, "g25": -61.0, "g26": -100.0, "velocity": -39.0, "category": "cooling"}, {"accno": "KW003", "store": "Wolhuterskop Trading", "rep": "BV", "w24": 28709.01, "w25": 35859.95, "w26": 30880.29, "g25": 24.9, "g26": -13.9, "velocity": -38.8, "category": "cooling"}, {"accno": "KC054", "store": "Choice Build Matanda", "rep": "AP", "w24": 44626.87, "w25": 47430.11, "w26": 32710.09, "g25": 6.3, "g26": -31.0, "velocity": -37.3, "category": "cooling"}, {"accno": "KM035", "store": "Mikes Hardware", "rep": "BV", "w24": 47913.2, "w25": 78372.96, "w26": 99979.61, "g25": 63.6, "g26": 27.6, "velocity": -36.0, "category": "cooling"}, {"accno": "KT061", "store": "Total Hardware & Tiles", "rep": "BV", "w24": 37487.5, "w25": 41340.64, "w26": 31010.1, "g25": 10.3, "g26": -25.0, "velocity": -35.3, "category": "cooling"}, {"accno": "KM155", "store": "Mr Build LTT (PTY) LTD", "rep": "NP", "w24": 209560.23, "w25": 230666.0, "w26": 174564.39, "g25": 10.1, "g26": -24.3, "velocity": -34.4, "category": "cooling"}, {"accno": "KF022", "store": "F A P Holdings Pty Ltd ta KGN", "rep": "NP", "w24": 37784.4, "w25": 11780.0, "w26": 0.0, "g25": -68.8, "g26": -100.0, "velocity": -31.2, "category": "cooling"}, {"accno": "KD008", "store": "Dada's World of Hardware CC", "rep": "BV", "w24": 638669.37, "w25": 711372.6, "w26": 582665.29, "g25": 11.4, "g26": -18.1, "velocity": -29.5, "category": "cooling"}, {"accno": "KT002", "store": "Thohoyandou Hardware", "rep": "NP", "w24": 36802.02, "w25": 31806.51, "w26": 18129.43, "g25": -13.6, "g26": -43.0, "velocity": -29.4, "category": "cooling"}, {"accno": "KH013", "store": "Henque 3481 CC", "rep": "BV", "w24": 100922.36, "w25": 90457.76, "w26": 58993.87, "g25": -10.4, "g26": -34.8, "velocity": -24.4, "category": "cooling"}, {"accno": "KE005", "store": "Easy Build Hardware", "rep": "NP", "w24": 358740.12, "w25": 502085.34, "w26": 583500.1, "g25": 40.0, "g26": 16.2, "velocity": -23.7, "category": "cooling"}, {"accno": "KH023", "store": "Hassim's Hyper", "rep": "BV", "w24": 46494.61, "w25": 52687.41, "w26": 48226.9, "g25": 13.3, "g26": -8.5, "velocity": -21.8, "category": "cooling"}, {"accno": "KM031", "store": "Mica Hardware - Purple Rain", "rep": "NP", "w24": 28187.52, "w25": 23163.83, "w26": 14121.58, "g25": -17.8, "g26": -39.0, "velocity": -21.2, "category": "cooling"}, {"accno": "KI010", "store": "I.Build Hardware", "rep": "NP", "w24": 116840.76, "w25": 109604.32, "w26": 81823.03, "g25": -6.2, "g26": -25.3, "velocity": -19.2, "category": "cooling"}, {"accno": "KS004", "store": "S.E.Z. Superette", "rep": "BV", "w24": 428315.5, "w25": 448085.0, "w26": 386208.67, "g25": 4.6, "g26": -13.8, "velocity": -18.4, "category": "cooling"}, {"accno": "KD029", "store": "Door to Door Trade 1005 CC", "rep": "NP", "w24": 9499.87, "w25": 14907.38, "w26": 20706.49, "g25": 56.9, "g26": 38.9, "velocity": -18.0, "category": "cooling"}, {"accno": "KM013", "store": "Moollas Hardware & Furniture", "rep": "NP", "w24": 20709.63, "w25": 16816.97, "w26": 10675.67, "g25": -18.8, "g26": -36.5, "velocity": -17.7, "category": "cooling"}, {"accno": "KR027", "store": "Easy Hardware", "rep": "AP", "w24": 13265.05, "w25": 14020.52, "w26": 13075.54, "g25": 5.7, "g26": -6.7, "velocity": -12.4, "category": "cooling"}, {"accno": "KG006", "store": "Gulmohur Building Supplies P L", "rep": "NP", "w24": 93210.4, "w25": 83757.24, "w26": 66003.21, "g25": -10.1, "g26": -21.2, "velocity": -11.1, "category": "cooling"}, {"accno": "KM071", "store": "Inyameko Trading 1605", "rep": "NP", "w24": 401836.17, "w25": 510307.03, "w26": 596459.14, "g25": 27.0, "g26": 16.9, "velocity": -10.1, "category": "cooling"}, {"accno": "KK022", "store": "Kit Kat Group (Pty) Ltd", "rep": "NP", "w24": 559528.41, "w25": 440494.96, "w26": 305960.61, "g25": -21.3, "g26": -30.5, "velocity": -9.3, "category": "stable"}, {"accno": "KS071", "store": "Nimeshkumar General Dealers", "rep": "BV", "w24": 168704.58, "w25": 172667.69, "w26": 164526.07, "g25": 2.3, "g26": -4.7, "velocity": -7.1, "category": "stable"}, {"accno": "KA058", "store": "Acornhoek Hardware", "rep": "BV", "w24": 326927.58, "w25": 297463.04, "w26": 249743.12, "g25": -9.0, "g26": -16.0, "velocity": -7.0, "category": "stable"}, {"accno": "KT034", "store": "TFS Hardware ( Qwa Qwa)", "rep": "NP", "w24": 90790.95, "w25": 69479.45, "w26": 50379.3, "g25": -23.5, "g26": -27.5, "velocity": -4.0, "category": "stable"}, {"accno": "KO009", "store": "One Price Store", "rep": "NP", "w24": 35351.58, "w25": 26269.7, "w26": 18932.19, "g25": -25.7, "g26": -27.9, "velocity": -2.2, "category": "stable"}, {"accno": "KM152", "store": "Mkhwenyana Hardware", "rep": "NP", "w24": 97673.45, "w25": 99519.38, "w26": 99338.48, "g25": 1.9, "g26": -0.2, "velocity": -2.1, "category": "stable"}, {"accno": "KL020", "store": "Light Centre", "rep": "AP", "w24": 34865.47, "w25": 41307.6, "w26": 48209.02, "g25": 18.5, "g26": 16.7, "velocity": -1.8, "category": "stable"}, {"accno": "KF028", "store": "Fayaz and Brother 891 Pty Ltd", "rep": "AP", "w24": 13756.04, "w25": 24849.64, "w26": 44649.54, "g25": 80.6, "g26": 79.7, "velocity": -1.0, "category": "stable"}, {"accno": "KK006", "store": "Pir and Sons Trd (Kalamazoo)", "rep": "BV", "w24": 94969.12, "w25": 84088.69, "w26": 73718.4, "g25": -11.5, "g26": -12.3, "velocity": -0.9, "category": "stable"}, {"accno": "KB035", "store": "Amoriscape Pty Ltd", "rep": "AC", "w24": 33127.99, "w25": 25483.46, "w26": 19652.75, "g25": -23.1, "g26": -22.9, "velocity": 0.2, "category": "stable"}, {"accno": "KS080", "store": "Sehlware (Pty) Ltd", "rep": "AP", "w24": 135726.57, "w25": 59983.89, "w26": 26939.2, "g25": -55.8, "g26": -55.1, "velocity": 0.7, "category": "stable"}, {"accno": "KD003", "store": "Del Piero Trading CC", "rep": "NP", "w24": 521745.84, "w25": 412642.43, "w26": 330270.56, "g25": -20.9, "g26": -20.0, "velocity": 0.9, "category": "stable"}, {"accno": "KA080", "store": "Bhambanana Park", "rep": "NP", "w24": 25643.34, "w25": 14148.72, "w26": 8151.6, "g25": -44.8, "g26": -42.4, "velocity": 2.4, "category": "stable"}, {"accno": "KB108", "store": "Boxer Hardware", "rep": "NP", "w24": 78444.28, "w25": 97467.32, "w26": 126313.81, "g25": 24.3, "g26": 29.6, "velocity": 5.3, "category": "stable"}, {"accno": "KL022", "store": "Lucky Save Hardware", "rep": "AP", "w24": 76316.92, "w25": 88660.23, "w26": 108890.06, "g25": 16.2, "g26": 22.8, "velocity": 6.6, "category": "stable"}, {"accno": "KA096", "store": "Alston Trading t/a Vhembe H/W", "rep": "NP", "w24": 64089.78, "w25": 36410.51, "w26": 23197.93, "g25": -43.2, "g26": -36.3, "velocity": 6.9, "category": "stable"}, {"accno": "KM046", "store": "Motala Building Supply", "rep": "BV", "w24": 181076.81, "w25": 122529.27, "w26": 93564.6, "g25": -32.3, "g26": -23.6, "velocity": 8.7, "category": "stable"}, {"accno": "KM087", "store": "Mangera's Hardware City", "rep": "AP", "w24": 55173.0, "w25": 59003.39, "w26": 68450.33, "g25": 6.9, "g26": 16.0, "velocity": 9.1, "category": "stable"}, {"accno": "KA053", "store": "Archies Furniture & Hardware", "rep": "NP", "w24": 146855.85, "w25": 136827.15, "w26": 141074.75, "g25": -6.8, "g26": 3.1, "velocity": 9.9, "category": "stable"}, {"accno": "KB003", "store": "New Best Build Hardware", "rep": "AP", "w24": 40857.55, "w25": 35898.8, "w26": 35993.11, "g25": -12.1, "g26": 0.3, "velocity": 12.4, "category": "growing"}, {"accno": "KN011", "store": "Discount  HW TA Best Build", "rep": "BV", "w24": 64166.68, "w25": 53876.9, "w26": 52500.61, "g25": -16.0, "g26": -2.6, "velocity": 13.5, "category": "growing"}, {"accno": "KP002", "store": "Power Hardware", "rep": "AP", "w24": 456671.43, "w25": 414584.75, "w26": 457467.66, "g25": -9.2, "g26": 10.3, "velocity": 19.6, "category": "growing"}, {"accno": "KB011", "store": "Brits Hardware & Glass", "rep": "BV", "w24": 2707913.02, "w25": 2378280.31, "w26": 2579086.45, "g25": -12.2, "g26": 8.4, "velocity": 20.6, "category": "growing"}, {"accno": "KV002", "store": "Vereeniging Builders Supplies", "rep": "AC", "w24": 118911.24, "w25": 59843.23, "w26": 43007.21, "g25": -49.7, "g26": -28.1, "velocity": 21.5, "category": "growing"}, {"accno": "KA090", "store": "A A Owaish Maize Depot Pty Ltd", "rep": "NP", "w24": 20381.89, "w25": 22359.21, "w26": 29627.05, "g25": 9.7, "g26": 32.5, "velocity": 22.8, "category": "growing"}, {"accno": "KA104", "store": "All in One Hardware", "rep": "BV", "w24": 71614.32, "w25": 108063.65, "w26": 191232.44, "g25": 50.9, "g26": 77.0, "velocity": 26.1, "category": "growing"}, {"accno": "KE008", "store": "Easy Build", "rep": "NP", "w24": 188036.48, "w25": 180135.88, "w26": 220538.7, "g25": -4.2, "g26": 22.4, "velocity": 26.6, "category": "growing"}, {"accno": "KM120", "store": "Mr Build Pty Ltd", "rep": "BV", "w24": 309327.59, "w25": 90797.65, "w26": 51531.25, "g25": -70.6, "g26": -43.2, "velocity": 27.4, "category": "growing"}, {"accno": "KT005", "store": "Delli 786 TATshaulu HW", "rep": "AP", "w24": 69692.4, "w25": 47503.59, "w26": 45830.74, "g25": -31.8, "g26": -3.5, "velocity": 28.3, "category": "growing"}, {"accno": "KQ009", "store": "Keystone Diy (PTY) LTD", "rep": "NP", "w24": 190313.63, "w25": 172506.97, "w26": 214272.52, "g25": -9.4, "g26": 24.2, "velocity": 33.6, "category": "growing"}, {"accno": "KH002", "store": "Handy Joes Hardware", "rep": "BV", "w24": 114149.33, "w25": 90766.27, "w26": 103707.2, "g25": -20.5, "g26": 14.3, "velocity": 34.7, "category": "growing"}, {"accno": "KB012", "store": "Buy-Rite", "rep": "NP", "w24": 124339.9, "w25": 69261.73, "w26": 67524.38, "g25": -44.3, "g26": -2.5, "velocity": 41.8, "category": "growing"}, {"accno": "KD028", "store": "Del Piero Trading CC", "rep": "BV", "w24": 291803.11, "w25": 222231.71, "w26": 300541.08, "g25": -23.8, "g26": 35.2, "velocity": 59.1, "category": "rocket"}, {"accno": "KA014", "store": "Ayob's Hardware", "rep": "BV", "w24": 132781.76, "w25": 88675.69, "w26": 112498.35, "g25": -33.2, "g26": 26.9, "velocity": 60.1, "category": "rocket"}, {"accno": "KP030", "store": "Platinum Rainbow Hardware", "rep": "BV", "w24": 152589.09, "w25": 94827.17, "w26": 117115.26, "g25": -37.9, "g26": 23.5, "velocity": 61.4, "category": "rocket"}, {"accno": "KE018", "store": "Thamarah Pty Ltd", "rep": "AC", "w24": 43399.12, "w25": 46403.17, "w26": 80228.7, "g25": 6.9, "g26": 72.9, "velocity": 66.0, "category": "rocket"}, {"accno": "KM001", "store": "Mega Doors and Paint  Hardware", "rep": "AC", "w24": 16142.27, "w25": 14537.1, "w26": 22963.99, "g25": -9.9, "g26": 58.0, "velocity": 67.9, "category": "rocket"}, {"accno": "KO002", "store": "Omega Hardware And Supermarket", "rep": "NP", "w24": 81554.85, "w25": 52885.04, "w26": 77867.74, "g25": -35.2, "g26": 47.2, "velocity": 82.4, "category": "rocket"}, {"accno": "KL028", "store": "Ilanga Hardware", "rep": "AC", "w24": 64702.41, "w25": 38035.51, "w26": 53726.61, "g25": -41.2, "g26": 41.3, "velocity": 82.5, "category": "rocket"}, {"accno": "KE035", "store": "Easytile & Sanware", "rep": "NP", "w24": 70035.47, "w25": 50828.37, "w26": 81976.26, "g25": -27.4, "g26": 61.3, "velocity": 88.7, "category": "rocket"}, {"accno": "KK038", "store": "Kelly's Hardware", "rep": "BV", "w24": 56477.23, "w25": 22779.02, "w26": 29889.35, "g25": -59.7, "g26": 31.2, "velocity": 90.9, "category": "rocket"}, {"accno": "KS012", "store": "Solly's Hardware (Oxford)", "rep": "BV", "w24": 92107.61, "w25": 29118.36, "w26": 36766.17, "g25": -68.4, "g26": 26.3, "velocity": 94.7, "category": "rocket"}, {"accno": "KW004", "store": "Buildware ta Siam Trading", "rep": "BV", "w24": 757969.09, "w25": 433512.1, "w26": 725026.71, "g25": -42.8, "g26": 67.2, "velocity": 110.1, "category": "rocket"}, {"accno": "KP025", "store": "Platinum Auto Paints", "rep": "AC", "w24": 216874.23, "w25": 132198.03, "w26": 230113.46, "g25": -39.0, "g26": 74.1, "velocity": 113.1, "category": "rocket"}, {"accno": "KK028", "store": "Kgapane Hardware Pty Ltd", "rep": "BV", "w24": 241173.6, "w25": 120394.05, "w26": 198928.65, "g25": -50.1, "g26": 65.2, "velocity": 115.3, "category": "rocket"}, {"accno": "KM110", "store": "Alex Hardware", "rep": "NP", "w24": 40659.2, "w25": 13571.15, "w26": 21394.49, "g25": -66.6, "g26": 57.6, "velocity": 124.3, "category": "rocket"}, {"accno": "KH018", "store": "Help U Build (Pty) Ltd", "rep": "AC", "w24": 67848.68, "w25": 32289.19, "w26": 55565.87, "g25": -52.4, "g26": 72.1, "velocity": 124.5, "category": "rocket"}, {"accno": "KR041", "store": "Raza Auto Spares", "rep": "BV", "w24": 30200.0, "w25": 13180.0, "w26": 22616.82, "g25": -56.4, "g26": 71.6, "velocity": 128.0, "category": "rocket"}, {"accno": "KR034", "store": "Jeelani Investment TA Matanda", "rep": "AP", "w24": 32475.89, "w25": 38440.32, "w26": 98320.81, "g25": 18.4, "g26": 155.8, "velocity": 137.4, "category": "rocket"}, {"accno": "KT036", "store": "Tshino Hardware", "rep": "AP", "w24": 30315.87, "w25": 15416.35, "w26": 29045.17, "g25": -49.1, "g26": 88.4, "velocity": 137.6, "category": "rocket"}, {"accno": "KM004", "store": "MAGEZI HW WHOLESALE VILLAGE", "rep": "AP", "w24": 20872.24, "w25": 31631.64, "w26": 103961.28, "g25": 51.5, "g26": 228.7, "velocity": 177.1, "category": "rocket"}, {"accno": "KE023", "store": "Easy Build Hardware Jubilee", "rep": "NP", "w24": 200140.8, "w25": 83201.1, "w26": 184850.14, "g25": -58.4, "g26": 122.2, "velocity": 180.6, "category": "rocket"}, {"accno": "KA050", "store": "Fountain Square Trading 129cc", "rep": "AC", "w24": 27935.75, "w25": 41490.52, "w26": 148864.34, "g25": 48.5, "g26": 258.8, "velocity": 210.3, "category": "rocket"}, {"accno": "KB046", "store": "Powerbuild Express", "rep": "AP", "w24": 318766.38, "w25": 74689.15, "w26": 187925.97, "g25": -76.6, "g26": 151.6, "velocity": 228.2, "category": "rocket"}, {"accno": "KA054", "store": "Al Soud Traders", "rep": "AP", "w24": 68154.35, "w25": 55822.85, "w26": 180331.86, "g25": -18.1, "g26": 223.0, "velocity": 241.1, "category": "rocket"}, {"accno": "KC031", "store": "Masiqhame Trading 1629", "rep": "AP", "w24": 128566.23, "w25": 58653.46, "w26": 199372.39, "g25": -54.4, "g26": 239.9, "velocity": 294.3, "category": "rocket"}, {"accno": "KP009", "store": "Payless Hardware", "rep": "BV", "w24": 46899.24, "w25": 23224.14, "w26": 100055.27, "g25": -50.5, "g26": 330.8, "velocity": 381.3, "category": "rocket"}, {"accno": "KB032", "store": "Bonanza Plumbing & Electrical", "rep": "AP", "w24": 29056.89, "w25": 29090.73, "w26": 145986.78, "g25": 0.1, "g26": 401.8, "velocity": 401.7, "category": "rocket"}, {"accno": "KQ011", "store": "Quick Solutions", "rep": "AC", "w24": 31550.0, "w25": 12568.96, "w26": 62298.39, "g25": -60.2, "g26": 395.7, "velocity": 455.8, "category": "rocket"}, {"accno": "KM012", "store": "Hardware City", "rep": "BV", "w24": 42333.6, "w25": 15511.68, "w26": 80850.3, "g25": -63.4, "g26": 421.2, "velocity": 484.6, "category": "rocket"}, {"accno": "KA038", "store": "Ace Hardware & Furniture", "rep": "AP", "w24": 119425.08, "w25": 27304.96, "w26": 190970.61, "g25": -77.1, "g26": 599.4, "velocity": 676.5, "category": "rocket"}], "velocity_meta": {"window_months": [3, 4, 5], "n_months": 3, "win_label": "Mar–May", "win_start": "Mar", "win_end": "May", "last_date": "15 May 2026", "partial": true, "account_count": 183}, "generated": "16 May 2026 14:49"};
+
+// ── Revenue Velocity ──────────────────────────────────────────────────────────
+const VEL_CATS = ['falling','cooling','stable','growing','rocket'];
+const VEL_CAT_LABELS = {
+  falling:'Falling',cooling:'Cooling',stable:'Stable',growing:'Growing',rocket:'Rocket'
+};
+const VEL_CAT_DESC = {
+  falling:'< −50 ppts',cooling:'−50 to −10 ppts',stable:'−10 to +10 ppts',
+  growing:'+10 to +50 ppts',rocket:'> +50 ppts'
+};
+const VEL_COLORS = {
+  falling:'#E86060',cooling:'#C97A3A',stable:'#949390',growing:'#6B9ED0',rocket:'#2D8C7A'
+};
+
+let velRep = 'ALL';
+let velSort = 'velocity';
+let velDir  = 1;
+let velChart = null;
+
+function initVelocityMethodCard() {
+  const vm = DATA.velocity_meta || {};
+  const win = vm.win_label || '—';
+  const last = vm.last_date || '';
+  const partial = vm.partial || false;
+  const n = vm.n_months || 0;
+  const count = vm.account_count || 0;
+
+  const badge = document.getElementById('vl-window-badge');
+  if (badge) badge.textContent = `Comparing ${win} · ${n} month${n !== 1 ? 's' : ''} · FY24 vs FY25 vs FY26`;
+
+  ['vl-win-label-a','vl-win-label-b','vl-win-label-c'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = win;
+  });
+  ['vl-win-sub-a','vl-win-sub-b','vl-win-sub-c','vl-win-sub-d'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = ' ' + win;
+  });
+
+  const th25 = document.getElementById('vl-th-w25');
+  const th26 = document.getElementById('vl-th-w26');
+  if (th25) th25.innerHTML = `FY25 ${win} &#8597;`;
+  if (th26) th26.innerHTML = `FY26 ${win} &#8597;`;
+
+  const footerBadge = document.getElementById('vl-footer-badge');
+  if (footerBadge) footerBadge.textContent = `${count} accounts · ${win} window`;
+
+  const notesEl = document.getElementById('vl-method-notes');
+  if (notesEl) {
+    let notes = '';
+    if (partial) {
+      notes += `<strong>⚠ ${vm.win_end || ''} data is partial (through ${last}).</strong> The current month's figures will increase as more transactions are processed — velocity scores for this month may shift. `;
+    }
+    notes += `Only accounts with ≥ R10 000 revenue in the FY25 ${win} window and a known rep are included.`;
+    notesEl.innerHTML = notes;
+  }
+}
+
+function setVelRep(rep, btn) {
+  velRep = rep;
+  document.querySelectorAll('.vl-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderVelocity();
+}
+
+function sortVel(field) {
+  if (velSort === field) {
+    velDir *= -1;
+  } else {
+    velSort = field;
+    velDir = 1;
+  }
+  renderVelocity();
+}
+
+function renderVelocity() {
+  const all = DATA.velocity_accounts || [];
+  const rows = velRep === 'ALL' ? all : all.filter(a => a.rep === velRep);
+
+  const counts = {};
+  VEL_CATS.forEach(c => counts[c] = 0);
+  rows.forEach(a => { if (counts[a.category] !== undefined) counts[a.category]++; });
+
+  const grid = document.getElementById('vl-cat-grid');
+  if (grid) {
+    grid.innerHTML = VEL_CATS.slice().reverse().map(cat => {
+      const n = counts[cat] || 0;
+      const pct = rows.length ? Math.round(n / rows.length * 100) : 0;
+      return `<div class="vl-cat-tile">
+        <div class="vl-cat-label">${VEL_CAT_LABELS[cat]}</div>
+        <div class="vl-cat-value vl-badge-${cat}">${n}</div>
+        <div class="vl-cat-sub">${pct}% · ${VEL_CAT_DESC[cat]}</div>
+      </div>`;
+    }).join('');
+  }
+
+  const ctx = document.getElementById('vl-chart');
+  if (ctx) {
+    const labels = VEL_CATS.slice().reverse().map(c => VEL_CAT_LABELS[c]);
+    const values = VEL_CATS.slice().reverse().map(c => counts[c] || 0);
+    const colors = VEL_CATS.slice().reverse().map(c => VEL_COLORS[c]);
+    if (velChart) velChart.destroy();
+    velChart = new Chart(ctx, {
+      type: 'bar',
+      data: { labels, datasets: [{ data: values, backgroundColor: colors, borderRadius: 6, borderSkipped: false }] },
+      options: {
+        indexAxis: 'y',
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: {
+          callbacks: { label: ctx => ` ${ctx.parsed.x} accounts` }
+        } },
+        scales: {
+          x: { grid: { color: 'rgba(255,255,255,.06)' }, ticks: { color: '#949390', stepSize: 1 } },
+          y: { grid: { display: false }, ticks: { color: '#E8E7E2', font: { family:"'Barlow Condensed',sans-serif", size:14, weight:'700' } } }
+        }
+      }
+    });
+  }
+
+  const sorted = [...rows].sort((a, b) => {
+    const av = a[velSort], bv = b[velSort];
+    if (typeof av === 'string') return velDir * av.localeCompare(bv);
+    return velDir * ((av ?? 0) - (bv ?? 0));
+  });
+
+  const fmtR = v => v >= 1e6 ? 'R'+(v/1e6).toFixed(2)+'M' : v >= 1e3 ? 'R'+(v/1e3).toFixed(1)+'K' : 'R'+Math.round(v).toLocaleString();
+  const fmtPct = v => (v >= 0 ? '+' : '') + v.toFixed(1) + '%';
+  const velClass = v => v > 10 ? 'vl-vel-pos' : v < -10 ? 'vl-vel-neg' : 'vl-vel-neu';
+
+  let html = '';
+  sorted.forEach(a => {
+    const vc = velClass(a.velocity);
+    const vSign = a.velocity >= 0 ? '+' : '';
+    html += `<tr>
+      <td style="font-weight:500">${a.store || '—'}</td>
+      <td style="color:var(--color-text-secondary);font-size:11px">${a.accno}</td>
+      <td style="font-family:var(--font-display);font-weight:900;font-size:15px">${a.rep || '—'}</td>
+      <td class="num">${fmtR(a.w25)}</td>
+      <td class="num">${a.w26 > 0 ? fmtR(a.w26) : '—'}</td>
+      <td class="num" style="color:${a.g25 >= 0 ? '#2D8C7A' : '#E86060'}">${fmtPct(a.g25)}</td>
+      <td class="num" style="color:${a.g26 >= 0 ? '#2D8C7A' : '#E86060'}">${fmtPct(a.g26)}</td>
+      <td class="num ${vc}">${vSign}${a.velocity.toFixed(1)} ppts</td>
+      <td style="text-align:center"><span class="vl-badge vl-b-${a.category}">${VEL_CAT_LABELS[a.category]}</span></td>
+    </tr>`;
+  });
+
+  const tbody = document.getElementById('vl-tbody');
+  if (tbody) tbody.innerHTML = html;
+  const cnt = document.getElementById('vl-tbl-count');
+  if (cnt) cnt.textContent = `${sorted.length} accounts`;
+}
+
+// ── Theme toggle ──────────────────────────────────────────────────────────────
+const OLY_THEMES=['theme-light','theme-dark','theme-brand','theme-navy'];
+function olyTheme(t,btn){
+  document.documentElement.classList.remove(...OLY_THEMES);
+  document.documentElement.classList.add(t);
+  localStorage.setItem('oly-theme',t);
+  document.querySelectorAll('.theme-bar button').forEach(b=>b.classList.toggle('active',b===btn));
+}
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+initVelocityMethodCard();
+renderVelocity();
+</script>
 </body>
 </html>
