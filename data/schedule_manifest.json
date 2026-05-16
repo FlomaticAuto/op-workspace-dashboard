@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-17T00:00:04+02:00",
+  "generated_at": "2026-05-17T01:00:02+02:00",
   "tasks": [
     {
       "job_id": "olympicpaints-emailecommercedashboard",
@@ -34,8 +34,8 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-17 01:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 00:00:00+02:00",
+      "next_run": "2026-05-17 02:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 01:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
@@ -134,12 +134,24 @@
           "stdout_tail": "Wrote 18 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-16_23-00-04.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-17T00:00:03+02:00",
+          "finished_at": "2026-05-17T00:00:07+02:00",
+          "duration_seconds": 3.135,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 18 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-17_00-00-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-16T23:00:04+02:00",
-        "finished_at": "2026-05-16T23:00:08+02:00",
-        "duration_seconds": 4.281,
+        "started_at": "2026-05-17T00:00:03+02:00",
+        "finished_at": "2026-05-17T00:00:07+02:00",
+        "duration_seconds": 3.135,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -321,8 +333,8 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-17 00:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-16 22:15:00+02:00",
+      "next_run": "2026-05-17 02:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 00:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -373,12 +385,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-16_22-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-17T00:15:01+02:00",
+          "finished_at": "2026-05-17T00:15:12+02:00",
+          "duration_seconds": 10.295,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-17_00-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-16T22:15:01+02:00",
-        "finished_at": "2026-05-16T22:15:14+02:00",
-        "duration_seconds": 12.805,
+        "started_at": "2026-05-17T00:15:01+02:00",
+        "finished_at": "2026-05-17T00:15:12+02:00",
+        "duration_seconds": 10.295,
         "exit_code": 0,
         "ok": true,
         "summary": null
