@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T22:22:27+02:00",
+  "generated_at": "2026-05-16T23:00:04+02:00",
   "tasks": [
     {
       "job_id": "olympicpaints-emailecommercedashboard",
@@ -34,9 +34,9 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-16 23:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-16 22:00:01+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-05-17 00:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-16 23:00:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
         {
