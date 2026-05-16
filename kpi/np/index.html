@@ -374,6 +374,74 @@ html,body{overflow-x:hidden}
   .qbtn{flex:1 1 100%;font-size:12px;padding:8px 6px}
 }
 
+/* ────────────────────────────────────────────────────────────────────────
+   AGGRESSIVE MOBILE OVERRIDES — addresses 4 user-reported issues:
+   1) tables overflow,  2) cards still in 3-4 cols,
+   3) header+tabs eat space,  4) too small to read/tap
+   ──────────────────────────────────────────────────────────────────────── */
+@media (max-width:768px){
+  /* (1) Tables — every table wrapper gets horizontal scroll + first col sticky */
+  .tw,.table-wrap,.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r-md)}
+  .tw::-webkit-scrollbar,.table-wrap::-webkit-scrollbar,.tbl-wrap::-webkit-scrollbar{height:6px}
+  table{min-width:max-content}
+  /* Stick the FIRST column so the row identifier (name/account/date) stays visible */
+  table thead th:first-child,
+  table tbody td:first-child{position:sticky;left:0;background:var(--color-surface-base);z-index:2;box-shadow:2px 0 4px rgba(0,0,0,.15)}
+
+  /* (2) Cards/KPI tiles — force max 2 cols, even when inline grid-template uses 3 */
+  .kpi-grid,
+  .kpi-grid[style*="repeat(3"],
+  .kpi-grid[style*="repeat(auto-fit"]{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+  }
+  .g2,.g3{grid-template-columns:1fr !important;gap:14px}
+
+  /* (3) Header + tabs — slim further */
+  .page-hdr{padding:8px 12px !important;padding-top:calc(8px + env(safe-area-inset-top)) !important}
+  .page-hdr svg{width:34px !important;height:34px !important;flex-shrink:0}
+  .hdr-l{gap:8px;min-width:0;flex:1}
+  .hdr-title{font-size:14px !important;letter-spacing:0;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hdr-sub{font-size:10px !important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hdr-r{flex-shrink:0;text-align:right}
+  .hdr-ytd{font-size:16px !important;line-height:1}
+  .hdr-meta{font-size:9px !important;display:block}
+  .tab-nav{top:calc(52px + env(safe-area-inset-top)) !important}
+  .tab-btn{padding:12px 12px !important;font-size:12px !important}
+
+  /* (4) Readability — slightly larger body, ensure tap targets ≥44 */
+  body{font-size:15px}
+  thead th{padding:6px 8px !important;font-size:10px !important;line-height:1.2}
+  tbody td{padding:7px 8px !important;font-size:13px !important}
+  a,button{min-height:36px}
+  .kpi{padding:12px 12px !important}
+  .kpi-value{font-size:24px !important}
+  .kpi-label{font-size:10px !important}
+
+  /* Charts — fill width, slightly smaller */
+  canvas{max-width:100% !important;height:auto !important}
+  .h260{height:220px !important}
+  .h280{height:240px !important}
+  .h300{height:260px !important}
+  .h340{height:280px !important}
+
+  /* Footer takes less space */
+  .page-footer{padding:16px 12px !important;font-size:10px !important;line-height:1.5}
+}
+
+@media (max-width:480px){
+  /* On real phones, force EVERYTHING to single column */
+  .kpi-grid,
+  .kpi-grid[style*="repeat(3"],
+  .kpi-grid[style*="repeat(auto-fit"]{grid-template-columns:1fr 1fr !important;gap:8px !important}
+  .kpi{padding:10px 10px !important}
+  .kpi-value{font-size:20px !important}
+  .hdr-title{font-size:13px !important}
+  .hdr-ytd{font-size:15px !important}
+  .hdr-meta{display:none !important}
+  .hdr-r{text-align:right;min-width:60px}
+}
+
 </style>
 </head>
 <body style="background:var(--color-surface-page);color:var(--color-text-primary);font-family:var(--font-body);margin:0;">
@@ -398,7 +466,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R9.58M</div>
-    <div class="hdr-meta">Week ending 16 May 2026 &middot; Generated 16 May 2026 12:31</div>
+    <div class="hdr-meta">Week ending 16 May 2026 &middot; Generated 16 May 2026 14:54</div>
   </div>
 </div>
 
@@ -1118,165 +1186,165 @@ html,body{overflow-x:hidden}
         </tr>
       </thead>
       <tbody><tr style="background:var(--color-surface-sunken)">
-  <td style="padding:10px 14px;font-weight:600">Capstan Trading 896 CC</td>
-  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">1</span></td>
-  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">744d</td>
-</tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Warden Mica</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">1</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">512d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">513d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">Capstan Trading 896 CC</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">1</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">745d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">Sunshine 786 Trading</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">2</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">465d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">466d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Maxi Save Hardware Corporation</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">2</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">388d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">389d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
-  <td style="padding:10px 14px;font-weight:600">Asif Cash & Carry & Hardware</td>
-  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">3</span></td>
-  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">255d</td>
-</tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Speedy Hardware</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">3</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">658d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">659d</td>
+</tr><tr style="">
+  <td style="padding:10px 14px;font-weight:600">Asif Cash & Carry & Hardware</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">3</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">256d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">Sembro Hardware T A Concrete &</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">4</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">710d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">711d</td>
 </tr><tr style="">
-  <td style="padding:10px 14px;font-weight:600">Builders Mart</td>
-  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">6</span></td>
-  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">393d</td>
-</tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">Qwa Qwa HW - TA Mica HWare</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">6</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">402d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">403d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">Builders Mart</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">6</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">394d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Steel City Hardware</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">6</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">344d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">345d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">Friends</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">6</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">513d</td>
-</tr><tr style="">
-  <td style="padding:10px 14px;font-weight:600">Madina PropertY Trust</td>
-  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">8</span></td>
-  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">669d</td>
-</tr><tr style="background:var(--color-surface-sunken)">
-  <td style="padding:10px 14px;font-weight:600">Neha HW & Bldg. Mat.</td>
-  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">8</span></td>
-  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">393d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">514d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Wellmark Investments</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">8</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">466d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">467d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">Madina PropertY Trust</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">8</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">670d</td>
+</tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">A & S Enterprises (Pty) Ltd</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">8</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">631d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">632d</td>
+</tr><tr style="background:var(--color-surface-sunken)">
+  <td style="padding:10px 14px;font-weight:600">Neha HW & Bldg. Mat.</td>
+  <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">8</span></td>
+  <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">394d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Hardware Hub</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">10</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">528d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">529d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">Quick Save Hardware</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">10</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">534d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">535d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Aaliya Hardware</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">11</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">373d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">374d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">Lavender Moon Trading ta</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">13</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">169d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">170d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Zonelite Enterprises Pty Ltd</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">15</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">269d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">270d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">F A P Holdings Pty Ltd ta KGN</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">17</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:rgba(201,122,58,0.15);color:var(--_terra-light,#F7E0C8)">At-Risk</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">81d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">82d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Africa Hardware</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">19</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">252d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">253d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">S.M. Hardware</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">19</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">195d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">196d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Ace Steel And Roofing</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">21</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:rgba(201,122,58,0.15);color:var(--_terra-light,#F7E0C8)">At-Risk</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">16d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">17d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">Khotawala Hardware</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">22</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">102d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">103d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Mica Hardware - Purple Rain</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">27</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-warning-bg);color:var(--color-warning-fg)">Active but Narrow</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">8d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">9d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">Afia PTY (LTD) t/a</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">28</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">94d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">95d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Jabula HW</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">28</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:rgba(201,122,58,0.15);color:var(--_terra-light,#F7E0C8)">At-Risk</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">70d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">71d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">Malebeswa Investment (Pty) Ltd</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">28</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">122d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">123d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">C G Industrial Equipment P L</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">31</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:rgba(201,122,58,0.15);color:var(--_terra-light,#F7E0C8)">At-Risk</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">28d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">29d</td>
 </tr><tr style="background:var(--color-surface-sunken)">
   <td style="padding:10px 14px;font-weight:600">Ammo Distributors (PTY) LTD</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">31</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">101d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">102d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Alex Hardware</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#C97A3A">32</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">234d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">235d</td>
 </tr></tbody>
     </table>
   </div>
@@ -1292,7 +1360,7 @@ html,body{overflow-x:hidden}
   <strong>Olympic Paints</strong> &mdash; Nikhil Panchal Personal KPI Dashboard &mdash; Week ending 16 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 16 May 2026 12:31 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 16 May 2026 14:54 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>

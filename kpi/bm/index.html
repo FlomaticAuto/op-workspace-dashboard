@@ -374,6 +374,74 @@ html,body{overflow-x:hidden}
   .qbtn{flex:1 1 100%;font-size:12px;padding:8px 6px}
 }
 
+/* ────────────────────────────────────────────────────────────────────────
+   AGGRESSIVE MOBILE OVERRIDES — addresses 4 user-reported issues:
+   1) tables overflow,  2) cards still in 3-4 cols,
+   3) header+tabs eat space,  4) too small to read/tap
+   ──────────────────────────────────────────────────────────────────────── */
+@media (max-width:768px){
+  /* (1) Tables — every table wrapper gets horizontal scroll + first col sticky */
+  .tw,.table-wrap,.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r-md)}
+  .tw::-webkit-scrollbar,.table-wrap::-webkit-scrollbar,.tbl-wrap::-webkit-scrollbar{height:6px}
+  table{min-width:max-content}
+  /* Stick the FIRST column so the row identifier (name/account/date) stays visible */
+  table thead th:first-child,
+  table tbody td:first-child{position:sticky;left:0;background:var(--color-surface-base);z-index:2;box-shadow:2px 0 4px rgba(0,0,0,.15)}
+
+  /* (2) Cards/KPI tiles — force max 2 cols, even when inline grid-template uses 3 */
+  .kpi-grid,
+  .kpi-grid[style*="repeat(3"],
+  .kpi-grid[style*="repeat(auto-fit"]{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+  }
+  .g2,.g3{grid-template-columns:1fr !important;gap:14px}
+
+  /* (3) Header + tabs — slim further */
+  .page-hdr{padding:8px 12px !important;padding-top:calc(8px + env(safe-area-inset-top)) !important}
+  .page-hdr svg{width:34px !important;height:34px !important;flex-shrink:0}
+  .hdr-l{gap:8px;min-width:0;flex:1}
+  .hdr-title{font-size:14px !important;letter-spacing:0;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hdr-sub{font-size:10px !important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hdr-r{flex-shrink:0;text-align:right}
+  .hdr-ytd{font-size:16px !important;line-height:1}
+  .hdr-meta{font-size:9px !important;display:block}
+  .tab-nav{top:calc(52px + env(safe-area-inset-top)) !important}
+  .tab-btn{padding:12px 12px !important;font-size:12px !important}
+
+  /* (4) Readability — slightly larger body, ensure tap targets ≥44 */
+  body{font-size:15px}
+  thead th{padding:6px 8px !important;font-size:10px !important;line-height:1.2}
+  tbody td{padding:7px 8px !important;font-size:13px !important}
+  a,button{min-height:36px}
+  .kpi{padding:12px 12px !important}
+  .kpi-value{font-size:24px !important}
+  .kpi-label{font-size:10px !important}
+
+  /* Charts — fill width, slightly smaller */
+  canvas{max-width:100% !important;height:auto !important}
+  .h260{height:220px !important}
+  .h280{height:240px !important}
+  .h300{height:260px !important}
+  .h340{height:280px !important}
+
+  /* Footer takes less space */
+  .page-footer{padding:16px 12px !important;font-size:10px !important;line-height:1.5}
+}
+
+@media (max-width:480px){
+  /* On real phones, force EVERYTHING to single column */
+  .kpi-grid,
+  .kpi-grid[style*="repeat(3"],
+  .kpi-grid[style*="repeat(auto-fit"]{grid-template-columns:1fr 1fr !important;gap:8px !important}
+  .kpi{padding:10px 10px !important}
+  .kpi-value{font-size:20px !important}
+  .hdr-title{font-size:13px !important}
+  .hdr-ytd{font-size:15px !important}
+  .hdr-meta{display:none !important}
+  .hdr-r{text-align:right;min-width:60px}
+}
+
 </style>
 </head>
 <body style="background:var(--color-surface-page);color:var(--color-text-primary);font-family:var(--font-body);margin:0;">
@@ -398,7 +466,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R63.8K</div>
-    <div class="hdr-meta">Week ending 16 May 2026 &middot; Generated 16 May 2026 12:31</div>
+    <div class="hdr-meta">Week ending 16 May 2026 &middot; Generated 16 May 2026 14:54</div>
   </div>
 </div>
 
@@ -1063,12 +1131,12 @@ html,body{overflow-x:hidden}
   <td style="padding:10px 14px;font-weight:600">Living Inspired Interiors</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">1</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:var(--color-danger-bg);color:var(--color-danger-fg)">Dead / Dormant</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">275d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">276d</td>
 </tr><tr style="">
   <td style="padding:10px 14px;font-weight:600">Olive Urban</td>
   <td style="padding:10px 6px;text-align:center"><span style="font-family:var(--font-display);font-weight:900;font-size:16px;color:#E86060">9</span></td>
   <td style="padding:10px 6px;text-align:center"><span style="padding:3px 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;background:rgba(201,122,58,0.15);color:var(--_terra-light,#F7E0C8)">At-Risk</span></td>
-  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">51d</td>
+  <td style="padding:10px 14px;text-align:right;font-size:12px;color:var(--color-text-tertiary)">52d</td>
 </tr></tbody>
     </table>
   </div>
@@ -1084,7 +1152,7 @@ html,body{overflow-x:hidden}
   <strong>Olympic Paints</strong> &mdash; Byron Minnie Personal KPI Dashboard &mdash; Week ending 16 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 16 May 2026 12:31 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 16 May 2026 14:54 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
