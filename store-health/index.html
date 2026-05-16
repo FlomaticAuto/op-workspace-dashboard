@@ -170,6 +170,55 @@ details[open] .how-to-summary::before{transform:rotate(90deg)}
   .filter-row,.filter-bar{flex-wrap:wrap;gap:8px}
   .filter-bar input,.filter-bar select{min-height:40px;font-size:14px}
 }
+
+/* ────────────────────────────────────────────────────────────────────────
+   AGGRESSIVE MOBILE OVERRIDES — Store Health is table-heavy.
+   Most-used columns kept; freeze first column; smaller font.
+   ──────────────────────────────────────────────────────────────────────── */
+@media (max-width:768px){
+  body{font-size:15px}
+
+  /* Header slimmer */
+  .hdr{padding:8px 12px !important;padding-top:calc(8px + env(safe-area-inset-top)) !important;gap:8px}
+  .hdr h1,.hdr .title h1{font-size:14px !important;letter-spacing:0;line-height:1.1}
+  .hdr .subtitle,.hdr .meta{font-size:10px !important}
+
+  /* Summary tiles — 2 cols MAX */
+  .summary-grid{grid-template-columns:repeat(2,1fr) !important;gap:8px !important}
+  .summary-card,.summary-tile{padding:12px 10px !important}
+  .summary-num{font-size:22px !important}
+  .summary-label{font-size:9px !important}
+
+  /* The big store table — h-scroll with sticky first column (store name) */
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{min-width:max-content;font-size:12px}
+  thead th,tbody td{padding:7px 8px !important;font-size:11px !important}
+  /* Sticky first column for context while scrolling right */
+  table thead th:first-child,
+  table tbody td:first-child{
+    position:sticky;left:0;background:var(--color-surface-base);z-index:2;
+    box-shadow:2px 0 4px rgba(0,0,0,.15);
+    max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  /* Expand row when row clicked — body laid out as single column */
+  .expand-body{grid-template-columns:1fr !important;gap:10px}
+
+  /* Filters — h-scroll instead of wrapping (saves vertical space) */
+  .filter-row,.filter-bar{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .filter-row::-webkit-scrollbar,.filter-bar::-webkit-scrollbar{display:none}
+  .filter-bar > *{flex-shrink:0;min-height:40px;font-size:14px}
+
+  /* "How to use this report" — hidden by default on phone; user opens explicitly */
+  .how-to-box[open]{padding:12px}
+  .how-to-grid{grid-template-columns:1fr !important;gap:12px}
+}
+
+@media (max-width:480px){
+  .summary-grid{grid-template-columns:1fr 1fr !important}
+  .summary-num{font-size:20px !important}
+  .hdr h1,.hdr .title h1{font-size:13px !important}
+  table thead th:first-child,table tbody td:first-child{max-width:110px}
+}
 </style>
 </head>
 <body>
@@ -189,7 +238,7 @@ details[open] .how-to-summary::before{transform:rotate(90deg)}
       <div class="hdr-sub">Purchase frequency · Rep cadence · Basket coverage · SKU depth · Rand trend — 439 accounts · Data as at 16 May 2026</div>
     </div>
   </div>
-  <div class="hdr-meta">Generated 2026-05-16 12:42<br>380 Zoho store names unmatched to an account number</div>
+  <div class="hdr-meta">Generated 2026-05-16 14:56<br>380 Zoho store names unmatched to an account number</div>
 </div>
 
 <div class="main">
