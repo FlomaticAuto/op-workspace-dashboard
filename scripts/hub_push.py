@@ -61,5 +61,10 @@ def push_to_hub(subfolder: str, message: str | None = None) -> bool:
         ok = run(["git", "push", "origin", "master", "master:main"])
 
     if ok:
-        print(f"  ✓ Pushed {subfolder}/ to hub (master + main) → Vercel will auto-deploy")
+        # ASCII-safe print — cp1252 console can't handle ✓ / →
+        msg = f"  OK Pushed {subfolder}/ to hub (master + main) -> Vercel will auto-deploy"
+        try:
+            print(msg)
+        except UnicodeEncodeError:
+            print(msg.encode("ascii", "replace").decode())
     return ok
