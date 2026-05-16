@@ -1600,6 +1600,15 @@ const MANUAL_ACTIONS = [
     script: '2.Areas/12. Health and Safety/download_albertina_emails.py',
     output: '2.Areas/12. Health and Safety/Albertina - Total Risk/',
     prompt: 'Run the script at "c:/Users/quint/OneDrive/1.Projects/1.Olympic Paints/2.Areas/12. Health and Safety/download_albertina_emails.py" to pull any new emails from albertina@totalrisk.co.za into the Health & Safety folder. Show me the saved-folder list at the end.'
+  },
+  {
+    id: 'rebuild-hs-report',
+    title: 'Rebuild Health & Safety Report',
+    agent: 'SIGMA',
+    desc: 'Pulls the latest data from the Notion "Health & Safety Tracker" database and regenerates the multi-tab H&S report HTML (Overview, Open & Overdue, Incidents, Non-Compliance, Statutory, Monthly HSE, SOPs, People). Use after editing entries in Notion.',
+    script: '2.Areas/12. Health and Safety/rebuild_hs_report.py',
+    output: '2.Areas/12. Health and Safety/Output/index.html',
+    prompt: 'Run the script at "c:/Users/quint/OneDrive/1.Projects/1.Olympic Paints/2.Areas/12. Health and Safety/rebuild_hs_report.py" to pull the latest Notion data and rebuild the Health & Safety report HTML. Open the generated file at "c:/Users/quint/OneDrive/1.Projects/1.Olympic Paints/2.Areas/12. Health and Safety/Output/index.html" when done.'
   }
 ];
 
