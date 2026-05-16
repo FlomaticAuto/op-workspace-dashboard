@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T15:00:04+02:00",
+  "generated_at": "2026-05-16T19:26:37+02:00",
   "tasks": [
     {
       "job_id": "olympicpaints-emailecommercedashboard",
@@ -34,10 +34,10 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-16 16:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-16 15:00:01+02:00",
+      "next_run": "2026-05-16 20:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-16 19:26:21+02:00",
       "scheduler_last_task_result": 267009,
-      "heartbeat_status": "fresh",
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "build-schedule-manifest",
@@ -62,12 +62,24 @@
           "stdout_tail": "Wrote 17 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-16_14-00-03.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-16T15:00:02+02:00",
+          "finished_at": "2026-05-16T15:00:04+02:00",
+          "duration_seconds": 1.379,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 17 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-16_15-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-16T14:00:03+02:00",
-        "finished_at": "2026-05-16T14:00:06+02:00",
-        "duration_seconds": 2.547,
+        "started_at": "2026-05-16T15:00:02+02:00",
+        "finished_at": "2026-05-16T15:00:04+02:00",
+        "duration_seconds": 1.379,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -236,10 +248,10 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-16 16:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-16 14:15:01+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-05-16 20:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-16 19:26:21+02:00",
+      "scheduler_last_task_result": -2147020576,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "sync-claude-todos",
