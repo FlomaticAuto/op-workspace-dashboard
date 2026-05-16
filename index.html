@@ -2,7 +2,12 @@
 <html lang="en" class="theme-dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="OP Workspace">
+<meta name="theme-color" content="#0D0D0B" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F6F3" media="(prefers-color-scheme: light)">
 <title>AI Workspace Dashboard — Olympic Paints</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1267,69 +1272,184 @@
     width: calc(66.66% + 20px);
   }
 
+  /* ─── Mobile app-shell elements (hidden on desktop) ─── */
+  .mobile-menu-btn { display: none; }
+  .mobile-overlay { display: none; }
+
   /* ─── Mobile (≤860px) ─── */
   @media (max-width: 860px) {
-    /* Chrome padding compression — matches the portal.html pattern */
-    .theme-bar { padding: 6px 12px; flex-wrap: wrap; }
-    .theme-bar button { padding: 4px 10px; font-size: 10px; }
+    /* Stop iOS auto-resizing text on orientation change */
+    html { -webkit-text-size-adjust: 100%; }
 
-    .header { padding: 16px 16px; flex-direction: column; align-items: flex-start; gap: 12px; }
-    .header-left { gap: 12px; }
-    .header-left svg { width: 36px; height: 36px; flex-shrink: 0; }
-    .header-title h1 { font-size: 18px; }
-    .header-title p { font-size: 11px; }
-    .header-right { gap: 6px; width: 100%; }
-    .header-right .status-pill,
-    .header-right .live-pill,
-    .header-right .updated-pill { font-size: 10px; padding: 3px 9px; }
+    /* Safe-area insets so notch / home indicator don't crash into UI */
+    body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
 
-    /* Tab bar — horizontal scroll instead of wrapping */
+    /* Theme bar — hidden on mobile, moved into the overlay menu */
+    .theme-bar { display: none; }
+
+    /* Compact sticky header — single 52 px row */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      padding: 8px 12px;
+      padding-top: calc(8px + env(safe-area-inset-top));
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border-bottom: 2px solid var(--color-brand-primary);
+      box-shadow: var(--shadow-sm);
+    }
+    .header-left { gap: 10px; flex: 1; min-width: 0; }
+    .header-left svg { width: 32px; height: 32px; flex-shrink: 0; }
+    .header-title h1 { font-size: 15px; letter-spacing: 0.2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .header-title p { display: none; }
+
+    /* Hide noisy status pills on the header strip — they live in the overlay */
+    .header-right { display: none; }
+
+    /* Hamburger / menu button on the right */
+    .mobile-menu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--r-md);
+      color: var(--color-text-primary);
+      font-size: 20px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .mobile-menu-btn:active { background: var(--color-surface-overlay); }
+
+    /* Sticky tab strip — sits right under the header */
     .tab-bar {
-      padding: 0 12px;
+      position: sticky;
+      top: calc(52px + env(safe-area-inset-top));
+      z-index: 80;
+      padding: 0 8px;
       overflow-x: auto;
       flex-wrap: nowrap;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      border-bottom: 1px solid var(--color-border-default);
+      box-shadow: var(--shadow-sm);
     }
     .tab-bar::-webkit-scrollbar { display: none; }
     .tab-btn {
-      padding: 12px 14px;
+      padding: 14px 14px;
       font-size: 11px;
       white-space: nowrap;
       flex-shrink: 0;
+      min-height: 44px;
     }
 
-    /* Main content */
-    .main { padding: 20px 14px; }
+    /* Main content — near-edge-to-edge */
+    .main { padding: 16px 12px calc(24px + env(safe-area-inset-bottom)); }
     .section-label { margin-top: 28px; font-size: 9px; letter-spacing: 1.5px; }
 
     /* Summary banner — 2 cols on phones */
-    .summary-banner { padding: 16px 14px; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .summary-banner { padding: 14px 12px; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .stat-num { font-size: 26px; }
 
     /* APEX card */
-    .apex-card { min-width: 0; padding: 20px 24px; width: 100%; }
+    .apex-card { min-width: 0; padding: 20px 18px; width: 100%; }
     .apex-name { font-size: 22px; }
 
-    /* Agent grid — keep 2-col already covered at 768px, just tighten */
-    .agents-grid { gap: 12px; }
+    /* Agent grid */
+    .agents-grid { gap: 10px; }
 
     /* Information Insight wrap */
-    .info-wrap { padding: 24px 14px; }
+    .info-wrap { padding: 24px 12px; }
     .info-title { font-size: 26px !important; }
 
-    /* Org Structure — let the flexible grids breathe */
+    /* Org Structure */
     .org-h-line { display: none; }
 
-    /* Tables — allow horizontal scroll inside their containers */
+    /* Tables — horizontal scroll containers */
     table { font-size: 11px; }
+
+    /* Overlay menu (theme picker + status pills) */
+    .mobile-overlay {
+      display: flex;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding-top: env(safe-area-inset-top);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+    .mobile-overlay-panel {
+      width: min(320px, 86vw);
+      max-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+      background: var(--color-surface-elevated);
+      border-left: 1px solid var(--color-border-default);
+      padding: 16px 16px calc(24px + env(safe-area-inset-bottom));
+      overflow-y: auto;
+      transform: translateX(8px);
+      transition: transform 0.2s ease;
+    }
+    .mobile-overlay.open .mobile-overlay-panel { transform: translateX(0); }
+    .mobile-overlay-close {
+      display: block;
+      margin-left: auto;
+      width: 36px; height: 36px;
+      background: none;
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--r-sm);
+      color: var(--color-text-primary);
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .mobile-overlay-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin: 18px 0 8px;
+    }
+    .mobile-overlay-themes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .mobile-overlay-themes button {
+      padding: 12px 10px;
+      background: var(--color-surface-base);
+      border: 1px solid var(--color-border-default);
+      color: var(--color-text-primary);
+      border-radius: var(--r-md);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      min-height: 44px;
+    }
+    .mobile-overlay-themes button.active {
+      background: var(--color-brand-primary);
+      color: var(--color-text-on-brand);
+      border-color: var(--color-brand-primary);
+    }
+    .mobile-overlay-pills { display: flex; flex-direction: column; gap: 8px; }
+    .mobile-overlay-pills > * { display: inline-flex; align-items: center; }
   }
 
   /* ─── Very narrow phones (≤480px) ─── */
   @media (max-width: 480px) {
     .summary-banner { grid-template-columns: 1fr 1fr; }
-    .header-title h1 { font-size: 16px; }
-    .tab-btn { padding: 10px 12px; font-size: 10px; }
+    .header-title h1 { font-size: 14px; }
+    .tab-btn { padding: 12px 12px; font-size: 10px; }
   }
 </style>
 </head>
@@ -1337,10 +1457,10 @@
 
 <!-- ─── Theme Bar ─── -->
 <div class="theme-bar">
-  <button onclick="olyTheme('theme-light',this)">Light</button>
-  <button onclick="olyTheme('theme-dark',this)" class="active">Dark</button>
-  <button onclick="olyTheme('theme-brand',this)">Brand</button>
-  <button onclick="olyTheme('theme-navy',this)">Navy</button>
+  <button data-theme="theme-light" onclick="olyTheme('theme-light',this)">Light</button>
+  <button data-theme="theme-dark" class="active" onclick="olyTheme('theme-dark',this)">Dark</button>
+  <button data-theme="theme-brand" onclick="olyTheme('theme-brand',this)">Brand</button>
+  <button data-theme="theme-navy" onclick="olyTheme('theme-navy',this)">Navy</button>
 </div>
 
 <!-- ─── Header ─── -->
@@ -1361,6 +1481,7 @@
     <span class="live-pill"><span class="live-dot"></span> LIVE DATA</span>
     <span class="updated-pill" id="updated-pill">Loading...</span>
   </div>
+  <button class="mobile-menu-btn" type="button" aria-label="Open menu" onclick="olyMobileMenuOpen()">☰</button>
 </div>
 
 <!-- ─── Tab Bar ─── -->
@@ -3651,7 +3772,21 @@ if (document.readyState !== 'loading') renderInfo();
     document.documentElement.classList.remove(...OLY_THEMES);
     document.documentElement.classList.add(t);
     localStorage.setItem('oly-theme',t);
-    document.querySelectorAll('.theme-bar button').forEach(b=>b.classList.toggle('active',b===btn));
+    // Sync active state across BOTH the desktop theme-bar and the mobile overlay
+    document.querySelectorAll('.theme-bar button, .mobile-overlay-themes button').forEach(b=>{
+      const matches = (b.getAttribute('data-theme') === t) || (btn && b === btn);
+      b.classList.toggle('active', matches);
+    });
+  }
+
+  // ─── Mobile overlay menu ──────────────────────────────────────────────────
+  function olyMobileMenuOpen(){
+    var ov = document.getElementById('mobile-overlay');
+    if (ov) { ov.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  }
+  function olyMobileMenuClose(){
+    var ov = document.getElementById('mobile-overlay');
+    if (ov) { ov.classList.remove('open'); document.body.style.overflow = ''; }
   }
 
   // ─── Tab switching ────────────────────────────────────────────────────────
@@ -4146,6 +4281,57 @@ if (document.readyState !== 'loading') renderInfo();
       setEl('oh-missed', '—');
       setEl('oh-total-hours', '—');
     });
+</script>
+
+<!-- ─── Mobile overlay menu (theme picker + status pills) ─── -->
+<div id="mobile-overlay" class="mobile-overlay" onclick="if(event.target===this)olyMobileMenuClose()">
+  <div class="mobile-overlay-panel">
+    <button class="mobile-overlay-close" type="button" aria-label="Close menu" onclick="olyMobileMenuClose()">×</button>
+
+    <div class="mobile-overlay-label">Theme</div>
+    <div class="mobile-overlay-themes">
+      <button type="button" data-theme="theme-light" onclick="olyTheme('theme-light',this)">Light</button>
+      <button type="button" data-theme="theme-dark" class="active" onclick="olyTheme('theme-dark',this)">Dark</button>
+      <button type="button" data-theme="theme-brand" onclick="olyTheme('theme-brand',this)">Brand</button>
+      <button type="button" data-theme="theme-navy" onclick="olyTheme('theme-navy',this)">Navy</button>
+    </div>
+
+    <div class="mobile-overlay-label">Status</div>
+    <div class="mobile-overlay-pills">
+      <span class="status-pill">● ACTIVE</span>
+      <span class="live-pill"><span class="live-dot"></span> LIVE DATA</span>
+      <span class="updated-pill" id="updated-pill-mobile">Loading...</span>
+    </div>
+
+    <div class="mobile-overlay-label">Quick Links</div>
+    <div class="mobile-overlay-pills">
+      <a href="portal.html" style="color:var(--color-brand-primary);text-decoration:none;font-weight:600;padding:10px 0;">↗ Reports Portal</a>
+      <a href="updates.html" style="color:var(--color-brand-primary);text-decoration:none;font-weight:600;padding:10px 0;">↗ Health Check</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mirror the desktop "updated" pill text into the mobile overlay copy
+  (function(){
+    var obs = new MutationObserver(function(){
+      var src = document.getElementById('updated-pill');
+      var dst = document.getElementById('updated-pill-mobile');
+      if (src && dst && dst.textContent !== src.textContent) dst.textContent = src.textContent;
+    });
+    var src = document.getElementById('updated-pill');
+    if (src) obs.observe(src, { childList: true, characterData: true, subtree: true });
+  })();
+
+  // Sync theme button active state on load (in case the cached theme isn't 'dark')
+  (function(){
+    var t = document.documentElement.className;
+    document.querySelectorAll('.theme-bar button, .mobile-overlay-themes button').forEach(function(b){
+      var dt = b.getAttribute('data-theme') || b.getAttribute('onclick') || '';
+      var matches = dt.indexOf(t) !== -1;
+      b.classList.toggle('active', matches);
+    });
+  })();
 </script>
 </body>
 </html>
