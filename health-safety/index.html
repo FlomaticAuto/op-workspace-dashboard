@@ -196,29 +196,48 @@ main { padding:24px 32px 60px; max-width:1400px; margin:0 auto; }
 .sub-tab-pane { display:none; }
 .sub-tab-pane.active { display:block; }
 
-.month-filter-row {
-  display:flex; flex-wrap:wrap; gap:16px; align-items:center;
+.hs-filter-row {
+  display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+  margin-bottom:10px;
+}
+.hs-filter-row:last-of-type { margin-bottom:20px; }
+.hs-filter-label {
+  font-family:var(--font-display); font-weight:800; font-size:11px;
+  text-transform:uppercase; letter-spacing:0.10em; color:var(--color-text-secondary);
+  min-width:54px; flex-shrink:0;
+}
+.hs-chip-row {
+  display:flex; flex-wrap:wrap; gap:6px; align-items:center; flex:1;
+}
+.hs-chip {
+  padding:6px 14px; border-radius:6px;
+  border:1px solid var(--color-border-default);
   background:var(--color-surface-elevated);
-  border:1px solid var(--color-border-default);
-  border-radius:var(--r-lg);
-  padding:12px 16px;
-  margin-bottom:20px;
-}
-.month-filter-row label {
-  display:flex; flex-direction:column; gap:4px;
-  font-family:var(--font-display); font-weight:700; font-size:10px;
-  text-transform:uppercase; letter-spacing:0.08em; color:var(--color-text-secondary);
-}
-.month-filter-row select {
-  background:var(--color-surface-sunken);
   color:var(--color-text-primary);
-  border:1px solid var(--color-border-default);
-  border-radius:var(--r-md);
-  padding:6px 10px;
-  font-family:var(--font-body); font-size:13px; font-weight:500;
-  min-width:140px;
+  font-family:var(--font-display); font-size:12px; font-weight:700;
+  text-transform:uppercase; letter-spacing:0.05em;
+  cursor:pointer; transition:all 0.15s;
 }
-.month-filter-row select:focus { outline:2px solid var(--color-brand-primary); outline-offset:1px; }
+.hs-chip:hover:not(:disabled) {
+  border-color:var(--color-brand-primary);
+  color:var(--color-brand-primary);
+}
+.hs-chip.active {
+  background:var(--color-brand-primary);
+  color:#0D0D0B;
+  border-color:var(--color-brand-primary);
+}
+.hs-chip.is-empty {
+  border-style:dashed;
+  color:var(--color-text-tertiary);
+  cursor:not-allowed;
+  opacity:0.55;
+}
+.hs-chip.is-empty:hover {
+  border-color:var(--color-border-default);
+  color:var(--color-text-tertiary);
+}
+.hs-chip:disabled { cursor:not-allowed; }
 .month-filter-hint { color:var(--color-text-tertiary); font-size:12px; margin-left:auto; }
 
 .month-head { margin-bottom:18px; }
@@ -296,7 +315,7 @@ main { padding:24px 32px 60px; max-width:1400px; margin:0 auto; }
     <div class="sub">Olympic Paints · Tracked from correspondence with Albertina Sithole (Total Risk)</div>
   </div>
   <div class="right">
-    Generated 2026-05-16 22:59<br>
+    Generated 2026-05-16 23:11<br>
     <a href="https://www.notion.so/1c65caba811b41a88cd83b92ad156ebd" target="_blank">Edit in Notion →</a>
   </div>
 </header>
@@ -365,13 +384,13 @@ main { padding:24px 32px 60px; max-width:1400px; margin:0 auto; }
     </div>
 
     <section class="sub-tab-pane active" id="monthly-report">
-      <div class="month-filter-row">
-        <label>Year
-          <select id="hs-month-year" onchange="renderMonthlyReport()"><option value="2026" selected>2026</option><option value="2025">2025</option></select>
-        </label>
-        <label>Month
-          <select id="hs-month-month" onchange="renderMonthlyReport()"><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select>
-        </label>
+      <div class="hs-filter-row">
+        <span class="hs-filter-label">Year</span>
+        <div class="hs-chip-row" id="hs-year-row"><button class="hs-chip active" data-year="2026" onclick="setHsYear('2026', this)">2026</button><button class="hs-chip" data-year="2025" onclick="setHsYear('2025', this)">2025</button></div>
+      </div>
+      <div class="hs-filter-row">
+        <span class="hs-filter-label">Month</span>
+        <div class="hs-chip-row" id="hs-month-row"><button class="hs-chip hs-chip-month" data-month="01"  onclick="setHsMonth('01', this)">JAN</button><button class="hs-chip hs-chip-month" data-month="02"  onclick="setHsMonth('02', this)">FEB</button><button class="hs-chip hs-chip-month" data-month="03"  onclick="setHsMonth('03', this)">MAR</button><button class="hs-chip hs-chip-month active" data-month="04"  onclick="setHsMonth('04', this)">APR</button><button class="hs-chip hs-chip-month is-empty" data-month="05" disabled aria-disabled="true" onclick="setHsMonth('05', this)">MAY</button><button class="hs-chip hs-chip-month is-empty" data-month="06" disabled aria-disabled="true" onclick="setHsMonth('06', this)">JUN</button><button class="hs-chip hs-chip-month is-empty" data-month="07" disabled aria-disabled="true" onclick="setHsMonth('07', this)">JUL</button><button class="hs-chip hs-chip-month is-empty" data-month="08" disabled aria-disabled="true" onclick="setHsMonth('08', this)">AUG</button><button class="hs-chip hs-chip-month is-empty" data-month="09" disabled aria-disabled="true" onclick="setHsMonth('09', this)">SEP</button><button class="hs-chip hs-chip-month is-empty" data-month="10" disabled aria-disabled="true" onclick="setHsMonth('10', this)">OCT</button><button class="hs-chip hs-chip-month is-empty" data-month="11" disabled aria-disabled="true" onclick="setHsMonth('11', this)">NOV</button><button class="hs-chip hs-chip-month is-empty" data-month="12" disabled aria-disabled="true" onclick="setHsMonth('12', this)">DEC</button></div>
         <span class="month-filter-hint" id="hs-month-hint"></span>
       </div>
       <div id="monthly-report-body">
@@ -446,14 +465,6 @@ function initMonthlyReport(){
     console.error('Failed to parse monthly data', e);
     return;
   }
-  // Set the month dropdown from defaultYm (e.g. '2026-04' → month '04')
-  const def = window._hsMonthly.defaultYm || '';
-  if(def && def.length === 7){
-    const yearSel = document.getElementById('hs-month-year');
-    const monthSel = document.getElementById('hs-month-month');
-    if(yearSel) yearSel.value = def.substring(0,4);
-    if(monthSel) monthSel.value = def.substring(5,7);
-  }
   _hsMonthlyInitialised = true;
   renderMonthlyReport();
 }
@@ -466,13 +477,68 @@ function showMonthlySubtab(id, btn){
   if(btn) btn.classList.add('active');
 }
 
+function _hsActiveYear(){
+  const el = document.querySelector('#hs-year-row .hs-chip.active');
+  return el ? el.dataset.year : '';
+}
+function _hsActiveMonth(){
+  const el = document.querySelector('#hs-month-row .hs-chip.active');
+  return el ? el.dataset.month : '';
+}
+
+function setHsYear(year, btn){
+  if(!btn || btn.disabled) return;
+  document.querySelectorAll('#hs-year-row .hs-chip').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  // Recompute which months are populated under this year and rebuild chip states.
+  const data = window._hsMonthly;
+  if(data){
+    const monthsForYear = new Set(
+      (data.availableYms || [])
+        .filter(ym => ym.substring(0,4) === year)
+        .map(ym => ym.substring(5,7))
+    );
+    let firstPopulated = '';
+    document.querySelectorAll('#hs-month-row .hs-chip').forEach(chip=>{
+      const m = chip.dataset.month;
+      const populated = monthsForYear.has(m);
+      chip.classList.toggle('is-empty', !populated);
+      chip.disabled = !populated;
+      chip.removeAttribute('aria-disabled');
+      if(!populated) chip.setAttribute('aria-disabled', 'true');
+      chip.classList.remove('active');
+      if(populated && !firstPopulated) firstPopulated = m;
+    });
+    // Auto-select the most-recent populated month in this year
+    let pick = '';
+    Array.from(monthsForYear).sort().reverse().forEach(m => { if(!pick) pick = m; });
+    if(pick){
+      const target = document.querySelector('#hs-month-row .hs-chip[data-month="'+pick+'"]');
+      if(target) target.classList.add('active');
+    }
+  }
+  renderMonthlyReport();
+}
+
+function setHsMonth(month, btn){
+  if(!btn || btn.disabled) return;
+  document.querySelectorAll('#hs-month-row .hs-chip').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderMonthlyReport();
+}
+
 function renderMonthlyReport(){
   const data = window._hsMonthly;
   const body = document.getElementById('monthly-report-body');
   const hint = document.getElementById('hs-month-hint');
   if(!data || !body) return;
-  const y = document.getElementById('hs-month-year').value;
-  const m = document.getElementById('hs-month-month').value;
+  const y = _hsActiveYear();
+  const m = _hsActiveMonth();
+  if(!y || !m){
+    body.innerHTML = '<p class="empty" style="padding:32px;text-align:center;">Pick a year and month to view the report.</p>';
+    if(hint) hint.textContent = '';
+    return;
+  }
   const ym = y + '-' + m;
   const blob = data.months && data.months[ym];
   if(blob){
