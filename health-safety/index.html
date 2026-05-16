@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-navy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health & Safety Report — Olympic Paints</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
+<style>
+:root {
+  --_y50:#FEF9E0; --_y100:#FDF0A0; --_y200:#FAE04D;
+  --_y400:#F5C400; --_y600:#D4A800; --_y800:#A88000; --_y900:#6A5000;
+  --_n50:#E8EFF8; --_n100:#B8CCE8; --_n300:#6B9ED0;
+  --_n500:#2D6BA8; --_n700:#1A3D6E; --_n900:#0D2040; --_n950:#071022;
+  --_g0:#FFFFFF; --_g50:#F7F6F3; --_g100:#E8E7E2; --_g200:#C8C7C0;
+  --_g400:#949390; --_g600:#5C5B58; --_g800:#2E2E2C;
+  --_g900:#1A1A18; --_g950:#0D0D0B;
+  --_teal:#2D8C7A; --_teal-light:#C8EDE7; --_teal-dark:#1a5c50;
+  --_coral:#E86060; --_coral-light:#FDDCDC;
+  --font-display:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-pill:50px;
+}
+.theme-light {
+  color-scheme:light;
+  --color-surface-page:var(--_g50); --color-surface-base:var(--_g0);
+  --color-surface-elevated:var(--_g0); --color-surface-sunken:var(--_g100);
+  --color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g950); --color-text-secondary:var(--_g600);
+  --color-text-tertiary:var(--_g400); --color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400); --color-brand-accent:var(--_y400);
+  --color-border-subtle:var(--_g100); --color-border-default:var(--_g200);
+  --color-border-strong:var(--_g400);
+  --color-success-bg:#EDF7F5; --color-success-fg:var(--_teal-dark); --color-success-bd:var(--_teal);
+  --color-warning-bg:var(--_y50); --color-warning-fg:var(--_y900); --color-warning-bd:var(--_y600);
+  --color-danger-bg:#FEF2F2; --color-danger-fg:#C0392B; --color-danger-bd:var(--_coral);
+  --color-info-bg:var(--_n50); --color-info-fg:var(--_n700); --color-info-bd:var(--_n500);
+  --color-neutral-bg:var(--_g100); --color-neutral-fg:var(--_g600); --color-neutral-bd:var(--_g400);
+  --shadow-md:0 4px 12px rgba(0,0,0,0.08);
+}
+.theme-dark {
+  color-scheme:dark;
+  --color-surface-page:var(--_g950); --color-surface-base:var(--_g900);
+  --color-surface-elevated:var(--_g800); --color-surface-sunken:var(--_g950);
+  --color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g100); --color-text-secondary:var(--_g400);
+  --color-text-tertiary:var(--_g600); --color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400); --color-brand-accent:var(--_y400);
+  --color-border-subtle:rgba(255,255,255,0.06); --color-border-default:rgba(255,255,255,0.10);
+  --color-border-strong:rgba(255,255,255,0.20);
+  --color-success-bg:rgba(45,140,122,0.12); --color-success-fg:var(--_teal-light); --color-success-bd:rgba(45,140,122,0.30);
+  --color-warning-bg:rgba(245,196,0,0.10); --color-warning-fg:var(--_y200); --color-warning-bd:rgba(245,196,0,0.25);
+  --color-danger-bg:rgba(232,96,96,0.12); --color-danger-fg:var(--_coral-light); --color-danger-bd:rgba(232,96,96,0.30);
+  --color-info-bg:rgba(26,61,110,0.30); --color-info-fg:var(--_n100); --color-info-bd:rgba(107,158,208,0.30);
+  --color-neutral-bg:rgba(255,255,255,0.05); --color-neutral-fg:var(--_g400); --color-neutral-bd:rgba(255,255,255,0.10);
+  --shadow-md:0 4px 12px rgba(0,0,0,0.40);
+}
+.theme-navy {
+  color-scheme:dark;
+  --color-surface-page:var(--_n950); --color-surface-base:var(--_n900);
+  --color-surface-elevated:var(--_n700); --color-surface-sunken:var(--_n950);
+  --color-surface-secondary:var(--_n700);
+  --color-text-primary:var(--_g0); --color-text-secondary:var(--_n100);
+  --color-text-tertiary:var(--_n300); --color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_y400); --color-brand-accent:var(--_y400);
+  --color-border-subtle:rgba(107,158,208,0.12); --color-border-default:rgba(107,158,208,0.20);
+  --color-border-strong:rgba(107,158,208,0.35);
+  --color-success-bg:rgba(45,140,122,0.15); --color-success-fg:var(--_teal-light); --color-success-bd:rgba(45,140,122,0.35);
+  --color-warning-bg:rgba(245,196,0,0.12); --color-warning-fg:var(--_y200); --color-warning-bd:rgba(245,196,0,0.30);
+  --color-danger-bg:rgba(232,96,96,0.14); --color-danger-fg:var(--_coral-light); --color-danger-bd:rgba(232,96,96,0.35);
+  --color-info-bg:rgba(45,107,168,0.20); --color-info-fg:var(--_n100); --color-info-bd:rgba(107,158,208,0.35);
+  --color-neutral-bg:rgba(255,255,255,0.05); --color-neutral-fg:var(--_n300); --color-neutral-bd:rgba(255,255,255,0.12);
+  --shadow-md:0 4px 12px rgba(0,0,0,0.50);
+}
+.theme-brand {
+  color-scheme:light;
+  --color-surface-page:var(--_y400); --color-surface-base:var(--_y200);
+  --color-surface-elevated:var(--_y50); --color-surface-sunken:var(--_y600);
+  --color-surface-secondary:var(--_g950);
+  --color-text-primary:var(--_g950); --color-text-secondary:var(--_y900);
+  --color-text-tertiary:var(--_y800); --color-text-on-brand:var(--_g950);
+  --color-text-on-navy:var(--_g0);
+  --color-brand-primary:var(--_g950); --color-brand-accent:var(--_g950);
+  --color-border-subtle:rgba(0,0,0,0.08); --color-border-default:rgba(0,0,0,0.14);
+  --color-border-strong:rgba(0,0,0,0.25);
+  --color-success-bg:rgba(45,140,122,0.12); --color-success-fg:var(--_teal-dark); --color-success-bd:var(--_teal);
+  --color-warning-bg:rgba(0,0,0,0.08); --color-warning-fg:var(--_y900); --color-warning-bd:var(--_y900);
+  --color-danger-bg:rgba(232,96,96,0.12); --color-danger-fg:#C0392B; --color-danger-bd:var(--_coral);
+  --color-info-bg:rgba(26,61,110,0.10); --color-info-fg:var(--_n900); --color-info-bd:var(--_n700);
+  --color-neutral-bg:rgba(0,0,0,0.06); --color-neutral-fg:var(--_y900); --color-neutral-bd:rgba(0,0,0,0.15);
+  --shadow-md:0 4px 12px rgba(0,0,0,0.14);
+}
+
+* { box-sizing:border-box; }
+body { margin:0; background:var(--color-surface-page); color:var(--color-text-primary); font-family:var(--font-body); }
+a { color:var(--color-brand-primary); }
+
+.theme-bar { display:flex; gap:4px; padding:8px 16px; background:var(--color-surface-secondary); }
+.theme-bar button {
+  background:transparent; color:var(--color-text-on-navy); border:1px solid rgba(255,255,255,0.2);
+  padding:4px 12px; font-family:var(--font-display); font-weight:700; font-size:11px;
+  text-transform:uppercase; letter-spacing:0.06em; border-radius:var(--r-pill); cursor:pointer;
+}
+.theme-bar button.active { background:var(--color-brand-primary); color:var(--color-text-on-brand); border-color:var(--color-brand-primary); }
+
+header.page-head {
+  display:flex; align-items:center; gap:16px; padding:24px 32px;
+  background:var(--color-surface-base); border-bottom:1px solid var(--color-border-default);
+}
+header.page-head .logo-wrap { width:56px; height:56px; border-radius:50%; overflow:hidden; flex-shrink:0; }
+header.page-head .logo-wrap img { display:block; width:100%; height:100%; object-fit:cover; }
+header.page-head h1 {
+  font-family:var(--font-display); font-weight:900; font-size:32px;
+  margin:0; text-transform:uppercase; letter-spacing:0.02em; color:var(--color-text-primary);
+}
+header.page-head .sub { color:var(--color-text-secondary); font-size:13px; }
+header.page-head .right { margin-left:auto; text-align:right; font-size:12px; color:var(--color-text-tertiary); }
+
+.tab-bar { display:flex; flex-wrap:wrap; gap:4px; padding:0 32px; background:var(--color-surface-base); border-bottom:1px solid var(--color-border-default); }
+.tab-btn {
+  background:transparent; border:none; padding:14px 18px;
+  font-family:var(--font-display); font-weight:700; font-size:13px;
+  text-transform:uppercase; letter-spacing:0.04em; color:var(--color-text-secondary);
+  cursor:pointer; border-bottom:3px solid transparent;
+}
+.tab-btn:hover { color:var(--color-text-primary); }
+.tab-btn.active { color:var(--color-text-primary); border-bottom-color:var(--color-brand-primary); }
+
+main { padding:24px 32px 60px; max-width:1400px; margin:0 auto; }
+.tab-pane { display:none; }
+.tab-pane.active { display:block; }
+
+.lead { color:var(--color-text-secondary); font-size:14px; margin:0 0 18px; }
+
+.kpi-row { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin-bottom:24px; }
+.kpi-card { background:var(--color-surface-elevated); border:1px solid var(--color-border-default); border-radius:var(--r-lg); padding:16px; }
+.kpi-card .kpi-value { font-family:var(--font-display); font-weight:900; font-size:36px; line-height:1; color:var(--color-text-primary); }
+.kpi-card .kpi-label { font-family:var(--font-body); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--color-text-secondary); margin-top:6px; }
+.kpi-danger .kpi-value { color:var(--color-danger-fg); }
+.kpi-warning .kpi-value { color:var(--color-warning-fg); }
+.kpi-success .kpi-value { color:var(--color-success-fg); }
+.kpi-info .kpi-value { color:var(--color-info-fg); }
+
+.two-col { display:grid; grid-template-columns:2fr 1fr; gap:20px; }
+@media (max-width: 900px) { .two-col { grid-template-columns:1fr; } }
+.panel { background:var(--color-surface-elevated); border:1px solid var(--color-border-default); border-radius:var(--r-lg); padding:18px; }
+.panel h3 { font-family:var(--font-display); font-weight:800; font-size:14px; text-transform:uppercase; letter-spacing:0.06em; margin:0 0 12px; color:var(--color-text-primary); }
+
+.data-table { width:100%; border-collapse:collapse; background:var(--color-surface-elevated); border:1px solid var(--color-border-default); border-radius:var(--r-lg); overflow:hidden; }
+.data-table th, .data-table td { text-align:left; padding:10px 12px; border-top:1px solid var(--color-border-subtle); font-size:13px; vertical-align:top; }
+.data-table thead th { background:var(--color-surface-sunken); font-family:var(--font-display); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text-secondary); border-top:none; }
+.data-table tbody tr:first-child td { border-top:none; }
+.data-table td .meta { font-size:11px; color:var(--color-text-tertiary); margin-top:2px; }
+.data-table td.num { font-variant-numeric:tabular-nums; }
+.data-table .empty { text-align:center; color:var(--color-text-tertiary); padding:24px; font-style:italic; }
+.incidents-table .detail-row td { padding-top:0; background:var(--color-surface-sunken); }
+.incidents-table .detail { padding:8px 12px; font-size:12px; color:var(--color-text-secondary); border-radius:var(--r-md); }
+.incidents-table .attachments { margin-top:6px; font-size:11px; color:var(--color-text-tertiary); }
+
+.pill { display:inline-block; padding:2px 8px; border-radius:var(--r-pill); font-family:var(--font-display); font-weight:700; font-size:10px; text-transform:uppercase; letter-spacing:0.06em; border:1px solid; white-space:nowrap; }
+.pill-danger { background:var(--color-danger-bg); color:var(--color-danger-fg); border-color:var(--color-danger-bd); }
+.pill-warning { background:var(--color-warning-bg); color:var(--color-warning-fg); border-color:var(--color-warning-bd); }
+.pill-success { background:var(--color-success-bg); color:var(--color-success-fg); border-color:var(--color-success-bd); }
+.pill-info { background:var(--color-info-bg); color:var(--color-info-fg); border-color:var(--color-info-bd); }
+.pill-neutral { background:var(--color-neutral-bg); color:var(--color-neutral-fg); border-color:var(--color-neutral-bd); }
+
+.overdue { color:var(--color-danger-fg); font-weight:600; }
+.due-today { color:var(--color-warning-fg); font-weight:600; }
+.upcoming { color:var(--color-text-tertiary); }
+
+.tl-green, .tl-amber, .tl-red, .tl-grey { font-family:var(--font-display); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; }
+.tl-green { color:var(--color-success-fg); }
+.tl-amber { color:var(--color-warning-fg); }
+.tl-red { color:var(--color-danger-fg); }
+.tl-grey { color:var(--color-text-tertiary); }
+
+.src-link { font-size:11px; color:var(--color-text-secondary); text-decoration:none; }
+.src-link:hover { text-decoration:underline; color:var(--color-text-primary); }
+</style>
+</head>
+<body>
+
+<div class="theme-bar">
+  <button onclick="olyTheme('theme-light',this)">Light</button>
+  <button onclick="olyTheme('theme-dark',this)">Dark</button>
+  <button onclick="olyTheme('theme-brand',this)">Brand</button>
+  <button onclick="olyTheme('theme-navy',this)" class="active">Navy</button>
+</div>
+
+<header class="page-head">
+  <div class="logo-wrap"><img src="logo.jpg" alt="Olympic Paints"></div>
+  <div>
+    <h1>Health &amp; Safety Report</h1>
+    <div class="sub">Olympic Paints · Tracked from correspondence with Albertina Sithole (Total Risk)</div>
+  </div>
+  <div class="right">
+    Generated 2026-05-16 22:40<br>
+    <a href="https://www.notion.so/1c65caba811b41a88cd83b92ad156ebd" target="_blank">Edit in Notion →</a>
+  </div>
+</header>
+
+<nav class="tab-bar"><button class="tab-btn active" data-tab="overview" onclick="showTab('overview', this)">Overview</button><button class="tab-btn" data-tab="open" onclick="showTab('open', this)">Open &amp; Overdue</button><button class="tab-btn" data-tab="incidents" onclick="showTab('incidents', this)">Incidents</button><button class="tab-btn" data-tab="noncompliance" onclick="showTab('noncompliance', this)">Non-Compliance</button><button class="tab-btn" data-tab="statutory" onclick="showTab('statutory', this)">Statutory</button><button class="tab-btn" data-tab="monthly" onclick="showTab('monthly', this)">Monthly HSE</button><button class="tab-btn" data-tab="sops" onclick="showTab('sops', this)">SOPs &amp; Documents</button><button class="tab-btn" data-tab="people" onclick="showTab('people', this)">People &amp; Training</button></nav>
+<main><section class="tab-pane active" id="tab-overview">
+    <div class="kpi-row"><div class="kpi-card kpi-danger"><div class="kpi-value">19</div><div class="kpi-label">Open items</div></div><div class="kpi-card kpi-danger"><div class="kpi-value">5</div><div class="kpi-label">Critical open</div></div><div class="kpi-card kpi-danger"><div class="kpi-value">3</div><div class="kpi-label">Overdue</div></div><div class="kpi-card kpi-warning"><div class="kpi-value">1</div><div class="kpi-label">Open incidents</div></div><div class="kpi-card kpi-warning"><div class="kpi-value">5</div><div class="kpi-label">Open non-compliance</div></div><div class="kpi-card kpi-danger"><div class="kpi-value">2</div><div class="kpi-label">Statutory open</div></div><div class="kpi-card kpi-info"><div class="kpi-value">24</div><div class="kpi-label">Total tracked</div></div></div>
+
+    <div class="two-col">
+      <section class="panel">
+        <h3>Top open items by priority</h3>
+        <table class="data-table">
+          <thead><tr><th>Priority</th><th>Item</th><th>Type</th><th>Status</th><th>Overdue</th></tr></thead>
+          <tbody><tr><td><span class="pill pill-danger">Critical</span></td><td><b>Flammable Substances Certificate — expired 27 June 2025</b><div class='meta'>Site-wide · Kishan</div></td><td><span class="pill pill-info">Statutory</span></td><td><span class="pill pill-danger">Open</span></td><td class='num'><span class="overdue">323d</span></td></tr><tr><td><span class="pill pill-danger">Critical</span></td><td><b>Forklift TCM 1 — damaged tyres, OHSA shutdown</b><div class='meta'>Forklifts · Kishan</div></td><td><span class="pill pill-warning">Non-Compliance</span></td><td><span class="pill pill-danger">Open</span></td><td class='num'><span class="overdue">215d</span></td></tr><tr><td><span class="pill pill-danger">Critical</span></td><td><b>Forklift TCM 1 tyres — follow-up on quotation</b><div class='meta'>Forklifts · Kishan</div></td><td><span class="pill pill-warning">Action</span></td><td><span class="pill pill-danger">Open</span></td><td class='num'>—</td></tr><tr><td><span class="pill pill-danger">Critical</span></td><td><b>PPE compliance escalation — Section 16.1 (Prateek Desai)</b><div class='meta'>Site-wide · Ailsa (Total Risk)</div></td><td><span class="pill pill-warning">Non-Compliance</span></td><td><span class="pill pill-danger">Open</span></td><td class='num'>—</td></tr><tr><td><span class="pill pill-danger">Critical</span></td><td><b>Forklift TCM 1 &amp; TCM 2 — multiple safety defects</b><div class='meta'>Forklifts · Kishan</div></td><td><span class="pill pill-warning">Non-Compliance</span></td><td><span class="pill pill-danger">Open</span></td><td class='num'>—</td></tr><tr><td><span class="pill pill-warning">High</span></td><td><b>IOD — Thato Sebolao (eye injury, specialist referral)</b><div class='meta'>Production · Ailsa (Total Risk)</div></td><td><span class="pill pill-danger">Incident</span></td><td><span class="pill pill-warning">In Progress</span></td><td class='num'><span class="overdue">18d</span></td></tr></tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h3>Items by type</h3>
+        <table class="data-table">
+          <thead><tr><th>Type</th><th>Count</th></tr></thead>
+          <tbody><tr><td>SOP/Document</td><td class="num">8</td></tr><tr><td>Non-Compliance</td><td class="num">5</td></tr><tr><td>Meeting</td><td class="num">4</td></tr><tr><td>Statutory</td><td class="num">3</td></tr><tr><td>Incident</td><td class="num">2</td></tr><tr><td>Action</td><td class="num">2</td></tr></tbody>
+        </table>
+      </section>
+    </div>
+    </section><section class="tab-pane" id="tab-open">
+    <p class="lead">Every open item, sorted by overdue days. 19 open.</p>
+    <table class="data-table">
+      <thead><tr>
+        <th>Priority</th><th>Item</th><th>Type</th><th>Status</th>
+        <th>Owner</th><th>Due</th><th>Overdue</th><th>Source</th>
+      </tr></thead>
+      <tbody><tr><td><span class="pill pill-danger">Critical</span></td><td><b>Flammable Substances Certificate — expired 27 June 2025</b><div class='meta'>Olympic Paints Certificate of Registration for Flammable Substances expired on 27 June 2025. Renewal not yet received as of 22 January 2026. Albertina following up on status — significant statutory exposure given the nature of the operation…</div></td><td><span class="pill pill-info">Statutory</span></td><td><span class="pill pill-danger">Open</span></td><td>Kishan</td><td>2025-06-27</td><td class='num'><span class="overdue">323d</span></td><td></td></tr><tr><td><span class="pill pill-danger">Critical</span></td><td><b>Forklift TCM 1 — damaged tyres, OHSA shutdown</b><div class='meta'>TCM 1 forklift tyres damaged. Reported 1 Oct 2025; quotations requested but not received. Per OHSA 85 of 1993 (DMR reg 18), operating a forklift with damaged tyres is prohibited. Forklift formally taken out of operation from 13 October 2025…</div></td><td><span class="pill pill-warning">Non-Compliance</span></td><td><span class="pill pill-danger">Open</span></td><td>Kishan</td><td>2025-10-13</td><td class='num'><span class="overdue">215d</span></td><td></td></tr><tr><td><span class="pill pill-warning">High</span></td><td><b>IOD — Thato Sebolao (eye injury, specialist referral)</b><div class='meta'>Following Thato Sebolao's medical appointment on 14 Apr 2026, persistent eye pain prompted a specialist referral. Specialist appointment scheduled 28 Apr 2026 14:00. Medical certificate, referral letter and progress report attached for Comp…</div></td><td><span class="pill pill-danger">Incident</span></td><td><span class="pill pill-warning">In Progress</span></td><td>Ailsa (Total Risk)</td><td>2026-04-28</td><td class='num'><span class="overdue">18d</span></td><td></td></tr><tr><td><span class="pill pill-info">Medium</span></td><td><b>H&amp;S Induction Training deck (Olympic Paints)</b><div class='meta'>New H&amp;S Induction training PPTX submitted for approval, with previous Safety Induction Training PDF attached as reference. Apology in email for the delay sending.</div></td><td><span class="pill pill-neutral">SOP/Document</span></td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Quintus</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-warning">High</span></td><td><b>Production PPE Non-Compliance — Piyush Desai (Supervisor refuses respirator)</b><div class='meta'>Production Supervisor Piyush Desai routinely does not wear his required respirator in the production area, citing the need to give verbal instructions clearly. This has become a pattern: other employees cite the supervisor's non-compliance …</div></td><td><span class="pill pill-warning">Non-Compliance</span></td><td><span class="pill pill-danger">Open</span></td><td>Kishan</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-warning">High</span></td><td><b>Fire extinguisher annual service — trucks missed</b><div class='meta'>Annual fire equipment service was completed in December 2025, but truck fire extinguishers were not serviced because vehicles were out for deliveries. Since reopening Albertina has been trying to reach drivers — only one has responded. Awai…</div></td><td><span class="pill pill-info">Statutory</span></td><td><span class="pill pill-danger">Open</span></td><td>Albertina (Total Risk)</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-info">Medium</span></td><td><b>SHE Policies — Olympic Paints (full pack)</b><div class='meta'>Full ZIP of all Olympic Paints SHE (Safety, Health, Environment) Policies from the Safety File, sent for review and any necessary amendments.</div></td><td><span class="pill pill-neutral">SOP/Document</span></td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Quintus</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-danger">Critical</span></td><td><b>Forklift TCM 1 tyres — follow-up on quotation</b><div class='meta'>Follow-up email same day on the forklift tyres quotation. Indicates the TCM 1 forklift remains out of operation pending tyre replacement.</div></td><td><span class="pill pill-warning">Action</span></td><td><span class="pill pill-danger">Open</span></td><td>Kishan</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-info">Medium</span></td><td><b>Spill Kit Procedure + Incident Report Form (draft)</b><div class='meta'>Two documents for approval: OP Paint Spill Kit Procedure and Spill Kit Incident Report Form. Once approved, Albertina will schedule training for employees on the procedure.</div></td><td><span class="pill pill-neutral">SOP/Document</span></td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Quintus</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-danger">Critical</span></td><td><b>PPE compliance escalation — Section 16.1 (Prateek Desai)</b><div class='meta'>Section 16.1 appointee Prateek Desai formally raised ongoing PPE non-compliance to Ailsa on 9 Apr 2026, with photos from that morning showing employees working without required PPE. Pratik questions why written warnings — the stated enforce…</div></td><td><span class="pill pill-warning">Non-Compliance</span></td><td><span class="pill pill-danger">Open</span></td><td>Ailsa (Total Risk)</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-info">Medium</span></td><td><b>Housekeeping SOP + Departmental Work Overview (draft)</b><div class='meta'>Two-document package: full Housekeeping SOP (PJO version) and a Departmental Work Overview describing scope/responsibilities by department. Sent for review and amendment.</div></td><td><span class="pill pill-neutral">SOP/Document</span></td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Albertina (Total Risk)</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-danger">Critical</span></td><td><b>Forklift TCM 1 &amp; TCM 2 — multiple safety defects</b><div class='meta'>Formal report of two forklift safety defects. TCM 1: accelerator pedal stop bolt missing — reported to mechanic before 6 Feb 2026 service, not replaced; followed up 16 Feb 2026, mechanic told operator 'not to speed' (no actual fix). TCM 2: …</div></td><td><span class="pill pill-warning">Non-Compliance</span></td><td><span class="pill pill-danger">Open</span></td><td>Kishan</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-info">Medium</span></td><td><b>Resin Plant Housekeeping Checklist (draft)</b><div class='meta'>Resin Plant-specific housekeeping checklist for daily/shift use. Sent for review.</div></td><td><span class="pill pill-neutral">SOP/Document</span></td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Albertina (Total Risk)</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-info">Medium</span></td><td><b>Housekeeping Procedure — Paint Manufacturing (draft)</b><div class='meta'>First draft of factory-wide Housekeeping Procedure for the paint manufacturing operation. Sent to Quintus for review and amendments. No record of formal approval in subsequent correspondence.</div></td><td><span class="pill pill-neutral">SOP/Document</span></td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Albertina (Total Risk)</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-neutral">Low</span></td><td><b>PPE consumable order — Cotton red-label worksuits (sizes 36 &amp; 38)</b><div class='meta'>Request to add to the next PPE order: Code CZRBPRT — Cotton, red label, std cut, reflective tape arms &amp; legs (Navy Blue), sizes 36 and 38.</div></td><td><span class="pill pill-warning">Action</span></td><td><span class="pill pill-danger">Open</span></td><td>Quintus</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-info">Medium</span></td><td><b>HSE Report &amp; Minutes — SOPs status thread</b><div class='meta'>Forwarded thread between Albertina and Ailsa (Total Risk) re: HSE Report &amp; Minutes. Confirms SOPs are in place; Albertina to schedule refresher training sessions.</div></td><td><span class="pill pill-info">Meeting</span></td><td><span class="pill pill-warning">In Progress</span></td><td>Albertina (Total Risk)</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-info">Medium</span></td><td><b>HSE Weekly Observations &amp; Deviation Report — Week 1 (22 Apr 2026)</b><div class='meta'>First Weekly Observations &amp; Deviation Report (new cadence, started Week 1 22 Apr 2026). Primary issue identified: poor housekeeping and improper storage. PDF attached.</div></td><td><span class="pill pill-info">Meeting</span></td><td><span class="pill pill-danger">Open</span></td><td>Albertina (Total Risk)</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-warning">High</span></td><td><b>Dispatch PPE Non-Compliance — Nikhil Lala (no safety boots)</b><div class='meta'>Observed 09 Feb 2026 at ~12:30 in Dispatch: Nikhil Lala on duty without the required safety boots. Albertina reported to Megan for action.</div></td><td><span class="pill pill-warning">Non-Compliance</span></td><td><span class="pill pill-danger">Open</span></td><td>Megan</td><td>—</td><td class='num'>—</td><td></td></tr><tr><td><span class="pill pill-neutral">Low</span></td><td><b>Job Description — All Departments (draft)</b><div class='meta'>Master Job Description document covering all departments. Sent for review.</div></td><td><span class="pill pill-neutral">SOP/Document</span></td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Albertina (Total Risk)</td><td>—</td><td class='num'>—</td><td></td></tr></tbody>
+    </table>
+    </section><section class="tab-pane" id="tab-incidents">
+    <p class="lead">All recorded incidents (IOD log). 2 total.</p>
+    <table class="data-table incidents-table">
+      <thead><tr>
+        <th>Date</th><th>Incident</th><th>Area</th><th>Status</th>
+        <th>Owner</th><th>Tags</th><th>Source</th>
+      </tr></thead>
+      <tbody><tr><td>2026-04-15</td><td><b>IOD — Thato Sebolao (eye injury, specialist referral)</b><div class='meta'>Thato Sebolao</div></td><td>Production</td><td><span class="pill pill-warning">In Progress</span></td><td>Ailsa (Total Risk)</td><td><span class="pill pill-neutral">IOD</span> <span class="pill pill-neutral">CompEasy</span></td><td></td></tr><tr class="detail-row"><td colspan=7><div class="detail">Following Thato Sebolao's medical appointment on 14 Apr 2026, persistent eye pain prompted a specialist referral. Specialist appointment scheduled 28 Apr 2026 14:00. Medical certificate, referral letter and progress report attached for CompEasy upload by Ailsa.<div class=attachments>📎 Thato Sebolao Medical Certificate.02.pdf, Thato Sebolao Referral Letter.pdf, Thato Progress Medical Report.pdf</div></div></td></tr><tr><td>2026-03-23</td><td><b>IOD — David Mdakane (hijacking on N12 to Free State, 23 Mar 2026)</b><div class='meta'>David Mdakane (driver), Nhlanhla Zikode (assistant), Nepheollian Matsididi (assistant)</div></td><td>Trucks</td><td><span class="pill pill-success">Resolved</span></td><td>Megan</td><td><span class="pill pill-neutral">IOD</span> <span class="pill pill-neutral">Hijacking</span> <span class="pill pill-neutral">CompEasy</span></td><td></td></tr><tr class="detail-row"><td colspan=7><div class="detail">23 Mar 2026 ~03:30 AM on N12 to Free State: truck stopped by a car braking abruptly; four armed men broke both windows, stole money and Nhlanhla Zikode's cellphone. Driver David Mdakane stabbed in right arm (small but deep wound). Supervisor informed at 05:30. Lodged as IOD on WCL 2 form. On 24 Mar Albertina followed up with hospital referral; on 25 Mar David declined further medical assistance — signed refusal letter attached to thread (Re: Incident Report).<div class=attachments>📎 Medical refusal letter for David Mdakane signed copy..pdf, 94b9f41d-6856-49ca-80ee-81bf30b71685.png</div></div></td></tr></tbody>
+    </table>
+    </section><section class="tab-pane" id="tab-noncompliance">
+    <p class="lead">Non-compliance register. 5 total.</p>
+    <table class="data-table">
+      <thead><tr>
+        <th>Date</th><th>Issue</th><th>Area</th><th>People</th>
+        <th>Priority</th><th>Status</th><th>Tags</th><th>Source</th>
+      </tr></thead>
+      <tbody><tr><td>2025-10-01</td><td><b>Forklift TCM 1 — damaged tyres, OHSA shutdown</b><div class='meta'>TCM 1 forklift tyres damaged. Reported 1 Oct 2025; quotations requested but not received. Per OHSA 85 of 1993 (DMR reg 18), operating a forklift with damaged tyres is prohibited. Forklift formally tak…</div></td><td>Forklifts</td><td>—</td><td><span class="pill pill-danger">Critical</span></td><td><span class="pill pill-danger">Open</span></td><td><span class="pill pill-neutral">Forklift</span> <span class="pill pill-neutral">OHSA</span></td><td></td></tr><tr><td>2025-11-13</td><td><b>Production PPE Non-Compliance — Piyush Desai (Supervisor refuses respirator)</b><div class='meta'>Production Supervisor Piyush Desai routinely does not wear his required respirator in the production area, citing the need to give verbal instructions clearly. This has become a pattern: other employe…</div></td><td>Production</td><td>Piyush Desai (Production Supervisor)</td><td><span class="pill pill-warning">High</span></td><td><span class="pill pill-danger">Open</span></td><td><span class="pill pill-neutral">PPE</span> <span class="pill pill-neutral">Repeat Offender</span></td><td></td></tr><tr><td>2026-02-09</td><td><b>Dispatch PPE Non-Compliance — Nikhil Lala (no safety boots)</b><div class='meta'>Observed 09 Feb 2026 at ~12:30 in Dispatch: Nikhil Lala on duty without the required safety boots. Albertina reported to Megan for action.</div></td><td>Dispatch</td><td>Nikhil Lala</td><td><span class="pill pill-warning">High</span></td><td><span class="pill pill-danger">Open</span></td><td><span class="pill pill-neutral">PPE</span></td><td></td></tr><tr><td>2026-02-17</td><td><b>Forklift TCM 1 &amp; TCM 2 — multiple safety defects</b><div class='meta'>Formal report of two forklift safety defects. TCM 1: accelerator pedal stop bolt missing — reported to mechanic before 6 Feb 2026 service, not replaced; followed up 16 Feb 2026, mechanic told operator…</div></td><td>Forklifts</td><td>Kishan Morar, on-site mechanic</td><td><span class="pill pill-danger">Critical</span></td><td><span class="pill pill-danger">Open</span></td><td><span class="pill pill-neutral">Forklift</span> <span class="pill pill-neutral">OHSA</span></td><td></td></tr><tr><td>2026-04-09</td><td><b>PPE compliance escalation — Section 16.1 (Prateek Desai)</b><div class='meta'>Section 16.1 appointee Prateek Desai formally raised ongoing PPE non-compliance to Ailsa on 9 Apr 2026, with photos from that morning showing employees working without required PPE. Pratik questions w…</div></td><td>Site-wide</td><td>Prateek Desai (Section 16.1 appointee), Ailsa Seymour-Smith</td><td><span class="pill pill-danger">Critical</span></td><td><span class="pill pill-danger">Open</span></td><td><span class="pill pill-neutral">PPE</span> <span class="pill pill-neutral">Section 16.1</span> <span class="pill pill-neutral">Repeat Offender</span></td><td></td></tr></tbody>
+    </table>
+    </section><section class="tab-pane" id="tab-statutory">
+    <p class="lead">Statutory compliance — certificates, inspections, scheduled services. Traffic light: <span class="tl-green">GREEN</span> = on track, <span class="tl-amber">AMBER</span> = within 30 days of due, <span class="tl-red">RED</span> = overdue by 30+ days.</p>
+    <table class="data-table">
+      <thead><tr>
+        <th>Item</th><th>Due date</th><th>Status</th><th>Traffic light</th>
+        <th>Item status</th><th>Owner</th><th>Source</th>
+      </tr></thead>
+      <tbody><tr><td><b>Flammable Substances Certificate — expired 27 June 2025</b><div class='meta'>Olympic Paints Certificate of Registration for Flammable Substances expired on 27 June 2025. Renewal not yet received as of 22 January 2026. Albertina following up on status — significant statutory exposure given the nature of the operation…</div></td><td>2025-06-27</td><td class='num'><span class="overdue">323d</span></td><td><span class="tl-red">RED · overdue</span></td><td><span class="pill pill-danger">Open</span></td><td>Kishan</td><td></td></tr><tr><td><b>Fire extinguisher annual service — trucks missed</b><div class='meta'>Annual fire equipment service was completed in December 2025, but truck fire extinguishers were not serviced because vehicles were out for deliveries. Since reopening Albertina has been trying to reach drivers — only one has responded. Awai…</div></td><td>—</td><td class='num'>—</td><td><span class="tl-grey">—</span></td><td><span class="pill pill-danger">Open</span></td><td>Albertina (Total Risk)</td><td></td></tr><tr><td><b>DoL Notice of Inspection — Olympic Paints (12 Aug 2025)</b><div class='meta'>Department of Labour notice of inspection scheduled for Tuesday 12 August 2025. Forwarded by Albertina with the official DoL PDF, Annexure to Notice of Inspection, and Basic Particulars of the Employer template to be completed in advance.</div></td><td>2025-08-12</td><td class='num'><span class="overdue">277d</span></td><td><span class="tl-red">RED · overdue</span></td><td><span class="pill pill-success">Resolved</span></td><td>Kishan</td><td></td></tr></tbody>
+    </table>
+    </section><section class="tab-pane" id="tab-monthly">
+    <p class="lead">Monthly HSE meetings, reports, minutes and the new weekly deviation cadence. 4 entries.</p>
+    <table class="data-table">
+      <thead><tr>
+        <th>Date</th><th>Item</th><th>Cadence</th><th>Status</th><th>Attachments</th><th>Source</th>
+      </tr></thead>
+      <tbody><tr><td>2026-04-22</td><td><b>HSE Weekly Observations &amp; Deviation Report — Week 1 (22 Apr 2026)</b><div class='meta'>First Weekly Observations &amp; Deviation Report (new cadence, started Week 1 22 Apr 2026). Primary issue identified: poor housekeeping and improper storage. PDF attached.</div></td><td><span class="pill pill-neutral">Weekly Deviation</span></td><td><span class="pill pill-danger">Open</span></td><td>HSE Weekly Observations and Deviation Report for Week 1, 22 April 2026.docx.pdf</td><td></td></tr><tr><td>2026-02-16</td><td><b>HSE Report — period 22 Jan 2026 (full report)</b><div class='meta'>Full HSE report covering the period to 22 January 2026 — outputs of the January HSE meeting and observations.</div></td><td><span class="pill pill-neutral">Monthly HSE</span></td><td><span class="pill pill-success">Resolved</span></td><td>Olympic Paints report- 22_01_2026 (1) (1).docx</td><td></td></tr><tr><td>2026-02-16</td><td><b>HSE Report &amp; Minutes — SOPs status thread</b><div class='meta'>Forwarded thread between Albertina and Ailsa (Total Risk) re: HSE Report &amp; Minutes. Confirms SOPs are in place; Albertina to schedule refresher training sessions.</div></td><td><span class="pill pill-neutral">Monthly HSE</span></td><td><span class="pill pill-warning">In Progress</span></td><td>—</td><td></td></tr><tr><td>2026-01-16</td><td><b>HSE Meeting Agenda — January 2026</b><div class='meta'>Draft HSE meeting agenda circulated for review and amendment ahead of the January 2026 HSE meeting.</div></td><td><span class="pill pill-neutral">Monthly HSE</span></td><td><span class="pill pill-success">Resolved</span></td><td>HSE Meeting Agenda.docx</td><td></td></tr></tbody>
+    </table>
+    </section><section class="tab-pane" id="tab-sops">
+    <p class="lead">SOPs, policies, procedures and training docs. 8 entries.</p>
+    <table class="data-table">
+      <thead><tr>
+        <th>Date</th><th>Document</th><th>Area</th><th>Status</th><th>File</th><th>Source</th>
+      </tr></thead>
+      <tbody><tr><td>2025-07-10</td><td><b>Housekeeping Procedure — Paint Manufacturing (draft)</b><div class='meta'>First draft of factory-wide Housekeeping Procedure for the paint manufacturing operation. Sent to Quintus for review and amendments. No record of formal approval in subsequent correspondence.</div></td><td>Site-wide</td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Housekeeping Procedure for Paint Manufacturing Company.docx</td><td></td></tr><tr><td>2025-07-22</td><td><b>Housekeeping SOP + Departmental Work Overview (draft)</b><div class='meta'>Two-document package: full Housekeeping SOP (PJO version) and a Departmental Work Overview describing scope/responsibilities by department. Sent for review and amendment.</div></td><td>Site-wide</td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Housekeeping SOP_PJO.docx, Departmental Work Overview.docx</td><td></td></tr><tr><td>2025-07-29</td><td><b>Resin Plant Housekeeping Checklist (draft)</b><div class='meta'>Resin Plant-specific housekeeping checklist for daily/shift use. Sent for review.</div></td><td>Resin Plant</td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Area_ Resin Plant Housekeeping Checklist.docx</td><td></td></tr><tr><td>2025-11-17</td><td><b>H&amp;S Induction Training deck (Olympic Paints)</b><div class='meta'>New H&amp;S Induction training PPTX submitted for approval, with previous Safety Induction Training PDF attached as reference. Apology in email for the delay sending.</div></td><td>Site-wide</td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>H &amp; S INDUCTION OLYMPIC PAINTS.pptx, Previous Safety Induction Training .pdf</td><td></td></tr><tr><td>2026-01-27</td><td><b>Job Description — All Departments (draft)</b><div class='meta'>Master Job Description document covering all departments. Sent for review.</div></td><td>Administration</td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Job Description_ All departments.docx</td><td></td></tr><tr><td>2026-02-09</td><td><b>SHE Policies — Olympic Paints (full pack)</b><div class='meta'>Full ZIP of all Olympic Paints SHE (Safety, Health, Environment) Policies from the Safety File, sent for review and any necessary amendments.</div></td><td>Site-wide</td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>Olympic Paints SHE Policies-20260209T095741Z-1-001.zip</td><td></td></tr><tr><td>2026-03-19</td><td><b>Spill Kit Procedure + Incident Report Form (draft)</b><div class='meta'>Two documents for approval: OP Paint Spill Kit Procedure and Spill Kit Incident Report Form. Once approved, Albertina will schedule training for employees on the procedure.</div></td><td>Site-wide</td><td><span class="pill pill-warning">Awaiting Approval</span></td><td>OP Paint Spill Kit Procedure.docx, SPILL KIT INCIDENT REPORT FORM.docx</td><td></td></tr><tr><td>2026-02-09</td><td><b>SOP Training Index — master register</b><div class='meta'>Index of every SOP training document currently held in the Safety File. Reference document for tracking training coverage and identifying gaps.</div></td><td>Site-wide</td><td><span class="pill pill-success">Resolved</span></td><td>SOP TRAINING INDEX.docx</td><td></td></tr></tbody>
+    </table>
+    </section><section class="tab-pane" id="tab-people">
+    <p class="lead">People mentioned in H&S correspondence — useful for spotting repeat offenders and ongoing medical cases.</p>
+    <table class="data-table">
+      <thead><tr>
+        <th>Person</th><th>Mentions</th><th>Incidents</th><th>Non-Compliance</th><th>Last seen</th><th>In context of</th>
+      </tr></thead>
+      <tbody><tr><td><b>Kishan Morar</b> </td><td class='num'>2</td><td class='num'>0</td><td class='num'>1</td><td>2026-02-17</td><td>Forklift TCM 1 &amp; TCM 2 — multiple safety defects</td></tr><tr><td><b>David Mdakane</b> </td><td class='num'>1</td><td class='num'>1</td><td class='num'>0</td><td>2026-03-23</td><td>IOD — David Mdakane (hijacking on N12 to Free State, 23 Mar 2026)</td></tr><tr><td><b>Nhlanhla Zikode</b> </td><td class='num'>1</td><td class='num'>1</td><td class='num'>0</td><td>2026-03-23</td><td>IOD — David Mdakane (hijacking on N12 to Free State, 23 Mar 2026)</td></tr><tr><td><b>Nepheollian Matsididi</b> </td><td class='num'>1</td><td class='num'>1</td><td class='num'>0</td><td>2026-03-23</td><td>IOD — David Mdakane (hijacking on N12 to Free State, 23 Mar 2026)</td></tr><tr><td><b>Piyush Desai</b> <span class="pill pill-danger">REPEAT</span></td><td class='num'>1</td><td class='num'>0</td><td class='num'>1</td><td>2025-11-13</td><td>Production PPE Non-Compliance — Piyush Desai (Supervisor refuses respirator)</td></tr><tr><td><b>Prateek Desai</b> <span class="pill pill-danger">REPEAT</span></td><td class='num'>1</td><td class='num'>0</td><td class='num'>1</td><td>2026-04-09</td><td>PPE compliance escalation — Section 16.1 (Prateek Desai)</td></tr><tr><td><b>Ailsa Seymour-Smith</b> <span class="pill pill-danger">REPEAT</span></td><td class='num'>1</td><td class='num'>0</td><td class='num'>1</td><td>2026-04-09</td><td>PPE compliance escalation — Section 16.1 (Prateek Desai)</td></tr><tr><td><b>Thato Sebolao</b> </td><td class='num'>1</td><td class='num'>1</td><td class='num'>0</td><td>2026-04-15</td><td>IOD — Thato Sebolao (eye injury, specialist referral)</td></tr><tr><td><b>on-site mechanic</b> </td><td class='num'>1</td><td class='num'>0</td><td class='num'>1</td><td>2026-02-17</td><td>Forklift TCM 1 &amp; TCM 2 — multiple safety defects</td></tr><tr><td><b>Sejal Purbhoo</b> </td><td class='num'>1</td><td class='num'>0</td><td class='num'>0</td><td>2025-08-05</td><td>DoL Notice of Inspection — Olympic Paints (12 Aug 2025)</td></tr><tr><td><b>Barclay Seymour-Smith</b> </td><td class='num'>1</td><td class='num'>0</td><td class='num'>0</td><td>2025-08-05</td><td>DoL Notice of Inspection — Olympic Paints (12 Aug 2025)</td></tr><tr><td><b>Accounts</b> </td><td class='num'>1</td><td class='num'>0</td><td class='num'>0</td><td>2025-08-05</td><td>DoL Notice of Inspection — Olympic Paints (12 Aug 2025)</td></tr><tr><td><b>Nikhil Lala</b> </td><td class='num'>1</td><td class='num'>0</td><td class='num'>1</td><td>2026-02-09</td><td>Dispatch PPE Non-Compliance — Nikhil Lala (no safety boots)</td></tr></tbody>
+    </table>
+
+    <h3 style="margin-top:32px;">Induction & training</h3>
+    <table class="data-table">
+      <thead><tr><th>Date</th><th>Item</th><th>Status</th></tr></thead>
+      <tbody><tr><td>2025-11-17</td><td><b>H&amp;S Induction Training deck (Olympic Paints)</b><div class='meta'>New H&amp;S Induction training PPTX submitted for approval, with previous Safety Induction Training PDF attached as reference. Apology in email for the delay sending.</div></td><td><span class="pill pill-warning">Awaiting Approval</span></td></tr></tbody>
+    </table>
+    </section></main>
+
+<script>
+const OLY_THEMES=['theme-light','theme-dark','theme-brand','theme-navy'];
+function olyTheme(t,btn){
+  document.documentElement.classList.remove(...OLY_THEMES);
+  document.documentElement.classList.add(t);
+  localStorage.setItem('oly-theme',t);
+  document.querySelectorAll('.theme-bar button').forEach(b=>b.classList.toggle('active',b===btn));
+}
+function showTab(id, btn){
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
