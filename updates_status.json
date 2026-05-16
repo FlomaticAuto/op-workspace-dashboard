@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T06:15:05",
+  "generated_at": "2026-05-16T10:44:34",
   "total": 15,
   "ok": 6,
   "warn": 4,
@@ -12,8 +12,8 @@
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
       "overall": "fail",
-      "task_last_run": "2026-05-15T08:30:30",
-      "task_last_result": 0
+      "task_last_run": "2026-05-16T10:42:42",
+      "task_last_result": 267009
     },
     {
       "id": "kpi_rep_dashboards",
@@ -32,8 +32,8 @@
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
-      "task_last_run": "2026-05-15T08:15:15",
-      "task_last_result": 0
+      "task_last_run": "2026-05-16T10:42:42",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -122,7 +122,7 @@
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-05-15T07:00:00",
+      "task_last_run": "2026-05-16T07:00:00",
       "task_last_result": 0
     },
     {
@@ -132,7 +132,7 @@
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-05-15T07:00:00",
+      "task_last_run": "2026-05-16T07:00:00",
       "task_last_result": 0
     },
     {
