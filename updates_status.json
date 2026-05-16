@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-16T10:50:55",
+  "generated_at": "2026-05-16T14:15:25",
   "total": 15,
-  "ok": 6,
-  "warn": 4,
-  "fail": 5,
+  "ok": 0,
+  "warn": 2,
+  "fail": 13,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -12,8 +12,8 @@
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
       "overall": "fail",
-      "task_last_run": "2026-05-16T10:42:42",
-      "task_last_result": 267009
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "kpi_rep_dashboards",
@@ -22,8 +22,8 @@
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-15T08:45:45",
-      "task_last_result": 1
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "ecommerce_dashboard",
@@ -31,7 +31,7 @@
       "name": "E-Commerce Dashboard",
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-05-16T10:42:42",
       "task_last_result": 0
     },
@@ -42,8 +42,8 @@
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
       "overall": "fail",
-      "task_last_run": "2026-05-15T08:00:00",
-      "task_last_result": 2147943623
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "haven_clocking",
@@ -51,9 +51,9 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "ok",
-      "task_last_run": "2026-05-15T07:47:47",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "haven_dashboard_check",
@@ -61,8 +61,8 @@
       "name": "HAVEN Dashboard Check (regenerate + Telegram)",
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
-      "overall": "ok",
-      "task_last_run": "2026-05-15T08:00:00",
+      "overall": "warn",
+      "task_last_run": "2026-05-16T12:05:05",
       "task_last_result": 0
     },
     {
@@ -71,9 +71,9 @@
       "name": "Vehicle In-Out Report",
       "task": "Vehicle Report Weekly",
       "cadence": "Weekly \u00b7 Mon",
-      "overall": "ok",
-      "task_last_run": "2026-05-11T09:00:00",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "vehicle_health",
@@ -81,9 +81,9 @@
       "name": "STRIKER Vehicle Report Health Check",
       "task": "STRIKER \u2014 Vehicle Report Health Check",
       "cadence": "Weekly \u00b7 Mon",
-      "overall": "ok",
-      "task_last_run": "2026-05-12T09:30:30",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": null
     },
     {
       "id": "kaizen_sync",
@@ -91,9 +91,9 @@
       "name": "Kaizen Daily Sync",
       "task": "Olympic Paints - Kaizen Daily Sync",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "warn",
-      "task_last_run": "2026-05-15T07:47:47",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "workspace_health",
@@ -102,8 +102,8 @@
       "task": "OlympicPaints_Workspace_Health_Report",
       "cadence": "Weekly \u00b7 Fri 16:00",
       "overall": "fail",
-      "task_last_run": "2026-05-15T18:39:39",
-      "task_last_result": 2147943623
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "friday_sales_meeting",
@@ -111,9 +111,9 @@
       "name": "Friday Sales Meeting Pack",
       "task": "OlympicPaints_Friday_Sales_Meeting",
       "cadence": "Weekly \u00b7 Fri",
-      "overall": "ok",
-      "task_last_run": "2026-05-15T08:00:00",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "meeting_extractor",
@@ -121,9 +121,9 @@
       "name": "Meeting Minutes Extractor",
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "warn",
-      "task_last_run": "2026-05-16T07:00:00",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "vault_meeting_extraction",
@@ -131,9 +131,9 @@
       "name": "VAULT Meeting Extraction (Notion tasks)",
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "warn",
-      "task_last_run": "2026-05-16T07:00:00",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "cso_intelligence",
@@ -141,9 +141,9 @@
       "name": "CSO Strategic Intelligence Build",
       "task": "CSO-Intelligence-Data",
       "cadence": "Daily morning",
-      "overall": "warn",
-      "task_last_run": "2026-05-11T07:13:13",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "portal_trigger_server",
@@ -152,9 +152,9 @@
       "task": "OlympicPortalTriggerServer",
       "cadence": "Continuous",
       "overall": "fail",
-      "task_last_run": "2026-05-14T07:12:12",
-      "task_last_result": 4294967295
+      "task_last_run": null,
+      "task_last_result": 267011
     }
   ],
-  "success_pct": 40
+  "success_pct": 0
 }
