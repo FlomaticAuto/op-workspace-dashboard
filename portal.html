@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="OP Reports">
+<meta name="theme-color" content="#071022" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#1A3D6E" media="(prefers-color-scheme: light)">
 <title>Reports Portal — Olympic Paints</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -285,9 +290,53 @@ footer{
   margin-top:48px;line-height:1.7;
 }
 
+/* ── MOBILE DEPT-FILTER CHIP STRIP ─────────────────────────────── */
+.dept-chip-bar{
+  display:flex;gap:6px;
+  position:sticky;top:56px;z-index:150;
+  padding:8px 12px;
+  background:var(--color-surface-page);
+  border-bottom:1px solid var(--color-border-default);
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.dept-chip-bar::-webkit-scrollbar{display:none}
+.dept-chip{
+  flex-shrink:0;
+  padding:8px 14px;min-height:36px;
+  background:var(--color-surface-base);
+  border:1px solid var(--color-border-default);
+  color:var(--color-text-secondary);
+  border-radius:var(--r-pill);
+  font-family:var(--font-display);font-size:12px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  transition:all .12s;
+}
+.dept-chip.active{
+  background:var(--color-brand-primary);
+  border-color:var(--color-brand-primary);
+  color:var(--color-text-on-brand);
+}
+.dept-chip:not(.active):active{background:var(--color-surface-overlay)}
+
+/* On mobile, hide all panels except All (chips are the only nav) */
+@media(max-width:768px){
+  .tab-panel:not(#panel-all){display:none !important}
+  /* Hide section labels when a specific dept is filtered (chips replace them) */
+  .dept-filter-active #panel-all .section-label{display:none}
+  /* Bot-nav is redundant once chips exist */
+  .bot-nav{display:none !important}
+  /* Reduce main bottom padding (no fixed bot-nav anymore) */
+  .main{padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+}
+
 /* ── DESKTOP OVERRIDES (769px+) ────────────────────────────────── */
 @media(min-width:769px){
   .mob-hdr{display:none}
+  .dept-chip-bar{display:none}
   .theme-bar{display:flex}
   .hdr{display:flex}
   .tab-bar{display:flex}
@@ -320,6 +369,18 @@ footer{
   </div>
   <button class="mob-theme-btn" onclick="cycleTheme(this)" id="mob-theme-lbl">NAVY</button>
 </div>
+
+<!-- ── MOBILE DEPT FILTER CHIPS (mobile only — hidden on desktop) ── -->
+<nav class="dept-chip-bar" id="dept-chip-bar" aria-label="Department filter">
+  <button class="dept-chip active" data-dept="all"   onclick="filterDept('all',this)">All</button>
+  <button class="dept-chip"        data-dept="sales" onclick="filterDept('sales',this)">Sales</button>
+  <button class="dept-chip"        data-dept="pulse" onclick="filterDept('pulse',this)">PULSE</button>
+  <button class="dept-chip"        data-dept="reps"  onclick="filterDept('reps',this)">Rep KPIs</button>
+  <button class="dept-chip"        data-dept="merch" onclick="filterDept('merch',this)">Merch</button>
+  <button class="dept-chip"        data-dept="hr"    onclick="filterDept('hr',this)">HR</button>
+  <button class="dept-chip"        data-dept="admin" onclick="filterDept('admin',this)">Admin</button>
+  <button class="dept-chip"        data-dept="ops"   onclick="filterDept('ops',this)">Ops</button>
+</nav>
 
 <!-- ── DESKTOP THEME BAR ──────────────────────────────────────── -->
 <div class="theme-bar">
@@ -1287,6 +1348,48 @@ function showTab(id,btn){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
   document.querySelectorAll('.bot-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
   panel?.scrollIntoView({behavior:'instant',block:'start'});
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+// ── MOBILE DEPT FILTER (single scrollable All Reports list w/ chip filter) ──
+// Maps section-label text → chip data-dept key
+const DEPT_FROM_LABEL = {
+  'sales':'sales',
+  'sales reps pulse':'pulse',
+  'rep kpi portals':'reps',
+  'merchandising':'merch',
+  'hr & people':'hr',
+  'admin & tools':'admin',
+  'operations':'ops'
+};
+
+function _portalSections(){
+  // Walks panel-all and groups consecutive {section-label → following report-grid} pairs.
+  // Returns [{label, grid, dept}, …]
+  const panel = document.getElementById('panel-all');
+  if(!panel) return [];
+  const out = [];
+  let cur = null;
+  panel.querySelectorAll('.section-label, .report-grid').forEach(el => {
+    if (el.classList.contains('section-label')) {
+      const key = el.textContent.trim().toLowerCase().replace(/\s+/g,' ');
+      cur = { label: el, grid: null, dept: DEPT_FROM_LABEL[key] || 'other' };
+      out.push(cur);
+    } else if (cur && !cur.grid) {
+      cur.grid = el;
+    }
+  });
+  return out;
+}
+
+function filterDept(dept, btn){
+  document.querySelectorAll('.dept-chip').forEach(c => c.classList.toggle('active', c === btn));
+  document.body.classList.toggle('dept-filter-active', dept !== 'all');
+  _portalSections().forEach(s => {
+    const visible = dept === 'all' || s.dept === dept;
+    s.label.style.display = visible ? '' : 'none';
+    if (s.grid) s.grid.style.display = visible ? '' : 'none';
+  });
   window.scrollTo({top:0,behavior:'instant'});
 }
 
