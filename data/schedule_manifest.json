@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T22:00:02+02:00",
+  "generated_at": "2026-05-16T22:22:27+02:00",
   "tasks": [
     {
       "job_id": "olympicpaints-emailecommercedashboard",
@@ -36,7 +36,7 @@
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
       "next_run": "2026-05-16 23:00:00+02:00",
       "scheduler_last_run_time": "2026-05-16 22:00:01+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
         {
@@ -110,12 +110,24 @@
           "stdout_tail": "Wrote 17 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-16_21-00-03.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-16T22:00:02+02:00",
+          "finished_at": "2026-05-16T22:00:05+02:00",
+          "duration_seconds": 2.687,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 17 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-16_22-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-16T21:00:03+02:00",
-        "finished_at": "2026-05-16T21:00:14+02:00",
-        "duration_seconds": 11.212,
+        "started_at": "2026-05-16T22:00:02+02:00",
+        "finished_at": "2026-05-16T22:00:05+02:00",
+        "duration_seconds": 2.687,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -168,6 +180,19 @@
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-05T16:00:00",
       "next_run": "2026-05-22 16:00:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
+      "history": []
+    },
+    {
+      "job_id": "h-s-weekly-refresh",
+      "name": "H&S Weekly Refresh",
+      "agent": "SIGMA",
+      "task_path": "\\Olympic Paints\\SIGMA\\H&S Weekly Refresh",
+      "enabled": true,
+      "schedule_summary": "type=3 start=2026-05-16T07:00:00+02:00",
+      "next_run": "2026-05-18 07:00:00+02:00",
       "scheduler_last_run_time": null,
       "scheduler_last_task_result": 267011,
       "heartbeat_status": "never_run",
@@ -284,8 +309,8 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-16 22:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-16 20:15:00+02:00",
+      "next_run": "2026-05-17 00:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-16 22:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -324,12 +349,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-16_20-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-16T22:15:01+02:00",
+          "finished_at": "2026-05-16T22:15:14+02:00",
+          "duration_seconds": 12.805,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-16_22-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-16T20:15:01+02:00",
-        "finished_at": "2026-05-16T20:15:15+02:00",
-        "duration_seconds": 13.773,
+        "started_at": "2026-05-16T22:15:01+02:00",
+        "finished_at": "2026-05-16T22:15:14+02:00",
+        "duration_seconds": 12.805,
         "exit_code": 0,
         "ok": true,
         "summary": null
