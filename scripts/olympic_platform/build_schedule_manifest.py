@@ -209,6 +209,19 @@ def main() -> int:
         encoding="utf-8",
     )
     print(f"Wrote {len(manifest['tasks'])} tasks to {DEFAULT_OUTPUT}")
+
+    # Push the manifest to the hub so Vercel/GitHub Pages serve fresh data.
+    # Best-effort: if hub_push isn't importable or fails, the local write still
+    # succeeded — we just don't propagate this run.
+    try:
+        from scripts.hub_push import push_to_hub
+        push_to_hub(
+            subfolder="data",
+            message=f"Schedule manifest — {manifest['generated_at']}",
+        )
+    except Exception as e:
+        print(f"  ! hub push skipped: {e}")
+
     return 0
 
 
