@@ -3,3 +3,4 @@ __pycache__/
 *.log
 .env
 data/schedule_manifest.json
+.superpowers/
