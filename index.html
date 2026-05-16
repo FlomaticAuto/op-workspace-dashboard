@@ -591,6 +591,72 @@ body {
   cursor: pointer;
 }
 
+/* ── MANUAL EXECUTIONS ─────────────────────────────────────────── */
+.manual-list { display: flex; flex-direction: column; gap: 16px; }
+.manual-card {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--r-lg);
+  padding: 18px 20px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.manual-card h3 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 18px; color: var(--color-text-primary);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  margin: 0;
+}
+.manual-card .agent-pill {
+  align-self: flex-start;
+  background: var(--color-info-bg);
+  color: var(--color-info-fg);
+  border: 1px solid var(--color-info-bd);
+  border-radius: var(--r-pill);
+  padding: 2px 8px;
+  font-family: var(--font-display); font-weight: 700; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.manual-card .desc {
+  font-family: var(--font-body); font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0; line-height: 1.5;
+}
+.manual-card .meta-row {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  font-family: var(--font-body); font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+.manual-card .meta-row b {
+  color: var(--color-text-secondary); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em; font-size: 10px;
+  margin-right: 6px;
+}
+.manual-card .prompt-box {
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  font-size: 12px; line-height: 1.5;
+  color: var(--color-text-primary);
+  white-space: pre-wrap; word-break: break-word;
+}
+.manual-card .copy-btn {
+  align-self: flex-start;
+  background: var(--color-brand-primary);
+  color: var(--color-text-on-brand);
+  border: none;
+  border-radius: var(--r-md);
+  padding: 8px 14px;
+  font-family: var(--font-display); font-weight: 700; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.manual-card .copy-btn.copied {
+  background: var(--color-success-bd);
+  color: var(--color-success-fg);
+}
+
 /* ── REPORTS: LIST (Task 12) ──────────────────────────────────── */
 .report-list {
   background: var(--color-surface-elevated);
@@ -751,6 +817,9 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
         <button class="nav-item" data-section="agents" onclick="showSection('agents', this)">
           <span class="nav-icon" aria-hidden="true">&#9671;</span><span class="nav-label">Agents</span>
         </button>
+        <button class="nav-item" data-section="manual" onclick="showSection('manual', this)">
+          <span class="nav-icon" aria-hidden="true">&#9881;</span><span class="nav-label">Manual Executions</span>
+        </button>
       </nav>
     </aside>
     <main class="main">
@@ -788,6 +857,13 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
         <h1 class="section-title">Agents</h1>
         <div class="card-grid" id="agents-grid"></div>
       </section>
+      <section class="section-pane" id="section-manual">
+        <h1 class="section-title">Manual Executions</h1>
+        <p style="color:var(--color-text-secondary);max-width:680px;margin:0 0 24px;font-size:14px;line-height:1.5;">
+          One-shot scripts that aren't on a schedule. Copy the prompt, paste it into a Claude Code session, and the agent will run the script for you. No local server required.
+        </p>
+        <div class="manual-list" id="manual-list"></div>
+      </section>
     </main>
       <nav class="bottom-nav">
         <button class="bottom-nav-item active" data-section="today" onclick="showSection('today', findSidebarBtn('today'))">
@@ -811,6 +887,9 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
           </button>
           <button class="more-item" onclick="showSection('agents', findSidebarBtn('agents')); closeMoreDrawer()">
             <span class="nav-icon">&#9671;</span> Agents
+          </button>
+          <button class="more-item" onclick="showSection('manual', findSidebarBtn('manual')); closeMoreDrawer()">
+            <span class="nav-icon">&#9881;</span> Manual Executions
           </button>
         </div>
       </div>
@@ -1508,6 +1587,69 @@ function toggleAgentCard(card){
   card.classList.toggle('expanded');
 }
 
+// ── MANUAL EXECUTIONS ──────────────────────────────────────────
+// Each entry renders a card with a "Copy prompt" button. Paste the
+// copied prompt into a Claude Code session to run the script. No
+// local server runs in the background — execution is on-demand.
+const MANUAL_ACTIONS = [
+  {
+    id: 'pull-albertina-emails',
+    title: 'Pull Health & Safety emails from Albertina',
+    agent: 'SIGMA',
+    desc: 'Downloads every email received from albertina@totalrisk.co.za into the Health & Safety folder, with attachments and body. Idempotent — re-runs only pull new emails.',
+    script: '2.Areas/12. Health and Safety/download_albertina_emails.py',
+    output: '2.Areas/12. Health and Safety/Albertina - Total Risk/',
+    prompt: 'Run the script at "c:/Users/quint/OneDrive/1.Projects/1.Olympic Paints/2.Areas/12. Health and Safety/download_albertina_emails.py" to pull any new emails from albertina@totalrisk.co.za into the Health & Safety folder. Show me the saved-folder list at the end.'
+  }
+];
+
+function renderManual(){
+  const el = document.getElementById('manual-list');
+  if (!el) return;
+  el.innerHTML = MANUAL_ACTIONS.map(a => `
+    <div class="manual-card">
+      <span class="agent-pill">${escapeHtml(a.agent)}</span>
+      <h3>${escapeHtml(a.title)}</h3>
+      <p class="desc">${escapeHtml(a.desc)}</p>
+      <div class="meta-row">
+        <div><b>Script</b>${escapeHtml(a.script)}</div>
+        <div><b>Output</b>${escapeHtml(a.output)}</div>
+      </div>
+      <div class="prompt-box" id="prompt-${a.id}">${escapeHtml(a.prompt)}</div>
+      <button class="copy-btn" data-id="${a.id}" onclick="copyManualPrompt('${a.id}', this)">Copy prompt</button>
+    </div>
+  `).join('');
+}
+
+function copyManualPrompt(id, btn){
+  const action = MANUAL_ACTIONS.find(a => a.id === id);
+  if (!action) return;
+  const text = action.prompt;
+  const done = () => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  };
+  // navigator.clipboard requires a secure context — fall back to textarea.
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+  } else {
+    fallbackCopy(text, done);
+  }
+}
+
+function fallbackCopy(text, done){
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); done(); }
+  catch (e) { alert('Copy failed — select the text manually.'); }
+  finally { document.body.removeChild(ta); }
+}
+
 function renderAll(){
   renderTodayKpis();
   renderTodayIssues();
@@ -1518,6 +1660,7 @@ function renderAll(){
   renderDashboardsGrid();
   renderReports();
   renderAgents();
+  renderManual();
 }
 
 document.getElementById('refresh-btn').addEventListener('click', fetchManifest);
