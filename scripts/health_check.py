@@ -11,8 +11,9 @@ Writes:
   C:\\Users\\quint\\workspace-dashboard\\updates.html       (the live page)
   C:\\Users\\quint\\workspace-dashboard\\updates_status.json (machine-readable summary)
 
-Pushes both to the op-workspace-dashboard repo on GitHub Pages.
-Live URL: https://flomaticauto.github.io/op-workspace-dashboard/updates.html
+Pushes both to the op-workspace-dashboard repo. Vercel auto-deploys from
+the GitHub repo on push (GitHub Pages mirror was disabled 2026-05-17).
+Live URL: https://op-workspace-dashboard.vercel.app/updates
 """
 
 import json
@@ -22,10 +23,22 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+# Local AV inspects TLS — use system CA store so Telegram API HTTPS works.
+try:
+    import truststore  # type: ignore
+    truststore.inject_into_ssl()
+except Exception:
+    pass
+
 WORKSPACE = Path(r"C:\Users\quint\workspace-dashboard")
 LOGO_LOCAL = WORKSPACE / "logo.jpg"
 OUT_HTML = WORKSPACE / "updates.html"
 OUT_JSON = WORKSPACE / "updates_status.json"
+ALERT_STATE = WORKSPACE / "updates_alert_state.json"
+
+PULSE_BASE = Path(r"C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\1.Projects\PULSE — Sales & Ops Manager")
+PULSE_OUTPUT = PULSE_BASE / "output" / "site"
+PULSE_DATA = PULSE_BASE / "data"
 
 OP_BASE = Path(r"C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints")
 SALES_BASE = OP_BASE / "3.Resources" / "16.Sales and Other data"
@@ -162,7 +175,7 @@ MANIFEST = [
         "max_age_hours": 192,
         "inputs": [],
         "output": {"label": "health-report.html", "path": WORKSPACE / "health-report.html", "max_age_hours": 192},
-        "dashboard_url": "https://flomaticauto.github.io/op-workspace-dashboard/health-report.html",
+        "dashboard_url": "https://op-workspace-dashboard.vercel.app/health-report",
     },
     {
         "id": "friday_sales_meeting",
@@ -219,6 +232,118 @@ MANIFEST = [
         "max_age_hours": None,
         "inputs": [],
         "output": {"label": "portal_trigger_server.py", "path": WORKSPACE / "scripts" / "portal_trigger_server.py", "max_age_hours": None},
+        "dashboard_url": None,
+    },
+    # ── PULSE — Sales & Ops Manager (8 weekday/weekly tasks) ────────────────
+    # All read the same shared data: Meetings_Report_AWS.xlsx + planned_week.json + pulse_cycle.parquet.
+    # Outputs vary per job (see each entry).
+    {
+        "id": "pulse_daily_mailer",
+        "agent": "PULSE",
+        "name": "PULSE Daily Mailer (per-rep brief + Telegram)",
+        "task": "PULSE — Daily Mailer",
+        "cadence": "Daily · Mon-Fri 09:00",
+        "max_age_hours": 30,
+        "inputs": [
+            {"label": "Zoho Meetings",      "path": SALES_BASE / "Zoho" / "Meetings_Report_AWS.xlsx",   "max_age_hours": "business_day", "source": "Zoho export"},
+            {"label": "Planned week",       "path": PULSE_DATA / "planned_week.json",                   "max_age_hours": 192,            "source": "PULSE planner"},
+            {"label": "Cycle parquet",      "path": PULSE_DATA / "pulse_cycle.parquet",                 "max_age_hours": None,           "source": "PULSE cycle loader"},
+        ],
+        "output": {"label": "output/site/daily/<date>/<rep>.html", "path": PULSE_OUTPUT / "daily", "max_age_hours": 30},
+        "dashboard_url": "https://olympic-paints-pulse-web.vercel.app/",
+    },
+    {
+        "id": "pulse_leaderboard",
+        "agent": "PULSE",
+        "name": "PULSE Leaderboard (weekday refresh)",
+        "task": "PULSE — Leaderboard",
+        "cadence": "Daily · Mon-Fri 09:15",
+        "max_age_hours": 30,
+        "inputs": [
+            {"label": "Zoho Meetings",      "path": SALES_BASE / "Zoho" / "Meetings_Report_AWS.xlsx",   "max_age_hours": "business_day", "source": "Zoho export"},
+            {"label": "Planned week",       "path": PULSE_DATA / "planned_week.json",                   "max_age_hours": 192,            "source": "PULSE planner"},
+        ],
+        "output": {"label": "output/site/index.html (leaderboard)", "path": PULSE_OUTPUT / "index.html", "max_age_hours": 30},
+        "dashboard_url": "https://olympic-paints-pulse-web.vercel.app/",
+    },
+    {
+        "id": "pulse_web_snapshots",
+        "agent": "PULSE",
+        "name": "PULSE Web Snapshots (Vercel push)",
+        "task": "PULSE — Web Snapshots",
+        "cadence": "Daily · Mon-Fri 09:20",
+        "max_age_hours": 30,
+        "inputs": [
+            {"label": "Daily site folder",  "path": PULSE_OUTPUT / "daily",                              "max_age_hours": 30,             "source": "pulse_daily.py"},
+            {"label": "Scorecard folder",   "path": PULSE_OUTPUT / "scorecard",                          "max_age_hours": 384,            "source": "pulse_scorecard.py"},
+        ],
+        "output": {"label": "output/site (committed to Vercel)", "path": PULSE_OUTPUT, "max_age_hours": 30},
+        "dashboard_url": "https://olympic-paints-pulse-web.vercel.app/",
+    },
+    {
+        "id": "pulse_ack_escalation",
+        "agent": "PULSE",
+        "name": "PULSE Ack Escalation (afternoon nudge)",
+        "task": "PULSE — Ack Escalation",
+        "cadence": "Daily · Mon-Fri 17:15",
+        "max_age_hours": 30,
+        "inputs": [
+            {"label": "Daily site folder",  "path": PULSE_OUTPUT / "daily",                              "max_age_hours": 30,             "source": "pulse_daily.py"},
+        ],
+        "output": {"label": "pulse_escalation.py", "path": PULSE_BASE / "scripts" / "pulse_escalation.py", "max_age_hours": None},
+        "dashboard_url": None,
+    },
+    {
+        "id": "pulse_intake_escalation",
+        "agent": "PULSE",
+        "name": "PULSE Intake Escalation (Fri morning)",
+        "task": "PULSE — Intake Escalation",
+        "cadence": "Weekly · Fri 09:00",
+        "max_age_hours": 192,
+        "inputs": [
+            {"label": "Planned week",       "path": PULSE_DATA / "planned_week.json",                   "max_age_hours": 192,            "source": "PULSE planner"},
+        ],
+        "output": {"label": "pulse_intake_escalation.py", "path": PULSE_BASE / "scripts" / "pulse_intake_escalation.py", "max_age_hours": None},
+        "dashboard_url": None,
+    },
+    {
+        "id": "pulse_scorecard",
+        "agent": "PULSE",
+        "name": "PULSE Bi-Weekly Scorecard",
+        "task": "PULSE — Scorecard",
+        "cadence": "Weekly · Mon 07:00",
+        "max_age_hours": 192,
+        "inputs": [
+            {"label": "Zoho Meetings",      "path": SALES_BASE / "Zoho" / "Meetings_Report_AWS.xlsx",   "max_age_hours": "business_day", "source": "Zoho export"},
+            {"label": "Cycle parquet",      "path": PULSE_DATA / "pulse_cycle.parquet",                 "max_age_hours": None,           "source": "PULSE cycle loader"},
+        ],
+        "output": {"label": "output/site/scorecard/index.html", "path": PULSE_OUTPUT / "scorecard" / "index.html", "max_age_hours": 192},
+        "dashboard_url": "https://olympic-paints-pulse-web.vercel.app/scorecard/",
+    },
+    {
+        "id": "pulse_cycle_loader",
+        "agent": "PULSE",
+        "name": "PULSE Cycle Loader (Sunday)",
+        "task": "PULSE — Cycle Loader",
+        "cadence": "Weekly · Sun 18:00",
+        "max_age_hours": 192,
+        "inputs": [
+            {"label": "Sales Invoices (parquet)", "path": SALES_BASE / "Sales_Invoices_All.parquet",     "max_age_hours": "business_day", "source": "Daily ledger build"},
+        ],
+        "output": {"label": "pulse_cycle.parquet", "path": PULSE_DATA / "pulse_cycle.parquet", "max_age_hours": 192},
+        "dashboard_url": None,
+    },
+    {
+        "id": "pulse_planner",
+        "agent": "PULSE",
+        "name": "PULSE Planner (Sun evening — sets next week)",
+        "task": "PULSE — Planner",
+        "cadence": "Weekly · Sun 19:00",
+        "max_age_hours": 192,
+        "inputs": [
+            {"label": "Cycle parquet",      "path": PULSE_DATA / "pulse_cycle.parquet",                 "max_age_hours": 192,            "source": "PULSE cycle loader"},
+        ],
+        "output": {"label": "planned_week.json", "path": PULSE_DATA / "planned_week.json", "max_age_hours": 192},
         "dashboard_url": None,
     },
 ]
@@ -497,7 +622,7 @@ def render_html(jobs):
     by_agent = {}
     for j in jobs:
         by_agent.setdefault(j["agent"], []).append(j)
-    AGENT_ORDER = ["PRISM", "STRIKER", "HAVEN", "SIGMA", "BLAZE", "VAULT"]
+    AGENT_ORDER = ["PRISM", "PULSE", "STRIKER", "HAVEN", "SIGMA", "BLAZE", "VAULT"]
     ordered_agents = [a for a in AGENT_ORDER if a in by_agent] + [a for a in by_agent if a not in AGENT_ORDER]
 
     def status_label(s):
@@ -604,137 +729,145 @@ function olyTheme(t,btn){{
 </body></html>"""
 
 
-# ── Email alert ─────────────────────────────────────────────────────────────
+# ── Telegram alert (deduped) ────────────────────────────────────────────────
+#
+# Replaces the old Outlook email path (deprecated 2026-05-17). Reasons:
+#   1. health_check.py runs after every scheduled job → email fired every time.
+#   2. Quintus already monitors Telegram chat 8042233389 — no new channel needed.
+#
+# Dedup rules:
+#   - Hash the set of {fail+warn job ids}; only send if hash changes
+#     OR last send was >12h ago (so a persistent failure pings once a day).
+#   - State stored in updates_alert_state.json next to updates.html.
 
-ALERT_TO = "quintusl@olympicpaints.co.za"
+TELEGRAM_CHAT_ID = "8042233389"
+TELEGRAM_REPING_HOURS = 12
 
 
-def _build_alert_html(jobs, generated_at: str) -> str:
-    problem_jobs = [j for j in jobs if j["overall"] in ("fail", "warn")]
-    fail_count = sum(1 for j in problem_jobs if j["overall"] == "fail")
-    warn_count = sum(1 for j in problem_jobs if j["overall"] == "warn")
+def _telegram_token() -> str | None:
+    env_path = PULSE_BASE / ".env"
+    if not env_path.exists():
+        return None
+    for line in env_path.read_text(encoding="utf-8", errors="ignore").splitlines():
+        if line.startswith("TELEGRAM_BOT_TOKEN="):
+            return line.split("=", 1)[1].strip()
+    return None
 
-    rows = []
+
+def _alert_signature(problem_jobs) -> str:
+    """Stable fingerprint of the current failure set — order-independent."""
+    return "|".join(sorted(f"{j['id']}:{j['overall']}" for j in problem_jobs))
+
+
+def _load_alert_state() -> dict:
+    if not ALERT_STATE.exists():
+        return {}
+    try:
+        return json.loads(ALERT_STATE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _save_alert_state(state: dict) -> None:
+    ALERT_STATE.write_text(json.dumps(state, indent=2), encoding="utf-8")
+
+
+def _build_telegram_message(problem_jobs, fail_count, warn_count, generated_at) -> str:
+    header = f"*Updates Health Check*  ·  {generated_at[:16].replace('T', ' ')}"
+    tag_parts = []
+    if fail_count:
+        tag_parts.append(f"❌ {fail_count} failed")
+    if warn_count:
+        tag_parts.append(f"⚠️ {warn_count} warning{'s' if warn_count > 1 else ''}")
+    tag = "  ·  ".join(tag_parts)
+
+    lines = [header, tag, ""]
     for j in problem_jobs:
+        icon = "❌" if j["overall"] == "fail" else "⚠️"
         ts = j["task_status"]
         last_result = ts.get("last_result")
-        exit_str = "—" if last_result is None else ("✓ 0" if last_result == 0 else str(last_result))
-        colour = "#C0392B" if j["overall"] == "fail" else "#7A5A00"
-        bg = "#FEF2F2" if j["overall"] == "fail" else "#FDF0A0"
-        badge = "FAILED" if j["overall"] == "fail" else "WARNING"
-        rows.append(f"""
-        <tr style="border-bottom:1px solid #E8E7E2;">
-          <td style="padding:10px 12px;font-family:'Arial',sans-serif;font-size:13px;font-weight:600;">{j['name']}</td>
-          <td style="padding:10px 12px;font-family:'Arial',sans-serif;font-size:12px;color:#5C5B58;">{j['agent']}</td>
-          <td style="padding:10px 12px;font-family:'Arial',sans-serif;font-size:12px;color:#5C5B58;">{ts.get('last_run_iso') or 'Never'}</td>
-          <td style="padding:10px 12px;font-family:'Arial',sans-serif;font-size:12px;color:#5C5B58;">{exit_str}</td>
-          <td style="padding:10px 12px;">
-            <span style="background:{bg};color:{colour};font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.06em;">{badge}</span>
-          </td>
-        </tr>""")
-
-    subject_tag = f"{fail_count} failed" if fail_count else f"{warn_count} warning"
-    return f"""<!DOCTYPE html>
-<html><head><meta charset="UTF-8"></head>
-<body style="margin:0;padding:0;background:#F7F6F3;font-family:'Arial',sans-serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#F7F6F3;padding:24px 0;">
-<tr><td align="center">
-<table width="600" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-
-  <!-- Header -->
-  <tr><td style="background:#1A3D6E;padding:24px 32px;">
-    <table width="100%" cellpadding="0" cellspacing="0">
-      <tr>
-        <td>
-          <div style="font-family:'Arial',sans-serif;font-weight:900;font-size:22px;color:#F5C400;text-transform:uppercase;letter-spacing:.04em;">
-            WORKSPACE UPDATES
-          </div>
-          <div style="color:#B8CCE8;font-size:12px;margin-top:4px;">
-            Health Check Alert · {generated_at}
-          </div>
-        </td>
-        <td align="right">
-          <span style="background:#E86060;color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:.06em;">
-            {subject_tag}
-          </span>
-        </td>
-      </tr>
-    </table>
-  </td></tr>
-
-  <!-- Body -->
-  <tr><td style="padding:28px 32px;">
-    <p style="margin:0 0 20px;font-size:14px;color:#2E2E2C;line-height:1.6;">
-      The following scheduled jobs need your attention:
-    </p>
-
-    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid #E8E7E2;border-radius:6px;overflow:hidden;">
-      <thead>
-        <tr style="background:#F7F6F3;">
-          <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#949390;font-weight:600;">Job</th>
-          <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#949390;font-weight:600;">Agent</th>
-          <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#949390;font-weight:600;">Last Run</th>
-          <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#949390;font-weight:600;">Exit</th>
-          <th style="padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#949390;font-weight:600;">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {''.join(rows)}
-      </tbody>
-    </table>
-
-    <div style="margin-top:24px;text-align:center;">
-      <a href="https://flomaticauto.github.io/op-workspace-dashboard/"
-         style="background:#F5C400;color:#0D0D0B;font-size:13px;font-weight:700;padding:12px 28px;border-radius:6px;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;display:inline-block;">
-        View Full Dashboard
-      </a>
-    </div>
-  </td></tr>
-
-  <!-- Footer -->
-  <tr><td style="padding:16px 32px;border-top:1px solid #E8E7E2;text-align:center;color:#949390;font-size:11px;">
-    Olympic Paints · Workspace Health Check · auto-generated by health_check.py
-  </td></tr>
-
-</table>
-</td></tr>
-</table>
-</body></html>"""
+        last_run = ts.get("last_run_iso") or "never"
+        if last_result not in (None, 0, 267009, 267011, 267014, 267015):
+            detail = f"exit {last_result}"
+        elif ts.get("status") in ("old", "stale"):
+            detail = f"stale {fmt_age(ts.get('age_hours'))}"
+        elif j["output"].get("status") in ("old", "stale", "missing"):
+            detail = f"output {j['output']['status']}"
+        else:
+            detail = ts.get("label", "")
+        lines.append(f"{icon}  *{j['agent']}* · {j['name']}\n    {last_run[-8:] if last_run != 'never' else 'never'}  ·  {detail}")
+    lines.append("")
+    lines.append("[View dashboard](https://op-workspace-dashboard.vercel.app/updates)")
+    return "\n".join(lines)
 
 
-def send_alert_email(jobs, generated_at: str) -> None:
+def send_alert_telegram(jobs, generated_at: str) -> None:
     problem_jobs = [j for j in jobs if j["overall"] in ("fail", "warn")]
+    state = _load_alert_state()
     if not problem_jobs:
+        # All green — record recovery, send a single "recovered" if we were previously alerting
+        if state.get("last_signature"):
+            try:
+                _send_telegram_raw("✅  *Updates Health Check*  ·  all jobs operational")
+            except Exception as e:
+                print(f"[warn] telegram recovery send failed: {e}", file=sys.stderr)
+            _save_alert_state({})
         return
+
+    signature = _alert_signature(problem_jobs)
+    last_signature = state.get("last_signature")
+    last_sent = state.get("last_sent_iso")
+    now = datetime.now()
+
+    should_send = signature != last_signature
+    if not should_send and last_sent:
+        try:
+            elapsed = (now - datetime.fromisoformat(last_sent)).total_seconds() / 3600
+            should_send = elapsed >= TELEGRAM_REPING_HOURS
+        except Exception:
+            should_send = True
+
+    if not should_send:
+        print(f"[ok] telegram alert suppressed (dedup) · signature unchanged")
+        return
+
     fail_count = sum(1 for j in problem_jobs if j["overall"] == "fail")
     warn_count = sum(1 for j in problem_jobs if j["overall"] == "warn")
-    parts = []
-    if fail_count:
-        parts.append(f"{fail_count} failed")
-    if warn_count:
-        parts.append(f"{warn_count} warning{'s' if warn_count > 1 else ''}")
-    subject = f"⚠ PULSE Health Check — {', '.join(parts)}"
-    html_body = _build_alert_html(jobs, generated_at)
-    try:
-        import win32com.client
-        outlook = win32com.client.Dispatch("Outlook.Application")
-        mail = outlook.CreateItem(0)
-        mail.To = ALERT_TO
-        mail.Subject = subject
-        mail.HTMLBody = html_body
-        mail.Send()
-        # Force-flush Outbox
-        ns = outlook.GetNamespace("MAPI")
-        outbox = ns.GetDefaultFolder(4)
-        for item in list(outbox.Items):
-            try:
-                item.Send()
-            except Exception:
-                pass
-        print(f"[ok] alert email sent to {ALERT_TO} ({', '.join(parts)})")
-    except Exception as e:
-        print(f"[warn] alert email failed: {e}", file=sys.stderr)
+    message = _build_telegram_message(problem_jobs, fail_count, warn_count, generated_at)
 
+    try:
+        _send_telegram_raw(message)
+        _save_alert_state({"last_signature": signature, "last_sent_iso": now.isoformat(timespec="seconds")})
+        parts = []
+        if fail_count: parts.append(f"{fail_count} failed")
+        if warn_count: parts.append(f"{warn_count} warning{'s' if warn_count > 1 else ''}")
+        print(f"[ok] telegram alert sent ({', '.join(parts)})")
+    except Exception as e:
+        print(f"[warn] telegram alert failed: {e}", file=sys.stderr)
+
+
+def _send_telegram_raw(text: str) -> None:
+    import urllib.request, urllib.parse
+    token = _telegram_token()
+    if not token:
+        raise RuntimeError("TELEGRAM_BOT_TOKEN not found in PULSE .env")
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    data = urllib.parse.urlencode({
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": text,
+        "parse_mode": "Markdown",
+        "disable_web_page_preview": "true",
+    }).encode("utf-8")
+    req = urllib.request.Request(url, data=data, method="POST")
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        body = resp.read()
+        if resp.status >= 400:
+            raise RuntimeError(f"telegram api {resp.status}: {body!r}")
+
+
+# ── (removed) Email alert ──────────────────────────────────────────────────
+# The old Outlook-based send_alert_email() and _build_alert_html() were
+# deprecated 2026-05-17 in favour of deduped Telegram alerts above.
 
 # ── Git push ────────────────────────────────────────────────────────────────
 
@@ -790,7 +923,7 @@ def main(push=True):
     OUT_JSON.write_text(json.dumps(summary, indent=2))
     OUT_HTML.write_text(render_html(jobs), encoding="utf-8")
     print(f"[ok] wrote {OUT_HTML} · {summary['ok']}/{summary['total']} green")
-    send_alert_email(jobs, summary["generated_at"])
+    send_alert_telegram(jobs, summary["generated_at"])
     if push:
         push_to_github()
 
