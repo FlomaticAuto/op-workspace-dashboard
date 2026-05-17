@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-17T09:20:54",
+  "generated_at": "2026-05-17T09:41:04",
   "total": 23,
   "ok": 3,
   "warn": 5,
@@ -22,8 +22,8 @@
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "task_last_run": "2026-05-17T09:40:40",
+      "task_last_result": 127
     },
     {
       "id": "ecommerce_dashboard",
@@ -62,8 +62,8 @@
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
       "overall": "warn",
-      "task_last_run": "2026-05-16T12:05:05",
-      "task_last_result": 0
+      "task_last_run": "2026-05-17T09:40:40",
+      "task_last_result": 267009
     },
     {
       "id": "vehicle_report",
