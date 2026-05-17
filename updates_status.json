@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-17T07:30:20",
+  "generated_at": "2026-05-17T08:15:46",
   "total": 15,
-  "ok": 1,
-  "warn": 4,
-  "fail": 10,
+  "ok": 3,
+  "warn": 3,
+  "fail": 9,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -31,9 +31,9 @@
       "name": "E-Commerce Dashboard",
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
-      "overall": "warn",
-      "task_last_run": "2026-05-16T10:42:42",
-      "task_last_result": 0
+      "overall": "ok",
+      "task_last_run": "2026-05-17T08:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -53,7 +53,7 @@
       "cadence": "Daily \u00b7 07:30",
       "overall": "ok",
       "task_last_run": "2026-05-17T07:30:30",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "haven_dashboard_check",
@@ -93,7 +93,7 @@
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
       "task_last_run": "2026-05-17T07:30:30",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "workspace_health",
@@ -151,10 +151,10 @@
       "name": "Portal Trigger Server (localhost:8765)",
       "task": "OlympicPortalTriggerServer",
       "cadence": "Continuous",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "overall": "ok",
+      "task_last_run": "2026-05-17T08:02:02",
+      "task_last_result": 267009
     }
   ],
-  "success_pct": 7
+  "success_pct": 20
 }
