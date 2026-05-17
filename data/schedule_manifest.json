@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-17T06:00:02+02:00",
+  "generated_at": "2026-05-17T07:00:03+02:00",
   "tasks": [
     {
       "job_id": "olympicpaints-emailecommercedashboard",
@@ -34,23 +34,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-17 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 06:00:01+02:00",
+      "next_run": "2026-05-17 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 07:00:01+02:00",
       "scheduler_last_task_result": -2147020576,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-16T20:00:24+02:00",
-          "finished_at": "2026-05-16T20:00:27+02:00",
-          "duration_seconds": 3.868,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 17 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-16_20-00-24.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -158,12 +146,24 @@
           "stdout_tail": "Wrote 18 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-17_05-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-17T06:00:02+02:00",
+          "finished_at": "2026-05-17T06:00:05+02:00",
+          "duration_seconds": 2.782,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 18 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-17_06-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-17T05:00:02+02:00",
-        "finished_at": "2026-05-17T05:00:04+02:00",
-        "duration_seconds": 2.348,
+        "started_at": "2026-05-17T06:00:02+02:00",
+        "finished_at": "2026-05-17T06:00:05+02:00",
+        "duration_seconds": 2.782,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -306,11 +306,32 @@
       "task_path": "\\Olympic Paints\\STRIKER\\Zoho Leads Pull",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-13T06:10:00",
-      "next_run": "2026-05-17 06:10:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
-      "history": []
+      "next_run": "2026-05-18 06:10:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 06:10:01+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "zoho-leads-pull",
+          "agent": "STRIKER",
+          "started_at": "2026-05-17T06:10:02+02:00",
+          "finished_at": "2026-05-17T06:10:12+02:00",
+          "duration_seconds": 10.283,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Pulling leads modified since 2026-05-10T04:10:04+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Discovering Lead fields\n  discovered 66 fetchable fields (0 skipped â€” formula/rollup/subform)\n  splitting into 2 request batches (50, 17 fields each)\n\nâ†’ Leads\n  batch 1/2 â€” 50 fields\n  fetched 13 records from Leads\n  batch 2/2 â€” 17 fields\n  fetched 13 records from Leads\n\nâœ“ Wrote     13 leads â†’ C:\\Users\\quint\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\leads.parquet\n\nâ†’ Writing legacy CSV shims for existing consumers\n  âœ“ wrote 13 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking.csv\n  âœ“ wrote 13 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking_new.csv\n\nLead creation range: 2026-05-11 11:59:47+00:00 â†’ 2026-05-15 13:07:45+00:00\n\nTop lead statuses:\n  (none)                               12\n  Contacted                            1\n\nTop owners by lead count:\n  abooc@olympicpaints.co.za                 5\n  bhadreshv@olympicpaints.co.za             4\n  byronm@olympicpaints.co.za                4",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\zoho-leads-pull\\2026-05-17_06-10-02.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-17T06:10:02+02:00",
+        "finished_at": "2026-05-17T06:10:12+02:00",
+        "duration_seconds": 10.283,
+        "exit_code": 0,
+        "ok": true,
+        "summary": null
+      }
     },
     {
       "job_id": "olympic-paints-kaizen-daily-sync",
@@ -332,10 +353,10 @@
       "task_path": "\\Olympic Paints\\VAULT\\Olympic Paints - Meeting Minutes Extractor",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-30T07:00:00+02:00",
-      "next_run": "2026-05-17 07:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-05-18 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 07:00:01+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -345,8 +366,8 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-17 06:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 04:15:00+02:00",
+      "next_run": "2026-05-17 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 06:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -433,12 +454,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-17_04-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-17T06:15:01+02:00",
+          "finished_at": "2026-05-17T06:15:10+02:00",
+          "duration_seconds": 9.002,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-17_06-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-17T04:15:01+02:00",
-        "finished_at": "2026-05-17T04:15:11+02:00",
-        "duration_seconds": 10.164,
+        "started_at": "2026-05-17T06:15:01+02:00",
+        "finished_at": "2026-05-17T06:15:10+02:00",
+        "duration_seconds": 9.002,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -451,11 +484,32 @@
       "task_path": "\\Olympic Paints\\VAULT\\VAULT Meeting Extraction Daily",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-22T07:00:00",
-      "next_run": "2026-05-17 07:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
-      "history": []
+      "next_run": "2026-05-18 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 07:00:01+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "vault-meeting-extraction-daily",
+          "agent": "VAULT",
+          "started_at": "2026-05-17T07:00:02+02:00",
+          "finished_at": "2026-05-17T07:00:02+02:00",
+          "duration_seconds": 0.064,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\vault-meeting-extraction-daily\\2026-05-17_07-00-02.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-17T07:00:02+02:00",
+        "finished_at": "2026-05-17T07:00:02+02:00",
+        "duration_seconds": 0.064,
+        "exit_code": 0,
+        "ok": true,
+        "summary": null
+      }
     }
   ]
 }
