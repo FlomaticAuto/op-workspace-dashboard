@@ -246,9 +246,12 @@ body {
 }
 .kpi-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 12px;
   margin-bottom: 24px;
+}
+@media (max-width: 1100px) {
+  .kpi-row { grid-template-columns: repeat(3, 1fr); }
 }
 .kpi-card {
   background: var(--color-surface-elevated);
@@ -275,6 +278,82 @@ body {
 @media (max-width: 560px) {
   .kpi-row { grid-template-columns: repeat(2, 1fr); }
   .kpi-number { font-size: 28px; }
+}
+
+/* ── Updates (health check) section ─────────────────────────────────── */
+.kpi-card.kpi-clickable { cursor: pointer; transition: border-color .15s, transform .15s; }
+.kpi-card.kpi-clickable:hover { border-color: var(--color-brand-primary); transform: translateY(-1px); }
+.updates-summary-bar {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px; margin-bottom: 28px;
+}
+.updates-agent-section { margin-bottom: 32px; }
+.updates-agent-title {
+  font-family: var(--font-display); font-weight: 800; font-size: 20px;
+  letter-spacing: .05em; text-transform: uppercase;
+  margin: 0 0 14px; display: flex; align-items: center; gap: 10px;
+  color: var(--color-text-primary);
+}
+.updates-agent-title::before {
+  content: ""; display: inline-block; width: 5px; height: 22px;
+  background: var(--color-brand-primary); border-radius: 3px;
+}
+.updates-job-card {
+  background: var(--color-surface-elevated); border: 1px solid var(--color-border-subtle);
+  border-radius: var(--r-lg); padding: 16px 20px; margin-bottom: 12px;
+  box-shadow: var(--shadow-md);
+}
+.updates-job-head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 12px; margin-bottom: 10px;
+}
+.updates-job-name {
+  font-family: var(--font-display); font-weight: 700; font-size: 16px;
+  text-transform: uppercase; letter-spacing: .02em; line-height: 1.2;
+}
+.updates-job-meta {
+  font-family: var(--font-body); color: var(--color-text-secondary);
+  font-size: 12px; margin-top: 4px;
+}
+.updates-status-badge {
+  font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+  letter-spacing: .08em; font-size: 10px; padding: 5px 11px;
+  border-radius: var(--r-pill); border: 1px solid; white-space: nowrap;
+}
+.updates-status-badge.s-ok { background: var(--color-success-bg); color: var(--color-success-fg); border-color: var(--color-success-bd); }
+.updates-status-badge.s-warn { background: var(--color-warning-bg); color: var(--color-warning-fg); border-color: var(--color-warning-bd); }
+.updates-status-badge.s-fail { background: var(--color-danger-bg); color: var(--color-danger-fg); border-color: var(--color-danger-bd); }
+.updates-job-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 8px 20px; padding: 10px 0; border-top: 1px solid var(--color-border-subtle);
+  font-size: 12.5px;
+}
+.updates-job-row .k {
+  color: var(--color-text-tertiary); font-size: 10px;
+  text-transform: uppercase; letter-spacing: .06em;
+  font-family: var(--font-body); font-weight: 500;
+}
+.updates-job-row .v {
+  color: var(--color-text-primary); font-family: var(--font-body);
+  font-weight: 500; margin-top: 2px;
+}
+.updates-job-row .v a { color: var(--color-brand-primary); text-decoration: none; }
+.updates-job-row .v a:hover { text-decoration: underline; }
+.updates-dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  margin-right: 5px; vertical-align: middle;
+}
+.updates-dot.fresh, .updates-dot.ok { background: var(--_teal); }
+.updates-dot.stale, .updates-dot.warn { background: var(--_y400); }
+.updates-dot.old, .updates-dot.missing, .updates-dot.fail, .updates-dot.never { background: var(--_coral); }
+.updates-empty-msg {
+  color: var(--color-text-tertiary); font-size: 13px;
+  font-style: italic; padding: 10px 0;
+}
+.updates-generated {
+  color: var(--color-text-tertiary); font-size: 11px;
+  text-align: right; margin: 6px 0 18px;
+  text-transform: uppercase; letter-spacing: .06em;
 }
 
 .today-issues {
@@ -811,6 +890,9 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
         <button class="nav-item" data-section="dashboards" onclick="showSection('dashboards', this)">
           <span class="nav-icon" aria-hidden="true">&#9636;</span><span class="nav-label">Dashboards</span>
         </button>
+        <button class="nav-item" data-section="updates" onclick="showSection('updates', this)">
+          <span class="nav-icon" aria-hidden="true">&#9873;</span><span class="nav-label">Updates</span>
+        </button>
         <button class="nav-item" data-section="reports" onclick="showSection('reports', this)">
           <span class="nav-icon" aria-hidden="true">&#9637;</span><span class="nav-label">Reports</span>
         </button>
@@ -849,6 +931,15 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
         <div class="chip-row" id="dashboards-chips"></div>
         <div class="card-grid" id="dashboards-grid"></div>
       </section>
+      <section class="section-pane" id="section-updates">
+        <h1 class="section-title">Updates</h1>
+        <div class="updates-summary-bar" id="updates-summary-bar">
+          <!-- Filled by renderUpdates() -->
+        </div>
+        <div class="updates-agent-groups" id="updates-agent-groups">
+          <!-- Filled by renderUpdates() -->
+        </div>
+      </section>
       <section class="section-pane" id="section-reports">
         <h1 class="section-title">Reports</h1>
         <div class="report-list" id="reports-list"></div>
@@ -882,6 +973,9 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
       <div class="more-drawer" id="more-drawer" onclick="if(event.target===this)closeMoreDrawer()">
         <div class="more-sheet">
           <h3>More</h3>
+          <button class="more-item" onclick="showSection('updates', findSidebarBtn('updates')); closeMoreDrawer()">
+            <span class="nav-icon">&#9873;</span> Updates
+          </button>
           <button class="more-item" onclick="showSection('reports', findSidebarBtn('reports')); closeMoreDrawer()">
             <span class="nav-icon">&#9637;</span> Reports
           </button>
@@ -1146,6 +1240,13 @@ const MANIFEST_STATE = {
   inFlight: false,
 };
 
+const UPDATES_STATE = {
+  data: null,           // last-good updates_status.json (from health_check.py)
+  loadedAt: null,
+  error: null,
+  inFlight: false,
+};
+
 // ── TODAY KPI RENDERERS ────────────────────────────────────────
 function renderTodayKpis(){
   const el = document.getElementById('today-kpis');
@@ -1160,6 +1261,30 @@ function renderTodayKpis(){
   }
 
   const next = computeNextRunDelta(tasks);
+
+  // System Health KPI — sourced from updates_status.json (richer than schedule_manifest)
+  const h = UPDATES_STATE.data;
+  let healthCard;
+  if (!h){
+    healthCard = `<div class="kpi-card kpi-empty kpi-clickable" onclick="showSection('updates', findSidebarBtn('updates'))">
+      <div class="kpi-label">System Health</div><div class="kpi-number">—</div>
+    </div>`;
+  } else if (h.fail > 0){
+    healthCard = `<div class="kpi-card danger kpi-clickable" onclick="showSection('updates', findSidebarBtn('updates'))" title="Click for full breakdown">
+      <div class="kpi-label">System Health</div>
+      <div class="kpi-number">${h.fail}<span style="font-size:14px;color:var(--color-text-tertiary);font-weight:500;"> failed</span></div>
+    </div>`;
+  } else if (h.warn > 0){
+    healthCard = `<div class="kpi-card warning kpi-clickable" onclick="showSection('updates', findSidebarBtn('updates'))" title="Click for full breakdown">
+      <div class="kpi-label">System Health</div>
+      <div class="kpi-number">${h.warn}<span style="font-size:14px;color:var(--color-text-tertiary);font-weight:500;"> warn</span></div>
+    </div>`;
+  } else {
+    healthCard = `<div class="kpi-card success kpi-clickable" onclick="showSection('updates', findSidebarBtn('updates'))" title="Click for full breakdown">
+      <div class="kpi-label">System Health</div>
+      <div class="kpi-number">${h.ok}<span style="font-size:14px;color:var(--color-text-tertiary);font-weight:500;"> / ${h.total}</span></div>
+    </div>`;
+  }
 
   el.innerHTML = `
     <div class="kpi-card success">
@@ -1178,6 +1303,7 @@ function renderTodayKpis(){
       <div class="kpi-label">Next run in</div>
       <div class="kpi-number">${next || '—'}</div>
     </div>
+    ${healthCard}
   `;
 }
 
@@ -1433,6 +1559,27 @@ function jumpToScheduleTask(jobId){
   }, 50);
 }
 
+async function fetchUpdates(){
+  if (UPDATES_STATE.inFlight) return;
+  UPDATES_STATE.inFlight = true;
+  try {
+    const res = await fetch('updates_status.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    if (!json || !Array.isArray(json.jobs)) throw new Error('malformed updates_status');
+    UPDATES_STATE.data = json;
+    UPDATES_STATE.loadedAt = new Date();
+    UPDATES_STATE.error = null;
+  } catch (err) {
+    UPDATES_STATE.error = err.message || String(err);
+    console.warn('fetchUpdates failed:', UPDATES_STATE.error);
+  } finally {
+    UPDATES_STATE.inFlight = false;
+    renderUpdates();
+    renderTodayKpis();   // refresh Today's health KPI
+  }
+}
+
 async function fetchManifest(){
   if (MANIFEST_STATE.inFlight) return;
   MANIFEST_STATE.inFlight = true;
@@ -1664,6 +1811,84 @@ function fallbackCopy(text, done){
   finally { document.body.removeChild(ta); }
 }
 
+// ── Updates (health-check) renderer ─────────────────────────────────
+const UPDATES_AGENT_ORDER = ["PRISM", "PULSE", "STRIKER", "HAVEN", "SIGMA", "BLAZE", "VAULT"];
+
+function fmtAge(hours){
+  if (hours == null) return '—';
+  if (hours < 1) return `${Math.round(hours*60)}m ago`;
+  if (hours < 48) return `${hours.toFixed(1)}h ago`;
+  return `${(hours/24).toFixed(1)}d ago`;
+}
+
+function statusLabel(s){
+  return { ok: 'Operational', warn: 'Warning', fail: 'Failed' }[s] || s;
+}
+
+function renderUpdates(){
+  const sumEl = document.getElementById('updates-summary-bar');
+  const grpEl = document.getElementById('updates-agent-groups');
+  if (!sumEl || !grpEl) return;
+
+  const data = UPDATES_STATE.data;
+  if (!data){
+    sumEl.innerHTML = '';
+    grpEl.innerHTML = `<div class="updates-empty-msg">${UPDATES_STATE.error ? 'Could not load updates_status.json — ' + UPDATES_STATE.error : 'Loading…'}</div>`;
+    return;
+  }
+
+  const total = data.total || 0;
+  const okN = data.ok || 0, warnN = data.warn || 0, failN = data.fail || 0;
+  const pct = data.success_pct ?? (total ? Math.round(okN/total*100) : 0);
+
+  sumEl.innerHTML = `
+    <div class="kpi-card success"><div class="kpi-label">Operational</div><div class="kpi-number">${okN}<span style="font-size:14px;color:var(--color-text-tertiary);font-weight:500;"> / ${total}</span></div></div>
+    <div class="kpi-card ${warnN ? 'warning' : ''}"><div class="kpi-label">Warning</div><div class="kpi-number">${warnN}</div></div>
+    <div class="kpi-card ${failN ? 'danger' : ''}"><div class="kpi-label">Failed</div><div class="kpi-number">${failN}</div></div>
+    <div class="kpi-card"><div class="kpi-label">Success Rate</div><div class="kpi-number">${pct}%</div></div>
+  `;
+
+  const gen = data.generated_at ? new Date(data.generated_at).toLocaleString('en-GB', { weekday:'short', day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' }) : '';
+
+  // Group by agent
+  const byAgent = {};
+  for (const j of data.jobs){
+    (byAgent[j.agent] = byAgent[j.agent] || []).push(j);
+  }
+  const ordered = UPDATES_AGENT_ORDER.filter(a => byAgent[a]).concat(Object.keys(byAgent).filter(a => !UPDATES_AGENT_ORDER.includes(a)));
+
+  const sectionsHtml = ordered.map(agent => {
+    const cards = byAgent[agent].map(j => {
+      const lastRun = j.task_last_run || 'Never';
+      const lastResult = j.task_last_result;
+      const resultStr = lastResult == null ? '—' :
+        (lastResult === 0 || [267009,267011,267014,267015].includes(lastResult)
+          ? `<span style="color:var(--_teal);font-weight:600;">${lastResult === 0 ? '0 (success)' : 'running'}</span>`
+          : `<span style="color:var(--_coral);font-weight:600;">${lastResult}</span>`);
+      return `<div class="updates-job-card">
+        <div class="updates-job-head">
+          <div>
+            <div class="updates-job-name">${j.name || j.id}</div>
+            <div class="updates-job-meta">${j.cadence || ''} · ${j.task || ''}</div>
+          </div>
+          <span class="updates-status-badge s-${j.overall}">${statusLabel(j.overall)}</span>
+        </div>
+        <div class="updates-job-row">
+          <div><div class="k">Task last ran</div><div class="v">${lastRun}</div></div>
+          <div><div class="k">Last exit</div><div class="v">${resultStr}</div></div>
+          <div><div class="k">Cadence</div><div class="v">${j.cadence || '—'}</div></div>
+        </div>
+      </div>`;
+    }).join('');
+    return `<section class="updates-agent-section">
+      <h2 class="updates-agent-title">${agent}</h2>
+      ${cards}
+    </section>`;
+  }).join('');
+
+  grpEl.innerHTML = (gen ? `<div class="updates-generated">Last refreshed ${gen}</div>` : '') + sectionsHtml;
+}
+
 function renderAll(){
   renderTodayKpis();
   renderTodayIssues();
@@ -1675,10 +1900,16 @@ function renderAll(){
   renderReports();
   renderAgents();
   renderManual();
+  renderUpdates();
 }
 
-document.getElementById('refresh-btn').addEventListener('click', fetchManifest);
-fetchManifest();  // initial load
+function refreshAll(){
+  fetchManifest();
+  fetchUpdates();
+}
+
+document.getElementById('refresh-btn').addEventListener('click', refreshAll);
+refreshAll();  // initial load
 </script>
 </body>
 </html>

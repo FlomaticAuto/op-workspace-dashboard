@@ -31,8 +31,8 @@ except Exception:
     pass
 
 WORKSPACE = Path(r"C:\Users\quint\workspace-dashboard")
-LOGO_LOCAL = WORKSPACE / "logo.jpg"
-OUT_HTML = WORKSPACE / "updates.html"
+# The Updates tab on index.html consumes this file via fetch('updates_status.json').
+# Standalone updates.html was deprecated 2026-05-17 — only JSON now.
 OUT_JSON = WORKSPACE / "updates_status.json"
 ALERT_STATE = WORKSPACE / "updates_alert_state.json"
 
@@ -552,182 +552,6 @@ def evaluate_job(job, ts_lookup):
     }
 
 
-# ── HTML rendering ───────────────────────────────────────────────────────────
-
-CSS_BLOCK = """
-:root{
-  --_y50:#FEF9E0;--_y100:#FDF0A0;--_y200:#FAE04D;--_y400:#F5C400;--_y600:#D4A800;--_y800:#A88000;--_y900:#6A5000;
-  --_n50:#E8EFF8;--_n100:#B8CCE8;--_n300:#6B9ED0;--_n500:#2D6BA8;--_n700:#1A3D6E;--_n900:#0D2040;--_n950:#071022;
-  --_g0:#FFFFFF;--_g50:#F7F6F3;--_g100:#E8E7E2;--_g200:#C8C7C0;--_g400:#949390;--_g600:#5C5B58;--_g800:#2E2E2C;--_g900:#1A1A18;--_g950:#0D0D0B;
-  --_teal:#2D8C7A;--_teal-light:#C8EDE7;--_coral:#E86060;--_coral-light:#FDDCDC;
-  --font-display:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;
-  --r-sm:4px;--r-md:8px;--r-lg:12px;--r-xl:16px;--r-pill:50px;
-}
-.theme-light{color-scheme:light;--color-surface-page:var(--_g50);--color-surface-base:var(--_g0);--color-surface-elevated:var(--_g0);--color-surface-sunken:var(--_g100);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g950);--color-text-secondary:var(--_g600);--color-text-tertiary:var(--_g400);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-border-subtle:var(--_g100);--color-border-default:var(--_g200);--color-success-bg:#EDF7F5;--color-success-fg:#1a5c50;--color-success-bd:var(--_teal);--color-warning-bg:var(--_y50);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y600);--color-danger-bg:#FEF2F2;--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);--shadow-md:0 4px 12px rgba(0,0,0,0.08);--shadow-lg:0 10px 30px rgba(0,0,0,0.10);}
-.theme-dark{color-scheme:dark;--color-surface-page:var(--_g950);--color-surface-base:var(--_g900);--color-surface-elevated:var(--_g800);--color-surface-sunken:var(--_g950);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g100);--color-text-secondary:var(--_g400);--color-text-tertiary:var(--_g600);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-border-subtle:rgba(255,255,255,.06);--color-border-default:rgba(255,255,255,.10);--color-success-bg:rgba(45,140,122,.12);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,.30);--color-warning-bg:rgba(245,196,0,.10);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,.25);--color-danger-bg:rgba(232,96,96,.12);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,.30);--shadow-md:0 4px 12px rgba(0,0,0,.40);--shadow-lg:0 10px 30px rgba(0,0,0,.50);}
-.theme-brand{color-scheme:light;--color-surface-page:var(--_y400);--color-surface-base:var(--_y200);--color-surface-elevated:var(--_y50);--color-surface-sunken:var(--_y600);--color-surface-secondary:var(--_g950);--color-text-primary:var(--_g950);--color-text-secondary:var(--_y900);--color-text-tertiary:var(--_y800);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_g950);--color-border-subtle:rgba(0,0,0,.08);--color-border-default:rgba(0,0,0,.14);--color-success-bg:rgba(45,140,122,.12);--color-success-fg:#1a5c50;--color-success-bd:var(--_teal);--color-warning-bg:rgba(0,0,0,.08);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y900);--color-danger-bg:rgba(232,96,96,.12);--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);--shadow-md:0 4px 12px rgba(0,0,0,.14);--shadow-lg:0 10px 30px rgba(0,0,0,.18);}
-.theme-navy{color-scheme:dark;--color-surface-page:var(--_n950);--color-surface-base:var(--_n900);--color-surface-elevated:var(--_n700);--color-surface-sunken:var(--_n950);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g0);--color-text-secondary:var(--_n100);--color-text-tertiary:var(--_n300);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-border-subtle:rgba(107,158,208,.12);--color-border-default:rgba(107,158,208,.20);--color-success-bg:rgba(45,140,122,.15);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,.35);--color-warning-bg:rgba(245,196,0,.12);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,.30);--color-danger-bg:rgba(232,96,96,.14);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,.35);--shadow-md:0 4px 12px rgba(0,0,0,.50);--shadow-lg:0 10px 30px rgba(0,0,0,.60);}
-*{box-sizing:border-box}
-body{margin:0;font-family:var(--font-body);background:var(--color-surface-page);color:var(--color-text-primary);}
-.theme-bar{display:flex;gap:4px;padding:8px 16px;background:var(--color-surface-secondary);}
-.theme-bar button{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:11px;padding:6px 14px;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--color-text-on-navy);cursor:pointer;border-radius:var(--r-sm);}
-.theme-bar button.active{background:var(--color-brand-primary);color:#000;border-color:var(--color-brand-primary);}
-.header{display:flex;align-items:center;gap:16px;padding:24px 32px;border-bottom:1px solid var(--color-border-subtle);background:var(--color-surface-base);}
-.logo-wrap{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;}
-.logo-wrap img{display:block;width:100%;height:100%;object-fit:cover;}
-.h-titles h1{font-family:var(--font-display);font-weight:900;font-size:32px;letter-spacing:.02em;text-transform:uppercase;margin:0;line-height:1;}
-.h-titles .sub{font-family:var(--font-body);color:var(--color-text-secondary);font-size:13px;margin-top:4px;}
-.header-actions{margin-left:auto;display:flex;gap:8px;align-items:center;}
-.back-link{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--color-text-secondary);text-decoration:none;padding:6px 12px;border:1px solid var(--color-border-default);border-radius:var(--r-sm);}
-.back-link:hover{color:var(--color-brand-primary);border-color:var(--color-brand-primary);}
-.summary-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;padding:24px 32px;background:var(--color-surface-base);border-bottom:1px solid var(--color-border-subtle);}
-.kpi{padding:18px 20px;background:var(--color-surface-elevated);border:1px solid var(--color-border-subtle);border-radius:var(--r-lg);}
-.kpi .lbl{font-family:var(--font-body);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--color-text-secondary);}
-.kpi .val{font-family:var(--font-display);font-weight:900;font-size:36px;line-height:1.1;margin-top:4px;}
-.kpi.ok .val{color:var(--_teal);}.kpi.warn .val{color:var(--_y400);}.kpi.fail .val{color:var(--_coral);}
-.main{padding:24px 32px;}
-.agent-section{margin-bottom:36px;}
-.agent-title{font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;color:var(--color-text-primary);}
-.agent-title::before{content:"";display:inline-block;width:6px;height:24px;background:var(--color-brand-primary);border-radius:3px;}
-.job-card{background:var(--color-surface-elevated);border:1px solid var(--color-border-subtle);border-radius:var(--r-lg);padding:20px 24px;margin-bottom:16px;box-shadow:var(--shadow-md);}
-.job-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:12px;}
-.job-name{font-family:var(--font-display);font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.02em;line-height:1.2;}
-.job-meta{font-family:var(--font-body);color:var(--color-text-secondary);font-size:12px;margin-top:4px;}
-.status-badge{font-family:var(--font-display);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:11px;padding:6px 12px;border-radius:var(--r-pill);border:1px solid;white-space:nowrap;}
-.s-ok{background:var(--color-success-bg);color:var(--color-success-fg);border-color:var(--color-success-bd);}
-.s-warn{background:var(--color-warning-bg);color:var(--color-warning-fg);border-color:var(--color-warning-bd);}
-.s-fail{background:var(--color-danger-bg);color:var(--color-danger-fg);border-color:var(--color-danger-bd);}
-.task-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 24px;padding:12px 0;border-top:1px solid var(--color-border-subtle);font-size:13px;}
-.task-row .k{color:var(--color-text-tertiary);font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-family:var(--font-body);font-weight:500;}
-.task-row .v{color:var(--color-text-primary);font-family:var(--font-body);font-weight:500;}
-.task-row .v a{color:var(--color-brand-primary);text-decoration:none;}.task-row .v a:hover{text-decoration:underline;}
-table.files{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.5px;}
-table.files th{text-align:left;font-family:var(--font-body);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;color:var(--color-text-tertiary);padding:8px 10px;border-bottom:1px solid var(--color-border-subtle);}
-table.files td{padding:10px;border-bottom:1px solid var(--color-border-subtle);color:var(--color-text-primary);vertical-align:top;}
-table.files td.path{font-family:'Barlow',sans-serif;font-size:11.5px;color:var(--color-text-secondary);word-break:break-all;}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle;}
-.dot.fresh{background:var(--_teal);}.dot.stale{background:var(--_y400);}.dot.old,.dot.missing{background:var(--_coral);}
-.footer{padding:18px 32px;text-align:center;color:var(--color-text-tertiary);font-size:12px;border-top:1px solid var(--color-border-subtle);}
-"""
-
-
-def render_html(jobs):
-    now = datetime.now()
-    counts = {"ok": 0, "warn": 0, "fail": 0}
-    for j in jobs:
-        counts[j["overall"]] = counts.get(j["overall"], 0) + 1
-    total = len(jobs)
-    success_pct = round(counts["ok"] / total * 100) if total else 0
-
-    by_agent = {}
-    for j in jobs:
-        by_agent.setdefault(j["agent"], []).append(j)
-    AGENT_ORDER = ["PRISM", "PULSE", "STRIKER", "HAVEN", "SIGMA", "BLAZE", "VAULT"]
-    ordered_agents = [a for a in AGENT_ORDER if a in by_agent] + [a for a in by_agent if a not in AGENT_ORDER]
-
-    def status_label(s):
-        return {"ok": "Operational", "warn": "Warning", "fail": "Failed"}[s]
-
-    sections_html = []
-    for agent in ordered_agents:
-        rows = []
-        for j in by_agent[agent]:
-            input_rows = []
-            if j["inputs"]:
-                input_rows.append(
-                    "<table class='files'><thead><tr><th>Source File</th><th>Modified</th><th>Age</th><th>Size</th><th>Path</th></tr></thead><tbody>"
-                )
-                for inp in j["inputs"]:
-                    input_rows.append(
-                        f"<tr><td><span class='dot {inp['status']}'></span>{inp['label']}<div style='color:var(--color-text-tertiary);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;'>{inp.get('source','')}</div></td>"
-                        f"<td>{inp.get('mtime_iso') or '—'}</td>"
-                        f"<td>{fmt_age(inp.get('age_hours'))}</td>"
-                        f"<td>{fmt_size(inp.get('size'))}</td>"
-                        f"<td class='path'>{inp['path_str']}</td></tr>"
-                    )
-                input_rows.append("</tbody></table>")
-            else:
-                input_rows.append("<div style='color:var(--color-text-tertiary);font-size:12px;font-style:italic;padding:8px 0;'>No tracked input files for this job.</div>")
-            output = j["output"]
-            dash_link = f' · <a href=\"{j["dashboard_url"]}\" target=\"_blank\">View dashboard ↗</a>' if j["dashboard_url"] else ""
-            ts = j["task_status"]
-            next_run_str = ts.get("next_run_iso") or "—"
-            last_result = ts.get("last_result")
-            result_str = "—" if last_result is None else (f"<span style='color:var(--_teal);font-weight:600;'>0 (success)</span>" if last_result == 0 else f"<span style='color:var(--_coral);font-weight:600;'>{last_result}</span>")
-            rows.append(
-                f"""<div class='job-card'>
-  <div class='job-head'>
-    <div>
-      <div class='job-name'>{j['name']}</div>
-      <div class='job-meta'>{j['cadence']} · {j['task']}{dash_link}</div>
-    </div>
-    <span class='status-badge s-{j['overall']}'>{status_label(j['overall'])}</span>
-  </div>
-  <div class='task-row'>
-    <div><div class='k'>Task last ran</div><div class='v'>{ts.get('last_run_iso') or 'Never'}</div></div>
-    <div><div class='k'>Next run</div><div class='v'>{next_run_str}</div></div>
-    <div><div class='k'>Last exit</div><div class='v'>{result_str}</div></div>
-    <div><div class='k'>Output</div><div class='v'><span class='dot {output['status']}'></span>{output['label']}</div></div>
-    <div><div class='k'>Output modified</div><div class='v'>{output.get('mtime_iso') or 'Missing'} ({fmt_age(output.get('age_hours'))})</div></div>
-  </div>
-  {''.join(input_rows)}
-</div>"""
-            )
-        sections_html.append(f"<section class='agent-section'><h2 class='agent-title'>{agent}</h2>{''.join(rows)}</section>")
-
-    sections = "\n".join(sections_html)
-    css = CSS_BLOCK
-    return f"""<!DOCTYPE html>
-<html lang=\"en\" class=\"theme-navy\">
-<head>
-<meta charset=\"UTF-8\">
-<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-<title>Updates · Olympic Paints Health Check</title>
-<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
-<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
-<link href=\"https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap\" rel=\"stylesheet\">
-<script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
-<style>{css}</style>
-</head>
-<body>
-<div class=\"theme-bar\">
-  <button onclick=\"olyTheme('theme-light',this)\">Light</button>
-  <button onclick=\"olyTheme('theme-dark',this)\">Dark</button>
-  <button onclick=\"olyTheme('theme-brand',this)\">Brand</button>
-  <button onclick=\"olyTheme('theme-navy',this)\" class=\"active\">Navy</button>
-</div>
-<header class=\"header\">
-  <div class=\"logo-wrap\"><img src=\"logo.jpg\" alt=\"Olympic Paints\" width=\"48\" height=\"48\"></div>
-  <div class=\"h-titles\">
-    <h1>Updates · Health Check</h1>
-    <div class=\"sub\">Every scheduled job across Olympic Paints · last refreshed {now.strftime('%a %d %b %Y · %H:%M')}</div>
-  </div>
-  <div class=\"header-actions\">
-    <a class=\"back-link\" href=\"portal.html\">← Workspace Portal</a>
-  </div>
-</header>
-<div class=\"summary-bar\">
-  <div class=\"kpi ok\"><div class=\"lbl\">Operational</div><div class=\"val\">{counts['ok']}<span style='font-size:18px;color:var(--color-text-tertiary);font-weight:500;'> / {total}</span></div></div>
-  <div class=\"kpi warn\"><div class=\"lbl\">Warning</div><div class=\"val\">{counts['warn']}</div></div>
-  <div class=\"kpi fail\"><div class=\"lbl\">Failed</div><div class=\"val\">{counts['fail']}</div></div>
-  <div class=\"kpi ok\"><div class=\"lbl\">Success Rate</div><div class=\"val\">{success_pct}%</div></div>
-  <div class=\"kpi\"><div class=\"lbl\">Tracked Inputs</div><div class=\"val\">{sum(len(j['inputs']) for j in jobs)}</div></div>
-</div>
-<main class=\"main\">
-{sections}
-</main>
-<footer class=\"footer\">Olympic Paints · Updates Health Check · auto-generated by health_check.py · last run {now.strftime('%Y-%m-%d %H:%M:%S')}</footer>
-<script>
-const OLY_THEMES=['theme-light','theme-dark','theme-brand','theme-navy'];
-function olyTheme(t,btn){{
-  document.documentElement.classList.remove(...OLY_THEMES);
-  document.documentElement.classList.add(t);
-  localStorage.setItem('oly-theme',t);
-  document.querySelectorAll('.theme-bar button').forEach(b=>b.classList.toggle('active',b===btn));
-}}
-</script>
-</body></html>"""
-
 
 # ── Telegram alert (deduped) ────────────────────────────────────────────────
 #
@@ -797,7 +621,7 @@ def _build_telegram_message(problem_jobs, fail_count, warn_count, generated_at) 
             detail = ts.get("label", "")
         lines.append(f"{icon}  *{j['agent']}* · {j['name']}\n    {last_run[-8:] if last_run != 'never' else 'never'}  ·  {detail}")
     lines.append("")
-    lines.append("[View dashboard](https://op-workspace-dashboard.vercel.app/updates)")
+    lines.append("[Open Workspace Dashboard → Updates](https://op-workspace-dashboard.vercel.app/)")
     return "\n".join(lines)
 
 
@@ -882,7 +706,7 @@ def push_to_github():
             print("[warn] no FlomaticAuto token; skipping push", file=sys.stderr)
             return
         remote = f"https://FlomaticAuto:{token}@github.com/FlomaticAuto/op-workspace-dashboard.git"
-        subprocess.run(["git", "-C", str(WORKSPACE), "add", "updates.html", "updates_status.json"], check=False)
+        subprocess.run(["git", "-C", str(WORKSPACE), "add", "updates_status.json"], check=False)
         rc = subprocess.run(
             ["git", "-C", str(WORKSPACE), "commit", "-m", f"Updates health check {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
             capture_output=True, text=True,
@@ -921,8 +745,7 @@ def main(push=True):
     }
     summary["success_pct"] = round(summary["ok"] / summary["total"] * 100) if summary["total"] else 0
     OUT_JSON.write_text(json.dumps(summary, indent=2))
-    OUT_HTML.write_text(render_html(jobs), encoding="utf-8")
-    print(f"[ok] wrote {OUT_HTML} · {summary['ok']}/{summary['total']} green")
+    print(f"[ok] wrote {OUT_JSON} · {summary['ok']}/{summary['total']} green (Updates tab on dashboard reads this)")
     send_alert_telegram(jobs, summary["generated_at"])
     if push:
         push_to_github()
