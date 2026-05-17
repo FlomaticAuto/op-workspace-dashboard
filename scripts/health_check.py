@@ -713,14 +713,15 @@ def push_to_github():
         )
         if rc.returncode != 0 and "nothing to commit" not in (rc.stdout + rc.stderr):
             print(f"[warn] commit: {rc.stdout}{rc.stderr}", file=sys.stderr)
+        # Vercel production target is 'main', so push to both refs.
         push = subprocess.run(
-            ["git", "-C", str(WORKSPACE), "push", remote, "HEAD:master"],
+            ["git", "-C", str(WORKSPACE), "push", remote, "HEAD:master", "HEAD:main"],
             capture_output=True, text=True, timeout=60,
         )
         if push.returncode != 0:
             print(f"[warn] push failed: {push.stderr}", file=sys.stderr)
         else:
-            print("[ok] updates.html pushed")
+            print("[ok] updates_status.json pushed to master + main")
     except Exception as e:
         print(f"[warn] push error: {e}", file=sys.stderr)
 
