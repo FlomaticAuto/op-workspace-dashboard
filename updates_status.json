@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-17T06:15:06",
+  "generated_at": "2026-05-17T07:30:07",
   "total": 15,
-  "ok": 0,
-  "warn": 2,
-  "fail": 13,
+  "ok": 1,
+  "warn": 4,
+  "fail": 10,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -51,9 +51,9 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "overall": "ok",
+      "task_last_run": "2026-05-17T07:30:30",
+      "task_last_result": 267009
     },
     {
       "id": "haven_dashboard_check",
@@ -91,9 +91,9 @@
       "name": "Kaizen Daily Sync",
       "task": "Olympic Paints - Kaizen Daily Sync",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "overall": "warn",
+      "task_last_run": "2026-05-17T07:30:30",
+      "task_last_result": 267009
     },
     {
       "id": "workspace_health",
@@ -122,8 +122,8 @@
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "task_last_run": "2026-05-17T07:00:00",
+      "task_last_result": 3221225786
     },
     {
       "id": "vault_meeting_extraction",
@@ -131,9 +131,9 @@
       "name": "VAULT Meeting Extraction (Notion tasks)",
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "overall": "warn",
+      "task_last_run": "2026-05-17T07:00:00",
+      "task_last_result": 0
     },
     {
       "id": "cso_intelligence",
@@ -156,5 +156,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 0
+  "success_pct": 7
 }
