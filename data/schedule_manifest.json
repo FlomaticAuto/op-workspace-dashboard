@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-17T07:00:03+02:00",
+  "generated_at": "2026-05-17T10:00:03+02:00",
   "tasks": [
     {
       "job_id": "olympicpaints-emailecommercedashboard",
@@ -21,10 +21,10 @@
       "task_path": "\\Olympic Paints\\HAVEN\\HAVEN Clocking Report Daily",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-21T07:30:00+02:00",
-      "next_run": "2026-05-17 07:30:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-05-18 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 07:30:01+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -34,35 +34,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-17 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 07:00:01+02:00",
-      "scheduler_last_task_result": -2147020576,
+      "next_run": "2026-05-17 11:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 10:00:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-16T21:00:03+02:00",
-          "finished_at": "2026-05-16T21:00:14+02:00",
-          "duration_seconds": 11.212,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 17 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-16_21-00-03.log"
-        },
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-16T22:00:02+02:00",
-          "finished_at": "2026-05-16T22:00:05+02:00",
-          "duration_seconds": 2.687,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 17 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-16_22-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -158,12 +134,36 @@
           "stdout_tail": "Wrote 18 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-17_06-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-17T07:00:02+02:00",
+          "finished_at": "2026-05-17T07:00:05+02:00",
+          "duration_seconds": 2.589,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 18 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-17_07-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-17T09:40:40+02:00",
+          "finished_at": "2026-05-17T09:41:03+02:00",
+          "duration_seconds": 22.707,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 18 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git add data: fatal: Unable to create 'C:/Users/quint/workspace-dashboard/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, e.g.\nan editor opened by 'git commit'. Please make sure all processes\nare terminated then try again. If it still fails, a git process\nmay have crashed in this repository earlier:\nremove the file manually to continue.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-17_09-40-40.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-17T06:00:02+02:00",
-        "finished_at": "2026-05-17T06:00:05+02:00",
-        "duration_seconds": 2.782,
+        "started_at": "2026-05-17T09:40:40+02:00",
+        "finished_at": "2026-05-17T09:41:03+02:00",
+        "duration_seconds": 22.707,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -189,11 +189,32 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_KPI_Dashboard_Update",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-29T08:45:00",
-      "next_run": "2026-05-17 08:45:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
-      "history": []
+      "next_run": "2026-05-18 08:45:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 09:40:33+02:00",
+      "scheduler_last_task_result": 127,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "olympicpaints-kpi-dashboard-update",
+          "agent": "PRISM",
+          "started_at": "2026-05-17T09:40:40+02:00",
+          "finished_at": "2026-05-17T09:40:40+02:00",
+          "duration_seconds": 0.002,
+          "exit_code": 127,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "run_job.py: failed to launch wrapped command: [WinError 2] The system cannot find the file specified",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-kpi-dashboard-update\\2026-05-17_09-40-40.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-17T09:40:40+02:00",
+        "finished_at": "2026-05-17T09:40:40+02:00",
+        "duration_seconds": 0.002,
+        "exit_code": 127,
+        "ok": false,
+        "summary": null
+      }
     },
     {
       "job_id": "olympicpaints-sales-dashboard-refresh",
@@ -202,11 +223,32 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_Sales_Dashboard_Refresh",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-07T08:30:00",
-      "next_run": "2026-05-17 08:30:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
-      "history": []
+      "next_run": "2026-05-18 08:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 08:30:01+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "olympicpaints-sales-dashboard-refresh",
+          "agent": "PRISM",
+          "started_at": "2026-05-17T08:30:03+02:00",
+          "finished_at": "2026-05-17T08:35:53+02:00",
+          "duration_seconds": 350.317,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-17_08-30-03.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-17T08:30:03+02:00",
+        "finished_at": "2026-05-17T08:35:53+02:00",
+        "duration_seconds": 350.317,
+        "exit_code": 0,
+        "ok": true,
+        "summary": null
+      }
     },
     {
       "job_id": "olympicpaints-workspace-health-report",
@@ -242,9 +284,9 @@
       "enabled": true,
       "schedule_summary": "type=9 start=",
       "next_run": null,
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "scheduler_last_run_time": "2026-05-17 08:02:31+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -340,11 +382,32 @@
       "task_path": "\\Olympic Paints\\VAULT\\Olympic Paints - Kaizen Daily Sync",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-09T07:30:00",
-      "next_run": "2026-05-17 07:30:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
-      "history": []
+      "next_run": "2026-05-18 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 07:30:01+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "olympic-paints-kaizen-daily-sync",
+          "agent": "VAULT",
+          "started_at": "2026-05-17T07:30:02+02:00",
+          "finished_at": "2026-05-17T07:30:23+02:00",
+          "duration_seconds": 21.26,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[main 753fd1a] chore: sync evidence + memory 2026-05-17 07:30\n 1 file changed, 29 insertions(+), 24 deletions(-)\nKaizen Sync — 2026-05-17 07:30\n  Pulling latest from GitHub…\n  git pull: Already up to date.\n  Synced back to local Claude memory: HAVEN, PRISM, STRIKER, SIGMA, BLAZE, VAULT, PULSE\n  Mining session logs…\n    107 sessions, 993 prompts, 13 corrections\n  Syncing agent memory files…\n    Synced: HAVEN, PRISM, STRIKER, SIGMA, BLAZE, VAULT, PULSE\n  Pushing to GitHub…\n  Pushed to GitHub.\nDone.",
+          "stderr_tail": "To https://github.com/FlomaticAuto/olympic-paints-kaizen.git\n   f4d2c15..753fd1a  main -> main",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympic-paints-kaizen-daily-sync\\2026-05-17_07-30-02.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-17T07:30:02+02:00",
+        "finished_at": "2026-05-17T07:30:23+02:00",
+        "duration_seconds": 21.26,
+        "exit_code": 0,
+        "ok": true,
+        "summary": null
+      }
     },
     {
       "job_id": "olympic-paints-meeting-minutes-extractor",
@@ -355,7 +418,7 @@
       "schedule_summary": "type=2 start=2026-04-30T07:00:00+02:00",
       "next_run": "2026-05-18 07:00:00+02:00",
       "scheduler_last_run_time": "2026-05-17 07:00:01+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": -1073741510,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -366,8 +429,8 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-17 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 06:15:00+02:00",
+      "next_run": "2026-05-17 10:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 09:40:33+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -466,12 +529,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-17_06-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-17T09:40:40+02:00",
+          "finished_at": "2026-05-17T09:41:08+02:00",
+          "duration_seconds": 27.784,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-17_09-40-40.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-17T06:15:01+02:00",
-        "finished_at": "2026-05-17T06:15:10+02:00",
-        "duration_seconds": 9.002,
+        "started_at": "2026-05-17T09:40:40+02:00",
+        "finished_at": "2026-05-17T09:41:08+02:00",
+        "duration_seconds": 27.784,
         "exit_code": 0,
         "ok": true,
         "summary": null
