@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-17T16:15:21",
+  "generated_at": "2026-05-17T18:15:11",
   "total": 23,
-  "ok": 3,
-  "warn": 5,
+  "ok": 2,
+  "warn": 6,
   "fail": 15,
   "jobs": [
     {
@@ -51,7 +51,7 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-05-17T07:30:30",
       "task_last_result": 0
     },
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 13
+  "success_pct": 9
 }
