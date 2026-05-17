@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-17T18:00:03+02:00",
+  "generated_at": "2026-05-17T19:00:03+02:00",
   "tasks": [
     {
       "job_id": "olympicpaints-emailecommercedashboard",
@@ -9,6 +9,45 @@
       "enabled": false,
       "schedule_summary": "type=3 start=2026-05-08T08:00:00",
       "next_run": "2026-05-18 08:00:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
+      "history": []
+    },
+    {
+      "job_id": "olympicpaints-checkpendingforms-0800",
+      "name": "OlympicPaints_CheckPendingForms_0800",
+      "agent": "Forms",
+      "task_path": "\\Olympic Paints\\Forms\\OlympicPaints_CheckPendingForms_0800",
+      "enabled": true,
+      "schedule_summary": "type=3 start=2026-05-17T08:00:00+02:00",
+      "next_run": "2026-05-18 08:00:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
+      "history": []
+    },
+    {
+      "job_id": "olympicpaints-checkpendingforms-1200",
+      "name": "OlympicPaints_CheckPendingForms_1200",
+      "agent": "Forms",
+      "task_path": "\\Olympic Paints\\Forms\\OlympicPaints_CheckPendingForms_1200",
+      "enabled": true,
+      "schedule_summary": "type=3 start=2026-05-17T12:00:00+02:00",
+      "next_run": "2026-05-18 12:00:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
+      "history": []
+    },
+    {
+      "job_id": "olympicpaints-checkpendingforms-1600",
+      "name": "OlympicPaints_CheckPendingForms_1600",
+      "agent": "Forms",
+      "task_path": "\\Olympic Paints\\Forms\\OlympicPaints_CheckPendingForms_1600",
+      "enabled": true,
+      "schedule_summary": "type=3 start=2026-05-17T16:00:00+02:00",
+      "next_run": "2026-05-18 16:00:00+02:00",
       "scheduler_last_run_time": null,
       "scheduler_last_task_result": 267011,
       "heartbeat_status": "never_run",
@@ -34,23 +73,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-17 19:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 18:00:01+02:00",
+      "next_run": "2026-05-17 20:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 19:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-17T05:00:02+02:00",
-          "finished_at": "2026-05-17T05:00:04+02:00",
-          "duration_seconds": 2.348,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 18 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-17_05-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -158,12 +185,24 @@
           "stdout_tail": "Wrote 18 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   b50d4de..8607a05  master -> main\n ! [rejected]        master -> master (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-17_17-24-57.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-17T18:00:02+02:00",
+          "finished_at": "2026-05-17T18:00:05+02:00",
+          "duration_seconds": 3.105,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 18 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   8607a05..96a0570  master -> main\n ! [rejected]        master -> master (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-17_18-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-17T17:24:57+02:00",
-        "finished_at": "2026-05-17T17:25:42+02:00",
-        "duration_seconds": 45.152,
+        "started_at": "2026-05-17T18:00:02+02:00",
+        "finished_at": "2026-05-17T18:00:05+02:00",
+        "duration_seconds": 3.105,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -429,23 +468,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-17 18:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 16:15:01+02:00",
+      "next_run": "2026-05-17 20:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-17 18:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-05-16T22:15:01+02:00",
-          "finished_at": "2026-05-16T22:15:14+02:00",
-          "duration_seconds": 12.805,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-16_22-15-01.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -553,12 +580,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-17_16-15-07.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-17T18:15:01+02:00",
+          "finished_at": "2026-05-17T18:15:25+02:00",
+          "duration_seconds": 23.816,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-17_18-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-17T16:15:07+02:00",
-        "finished_at": "2026-05-17T16:15:27+02:00",
-        "duration_seconds": 20.832,
+        "started_at": "2026-05-17T18:15:01+02:00",
+        "finished_at": "2026-05-17T18:15:25+02:00",
+        "duration_seconds": 23.816,
         "exit_code": 0,
         "ok": true,
         "summary": null
