@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-17T08:35:46",
-  "total": 15,
+  "generated_at": "2026-05-17T08:58:39",
+  "total": 23,
   "ok": 3,
-  "warn": 3,
-  "fail": 9,
+  "warn": 5,
+  "fail": 15,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -13,7 +13,7 @@
       "cadence": "Daily \u00b7 07:15",
       "overall": "fail",
       "task_last_run": "2026-05-17T08:30:30",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "kpi_rep_dashboards",
@@ -154,7 +154,87 @@
       "overall": "ok",
       "task_last_run": "2026-05-17T08:02:02",
       "task_last_result": 267009
+    },
+    {
+      "id": "pulse_daily_mailer",
+      "agent": "PULSE",
+      "name": "PULSE Daily Mailer (per-rep brief + Telegram)",
+      "task": "PULSE \u2014 Daily Mailer",
+      "cadence": "Daily \u00b7 Mon-Fri 09:00",
+      "overall": "fail",
+      "task_last_run": "2026-05-15T09:00:00",
+      "task_last_result": 0
+    },
+    {
+      "id": "pulse_leaderboard",
+      "agent": "PULSE",
+      "name": "PULSE Leaderboard (weekday refresh)",
+      "task": "PULSE \u2014 Leaderboard",
+      "cadence": "Daily \u00b7 Mon-Fri 09:15",
+      "overall": "fail",
+      "task_last_run": "2026-05-15T09:15:15",
+      "task_last_result": 0
+    },
+    {
+      "id": "pulse_web_snapshots",
+      "agent": "PULSE",
+      "name": "PULSE Web Snapshots (Vercel push)",
+      "task": "PULSE \u2014 Web Snapshots",
+      "cadence": "Daily \u00b7 Mon-Fri 09:20",
+      "overall": "warn",
+      "task_last_run": "2026-05-15T09:20:20",
+      "task_last_result": 0
+    },
+    {
+      "id": "pulse_ack_escalation",
+      "agent": "PULSE",
+      "name": "PULSE Ack Escalation (afternoon nudge)",
+      "task": "PULSE \u2014 Ack Escalation",
+      "cadence": "Daily \u00b7 Mon-Fri 17:15",
+      "overall": "warn",
+      "task_last_run": "2026-05-15T18:39:39",
+      "task_last_result": 1
+    },
+    {
+      "id": "pulse_intake_escalation",
+      "agent": "PULSE",
+      "name": "PULSE Intake Escalation (Fri morning)",
+      "task": "PULSE \u2014 Intake Escalation",
+      "cadence": "Weekly \u00b7 Fri 09:00",
+      "overall": "fail",
+      "task_last_run": "2026-05-15T09:00:00",
+      "task_last_result": 1
+    },
+    {
+      "id": "pulse_scorecard",
+      "agent": "PULSE",
+      "name": "PULSE Bi-Weekly Scorecard",
+      "task": "PULSE \u2014 Scorecard",
+      "cadence": "Weekly \u00b7 Mon 07:00",
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
+    },
+    {
+      "id": "pulse_cycle_loader",
+      "agent": "PULSE",
+      "name": "PULSE Cycle Loader (Sunday)",
+      "task": "PULSE \u2014 Cycle Loader",
+      "cadence": "Weekly \u00b7 Sun 18:00",
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
+    },
+    {
+      "id": "pulse_planner",
+      "agent": "PULSE",
+      "name": "PULSE Planner (Sun evening \u2014 sets next week)",
+      "task": "PULSE \u2014 Planner",
+      "cadence": "Weekly \u00b7 Sun 19:00",
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     }
   ],
-  "success_pct": 20
+  "success_pct": 13
 }
