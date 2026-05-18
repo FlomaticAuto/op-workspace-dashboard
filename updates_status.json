@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-18T08:46:26",
+  "generated_at": "2026-05-18T09:00:51",
   "total": 23,
-  "ok": 2,
+  "ok": 3,
   "warn": 5,
-  "fail": 16,
+  "fail": 15,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -71,9 +71,9 @@
       "name": "Vehicle In-Out Report",
       "task": "Vehicle Report Weekly",
       "cadence": "Weekly \u00b7 Mon",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "overall": "ok",
+      "task_last_run": "2026-05-18T09:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vehicle_health",
@@ -93,7 +93,7 @@
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
       "task_last_run": "2026-05-18T08:44:44",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "workspace_health",
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 9
+  "success_pct": 13
 }
