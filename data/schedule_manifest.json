@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T11:00:05+02:00",
+  "generated_at": "2026-05-18T12:00:05+02:00",
   "tasks": [
     {
       "job_id": "olympicpaints-emailecommercedashboard",
@@ -55,10 +55,10 @@
       "task_path": "\\Olympic Paints\\Forms\\OlympicPaints_CheckPendingForms_1200",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-17T12:00:00+02:00",
-      "next_run": "2026-05-18 12:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-05-19 12:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 12:00:00+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -94,23 +94,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-18 12:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-18 11:00:01+02:00",
+      "next_run": "2026-05-18 13:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 12:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-18T00:00:01+02:00",
-          "finished_at": "2026-05-18T00:00:04+02:00",
-          "duration_seconds": 3.043,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 21 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   54f531a..1ba3467  master -> main\n ! [rejected]        master -> master (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-18_00-00-01.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -218,12 +206,24 @@
           "stdout_tail": "Wrote 21 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   0c953ea..f472c8a  master -> main\n ! [rejected]        master -> master (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-18_10-00-06.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-18T11:00:04+02:00",
+          "finished_at": "2026-05-18T11:00:09+02:00",
+          "duration_seconds": 5.492,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 21 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   39c0da4..4dd09de  master -> main\n ! [rejected]        master -> master (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-18_11-00-04.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-18T10:00:06+02:00",
-        "finished_at": "2026-05-18T10:00:24+02:00",
-        "duration_seconds": 18.282,
+        "started_at": "2026-05-18T11:00:04+02:00",
+        "finished_at": "2026-05-18T11:00:09+02:00",
+        "duration_seconds": 5.492,
         "exit_code": 0,
         "ok": true,
         "summary": null
