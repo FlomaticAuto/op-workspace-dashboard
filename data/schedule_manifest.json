@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T06:00:02+02:00",
+  "generated_at": "2026-05-18T08:45:05+02:00",
   "tasks": [
     {
       "job_id": "olympicpaints-emailecommercedashboard",
@@ -8,7 +8,7 @@
       "task_path": "\\Olympic Paints\\FLASH\\OlympicPaints_EmailECommerceDashboard",
       "enabled": false,
       "schedule_summary": "type=3 start=2026-05-08T08:00:00",
-      "next_run": "2026-05-18 08:00:00+02:00",
+      "next_run": "2026-05-19 08:00:00+02:00",
       "scheduler_last_run_time": null,
       "scheduler_last_task_result": 267011,
       "heartbeat_status": "never_run",
@@ -21,10 +21,10 @@
       "task_path": "\\Olympic Paints\\Forms\\OlympicPaints_CheckPendingForms_0800",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-17T08:00:00+02:00",
-      "next_run": "2026-05-18 08:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-05-19 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 08:44:29+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -60,9 +60,9 @@
       "task_path": "\\Olympic Paints\\HAVEN\\HAVEN Clocking Report Daily",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-21T07:30:00+02:00",
-      "next_run": "2026-05-18 07:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 07:30:01+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-05-19 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 08:44:29+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -73,23 +73,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-18 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-18 06:00:01+02:00",
+      "next_run": "2026-05-18 09:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 08:44:29+02:00",
       "scheduler_last_task_result": -2147020576,
-      "heartbeat_status": "fresh",
+      "heartbeat_status": "stale",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-17T20:00:02+02:00",
-          "finished_at": "2026-05-17T20:00:05+02:00",
-          "duration_seconds": 2.895,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 21 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   66852e2..1fa5807  master -> main\n ! [rejected]        master -> master (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-17_20-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -197,12 +185,24 @@
           "stdout_tail": "Wrote 21 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   2966e2f..34be19c  master -> main\n ! [rejected]        master -> master (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-18_05-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-18T06:00:01+02:00",
+          "finished_at": "2026-05-18T06:00:05+02:00",
+          "duration_seconds": 3.718,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 21 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   34be19c..7ec9062  master -> main\n ! [rejected]        master -> master (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-18_06-00-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-18T05:00:02+02:00",
-        "finished_at": "2026-05-18T05:00:04+02:00",
-        "duration_seconds": 2.681,
+        "started_at": "2026-05-18T06:00:01+02:00",
+        "finished_at": "2026-05-18T06:00:05+02:00",
+        "duration_seconds": 3.718,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -217,9 +217,30 @@
       "schedule_summary": "type=3 start=2026-05-10T06:00:00",
       "next_run": "2026-05-25 06:00:00+02:00",
       "scheduler_last_run_time": "2026-05-18 06:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "missing",
-      "history": []
+      "scheduler_last_task_result": 1,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "cso-intelligence-data",
+          "agent": "PRISM",
+          "started_at": "2026-05-18T06:00:01+02:00",
+          "finished_at": "2026-05-18T06:00:07+02:00",
+          "duration_seconds": 5.959,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "CSO Intelligence Engine — 2026-05-18\nLoading invoice data...\n  175,957 invoice rows loaded (2024-03-01 to 2026-05-15)\n  Running: basket_diversity... OK — High cross-sell potential — these accounts likely buy missing categori\n  Running: revenue_velocity... OK — 10 material accounts (>R50K FY25) that were growing are now decelerati\n  Running: price_sensitivity... OK — 67 Apr-25-active accounts did not order in Apr-26. 65 absorbed the pri\n  Running: rep_blindspots... OK — Categories where each rep is >5 percentage points below portfolio aver\n  Running: month_end_clustering... OK — Likely cash-flow constrained — consider mid-month engagement, smaller \n  Running: single_product_risk... OK — One targeted competitor discount on that product removes most of the a\n  Running: seasonal_breaks... OK — Accounts with a matching historical buying pattern in this month are o\n  Running: credit_concentration... OK — High credit ratios indicate returns, billing disputes, or systematic o\n  Running: cohort_performance... OK — Rising avg first-year revenue = improving acquisition quality; falling\n\nOutput: C:\\Users\\quint\\olympic-paints-cso-insights\\intelligence_data.json (21 KB)\nrefresh_html: index.html updated (20 keys checked)\nrefresh_html: email_strategic_intelligence.html updated (20 keys checked)\nlint_rep_attributions: 1 mismatch(es) of 9 checked:\n  KM027: claimed BV, parquet says AC",
+          "stderr_tail": "Rep attribution lint failed — fix index.html before pushing.",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\cso-intelligence-data\\2026-05-18_06-00-01.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-18T06:00:01+02:00",
+        "finished_at": "2026-05-18T06:00:07+02:00",
+        "duration_seconds": 5.959,
+        "exit_code": 1,
+        "ok": false,
+        "summary": null
+      }
     },
     {
       "job_id": "olympicpaints-kpi-dashboard-update",
@@ -228,10 +249,10 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_KPI_Dashboard_Update",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-29T08:45:00",
-      "next_run": "2026-05-18 08:45:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 09:40:33+02:00",
-      "scheduler_last_task_result": 127,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-05-19 08:45:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 08:45:01+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "olympicpaints-kpi-dashboard-update",
@@ -262,8 +283,8 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_Sales_Dashboard_Refresh",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-07T08:30:00",
-      "next_run": "2026-05-18 08:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 08:30:01+02:00",
+      "next_run": "2026-05-19 08:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 08:30:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -278,12 +299,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-17_08-30-03.log"
+        },
+        {
+          "job_id": "olympicpaints-sales-dashboard-refresh",
+          "agent": "PRISM",
+          "started_at": "2026-05-18T08:30:04+02:00",
+          "finished_at": "2026-05-18T08:36:20+02:00",
+          "duration_seconds": 376.256,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-18_08-30-04.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-17T08:30:03+02:00",
-        "finished_at": "2026-05-17T08:35:53+02:00",
-        "duration_seconds": 350.317,
+        "started_at": "2026-05-18T08:30:04+02:00",
+        "finished_at": "2026-05-18T08:36:20+02:00",
+        "duration_seconds": 376.256,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -309,10 +342,10 @@
       "task_path": "\\Olympic Paints\\SIGMA\\H&S Weekly Refresh",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-16T07:00:00+02:00",
-      "next_run": "2026-05-18 07:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-05-25 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 07:23:48+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -348,11 +381,32 @@
       "task_path": "\\Olympic Paints\\STRIKER\\Olympic Paints - Zoho Meetings Pull",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-13T06:15:00",
-      "next_run": "2026-05-18 06:15:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
-      "history": []
+      "next_run": "2026-05-19 06:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 08:44:29+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "olympic-paints-zoho-meetings-pull",
+          "agent": "STRIKER",
+          "started_at": "2026-05-18T08:45:02+02:00",
+          "finished_at": "2026-05-18T08:45:02+02:00",
+          "duration_seconds": 0.04,
+          "exit_code": 127,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "run_job.py: failed to launch wrapped command: [WinError 193] %1 is not a valid Win32 application",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympic-paints-zoho-meetings-pull\\2026-05-18_08-45-02.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-18T08:45:02+02:00",
+        "finished_at": "2026-05-18T08:45:02+02:00",
+        "duration_seconds": 0.04,
+        "exit_code": 127,
+        "ok": false,
+        "summary": null
+      }
     },
     {
       "job_id": "olympicpaints-friday-sales-meeting",
@@ -387,8 +441,8 @@
       "task_path": "\\Olympic Paints\\STRIKER\\Zoho Leads Pull",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-13T06:10:00",
-      "next_run": "2026-05-18 06:10:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 06:10:01+02:00",
+      "next_run": "2026-05-19 06:10:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 06:10:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -403,12 +457,24 @@
           "stdout_tail": "Pulling leads modified since 2026-05-10T04:10:04+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Discovering Lead fields\n  discovered 66 fetchable fields (0 skipped â€” formula/rollup/subform)\n  splitting into 2 request batches (50, 17 fields each)\n\nâ†’ Leads\n  batch 1/2 â€” 50 fields\n  fetched 13 records from Leads\n  batch 2/2 â€” 17 fields\n  fetched 13 records from Leads\n\nâœ“ Wrote     13 leads â†’ C:\\Users\\quint\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\leads.parquet\n\nâ†’ Writing legacy CSV shims for existing consumers\n  âœ“ wrote 13 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking.csv\n  âœ“ wrote 13 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking_new.csv\n\nLead creation range: 2026-05-11 11:59:47+00:00 â†’ 2026-05-15 13:07:45+00:00\n\nTop lead statuses:\n  (none)                               12\n  Contacted                            1\n\nTop owners by lead count:\n  abooc@olympicpaints.co.za                 5\n  bhadreshv@olympicpaints.co.za             4\n  byronm@olympicpaints.co.za                4",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\zoho-leads-pull\\2026-05-17_06-10-02.log"
+        },
+        {
+          "job_id": "zoho-leads-pull",
+          "agent": "STRIKER",
+          "started_at": "2026-05-18T06:10:02+02:00",
+          "finished_at": "2026-05-18T06:10:11+02:00",
+          "duration_seconds": 9.583,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Pulling leads modified since 2026-05-11T04:10:03+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Discovering Lead fields\n  discovered 66 fetchable fields (0 skipped â€” formula/rollup/subform)\n  splitting into 2 request batches (50, 17 fields each)\n\nâ†’ Leads\n  batch 1/2 â€” 50 fields\n  fetched 13 records from Leads\n  batch 2/2 â€” 17 fields\n  fetched 13 records from Leads\n\nâœ“ Wrote     13 leads â†’ C:\\Users\\quint\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\leads.parquet\n\nâ†’ Writing legacy CSV shims for existing consumers\n  âœ“ wrote 13 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking.csv\n  âœ“ wrote 13 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking_new.csv\n\nLead creation range: 2026-05-11 11:59:47+00:00 â†’ 2026-05-15 13:07:45+00:00\n\nTop lead statuses:\n  (none)                               12\n  Contacted                            1\n\nTop owners by lead count:\n  abooc@olympicpaints.co.za                 5\n  bhadreshv@olympicpaints.co.za             4\n  byronm@olympicpaints.co.za                4",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\zoho-leads-pull\\2026-05-18_06-10-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-17T06:10:02+02:00",
-        "finished_at": "2026-05-17T06:10:12+02:00",
-        "duration_seconds": 10.283,
+        "started_at": "2026-05-18T06:10:02+02:00",
+        "finished_at": "2026-05-18T06:10:11+02:00",
+        "duration_seconds": 9.583,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -421,10 +487,10 @@
       "task_path": "\\Olympic Paints\\VAULT\\Olympic Paints - Kaizen Daily Sync",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-09T07:30:00",
-      "next_run": "2026-05-18 07:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 07:30:01+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-05-19 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 08:44:29+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "olympic-paints-kaizen-daily-sync",
@@ -455,9 +521,9 @@
       "task_path": "\\Olympic Paints\\VAULT\\Olympic Paints - Meeting Minutes Extractor",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-30T07:00:00+02:00",
-      "next_run": "2026-05-18 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 07:00:01+02:00",
-      "scheduler_last_task_result": -1073741510,
+      "next_run": "2026-05-19 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 08:44:29+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -468,10 +534,10 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-18 06:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-18 04:15:00+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-05-18 10:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 08:44:29+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "sync-claude-todos",
@@ -610,10 +676,10 @@
       "task_path": "\\Olympic Paints\\VAULT\\VAULT Meeting Extraction Daily",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-22T07:00:00",
-      "next_run": "2026-05-18 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-17 07:00:01+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-05-19 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-18 08:44:29+02:00",
+      "scheduler_last_task_result": -2147020576,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "vault-meeting-extraction-daily",
