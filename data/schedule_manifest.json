@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T13:12:21+02:00",
+  "generated_at": "2026-05-19T14:12:23+02:00",
   "tasks": [
     {
       "job_id": "dispatch-account-health-forms",
@@ -34,10 +34,10 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1400",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T14:00:00",
-      "next_run": "2026-05-19 14:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-05-20 14:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-19 14:00:00+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -113,6 +113,19 @@
       }
     },
     {
+      "job_id": "olympicpaints-flashodosubmission",
+      "name": "OlympicPaints_FlashODOSubmission",
+      "agent": "FLASH",
+      "task_path": "\\Olympic Paints\\FLASH\\OlympicPaints_FlashODOSubmission",
+      "enabled": true,
+      "schedule_summary": "type=3 start=2026-05-20T07:00:00",
+      "next_run": "2026-05-20 07:00:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
+      "history": []
+    },
+    {
       "job_id": "olympicpaints-checkpendingforms-0800",
       "name": "OlympicPaints_CheckPendingForms_0800",
       "agent": "Forms",
@@ -171,23 +184,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-19 14:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-19 13:12:19+02:00",
+      "next_run": "2026-05-19 15:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-19 14:12:19+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-19T03:49:11+02:00",
-          "finished_at": "2026-05-19T03:49:35+02:00",
-          "duration_seconds": 23.951,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 26 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   eba65e3..c6725b7  master -> main\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the tip of your current branch is behind\nhint: its remote counterpart. If you want to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-19_03-49-11.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -295,12 +296,24 @@
           "stdout_tail": "Wrote 26 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   f6f868b..734ff95  master -> main\n ! [rejected]        master -> master (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-19_13-11-36.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-19T13:12:21+02:00",
+          "finished_at": "2026-05-19T13:12:24+02:00",
+          "duration_seconds": 2.887,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 26 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   d9059b3..46616ff  master -> main\n ! [rejected]        master -> master (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-19_13-12-21.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-19T13:11:36+02:00",
-        "finished_at": "2026-05-19T13:11:41+02:00",
-        "duration_seconds": 5.176,
+        "started_at": "2026-05-19T13:12:21+02:00",
+        "finished_at": "2026-05-19T13:12:24+02:00",
+        "duration_seconds": 2.887,
         "exit_code": 0,
         "ok": true,
         "summary": null
