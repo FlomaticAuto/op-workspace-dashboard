@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-19T10:15:07",
+  "generated_at": "2026-05-19T13:11:58",
   "total": 23,
   "ok": 6,
-  "warn": 4,
-  "fail": 13,
+  "warn": 5,
+  "fail": 12,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -141,7 +141,7 @@
       "name": "CSO Strategic Intelligence Build",
       "task": "CSO-Intelligence-Data",
       "cadence": "Daily morning",
-      "overall": "fail",
+      "overall": "warn",
       "task_last_run": "2026-05-18T06:00:00",
       "task_last_result": 1
     },
