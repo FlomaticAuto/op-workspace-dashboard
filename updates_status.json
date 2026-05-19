@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T22:15:12",
+  "generated_at": "2026-05-20T00:15:10",
   "total": 23,
   "ok": 4,
   "warn": 7,
@@ -53,7 +53,7 @@
       "cadence": "Daily \u00b7 07:30",
       "overall": "fail",
       "task_last_run": "2026-05-19T08:19:19",
-      "task_last_result": 2147946720
+      "task_last_result": 3221225786
     },
     {
       "id": "haven_dashboard_check",
