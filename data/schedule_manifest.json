@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T13:11:37+02:00",
+  "generated_at": "2026-05-19T13:12:21+02:00",
   "tasks": [
     {
       "job_id": "dispatch-account-health-forms",
@@ -134,7 +134,7 @@
       "schedule_summary": "type=3 start=2026-05-17T12:00:00+02:00",
       "next_run": "2026-05-20 12:00:00+02:00",
       "scheduler_last_run_time": "2026-05-19 13:11:30+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -172,22 +172,10 @@
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
       "next_run": "2026-05-19 14:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-19 13:11:30+02:00",
-      "scheduler_last_task_result": -2147020576,
-      "heartbeat_status": "stale",
+      "scheduler_last_run_time": "2026-05-19 13:12:19+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-18T21:00:04+02:00",
-          "finished_at": "2026-05-18T21:00:08+02:00",
-          "duration_seconds": 3.841,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 25 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   ef0d641..c461e28  master -> main\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the tip of your current branch is behind\nhint: its remote counterpart. If you want to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-18_21-00-04.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -295,12 +283,24 @@
           "stdout_tail": "Wrote 26 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   7064141..f6f868b  master -> main\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the tip of your current branch is behind\nhint: its remote counterpart. If you want to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-19_11-12-20.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-19T13:11:36+02:00",
+          "finished_at": "2026-05-19T13:11:41+02:00",
+          "duration_seconds": 5.176,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 26 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   f6f868b..734ff95  master -> main\n ! [rejected]        master -> master (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-19_13-11-36.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-19T11:12:20+02:00",
-        "finished_at": "2026-05-19T11:12:25+02:00",
-        "duration_seconds": 4.578,
+        "started_at": "2026-05-19T13:11:36+02:00",
+        "finished_at": "2026-05-19T13:11:41+02:00",
+        "duration_seconds": 5.176,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -727,21 +727,9 @@
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
       "next_run": "2026-05-19 14:15:00+02:00",
       "scheduler_last_run_time": "2026-05-19 13:11:30+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-05-18T10:15:03+02:00",
-          "finished_at": "2026-05-18T10:15:27+02:00",
-          "duration_seconds": 24.31,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-18_10-15-03.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -849,12 +837,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-19_10-15-00.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-19T13:11:36+02:00",
+          "finished_at": "2026-05-19T13:12:04+02:00",
+          "duration_seconds": 28.243,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-19_13-11-36.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-19T10:15:00+02:00",
-        "finished_at": "2026-05-19T10:15:12+02:00",
-        "duration_seconds": 11.701,
+        "started_at": "2026-05-19T13:11:36+02:00",
+        "finished_at": "2026-05-19T13:12:04+02:00",
+        "duration_seconds": 28.243,
         "exit_code": 0,
         "ok": true,
         "summary": null
