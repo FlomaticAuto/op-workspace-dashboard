@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-19T19:31:17",
+  "generated_at": "2026-05-19T20:15:07",
   "total": 23,
-  "ok": 6,
-  "warn": 5,
+  "ok": 4,
+  "warn": 7,
   "fail": 12,
   "jobs": [
     {
@@ -121,7 +121,7 @@
       "name": "Meeting Minutes Extractor",
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-05-19T08:19:19",
       "task_last_result": 267014
     },
@@ -131,7 +131,7 @@
       "name": "VAULT Meeting Extraction (Notion tasks)",
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-05-19T08:19:19",
       "task_last_result": 0
     },
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 26
+  "success_pct": 17
 }
