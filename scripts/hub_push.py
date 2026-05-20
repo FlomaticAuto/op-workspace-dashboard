@@ -43,6 +43,9 @@ def push_to_hub(subfolder: str, message: str | None = None) -> bool:
     run(["git", "config", "user.email", "auto@olympic-paints.local"])
     run(["git", "config", "user.name", "Olympic Paints Hub Bot"])
 
+    # Stash any unstaged changes so pull --rebase doesn't fail, then restore them
+    stashed = run(["git", "stash", "--include-untracked"])
+
     # Pull before push to avoid conflicts
     if token:
         auth_header = "basic " + base64.b64encode(f"x-access-token:{token}".encode()).decode()
@@ -50,15 +53,20 @@ def push_to_hub(subfolder: str, message: str | None = None) -> bool:
     else:
         run(["git", "pull", "--rebase", "origin", "master"])
 
+    if stashed:
+        run(["git", "stash", "pop"])
+
     run(["git", "add", subfolder])
     run(["git", "commit", "-m", message])
 
     if token:
         auth_header = "basic " + base64.b64encode(f"x-access-token:{token}".encode()).decode()
+        # master:main uses --force because the scheduled-tasks agent pushes to main
+        # independently; master is the authoritative branch, main must always mirror it
         ok = run(["git", "-c", f"http.extraheader=AUTHORIZATION: {auth_header}",
-                  "push", "origin", "master", "master:main"])
+                  "push", "origin", "master", "+master:main"])
     else:
-        ok = run(["git", "push", "origin", "master", "master:main"])
+        ok = run(["git", "push", "origin", "master", "+master:main"])
 
     if ok:
         # ASCII-safe print — cp1252 console can't handle ✓ / →
