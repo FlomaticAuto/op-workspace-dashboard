@@ -14,7 +14,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -233,6 +232,25 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
 .compliance-bar.warn{background:var(--color-warning-bd)}
 .compliance-bar.danger{background:var(--color-danger-bd)}
 
+/* ── COLLAPSIBLE PANELS (details/summary) ─────────────────────── */
+.info-panel{background:var(--color-surface-base);border:1px solid var(--color-border-subtle);border-radius:var(--r-md);margin:8px 0;overflow:hidden}
+.info-panel summary{display:flex;align-items:center;gap:8px;padding:11px 16px;cursor:pointer;font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-secondary);list-style:none;user-select:none}
+.info-panel summary::-webkit-details-marker{display:none}
+.info-panel summary::before{content:'›';font-size:16px;font-weight:900;color:var(--color-text-tertiary);transition:transform .15s;display:inline-block;width:14px;text-align:center}
+.info-panel[open] summary::before{transform:rotate(90deg);color:var(--color-brand-primary)}
+.info-panel summary:hover{color:var(--color-text-primary)}
+.info-panel summary:hover::before{color:var(--color-brand-primary)}
+.info-panel .panel-body{padding:12px 16px 16px;font-family:var(--font-body);font-size:13px;color:var(--color-text-secondary);line-height:1.6;border-top:1px solid var(--color-border-subtle)}
+.info-panel .panel-body strong{color:var(--color-text-primary)}
+.info-panel .panel-body ol,.info-panel .panel-body ul{margin:6px 0 0 18px;padding:0}
+.info-panel .panel-body li{margin-bottom:4px}
+.collapse-card{background:var(--color-surface-base);border:1px solid var(--color-border-subtle);border-radius:var(--r-md);margin-bottom:14px;overflow:hidden}
+.collapse-card summary{display:flex;align-items:center;gap:8px;padding:11px 14px;cursor:pointer;font-family:var(--font-display);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-secondary);list-style:none;user-select:none}
+.collapse-card summary::-webkit-details-marker{display:none}
+.collapse-card summary::before{content:'›';font-size:16px;font-weight:900;color:var(--color-text-tertiary);transition:transform .15s;display:inline-block;width:14px;text-align:center}
+.collapse-card[open] summary::before{transform:rotate(90deg);color:var(--color-brand-primary)}
+.collapse-card .collapse-body{padding:12px}
+
 /* ── YESTERDAY BANNER ─────────────────────────────────────────── */
 .yesterday-banner{background:var(--color-surface-secondary);color:var(--color-text-on-navy);border-radius:var(--r-lg);padding:22px 26px;margin-bottom:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-left:6px solid var(--color-brand-primary);box-shadow:var(--shadow-md)}
 .yesterday-banner h2{font-family:var(--font-display);font-size:22px;font-weight:900;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em;color:var(--color-text-on-navy)}
@@ -401,6 +419,32 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
   <button onclick="showTab('missing',this)">Missing Clock Out</button>
 </nav>
 
+<div style="padding:0 24px;max-width:1400px;margin:8px auto 0">
+  <details class="info-panel">
+    <summary>How to use this report</summary>
+    <div class="panel-body">
+      <strong>Overview tab</strong> — YTD totals for both employers. Use the employer summary table to compare Olympic Paints vs Primeserve compliance.<br>
+      <strong>Yesterday tab</strong> — Who missed their clock-out on the most recent working day. Action this list each morning.<br>
+      <strong>Daily Attendance</strong> — Filter by date range to inspect any period. Use the chart to spot dips in headcount.<br>
+      <strong>Departments</strong> — Which departments have the most missing clock-outs. Useful for line-manager conversations.<br>
+      <strong>Weekly Hours</strong> — Per-employee hours in Wed–Tue weeks. Use the week chips to isolate recent weeks. Export to Excel for payroll.<br>
+      <strong>Missing Clock Out</strong> — Full log of every missed punch. Search by name, ID, or department. Top-10 repeat offenders are charted.
+    </div>
+  </details>
+  <details class="info-panel">
+    <summary>How to process a new clocking export</summary>
+    <div class="panel-body">
+      <ol>
+        <li>Export the transaction file from Advius biometrics (any date range). Save as <code>Transaction*.xlsx</code>.</li>
+        <li>Drop the file into the <strong>Inbox</strong> folder.</li>
+        <li>Run <code>process_inbox.py</code> — it calls <code>build_report.py</code> with the master flag, renames the output to <code>Clocking Report YTD.xlsx</code>, archives the input, and emails the result.</li>
+        <li>Run <code>gen_dashboard.py</code> to regenerate this dashboard and push to GitHub Pages.</li>
+      </ol>
+      <strong>Rules:</strong> 45-minute break is deducted from every shift automatically. Employees with IDs starting with <em>SD</em> belong to Primeserve; all others are Olympic Paints. Never skip the <code>--master</code> flag.
+    </div>
+  </details>
+</div>
+
 <main>
 
 <!-- OVERVIEW -->
@@ -420,9 +464,12 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
     <div class="chart-card"><h3>Avg Hours / Shift</h3><canvas id="c-emp-avg"></canvas></div>
     <div class="chart-card"><h3>Top 10 Employees by Hours Worked</h3><canvas id="c-top-hrs"></canvas></div>
   </div>
-  <div class="charts-row">
-    <div class="chart-card full"><h3>Weekly Hours Trend &mdash; Olympic Paints vs Primeserve</h3><canvas id="c-wk-trend"></canvas></div>
-  </div>
+  <details class="collapse-card">
+    <summary>Weekly Hours Trend &mdash; Olympic Paints vs Primeserve</summary>
+    <div class="collapse-body">
+      <canvas id="c-wk-trend"></canvas>
+    </div>
+  </details>
   <div class="section-hdr"><h2>Employer Summary</h2><span class="note">Net hours; 45 min break deducted per shift</span></div>
   <div class="table-wrap"><table><thead><tr>
     <th>Employer</th><th>Employees</th><th>Shift-Days</th><th>Missing Clock Out</th><th>Total Hours</th><th>Avg Hrs/Shift</th><th>% Missing</th><th>Compliance</th>
@@ -656,6 +703,10 @@ function initOverview(){once('overview',()=>{
   const allMiss=D.employerSummary.reduce((a,r)=>a+(r.missingClkOut||0),0);
   const allComp=allShifts?((1-allMiss/allShifts)*100).toFixed(1):'-';
   b.innerHTML+=`<tr style="background:#D6E4F0;font-weight:700"><td>TOTAL</td><td class="center">${D.kpi.totalEmployees}</td><td class="center">${D.kpi.totalShiftDays.toLocaleString()}</td><td class="center">${D.kpi.totalMissing}</td><td class="right">${D.kpi.totalHours}</td><td class="center">-</td><td class="center">${(100-D.kpi.compliancePct).toFixed(1)}%</td><td class="center"><span style="color:${complianceColor(D.kpi.compliancePct)};font-weight:700">${D.kpi.compliancePct.toFixed(1)}%</span></td></tr>`;
+  /* Resize the trend chart when its <details> is toggled open */
+  document.querySelector('.collapse-card')?.addEventListener('toggle',function(){
+    if(this.open){const ch=Chart.getChart('c-wk-trend');if(ch)ch.resize();}
+  });
 })}
 
 // ── Shared helper: miss type badge ────────────────────────────────────
@@ -928,6 +979,9 @@ async function exportWk(){
   const sel=wkSelIdx.map(i=>D.wk_weeks[i]);
   if(sel.length===0){alert('Select at least one week before exporting.');return;}
   if(rows.length===0){alert('No employees match the current filter.');return;}
+  if(typeof ExcelJS==='undefined'){
+    await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s);});
+  }
 
   // Olympic Paints palette (ARGB)
   const NAVY='FF1A3D6E',NAVY_DK='FF0D2040',NAVY_MD='FF2D6BA8',NAVY_LT='FFE8EFF8';
