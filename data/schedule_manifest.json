@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20T12:00:07+02:00",
+  "generated_at": "2026-05-20T13:00:02+02:00",
   "tasks": [
     {
       "job_id": "dispatch-account-health-forms",
@@ -147,7 +147,7 @@
       "schedule_summary": "type=3 start=2026-05-17T12:00:00+02:00",
       "next_run": "2026-05-21 12:00:00+02:00",
       "scheduler_last_run_time": "2026-05-20 12:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -197,23 +197,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-20 13:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-20 12:00:01+02:00",
+      "next_run": "2026-05-20 14:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-20 13:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-19T23:12:20+02:00",
-          "finished_at": "2026-05-19T23:12:24+02:00",
-          "duration_seconds": 3.623,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 29 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   c42fd37..d0fd706  master -> master\n ! [rejected]        master -> main (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because a pushed branch tip is behind its remote\nhint: counterpart. If you want to integrate the remote changes, use 'git pull'\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-19_23-12-20.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -321,12 +309,24 @@
           "stdout_tail": "Wrote 30 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-20_11-00-06.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-20T12:00:06+02:00",
+          "finished_at": "2026-05-20T12:00:25+02:00",
+          "duration_seconds": 19.29,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 30 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-20_12-00-06.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-20T11:00:06+02:00",
-        "finished_at": "2026-05-20T11:00:11+02:00",
-        "duration_seconds": 5.325,
+        "started_at": "2026-05-20T12:00:06+02:00",
+        "finished_at": "2026-05-20T12:00:25+02:00",
+        "duration_seconds": 19.29,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -813,23 +813,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-20 12:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-20 10:15:00+02:00",
+      "next_run": "2026-05-20 14:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-20 12:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-05-19T14:15:01+02:00",
-          "finished_at": "2026-05-19T14:15:25+02:00",
-          "duration_seconds": 23.396,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-19_14-15-01.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -937,12 +925,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-20_10-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-20T12:15:05+02:00",
+          "finished_at": "2026-05-20T12:15:31+02:00",
+          "duration_seconds": 26.188,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-20_12-15-05.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-20T10:15:01+02:00",
-        "finished_at": "2026-05-20T10:15:17+02:00",
-        "duration_seconds": 16.922,
+        "started_at": "2026-05-20T12:15:05+02:00",
+        "finished_at": "2026-05-20T12:15:31+02:00",
+        "duration_seconds": 26.188,
         "exit_code": 0,
         "ok": true,
         "summary": null
