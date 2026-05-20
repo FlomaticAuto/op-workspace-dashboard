@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20T04:15:07",
+  "generated_at": "2026-05-20T08:15:48",
   "total": 23,
   "ok": 4,
   "warn": 7,
@@ -32,8 +32,8 @@
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
-      "task_last_run": "2026-05-19T08:15:15",
-      "task_last_result": 0
+      "task_last_run": "2026-05-20T08:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -152,7 +152,7 @@
       "task": "OlympicPortalTriggerServer",
       "cadence": "Continuous",
       "overall": "ok",
-      "task_last_run": "2026-05-17T08:02:02",
+      "task_last_run": "2026-05-20T06:22:22",
       "task_last_result": 267009
     },
     {
