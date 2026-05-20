@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20T21:00:14+02:00",
+  "generated_at": "2026-05-20T22:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -210,23 +210,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-20 22:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-20 21:00:01+02:00",
+      "next_run": "2026-05-20 23:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-20 22:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-20T04:12:20+02:00",
-          "finished_at": "2026-05-20T04:12:22+02:00",
-          "duration_seconds": 2.673,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 29 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== push origin master master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n   a90a9a7..ce2e8f1  master -> master\n ! [rejected]        master -> main (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because a pushed branch tip is behind its remote\nhint: counterpart. If you want to integrate the remote changes, use 'git pull'\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-20_04-12-20.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -334,12 +322,24 @@
           "stdout_tail": "Wrote 31 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-20_20-45-33.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-20T21:00:11+02:00",
+          "finished_at": "2026-05-20T21:00:45+02:00",
+          "duration_seconds": 34.854,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 31 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-20_21-00-11.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-20T20:45:33+02:00",
-        "finished_at": "2026-05-20T20:45:44+02:00",
-        "duration_seconds": 11.882,
+        "started_at": "2026-05-20T21:00:11+02:00",
+        "finished_at": "2026-05-20T21:00:45+02:00",
+        "duration_seconds": 34.854,
         "exit_code": 0,
         "ok": true,
         "summary": null
