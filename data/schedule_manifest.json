@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T01:00:02+02:00",
+  "generated_at": "2026-05-21T02:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -10,7 +10,7 @@
       "schedule_summary": "type=2 start=2026-05-21T01:00:00",
       "next_run": "2026-05-22 01:00:00+02:00",
       "scheduler_last_run_time": "2026-05-21 01:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -210,23 +210,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-21 02:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 01:00:01+02:00",
+      "next_run": "2026-05-21 03:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-21 02:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-20T11:00:06+02:00",
-          "finished_at": "2026-05-20T11:00:11+02:00",
-          "duration_seconds": 5.325,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 30 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-20_11-00-06.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -334,12 +322,24 @@
           "stdout_tail": "Wrote 31 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_00-00-01.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-21T01:00:02+02:00",
+          "finished_at": "2026-05-21T01:00:06+02:00",
+          "duration_seconds": 4.199,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 31 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_01-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-21T00:00:01+02:00",
-        "finished_at": "2026-05-21T00:00:05+02:00",
-        "duration_seconds": 4.322,
+        "started_at": "2026-05-21T01:00:02+02:00",
+        "finished_at": "2026-05-21T01:00:06+02:00",
+        "duration_seconds": 4.199,
         "exit_code": 0,
         "ok": true,
         "summary": null
