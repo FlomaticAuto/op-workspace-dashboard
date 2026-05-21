@@ -789,6 +789,239 @@ body {
   .report-row .r-last  { grid-area: last; }
 }
 
+/* ── RUNBOOKS ──────────────────────────────────────────────────── */
+.runbook-banner {
+  background: var(--color-success-bg);
+  border: 1px solid var(--color-success-bd);
+  color: var(--color-success-fg);
+  border-radius: var(--r-md);
+  padding: 12px 16px;
+  font-family: var(--font-body); font-size: 13px;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.runbook-banner.stale {
+  background: var(--color-warning-bg);
+  border-color: var(--color-warning-bd);
+  color: var(--color-warning-fg);
+}
+.runbook-banner.error {
+  background: var(--color-danger-bg);
+  border-color: var(--color-danger-bd);
+  color: var(--color-danger-fg);
+}
+.runbook-banner .rb-banner-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: currentColor; flex-shrink: 0;
+}
+.runbook-banner .rb-banner-meta {
+  margin-left: auto; font-size: 11px; opacity: 0.75;
+  font-variant-numeric: tabular-nums;
+}
+
+.runbook-filter { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.rb-chip {
+  background: transparent;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--r-pill);
+  padding: 4px 12px;
+  font-family: var(--font-display); font-weight: 700; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+.rb-chip.active {
+  background: var(--color-brand-primary);
+  color: var(--color-text-on-brand);
+  border-color: transparent;
+}
+
+.runbook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.runbook-card {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--r-lg);
+  padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 10px;
+  cursor: pointer;
+  transition: transform 0.1s, border-color 0.1s;
+  text-align: left;
+  color: inherit;
+  font-family: inherit;
+}
+.runbook-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-brand-primary);
+}
+.runbook-card .rb-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+}
+.runbook-card .rb-area-pill {
+  background: var(--color-info-bg);
+  color: var(--color-info-fg);
+  border: 1px solid var(--color-info-bd);
+  border-radius: var(--r-pill);
+  padding: 2px 8px;
+  font-family: var(--font-display); font-weight: 700; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.runbook-card .rb-status-pill {
+  background: var(--color-success-bg);
+  color: var(--color-success-fg);
+  border: 1px solid var(--color-success-bd);
+  border-radius: var(--r-pill);
+  padding: 2px 8px;
+  font-family: var(--font-display); font-weight: 700; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.runbook-card .rb-drift-pill {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-fg);
+  border: 1px solid var(--color-warning-bd);
+  border-radius: var(--r-pill);
+  padding: 2px 8px;
+  font-family: var(--font-display); font-weight: 700; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-left: auto;
+}
+.runbook-card h3 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 17px; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+.runbook-card .rb-purpose {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0; line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.runbook-card .rb-meta {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  font-variant-numeric: tabular-nums;
+  margin-top: auto;
+}
+.runbook-card .rb-meta b {
+  color: var(--color-text-secondary); font-weight: 600;
+}
+
+/* Drawer with full runbook content */
+.runbook-drawer {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  z-index: 1000;
+  align-items: stretch; justify-content: flex-end;
+}
+.runbook-drawer.open { display: flex; }
+.runbook-drawer .rb-sheet {
+  background: var(--color-surface-page);
+  width: min(880px, 100%);
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 28px 32px 64px;
+  position: relative;
+}
+.runbook-drawer .rb-close {
+  position: absolute; top: 18px; right: 22px;
+  background: transparent;
+  border: 1px solid var(--color-border-default);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  font-size: 22px; line-height: 1;
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+.rb-detail h1, .rb-detail h2, .rb-detail h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase; letter-spacing: 0.03em;
+  color: var(--color-text-primary);
+  margin: 24px 0 12px;
+}
+.rb-detail h1 { font-size: 28px; font-weight: 900; margin-top: 0; }
+.rb-detail h2 { font-size: 18px; font-weight: 800; border-bottom: 1px solid var(--color-border-default); padding-bottom: 6px; }
+.rb-detail h3 { font-size: 14px; font-weight: 700; }
+.rb-detail p, .rb-detail li {
+  font-family: var(--font-body); font-size: 14px;
+  color: var(--color-text-secondary); line-height: 1.6;
+}
+.rb-detail strong { color: var(--color-text-primary); }
+.rb-detail code {
+  background: var(--color-surface-sunken);
+  border-radius: 4px; padding: 1px 6px;
+  font-size: 12px; font-family: 'Consolas', monospace;
+  color: var(--color-text-primary);
+}
+.rb-detail pre {
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.rb-detail pre code { background: none; padding: 0; }
+.rb-detail table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px; margin: 14px 0;
+}
+.rb-detail th {
+  text-align: left;
+  font-family: var(--font-display); font-weight: 700; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--color-brand-primary);
+  background: var(--color-surface-base);
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--color-border-default);
+}
+.rb-detail td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  vertical-align: top;
+}
+.rb-detail a {
+  color: var(--color-brand-primary);
+  text-decoration: none;
+}
+.rb-detail a:hover { text-decoration: underline; }
+.rb-detail blockquote {
+  border-left: 3px solid var(--color-brand-primary);
+  padding-left: 14px;
+  margin: 14px 0;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+.rb-detail-header {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin-bottom: 14px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-border-default);
+}
+.rb-detail-drift-callout {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-fg);
+  border: 1px solid var(--color-warning-bd);
+  border-radius: var(--r-md);
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+.rb-detail-drift-callout ul { margin: 8px 0 0 20px; padding: 0; }
+.rb-detail-drift-callout li { color: inherit; font-size: 12px; }
+@media (max-width: 720px) {
+  .runbook-drawer .rb-sheet { padding: 24px 18px 64px; }
+}
+
 /* ── AGENTS: CARD GRID (Task 13) ──────────────────────────────── */
 .agent-card {
   background: var(--color-surface-elevated);
@@ -902,6 +1135,9 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
         <button class="nav-item" data-section="manual" onclick="showSection('manual', this)">
           <span class="nav-icon" aria-hidden="true">&#9881;</span><span class="nav-label">Manual Executions</span>
         </button>
+        <button class="nav-item" data-section="runbooks" onclick="showSection('runbooks', this)">
+          <span class="nav-icon" aria-hidden="true">&#9776;</span><span class="nav-label">Runbooks</span>
+        </button>
       </nav>
     </aside>
     <main class="main">
@@ -955,6 +1191,23 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
         </p>
         <div class="manual-list" id="manual-list"></div>
       </section>
+      <section class="section-pane" id="section-runbooks">
+        <h1 class="section-title">Runbooks</h1>
+        <p style="color:var(--color-text-secondary);max-width:680px;margin:0 0 16px;font-size:14px;line-height:1.5;">
+          One runbook per automated system — purpose, schedule, inputs, failure modes, manual run, recent incidents. Tap a card to read the full procedure. Drift status is checked against current git state every time this page is built.
+        </p>
+        <div class="runbook-banner" id="runbook-banner"></div>
+        <div class="runbook-filter" id="runbook-filter">
+          <button class="rb-chip active" data-area="all">All areas</button>
+        </div>
+        <div class="runbook-grid" id="runbook-grid"></div>
+      </section>
+      <div class="runbook-drawer" id="runbook-drawer" onclick="if(event.target===this)closeRunbookDrawer()">
+        <div class="rb-sheet">
+          <button class="rb-close" onclick="closeRunbookDrawer()" aria-label="Close">&times;</button>
+          <div class="rb-detail" id="runbook-detail"></div>
+        </div>
+      </div>
     </main>
       <nav class="bottom-nav">
         <button class="bottom-nav-item active" data-section="today" onclick="showSection('today', findSidebarBtn('today'))">
@@ -984,6 +1237,9 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
           </button>
           <button class="more-item" onclick="showSection('manual', findSidebarBtn('manual')); closeMoreDrawer()">
             <span class="nav-icon">&#9881;</span> Manual Executions
+          </button>
+          <button class="more-item" onclick="showSection('runbooks', findSidebarBtn('runbooks')); closeMoreDrawer()">
+            <span class="nav-icon">&#9776;</span> Runbooks
           </button>
         </div>
       </div>
@@ -1889,6 +2145,183 @@ function renderUpdates(){
   grpEl.innerHTML = (gen ? `<div class="updates-generated">Last refreshed ${gen}</div>` : '') + sectionsHtml;
 }
 
+// ── RUNBOOKS ────────────────────────────────────────────────────
+const RUNBOOK_STATE = {
+  data: null,           // last-good runbooks.json payload
+  loadedAt: null,
+  error: null,
+  inFlight: false,
+  filter: 'all',        // current area filter
+};
+
+async function fetchRunbooks(){
+  if (RUNBOOK_STATE.inFlight) return;
+  RUNBOOK_STATE.inFlight = true;
+  try {
+    const res = await fetch('data/runbooks.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    RUNBOOK_STATE.data = json;
+    RUNBOOK_STATE.loadedAt = new Date();
+    RUNBOOK_STATE.error = null;
+  } catch (err) {
+    RUNBOOK_STATE.error = err.message || String(err);
+    console.warn('fetchRunbooks failed:', RUNBOOK_STATE.error);
+  } finally {
+    RUNBOOK_STATE.inFlight = false;
+  }
+  renderRunbooks();
+}
+
+function renderRunbookBanner(){
+  const el = document.getElementById('runbook-banner');
+  if (!el) return;
+  if (RUNBOOK_STATE.error && !RUNBOOK_STATE.data){
+    el.className = 'runbook-banner error';
+    el.innerHTML = `<span class="rb-banner-dot"></span><span>Could not load runbooks: ${RUNBOOK_STATE.error}</span>`;
+    return;
+  }
+  const a = RUNBOOK_STATE.data?.audit;
+  if (!a){
+    el.className = 'runbook-banner';
+    el.innerHTML = '<span class="rb-banner-dot"></span><span>Loading runbook drift status&hellip;</span>';
+    return;
+  }
+  const stale = a.stale || 0;
+  const missing = a.missing || 0;
+  if (missing > 0){
+    el.className = 'runbook-banner error';
+    el.innerHTML = `<span class="rb-banner-dot"></span><span><strong>${missing}</strong> runbook${missing === 1 ? '' : 's'} reference missing scripts &middot; <strong>${stale}</strong> stale of ${a.total}</span><span class="rb-banner-meta">Audit ${a.last_ran}</span>`;
+  } else if (stale > 0){
+    el.className = 'runbook-banner stale';
+    el.innerHTML = `<span class="rb-banner-dot"></span><span><strong>${stale}</strong> of ${a.total} runbook${a.total === 1 ? '' : 's'} stale &mdash; scripts modified since last review</span><span class="rb-banner-meta">Audit ${a.last_ran}</span>`;
+  } else {
+    el.className = 'runbook-banner';
+    el.innerHTML = `<span class="rb-banner-dot"></span><span>All ${a.total} runbook${a.total === 1 ? '' : 's'} up to date</span><span class="rb-banner-meta">Audit ${a.last_ran}</span>`;
+  }
+}
+
+function renderRunbookFilter(){
+  const el = document.getElementById('runbook-filter');
+  if (!el || !RUNBOOK_STATE.data) return;
+  const areas = Array.from(new Set(RUNBOOK_STATE.data.runbooks.map(r => r.area))).sort();
+  const chips = ['<button class="rb-chip ' + (RUNBOOK_STATE.filter === 'all' ? 'active' : '') + '" data-area="all">All areas</button>']
+    .concat(areas.map(a => `<button class="rb-chip ${RUNBOOK_STATE.filter === a ? 'active' : ''}" data-area="${a}">${a}</button>`));
+  el.innerHTML = chips.join('');
+  el.querySelectorAll('.rb-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      RUNBOOK_STATE.filter = btn.dataset.area;
+      renderRunbooks();
+    });
+  });
+}
+
+function renderRunbookGrid(){
+  const el = document.getElementById('runbook-grid');
+  if (!el) return;
+  if (!RUNBOOK_STATE.data){
+    el.innerHTML = '';
+    return;
+  }
+  const runbooks = RUNBOOK_STATE.data.runbooks.filter(r =>
+    RUNBOOK_STATE.filter === 'all' || r.area === RUNBOOK_STATE.filter
+  );
+  el.innerHTML = runbooks.map(rb => {
+    const driftPill = rb.drift?.is_stale
+      ? `<span class="rb-drift-pill">${rb.drift.missing_scripts?.length ? 'Missing' : 'Drift'}</span>`
+      : '';
+    const lastReviewed = rb.last_reviewed
+      ? `<span>Last reviewed <b>${rb.last_reviewed}</b></span>`
+      : '';
+    const scriptCount = (rb.scripts || []).length;
+    const schedLines = (rb.schedule_lines || []).length;
+    return `
+      <button class="runbook-card" onclick="openRunbookDetail('${rb.slug}')">
+        <div class="rb-head">
+          <span class="rb-area-pill">${rb.area || '?'}</span>
+          <span class="rb-status-pill">${rb.status || 'live'}</span>
+          ${driftPill}
+        </div>
+        <h3>${escapeHtml(rb.name)}</h3>
+        <p class="rb-purpose">${escapeHtml(rb.purpose || '(no purpose section yet)')}</p>
+        <div class="rb-meta">
+          ${lastReviewed}
+          <span><b>${scriptCount}</b> script${scriptCount === 1 ? '' : 's'}</span>
+          <span><b>${schedLines}</b> schedule${schedLines === 1 ? '' : 's'}</span>
+        </div>
+      </button>
+    `;
+  }).join('') || '<p style="color:var(--color-text-secondary);">No runbooks match this filter.</p>';
+}
+
+function renderRunbooks(){
+  renderRunbookBanner();
+  renderRunbookFilter();
+  renderRunbookGrid();
+}
+
+function openRunbookDetail(slug){
+  const rb = RUNBOOK_STATE.data?.runbooks.find(r => r.slug === slug);
+  if (!rb) return;
+  const el = document.getElementById('runbook-detail');
+  if (!el) return;
+
+  const driftPill = rb.drift?.is_stale
+    ? `<span class="rb-drift-pill">${rb.drift.missing_scripts?.length ? 'Missing' : 'Drift'}</span>`
+    : '';
+
+  let driftCallout = '';
+  if (rb.drift?.is_stale){
+    const items = [];
+    (rb.drift.missing_scripts || []).forEach(s => {
+      items.push(`<li><strong>Missing:</strong> <code>${escapeHtml(s)}</code></li>`);
+    });
+    (rb.drift.stale_scripts || []).forEach(s => {
+      items.push(`<li><code>${escapeHtml(s.path)}</code> &mdash; modified ${s.modified || '?'} (${s.days}d drift)</li>`);
+    });
+    driftCallout = `
+      <div class="rb-detail-drift-callout">
+        <strong>Drift detected</strong> since last review (${rb.last_reviewed || 'no date'}):
+        <ul>${items.join('')}</ul>
+      </div>
+    `;
+  }
+
+  el.innerHTML = `
+    <div class="rb-detail-header">
+      <span class="rb-area-pill">${rb.area || '?'}</span>
+      <span class="rb-status-pill">${rb.status || 'live'}</span>
+      ${driftPill}
+      <span style="margin-left:auto;font-size:11px;color:var(--color-text-tertiary);">
+        Last reviewed ${rb.last_reviewed || '?'}
+      </span>
+    </div>
+    <h1>${escapeHtml(rb.name)}</h1>
+    ${driftCallout}
+    ${rb.html || '<p>(empty)</p>'}
+  `;
+  document.getElementById('runbook-drawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeRunbookDrawer(){
+  document.getElementById('runbook-drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function escapeHtml(s){
+  return String(s ?? '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+// Close drawer on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape'){
+    closeRunbookDrawer();
+  }
+});
+
 function renderAll(){
   renderTodayKpis();
   renderTodayIssues();
@@ -1901,11 +2334,13 @@ function renderAll(){
   renderAgents();
   renderManual();
   renderUpdates();
+  renderRunbooks();
 }
 
 function refreshAll(){
   fetchManifest();
   fetchUpdates();
+  fetchRunbooks();
 }
 
 document.getElementById('refresh-btn').addEventListener('click', refreshAll);
