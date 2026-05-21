@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T20:00:02+02:00",
+  "generated_at": "2026-05-21T21:00:04+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -235,23 +235,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-21 21:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 20:00:01+02:00",
+      "next_run": "2026-05-21 22:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-21 21:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-21T08:00:03+02:00",
-          "finished_at": "2026-05-21T08:00:14+02:00",
-          "duration_seconds": 11.172,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 31 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git config user.email auto@olympic-paints.local: error: could not lock config file .git/config: File exists\n  ! git config user.name Olympic Paints Hub Bot: warning: unable to access '.git/config': Permission denied\nfatal: unknown error occurred while reading the configuration files\n  ! git stash --include-untracked: error: Unable to create 'C:/Users/quint/workspace-dashboard/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, e.g.\nan editor opened by 'git commit'. Please make sure all processes\nare terminated then try again. If it still fails, a git process\nmay have crashed in this repository earlier:\nremove the file manually to continue.\nerror: could not write index\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX2V0V2JWSmdBVUFPZGpZdkJmQ2JPcDhoUVdHNFZ2aDM4anVLQQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_08-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -359,12 +347,24 @@
           "stdout_tail": "Wrote 34 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_19-00-04.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-21T20:00:02+02:00",
+          "finished_at": "2026-05-21T20:00:07+02:00",
+          "duration_seconds": 4.776,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 34 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_20-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-21T19:00:04+02:00",
-        "finished_at": "2026-05-21T19:00:15+02:00",
-        "duration_seconds": 10.872,
+        "started_at": "2026-05-21T20:00:02+02:00",
+        "finished_at": "2026-05-21T20:00:07+02:00",
+        "duration_seconds": 4.776,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -970,23 +970,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-21 20:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 18:20:18+02:00",
+      "next_run": "2026-05-21 22:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-21 20:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-05-21T00:15:01+02:00",
-          "finished_at": "2026-05-21T00:15:10+02:00",
-          "duration_seconds": 8.838,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-21_00-15-01.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1094,12 +1082,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-21_18-20-53.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-21T20:15:01+02:00",
+          "finished_at": "2026-05-21T20:15:22+02:00",
+          "duration_seconds": 21.189,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-21_20-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-21T18:20:53+02:00",
-        "finished_at": "2026-05-21T18:21:15+02:00",
-        "duration_seconds": 22.125,
+        "started_at": "2026-05-21T20:15:01+02:00",
+        "finished_at": "2026-05-21T20:15:22+02:00",
+        "duration_seconds": 21.189,
         "exit_code": 0,
         "ok": true,
         "summary": null
