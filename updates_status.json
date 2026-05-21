@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-21T07:42:31",
+  "generated_at": "2026-05-21T08:00:22",
   "total": 23,
-  "ok": 4,
+  "ok": 5,
   "warn": 6,
-  "fail": 13,
+  "fail": 12,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -41,9 +41,9 @@
       "name": "E-Commerce Email Digest",
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
-      "overall": "fail",
-      "task_last_run": "2026-05-20T10:10:10",
-      "task_last_result": 2147946720
+      "overall": "ok",
+      "task_last_run": "2026-05-21T08:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "haven_clocking",
@@ -62,8 +62,8 @@
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
       "overall": "warn",
-      "task_last_run": "2026-05-20T10:10:10",
-      "task_last_result": 0
+      "task_last_run": "2026-05-21T08:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vehicle_report",
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 17
+  "success_pct": 22
 }
