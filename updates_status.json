@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T08:00:22",
+  "generated_at": "2026-05-21T08:15:07",
   "total": 23,
   "ok": 5,
   "warn": 6,
@@ -32,8 +32,8 @@
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
-      "task_last_run": "2026-05-20T08:15:15",
-      "task_last_result": 0
+      "task_last_run": "2026-05-21T08:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -43,7 +43,7 @@
       "cadence": "Daily morning",
       "overall": "ok",
       "task_last_run": "2026-05-21T08:00:00",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "haven_clocking",
@@ -63,7 +63,7 @@
       "cadence": "Daily \u00b7 08:00",
       "overall": "warn",
       "task_last_run": "2026-05-21T08:00:00",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "vehicle_report",
