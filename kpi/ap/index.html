@@ -648,7 +648,7 @@ html,body{overflow-x:hidden}
     <div class="ms-stat">
       <div class="ms-stat-label">Debtors &gt;60d</div>
       <div class="ms-stat-val dn">23.4%</div>
-      <div class="ms-stat-sub neu">0.0% vs prior · flat</div>
+      <div class="ms-stat-sub dn">+12.7% vs prior · worse</div>
     </div>
   </div>
   
@@ -676,7 +676,7 @@ html,body{overflow-x:hidden}
     </a>
   </div>
 
-  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 21 May 2026 10:15</div>
+  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 21 May 2026 12:06</div>
 </div>
 
 <button class="ms-back-to-summary" type="button"
@@ -705,7 +705,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R3.38M</div>
-    <div class="hdr-meta">Week ending 21 May 2026 &middot; Generated 21 May 2026 10:15</div>
+    <div class="hdr-meta">Week ending 21 May 2026 &middot; Generated 21 May 2026 12:06</div>
   </div>
 </div>
 
@@ -874,6 +874,13 @@ html,body{overflow-x:hidden}
   </div>
 
   <div class="card" style="margin-top:14px">
+    <div class="card-title" id="qDiagTitle">Why &mdash; Monthly Diagnostic</div>
+    <div class="card-sub" id="qDiagSub">Pick a KPI to see the per-month buckets that drove the quarter&#39;s score</div>
+    <div id="qDiagRadios" style="display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 14px"></div>
+    <div id="qDiagBody"></div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
     <div class="card-title" id="qCommissionTitle">Commission Calculation</div>
     <div class="card-sub" id="qCommissionSub">Step-by-step working &mdash; what the rep is liable to earn</div>
     <div id="qCommissionBody" style="margin-top:14px"></div>
@@ -881,7 +888,7 @@ html,body{overflow-x:hidden}
 
   <div class="card" id="qVerified" style="margin-top:14px"></div>
 
-  <script id="qScorecardData" type="application/json">{"Q1": {"label": "Q1 2026", "months": "Jan\u2013Mar 2026", "sales": 2426921.25, "prev": 2131190.71, "markup_pct": 12.66, "markup_lines": 2001, "new_accts": 4, "verified": [{"store": "AA Hardware \u2013 LTT", "status": "", "dlref": "KA008, KA008/1, KA008/2", "curef": "KA008"}, {"store": "MAS Hardware \u2013 Hennenman", "status": "", "dlref": "KM164", "curef": "KM164"}, {"store": "African Hardware \u2013 Musina", "status": "", "dlref": "KA117", "curef": "KA117"}, {"store": "Raj Wholesalers \u2013 Alldays", "status": "", "dlref": "KR044", "curef": "KR044"}, {"store": "KI016 \u2013 Iconic Hardware", "status": "", "dlref": "KI016", "curef": "KI016"}, {"store": "KC056 \u2013 Cheap Cheap Hardware", "status": "", "dlref": "KC056", "curef": "KC056"}, {"store": "KB114 \u2013 Builderstown Hyper", "status": "", "dlref": "KB114", "curef": "KB114"}, {"store": "KA115 \u2013 Amin Supermarket", "status": "", "dlref": "KA115", "curef": "KA115"}], "verified_count": 8, "leads_count": 0, "merch_visits": 4, "merch_target": 24, "merch_weight": 10, "prodev": {"label": "Excellent", "score": 10, "placements": 463, "stores": 47, "skus": 251, "categories": 11, "coverage_pct": 92.2, "rev_pct": 14.2}}, "Q2": {"label": "Q2 2026", "months": "Apr\u2013Jun 2026", "sales": 2415033.2, "prev": 2442730.32, "markup_pct": 4.24, "markup_lines": 1440, "new_accts": 3, "verified": [], "verified_count": 0, "leads_count": 0, "merch_visits": 18, "merch_target": 24, "merch_weight": 10, "prodev": {"label": "Excellent", "score": 10, "placements": 296, "stores": 35, "skus": 174, "categories": 11, "coverage_pct": 81.4, "rev_pct": 12.1}}, "Q3": {"label": "Q3 2026", "months": "Jul\u2013Sep 2026", "sales": 0.0, "prev": 3746062.25, "markup_pct": null, "markup_lines": 0, "new_accts": 0, "verified": [], "verified_count": 0, "leads_count": 0, "merch_visits": 0, "merch_target": 24, "merch_weight": 10, "prodev": null}, "Q4": {"label": "Q4 2026", "months": "Oct\u2013Dec 2026", "sales": 0.0, "prev": 5455365.65, "markup_pct": null, "markup_lines": 0, "new_accts": 0, "verified": [], "verified_count": 0, "leads_count": 0, "merch_visits": 0, "merch_target": 24, "merch_weight": 10, "prodev": null}}</script>
+  <script id="qScorecardData" type="application/json">{"Q1": {"label": "Q1 2026", "months": "Jan\u2013Mar 2026", "sales": 2426921.25, "prev": 2131190.71, "markup_pct": 12.66, "markup_lines": 2001, "new_accts": 4, "verified": [{"store": "AA Hardware \u2013 LTT", "status": "", "dlref": "KA008, KA008/1, KA008/2", "curef": "KA008"}, {"store": "MAS Hardware \u2013 Hennenman", "status": "", "dlref": "KM164", "curef": "KM164"}, {"store": "African Hardware \u2013 Musina", "status": "", "dlref": "KA117", "curef": "KA117"}, {"store": "Raj Wholesalers \u2013 Alldays", "status": "", "dlref": "KR044", "curef": "KR044"}, {"store": "KI016 \u2013 Iconic Hardware", "status": "", "dlref": "KI016", "curef": "KI016"}, {"store": "KC056 \u2013 Cheap Cheap Hardware", "status": "", "dlref": "KC056", "curef": "KC056"}, {"store": "KB114 \u2013 Builderstown Hyper", "status": "", "dlref": "KB114", "curef": "KB114"}, {"store": "KA115 \u2013 Amin Supermarket", "status": "", "dlref": "KA115", "curef": "KA115"}], "verified_count": 8, "leads_count": 16, "merch_visits": 11, "merch_target": 24, "merch_weight": 10, "prodev": {"label": "Excellent", "score": 10, "placements": 463, "stores": 47, "skus": 251, "categories": 11, "coverage_pct": 92.2, "rev_pct": 14.2}, "diagnostics": {"A": [{"label": "Jan", "month": 1, "value": 785147.22, "target": 693251.17, "status": "pass", "why": "+24.6% YoY (R0.79M vs R0.63M)"}, {"label": "Feb", "month": 2, "value": 675807.3, "target": 891845.2, "status": "fail", "why": "-16.6% YoY \u2014 declining vs prior year"}, {"label": "Mar", "month": 3, "value": 965966.73, "target": 759213.41, "status": "pass", "why": "+40.0% YoY (R0.97M vs R0.69M)"}], "B": [{"label": "Jan", "month": 1, "value": 13.01, "target": 15.0, "status": "warn", "why": "+13.0% avg above RB across 600 lines (Good/Fair)"}, {"label": "Feb", "month": 2, "value": 13.49, "target": 15.0, "status": "warn", "why": "+13.5% avg above RB across 503 lines (Good/Fair)"}, {"label": "Mar", "month": 3, "value": 11.95, "target": 15.0, "status": "warn", "why": "+12.0% avg above RB across 898 lines (Good/Fair)"}], "C": [{"label": "Jan", "month": 1, "value": 10, "target": 5, "status": "pass", "why": "10 leads created (pace \u2265 5/month)"}, {"label": "Feb", "month": 2, "value": 4, "target": 5, "status": "warn", "why": "4 leads \u2014 below 5/month pace, makeup needed"}, {"label": "Mar", "month": 3, "value": 2, "target": 5, "status": "fail", "why": "2 leads \u2014 well below 5/month pace"}], "E": [{"label": "Jan", "month": 1, "value": 2, "target": 2, "status": "pass", "why": "2 new trading customer(s) onboarded"}, {"label": "Feb", "month": 2, "value": 1, "target": 2, "status": "warn", "why": "1 new customer \u2014 below 2/month pace"}, {"label": "Mar", "month": 3, "value": 1, "target": 2, "status": "warn", "why": "1 new customer \u2014 below 2/month pace"}], "F": [{"label": "Jan", "month": 1, "value": 0, "target": 8, "status": "fail", "why": "No merchandising visits logged this month"}, {"label": "Feb", "month": 2, "value": 3, "target": 8, "status": "fail", "why": "3 of 8 visits \u2014 well below target"}, {"label": "Mar", "month": 3, "value": 1, "target": 8, "status": "fail", "why": "1 of 8 visits \u2014 well below target"}]}}, "Q2": {"label": "Q2 2026", "months": "Apr\u2013Jun 2026", "sales": 2415033.2, "prev": 2442730.32, "markup_pct": 4.24, "markup_lines": 1440, "new_accts": 3, "verified": [], "verified_count": 0, "leads_count": 1, "merch_visits": 19, "merch_target": 24, "merch_weight": 10, "prodev": {"label": "Excellent", "score": 10, "placements": 296, "stores": 35, "skus": 174, "categories": 11, "coverage_pct": 81.4, "rev_pct": 12.1}, "diagnostics": {"A": [{"label": "Apr", "month": 4, "value": 1810009.61, "target": 1065666.46, "status": "pass", "why": "+86.8% YoY (R1.81M vs R0.97M)"}, {"label": "May", "month": 5, "value": 605023.59, "target": 609324.72, "status": "warn", "why": "+9.2% YoY \u2014 under 10% growth threshold"}, {"label": "Jun", "month": 6, "value": 0.0, "target": 1012012.18, "status": "fail", "why": "-100.0% YoY \u2014 declining vs prior year"}], "B": [{"label": "Apr", "month": 4, "value": 2.09, "target": 15.0, "status": "fail", "why": "+2.1% avg above RB across 1,078 lines (Below floor)"}, {"label": "May", "month": 5, "value": 10.64, "target": 15.0, "status": "warn", "why": "+10.6% avg above RB across 362 lines (Good/Fair)"}, {"label": "Jun", "month": 6, "value": null, "target": 15.0, "status": "na", "why": "No invoice lines with rock-bottom prices"}], "C": [{"label": "Apr", "month": 4, "value": 0, "target": 5, "status": "fail", "why": "No CRM leads created this month"}, {"label": "May", "month": 5, "value": 1, "target": 5, "status": "fail", "why": "1 leads \u2014 well below 5/month pace"}, {"label": "Jun", "month": 6, "value": 0, "target": 5, "status": "fail", "why": "No CRM leads created this month"}], "E": [{"label": "Apr", "month": 4, "value": 3, "target": 2, "status": "pass", "why": "3 new trading customer(s) onboarded"}, {"label": "May", "month": 5, "value": 0, "target": 2, "status": "fail", "why": "No new customers onboarded this month"}, {"label": "Jun", "month": 6, "value": 0, "target": 2, "status": "fail", "why": "No new customers onboarded this month"}], "F": [{"label": "Apr", "month": 4, "value": 0, "target": 8, "status": "fail", "why": "No merchandising visits logged this month"}, {"label": "May", "month": 5, "value": 18, "target": 8, "status": "pass", "why": "18 visits (target 8/month)"}, {"label": "Jun", "month": 6, "value": 0, "target": 8, "status": "fail", "why": "No merchandising visits logged this month"}]}}, "Q3": {"label": "Q3 2026", "months": "Jul\u2013Sep 2026", "sales": 0.0, "prev": 3746062.25, "markup_pct": null, "markup_lines": 0, "new_accts": 0, "verified": [], "verified_count": 0, "leads_count": 0, "merch_visits": 0, "merch_target": 24, "merch_weight": 10, "prodev": null, "diagnostics": {"A": [{"label": "Jul", "month": 7, "value": 0.0, "target": 1238812.39, "status": "fail", "why": "-100.0% YoY \u2014 declining vs prior year"}, {"label": "Aug", "month": 8, "value": 0.0, "target": 1529433.39, "status": "fail", "why": "-100.0% YoY \u2014 declining vs prior year"}, {"label": "Sep", "month": 9, "value": 0.0, "target": 1352422.7, "status": "fail", "why": "-100.0% YoY \u2014 declining vs prior year"}], "B": [{"label": "Jul", "month": 7, "value": null, "target": 15.0, "status": "na", "why": "No invoice lines with rock-bottom prices"}, {"label": "Aug", "month": 8, "value": null, "target": 15.0, "status": "na", "why": "No invoice lines with rock-bottom prices"}, {"label": "Sep", "month": 9, "value": null, "target": 15.0, "status": "na", "why": "No invoice lines with rock-bottom prices"}], "C": [{"label": "Jul", "month": 7, "value": 0, "target": 5, "status": "fail", "why": "No CRM leads created this month"}, {"label": "Aug", "month": 8, "value": 0, "target": 5, "status": "fail", "why": "No CRM leads created this month"}, {"label": "Sep", "month": 9, "value": 0, "target": 5, "status": "fail", "why": "No CRM leads created this month"}], "E": [{"label": "Jul", "month": 7, "value": 0, "target": 2, "status": "fail", "why": "No new customers onboarded this month"}, {"label": "Aug", "month": 8, "value": 0, "target": 2, "status": "fail", "why": "No new customers onboarded this month"}, {"label": "Sep", "month": 9, "value": 0, "target": 2, "status": "fail", "why": "No new customers onboarded this month"}], "F": [{"label": "Jul", "month": 7, "value": 0, "target": 8, "status": "fail", "why": "No merchandising visits logged this month"}, {"label": "Aug", "month": 8, "value": 0, "target": 8, "status": "fail", "why": "No merchandising visits logged this month"}, {"label": "Sep", "month": 9, "value": 0, "target": 8, "status": "fail", "why": "No merchandising visits logged this month"}]}}, "Q4": {"label": "Q4 2026", "months": "Oct\u2013Dec 2026", "sales": 0.0, "prev": 5455365.65, "markup_pct": null, "markup_lines": 0, "new_accts": 0, "verified": [], "verified_count": 0, "leads_count": 0, "merch_visits": 0, "merch_target": 24, "merch_weight": 10, "prodev": null, "diagnostics": {"A": [{"label": "Oct", "month": 10, "value": 0.0, "target": 1453263.99, "status": "fail", "why": "-100.0% YoY \u2014 declining vs prior year"}, {"label": "Nov", "month": 11, "value": 0.0, "target": 2514449.72, "status": "fail", "why": "-100.0% YoY \u2014 declining vs prior year"}, {"label": "Dec", "month": 12, "value": 0.0, "target": 2033188.51, "status": "fail", "why": "-100.0% YoY \u2014 declining vs prior year"}], "B": [{"label": "Oct", "month": 10, "value": null, "target": 15.0, "status": "na", "why": "No invoice lines with rock-bottom prices"}, {"label": "Nov", "month": 11, "value": null, "target": 15.0, "status": "na", "why": "No invoice lines with rock-bottom prices"}, {"label": "Dec", "month": 12, "value": null, "target": 15.0, "status": "na", "why": "No invoice lines with rock-bottom prices"}], "C": [{"label": "Oct", "month": 10, "value": 0, "target": 5, "status": "fail", "why": "No CRM leads created this month"}, {"label": "Nov", "month": 11, "value": 0, "target": 5, "status": "fail", "why": "No CRM leads created this month"}, {"label": "Dec", "month": 12, "value": 0, "target": 5, "status": "fail", "why": "No CRM leads created this month"}], "E": [{"label": "Oct", "month": 10, "value": 0, "target": 2, "status": "fail", "why": "No new customers onboarded this month"}, {"label": "Nov", "month": 11, "value": 0, "target": 2, "status": "fail", "why": "No new customers onboarded this month"}, {"label": "Dec", "month": 12, "value": 0, "target": 2, "status": "fail", "why": "No new customers onboarded this month"}], "F": [{"label": "Oct", "month": 10, "value": 0, "target": 8, "status": "fail", "why": "No merchandising visits logged this month"}, {"label": "Nov", "month": 11, "value": 0, "target": 8, "status": "fail", "why": "No merchandising visits logged this month"}, {"label": "Dec", "month": 12, "value": 0, "target": 8, "status": "fail", "why": "No merchandising visits logged this month"}]}}}</script>
 
   <div class="sec-h">Approved Outstanding Orders</div>
   <div class="kpi-grid" style="grid-template-columns:repeat(3,minmax(160px,1fr))">
@@ -1574,7 +1581,7 @@ html,body{overflow-x:hidden}
   <strong>Olympic Paints</strong> &mdash; Amit Patel Personal KPI Dashboard &mdash; Week ending 21 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 21 May 2026 10:15 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 21 May 2026 12:06 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
@@ -2169,8 +2176,8 @@ function renderCompareChart(y, m){
 (function(){
   var el = document.getElementById('cDebTrend');
   if (!el) return;
-  var labels = ["2026-05-05", "2026-05-06", "2026-05-07", "2026-05-08", "2026-05-09", "2026-05-10", "2026-05-11"];
-  var vals   = [3041604.54, 3041604.54, 3041742.54, 2985112.94, 2845841.08, 2845841.08, 2845841.08];
+  var labels = ["2026-05-08", "2026-05-09", "2026-05-10", "2026-05-11", "2026-05-12", "2026-05-13", "2026-05-14", "2026-05-15", "2026-05-16", "2026-05-17", "2026-05-18", "2026-05-19", "2026-05-20", "2026-05-21"];
+  var vals   = [2985112.94, 2845841.08, 2845841.08, 2845841.08, 2845841.08, 2517438.05, 2517438.05, 2517438.05, 2517438.05, 2517438.05, 2517438.05, 2517438.05, 2517438.05, 2837082.17];
   if (!labels.length) return;
   // Short date labels (MM-DD)
   var shortLabels = labels.map(function(d){ return d ? d.slice(5) : ''; });
@@ -2476,6 +2483,7 @@ function renderScorecard(){
     'Sum of estimated commission across Q1–Q4 ' + d.label.split(' ')[1] + ' at current scores';
 
   // Verified-stores card
+  const vc = d.verified_count || 0;
   let vHtml = '<div class="card-title">Verified New Stores — '+d.label+'</div>'
     + '<div class="card-sub">Source: <em>New Stores Added By Reps_Quater'+d.label.replace(/Q(\d).*/, '$1')+'_'+d.label.split(' ')[1]+'.xlsx</em> — Combined tab</div>';
   if (vc > 0){
@@ -2492,6 +2500,113 @@ function renderScorecard(){
       + 'color:var(--color-warning-fg)">No verified new stores for this quarter — KPI C and KPI E score 0%.</p>';
   }
   document.getElementById('qVerified').innerHTML = vHtml;
+
+  // Refresh the monthly diagnostic panel each time the quarter changes.
+  renderDiagnostic(curDiagKpi || 'C');
+}
+
+let curDiagKpi = 'C';
+const DIAG_META = {
+  'A': {name:'Sales Growth & Collections', unit:'currency', target:'10% YoY growth (per month pace)'},
+  'B': {name:'Discount Management',        unit:'percent',  target:'≥15% above Rock Bottom'},
+  'C': {name:'Customer Development & CRM', unit:'count',    target:'5 leads / month (pace toward 15/quarter)'},
+  'E': {name:'New Customer Onboarding',    unit:'count',    target:'2 new customers / month'},
+  'F': {name:'Merchandising',              unit:'count',    target:'8 visits / month'}
+};
+
+function _diagPill(status){
+  if (status === 'pass') return '<span class="pill grn">✓ Pass</span>';
+  if (status === 'warn') return '<span class="pill amb">⚠ Partial</span>';
+  if (status === 'fail') return '<span class="pill red">✗ Miss</span>';
+  return '<span class="pill neu">— n/a</span>';
+}
+
+function _diagValue(v, unit){
+  if (v === null || v === undefined) return '—';
+  if (unit === 'currency') {
+    if (v >= 1e6) return 'R'+(v/1e6).toFixed(2)+'M';
+    if (v >= 1e3) return 'R'+(v/1e3).toFixed(1)+'K';
+    return 'R'+Math.round(v).toLocaleString('en-ZA');
+  }
+  if (unit === 'percent') return (v>=0?'+':'')+v.toFixed(1)+'%';
+  return v.toString();
+}
+
+function renderDiagnostic(kpi){
+  curDiagKpi = kpi;
+  const d = Q_DATA[curQ];
+  if (!d) return;
+
+  // Render the radio strip (event delegation via data-kpi to avoid attribute-quote escaping)
+  const radioHost = document.getElementById('qDiagRadios');
+  radioHost.innerHTML = ['A','B','C','E','F'].map(k => {
+    const active = k === kpi;
+    const bg  = active ? 'var(--color-brand-primary)' : 'var(--color-surface-base)';
+    const fg  = active ? 'var(--color-text-on-brand)' : 'var(--color-text-secondary)';
+    const bd  = active ? 'var(--color-brand-primary)' : 'var(--color-border-default)';
+    return '<button type="button" data-kpi="' + k + '" style="padding:6px 12px;'
+      + 'font-family:var(--font-display);font-weight:700;font-size:12px;text-transform:uppercase;'
+      + 'letter-spacing:.06em;border:1px solid '+bd+';border-radius:var(--r-md);background:'+bg+';color:'+fg+';cursor:pointer">'
+      + k + ' &mdash; ' + DIAG_META[k].name + '</button>';
+  }).join('');
+  // Wire click handlers (replaces innerHTML so prior listeners are gone — re-bind every render).
+  radioHost.querySelectorAll('button[data-kpi]').forEach(btn => {
+    btn.addEventListener('click', () => renderDiagnostic(btn.dataset.kpi));
+  });
+
+  const meta = DIAG_META[kpi];
+  const rows = (d.diagnostics && d.diagnostics[kpi]) || [];
+
+  if (!rows.length){
+    document.getElementById('qDiagBody').innerHTML =
+      '<div style="padding:14px;background:var(--color-info-bg);border:1px solid var(--color-info-bd);'
+      + 'border-radius:var(--r-md);color:var(--color-info-fg);font-size:13px">'
+      + 'No monthly diagnostic data available for this KPI in '+d.label+'.</div>';
+    return;
+  }
+
+  let html = '<div style="margin-bottom:10px;font-size:12px;color:var(--color-text-secondary)">'
+    + '<strong style="color:var(--color-text-primary)">Target:</strong> '+meta.target+'</div>'
+    + '<div class="tw"><table>'
+    + '<thead><tr>'
+    + '<th>Month</th><th>Status</th><th style="text-align:right">Value</th>'
+    + '<th>Why</th>'
+    + '</tr></thead><tbody>';
+
+  for (const r of rows){
+    html += '<tr>'
+      + '<td style="font-family:var(--font-display);font-weight:700">'+r.label+'</td>'
+      + '<td>'+_diagPill(r.status)+'</td>'
+      + '<td style="text-align:right;font-family:var(--font-display);font-weight:700">'+_diagValue(r.value, meta.unit)+'</td>'
+      + '<td style="font-size:12px;color:var(--color-text-secondary)">'+r.why+'</td>'
+      + '</tr>';
+  }
+  html += '</tbody></table></div>';
+
+  // Quarter total recap so the rep sees how the monthly pattern aggregates to the quarter rule.
+  const totals = rows.reduce((acc, r) => {
+    if (r.status === 'pass') acc.pass++;
+    else if (r.status === 'warn') acc.warn++;
+    else if (r.status === 'fail') acc.fail++;
+    else acc.na++;
+    if (typeof r.value === 'number') acc.sum += r.value;
+    return acc;
+  }, {pass:0, warn:0, fail:0, na:0, sum:0});
+
+  html += '<div style="margin-top:12px;padding:10px 14px;background:var(--color-surface-sunken);'
+    + 'border:1px solid var(--color-border-default);border-radius:var(--r-md);font-size:12px;line-height:1.6">'
+    + '<strong style="font-family:var(--font-display);text-transform:uppercase;letter-spacing:.06em;font-size:11px;color:var(--color-text-secondary)">Quarter recap &mdash; '+meta.name+'</strong><br>'
+    + '<span class="up">'+totals.pass+' pass</span> &middot; '
+    + '<span class="warn">'+totals.warn+' partial</span> &middot; '
+    + '<span class="dn">'+totals.fail+' miss</span>';
+  if (kpi === 'C') html += ' &middot; <strong>'+totals.sum+' leads</strong> vs 15/quarter rule';
+  else if (kpi === 'E') html += ' &middot; <strong>'+totals.sum+' new customers</strong> vs 6/quarter rule';
+  else if (kpi === 'F') html += ' &middot; <strong>'+totals.sum+' visits</strong> vs 24/quarter target';
+  html += '</div>';
+
+  document.getElementById('qDiagTitle').textContent = 'Why &mdash; ' + meta.name + ' (' + d.label + ')';
+  document.getElementById('qDiagSub').textContent   = 'Monthly buckets that produced this quarter\'s score';
+  document.getElementById('qDiagBody').innerHTML    = html;
 }
 
 renderScorecard();
