@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-navy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Logistics Cost — Olympic Paints</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+
+:root {
+  --_y50:#FEF9E0; --_y100:#FDF0A0; --_y200:#FAE04D;
+  --_y400:#F5C400; --_y600:#D4A800; --_y800:#A88000; --_y900:#6A5000;
+  --_n50:#E8EFF8; --_n100:#B8CCE8; --_n300:#6B9ED0;
+  --_n500:#2D6BA8; --_n700:#1A3D6E; --_n900:#0D2040; --_n950:#071022;
+  --_g0:#FFFFFF; --_g50:#F7F6F3; --_g100:#E8E7E2; --_g200:#C8C7C0;
+  --_g400:#949390; --_g600:#5C5B58; --_g800:#2E2E2C;
+  --_g900:#1A1A18; --_g950:#0D0D0B;
+  --_teal:#2D8C7A; --_teal-light:#C8EDE7; --_teal-dark:#1a5c50;
+  --_terra:#C97A3A; --_terra-light:#F7E0C8;
+  --_coral:#E86060; --_coral-light:#FDDCDC;
+  --_pink:#E87BAD; --_pink-light:#FCE4EF;
+  --_violet:#9B7DBF; --_violet-light:#EDE0F7;
+  --_sage:#7A8C55; --_ink:#5C6B7A;
+  --font-display:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-pill:50px;
+}
+.theme-light{color-scheme:light;--color-surface-page:var(--_g50);--color-surface-base:var(--_g0);--color-surface-elevated:var(--_g0);--color-surface-sunken:var(--_g100);--color-surface-overlay:rgba(0,0,0,0.04);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g950);--color-text-secondary:var(--_g600);--color-text-tertiary:var(--_g400);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-brand-hover:var(--_y600);--color-brand-secondary:var(--_n700);--color-brand-accent:var(--_y400);--color-border-subtle:var(--_g100);--color-border-default:var(--_g200);--color-border-strong:var(--_g400);--color-border-brand:var(--_y400);--color-success-bg:#EDF7F5;--color-success-fg:var(--_teal-dark);--color-success-bd:var(--_teal);--color-warning-bg:var(--_y50);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y600);--color-danger-bg:#FEF2F2;--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);--color-info-bg:var(--_n50);--color-info-fg:var(--_n700);--color-info-bd:var(--_n500);--color-neutral-bg:var(--_g100);--color-neutral-fg:var(--_g600);--color-neutral-bd:var(--_g400);--shadow-sm:0 1px 3px rgba(0,0,0,0.08);--shadow-md:0 4px 12px rgba(0,0,0,0.08);--shadow-lg:0 10px 30px rgba(0,0,0,0.10);--shadow-brand:0 4px 16px rgba(245,196,0,0.20);}
+.theme-dark{color-scheme:dark;--color-surface-page:var(--_g950);--color-surface-base:var(--_g900);--color-surface-elevated:var(--_g800);--color-surface-sunken:var(--_g950);--color-surface-overlay:rgba(255,255,255,0.04);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g100);--color-text-secondary:var(--_g400);--color-text-tertiary:var(--_g600);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-brand-hover:var(--_y200);--color-brand-secondary:var(--_n700);--color-brand-accent:var(--_y400);--color-border-subtle:rgba(255,255,255,0.06);--color-border-default:rgba(255,255,255,0.10);--color-border-strong:rgba(255,255,255,0.20);--color-border-brand:var(--_y400);--color-success-bg:rgba(45,140,122,0.12);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,0.30);--color-warning-bg:rgba(245,196,0,0.10);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,0.25);--color-danger-bg:rgba(232,96,96,0.12);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,0.30);--color-info-bg:rgba(26,61,110,0.30);--color-info-fg:var(--_n100);--color-info-bd:rgba(107,158,208,0.30);--color-neutral-bg:rgba(255,255,255,0.05);--color-neutral-fg:var(--_g400);--color-neutral-bd:rgba(255,255,255,0.10);--shadow-sm:0 1px 3px rgba(0,0,0,0.40);--shadow-md:0 4px 12px rgba(0,0,0,0.40);--shadow-lg:0 10px 30px rgba(0,0,0,0.50);--shadow-brand:0 4px 20px rgba(245,196,0,0.15);}
+.theme-brand{color-scheme:light;--color-surface-page:var(--_y400);--color-surface-base:var(--_y200);--color-surface-elevated:var(--_y50);--color-surface-sunken:var(--_y600);--color-surface-overlay:rgba(0,0,0,0.05);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_g950);--color-text-primary:var(--_g950);--color-text-secondary:var(--_y900);--color-text-tertiary:var(--_y800);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_g950);--color-brand-hover:var(--_n700);--color-brand-secondary:var(--_n700);--color-brand-accent:var(--_g950);--color-border-subtle:rgba(0,0,0,0.08);--color-border-default:rgba(0,0,0,0.14);--color-border-strong:rgba(0,0,0,0.25);--color-border-brand:var(--_g950);--color-success-bg:rgba(45,140,122,0.12);--color-success-fg:var(--_teal-dark);--color-success-bd:var(--_teal);--color-warning-bg:rgba(0,0,0,0.08);--color-warning-fg:var(--_y900);--color-warning-bd:var(--_y900);--color-danger-bg:rgba(232,96,96,0.12);--color-danger-fg:#C0392B;--color-danger-bd:var(--_coral);--color-info-bg:rgba(26,61,110,0.10);--color-info-fg:var(--_n900);--color-info-bd:var(--_n700);--color-neutral-bg:rgba(0,0,0,0.06);--color-neutral-fg:var(--_y900);--color-neutral-bd:rgba(0,0,0,0.15);--shadow-sm:0 1px 3px rgba(0,0,0,0.12);--shadow-md:0 4px 12px rgba(0,0,0,0.14);--shadow-lg:0 10px 30px rgba(0,0,0,0.18);--shadow-brand:0 4px 16px rgba(0,0,0,0.15);}
+.theme-navy{color-scheme:dark;--color-surface-page:var(--_n950);--color-surface-base:var(--_n900);--color-surface-elevated:var(--_n700);--color-surface-sunken:var(--_n950);--color-surface-overlay:rgba(255,255,255,0.04);--color-surface-brand:var(--_y400);--color-surface-secondary:var(--_n700);--color-text-primary:var(--_g0);--color-text-secondary:var(--_n100);--color-text-tertiary:var(--_n300);--color-text-on-brand:var(--_g950);--color-text-on-navy:var(--_g0);--color-brand-primary:var(--_y400);--color-brand-hover:var(--_y200);--color-brand-secondary:var(--_n500);--color-brand-accent:var(--_y400);--color-border-subtle:rgba(107,158,208,0.12);--color-border-default:rgba(107,158,208,0.20);--color-border-strong:rgba(107,158,208,0.35);--color-border-brand:var(--_y400);--color-success-bg:rgba(45,140,122,0.15);--color-success-fg:var(--_teal-light);--color-success-bd:rgba(45,140,122,0.35);--color-warning-bg:rgba(245,196,0,0.12);--color-warning-fg:var(--_y200);--color-warning-bd:rgba(245,196,0,0.30);--color-danger-bg:rgba(232,96,96,0.14);--color-danger-fg:var(--_coral-light);--color-danger-bd:rgba(232,96,96,0.35);--color-info-bg:rgba(45,107,168,0.20);--color-info-fg:var(--_n100);--color-info-bd:rgba(107,158,208,0.35);--color-neutral-bg:rgba(255,255,255,0.05);--color-neutral-fg:var(--_n300);--color-neutral-bd:rgba(255,255,255,0.12);--shadow-sm:0 1px 3px rgba(0,0,0,0.50);--shadow-md:0 4px 12px rgba(0,0,0,0.50);--shadow-lg:0 10px 30px rgba(0,0,0,0.60);--shadow-brand:0 4px 20px rgba(245,196,0,0.18);}
+
+
+*{box-sizing:border-box}
+body{background:var(--color-surface-page);color:var(--color-text-primary);font-family:var(--font-body);margin:0;font-size:14px;line-height:1.5}
+h1,h2,h3,h4{font-family:var(--font-display);text-transform:uppercase;margin:0;letter-spacing:0.02em}
+
+/* ── Theme bar ── */
+.theme-bar{display:flex;gap:4px;background:var(--color-surface-elevated);padding:4px 12px;border-bottom:1px solid var(--color-border-default);align-items:center}
+.theme-bar button{font-family:var(--font-display);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;padding:6px 14px;border:0;background:transparent;color:var(--color-text-secondary);border-radius:var(--r-pill);cursor:pointer}
+.theme-bar button.active{background:var(--color-brand-primary);color:var(--color-text-on-brand)}
+
+/* ── Topbar ── */
+.topbar{display:flex;align-items:center;gap:16px;padding:14px 24px;background:var(--color-surface-base);border-bottom:1px solid var(--color-border-default)}
+.topbar .logo-wrap{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0}
+.topbar .logo-wrap img{display:block;width:100%;height:100%;object-fit:cover}
+.topbar .title-block{flex:1}
+.topbar h1{font-size:24px;font-weight:900;line-height:1.05}
+.topbar .subtitle{font-size:13px;color:var(--color-text-secondary);margin-top:2px}
+.topbar .updated{font-size:11px;color:var(--color-text-tertiary);text-align:right;white-space:nowrap}
+
+/* ── Layout ── */
+.main{padding:24px;max-width:1200px;margin:0 auto}
+.section{margin-bottom:32px}
+.section-heading{font-family:var(--font-display);font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-text-secondary);margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--color-border-subtle)}
+
+/* ── KPI strip ── */
+.kpi-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media(max-width:800px){.kpi-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.kpi-strip{grid-template-columns:1fr}}
+.kpi-tile{background:var(--color-surface-elevated);border:1px solid var(--color-border-default);border-radius:var(--r-lg);padding:20px 16px;box-shadow:var(--shadow-md);text-align:center}
+.kpi-tile .eyebrow{font-family:var(--font-display);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-text-secondary);margin-bottom:8px}
+.kpi-tile .big-num{font-family:var(--font-display);font-weight:900;font-size:36px;line-height:1;color:var(--color-brand-primary)}
+.kpi-tile .sub{font-size:11px;color:var(--color-text-tertiary);margin-top:6px}
+
+/* ── Chart card ── */
+.chart-card{background:var(--color-surface-elevated);border:1px solid var(--color-border-default);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow-sm)}
+.chart-card h3{font-size:14px;font-weight:800;margin-bottom:16px;color:var(--color-text-primary)}
+.chart-wrap{position:relative;height:340px}
+
+/* ── Table ── */
+.table-wrap{background:var(--color-surface-elevated);border:1px solid var(--color-border-default);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+table th{font-family:var(--font-display);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;padding:10px 14px;background:var(--color-surface-sunken);color:var(--color-text-secondary);border-bottom:2px solid var(--color-border-default);position:sticky;top:0;z-index:1;text-align:left}
+table th.r{text-align:right}
+table td{padding:10px 14px;border-bottom:1px solid var(--color-border-subtle);font-variant-numeric:tabular-nums}
+table td.r{text-align:right}
+table tbody tr:nth-child(even) td{background:var(--color-surface-sunken)}
+table tbody tr:last-child td{border-bottom:none}
+
+/* ── Ratio cell tints ── */
+.ratio-good{background:var(--color-success-bg)!important;color:var(--color-success-fg);font-weight:600}
+.ratio-warn{background:var(--color-warning-bg)!important;color:var(--color-warning-fg);font-weight:600}
+.ratio-orange{background:rgba(201,122,58,0.15)!important;color:#e0944a;font-weight:600}
+.ratio-bad{background:var(--color-danger-bg)!important;color:var(--color-danger-fg);font-weight:600}
+
+/* ── Source badges ── */
+.badge{display:inline-block;padding:2px 8px;border-radius:var(--r-pill);font-size:10px;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+.badge-pudo{background:var(--color-info-bg);color:var(--color-info-fg);border:1px solid var(--color-info-bd)}
+.badge-rmz{background:var(--color-neutral-bg);color:var(--color-neutral-fg);border:1px solid var(--color-neutral-bd)}
+.badge-both{background:var(--color-warning-bg);color:var(--color-warning-fg);border:1px solid var(--color-warning-bd)}
+
+/* ── Caveat / info panel ── */
+.caveat{background:var(--color-info-bg);border:1px solid var(--color-info-bd);border-radius:var(--r-lg);padding:18px 20px;color:var(--color-info-fg)}
+.caveat .caveat-title{font-family:var(--font-display);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px}
+.caveat p{font-size:13px;line-height:1.6;margin:0 0 10px}
+.caveat p:last-child{margin-bottom:0}
+details summary{cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;list-style:none;display:flex;align-items:center;gap:6px;margin-top:10px}
+details summary::before{content:'▶';font-size:9px;transition:transform .2s}
+details[open] summary::before{transform:rotate(90deg)}
+details ul{margin:10px 0 0 16px;padding:0;font-size:12px;line-height:1.7;color:var(--color-info-fg)}
+
+/* ── Footer ── */
+.footer{padding:20px 24px;text-align:center;color:var(--color-text-tertiary);font-size:11px}
+
+</style>
+</head>
+<body>
+
+<!-- ── Theme bar ── -->
+<div class="theme-bar">
+  <button onclick="olyTheme('theme-light',this)">Light</button>
+  <button onclick="olyTheme('theme-dark',this)">Dark</button>
+  <button onclick="olyTheme('theme-brand',this)">Brand</button>
+  <button onclick="olyTheme('theme-navy',this)" class="active">Navy</button>
+</div>
+
+<!-- ── Topbar ── -->
+<div class="topbar">
+  <div class="logo-wrap">
+    <img src="logo.jpg" alt="Olympic Paints" width="48" height="48">
+  </div>
+  <div class="title-block">
+    <h1>E-Commerce Logistics Cost</h1>
+    <div class="subtitle">Courier spend vs WooCommerce revenue, monthly</div>
+  </div>
+  <div class="updated">Updated<br>2026-05-21 19:30</div>
+</div>
+
+<!-- ── Main content ── -->
+<div class="main">
+
+  <!-- KPI strip -->
+  <div class="section">
+    <div class="section-heading">Summary</div>
+    <div class="kpi-strip">
+      <div class="kpi-tile">
+        <div class="eyebrow">Total Spend</div>
+        <div class="big-num">R&nbsp;31,687.69</div>
+        <div class="sub">Logistics (incl VAT)</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="eyebrow">E-Comm Revenue</div>
+        <div class="big-num">R&nbsp;114,254.00</div>
+        <div class="sub">WooCommerce (incl VAT), months w/ invoices</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="eyebrow">Overall Ratio</div>
+        <div class="big-num">27.7%</div>
+        <div class="sub">Logistics ÷ revenue</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="eyebrow">Months Covered</div>
+        <div class="big-num">7</div>
+        <div class="sub">Distinct cost months</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart -->
+  <div class="section">
+    <div class="section-heading">Monthly Breakdown</div>
+    <div class="chart-card">
+      <h3>Revenue vs Logistics Cost &amp; Ratio %</h3>
+      <div class="chart-wrap">
+        <canvas id="logisticsChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monthly table -->
+  <div class="section">
+    <div class="section-heading">Month-by-Month Detail</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th class="r">Revenue (incl VAT)</th>
+            <th class="r">Logistics Cost (incl VAT)</th>
+            <th class="r">Ratio %</th>
+            <th style="text-align:center">Sources</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr><td>2025-11</td><td class="r">R 14,634.00</td><td class="r">R 2,064.25</td><td class="r ratio-warn">14.1%</td><td style="text-align:center"><span class="badge badge-pudo">Pudo</span></td></tr>
+<tr><td>2025-12</td><td class="r">R 9,604.00</td><td class="r">R 3,640.50</td><td class="r ratio-orange">37.9%</td><td style="text-align:center"><span class="badge badge-pudo">Pudo</span></td></tr>
+<tr><td>2026-01</td><td class="r">R 14,530.00</td><td class="r">R 2,973.50</td><td class="r ratio-warn">20.5%</td><td style="text-align:center"><span class="badge badge-pudo">Pudo</span></td></tr>
+<tr><td>2026-02</td><td class="r">R 21,987.00</td><td class="r">R 7,423.25</td><td class="r ratio-orange">33.8%</td><td style="text-align:center"><span class="badge badge-pudo">Pudo</span></td></tr>
+<tr><td>2026-03</td><td class="r">R 21,427.00</td><td class="r">R 5,438.75</td><td class="r ratio-orange">25.4%</td><td style="text-align:center"><span class="badge badge-both">Both</span></td></tr>
+<tr><td>2026-04</td><td class="r">R 9,914.00</td><td class="r">R 5,073.74</td><td class="r ratio-bad">51.2%</td><td style="text-align:center"><span class="badge badge-both">Both</span></td></tr>
+<tr><td>2026-05</td><td class="r">R 22,158.00</td><td class="r">R 5,073.70</td><td class="r ratio-warn">22.9%</td><td style="text-align:center"><span class="badge badge-both">Both</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Caveat & methodology -->
+  <div class="section">
+    <div class="caveat">
+      <div class="caveat-title">Caveat</div>
+      <p>RMZ Freight invoices cover ALL courier shipments (e-commerce + wholesale rep deliveries),
+         but the revenue denominator is WooCommerce-only. This inflates the ratio.
+         Pudo Wallet costs are e-commerce-only and a cleaner signal.
+         To improve the metric, tag RMZ line items by destination channel.</p>
+      <details>
+        <summary>How this is computed</summary>
+        <ul>
+          <li>Costs from <code>ecommerce_logistics_cost.parquet</code> (RMZ Freight PDFs + Pudo Wallet CSVs).</li>
+          <li>Revenue from <code>Woocommerce_Transactions.csv</code>, deduped by <code>order_id</code>, summed by <code>date_paid</code> month.</li>
+          <li>Both sides incl-VAT. Months without invoices show 0% — pre-Nov 2025 invoices have not been ingested.</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<div class="footer">Olympic Paints — E-Commerce Logistics Cost Dashboard — 2026-05-21 19:30</div>
+
+<script>
+/* ── Theme toggle ── */
+const OLY_THEMES=['theme-light','theme-dark','theme-brand','theme-navy'];
+function olyTheme(t,btn){
+  document.documentElement.classList.remove(...OLY_THEMES);
+  document.documentElement.classList.add(t);
+  localStorage.setItem('oly-theme',t);
+  document.querySelectorAll('.theme-bar button').forEach(b=>b.classList.toggle('active',b===btn));
+}
+
+/* ── barLabels plugin ── */
+const _lblMap = new Map();
+const barLabels = {
+  id:'barLabels',
+  afterDatasetsDraw(chart){
+    const ctx=chart.ctx;
+    chart.data.datasets.forEach((ds,di)=>{
+      const fmt=_lblMap.get(ds.label);
+      if(!fmt)return;
+      const meta=chart.getDatasetMeta(di);
+      meta.data.forEach((bar,i)=>{
+        const val=ds.data[i];
+        if(val==null||val===0)return;
+        const text=fmt(val);
+        ctx.save();
+        ctx.font='bold 10px "Barlow Condensed",sans-serif';
+        ctx.fillStyle='rgba(255,255,255,0.85)';
+        ctx.textAlign='center';
+        ctx.textBaseline='middle';
+        const bx=bar.x, by=bar.y, bh=bar.base-bar.y;
+        if(bh>20){ctx.fillText(text,bx,by+bh/2);}
+        ctx.restore();
+      });
+    });
+  }
+};
+Chart.register(barLabels);
+
+/* ── Chart data ── */
+const labels=['2025-11', '2025-12', '2026-01', '2026-02', '2026-03', '2026-04', '2026-05'];
+const revData=[14634, 9604, 14530, 21987, 21427, 9914, 22158];
+const logData=[2064.25, 3640.5, 2973.5, 7423.25, 5438.75, 5073.74, 5073.7];
+const ratioData=[14.11, 37.91, 20.46, 33.76, 25.38, 51.18, 22.9];
+const ratioYMax=60;
+
+_lblMap.set('Revenue','');  // no bar labels on revenue — too dense
+_lblMap.set('Logistics','');
+// ratio labels rendered via the line's pointLabels or datalabels — skip barLabels for line
+
+const ctx=document.getElementById('logisticsChart').getContext('2d');
+Chart.defaults.font.family="'Barlow',sans-serif";
+
+new Chart(ctx,{
+  type:'bar',
+  data:{
+    labels,
+    datasets:[
+      {
+        label:'Revenue',
+        data:revData,
+        backgroundColor:'rgba(245,196,0,0.75)',
+        borderColor:'#F5C400',
+        borderWidth:1,
+        yAxisID:'yLeft',
+        order:2,
+      },
+      {
+        label:'Logistics',
+        data:logData,
+        backgroundColor:'rgba(26,61,110,0.90)',
+        borderColor:'#1A3D6E',
+        borderWidth:1,
+        yAxisID:'yLeft',
+        order:3,
+      },
+      {
+        label:'Ratio %',
+        data:ratioData,
+        type:'line',
+        borderColor:'#2D8C7A',
+        backgroundColor:'rgba(45,140,122,0.12)',
+        borderWidth:2,
+        pointRadius:5,
+        pointBackgroundColor:'#2D8C7A',
+        fill:false,
+        tension:0.3,
+        yAxisID:'yRight',
+        order:1,
+        datalabels:{display:false},
+      },
+    ]
+  },
+  options:{
+    responsive:true,
+    maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    plugins:{
+      legend:{
+        labels:{
+          color:'rgba(255,255,255,0.75)',
+          font:{family:"'Barlow Condensed',sans-serif",weight:'700',size:12},
+          usePointStyle:true,
+        }
+      },
+      tooltip:{
+        callbacks:{
+          label:function(ctx){
+            if(ctx.dataset.label==='Ratio %') return ` Ratio: ${ctx.parsed.y.toFixed(1)}%`;
+            return ` ${ctx.dataset.label}: R${ctx.parsed.y.toLocaleString('en-ZA',{minimumFractionDigits:2,maximumFractionDigits:2})}`;
+          }
+        }
+      },
+    },
+    scales:{
+      x:{
+        grid:{color:'rgba(107,158,208,0.12)'},
+        ticks:{color:'rgba(184,204,232,0.85)',font:{family:"'Barlow Condensed',sans-serif",size:12}}
+      },
+      yLeft:{
+        position:'left',
+        grid:{color:'rgba(107,158,208,0.12)'},
+        ticks:{
+          color:'rgba(184,204,232,0.85)',
+          font:{family:"'Barlow Condensed',sans-serif",size:12},
+          callback:v=>'R'+v.toLocaleString('en-ZA')
+        }
+      },
+      yRight:{
+        position:'right',
+        max:ratioYMax,
+        min:0,
+        grid:{drawOnChartArea:false},
+        ticks:{
+          color:'#2D8C7A',
+          font:{family:"'Barlow Condensed',sans-serif",size:12},
+          callback:v=>v+'%'
+        }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
