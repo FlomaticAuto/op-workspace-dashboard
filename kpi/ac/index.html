@@ -676,7 +676,7 @@ html,body{overflow-x:hidden}
     </a>
   </div>
 
-  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 21 May 2026 12:18</div>
+  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 21 May 2026 12:51</div>
 </div>
 
 <button class="ms-back-to-summary" type="button"
@@ -705,7 +705,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R3.25M</div>
-    <div class="hdr-meta">Week ending 21 May 2026 &middot; Generated 21 May 2026 12:18</div>
+    <div class="hdr-meta">Week ending 21 May 2026 &middot; Generated 21 May 2026 12:51</div>
   </div>
 </div>
 
@@ -1705,7 +1705,7 @@ async function submitNewStore(ev){
   <strong>Olympic Paints</strong> &mdash; Aboo Cassim Personal KPI Dashboard &mdash; Week ending 21 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 21 May 2026 12:18 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 21 May 2026 12:51 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
@@ -2173,6 +2173,7 @@ const APPROVED   = [{"ordno": "15328", "orddate": "08/05/2026", "accno": "KA111"
 const PURCHASERS = {"2024-3": 33, "2024-4": 28, "2024-5": 32, "2024-6": 27, "2024-7": 33, "2024-8": 34, "2024-9": 36, "2024-10": 32, "2024-11": 32, "2024-12": 33, "2025-1": 24, "2025-2": 25, "2025-3": 51, "2025-4": 46, "2025-5": 48, "2025-6": 43, "2025-7": 56, "2025-8": 53, "2025-9": 50, "2025-10": 56, "2025-11": 53, "2025-12": 47, "2026-1": 43, "2026-2": 50, "2026-3": 46, "2026-4": 39, "2026-5": 27};
 const PORTFOLIO  = 91;
 const GROWTH    = 1.3;
+const CREDIT_APPS = {"total": 48, "done": 4, "outstanding": 44, "pct": 8.3, "as_of": "2026-05-21"};
 let curY = 2026, curM = 5;
 
 function mrev(y, m){ return MR[y+'-'+m] || 0; }
@@ -2246,6 +2247,20 @@ function renderMonthly(){
       '<div class="kpi-label">Coverage</div>'+
       '<div class="kpi-value '+covCls+'">'+covStr+'</div>'+
       '<div class="kpi-delta '+covCls+'">'+purchasers+' purchased ÷ '+portfolio+' accounts</div></div>';
+
+  // Credit App Completions — static (doesn't depend on selected month)
+  if (CREDIT_APPS && typeof CREDIT_APPS.total === 'number' && CREDIT_APPS.total > 0) {
+    const caPct = CREDIT_APPS.pct;
+    const caCls = caPct >= 80 ? 'up' : caPct >= 40 ? 'warn' : 'dn';
+    const caColor = caPct >= 80 ? 'var(--color-success-fg)' :
+                    caPct >= 40 ? 'var(--color-warning-fg)' : 'var(--color-danger-fg)';
+    document.getElementById('monthlyKpis').innerHTML +=
+      '<div class="kpi" style="border-left:3px solid var(--color-brand-primary)">'+
+        '<div class="kpi-label">Credit Apps Collected</div>'+
+        '<div class="kpi-value" style="color:'+caColor+'">'+caPct.toFixed(1)+'%</div>'+
+        '<div class="kpi-delta '+caCls+'">'+CREDIT_APPS.done+' of '+CREDIT_APPS.total+
+        ' · '+CREDIT_APPS.outstanding+' to collect</div></div>';
+  }
 
   renderTrendChart(y, m);
   renderCompareChart(y, m);
