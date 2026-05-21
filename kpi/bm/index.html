@@ -159,6 +159,34 @@
 .kpi-delta.dn,.kpi-value.dn{color:var(--color-danger-fg)}
 .kpi-delta.warn,.kpi-value.warn{color:var(--color-warning-fg)}
 .kpi-delta.neu,.kpi-value.neu{color:var(--color-text-secondary)}
+
+/* ── CREDIT APP CARD (Monthly tab — different colour from regular KPI tiles) ── */
+.kpi.ca-tile{grid-column:span 2;background:var(--_n900);
+  border:1px solid rgba(107,158,208,0.30);box-shadow:0 4px 18px rgba(0,0,0,0.35);
+  padding:14px 18px;position:relative}
+.kpi.ca-tile::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:var(--_y400);border-radius:var(--r-lg) 0 0 var(--r-lg)}
+.ca-head{display:flex;align-items:center;gap:14px}
+.ca-badge{background:var(--_y400);color:#0D0D0B;font-family:var(--font-display);
+  font-weight:900;font-size:14px;padding:6px 10px;border-radius:6px;min-width:44px;text-align:center}
+.ca-name{font-family:var(--font-display);font-weight:900;font-size:15px;
+  text-transform:uppercase;letter-spacing:.02em;color:var(--_g0);line-height:1.1}
+.ca-sub{font-family:var(--font-body);font-size:12px;color:var(--_n100);margin-top:2px}
+.ca-pct{margin-left:auto;font-family:var(--font-display);font-weight:900;font-size:30px;
+  color:var(--_y400);line-height:1}
+.ca-track{height:7px;background:rgba(0,0,0,0.35);border-radius:50px;overflow:hidden;margin-top:12px}
+.ca-fill{height:100%;border-radius:50px;transition:width .4s}
+.ca-fill.ok{background:#2D8C7A}.ca-fill.warn{background:#F5C400}.ca-fill.bad{background:#E86060}
+.ca-chips{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.ca-chip{font-family:var(--font-display);font-weight:700;font-size:10px;
+  letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:50px;border:1px solid}
+.ca-chip.done{background:rgba(45,140,122,0.18);color:#C8EDE7;border-color:rgba(45,140,122,0.45)}
+.ca-chip.out{background:rgba(245,196,0,0.16);color:#FDF0A0;border-color:rgba(245,196,0,0.45)}
+@media (max-width: 720px){
+  .kpi.ca-tile{grid-column:1/-1}
+  .ca-pct{font-size:24px}
+}
+
 /* ── CARDS ───────────────────────────────────────────────── */
 .card{background:var(--color-surface-base);border-radius:var(--r-lg);padding:22px;
   border:1px solid var(--color-border-default);box-shadow:var(--shadow-sm)}
@@ -676,7 +704,7 @@ html,body{overflow-x:hidden}
     </a>
   </div>
 
-  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 21 May 2026 12:51</div>
+  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 21 May 2026 12:59</div>
 </div>
 
 <button class="ms-back-to-summary" type="button"
@@ -705,7 +733,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R63.8K</div>
-    <div class="hdr-meta">Week ending 21 May 2026 &middot; Generated 21 May 2026 12:51</div>
+    <div class="hdr-meta">Week ending 21 May 2026 &middot; Generated 21 May 2026 12:59</div>
   </div>
 </div>
 
@@ -1449,7 +1477,7 @@ html,body{overflow-x:hidden}
   <strong>Olympic Paints</strong> &mdash; Byron Minnie Personal KPI Dashboard &mdash; Week ending 21 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 21 May 2026 12:51 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 21 May 2026 12:59 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
@@ -1992,18 +2020,26 @@ function renderMonthly(){
       '<div class="kpi-value '+covCls+'">'+covStr+'</div>'+
       '<div class="kpi-delta '+covCls+'">'+purchasers+' purchased ÷ '+portfolio+' accounts</div></div>';
 
-  // Credit App Completions — static (doesn't depend on selected month)
+  // Credit App Completions — rep-card style on a distinct navy tile so it stands out
   if (CREDIT_APPS && typeof CREDIT_APPS.total === 'number' && CREDIT_APPS.total > 0) {
-    const caPct = CREDIT_APPS.pct;
-    const caCls = caPct >= 80 ? 'up' : caPct >= 40 ? 'warn' : 'dn';
-    const caColor = caPct >= 80 ? 'var(--color-success-fg)' :
-                    caPct >= 40 ? 'var(--color-warning-fg)' : 'var(--color-danger-fg)';
+    const ca = CREDIT_APPS;
+    const fillCls = ca.pct >= 80 ? 'ok' : ca.pct >= 40 ? 'warn' : 'bad';
     document.getElementById('monthlyKpis').innerHTML +=
-      '<div class="kpi" style="border-left:3px solid var(--color-brand-primary)">'+
-        '<div class="kpi-label">Credit Apps Collected</div>'+
-        '<div class="kpi-value" style="color:'+caColor+'">'+caPct.toFixed(1)+'%</div>'+
-        '<div class="kpi-delta '+caCls+'">'+CREDIT_APPS.done+' of '+CREDIT_APPS.total+
-        ' · '+CREDIT_APPS.outstanding+' to collect</div></div>';
+      '<div class="kpi ca-tile">'+
+        '<div class="ca-head">'+
+          '<div class="ca-badge">BM</div>'+
+          '<div>'+
+            '<div class="ca-name">Byron Minnie</div>'+
+            '<div class="ca-sub">'+ca.done+' of '+ca.total+' done · Credit apps collected</div>'+
+          '</div>'+
+          '<div class="ca-pct">'+ca.pct.toFixed(1)+'%</div>'+
+        '</div>'+
+        '<div class="ca-track"><div class="ca-fill '+fillCls+'" style="width:'+Math.min(ca.pct,100).toFixed(1)+'%"></div></div>'+
+        '<div class="ca-chips">'+
+          '<span class="ca-chip done">Done '+ca.done+'</span>'+
+          '<span class="ca-chip out">Outstanding '+ca.outstanding+'</span>'+
+        '</div>'+
+      '</div>';
   }
 
   renderTrendChart(y, m);
