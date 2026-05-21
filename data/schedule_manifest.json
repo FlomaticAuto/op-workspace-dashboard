@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T15:00:05+02:00",
+  "generated_at": "2026-05-21T17:00:18+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -60,10 +60,23 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1630",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T16:30:00",
-      "next_run": "2026-05-21 16:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-20 20:45:16+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-05-22 16:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-21 17:00:09+02:00",
+      "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
+      "history": []
+    },
+    {
+      "job_id": "remind-account-health-forms",
+      "name": "Remind Account Health Forms",
+      "agent": "Account Health Forms",
+      "task_path": "\\Olympic Paints\\Account Health Forms\\Remind Account Health Forms",
+      "enabled": true,
+      "schedule_summary": "type=3 start=2026-05-21T07:00:00",
+      "next_run": "2026-05-22 07:00:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
       "history": []
     },
     {
@@ -183,8 +196,8 @@
       "task_path": "\\Olympic Paints\\Forms\\OlympicPaints_CheckPendingForms_1600",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-17T16:00:00+02:00",
-      "next_run": "2026-05-21 16:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-20 16:00:00+02:00",
+      "next_run": "2026-05-22 16:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-21 17:00:09+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -198,7 +211,7 @@
       "schedule_summary": "type=2 start=2026-04-21T07:30:00+02:00",
       "next_run": "2026-05-22 07:30:00+02:00",
       "scheduler_last_run_time": "2026-05-21 07:41:27+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": -2147023829,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -222,10 +235,10 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-21 16:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 15:00:01+02:00",
+      "next_run": "2026-05-21 18:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-21 17:00:09+02:00",
       "scheduler_last_task_result": 267009,
-      "heartbeat_status": "fresh",
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "build-schedule-manifest",
@@ -569,6 +582,19 @@
       "history": []
     },
     {
+      "job_id": "audit-runbook-drift",
+      "name": "Audit Runbook Drift",
+      "agent": "Runbooks",
+      "task_path": "\\Olympic Paints\\Runbooks\\Audit Runbook Drift",
+      "enabled": true,
+      "schedule_summary": "type=3 start=2026-05-21T06:30:00",
+      "next_run": "2026-05-25 06:30:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
+      "history": []
+    },
+    {
       "job_id": "h-s-weekly-refresh",
       "name": "H&S Weekly Refresh",
       "agent": "SIGMA",
@@ -743,11 +769,32 @@
       "task_path": "\\Olympic Paints\\STRIKER\\Olympic Paints - Zoho Meetings Pull (Evening)",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-21T17:00:00+02:00",
-      "next_run": "2026-05-21 17:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
-      "history": []
+      "next_run": "2026-05-22 17:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-21 17:00:00+02:00",
+      "scheduler_last_task_result": 1,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "olympic-paints-zoho-meetings-pull-evening",
+          "agent": "STRIKER",
+          "started_at": "2026-05-21T17:00:03+02:00",
+          "finished_at": "2026-05-21T17:00:11+02:00",
+          "duration_seconds": 7.87,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympic-paints-zoho-meetings-pull-evening\\2026-05-21_17-00-03.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-21T17:00:03+02:00",
+        "finished_at": "2026-05-21T17:00:11+02:00",
+        "duration_seconds": 7.87,
+        "exit_code": 1,
+        "ok": false,
+        "summary": null
+      }
     },
     {
       "job_id": "olympicpaints-friday-sales-meeting",
@@ -923,10 +970,10 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-21 16:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 14:15:00+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-05-21 18:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-21 17:00:09+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "sync-claude-todos",
