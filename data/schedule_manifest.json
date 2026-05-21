@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T17:00:18+02:00",
+  "generated_at": "2026-05-21T18:20:57+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -235,23 +235,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-21 18:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 17:00:09+02:00",
+      "next_run": "2026-05-21 19:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-21 18:20:18+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "stale",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-21T04:00:02+02:00",
-          "finished_at": "2026-05-21T04:00:06+02:00",
-          "duration_seconds": 4.224,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 31 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_04-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -359,12 +347,24 @@
           "stdout_tail": "Wrote 32 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_14-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-21T17:00:16+02:00",
+          "finished_at": "2026-05-21T17:00:39+02:00",
+          "duration_seconds": 22.782,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 34 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_17-00-16.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-21T14:00:02+02:00",
-        "finished_at": "2026-05-21T14:00:08+02:00",
-        "duration_seconds": 5.487,
+        "started_at": "2026-05-21T17:00:16+02:00",
+        "finished_at": "2026-05-21T17:00:39+02:00",
+        "duration_seconds": 22.782,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -628,8 +628,8 @@
       "enabled": true,
       "schedule_summary": "type=9 start=",
       "next_run": null,
-      "scheduler_last_run_time": "2026-05-21 14:36:43+02:00",
-      "scheduler_last_task_result": 0,
+      "scheduler_last_run_time": "2026-05-21 18:20:26+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -970,23 +970,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-21 18:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 17:00:09+02:00",
+      "next_run": "2026-05-21 20:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-21 18:20:18+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "stale",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-05-20T20:45:33+02:00",
-          "finished_at": "2026-05-20T20:45:56+02:00",
-          "duration_seconds": 23.161,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-20_20-45-33.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1094,14 +1082,26 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-21_14-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-21T17:00:17+02:00",
+          "finished_at": "2026-05-21T17:00:43+02:00",
+          "duration_seconds": 26.591,
+          "exit_code": 2,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-21_17-00-17.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-21T14:15:01+02:00",
-        "finished_at": "2026-05-21T14:15:09+02:00",
-        "duration_seconds": 8.349,
-        "exit_code": 0,
-        "ok": true,
+        "started_at": "2026-05-21T17:00:17+02:00",
+        "finished_at": "2026-05-21T17:00:43+02:00",
+        "duration_seconds": 26.591,
+        "exit_code": 2,
+        "ok": false,
         "summary": null
       }
     },
