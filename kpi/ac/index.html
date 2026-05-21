@@ -704,7 +704,7 @@ html,body{overflow-x:hidden}
     </a>
   </div>
 
-  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 21 May 2026 12:59</div>
+  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 21 May 2026 13:20</div>
 </div>
 
 <button class="ms-back-to-summary" type="button"
@@ -733,7 +733,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R3.25M</div>
-    <div class="hdr-meta">Week ending 21 May 2026 &middot; Generated 21 May 2026 12:59</div>
+    <div class="hdr-meta">Week ending 21 May 2026 &middot; Generated 21 May 2026 13:20</div>
   </div>
 </div>
 
@@ -749,7 +749,7 @@ html,body{overflow-x:hidden}
   <button class="tab-btn"        data-tab="nonstock"  onclick="showTab('nonstock')">Non Stock</button>
   <button class="tab-btn"        data-tab="prodev"    onclick="showTab('prodev')">Product Development</button>
 
-  <button class="tab-btn"        data-tab="updates"   onclick="showTab('updates')">KPI Data Updates</button>
+
   <button class="tab-btn" data-tab="recovery" onclick="showTab('recovery')" style="color:var(--_coral);">🚨 Recovery (18)</button>
 </div>
 
@@ -1467,150 +1467,6 @@ html,body{overflow-x:hidden}
 
 
 
-<!-- ── KPI DATA UPDATES TAB ── -->
-<div id="panel-updates" class="tab-panel">
-  <div class="sec-h">KPI Data Updates &mdash; New Customer Sign-Ups</div>
-  <div style="background:var(--color-info-bg);border:1px solid var(--color-info-bd);border-radius:var(--r-md);
-       padding:10px 16px;margin-bottom:16px;font-family:var(--font-body);font-size:12px;color:var(--color-info-fg)">
-    <strong>What this is.</strong> Record a new customer the moment you sign them up or convert them.
-    The submission is appended directly to <em>New Stores Added By Reps_Quater1_2026.xlsx</em>
-    (your <strong>Aboo</strong> tab and the <strong>Combined</strong> tab) so the office sees it immediately.
-    Leave <em>dlref</em> and <em>curef</em> blank if the customer code hasn't been created yet.
-  </div>
-
-  <div style="background:var(--color-surface-elevated);border:1px solid var(--color-border-subtle);
-              border-radius:var(--r-lg);padding:24px;max-width:680px;">
-    <form id="newStoreForm" onsubmit="submitNewStore(event)">
-      <div style="display:grid;gap:16px;">
-
-        <label style="display:block;">
-          <span style="display:block;font-family:var(--font-display);font-weight:700;
-                       font-size:11px;text-transform:uppercase;letter-spacing:0.08em;
-                       color:var(--color-text-secondary);margin-bottom:6px;">
-            Store name &mdash; Town <span style="color:var(--color-danger-fg);">*</span>
-          </span>
-          <input type="text" name="store" required maxlength="120"
-                 placeholder="e.g. Arham @ Melrose Hardware – Melrose"
-                 style="width:100%;padding:10px 12px;border:1px solid var(--color-border-default);
-                        border-radius:var(--r-md);background:var(--color-surface-base);
-                        color:var(--color-text-primary);font-family:var(--font-body);font-size:14px;
-                        box-sizing:border-box;">
-        </label>
-
-        <label style="display:block;">
-          <span style="display:block;font-family:var(--font-display);font-weight:700;
-                       font-size:11px;text-transform:uppercase;letter-spacing:0.08em;
-                       color:var(--color-text-secondary);margin-bottom:6px;">
-            Status / Notes
-          </span>
-          <textarea name="status" rows="2" maxlength="240"
-                    placeholder="e.g. COD, 30-day terms requested, awaiting first order"
-                    style="width:100%;padding:10px 12px;border:1px solid var(--color-border-default);
-                           border-radius:var(--r-md);background:var(--color-surface-base);
-                           color:var(--color-text-primary);font-family:var(--font-body);font-size:14px;
-                           box-sizing:border-box;resize:vertical;"></textarea>
-        </label>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <label style="display:block;">
-            <span style="display:block;font-family:var(--font-display);font-weight:700;
-                         font-size:11px;text-transform:uppercase;letter-spacing:0.08em;
-                         color:var(--color-text-secondary);margin-bottom:6px;">
-              dlref <span style="color:var(--color-text-tertiary);font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span>
-            </span>
-            <input type="text" name="dlref" maxlength="40" placeholder="e.g. KA109"
-                   style="width:100%;padding:10px 12px;border:1px solid var(--color-border-default);
-                          border-radius:var(--r-md);background:var(--color-surface-base);
-                          color:var(--color-text-primary);font-family:var(--font-body);font-size:14px;
-                          box-sizing:border-box;text-transform:uppercase;">
-          </label>
-          <label style="display:block;">
-            <span style="display:block;font-family:var(--font-display);font-weight:700;
-                         font-size:11px;text-transform:uppercase;letter-spacing:0.08em;
-                         color:var(--color-text-secondary);margin-bottom:6px;">
-              curef <span style="color:var(--color-text-tertiary);font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span>
-            </span>
-            <input type="text" name="curef" maxlength="40" placeholder="e.g. KA109"
-                   style="width:100%;padding:10px 12px;border:1px solid var(--color-border-default);
-                          border-radius:var(--r-md);background:var(--color-surface-base);
-                          color:var(--color-text-primary);font-family:var(--font-body);font-size:14px;
-                          box-sizing:border-box;text-transform:uppercase;">
-          </label>
-        </div>
-
-        <div style="display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap;">
-          <button type="submit" id="submitBtn"
-                  style="background:var(--color-brand-primary);color:var(--color-text-on-brand);
-                         border:0;padding:12px 24px;border-radius:var(--r-md);
-                         font-family:var(--font-display);font-weight:800;font-size:13px;
-                         text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;
-                         box-shadow:var(--shadow-brand);transition:all 0.15s;">
-            Submit New Customer
-          </button>
-          <span id="formMsg" style="font-family:var(--font-body);font-size:13px;"></span>
-        </div>
-
-      </div>
-    </form>
-  </div>
-
-  <div style="margin-top:14px;font-family:var(--font-body);font-size:11px;color:var(--color-text-tertiary);max-width:680px;">
-    Submissions are timestamped and your rep name (<strong>Aboo</strong>) is recorded automatically.
-    Office staff will populate <em>dlref</em>/<em>curef</em> in the workbook once the customer code is assigned.
-  </div>
-</div>
-
-<script>
-async function submitNewStore(ev){
-  ev.preventDefault();
-  const form = ev.target;
-  const btn  = document.getElementById('submitBtn');
-  const msg  = document.getElementById('formMsg');
-  const data = {
-    rep: 'Aboo',
-    dashboard: 'AC',
-    store:  form.store.value.trim(),
-    status: form.status.value.trim(),
-    dlref:  form.dlref.value.trim().toUpperCase(),
-    curef:  form.curef.value.trim().toUpperCase(),
-    submitted_at: new Date().toISOString(),
-  };
-  if (!data.store) {
-    msg.textContent = 'Store name is required.';
-    msg.style.color = 'var(--color-danger-fg)';
-    return;
-  }
-
-  const url = 'https://hook.eu2.make.com/ljnzmksi744vx61dhb9iwe9nj1mgofyq';
-  if (!url.startsWith('http')) {
-    msg.textContent = 'Webhook not configured yet. Contact Quintus.';
-    msg.style.color = 'var(--color-warning-fg)';
-    return;
-  }
-
-  btn.disabled = true; btn.style.opacity = '0.6';
-  msg.textContent = 'Submitting…'; msg.style.color = 'var(--color-text-secondary)';
-
-  try {
-    const r = await fetch(url, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data),
-    });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    msg.textContent = '✓ Saved — added to Aboo and Combined sheets.';
-    msg.style.color = 'var(--color-success-fg)';
-    form.reset();
-  } catch (e) {
-    msg.textContent = 'Failed to submit (' + e.message + '). Try again or contact Quintus.';
-    msg.style.color = 'var(--color-danger-fg)';
-  } finally {
-    btn.disabled = false; btn.style.opacity = '1';
-  }
-}
-</script>
-
 
 <div id="panel-recovery" class="tab-panel">
   <div class="sec-h">Recovery Accounts — 18 Flagged (Bottom 25% of Book)</div>
@@ -1733,7 +1589,7 @@ async function submitNewStore(ev){
   <strong>Olympic Paints</strong> &mdash; Aboo Cassim Personal KPI Dashboard &mdash; Week ending 21 May 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 21 May 2026 12:59 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 21 May 2026 13:20 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
