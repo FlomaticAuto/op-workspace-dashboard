@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T07:30:23",
+  "generated_at": "2026-05-22T07:31:33",
   "total": 23,
   "ok": 6,
   "warn": 6,
@@ -93,7 +93,7 @@
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
       "task_last_run": "2026-05-22T07:30:30",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "workspace_health",
