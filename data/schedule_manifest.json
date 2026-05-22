@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T08:41:55+02:00",
+  "generated_at": "2026-05-22T09:41:54+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -260,23 +260,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-22 09:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 08:41:53+02:00",
+      "next_run": "2026-05-22 10:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 09:41:53+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-21T23:00:01+02:00",
-          "finished_at": "2026-05-21T23:00:07+02:00",
-          "duration_seconds": 5.137,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 34 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_23-00-01.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -384,12 +372,24 @@
           "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_07-41-55.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-22T08:41:54+02:00",
+          "finished_at": "2026-05-22T08:41:59+02:00",
+          "duration_seconds": 4.62,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_08-41-54.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-22T07:41:55+02:00",
-        "finished_at": "2026-05-22T07:42:00+02:00",
-        "duration_seconds": 4.948,
+        "started_at": "2026-05-22T08:41:54+02:00",
+        "finished_at": "2026-05-22T08:41:59+02:00",
+        "duration_seconds": 4.62,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -436,8 +436,8 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_KPI_Dashboard_Update",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-29T08:45:00",
-      "next_run": "2026-05-22 08:45:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 08:45:01+02:00",
+      "next_run": "2026-05-23 08:45:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 08:45:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -500,12 +500,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-kpi-dashboard-update\\2026-05-21_08-45-02.log"
+        },
+        {
+          "job_id": "olympicpaints-kpi-dashboard-update",
+          "agent": "PRISM",
+          "started_at": "2026-05-22T08:45:04+02:00",
+          "finished_at": "2026-05-22T08:45:04+02:00",
+          "duration_seconds": 0.291,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-kpi-dashboard-update\\2026-05-22_08-45-04.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-21T08:45:02+02:00",
-        "finished_at": "2026-05-21T08:45:02+02:00",
-        "duration_seconds": 0.186,
+        "started_at": "2026-05-22T08:45:04+02:00",
+        "finished_at": "2026-05-22T08:45:04+02:00",
+        "duration_seconds": 0.291,
         "exit_code": 0,
         "ok": true,
         "summary": null
