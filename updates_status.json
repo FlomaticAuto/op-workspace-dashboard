@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-22T06:42:47",
+  "generated_at": "2026-05-22T07:30:23",
   "total": 23,
-  "ok": 5,
-  "warn": 5,
-  "fail": 13,
+  "ok": 6,
+  "warn": 6,
+  "fail": 11,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -51,9 +51,9 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "fail",
-      "task_last_run": "2026-05-21T07:41:41",
-      "task_last_result": 2147943467
+      "overall": "ok",
+      "task_last_run": "2026-05-22T07:30:30",
+      "task_last_result": 267009
     },
     {
       "id": "haven_dashboard_check",
@@ -91,9 +91,9 @@
       "name": "Kaizen Daily Sync",
       "task": "Olympic Paints - Kaizen Daily Sync",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "fail",
-      "task_last_run": "2026-05-21T07:41:41",
-      "task_last_result": 2147946720
+      "overall": "warn",
+      "task_last_run": "2026-05-22T07:30:30",
+      "task_last_result": 267009
     },
     {
       "id": "workspace_health",
@@ -121,9 +121,9 @@
       "name": "Meeting Minutes Extractor",
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "warn",
-      "task_last_run": "2026-05-21T07:41:41",
-      "task_last_result": 267014
+      "overall": "fail",
+      "task_last_run": "2026-05-22T07:00:00",
+      "task_last_result": 2147943467
     },
     {
       "id": "vault_meeting_extraction",
@@ -131,9 +131,9 @@
       "name": "VAULT Meeting Extraction (Notion tasks)",
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "fail",
-      "task_last_run": "2026-05-21T07:41:41",
-      "task_last_result": 2147946720
+      "overall": "warn",
+      "task_last_run": "2026-05-22T07:00:00",
+      "task_last_result": 0
     },
     {
       "id": "cso_intelligence",
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 22
+  "success_pct": 26
 }
