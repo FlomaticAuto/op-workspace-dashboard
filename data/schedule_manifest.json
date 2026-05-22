@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T07:41:55+02:00",
+  "generated_at": "2026-05-22T08:41:55+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -34,8 +34,8 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Dispatch Account Health Forms",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T08:00:00",
-      "next_run": "2026-05-22 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 08:00:00+02:00",
+      "next_run": "2026-05-25 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 08:00:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -112,8 +112,8 @@
       "task_path": "\\Olympic Paints\\FLASH\\OlympicPaints_EmailECommerceDashboard",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-08T08:00:00",
-      "next_run": "2026-05-22 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 08:00:00+02:00",
+      "next_run": "2026-05-25 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 08:00:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -152,12 +152,24 @@
           "stdout_tail": "[08:00:10] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:00:10] Reading WooCommerce export: C:\\Users\\quint\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:00:12] Reading tracking log: C:\\Users\\quint\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:00:14] FY2026 orders=136 · overdue week=6 · overdue all-time=6 · RTS=9.8% · Makro manu=3 · LRM manu=0\n[08:00:24] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za\n[08:00:24] Subject: E-Commerce Digest — 21 May 2026\n[08:00:24] Email dispatched and confirmed left Outbox.\n[08:00:24] Done.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-05-21_08-00-01.log"
+        },
+        {
+          "job_id": "olympicpaints-emailecommercedashboard",
+          "agent": "FLASH",
+          "started_at": "2026-05-22T08:00:02+02:00",
+          "finished_at": "2026-05-22T08:00:39+02:00",
+          "duration_seconds": 36.646,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[08:00:23] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:00:23] Reading WooCommerce export: C:\\Users\\quint\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:00:25] Reading tracking log: C:\\Users\\quint\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:00:26] FY2026 orders=139 · overdue week=3 · overdue all-time=3 · RTS=9.6% · Makro manu=3 · LRM manu=0\n[08:00:38] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za\n[08:00:38] Subject: E-Commerce Digest — 22 May 2026\n[08:00:38] Email dispatched and confirmed left Outbox.\n[08:00:38] Done.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-05-22_08-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-21T08:00:01+02:00",
-        "finished_at": "2026-05-21T08:00:24+02:00",
-        "duration_seconds": 23.39,
+        "started_at": "2026-05-22T08:00:02+02:00",
+        "finished_at": "2026-05-22T08:00:39+02:00",
+        "duration_seconds": 36.646,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -183,8 +195,8 @@
       "task_path": "\\Olympic Paints\\Forms\\OlympicPaints_CheckPendingForms_0800",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-17T08:00:00+02:00",
-      "next_run": "2026-05-22 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 08:00:00+02:00",
+      "next_run": "2026-05-25 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 08:00:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -248,23 +260,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-22 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 07:41:53+02:00",
+      "next_run": "2026-05-22 09:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 08:41:53+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-21T22:00:02+02:00",
-          "finished_at": "2026-05-21T22:00:07+02:00",
-          "duration_seconds": 5.56,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 34 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_22-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -372,12 +372,24 @@
           "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_07-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-22T07:41:55+02:00",
+          "finished_at": "2026-05-22T07:42:00+02:00",
+          "duration_seconds": 4.948,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_07-41-55.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-22T07:00:02+02:00",
-        "finished_at": "2026-05-22T07:00:12+02:00",
-        "duration_seconds": 9.656,
+        "started_at": "2026-05-22T07:41:55+02:00",
+        "finished_at": "2026-05-22T07:42:00+02:00",
+        "duration_seconds": 4.948,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -506,8 +518,8 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_Sales_Dashboard_Refresh",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-07T08:30:00",
-      "next_run": "2026-05-22 08:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 05:58:04+02:00",
+      "next_run": "2026-05-23 08:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 08:30:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -582,12 +594,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-22_05-58-05.log"
+        },
+        {
+          "job_id": "olympicpaints-sales-dashboard-refresh",
+          "agent": "PRISM",
+          "started_at": "2026-05-22T08:30:01+02:00",
+          "finished_at": "2026-05-22T08:32:14+02:00",
+          "duration_seconds": 132.513,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-22_08-30-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-22T05:58:05+02:00",
-        "finished_at": "2026-05-22T06:05:03+02:00",
-        "duration_seconds": 417.602,
+        "started_at": "2026-05-22T08:30:01+02:00",
+        "finished_at": "2026-05-22T08:32:14+02:00",
+        "duration_seconds": 132.513,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -852,11 +876,32 @@
       "task_path": "\\Olympic Paints\\STRIKER\\OlympicPaints_Friday_Sales_Meeting",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-08T08:00:00+02:00",
-      "next_run": "2026-05-22 08:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
-      "history": []
+      "next_run": "2026-05-29 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 08:00:00+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "olympicpaints-friday-sales-meeting",
+          "agent": "STRIKER",
+          "started_at": "2026-05-22T08:00:02+02:00",
+          "finished_at": "2026-05-22T08:00:56+02:00",
+          "duration_seconds": 53.406,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-friday-sales-meeting\\2026-05-22_08-00-02.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-22T08:00:02+02:00",
+        "finished_at": "2026-05-22T08:00:56+02:00",
+        "duration_seconds": 53.406,
+        "exit_code": 0,
+        "ok": true,
+        "summary": null
+      }
     },
     {
       "job_id": "vehicle-report-health-check",
@@ -1043,23 +1088,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-22 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 06:41:53+02:00",
+      "next_run": "2026-05-22 10:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 08:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-05-21T12:15:01+02:00",
-          "finished_at": "2026-05-21T12:15:14+02:00",
-          "duration_seconds": 13.581,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-21_12-15-01.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1167,12 +1200,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-22_06-42-02.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-22T08:15:01+02:00",
+          "finished_at": "2026-05-22T08:15:12+02:00",
+          "duration_seconds": 11.118,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-22_08-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-22T06:42:02+02:00",
-        "finished_at": "2026-05-22T06:42:52+02:00",
-        "duration_seconds": 50.044,
+        "started_at": "2026-05-22T08:15:01+02:00",
+        "finished_at": "2026-05-22T08:15:12+02:00",
+        "duration_seconds": 11.118,
         "exit_code": 0,
         "ok": true,
         "summary": null
