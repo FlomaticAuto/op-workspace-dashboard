@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T07:00:03+02:00",
+  "generated_at": "2026-05-22T07:41:55+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -101,7 +101,7 @@
       "schedule_summary": "type=3 start=2026-05-20T07:00:00+02:00",
       "next_run": "2026-05-25 07:00:00+02:00",
       "scheduler_last_run_time": "2026-05-22 07:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -222,9 +222,9 @@
       "task_path": "\\Olympic Paints\\HAVEN\\HAVEN Clocking Report Daily",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-21T07:30:00+02:00",
-      "next_run": "2026-05-22 07:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 07:41:27+02:00",
-      "scheduler_last_task_result": -2147023829,
+      "next_run": "2026-05-23 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 07:30:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -235,8 +235,8 @@
       "task_path": "\\Olympic Paints\\HAVEN\\HAVEN Fetch Clocking Email",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-20T07:15:00+02:00",
-      "next_run": "2026-05-22 07:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 07:41:27+02:00",
+      "next_run": "2026-05-25 07:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 07:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -249,22 +249,10 @@
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
       "next_run": "2026-05-22 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 07:00:01+02:00",
+      "scheduler_last_run_time": "2026-05-22 07:41:53+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-21T21:00:03+02:00",
-          "finished_at": "2026-05-21T21:00:11+02:00",
-          "duration_seconds": 7.475,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 34 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_21-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -372,12 +360,24 @@
           "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_06-42-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-22T07:00:02+02:00",
+          "finished_at": "2026-05-22T07:00:12+02:00",
+          "duration_seconds": 9.656,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_07-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-22T06:42:02+02:00",
-        "finished_at": "2026-05-22T06:42:48+02:00",
-        "duration_seconds": 45.306,
+        "started_at": "2026-05-22T07:00:02+02:00",
+        "finished_at": "2026-05-22T07:00:12+02:00",
+        "duration_seconds": 9.656,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -960,10 +960,10 @@
       "task_path": "\\Olympic Paints\\VAULT\\Olympic Paints - Kaizen Daily Sync",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-09T07:30:00",
-      "next_run": "2026-05-22 07:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 07:41:27+02:00",
-      "scheduler_last_task_result": -2147020576,
-      "heartbeat_status": "stale",
+      "next_run": "2026-05-23 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 07:30:01+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
       "history": [
         {
           "job_id": "olympic-paints-kaizen-daily-sync",
@@ -1000,12 +1000,24 @@
           "stdout_tail": "[main 069082e] chore: sync evidence + memory 2026-05-20 10:12\n 1 file changed, 51 insertions(+), 27 deletions(-)\nKaizen Sync — 2026-05-20 10:11\n  Pulling latest from GitHub…\n  git pull: Already up to date.\n  Synced back to local Claude memory: HAVEN, PRISM, STRIKER, SIGMA, BLAZE, VAULT, PULSE\n  Mining session logs…\n    181 sessions, 1301 prompts, 13 corrections\n  Syncing agent memory files…\n    Synced: HAVEN, PRISM, STRIKER, SIGMA, BLAZE, VAULT, PULSE\n  Pushing to GitHub…\n  Pushed to GitHub.\nDone.",
           "stderr_tail": "To https://github.com/FlomaticAuto/olympic-paints-kaizen.git\n   87b75f0..069082e  main -> main",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\olympic-paints-kaizen-daily-sync\\2026-05-20_10-11-20.log"
+        },
+        {
+          "job_id": "olympic-paints-kaizen-daily-sync",
+          "agent": "VAULT",
+          "started_at": "2026-05-22T07:30:01+02:00",
+          "finished_at": "2026-05-22T07:30:27+02:00",
+          "duration_seconds": 25.461,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[main a22f261] chore: sync evidence + memory 2026-05-22 07:30\n 1 file changed, 5 insertions(+), 20 deletions(-)\nKaizen Sync — 2026-05-22 07:30\n  Pulling latest from GitHub…\n  git pull: Already up to date.\n  Synced back to local Claude memory: HAVEN, PRISM, STRIKER, SIGMA, BLAZE, VAULT, PULSE\n  Mining session logs…\n    203 sessions, 1429 prompts, 10 corrections\n  Syncing agent memory files…\n    Synced: HAVEN, PRISM, STRIKER, SIGMA, BLAZE, VAULT, PULSE\n  Pushing to GitHub…\n  Pushed to GitHub.\nDone.",
+          "stderr_tail": "To https://github.com/FlomaticAuto/olympic-paints-kaizen.git\n   069082e..a22f261  main -> main",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympic-paints-kaizen-daily-sync\\2026-05-22_07-30-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-20T10:11:20+02:00",
-        "finished_at": "2026-05-20T10:13:15+02:00",
-        "duration_seconds": 115.06,
+        "started_at": "2026-05-22T07:30:01+02:00",
+        "finished_at": "2026-05-22T07:30:27+02:00",
+        "duration_seconds": 25.461,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1020,7 +1032,7 @@
       "schedule_summary": "type=2 start=2026-04-30T07:00:00+02:00",
       "next_run": "2026-05-23 07:00:00+02:00",
       "scheduler_last_run_time": "2026-05-22 07:00:01+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": -2147023829,
       "heartbeat_status": "missing",
       "history": []
     },
