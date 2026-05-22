@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T06:04:55",
+  "generated_at": "2026-05-22T06:42:47",
   "total": 23,
   "ok": 5,
   "warn": 5,
@@ -13,7 +13,7 @@
       "cadence": "Daily \u00b7 07:15",
       "overall": "fail",
       "task_last_run": "2026-05-22T05:58:58",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "kpi_rep_dashboards",
