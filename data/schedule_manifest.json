@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T16:42:08+02:00",
+  "generated_at": "2026-05-22T17:48:02+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -236,7 +236,7 @@
       "schedule_summary": "type=2 start=2026-04-21T07:30:00+02:00",
       "next_run": "2026-05-23 07:30:00+02:00",
       "scheduler_last_run_time": "2026-05-22 07:30:01+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": -2147023829,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -260,23 +260,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-22 17:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 16:41:54+02:00",
+      "next_run": "2026-05-22 18:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 17:47:40+02:00",
       "scheduler_last_task_result": 267009,
-      "heartbeat_status": "fresh",
+      "heartbeat_status": "stale",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-22T07:00:02+02:00",
-          "finished_at": "2026-05-22T07:00:12+02:00",
-          "duration_seconds": 9.656,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_07-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -384,12 +372,24 @@
           "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_15-41-56.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-22T16:42:07+02:00",
+          "finished_at": "2026-05-22T16:43:13+02:00",
+          "duration_seconds": 65.626,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_16-42-07.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-22T15:41:56+02:00",
-        "finished_at": "2026-05-22T15:42:08+02:00",
-        "duration_seconds": 12.174,
+        "started_at": "2026-05-22T16:42:07+02:00",
+        "finished_at": "2026-05-22T16:43:13+02:00",
+        "duration_seconds": 65.626,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -710,8 +710,8 @@
       "enabled": true,
       "schedule_summary": "type=9 start=",
       "next_run": null,
-      "scheduler_last_run_time": "2026-05-21 18:20:26+02:00",
-      "scheduler_last_task_result": 0,
+      "scheduler_last_run_time": "2026-05-22 17:47:46+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -875,10 +875,10 @@
       "task_path": "\\Olympic Paints\\STRIKER\\Olympic Paints - Zoho Meetings Pull (Evening)",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-21T17:00:00+02:00",
-      "next_run": "2026-05-22 17:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 17:00:00+02:00",
-      "scheduler_last_task_result": 1,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-05-25 17:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 17:39:37+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "olympic-paints-zoho-meetings-pull-evening",
