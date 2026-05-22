@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-22T14:15:07",
+  "generated_at": "2026-05-22T16:15:45",
   "total": 23,
-  "ok": 7,
-  "warn": 6,
+  "ok": 6,
+  "warn": 7,
   "fail": 10,
   "jobs": [
     {
@@ -21,7 +21,7 @@
       "name": "Per-Rep KPI Dashboards (AC \u00b7 AP \u00b7 BV \u00b7 NP \u00b7 BM)",
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-05-22T08:45:45",
       "task_last_result": 0
     },
@@ -102,8 +102,8 @@
       "task": "OlympicPaints_Workspace_Health_Report",
       "cadence": "Weekly \u00b7 Fri 16:00",
       "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "task_last_run": "2026-05-22T16:00:00",
+      "task_last_result": 127
     },
     {
       "id": "friday_sales_meeting",
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 30
+  "success_pct": 26
 }
