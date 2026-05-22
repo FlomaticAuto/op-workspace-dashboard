@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T05:00:02+02:00",
+  "generated_at": "2026-05-22T06:42:17+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -12,6 +12,19 @@
       "scheduler_last_run_time": "2026-05-22 01:00:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
+      "history": []
+    },
+    {
+      "job_id": "olympicpaints-belowrbreport",
+      "name": "OlympicPaints_BelowRBReport",
+      "agent": "MISC",
+      "task_path": "\\Olympic Paints\\OlympicPaints_BelowRBReport",
+      "enabled": true,
+      "schedule_summary": "type=3 start=2026-05-22T16:00:00+02:00",
+      "next_run": "2026-05-22 16:00:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
       "history": []
     },
     {
@@ -235,23 +248,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-22 06:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 05:00:01+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-05-22 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 06:41:53+02:00",
+      "scheduler_last_task_result": -2147020576,
+      "heartbeat_status": "stale",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-21T19:00:04+02:00",
-          "finished_at": "2026-05-21T19:00:15+02:00",
-          "duration_seconds": 10.872,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 34 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-21_19-00-04.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -359,12 +360,24 @@
           "stdout_tail": "Wrote 34 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_04-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-22T05:00:02+02:00",
+          "finished_at": "2026-05-22T05:00:06+02:00",
+          "duration_seconds": 4.278,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 34 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_05-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-22T04:00:02+02:00",
-        "finished_at": "2026-05-22T04:00:07+02:00",
-        "duration_seconds": 4.15,
+        "started_at": "2026-05-22T05:00:02+02:00",
+        "finished_at": "2026-05-22T05:00:06+02:00",
+        "duration_seconds": 4.278,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -494,7 +507,7 @@
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-07T08:30:00",
       "next_run": "2026-05-22 08:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 08:30:01+02:00",
+      "scheduler_last_run_time": "2026-05-22 05:58:04+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -557,12 +570,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-21_08-30-01.log"
+        },
+        {
+          "job_id": "olympicpaints-sales-dashboard-refresh",
+          "agent": "PRISM",
+          "started_at": "2026-05-22T05:58:05+02:00",
+          "finished_at": "2026-05-22T06:05:03+02:00",
+          "duration_seconds": 417.602,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-22_05-58-05.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-21T08:30:01+02:00",
-        "finished_at": "2026-05-21T08:31:34+02:00",
-        "duration_seconds": 92.795,
+        "started_at": "2026-05-22T05:58:05+02:00",
+        "finished_at": "2026-05-22T06:05:03+02:00",
+        "duration_seconds": 417.602,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -687,9 +712,9 @@
       "task_path": "\\Olympic Paints\\STRIKER\\Olympic Paints - Zoho Meetings Pull",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-20T06:15:00+02:00",
-      "next_run": "2026-05-22 06:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 06:15:00+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-05-25 06:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 06:41:53+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
         {
@@ -751,12 +776,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\olympic-paints-zoho-meetings-pull\\2026-05-21_06-15-01.log"
+        },
+        {
+          "job_id": "olympic-paints-zoho-meetings-pull",
+          "agent": "STRIKER",
+          "started_at": "2026-05-22T05:56:57+02:00",
+          "finished_at": "2026-05-22T05:57:43+02:00",
+          "duration_seconds": 45.699,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympic-paints-zoho-meetings-pull\\2026-05-22_05-56-57.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-21T06:15:01+02:00",
-        "finished_at": "2026-05-21T06:15:24+02:00",
-        "duration_seconds": 23.081,
+        "started_at": "2026-05-22T05:56:57+02:00",
+        "finished_at": "2026-05-22T05:57:43+02:00",
+        "duration_seconds": 45.699,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -829,10 +866,10 @@
       "task_path": "\\Olympic Paints\\STRIKER\\Zoho Leads Pull",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-13T06:10:00",
-      "next_run": "2026-05-22 06:10:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 06:10:01+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-05-23 06:10:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 06:41:53+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "zoho-leads-pull",
@@ -970,10 +1007,10 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-22 06:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 04:15:00+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-05-22 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 06:41:53+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "sync-claude-todos",
