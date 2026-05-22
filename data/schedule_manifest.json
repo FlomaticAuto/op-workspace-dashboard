@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T15:41:57+02:00",
+  "generated_at": "2026-05-22T16:42:08+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -21,10 +21,10 @@
       "task_path": "\\Olympic Paints\\OlympicPaints_BelowRBReport",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-22T16:00:00+02:00",
-      "next_run": "2026-05-22 16:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-05-25 16:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 16:00:00+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -73,9 +73,9 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1630",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T16:30:00",
-      "next_run": "2026-05-22 16:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 17:00:09+02:00",
-      "scheduler_last_task_result": 1,
+      "next_run": "2026-05-25 16:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 16:30:00+02:00",
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -221,8 +221,8 @@
       "task_path": "\\Olympic Paints\\Forms\\OlympicPaints_CheckPendingForms_1600",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-17T16:00:00+02:00",
-      "next_run": "2026-05-22 16:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-21 17:00:09+02:00",
+      "next_run": "2026-05-25 16:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 16:00:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -260,23 +260,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-22 16:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 15:41:53+02:00",
+      "next_run": "2026-05-22 17:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 16:41:54+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-22T06:42:02+02:00",
-          "finished_at": "2026-05-22T06:42:48+02:00",
-          "duration_seconds": 45.306,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_06-42-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -384,12 +372,24 @@
           "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_14-41-54.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-22T15:41:56+02:00",
+          "finished_at": "2026-05-22T15:42:08+02:00",
+          "duration_seconds": 12.174,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_15-41-56.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-22T14:41:54+02:00",
-        "finished_at": "2026-05-22T14:42:00+02:00",
-        "duration_seconds": 6.146,
+        "started_at": "2026-05-22T15:41:56+02:00",
+        "finished_at": "2026-05-22T15:42:08+02:00",
+        "duration_seconds": 12.174,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -636,11 +636,32 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_Workspace_Health_Report",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-05T16:00:00",
-      "next_run": "2026-05-22 16:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
-      "history": []
+      "next_run": "2026-05-29 16:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 16:00:00+02:00",
+      "scheduler_last_task_result": 127,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "olympicpaints-workspace-health-report",
+          "agent": "PRISM",
+          "started_at": "2026-05-22T16:00:02+02:00",
+          "finished_at": "2026-05-22T16:00:02+02:00",
+          "duration_seconds": 0.02,
+          "exit_code": 127,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "run_job.py: failed to launch wrapped command: [WinError 193] %1 is not a valid Win32 application",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympicpaints-workspace-health-report\\2026-05-22_16-00-02.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-22T16:00:02+02:00",
+        "finished_at": "2026-05-22T16:00:02+02:00",
+        "duration_seconds": 0.02,
+        "exit_code": 127,
+        "ok": false,
+        "summary": null
+      }
     },
     {
       "job_id": "audit-runbook-drift",
@@ -1100,23 +1121,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-22 16:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 14:15:00+02:00",
+      "next_run": "2026-05-22 18:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-22 16:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-05-21T20:15:01+02:00",
-          "finished_at": "2026-05-21T20:15:22+02:00",
-          "duration_seconds": 21.189,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-21_20-15-01.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1224,12 +1233,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-22_14-15-00.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-22T16:15:06+02:00",
+          "finished_at": "2026-05-22T16:15:56+02:00",
+          "duration_seconds": 50.116,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\sync-claude-todos\\2026-05-22_16-15-06.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-22T14:15:00+02:00",
-        "finished_at": "2026-05-22T14:15:11+02:00",
-        "duration_seconds": 10.527,
+        "started_at": "2026-05-22T16:15:06+02:00",
+        "finished_at": "2026-05-22T16:15:56+02:00",
+        "duration_seconds": 50.116,
         "exit_code": 0,
         "ok": true,
         "summary": null
