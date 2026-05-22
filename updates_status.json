@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-22T16:15:45",
+  "generated_at": "2026-05-22T20:15:05",
   "total": 23,
-  "ok": 6,
+  "ok": 5,
   "warn": 7,
-  "fail": 10,
+  "fail": 11,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -51,9 +51,9 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "ok",
+      "overall": "fail",
       "task_last_run": "2026-05-22T07:30:30",
-      "task_last_result": 267009
+      "task_last_result": 2147943467
     },
     {
       "id": "haven_dashboard_check",
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 26
+  "success_pct": 22
 }
