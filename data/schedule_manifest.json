@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T07:00:04+02:00",
+  "generated_at": "2026-05-23T08:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -234,9 +234,9 @@
       "task_path": "\\Olympic Paints\\HAVEN\\HAVEN Clocking Report Daily",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-21T07:30:00+02:00",
-      "next_run": "2026-05-23 07:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 07:30:01+02:00",
-      "scheduler_last_task_result": -2147023829,
+      "next_run": "2026-05-24 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-23 07:30:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -260,23 +260,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-23 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-23 07:00:02+02:00",
+      "next_run": "2026-05-23 09:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-23 08:00:02+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-22T22:41:54+02:00",
-          "finished_at": "2026-05-22T22:41:59+02:00",
-          "duration_seconds": 4.238,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_22-41-54.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -384,12 +372,24 @@
           "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-23_06-41-54.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-23T07:00:02+02:00",
+          "finished_at": "2026-05-23T07:00:08+02:00",
+          "duration_seconds": 5.559,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-23_07-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-23T06:41:54+02:00",
-        "finished_at": "2026-05-23T06:41:58+02:00",
-        "duration_seconds": 3.99,
+        "started_at": "2026-05-23T07:00:02+02:00",
+        "finished_at": "2026-05-23T07:00:08+02:00",
+        "duration_seconds": 5.559,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1062,9 +1062,9 @@
       "task_path": "\\Olympic Paints\\VAULT\\Olympic Paints - Kaizen Daily Sync",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-09T07:30:00",
-      "next_run": "2026-05-23 07:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 07:30:01+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-05-24 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-23 07:30:01+02:00",
+      "scheduler_last_task_result": 1,
       "heartbeat_status": "fresh",
       "history": [
         {
@@ -1114,14 +1114,26 @@
           "stdout_tail": "[main a22f261] chore: sync evidence + memory 2026-05-22 07:30\n 1 file changed, 5 insertions(+), 20 deletions(-)\nKaizen Sync — 2026-05-22 07:30\n  Pulling latest from GitHub…\n  git pull: Already up to date.\n  Synced back to local Claude memory: HAVEN, PRISM, STRIKER, SIGMA, BLAZE, VAULT, PULSE\n  Mining session logs…\n    203 sessions, 1429 prompts, 10 corrections\n  Syncing agent memory files…\n    Synced: HAVEN, PRISM, STRIKER, SIGMA, BLAZE, VAULT, PULSE\n  Pushing to GitHub…\n  Pushed to GitHub.\nDone.",
           "stderr_tail": "To https://github.com/FlomaticAuto/olympic-paints-kaizen.git\n   069082e..a22f261  main -> main",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\olympic-paints-kaizen-daily-sync\\2026-05-22_07-30-01.log"
+        },
+        {
+          "job_id": "olympic-paints-kaizen-daily-sync",
+          "agent": "VAULT",
+          "started_at": "2026-05-23T07:30:02+02:00",
+          "finished_at": "2026-05-23T07:30:27+02:00",
+          "duration_seconds": 25.514,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "[main a7cb44a] chore: sync evidence + memory 2026-05-23 07:30\n 6 files changed, 151 insertions(+), 34 deletions(-)\nKaizen Sync — 2026-05-23 07:30\n  Pulling latest from GitHub…\n  git pull warning: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  Synced back to local Claude memory: HAVEN, PRISM, STRIKER, SIGMA, BLAZE, VAULT, PULSE\n  Mining session logs…\n    190 sessions, 1394 prompts, 9 corrections\n  Syncing agent memory files…\n    Synced: HAVEN, PRISM, STRIKER, SIGMA, BLAZE, VAULT, PULSE\n  Pushing to GitHub…",
+          "stderr_tail": "warning: in the working copy of 'kaizen_analyze.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'kaizen_sync.py', LF will be replaced by CRLF the next time Git touches it\nTo https://github.com/FlomaticAuto/olympic-paints-kaizen.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/olympic-paints-kaizen.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nTraceback (most recent call last):\n  File \"C:\\Users\\quint\\olympic-paints-kaizen\\kaizen_sync.py\", line 310, in <module>\n    sys.exit(main() or 0)\n             ~~~~^^\n  File \"C:\\Users\\quint\\olympic-paints-kaizen\\kaizen_sync.py\", line 305, in main\n    git_push(True)\n    ~~~~~~~~^^^^^^\n  File \"C:\\Users\\quint\\olympic-paints-kaizen\\kaizen_sync.py\", line 276, in git_push\n    subprocess.run([\"git\", \"push\"], cwd=REPO_DIR, check=True)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Python313\\Lib\\subprocess.py\", line 577, in run\n    raise CalledProcessError(retcode, process.args,\n                             output=stdout, stderr=stderr)\nsubprocess.CalledProcessError: Command '['git', 'push']' returned non-zero exit status 1.",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\olympic-paints-kaizen-daily-sync\\2026-05-23_07-30-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-22T07:30:01+02:00",
-        "finished_at": "2026-05-22T07:30:27+02:00",
-        "duration_seconds": 25.461,
-        "exit_code": 0,
-        "ok": true,
+        "started_at": "2026-05-23T07:30:02+02:00",
+        "finished_at": "2026-05-23T07:30:27+02:00",
+        "duration_seconds": 25.514,
+        "exit_code": 1,
+        "ok": false,
         "summary": null
       }
     },
@@ -1134,7 +1146,7 @@
       "schedule_summary": "type=2 start=2026-04-30T07:00:00+02:00",
       "next_run": "2026-05-24 07:00:00+02:00",
       "scheduler_last_run_time": "2026-05-23 07:00:01+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 267014,
       "heartbeat_status": "missing",
       "history": []
     },
