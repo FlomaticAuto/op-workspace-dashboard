@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-23T08:15:41",
+  "generated_at": "2026-05-23T09:04:06",
   "total": 23,
-  "ok": 6,
-  "warn": 7,
+  "ok": 5,
+  "warn": 8,
   "fail": 10,
   "jobs": [
     {
@@ -12,8 +12,8 @@
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
       "overall": "fail",
-      "task_last_run": "2026-05-22T08:30:30",
-      "task_last_result": 0
+      "task_last_run": "2026-05-23T08:51:51",
+      "task_last_result": 267009
     },
     {
       "id": "kpi_rep_dashboards",
@@ -33,7 +33,7 @@
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
       "task_last_run": "2026-05-23T08:15:15",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "ecommerce_email",
@@ -51,9 +51,9 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "ok",
+      "overall": "fail",
       "task_last_run": "2026-05-23T07:30:30",
-      "task_last_result": 267009
+      "task_last_result": 2147943467
     },
     {
       "id": "haven_dashboard_check",
@@ -201,7 +201,7 @@
       "name": "PULSE Intake Escalation (Fri morning)",
       "task": "PULSE \u2014 Intake Escalation",
       "cadence": "Weekly \u00b7 Fri 09:00",
-      "overall": "fail",
+      "overall": "warn",
       "task_last_run": "2026-05-15T09:00:00",
       "task_last_result": 1
     },
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 26
+  "success_pct": 22
 }
