@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T09:48:20+02:00",
+  "generated_at": "2026-05-23T10:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -260,23 +260,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-23 10:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-23 09:47:59+02:00",
+      "next_run": "2026-05-23 11:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-23 10:00:02+02:00",
       "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-23T00:41:54+02:00",
-          "finished_at": "2026-05-23T00:41:59+02:00",
-          "duration_seconds": 4.824,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-23_00-41-54.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -384,12 +372,24 @@
           "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic <redacted> pull --rebase origin master: From https://github.com/FlomaticAuto/op-workspace-dashboard\n * branch            master     -> FETCH_HEAD\n   6054314..95298fc  master     -> origin/master\nerror: fetching ref refs/remotes/origin/master failed: incorrect old value provided\n  ! git stash pop: error: Unable to create 'C:/Users/quint/workspace-dashboard/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, e.g.\nan editor opened by 'git commit'. Please make sure all processes\nare terminated then try again. If it still fails, a git process\nmay have crashed in this repository earlier:\nremove the file manually to continue.\nerror: could not write index\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-23_08-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-23T09:48:18+02:00",
+          "finished_at": "2026-05-23T09:49:00+02:00",
+          "duration_seconds": 42.225,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-23_09-48-18.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-23T08:00:02+02:00",
-        "finished_at": "2026-05-23T08:00:09+02:00",
-        "duration_seconds": 6.993,
+        "started_at": "2026-05-23T09:48:18+02:00",
+        "finished_at": "2026-05-23T09:49:00+02:00",
+        "duration_seconds": 42.225,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -735,7 +735,7 @@
       "schedule_summary": "type=9 start=",
       "next_run": null,
       "scheduler_last_run_time": "2026-05-23 09:47:59+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
