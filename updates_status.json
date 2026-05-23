@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T07:31:01",
+  "generated_at": "2026-05-23T08:00:20",
   "total": 23,
   "ok": 6,
   "warn": 7,
@@ -62,8 +62,8 @@
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
       "overall": "warn",
-      "task_last_run": "2026-05-22T08:00:00",
-      "task_last_result": 0
+      "task_last_run": "2026-05-23T08:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vehicle_report",
@@ -123,7 +123,7 @@
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
       "task_last_run": "2026-05-23T07:00:00",
-      "task_last_result": 267009
+      "task_last_result": 267014
     },
     {
       "id": "vault_meeting_extraction",
