@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T06:41:55+02:00",
+  "generated_at": "2026-05-23T07:00:04+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -260,23 +260,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-23 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-23 06:41:53+02:00",
+      "next_run": "2026-05-23 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-23 07:00:02+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-22T21:41:54+02:00",
-          "finished_at": "2026-05-22T21:41:58+02:00",
-          "duration_seconds": 4.03,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-22_21-41-54.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -384,12 +372,24 @@
           "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-23_06-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-23T06:41:54+02:00",
+          "finished_at": "2026-05-23T06:41:58+02:00",
+          "duration_seconds": 3.99,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 35 tasks to C:\\Users\\quint\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\build-schedule-manifest\\2026-05-23_06-41-54.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-23T06:00:02+02:00",
-        "finished_at": "2026-05-23T06:00:06+02:00",
-        "duration_seconds": 3.724,
+        "started_at": "2026-05-23T06:41:54+02:00",
+        "finished_at": "2026-05-23T06:41:58+02:00",
+        "duration_seconds": 3.99,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1132,9 +1132,9 @@
       "task_path": "\\Olympic Paints\\VAULT\\Olympic Paints - Meeting Minutes Extractor",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-30T07:00:00+02:00",
-      "next_run": "2026-05-23 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 07:00:01+02:00",
-      "scheduler_last_task_result": -2147023829,
+      "next_run": "2026-05-24 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-23 07:00:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1287,8 +1287,8 @@
       "task_path": "\\Olympic Paints\\VAULT\\VAULT Meeting Extraction Daily",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-22T07:00:00",
-      "next_run": "2026-05-23 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-22 07:00:01+02:00",
+      "next_run": "2026-05-24 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-23 07:00:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -1327,12 +1327,24 @@
           "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\quint\\.claude\\logs\\vault-meeting-extraction-daily\\2026-05-22_07-00-02.log"
+        },
+        {
+          "job_id": "vault-meeting-extraction-daily",
+          "agent": "VAULT",
+          "started_at": "2026-05-23T07:00:02+02:00",
+          "finished_at": "2026-05-23T07:00:03+02:00",
+          "duration_seconds": 0.123,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\quint\\.claude\\logs\\vault-meeting-extraction-daily\\2026-05-23_07-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-22T07:00:02+02:00",
-        "finished_at": "2026-05-22T07:00:02+02:00",
-        "duration_seconds": 0.22,
+        "started_at": "2026-05-23T07:00:02+02:00",
+        "finished_at": "2026-05-23T07:00:03+02:00",
+        "duration_seconds": 0.123,
         "exit_code": 0,
         "ok": true,
         "summary": null
