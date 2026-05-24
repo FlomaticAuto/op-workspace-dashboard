@@ -1,0 +1,16 @@
+[
+  {
+    "ts": "2026-05-24T18:16:15.758674+00:00",
+    "ok": false,
+    "error": "Notion API 400: {\"object\":\"error\",\"status\":400,\"code\":\"invalid_request_url\",\"message\":\"Invalid request URL.\",\"request_id\":\"c4d89b18-65f1-4119-9e50-e365af1c5f66\"}",
+    "matched": 0,
+    "dry_run": true
+  },
+  {
+    "ts": "2026-05-24T18:16:57.154751+00:00",
+    "ok": false,
+    "error": "Notion API 404: {\"object\":\"error\",\"status\":404,\"code\":\"object_not_found\",\"message\":\"Could not find database with ID: 248ff48d-2bb1-8051-ad51-de704b9a6871. Make sure the relevant pages and databases are shared with your integration \\\"Olympic Paints Automations\\\".\",\"additional_data\":{\"integration_id\":\"360ff48d-2bb1-81ee-aaf0-002737830407\"},\"request_id\":\"21d49905-df23-4b9a-89d5-e86504725fa4\"}",
+    "matched": 0,
+    "dry_run": true
+  }
+]
