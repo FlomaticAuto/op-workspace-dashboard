@@ -35,11 +35,15 @@ ENV_FILE     = PROJECT_ROOT / ".env"
 LOG_DIR      = Path(__file__).resolve().parent.parent  # workspace-dashboard root
 LOG_FILE     = LOG_DIR / "kaizen_implement_log.json"
 
-# Notion Tasks DB — the database ID for the "TASK DATABASE" inline database
-# from the Tasks page (https://www.notion.so/Tasks-248ff48d2bb18004b830eb997a3f6ff4).
-# The Notion REST API queries databases, not data sources, so use this ID
-# (NOT the data-source ID 247ff48d… which is for the SDK schema lookup).
-NOTION_DATABASE_ID = "248ff48d-2bb1-8051-ad51-de704b9a6871"
+# Notion Tasks DB — the "TASK DATABASE" inline database is a *multi-source*
+# database, so the API requires the data source ID (not the database ID) +
+# the 2025-09-03 API version. Source: notion-fetch shows
+#   <data-source url="collection://247ff48d-2bb1-8098-bcd4-000b93931ee2">
+# wrapping the SQLite table for this collection. Using the old database
+# endpoint returns "does not contain any data sources accessible by this
+# API bot" on multi-source DBs.
+NOTION_DATA_SOURCE_ID = "247ff48d-2bb1-8098-bcd4-000b93931ee2"
+NOTION_API_VERSION    = "2025-09-03"
 
 # Two Action-State pages count as "in Kaizen" (from the Kaizen board view's filter).
 KAIZEN_ACTION_STATE_IDS = [
@@ -109,11 +113,11 @@ def notion_query_implement_tasks(token: str) -> list[dict]:
     }
     headers = {
         "Authorization": f"Bearer {token}",
-        "Notion-Version": "2022-06-28",
+        "Notion-Version": NOTION_API_VERSION,
         "Content-Type": "application/json",
     }
     body = json.dumps(payload).encode("utf-8")
-    url = f"https://api.notion.com/v1/databases/{NOTION_DATABASE_ID}/query"
+    url = f"https://api.notion.com/v1/data_sources/{NOTION_DATA_SOURCE_ID}/query"
     req = urllib.request.Request(url, data=body, headers=headers, method="POST")
     try:
         with urllib.request.urlopen(req, timeout=30) as r:

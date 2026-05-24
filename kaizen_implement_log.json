@@ -12,5 +12,20 @@
     "error": "Notion API 404: {\"object\":\"error\",\"status\":404,\"code\":\"object_not_found\",\"message\":\"Could not find database with ID: 248ff48d-2bb1-8051-ad51-de704b9a6871. Make sure the relevant pages and databases are shared with your integration \\\"Olympic Paints Automations\\\".\",\"additional_data\":{\"integration_id\":\"360ff48d-2bb1-81ee-aaf0-002737830407\"},\"request_id\":\"21d49905-df23-4b9a-89d5-e86504725fa4\"}",
     "matched": 0,
     "dry_run": true
+  },
+  {
+    "ts": "2026-05-24T18:30:04.978168+00:00",
+    "ok": false,
+    "error": "Notion API 400: {\"object\":\"error\",\"status\":400,\"code\":\"validation_error\",\"message\":\"Database with ID 248ff48d-2bb1-8051-ad51-de704b9a6871 does not contain any data sources accessible by this API bot.\",\"request_id\":\"cc294d1f-83da-4142-8a0b-43c487fabd4d\"}",
+    "matched": 0,
+    "dry_run": true
+  },
+  {
+    "ts": "2026-05-24T18:30:44.044879+00:00",
+    "ok": true,
+    "matched": 0,
+    "tasks": [],
+    "dry_run": true,
+    "invoked": false
   }
 ]
