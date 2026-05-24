@@ -11,8 +11,29 @@ import json
 import os
 import re
 from datetime import datetime, timezone
+from pathlib import Path
 
-MEMORY_DIR = r"C:\Users\quint\.claude\projects\C--Users-quint-OneDrive-1-Projects-1-Olympic-Paints\memory"
+# Resolve memory dir for whichever Windows account is running this.
+# Claude Code stores sessions under ~/.claude/projects/<slug>/ where the slug
+# is derived from the project path (account-dependent). Glob both possible
+# slug shapes so this works on quint's box AND on the Administrator box.
+def _resolve_memory_dir() -> str:
+    home = Path.home()
+    candidates = sorted(
+        (home / ".claude" / "projects").glob("[Cc]--Users-*-OneDrive-*Olympic-Paints")
+    )
+    # Prefer a dir that actually contains agent_*.md files (real data),
+    # then fall back to any matching dir, then the legacy quint path.
+    with_data = [c / "memory" for c in candidates if (c / "memory").is_dir()
+                 and any((c / "memory").glob("agent_*.md"))]
+    if with_data:
+        return str(with_data[0])
+    any_dir = [c / "memory" for c in candidates if (c / "memory").is_dir()]
+    if any_dir:
+        return str(any_dir[0])
+    return r"C:\Users\quint\.claude\projects\C--Users-quint-OneDrive-1-Projects-1-Olympic-Paints\memory"
+
+MEMORY_DIR = _resolve_memory_dir()
 
 AGENT_FILES = {
     "HAVEN":   "agent_haven.md",

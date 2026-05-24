@@ -232,6 +232,67 @@ body {
 }
 .section-pane { display: none; }
 .section-pane.active { display: block; }
+
+/* ── Kaizen section ─────────────────────────────────────────────── */
+.kaizen-banner {
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  background: var(--color-info-bg);
+  color: var(--color-info-fg);
+  border: 1px solid var(--color-info-bd);
+  font-size: 13px;
+  display: flex; align-items: center; gap: 8px;
+}
+.kaizen-banner.warning { background: var(--color-warning-bg); color: var(--color-warning-fg); border-color: var(--color-warning-bd); }
+.kaizen-banner.error   { background: var(--color-danger-bg);  color: var(--color-danger-fg);  border-color: var(--color-danger-bd); }
+.kaizen-agent-card {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-default);
+  border-left: 4px solid var(--agent-color, var(--color-brand-primary));
+  border-radius: var(--r-lg);
+  padding: 14px 16px;
+}
+.kaizen-agent-card h3 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em;
+  margin: 0 0 8px; color: var(--color-text-primary);
+}
+.kaizen-agent-card .ka-stats { display: flex; gap: 14px; font-size: 12px; }
+.kaizen-agent-card .ka-num { font-family: var(--font-display); font-weight: 900; font-size: 22px; line-height: 1; }
+.kaizen-agent-card .ka-num.pending { color: var(--color-warning-fg); }
+.kaizen-agent-card .ka-num.triaged { color: var(--color-success-fg); }
+.kaizen-agent-card .ka-num.zero    { color: var(--color-text-tertiary); }
+.kaizen-pending-list { display: flex; flex-direction: column; gap: 10px; }
+.kaizen-entry {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-default);
+  border-left: 4px solid var(--agent-color, var(--color-brand-primary));
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+}
+.kaizen-entry-head {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.kaizen-entry .ka-agent {
+  font-family: var(--font-display); font-weight: 800; font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--agent-color, var(--color-brand-primary));
+  color: var(--color-text-on-brand);
+  padding: 2px 8px; border-radius: var(--r-pill);
+}
+.kaizen-entry .ka-date { font-size: 12px; color: var(--color-text-tertiary); }
+.kaizen-entry .ka-friction { font-size: 13px; color: var(--color-text-secondary); margin: 4px 0; }
+.kaizen-entry .ka-friction strong { color: var(--color-text-primary); }
+.kaizen-entry .ka-suggestion { font-size: 14px; color: var(--color-text-primary); line-height: 1.45; }
+.kaizen-entry .ka-suggestion::before { content: "\2192  "; color: var(--color-brand-primary); font-weight: 700; }
+.kaizen-empty {
+  padding: 20px; text-align: center;
+  color: var(--color-success-fg);
+  background: var(--color-success-bg);
+  border: 1px solid var(--color-success-bd);
+  border-radius: var(--r-lg); font-size: 14px;
+}
 .section-title {
   font-family: var(--font-display); font-weight: 900;
   font-size: 32px; line-height: 1.1;
@@ -1138,6 +1199,9 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
         <button class="nav-item" data-section="runbooks" onclick="showSection('runbooks', this)">
           <span class="nav-icon" aria-hidden="true">&#9776;</span><span class="nav-label">Runbooks</span>
         </button>
+        <button class="nav-item" data-section="kaizen" onclick="showSection('kaizen', this)">
+          <span class="nav-icon" aria-hidden="true">&#9881;</span><span class="nav-label">Kaizen</span>
+        </button>
       </nav>
     </aside>
     <main class="main">
@@ -1202,6 +1266,18 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
         </div>
         <div class="runbook-grid" id="runbook-grid"></div>
       </section>
+      <section class="section-pane" id="section-kaizen">
+        <h1 class="section-title">Kaizen</h1>
+        <p style="color:var(--color-text-secondary);max-width:680px;margin:0 0 16px;font-size:14px;line-height:1.5;">
+          Weekly improvement triage. <code>weekly_kaizen.py</code> writes friction signals into each agent's <code>## Accumulated Learnings</code>. <code>/kaizen</code> on Mondays promotes them to Notion tasks. Move a task to <strong>Kaizen Status = Implement</strong> in Notion to trigger the agent edit (poller runs Wed &amp; Sun 12:00).
+        </p>
+        <div class="kaizen-banner" id="kaizen-banner"></div>
+        <div class="kpi-row" id="kaizen-kpis" style="margin:16px 0 20px;"></div>
+        <h2 style="font-family:var(--font-display);font-weight:800;font-size:18px;text-transform:uppercase;letter-spacing:0.04em;margin:24px 0 12px;">By Agent</h2>
+        <div class="card-grid" id="kaizen-agent-grid"></div>
+        <h2 style="font-family:var(--font-display);font-weight:800;font-size:18px;text-transform:uppercase;letter-spacing:0.04em;margin:32px 0 12px;">Pending Suggestions</h2>
+        <div class="kaizen-pending-list" id="kaizen-pending-list"></div>
+      </section>
       <div class="runbook-drawer" id="runbook-drawer" onclick="if(event.target===this)closeRunbookDrawer()">
         <div class="rb-sheet">
           <button class="rb-close" onclick="closeRunbookDrawer()" aria-label="Close">&times;</button>
@@ -1240,6 +1316,9 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
           </button>
           <button class="more-item" onclick="showSection('runbooks', findSidebarBtn('runbooks')); closeMoreDrawer()">
             <span class="nav-icon">&#9776;</span> Runbooks
+          </button>
+          <button class="more-item" onclick="showSection('kaizen', findSidebarBtn('kaizen')); closeMoreDrawer()">
+            <span class="nav-icon">&#9881;</span> Kaizen
           </button>
         </div>
       </div>
@@ -2335,12 +2414,154 @@ function renderAll(){
   renderManual();
   renderUpdates();
   renderRunbooks();
+  renderKaizen();
 }
 
 function refreshAll(){
   fetchManifest();
   fetchUpdates();
   fetchRunbooks();
+  fetchKaizen();
+}
+
+// ── Kaizen ─────────────────────────────────────────────────────
+const KAIZEN_STATE = {
+  data: null,
+  loadedAt: null,
+  error: null,
+  inFlight: false,
+};
+const KAIZEN_NOTION_URL = 'https://www.notion.so/Tasks-248ff48d2bb18004b830eb997a3f6ff4';
+
+async function fetchKaizen(){
+  if (KAIZEN_STATE.inFlight) return;
+  KAIZEN_STATE.inFlight = true;
+  try {
+    const res = await fetch('kaizen_status.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    KAIZEN_STATE.data = await res.json();
+    KAIZEN_STATE.loadedAt = new Date();
+    KAIZEN_STATE.error = null;
+  } catch (err) {
+    KAIZEN_STATE.error = err.message || String(err);
+    console.warn('fetchKaizen failed:', KAIZEN_STATE.error);
+  } finally {
+    KAIZEN_STATE.inFlight = false;
+  }
+  renderKaizen();
+}
+
+function renderKaizen(){
+  renderKaizenBanner();
+  renderKaizenKpis();
+  renderKaizenAgents();
+  renderKaizenPending();
+}
+
+function renderKaizenBanner(){
+  const el = document.getElementById('kaizen-banner');
+  if (!el) return;
+  if (KAIZEN_STATE.error){
+    el.className = 'kaizen-banner error';
+    el.textContent = 'Could not load kaizen_status.json — ' + KAIZEN_STATE.error;
+    return;
+  }
+  const d = KAIZEN_STATE.data;
+  if (!d){
+    el.className = 'kaizen-banner';
+    el.textContent = 'Loading Kaizen status…';
+    return;
+  }
+  const stamp = d.generated_at || '(unknown)';
+  const total = d.summary?.total_entries ?? 0;
+  if (total === 0){
+    el.className = 'kaizen-banner warning';
+    el.innerHTML = `<span>No Kaizen entries yet. <code>generate_kaizen_status.py</code> last ran <strong>${stamp}</strong> — populate agent memory files on quint's box and re-run.</span>`;
+  } else {
+    el.className = 'kaizen-banner';
+    el.innerHTML = `<span>Last refreshed <strong>${stamp}</strong> · <a href="${KAIZEN_NOTION_URL}" target="_blank" rel="noopener">Open Tasks DB in Notion &rarr;</a></span>`;
+  }
+}
+
+function renderKaizenKpis(){
+  const el = document.getElementById('kaizen-kpis');
+  if (!el) return;
+  const s = KAIZEN_STATE.data?.summary;
+  if (!s){
+    el.innerHTML = '<div class="kpi-card kpi-empty"><div class="kpi-label">Pending</div><div class="kpi-number">—</div></div>';
+    return;
+  }
+  const pendCls   = s.total_pending > 0 ? 'warning' : 'success';
+  const totalCls  = 'kpi-card';
+  el.innerHTML = `
+    <div class="kpi-card ${pendCls}">
+      <div class="kpi-label">Pending Triage</div>
+      <div class="kpi-number">${s.total_pending}</div>
+    </div>
+    <div class="kpi-card success">
+      <div class="kpi-label">Triaged</div>
+      <div class="kpi-number">${s.total_triaged}</div>
+    </div>
+    <div class="${totalCls}">
+      <div class="kpi-label">Total Entries</div>
+      <div class="kpi-number">${s.total_entries}</div>
+    </div>
+    <div class="${totalCls}">
+      <div class="kpi-label">Agents With Entries</div>
+      <div class="kpi-number">${s.agents_with_entries}</div>
+    </div>`;
+}
+
+function renderKaizenAgents(){
+  const el = document.getElementById('kaizen-agent-grid');
+  if (!el) return;
+  const agents = KAIZEN_STATE.data?.agents || [];
+  if (!agents.length){
+    el.innerHTML = '<div class="kaizen-empty">No agent profiles found. Check that <code>generate_kaizen_status.py</code> can resolve the memory dir.</div>';
+    return;
+  }
+  el.innerHTML = agents.map(a => {
+    const pendCls = a.pending_count > 0 ? 'pending' : 'zero';
+    const triCls  = a.triaged_count > 0 ? 'triaged' : 'zero';
+    return `<div class="kaizen-agent-card" style="--agent-color:${a.color}">
+      <h3>${escapeHtml(a.agent)}</h3>
+      <div class="ka-stats">
+        <div><div class="ka-num ${pendCls}">${a.pending_count}</div><div>pending</div></div>
+        <div><div class="ka-num ${triCls}">${a.triaged_count}</div><div>triaged</div></div>
+        <div><div class="ka-num zero">${a.total_entries}</div><div>total</div></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderKaizenPending(){
+  const el = document.getElementById('kaizen-pending-list');
+  if (!el) return;
+  const agents = KAIZEN_STATE.data?.agents || [];
+  const pending = [];
+  for (const a of agents){
+    for (const e of (a.entries || [])){
+      if (!e.triaged && e.has_suggestion){
+        pending.push({ ...e, agent: a.agent, color: a.color });
+      }
+    }
+  }
+  pending.sort((x, y) => (y.date || '').localeCompare(x.date || ''));
+  if (!pending.length){
+    el.innerHTML = '<div class="kaizen-empty">No pending suggestions. All agent friction has been triaged.</div>';
+    return;
+  }
+  el.innerHTML = pending.map(e => `
+    <div class="kaizen-entry" style="--agent-color:${e.color}">
+      <div class="kaizen-entry-head">
+        <span class="ka-agent">${escapeHtml(e.agent)}</span>
+        <span class="ka-date">${escapeHtml(e.date)}</span>
+        <span class="ka-date">·</span>
+        <span class="ka-date">${escapeHtml(e.task)}</span>
+      </div>
+      <div class="ka-friction"><strong>Friction:</strong> ${escapeHtml(e.friction)}</div>
+      <div class="ka-suggestion">${escapeHtml(e.suggestion)}</div>
+    </div>`).join('');
 }
 
 document.getElementById('refresh-btn').addEventListener('click', refreshAll);
