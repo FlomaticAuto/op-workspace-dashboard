@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T08:17:00+02:00",
+  "generated_at": "2026-05-25T09:00:02+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -22,7 +22,7 @@
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
       "next_run": "2026-05-25 09:43:11+02:00",
-      "scheduler_last_run_time": "2026-05-25 07:53:10+02:00",
+      "scheduler_last_run_time": "2026-05-25 08:19:56+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -87,9 +87,9 @@
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-22T16:00:00+02:00",
       "next_run": "2026-05-25 16:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "scheduler_last_run_time": "2026-05-25 08:19:57+02:00",
+      "scheduler_last_task_result": 1,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -268,8 +268,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-05-25 08:43:10+02:00",
-      "scheduler_last_run_time": "2026-05-25 08:13:11+02:00",
+      "next_run": "2026-05-25 09:13:10+02:00",
+      "scheduler_last_run_time": "2026-05-25 08:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -359,11 +359,32 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-25 09:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 08:16:59+02:00",
+      "next_run": "2026-05-25 10:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 09:00:01+02:00",
       "scheduler_last_task_result": 267009,
-      "heartbeat_status": "missing",
-      "history": []
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-25T08:16:59+02:00",
+          "finished_at": "2026-05-25T08:17:03+02:00",
+          "duration_seconds": 3.75,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 53 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-25_08-16-59.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-25T08:16:59+02:00",
+        "finished_at": "2026-05-25T08:17:03+02:00",
+        "duration_seconds": 3.75,
+        "exit_code": 0,
+        "ok": true,
+        "summary": null
+      }
     },
     {
       "job_id": "cso-intelligence-data",
@@ -385,8 +406,8 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_KPI_Dashboard_Update",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-29T08:45:00",
-      "next_run": "2026-05-25 08:45:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 08:11:00+02:00",
+      "next_run": "2026-05-26 08:45:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 08:45:01+02:00",
       "scheduler_last_task_result": 127,
       "heartbeat_status": "fresh",
       "history": [
@@ -401,11 +422,23 @@
           "stdout_tail": "",
           "stderr_tail": "run_job.py: failed to launch wrapped command: [WinError 2] The system cannot find the file specified",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-kpi-dashboard-update\\2026-05-25_08-11-00.log"
+        },
+        {
+          "job_id": "olympicpaints-kpi-dashboard-update",
+          "agent": "PRISM",
+          "started_at": "2026-05-25T08:45:01+02:00",
+          "finished_at": "2026-05-25T08:45:01+02:00",
+          "duration_seconds": 0.001,
+          "exit_code": 127,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "run_job.py: failed to launch wrapped command: [WinError 2] The system cannot find the file specified",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-kpi-dashboard-update\\2026-05-25_08-45-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T08:11:00+02:00",
-        "finished_at": "2026-05-25T08:11:00+02:00",
+        "started_at": "2026-05-25T08:45:01+02:00",
+        "finished_at": "2026-05-25T08:45:01+02:00",
         "duration_seconds": 0.001,
         "exit_code": 127,
         "ok": false,
@@ -419,8 +452,8 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_Sales_Dashboard_Refresh",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-07T08:30:00",
-      "next_run": "2026-05-25 08:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 08:11:01+02:00",
+      "next_run": "2026-05-26 08:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 08:30:01+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "fresh",
       "history": [
@@ -435,12 +468,24 @@
           "stdout_tail": "",
           "stderr_tail": "The system cannot find the path specified.",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-25_08-11-01.log"
+        },
+        {
+          "job_id": "olympicpaints-sales-dashboard-refresh",
+          "agent": "PRISM",
+          "started_at": "2026-05-25T08:30:01+02:00",
+          "finished_at": "2026-05-25T08:30:01+02:00",
+          "duration_seconds": 0.095,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "The system cannot find the path specified.",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-25_08-30-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T08:11:01+02:00",
-        "finished_at": "2026-05-25T08:11:02+02:00",
-        "duration_seconds": 0.966,
+        "started_at": "2026-05-25T08:30:01+02:00",
+        "finished_at": "2026-05-25T08:30:01+02:00",
+        "duration_seconds": 0.095,
         "exit_code": 1,
         "ok": false,
         "summary": null
@@ -480,8 +525,8 @@
       "enabled": true,
       "schedule_summary": "type=9 start=",
       "next_run": null,
-      "scheduler_last_run_time": "2026-05-25 07:53:09+02:00",
-      "scheduler_last_task_result": -2147024894,
+      "scheduler_last_run_time": "2026-05-25 08:17:05+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -493,9 +538,9 @@
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-21T06:30:00",
       "next_run": "2026-06-01 06:30:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "scheduler_last_run_time": "2026-05-25 08:20:48+02:00",
+      "scheduler_last_task_result": 2,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -557,11 +602,32 @@
       "task_path": "\\Olympic Paints\\SIGMA\\Vehicle Report Weekly",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-04-23T09:00:00",
-      "next_run": "2026-05-25 09:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
-      "history": []
+      "next_run": "2026-06-01 09:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 09:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "vehicle-report-weekly",
+          "agent": "SIGMA",
+          "started_at": "2026-05-25T08:20:02+02:00",
+          "finished_at": "2026-05-25T08:20:47+02:00",
+          "duration_seconds": 45.221,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[INFO] Loaded 1 address mapping rule(s).\n[INFO] Vehicle Report Consolidation Workflow\n[INFO] Inbox: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\9. Supply Chain\\Logisitics\\Inbox\n[INFO] No Trip Report files found in Inbox. Exiting.\n[master d18780a] Dashboard update 2026-05-25 08:20\n 1 file changed, 1 insertion(+), 1 deletion(-)\nbranch 'master' set up to track 'origin/master'.\n[INFO] GPS source: VehicleInOut_Mar2026_Apr2026.xlsx\n[INFO] GPS period: 02/03/2026 - 21/04/2026\n[INFO] Clocking: 1,193 records, 26/03/2026 – 21/04/2026\n\n[INFO] Matching crew to clocking data...\n[INFO] Aligned window: 26/03/2026 - 21/04/2026\n\n[Crew] LJ92TDGP\n  [OK]   Clement Mvuyisi Tetyana (as 'Mvuyisi Tetyana'): 35.5 hrs over 2 truck-active days\n  [OK]   Philly Mapembe (as 'Philly Mpembe'): 83.7 hrs over 10 truck-active days\n  [OK]   Lehlohonolo Zwakala: 45.2 hrs over 7 truck-active days\n\n[Crew] LJ92TGGP\n  [OK]   Andrew Nkosi Nelani (as 'Athenkoso Andrew Nelani'): 63.1 hrs over 11 truck-active days\n  [OK]   Nhlamulo Jeff Mabunda (as 'Jeffrey Mabunda'): 78.0 hrs over 11 truck-active days\n  [OK]   Nhlanhla Moli: 67.5 hrs over 11 truck-active days\n\n[Crew] KW40KZGP\n  [OK]   Happy Simango: 59.2 hrs over 11 truck-active days\n  [OK]   Godfrey Mofokeng: 118.1 hrs over 12 truck-active days\n  [OK]   Petrus Masinge: 74.2 hrs over 11 truck-active days\n\n[Crew] KW57WWGP\n  [OK]   David Madakane (as 'David Mdakane'): 125.8 hrs over 10 truck-active days\n  [OK]   Nephilian Matsididi (as 'Nephathali Matsididi'): 92.6 hrs over 10 truck-active days\n  [OK]   Nhlanhla Zikode: 92.2 hrs over 11 truck-active days\n\n[Crew] MJ35FPGP\n  [WARN] No clocking match for: Shaun Fazile (Shaun Fazile)\n  [OK]   Timothy Sinyolo (as 'Timothy Senyolo'): 77.7 hrs over 12 truck-active days\n  [OK]   Loyiso Dlali: 161.8 hrs over 14 truck-active days\n\n[Crew] DH33HLGP\n\n[Crew] CR61GCGP\n\n[INFO] Updating Excel workbook with crew data...\n[INFO] Excel updated: 'Crew & Hours' sheet added to VehicleInOut_Mar2026_Apr2026.xlsx\n\n[INFO] Written: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\9. Supply Chain\\Logisitics\\OP Track & Driver Analitics\\Dashboard\\index.html\n\n[OK] Published -> https://flomaticauto.github.io/olympic-paints-vehicles/",
+          "stderr_tail": "To https://github.com/FlomaticAuto/olympic-paints-vehicles.git\n   6595b6e..d18780a  master -> master",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vehicle-report-weekly\\2026-05-25_08-20-02.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-25T08:20:02+02:00",
+        "finished_at": "2026-05-25T08:20:47+02:00",
+        "duration_seconds": 45.221,
+        "exit_code": 0,
+        "ok": true,
+        "summary": null
+      }
     },
     {
       "job_id": "olympic-paints-zoho-meetings-pull",
