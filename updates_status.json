@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T08:21:18",
+  "generated_at": "2026-05-25T09:00:11",
   "total": 23,
   "ok": 4,
   "warn": 0,
@@ -12,7 +12,7 @@
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
       "overall": "fail",
-      "task_last_run": "2026-05-25T08:11:11",
+      "task_last_run": "2026-05-25T08:30:30",
       "task_last_result": 1
     },
     {
@@ -22,7 +22,7 @@
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-25T08:11:11",
+      "task_last_run": "2026-05-25T08:45:45",
       "task_last_result": 127
     },
     {
@@ -33,7 +33,7 @@
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
       "task_last_run": "2026-05-25T08:20:20",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "ecommerce_email",
@@ -62,7 +62,7 @@
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
       "overall": "fail",
-      "task_last_run": "2026-05-25T08:00:00",
+      "task_last_run": "2026-05-25T08:21:21",
       "task_last_result": 1
     },
     {
@@ -72,8 +72,8 @@
       "task": "Vehicle Report Weekly",
       "cadence": "Weekly \u00b7 Mon",
       "overall": "ok",
-      "task_last_run": "2026-05-25T08:20:20",
-      "task_last_result": 0
+      "task_last_run": "2026-05-25T09:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vehicle_health",
