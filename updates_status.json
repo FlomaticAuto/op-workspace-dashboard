@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-25T22:15:05",
+  "generated_at": "2026-05-26T00:15:05",
   "total": 23,
   "ok": 3,
-  "warn": 1,
-  "fail": 19,
+  "warn": 2,
+  "fail": 18,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -91,7 +91,7 @@
       "name": "Kaizen Daily Sync",
       "task": "Olympic Paints - Kaizen Daily Sync",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "fail",
+      "overall": "warn",
       "task_last_run": "2026-05-24T16:30:30",
       "task_last_result": 2147942402
     },
