@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T14:00:03+02:00",
+  "generated_at": "2026-05-25T15:00:02+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -268,8 +268,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-05-25 14:13:10+02:00",
-      "scheduler_last_run_time": "2026-05-25 13:43:11+02:00",
+      "next_run": "2026-05-25 15:13:10+02:00",
+      "scheduler_last_run_time": "2026-05-25 14:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -359,8 +359,8 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-25 15:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 14:00:01+02:00",
+      "next_run": "2026-05-25 16:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 15:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
@@ -435,12 +435,24 @@
           "stdout_tail": "Wrote 54 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-25_13-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-25T14:00:02+02:00",
+          "finished_at": "2026-05-25T14:00:07+02:00",
+          "duration_seconds": 4.792,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 54 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-25_14-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T13:00:02+02:00",
-        "finished_at": "2026-05-25T13:00:05+02:00",
-        "duration_seconds": 3.595,
+        "started_at": "2026-05-25T14:00:02+02:00",
+        "finished_at": "2026-05-25T14:00:07+02:00",
+        "duration_seconds": 4.792,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -833,8 +845,8 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-25 14:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 12:15:01+02:00",
+      "next_run": "2026-05-25 16:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 14:15:01+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "fresh",
       "history": [
@@ -945,12 +957,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-05-25_12-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-25T14:15:01+02:00",
+          "finished_at": "2026-05-25T14:15:15+02:00",
+          "duration_seconds": 13.25,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-05-25_14-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T12:15:01+02:00",
-        "finished_at": "2026-05-25T12:15:09+02:00",
-        "duration_seconds": 7.352,
+        "started_at": "2026-05-25T14:15:01+02:00",
+        "finished_at": "2026-05-25T14:15:15+02:00",
+        "duration_seconds": 13.25,
         "exit_code": 1,
         "ok": false,
         "summary": null
@@ -1023,10 +1047,10 @@
       "task_path": "\\Olympic Paints\\Weekly Dashboards\\Rep Account Health",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-23T15:00:00+02:00",
-      "next_run": "2026-05-25 15:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-06-01 15:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 15:00:00+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
