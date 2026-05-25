@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T16:00:04+02:00",
+  "generated_at": "2026-05-25T17:00:02+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -62,7 +62,7 @@
       "schedule_summary": "type=2 start=2026-05-23T16:00:00+02:00",
       "next_run": "2026-05-26 16:00:00+02:00",
       "scheduler_last_run_time": "2026-05-25 16:00:01+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -88,7 +88,7 @@
       "schedule_summary": "type=3 start=2026-05-22T16:00:00+02:00",
       "next_run": "2026-05-26 16:00:00+02:00",
       "scheduler_last_run_time": "2026-05-25 16:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -100,9 +100,9 @@
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T08:00:00",
       "next_run": "2026-05-26 08:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "scheduler_last_run_time": "2026-05-25 17:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -138,7 +138,7 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1630",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T16:30:00",
-      "next_run": "2026-05-25 16:30:00+02:00",
+      "next_run": "2026-05-26 16:30:00+02:00",
       "scheduler_last_run_time": "2026-05-25 01:30:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
@@ -177,10 +177,10 @@
       "task_path": "\\Olympic Paints\\E-Commerce\\Dashboard Build",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-23T16:30:00+02:00",
-      "next_run": "2026-05-25 16:30:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-05-26 16:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 16:30:00+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -190,10 +190,10 @@
       "task_path": "\\Olympic Paints\\E-Commerce\\Email Digest",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-23T17:00:00+02:00",
-      "next_run": "2026-05-25 17:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-05-26 17:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 17:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -268,8 +268,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-05-25 16:13:10+02:00",
-      "scheduler_last_run_time": "2026-05-25 15:43:11+02:00",
+      "next_run": "2026-05-25 17:13:10+02:00",
+      "scheduler_last_run_time": "2026-05-25 16:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -281,10 +281,10 @@
       "task_path": "\\Olympic Paints\\H&S\\Weekly Refresh",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-23T16:30:00+02:00",
-      "next_run": "2026-05-25 16:30:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-06-01 16:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 16:30:00+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -333,10 +333,10 @@
       "task_path": "\\Olympic Paints\\HAVEN\\Weekly Dashboard Check",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-23T17:00:00+02:00",
-      "next_run": "2026-05-25 17:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-06-01 17:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 17:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -348,7 +348,7 @@
       "schedule_summary": "type=3 start=2026-05-23T16:00:00+02:00",
       "next_run": "2026-06-01 16:00:00+02:00",
       "scheduler_last_run_time": "2026-05-25 16:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -359,8 +359,8 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-25 17:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 16:00:01+02:00",
+      "next_run": "2026-05-25 18:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 17:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
@@ -459,12 +459,24 @@
           "stdout_tail": "Wrote 54 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-25_15-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-25T16:00:02+02:00",
+          "finished_at": "2026-05-25T16:00:09+02:00",
+          "duration_seconds": 7.241,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 54 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-25_16-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T15:00:02+02:00",
-        "finished_at": "2026-05-25T15:00:06+02:00",
-        "duration_seconds": 4.387,
+        "started_at": "2026-05-25T16:00:02+02:00",
+        "finished_at": "2026-05-25T16:00:09+02:00",
+        "duration_seconds": 7.241,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -597,7 +609,7 @@
       "schedule_summary": "type=3 start=2026-05-23T16:00:00+02:00",
       "next_run": "2026-05-26 16:00:00+02:00",
       "scheduler_last_run_time": "2026-05-25 16:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -758,10 +770,10 @@
       "task_path": "\\Olympic Paints\\STRIKER\\Olympic Paints - Zoho Meetings Pull (Evening)",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-21T17:00:00+02:00",
-      "next_run": "2026-05-25 17:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-05-26 17:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 17:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -857,23 +869,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-25 16:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 14:15:01+02:00",
+      "next_run": "2026-05-25 18:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 16:15:01+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-05-24T14:20:38+02:00",
-          "finished_at": "2026-05-24T14:20:38+02:00",
-          "duration_seconds": 0.196,
-          "exit_code": 2,
-          "ok": false,
-          "stdout_tail": "",
-          "stderr_tail": "The system cannot find the file specified.\nThe system cannot find the path specified.",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-05-24_14-20-38.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -981,12 +981,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-05-25_14-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-25T16:15:01+02:00",
+          "finished_at": "2026-05-25T16:15:09+02:00",
+          "duration_seconds": 7.466,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-05-25_16-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T14:15:01+02:00",
-        "finished_at": "2026-05-25T14:15:15+02:00",
-        "duration_seconds": 13.25,
+        "started_at": "2026-05-25T16:15:01+02:00",
+        "finished_at": "2026-05-25T16:15:09+02:00",
+        "duration_seconds": 7.466,
         "exit_code": 1,
         "ok": false,
         "summary": null
@@ -1033,10 +1045,10 @@
       "task_path": "\\Olympic Paints\\Weekly Dashboards\\Credit Apps",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-23T16:15:00+02:00",
-      "next_run": "2026-05-25 16:15:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-06-01 16:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 16:15:00+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -1048,7 +1060,7 @@
       "schedule_summary": "type=3 start=2026-05-23T16:00:00+02:00",
       "next_run": "2026-06-01 16:00:00+02:00",
       "scheduler_last_run_time": "2026-05-25 16:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
