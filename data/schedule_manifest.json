@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T18:00:02+02:00",
+  "generated_at": "2026-05-25T19:00:02+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -113,9 +113,9 @@
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T10:00:00",
       "next_run": "2026-05-26 10:00:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "scheduler_last_run_time": "2026-05-25 19:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -268,8 +268,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-05-25 18:13:10+02:00",
-      "scheduler_last_run_time": "2026-05-25 17:43:11+02:00",
+      "next_run": "2026-05-25 19:13:10+02:00",
+      "scheduler_last_run_time": "2026-05-25 18:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -359,23 +359,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-25 19:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 18:00:01+02:00",
+      "next_run": "2026-05-25 20:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 19:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-25T08:16:59+02:00",
-          "finished_at": "2026-05-25T08:17:03+02:00",
-          "duration_seconds": 3.75,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 53 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-25_08-16-59.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -483,12 +471,24 @@
           "stdout_tail": "Wrote 54 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git stash --include-untracked: fatal: Unable to create 'C:/Users/Administrator/workspace-dashboard/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, or the lock file may be stale\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX3lwcHdlTnZUS045VE0wcmRyQlQ3MlFmblM0OHFvbzJSdFVkMw== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-25_17-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-25T18:00:01+02:00",
+          "finished_at": "2026-05-25T18:00:05+02:00",
+          "duration_seconds": 3.262,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 54 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-25_18-00-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T17:00:02+02:00",
-        "finished_at": "2026-05-25T17:00:05+02:00",
-        "duration_seconds": 2.94,
+        "started_at": "2026-05-25T18:00:01+02:00",
+        "finished_at": "2026-05-25T18:00:05+02:00",
+        "duration_seconds": 3.262,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -684,8 +684,8 @@
       "task_path": "\\Olympic Paints\\SIGMA\\MerchAttachmentDownload",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-19T19:00:00+02:00",
-      "next_run": "2026-05-25 19:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-24 19:00:01+02:00",
+      "next_run": "2026-05-26 19:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 19:00:01+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -902,23 +902,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-25 18:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 16:15:01+02:00",
+      "next_run": "2026-05-25 20:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 18:15:01+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-05-24T14:51:22+02:00",
-          "finished_at": "2026-05-24T14:51:23+02:00",
-          "duration_seconds": 0.069,
-          "exit_code": 2,
-          "ok": false,
-          "stdout_tail": "",
-          "stderr_tail": "The system cannot find the file specified.\nThe system cannot find the path specified.",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-05-24_14-51-22.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1026,12 +1014,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-05-25_16-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-25T18:15:01+02:00",
+          "finished_at": "2026-05-25T18:15:07+02:00",
+          "duration_seconds": 5.641,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-05-25_18-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T16:15:01+02:00",
-        "finished_at": "2026-05-25T16:15:09+02:00",
-        "duration_seconds": 7.466,
+        "started_at": "2026-05-25T18:15:01+02:00",
+        "finished_at": "2026-05-25T18:15:07+02:00",
+        "duration_seconds": 5.641,
         "exit_code": 1,
         "ok": false,
         "summary": null
