@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-25T10:15:06",
+  "generated_at": "2026-05-25T12:15:06",
   "total": 23,
-  "ok": 3,
+  "ok": 4,
   "warn": 0,
-  "fail": 20,
+  "fail": 19,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -101,9 +101,9 @@
       "name": "Workspace Weekly Health Report",
       "task": "OlympicPaints_Workspace_Health_Report",
       "cadence": "Weekly \u00b7 Fri 16:00",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "overall": "ok",
+      "task_last_run": "2026-05-25T12:13:13",
+      "task_last_result": 0
     },
     {
       "id": "friday_sales_meeting",
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 13
+  "success_pct": 17
 }
