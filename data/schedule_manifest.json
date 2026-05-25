@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T09:00:02+02:00",
+  "generated_at": "2026-05-25T10:00:06+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -9,7 +9,7 @@
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-21T01:00:00",
       "next_run": "2026-05-26 01:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-24 10:00:01+02:00",
+      "scheduler_last_run_time": "2026-05-25 10:00:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -21,8 +21,8 @@
       "task_path": "\\Olympic Paints\\Notion Todos Sync",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-05-25 09:43:11+02:00",
-      "scheduler_last_run_time": "2026-05-25 08:19:56+02:00",
+      "next_run": "2026-05-25 11:43:11+02:00",
+      "scheduler_last_run_time": "2026-05-25 09:43:12+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -112,7 +112,7 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1000",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T10:00:00",
-      "next_run": "2026-05-25 10:00:00+02:00",
+      "next_run": "2026-05-26 10:00:00+02:00",
       "scheduler_last_run_time": null,
       "scheduler_last_task_result": 267011,
       "heartbeat_status": "never_run",
@@ -268,8 +268,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-05-25 09:13:10+02:00",
-      "scheduler_last_run_time": "2026-05-25 08:43:11+02:00",
+      "next_run": "2026-05-25 10:13:10+02:00",
+      "scheduler_last_run_time": "2026-05-25 09:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -359,8 +359,8 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-25 10:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 09:00:01+02:00",
+      "next_run": "2026-05-25 11:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-25 10:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
@@ -375,12 +375,24 @@
           "stdout_tail": "Wrote 53 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-25_08-16-59.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-25T09:00:02+02:00",
+          "finished_at": "2026-05-25T09:00:05+02:00",
+          "duration_seconds": 3.428,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 53 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-25_09-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T08:16:59+02:00",
-        "finished_at": "2026-05-25T08:17:03+02:00",
-        "duration_seconds": 3.75,
+        "started_at": "2026-05-25T09:00:02+02:00",
+        "finished_at": "2026-05-25T09:00:05+02:00",
+        "duration_seconds": 3.428,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -518,19 +530,6 @@
       "history": []
     },
     {
-      "job_id": "returns-folder-watcher",
-      "name": "Returns Folder Watcher",
-      "agent": "Returns",
-      "task_path": "\\Olympic Paints\\Returns\\Returns Folder Watcher",
-      "enabled": true,
-      "schedule_summary": "type=9 start=",
-      "next_run": null,
-      "scheduler_last_run_time": "2026-05-25 08:17:05+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "missing",
-      "history": []
-    },
-    {
       "job_id": "audit-runbook-drift",
       "name": "Audit Runbook Drift",
       "agent": "Runbooks",
@@ -541,6 +540,19 @@
       "scheduler_last_run_time": "2026-05-25 08:20:48+02:00",
       "scheduler_last_task_result": 2,
       "heartbeat_status": "missing",
+      "history": []
+    },
+    {
+      "job_id": "sales-dashboard-refresh",
+      "name": "Sales Dashboard Refresh",
+      "agent": "Sales",
+      "task_path": "\\Olympic Paints\\Sales\\Sales Dashboard Refresh",
+      "enabled": true,
+      "schedule_summary": "type=3 start=2026-05-25T07:00:00+02:00",
+      "next_run": "2026-05-26 07:00:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
       "history": []
     },
     {
@@ -604,7 +616,7 @@
       "schedule_summary": "type=3 start=2026-04-23T09:00:00",
       "next_run": "2026-06-01 09:00:00+02:00",
       "scheduler_last_run_time": "2026-05-25 09:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
         {
@@ -618,12 +630,24 @@
           "stdout_tail": "[INFO] Loaded 1 address mapping rule(s).\n[INFO] Vehicle Report Consolidation Workflow\n[INFO] Inbox: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\9. Supply Chain\\Logisitics\\Inbox\n[INFO] No Trip Report files found in Inbox. Exiting.\n[master d18780a] Dashboard update 2026-05-25 08:20\n 1 file changed, 1 insertion(+), 1 deletion(-)\nbranch 'master' set up to track 'origin/master'.\n[INFO] GPS source: VehicleInOut_Mar2026_Apr2026.xlsx\n[INFO] GPS period: 02/03/2026 - 21/04/2026\n[INFO] Clocking: 1,193 records, 26/03/2026 – 21/04/2026\n\n[INFO] Matching crew to clocking data...\n[INFO] Aligned window: 26/03/2026 - 21/04/2026\n\n[Crew] LJ92TDGP\n  [OK]   Clement Mvuyisi Tetyana (as 'Mvuyisi Tetyana'): 35.5 hrs over 2 truck-active days\n  [OK]   Philly Mapembe (as 'Philly Mpembe'): 83.7 hrs over 10 truck-active days\n  [OK]   Lehlohonolo Zwakala: 45.2 hrs over 7 truck-active days\n\n[Crew] LJ92TGGP\n  [OK]   Andrew Nkosi Nelani (as 'Athenkoso Andrew Nelani'): 63.1 hrs over 11 truck-active days\n  [OK]   Nhlamulo Jeff Mabunda (as 'Jeffrey Mabunda'): 78.0 hrs over 11 truck-active days\n  [OK]   Nhlanhla Moli: 67.5 hrs over 11 truck-active days\n\n[Crew] KW40KZGP\n  [OK]   Happy Simango: 59.2 hrs over 11 truck-active days\n  [OK]   Godfrey Mofokeng: 118.1 hrs over 12 truck-active days\n  [OK]   Petrus Masinge: 74.2 hrs over 11 truck-active days\n\n[Crew] KW57WWGP\n  [OK]   David Madakane (as 'David Mdakane'): 125.8 hrs over 10 truck-active days\n  [OK]   Nephilian Matsididi (as 'Nephathali Matsididi'): 92.6 hrs over 10 truck-active days\n  [OK]   Nhlanhla Zikode: 92.2 hrs over 11 truck-active days\n\n[Crew] MJ35FPGP\n  [WARN] No clocking match for: Shaun Fazile (Shaun Fazile)\n  [OK]   Timothy Sinyolo (as 'Timothy Senyolo'): 77.7 hrs over 12 truck-active days\n  [OK]   Loyiso Dlali: 161.8 hrs over 14 truck-active days\n\n[Crew] DH33HLGP\n\n[Crew] CR61GCGP\n\n[INFO] Updating Excel workbook with crew data...\n[INFO] Excel updated: 'Crew & Hours' sheet added to VehicleInOut_Mar2026_Apr2026.xlsx\n\n[INFO] Written: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\9. Supply Chain\\Logisitics\\OP Track & Driver Analitics\\Dashboard\\index.html\n\n[OK] Published -> https://flomaticauto.github.io/olympic-paints-vehicles/",
           "stderr_tail": "To https://github.com/FlomaticAuto/olympic-paints-vehicles.git\n   6595b6e..d18780a  master -> master",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vehicle-report-weekly\\2026-05-25_08-20-02.log"
+        },
+        {
+          "job_id": "vehicle-report-weekly",
+          "agent": "SIGMA",
+          "started_at": "2026-05-25T09:00:01+02:00",
+          "finished_at": "2026-05-25T09:00:14+02:00",
+          "duration_seconds": 12.866,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[INFO] Loaded 1 address mapping rule(s).\n[INFO] Vehicle Report Consolidation Workflow\n[INFO] Inbox: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\9. Supply Chain\\Logisitics\\Inbox\n[INFO] No Trip Report files found in Inbox. Exiting.\n[master 148fd04] Dashboard update 2026-05-25 09:00\n 1 file changed, 1 insertion(+), 1 deletion(-)\nbranch 'master' set up to track 'origin/master'.\n[INFO] GPS source: VehicleInOut_Mar2026_Apr2026.xlsx\n[INFO] GPS period: 02/03/2026 - 21/04/2026\n[INFO] Clocking: 1,193 records, 26/03/2026 – 21/04/2026\n\n[INFO] Matching crew to clocking data...\n[INFO] Aligned window: 26/03/2026 - 21/04/2026\n\n[Crew] LJ92TDGP\n  [OK]   Clement Mvuyisi Tetyana (as 'Mvuyisi Tetyana'): 35.5 hrs over 2 truck-active days\n  [OK]   Philly Mapembe (as 'Philly Mpembe'): 83.7 hrs over 10 truck-active days\n  [OK]   Lehlohonolo Zwakala: 45.2 hrs over 7 truck-active days\n\n[Crew] LJ92TGGP\n  [OK]   Andrew Nkosi Nelani (as 'Athenkoso Andrew Nelani'): 63.1 hrs over 11 truck-active days\n  [OK]   Nhlamulo Jeff Mabunda (as 'Jeffrey Mabunda'): 78.0 hrs over 11 truck-active days\n  [OK]   Nhlanhla Moli: 67.5 hrs over 11 truck-active days\n\n[Crew] KW40KZGP\n  [OK]   Happy Simango: 59.2 hrs over 11 truck-active days\n  [OK]   Godfrey Mofokeng: 118.1 hrs over 12 truck-active days\n  [OK]   Petrus Masinge: 74.2 hrs over 11 truck-active days\n\n[Crew] KW57WWGP\n  [OK]   David Madakane (as 'David Mdakane'): 125.8 hrs over 10 truck-active days\n  [OK]   Nephilian Matsididi (as 'Nephathali Matsididi'): 92.6 hrs over 10 truck-active days\n  [OK]   Nhlanhla Zikode: 92.2 hrs over 11 truck-active days\n\n[Crew] MJ35FPGP\n  [WARN] No clocking match for: Shaun Fazile (Shaun Fazile)\n  [OK]   Timothy Sinyolo (as 'Timothy Senyolo'): 77.7 hrs over 12 truck-active days\n  [OK]   Loyiso Dlali: 161.8 hrs over 14 truck-active days\n\n[Crew] DH33HLGP\n\n[Crew] CR61GCGP\n\n[INFO] Updating Excel workbook with crew data...\n[INFO] Excel updated: 'Crew & Hours' sheet added to VehicleInOut_Mar2026_Apr2026.xlsx\n\n[INFO] Written: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\9. Supply Chain\\Logisitics\\OP Track & Driver Analitics\\Dashboard\\index.html\n\n[OK] Published -> https://flomaticauto.github.io/olympic-paints-vehicles/",
+          "stderr_tail": "To https://github.com/FlomaticAuto/olympic-paints-vehicles.git\n   d18780a..148fd04  master -> master",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vehicle-report-weekly\\2026-05-25_09-00-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T08:20:02+02:00",
-        "finished_at": "2026-05-25T08:20:47+02:00",
-        "duration_seconds": 45.221,
+        "started_at": "2026-05-25T09:00:01+02:00",
+        "finished_at": "2026-05-25T09:00:14+02:00",
+        "duration_seconds": 12.866,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -737,7 +761,7 @@
       "schedule_summary": "type=2 start=2026-04-30T07:00:00+02:00",
       "next_run": "2026-05-26 07:00:00+02:00",
       "scheduler_last_run_time": "2026-05-25 08:11:05+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": -1073741510,
       "heartbeat_status": "missing",
       "history": []
     },
