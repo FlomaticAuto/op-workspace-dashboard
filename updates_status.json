@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-25T08:10:55",
+  "generated_at": "2026-05-25T08:15:06",
   "total": 23,
-  "ok": 1,
-  "warn": 0,
-  "fail": 22,
+  "ok": 2,
+  "warn": 1,
+  "fail": 20,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -12,8 +12,8 @@
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
       "overall": "fail",
-      "task_last_run": "2026-05-25T07:50:50",
-      "task_last_result": 2147942402
+      "task_last_run": "2026-05-25T08:11:11",
+      "task_last_result": 1
     },
     {
       "id": "kpi_rep_dashboards",
@@ -22,8 +22,8 @@
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-25T07:50:50",
-      "task_last_result": 2147942402
+      "task_last_run": "2026-05-25T08:11:11",
+      "task_last_result": 127
     },
     {
       "id": "ecommerce_dashboard",
@@ -31,9 +31,9 @@
       "name": "E-Commerce Dashboard",
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "overall": "warn",
+      "task_last_run": "2026-05-25T08:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -122,8 +122,8 @@
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
       "overall": "ok",
-      "task_last_run": "2026-05-25T07:50:50",
-      "task_last_result": 267014
+      "task_last_run": "2026-05-25T08:11:11",
+      "task_last_result": 267009
     },
     {
       "id": "vault_meeting_extraction",
@@ -131,9 +131,9 @@
       "name": "VAULT Meeting Extraction (Notion tasks)",
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "fail",
-      "task_last_run": "2026-05-25T07:53:53",
-      "task_last_result": 2147942402
+      "overall": "ok",
+      "task_last_run": "2026-05-25T08:13:13",
+      "task_last_result": 0
     },
     {
       "id": "cso_intelligence",
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 4
+  "success_pct": 9
 }
