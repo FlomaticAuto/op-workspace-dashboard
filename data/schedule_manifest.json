@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T19:00:02+02:00",
+  "generated_at": "2026-05-26T20:00:02+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -21,8 +21,8 @@
       "task_path": "\\Olympic Paints\\Notion Todos Sync",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-05-26 19:43:11+02:00",
-      "scheduler_last_run_time": "2026-05-26 17:43:12+02:00",
+      "next_run": "2026-05-26 21:43:11+02:00",
+      "scheduler_last_run_time": "2026-05-26 19:43:12+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -114,7 +114,7 @@
       "schedule_summary": "type=3 start=2026-05-18T10:00:00",
       "next_run": "2026-05-27 10:00:00+02:00",
       "scheduler_last_run_time": "2026-05-26 19:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -289,8 +289,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-05-26 19:13:10+02:00",
-      "scheduler_last_run_time": "2026-05-26 18:43:11+02:00",
+      "next_run": "2026-05-26 20:13:10+02:00",
+      "scheduler_last_run_time": "2026-05-26 19:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -367,23 +367,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-26 20:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-26 19:00:01+02:00",
+      "next_run": "2026-05-26 21:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-26 20:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-26T10:00:04+02:00",
-          "finished_at": "2026-05-26T10:00:08+02:00",
-          "duration_seconds": 4.288,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 54 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-26_10-00-04.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -491,12 +479,24 @@
           "stdout_tail": "Wrote 54 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-26_18-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-26T19:00:02+02:00",
+          "finished_at": "2026-05-26T19:00:06+02:00",
+          "duration_seconds": 4.164,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 53 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-26_19-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-26T18:00:02+02:00",
-        "finished_at": "2026-05-26T18:00:06+02:00",
-        "duration_seconds": 4.271,
+        "started_at": "2026-05-26T19:00:02+02:00",
+        "finished_at": "2026-05-26T19:00:06+02:00",
+        "duration_seconds": 4.164,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -514,64 +514,6 @@
       "scheduler_last_task_result": 267011,
       "heartbeat_status": "never_run",
       "history": []
-    },
-    {
-      "job_id": "olympicpaints-kpi-dashboard-update",
-      "name": "OlympicPaints_KPI_Dashboard_Update",
-      "agent": "PRISM",
-      "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_KPI_Dashboard_Update",
-      "enabled": false,
-      "schedule_summary": "type=2 start=2026-04-29T08:45:00",
-      "next_run": "2026-05-27 08:45:00+02:00",
-      "scheduler_last_run_time": "2026-05-26 08:45:01+02:00",
-      "scheduler_last_task_result": 127,
-      "heartbeat_status": "fresh",
-      "history": [
-        {
-          "job_id": "olympicpaints-kpi-dashboard-update",
-          "agent": "PRISM",
-          "started_at": "2026-05-25T08:11:00+02:00",
-          "finished_at": "2026-05-25T08:11:00+02:00",
-          "duration_seconds": 0.001,
-          "exit_code": 127,
-          "ok": false,
-          "stdout_tail": "",
-          "stderr_tail": "run_job.py: failed to launch wrapped command: [WinError 2] The system cannot find the file specified",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-kpi-dashboard-update\\2026-05-25_08-11-00.log"
-        },
-        {
-          "job_id": "olympicpaints-kpi-dashboard-update",
-          "agent": "PRISM",
-          "started_at": "2026-05-25T08:45:01+02:00",
-          "finished_at": "2026-05-25T08:45:01+02:00",
-          "duration_seconds": 0.001,
-          "exit_code": 127,
-          "ok": false,
-          "stdout_tail": "",
-          "stderr_tail": "run_job.py: failed to launch wrapped command: [WinError 2] The system cannot find the file specified",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-kpi-dashboard-update\\2026-05-25_08-45-01.log"
-        },
-        {
-          "job_id": "olympicpaints-kpi-dashboard-update",
-          "agent": "PRISM",
-          "started_at": "2026-05-26T08:45:02+02:00",
-          "finished_at": "2026-05-26T08:45:02+02:00",
-          "duration_seconds": 0.001,
-          "exit_code": 127,
-          "ok": false,
-          "stdout_tail": "",
-          "stderr_tail": "run_job.py: failed to launch wrapped command: [WinError 2] The system cannot find the file specified",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-kpi-dashboard-update\\2026-05-26_08-45-02.log"
-        }
-      ],
-      "last_run": {
-        "started_at": "2026-05-26T08:45:02+02:00",
-        "finished_at": "2026-05-26T08:45:02+02:00",
-        "duration_seconds": 0.001,
-        "exit_code": 127,
-        "ok": false,
-        "summary": null
-      }
     },
     {
       "job_id": "olympicpaints-sales-dashboard-refresh",
