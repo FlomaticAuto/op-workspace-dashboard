@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T08:00:02+02:00",
+  "generated_at": "2026-05-26T09:00:02+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -205,9 +205,30 @@
       "schedule_summary": "type=3 start=2026-05-08T08:00:00",
       "next_run": "2026-05-27 08:00:00+02:00",
       "scheduler_last_run_time": "2026-05-26 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "missing",
-      "history": []
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "olympicpaints-emailecommercedashboard",
+          "agent": "FLASH",
+          "started_at": "2026-05-26T08:00:01+02:00",
+          "finished_at": "2026-05-26T08:00:11+02:00",
+          "duration_seconds": 9.778,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[08:00:02] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:00:02] Reading WooCommerce export: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:00:02] Reading tracking log: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:00:02] FY2026 orders=145 · overdue week=0 · overdue all-time=2 · RTS=9.3% · Makro manu=3 · LRM manu=0\n[08:00:11] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za\n[08:00:11] Subject: E-Commerce Digest — 26 May 2026\n[08:00:11] Email dispatched and confirmed left Outbox.\n[08:00:11] Done.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-05-26_08-00-01.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-05-26T08:00:01+02:00",
+        "finished_at": "2026-05-26T08:00:11+02:00",
+        "duration_seconds": 9.778,
+        "exit_code": 0,
+        "ok": true,
+        "summary": null
+      }
     },
     {
       "job_id": "olympicpaints-flashodosubmission",
@@ -231,7 +252,7 @@
       "schedule_summary": "type=3 start=2026-05-17T08:00:00+02:00",
       "next_run": "2026-05-27 08:00:00+02:00",
       "scheduler_last_run_time": "2026-05-26 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -268,8 +289,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-05-26 08:13:10+02:00",
-      "scheduler_last_run_time": "2026-05-26 07:43:11+02:00",
+      "next_run": "2026-05-26 09:13:10+02:00",
+      "scheduler_last_run_time": "2026-05-26 08:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -359,23 +380,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-26 09:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-26 08:00:01+02:00",
+      "next_run": "2026-05-26 10:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-26 09:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-25T22:00:02+02:00",
-          "finished_at": "2026-05-25T22:00:05+02:00",
-          "duration_seconds": 3.894,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 54 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-25_22-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -483,12 +492,24 @@
           "stdout_tail": "Wrote 54 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-26_07-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-26T08:00:02+02:00",
+          "finished_at": "2026-05-26T08:00:06+02:00",
+          "duration_seconds": 3.976,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 54 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-26_08-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-26T07:00:02+02:00",
-        "finished_at": "2026-05-26T07:00:05+02:00",
-        "duration_seconds": 3.61,
+        "started_at": "2026-05-26T08:00:02+02:00",
+        "finished_at": "2026-05-26T08:00:06+02:00",
+        "duration_seconds": 3.976,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -514,8 +535,8 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_KPI_Dashboard_Update",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-29T08:45:00",
-      "next_run": "2026-05-26 08:45:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 08:45:01+02:00",
+      "next_run": "2026-05-27 08:45:00+02:00",
+      "scheduler_last_run_time": "2026-05-26 08:45:01+02:00",
       "scheduler_last_task_result": 127,
       "heartbeat_status": "fresh",
       "history": [
@@ -542,11 +563,23 @@
           "stdout_tail": "",
           "stderr_tail": "run_job.py: failed to launch wrapped command: [WinError 2] The system cannot find the file specified",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-kpi-dashboard-update\\2026-05-25_08-45-01.log"
+        },
+        {
+          "job_id": "olympicpaints-kpi-dashboard-update",
+          "agent": "PRISM",
+          "started_at": "2026-05-26T08:45:02+02:00",
+          "finished_at": "2026-05-26T08:45:02+02:00",
+          "duration_seconds": 0.001,
+          "exit_code": 127,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "run_job.py: failed to launch wrapped command: [WinError 2] The system cannot find the file specified",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-kpi-dashboard-update\\2026-05-26_08-45-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T08:45:01+02:00",
-        "finished_at": "2026-05-25T08:45:01+02:00",
+        "started_at": "2026-05-26T08:45:02+02:00",
+        "finished_at": "2026-05-26T08:45:02+02:00",
         "duration_seconds": 0.001,
         "exit_code": 127,
         "ok": false,
@@ -560,9 +593,9 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_Sales_Dashboard_Refresh",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-07T08:30:00",
-      "next_run": "2026-05-26 08:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 08:30:01+02:00",
-      "scheduler_last_task_result": 1,
+      "next_run": "2026-05-27 08:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-26 08:55:09+02:00",
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
         {
@@ -588,14 +621,74 @@
           "stdout_tail": "",
           "stderr_tail": "The system cannot find the path specified.",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-25_08-30-01.log"
+        },
+        {
+          "job_id": "olympicpaints-sales-dashboard-refresh",
+          "agent": "PRISM",
+          "started_at": "2026-05-26T08:30:01+02:00",
+          "finished_at": "2026-05-26T08:30:02+02:00",
+          "duration_seconds": 0.294,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "The system cannot find the path specified.",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-26_08-30-01.log"
+        },
+        {
+          "job_id": "olympicpaints-sales-dashboard-refresh",
+          "agent": "PRISM",
+          "started_at": "2026-05-26T08:48:47+02:00",
+          "finished_at": "2026-05-26T08:48:47+02:00",
+          "duration_seconds": 0.27,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "The system cannot find the path specified.",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-26_08-48-47.log"
+        },
+        {
+          "job_id": "olympicpaints-sales-dashboard-refresh",
+          "agent": "PRISM",
+          "started_at": "2026-05-26T08:49:41+02:00",
+          "finished_at": "2026-05-26T08:49:41+02:00",
+          "duration_seconds": 0.27,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "The system cannot find the path specified.",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-26_08-49-41.log"
+        },
+        {
+          "job_id": "olympicpaints-sales-dashboard-refresh",
+          "agent": "PRISM",
+          "started_at": "2026-05-26T08:54:24+02:00",
+          "finished_at": "2026-05-26T08:54:24+02:00",
+          "duration_seconds": 0.021,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Microsoft Windows [Version 10.0.22000.2538]\n(c) Microsoft Corporation. All rights reserved.\n\nC:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data>",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-26_08-54-24.log"
+        },
+        {
+          "job_id": "olympicpaints-sales-dashboard-refresh",
+          "agent": "PRISM",
+          "started_at": "2026-05-26T08:55:10+02:00",
+          "finished_at": "2026-05-26T08:58:24+02:00",
+          "duration_seconds": 193.49,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-sales-dashboard-refresh\\2026-05-26_08-55-10.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-25T08:30:01+02:00",
-        "finished_at": "2026-05-25T08:30:01+02:00",
-        "duration_seconds": 0.095,
-        "exit_code": 1,
-        "ok": false,
+        "started_at": "2026-05-26T08:55:10+02:00",
+        "finished_at": "2026-05-26T08:58:24+02:00",
+        "duration_seconds": 193.49,
+        "exit_code": 0,
+        "ok": true,
         "summary": null
       }
     },
@@ -658,10 +751,10 @@
       "task_path": "\\Olympic Paints\\Sales\\Verification Reminder",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-25T08:30:00+02:00",
-      "next_run": "2026-05-26 08:30:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-05-27 08:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-26 08:30:00+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -956,23 +1049,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-05-26 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-05-26 06:15:01+02:00",
+      "next_run": "2026-05-26 10:15:00+02:00",
+      "scheduler_last_run_time": "2026-05-26 08:15:01+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-05-25T12:15:01+02:00",
-          "finished_at": "2026-05-25T12:15:09+02:00",
-          "duration_seconds": 7.352,
-          "exit_code": 1,
-          "ok": false,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-05-25_12-15-01.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1080,12 +1161,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-05-26_06-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-05-26T08:15:01+02:00",
+          "finished_at": "2026-05-26T08:15:07+02:00",
+          "duration_seconds": 6.185,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-05-26_08-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-26T06:15:01+02:00",
-        "finished_at": "2026-05-26T06:15:07+02:00",
-        "duration_seconds": 5.473,
+        "started_at": "2026-05-26T08:15:01+02:00",
+        "finished_at": "2026-05-26T08:15:07+02:00",
+        "duration_seconds": 6.185,
         "exit_code": 1,
         "ok": false,
         "summary": null
