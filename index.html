@@ -1589,10 +1589,10 @@ function renderTodayKpis(){
 
   let ok = 0, failed = 0, stale = 0;
   for (const t of tasks){
-    const hb = t.last_run;
-    if (t.heartbeat_status === 'stale') stale++;
-    if (hb && hb.ok === true) ok++;
-    if (hb && hb.ok === false) failed++;
+    const es = effectiveStatus(t);
+    if (es === 'stale') stale++;
+    if (es === 'fresh') ok++;
+    if (es === 'failed') failed++;
   }
 
   const next = computeNextRunDelta(tasks);
@@ -1675,9 +1675,10 @@ function renderTodayIssues(){
   const tasks = MANIFEST_STATE.data ? MANIFEST_STATE.data.tasks : [];
   const issues = [];
   for (const t of tasks){
-    if (t.last_run && t.last_run.ok === false){
+    const es = effectiveStatus(t);
+    if (es === 'failed'){
       issues.push({ task: t, kind: 'failed', text: 'Last run failed' });
-    } else if (t.heartbeat_status === 'stale'){
+    } else if (es === 'stale'){
       issues.push({ task: t, kind: 'stale', text: 'Heartbeat stale' });
     }
   }
@@ -1759,7 +1760,8 @@ function filteredTasks(){
   const tasks = MANIFEST_STATE.data?.tasks || [];
   return tasks.filter(t => {
     if (FILTER_STATE.group === 'failing'){
-      if (!(t.heartbeat_status === 'stale' || (t.last_run && t.last_run.ok === false))) return false;
+      const es = effectiveStatus(t);
+      if (!(es === 'stale' || es === 'failed')) return false;
     }
     if (FILTER_STATE.group === 'today'){
       const next = t.next_run ? Date.parse(t.next_run.replace(' ', 'T')) : NaN;
@@ -1790,9 +1792,10 @@ function renderScheduleGroups(){
 
 function renderAgentGroup(agent, tasks){
   const counts = tasks.reduce((acc, t) => {
-    if (t.heartbeat_status === 'fresh') acc.fresh++;
-    else if (t.heartbeat_status === 'stale') acc.stale++;
-    if (t.last_run && t.last_run.ok === false) acc.failed++;
+    const es = effectiveStatus(t);
+    if (es === 'fresh') acc.fresh++;
+    else if (es === 'stale') acc.stale++;
+    if (es === 'failed') acc.failed++;
     return acc;
   }, { fresh: 0, stale: 0, failed: 0 });
   return `
@@ -1821,10 +1824,40 @@ function humanizeAgo(isoStr, future){
   return (future ? 'in ' : '') + humanizeDelta(diff) + (future ? '' : ' ago');
 }
 
+function scheduleWindowMs(t){
+  // Derive expected recurrence window from schedule_summary type or next_run gap
+  const s = t.schedule_summary || '';
+  if (s.startsWith('type=3')) {
+    // Weekly (type=3): stale after 8 days
+    return 8 * 24 * 3600 * 1000;
+  }
+  if (s.startsWith('type=6') || s.startsWith('type=5')) {
+    // Monthly: stale after 35 days
+    return 35 * 24 * 3600 * 1000;
+  }
+  // Default: daily (type=2 / type=1)
+  return 26 * 3600 * 1000;
+}
+
+function effectiveStatus(t){
+  if (t.last_run && t.last_run.ok === false) return 'failed';
+  if (t.heartbeat_status === 'fresh') return 'fresh';
+  if (t.heartbeat_status === 'never_run') return 'never_run';
+  // For "missing" heartbeat: check scheduler_last_run_time against schedule window
+  if (t.heartbeat_status === 'missing' && t.scheduler_last_run_time) {
+    const lastMs = Date.parse(t.scheduler_last_run_time.replace(' ', 'T'));
+    const window = scheduleWindowMs(t);
+    if (Date.now() - lastMs < window) return 'fresh';
+    return 'stale';
+  }
+  return t.heartbeat_status || 'never_run';
+}
+
 function renderTaskRow(t){
-  const last = t.last_run ? humanizeAgo(t.last_run.finished_at) : '&#8212;';
+  const last = t.last_run ? humanizeAgo(t.last_run.finished_at)
+             : t.scheduler_last_run_time ? humanizeAgo(t.scheduler_last_run_time) : '&#8212;';
   const next = t.next_run ? humanizeAgo(t.next_run, true) : '&#8212;';
-  const status = t.last_run && t.last_run.ok === false ? 'failed' : (t.heartbeat_status || 'never_run');
+  const status = effectiveStatus(t);
   return `
     <div class="task-row" data-job-id="${escapeAttr(t.job_id)}" onclick="toggleTaskExpand('${escapeAttr(t.job_id)}', this)">
       <span class="task-name">${escapeHtml(t.name)}</span>
@@ -2012,8 +2045,9 @@ function renderReports(){
   if (!REPORTS.length){ el.innerHTML = `<p class="section-placeholder" style="padding:16px">No reports configured.</p>`; return; }
   el.innerHTML = REPORTS.map(r => {
     const task = MANIFEST_STATE.data?.tasks?.find(t => t.job_id === r.job_id);
-    const lastRun = task?.last_run?.finished_at;
-    const lastStr = lastRun ? humanizeAgo(lastRun) : 'never';
+    // Prefer heartbeat last_run; fall back to scheduler_last_run_time for jobs without heartbeat wiring
+    const lastRun = task?.last_run?.finished_at || task?.scheduler_last_run_time;
+    const lastStr = lastRun ? humanizeAgo(lastRun) : 'not run';
     const openBtn = r.url
       ? `<a class="r-open" href="${escapeAttr(r.url)}" target="_blank" rel="noopener">Open ↗</a>`
       : `<button class="r-open" onclick="jumpToScheduleTask('${escapeAttr(r.job_id)}')">View</button>`;
