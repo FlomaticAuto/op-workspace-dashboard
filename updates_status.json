@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T18:15:07",
+  "generated_at": "2026-05-26T20:15:08",
   "total": 23,
   "ok": 5,
   "warn": 2,
@@ -22,8 +22,8 @@
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
       "overall": "fail",
-      "task_last_run": "2026-05-26T08:45:45",
-      "task_last_result": 127
+      "task_last_run": null,
+      "task_last_result": null
     },
     {
       "id": "ecommerce_dashboard",
