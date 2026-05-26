@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T18:45:25+02:00",
+  "generated_at": "2026-05-26T19:00:02+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -113,8 +113,8 @@
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T10:00:00",
       "next_run": "2026-05-27 10:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 19:00:00+02:00",
-      "scheduler_last_task_result": 0,
+      "scheduler_last_run_time": "2026-05-26 19:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -367,9 +367,9 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-26 19:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-26 18:00:01+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-05-26 20:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-26 19:00:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
         {
@@ -764,8 +764,8 @@
       "task_path": "\\Olympic Paints\\SIGMA\\MerchAttachmentDownload",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-19T19:00:00+02:00",
-      "next_run": "2026-05-26 19:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 19:00:01+02:00",
+      "next_run": "2026-05-27 19:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-26 19:00:01+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
