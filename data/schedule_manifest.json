@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T16:27:59+02:00",
+  "generated_at": "2026-05-26T16:50:15+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -138,7 +138,7 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1630",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T16:30:00",
-      "next_run": "2026-05-26 16:30:00+02:00",
+      "next_run": "2026-05-27 16:30:00+02:00",
       "scheduler_last_run_time": "2026-05-26 01:30:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
@@ -177,8 +177,8 @@
       "task_path": "\\Olympic Paints\\E-Commerce\\Dashboard Build",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-23T16:30:00+02:00",
-      "next_run": "2026-05-26 16:30:00+02:00",
-      "scheduler_last_run_time": "2026-05-25 16:30:00+02:00",
+      "next_run": "2026-05-27 16:30:00+02:00",
+      "scheduler_last_run_time": "2026-05-26 16:30:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -289,8 +289,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-05-26 16:43:10+02:00",
-      "scheduler_last_run_time": "2026-05-26 16:13:11+02:00",
+      "next_run": "2026-05-26 17:13:10+02:00",
+      "scheduler_last_run_time": "2026-05-26 16:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -313,7 +313,7 @@
       "name": "Folder Watcher",
       "agent": "HAVEN",
       "task_path": "\\Olympic Paints\\HAVEN\\Folder Watcher",
-      "enabled": true,
+      "enabled": false,
       "schedule_summary": "type=9 start=",
       "next_run": null,
       "scheduler_last_run_time": "2026-05-25 08:14:09+02:00",
