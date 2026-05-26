@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T20:15:08",
+  "generated_at": "2026-05-26T22:15:06",
   "total": 23,
   "ok": 5,
   "warn": 2,
@@ -92,8 +92,8 @@
       "task": "Olympic Paints - Kaizen Daily Sync",
       "cadence": "Daily \u00b7 07:30",
       "overall": "fail",
-      "task_last_run": "2026-05-26T07:30:30",
-      "task_last_result": 127
+      "task_last_run": null,
+      "task_last_result": null
     },
     {
       "id": "workspace_health",
