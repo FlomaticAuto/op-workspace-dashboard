@@ -264,6 +264,17 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
 .miss-count-badge{display:inline-block;background:var(--color-danger-bd);color:#fff;border-radius:var(--r-pill);padding:1px 8px;font-size:11px;font-weight:700;margin-left:4px}
 .miss-count-badge.zero{background:var(--color-success-bd)}
 
+/* ── MONTH FILTER (Monthly Reporting tab) ─────────────────────── */
+.mo-filter-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--color-surface-base);border:1px solid var(--color-border-subtle);border-radius:var(--r-md);padding:10px 12px;margin-bottom:12px}
+.mo-filter-label{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-secondary);margin-right:4px}
+.mo-preset{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-border-default);background:var(--color-surface-sunken);color:var(--color-text-primary);padding:5px 10px;border-radius:var(--r-sm);cursor:pointer}
+.mo-preset:hover{background:var(--color-brand-primary);color:var(--color-text-on-brand);border-color:var(--color-brand-primary)}
+.mo-divider{width:1px;height:20px;background:var(--color-border-default);margin:0 4px}
+.mo-meta{font-size:11px;color:var(--color-text-secondary);font-family:var(--font-body)}
+.mo-meta strong{color:var(--color-text-primary);font-weight:700}
+#mo-table-wrap{max-height:520px;overflow-y:auto}
+#mo-table th{position:sticky;top:0;z-index:2}
+
 /* ── WEEK FILTER (Weekly Hours tab) ───────────────────────────── */
 .wk-filter-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--color-surface-base);border:1px solid var(--color-border-subtle);border-radius:var(--r-md);padding:10px 12px;margin-bottom:12px}
 .wk-filter-label{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-secondary);margin-right:4px}
@@ -325,6 +336,7 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
   /* Week chip controls compact */
   #wk-week-chips{gap:4px}
   .wk-chip{padding:6px 10px;font-size:11px;min-height:36px}
+  .mo-preset{padding:6px 10px;font-size:11px;min-height:36px}
 }
 
 /* ────────────────────────────────────────────────────────────────────────
@@ -372,6 +384,7 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
   .wk-chip{flex-shrink:0;padding:8px 12px;min-height:40px}
   .wk-toolbar{flex-wrap:wrap;gap:6px}
   .wk-preset,.btn-export{min-height:40px;padding:8px 12px}
+  .mo-preset{min-height:40px;padding:8px 12px}
 
   /* Charts */
   canvas{max-width:100% !important;height:auto !important}
