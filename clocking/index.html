@@ -264,6 +264,17 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
 .miss-count-badge{display:inline-block;background:var(--color-danger-bd);color:#fff;border-radius:var(--r-pill);padding:1px 8px;font-size:11px;font-weight:700;margin-left:4px}
 .miss-count-badge.zero{background:var(--color-success-bd)}
 
+/* ── MONTH FILTER (Monthly Reporting tab) ─────────────────────── */
+.mo-filter-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--color-surface-base);border:1px solid var(--color-border-subtle);border-radius:var(--r-md);padding:10px 12px;margin-bottom:12px}
+.mo-filter-label{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-secondary);margin-right:4px}
+.mo-preset{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-border-default);background:var(--color-surface-sunken);color:var(--color-text-primary);padding:5px 10px;border-radius:var(--r-sm);cursor:pointer}
+.mo-preset:hover{background:var(--color-brand-primary);color:var(--color-text-on-brand);border-color:var(--color-brand-primary)}
+.mo-divider{width:1px;height:20px;background:var(--color-border-default);margin:0 4px}
+.mo-meta{font-size:11px;color:var(--color-text-secondary);font-family:var(--font-body)}
+.mo-meta strong{color:var(--color-text-primary);font-weight:700}
+#mo-table-wrap{max-height:520px;overflow-y:auto}
+#mo-table th{position:sticky;top:0;z-index:2}
+
 /* ── WEEK FILTER (Weekly Hours tab) ───────────────────────────── */
 .wk-filter-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--color-surface-base);border:1px solid var(--color-border-subtle);border-radius:var(--r-md);padding:10px 12px;margin-bottom:12px}
 .wk-filter-label{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-secondary);margin-right:4px}
@@ -325,6 +336,7 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
   /* Week chip controls compact */
   #wk-week-chips{gap:4px}
   .wk-chip{padding:6px 10px;font-size:11px;min-height:36px}
+  .mo-preset{padding:6px 10px;font-size:11px;min-height:36px}
 }
 
 /* ────────────────────────────────────────────────────────────────────────
@@ -372,6 +384,7 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
   .wk-chip{flex-shrink:0;padding:8px 12px;min-height:40px}
   .wk-toolbar{flex-wrap:wrap;gap:6px}
   .wk-preset,.btn-export{min-height:40px;padding:8px 12px}
+  .mo-preset{min-height:40px;padding:8px 12px}
 
   /* Charts */
   canvas{max-width:100% !important;height:auto !important}
@@ -417,6 +430,7 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
   <button onclick="showTab('daily',this)">Daily Attendance</button>
   <button onclick="showTab('departments',this)">Departments</button>
   <button onclick="showTab('weekly',this)">Weekly Hours</button>
+  <button onclick="showTab('monthly',this)">Monthly Reporting</button>
   <button onclick="showTab('missing',this)">Missing Clock Out</button>
 </nav>
 
@@ -429,6 +443,7 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
       <strong>Daily Attendance</strong> — Filter by date range to inspect any period. Use the chart to spot dips in headcount.<br>
       <strong>Departments</strong> — Which departments have the most missing clock-outs. Useful for line-manager conversations.<br>
       <strong>Weekly Hours</strong> — Per-employee hours in Wed–Tue weeks. Use the week chips to isolate recent weeks. Export to Excel for payroll.<br>
+      <strong>Monthly Reporting</strong> — Per-employee hours aggregated into calendar months. Select any date range with the From/To pickers or use quick presets. Export to Excel for month-end payroll or trend analysis.<br>
       <strong>Missing Clock Out</strong> — Full log of every missed punch. Search by name, ID, or department. Top-10 repeat offenders are charted.
     </div>
   </details>
@@ -559,6 +574,54 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
   <div id="wk-table-wrap" class="table-wrap"><table id="wk-table"><thead id="wk-thead"></thead><tbody id="wk-body"></tbody></table></div>
 </div>
 
+<!-- MONTHLY -->
+<div id="tab-monthly" class="tab-content">
+  <p class="note" style="margin-top:8px;margin-bottom:10px">Hours are NET of 45 min/day break. Weeks run Wed&#8211;Tue; hours for weeks spanning a month boundary are split by day. Values in decimal hours (e.g. 168.0&#160;=&#160;168&#160;h). Miss YTD&#160;= total missing clock-outs YTD.</p>
+  <div class="controls">
+    <input type="text" id="mo-search" placeholder="Search name or ID..." oninput="filterMo()">
+    <select id="mo-emp" onchange="filterMo()" title="Employer">
+      <option value="">All Employers</option>
+      <option value="Olympic Paints">OP &#8212; Olympic Paints</option>
+      <option value="Primeserve">PS &#8212; Primeserve</option>
+    </select>
+    <select id="mo-miss" onchange="filterMo()" title="Missed clock-outs">
+      <option value="">Any miss status</option>
+      <option value="missing">Has missed clock-outs</option>
+      <option value="clean">No missed clock-outs</option>
+    </select>
+    <select id="mo-min-hrs" onchange="filterMo()" title="Minimum total hours (visible months)">
+      <option value="0">Any hours</option>
+      <option value="1">&#8805; 1h</option>
+      <option value="40">&#8805; 40h</option>
+      <option value="80">&#8805; 80h</option>
+      <option value="120">&#8805; 120h</option>
+    </select>
+  </div>
+
+  <div class="mo-filter-bar">
+    <span class="mo-filter-label">Date Range</span>
+    <button class="mo-preset" onclick="setMoPreset('this')">This Month</button>
+    <button class="mo-preset" onclick="setMoPreset('last')">Last Month</button>
+    <button class="mo-preset" onclick="setMoPreset('3m')">Last 3 Months</button>
+    <button class="mo-preset" onclick="setMoPreset('ytd')">YTD</button>
+    <span class="mo-divider"></span>
+    <span style="font-size:11px;color:var(--color-text-secondary)">From</span>
+    <input type="date" id="mo-from" style="font-size:11px;padding:4px 8px;border:1px solid var(--color-border-default);background:var(--color-surface-sunken);color:var(--color-text-primary);border-radius:var(--r-sm)">
+    <span style="font-size:11px;color:var(--color-text-secondary)">To</span>
+    <input type="date" id="mo-to" style="font-size:11px;padding:4px 8px;border:1px solid var(--color-border-default);background:var(--color-surface-sunken);color:var(--color-text-primary);border-radius:var(--r-sm)">
+    <button class="mo-preset" onclick="applyMo()" style="background:var(--color-success-bd);color:#fff;border-color:var(--color-success-bd)">Apply</button>
+    <div id="mo-meta" class="mo-meta" style="margin-left:auto"></div>
+    <button class="btn-export" onclick="exportMo()" title="Download visible rows as Excel">&#8595; Export to Excel</button>
+  </div>
+
+  <div class="legend">
+    <div class="chip"><div class="chip-dot" style="background:rgba(107,158,208,.3)"></div> Hours present</div>
+    <div class="chip"><div class="chip-dot" style="background:#1A3D6E"></div> Period total</div>
+    <div class="chip"><div class="chip-dot" style="background:#FDF0A0;border:1px solid #D4A800"></div> Has missed clock-outs</div>
+  </div>
+  <div id="mo-table-wrap" class="table-wrap"><table id="mo-table"><thead id="mo-thead"></thead><tbody id="mo-body"></tbody></table></div>
+</div>
+
 <!-- MISSING -->
 <div id="tab-missing" class="tab-content">
   <div class="kpi-grid" style="margin-top:8px;margin-bottom:18px">
@@ -624,7 +687,7 @@ function showTab(id,btn){
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
-  ({overview:initOverview,yesterday:initYesterday,daily:initDaily,departments:initDepts,missing:initMissing}[id]||function(){})();
+  ({overview:initOverview,yesterday:initYesterday,daily:initDaily,departments:initDepts,monthly:initMo,missing:initMissing}[id]||function(){})();
 }
 
 const inited={};
@@ -1215,6 +1278,342 @@ async function exportWk(){
   a.href=url;a.download='Olympic_Paints_Weekly_Hours'+tag+'_'+ts+'.xlsx';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
+
+// ── MONTHLY ───────────────────────────────────────────────────────────
+
+/* ── Date helpers ──────────────────────────────────────────────── */
+function parseDateStr(s){
+  var p=s.split('-').map(Number);
+  return new Date(p[0],p[1]-1,p[2]);
+}
+function fmtMonthLabel(y,m){
+  return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][m-1]+' '+y;
+}
+function fmtYMD(dt){
+  return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
+}
+function getMonthsInRange(from,to){
+  var months=[];
+  var y=from.getFullYear(),m=from.getMonth()+1;
+  var ey=to.getFullYear(),em=to.getMonth()+1;
+  while(y<ey||(y===ey&&m<=em)){
+    months.push({key:y+'-'+String(m).padStart(2,'0'),label:fmtMonthLabel(y,m)});
+    m++;if(m>12){m=1;y++;}
+  }
+  return months;
+}
+
+/* ── State ─────────────────────────────────────────────────────── */
+var moFromDate=null,moToDate=null,moMonths=[],moAggRows=[];
+
+/* ── Aggregation ───────────────────────────────────────────────── */
+var MO_WK_OFFSETS={Wed:0,Thu:1,Fri:2,Sat:3,Sun:4,Mon:5,Tue:6};
+
+function buildMonthlyAgg(from,to){
+  var fromMs=from.getTime(),toMs=to.getTime();
+  return D.wk_detail_table.map(function(r){
+    var months={};
+    D.wk_weeks.forEach(function(wk,wi){
+      var wkStart=parseDateStr(wk.start);
+      var weekData=r.weeks[wi];
+      if(!weekData)return;
+      Object.keys(MO_WK_OFFSETS).forEach(function(day){
+        var offset=MO_WK_OFFSETS[day];
+        var dayHrs=(weekData.days&&weekData.days[day])||0;
+        if(dayHrs<=0)return;
+        var dt=new Date(wkStart.getTime()+offset*86400000);
+        if(dt.getTime()<fromMs||dt.getTime()>toMs)return;
+        var key=dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0');
+        months[key]=(months[key]||0)+dayHrs;
+      });
+    });
+    return {employer:r.employer,id:r.id,name:r.name,missYTD:r.missYTD||0,months:months};
+  });
+}
+
+/* ── Preset + Apply ────────────────────────────────────────────── */
+function setMoPreset(p){
+  var now=new Date();
+  var y=now.getFullYear(),m=now.getMonth();
+  var from,to;
+  if(p==='this'){from=new Date(y,m,1);to=new Date(y,m+1,0);}
+  else if(p==='last'){from=new Date(y,m-1,1);to=new Date(y,m,0);}
+  else if(p==='3m'){from=new Date(y,m-2,1);to=new Date(y,m+1,0);}
+  else{from=new Date(y,0,1);to=new Date(y,m+1,0);}
+  document.getElementById('mo-from').value=fmtYMD(from);
+  document.getElementById('mo-to').value=fmtYMD(to);
+  applyMo();
+}
+
+function applyMo(){
+  var fv=document.getElementById('mo-from').value;
+  var tv=document.getElementById('mo-to').value;
+  if(!fv||!tv){alert('Please select both a From and To date.');return;}
+  var from=parseDateStr(fv),to=parseDateStr(tv);
+  if(from>to){alert('End date must be after start date.');return;}
+  moFromDate=from;moToDate=to;
+  moMonths=getMonthsInRange(from,to);
+  moAggRows=buildMonthlyAgg(from,to);
+  filterMo();
+}
+
+/* ── Filtering + row total ─────────────────────────────────────── */
+function moRowTotal(r){
+  return moMonths.reduce(function(s,mo){return s+(r.months[mo.key]||0);},0);
+}
+
+function getFilteredMoRows(){
+  var s=(document.getElementById('mo-search').value||'').toLowerCase();
+  var e=document.getElementById('mo-emp').value;
+  var miss=document.getElementById('mo-miss').value;
+  var minH=parseFloat(document.getElementById('mo-min-hrs').value)||0;
+  var rows=moAggRows.slice();
+  if(e)rows=rows.filter(function(r){return r.employer===e;});
+  if(s)rows=rows.filter(function(r){return r.name.toLowerCase().includes(s)||r.id.toLowerCase().includes(s);});
+  if(miss==='missing')rows=rows.filter(function(r){return r.missYTD>0;});
+  else if(miss==='clean')rows=rows.filter(function(r){return r.missYTD===0;});
+  if(minH>0)rows=rows.filter(function(r){return moRowTotal(r)>=minH;});
+  return rows;
+}
+
+function filterMo(){
+  if(!moMonths.length)return;
+  buildMoHeader();
+  var rows=getFilteredMoRows();
+  renderMo(rows);
+  updateMoMeta(rows);
+}
+
+/* ── Table header ──────────────────────────────────────────────── */
+function buildMoHeader(){
+  var thead=document.getElementById('mo-thead');
+  var r1='<tr><th rowspan="2">Employer</th><th rowspan="2">ID</th><th rowspan="2">Name</th>';
+  moMonths.forEach(function(mo){
+    r1+='<th style="background:#1A3D6E;color:#fff;text-align:center;white-space:nowrap;border-bottom:2px solid #F5C400">'+mo.label+'</th>';
+  });
+  r1+='<th rowspan="2" style="background:#0D2040;color:#F5C400;text-align:center;font-weight:800">Total</th>';
+  r1+='<th rowspan="2" style="text-align:center">Miss YTD</th></tr>';
+  var r2='<tr>';
+  moMonths.forEach(function(){r2+='<th style="background:rgba(26,61,110,.7);color:var(--color-text-secondary);text-align:center;font-size:10px">Hours</th>';});
+  r2+='</tr>';
+  thead.innerHTML=r1+r2;
+}
+
+/* ── Table body ────────────────────────────────────────────────── */
+function renderMo(rows){
+  var b=document.getElementById('mo-body');
+  b.innerHTML='';
+  if(!moMonths.length){
+    b.innerHTML='<tr><td colspan="6" style="padding:24px;text-align:center;color:var(--color-text-secondary);font-style:italic">Select a date range and click Apply to load data.</td></tr>';
+    return;
+  }
+  if(!rows.length){
+    var cols=3+moMonths.length+2;
+    b.innerHTML='<tr><td colspan="'+cols+'" style="padding:24px;text-align:center;color:var(--color-text-secondary);font-style:italic">No employees match the current filter.</td></tr>';
+    return;
+  }
+  rows.forEach(function(r){
+    var ps=r.employer==='Primeserve';
+    var hasMiss=r.missYTD>0;
+    var total=moRowTotal(r);
+    var cells='';
+    moMonths.forEach(function(mo){
+      var h=r.months[mo.key]||0;
+      cells+='<td class="center" style="background:rgba(107,158,208,.12);color:var(--color-text-primary);font-size:11px">'+(h>0?h.toFixed(1):'&mdash;')+'</td>';
+    });
+    b.innerHTML+='<tr class="'+(ps?'primeserve':'')+'">'+
+      '<td class="'+(ps?'emp-ps':'emp-op')+'" style="font-weight:800">'+(ps?'PS':'OP')+'</td>'+
+      '<td style="font-size:11px;color:var(--color-text-secondary)">'+r.id+'</td>'+
+      '<td><strong>'+r.name+'</strong></td>'+
+      cells+
+      '<td class="center" style="background:#1A3D6E;color:#F5C400;font-weight:800">'+(total>0?total.toFixed(1):'&mdash;')+'</td>'+
+      '<td class="center" style="background:'+(hasMiss?'rgba(245,196,0,.18)':'rgba(45,140,122,.15)')+';font-weight:800;color:'+(hasMiss?'var(--color-warning-fg)':'var(--color-success-fg)')+';">'+(r.missYTD||0)+'</td>'+
+      '</tr>';
+  });
+}
+
+/* ── Meta row ──────────────────────────────────────────────────── */
+function updateMoMeta(rows){
+  var meta=document.getElementById('mo-meta');
+  if(!meta)return;
+  var opN=rows.filter(function(r){return r.employer==='Olympic Paints';}).length;
+  var psN=rows.filter(function(r){return r.employer==='Primeserve';}).length;
+  var sumH=rows.reduce(function(s,r){return s+moRowTotal(r);},0);
+  var moLbl=moMonths.length?moMonths.map(function(m){return m.label;}).join(', '):'(none)';
+  meta.innerHTML='Showing <strong>'+rows.length+'</strong> employees (OP <strong>'+opN+'</strong> &middot; PS <strong>'+psN+'</strong>) &middot; <strong>'+moMonths.length+'</strong> month'+(moMonths.length===1?'':'s')+': '+moLbl+' &middot; visible total <strong>'+sumH.toFixed(1)+'h</strong>';
+}
+
+/* ── Init (lazy, once) ─────────────────────────────────────────── */
+function initMo(){once('monthly',function(){setMoPreset('last');});}
+
+async function exportMo(){
+  var rows=getFilteredMoRows();
+  if(!moMonths.length){alert('Select a date range and click Apply before exporting.');return;}
+  if(!rows.length){alert('No employees match the current filter.');return;}
+
+  var AN='FF1A3D6E',AY='FFF5C400',AD='FF0D2040',AW='FFFFFFFF',AT='FF2D8C7A';
+  var wb=new ExcelJS.Workbook();
+  wb.creator='Olympic Paints — HR';
+  wb.lastModifiedBy='Clocking Dashboard';
+  wb.created=new Date();
+  var ws=wb.addWorksheet('Monthly Hours',{
+    properties:{tabColor:{argb:AY}},
+    views:[{state:'frozen',xSplit:3,ySplit:3}]
+  });
+
+  var empF=document.getElementById('mo-emp').value;
+  var missF=document.getElementById('mo-miss').value;
+  var minHF=parseFloat(document.getElementById('mo-min-hrs').value)||0;
+  var searchF=document.getElementById('mo-search').value;
+  var filters=[];
+  if(empF)filters.push('Employer: '+(empF==='Olympic Paints'?'OP (Olympic Paints)':'PS (Primeserve)'));
+  if(missF)filters.push('Miss: '+missF);
+  if(minHF)filters.push('Min hrs: ≥'+minHF+'h');
+  if(searchF)filters.push('Search: "'+searchF+'"');
+  var filterStr=filters.length?filters.join(' | '):'All employees';
+
+  var TC=3+moMonths.length+2;
+
+  // Row 1 — Title
+  ws.mergeCells(1,1,1,TC);
+  var t1=ws.getCell(1,1);
+  t1.value='OLYMPIC PAINTS — Monthly Hours Report';
+  t1.font={bold:true,size:14,color:{argb:AY},name:'Calibri'};
+  t1.fill={type:'pattern',pattern:'solid',fgColor:{argb:AN}};
+  t1.alignment={vertical:'middle',horizontal:'left'};
+  ws.getRow(1).height=26;
+
+  // Row 2 — Subtitle
+  ws.mergeCells(2,1,2,TC);
+  var t2=ws.getCell(2,1);
+  t2.value='Period: '+document.getElementById('mo-from').value+' – '+document.getElementById('mo-to').value+'  |  Generated: '+new Date().toISOString().slice(0,10)+'  |  '+filterStr+'  |  Employees: '+rows.length;
+  t2.font={size:9,color:{argb:'FF9ABADB'},italic:true};
+  t2.fill={type:'pattern',pattern:'solid',fgColor:{argb:AD}};
+  t2.alignment={vertical:'middle',horizontal:'left'};
+  ws.getRow(2).height=16;
+
+  // Row 3 — Column headers
+  ws.getRow(3).height=20;
+  var hdrs=['Employer','ID','Name'].concat(moMonths.map(function(m){return m.label;})).concat(['Total','Miss YTD']);
+  hdrs.forEach(function(h,i){
+    var c=ws.getCell(3,i+1);
+    c.value=h;
+    var isMo=i>=3&&i<3+moMonths.length;
+    var isTot=i===3+moMonths.length;
+    c.fill={type:'pattern',pattern:'solid',fgColor:{argb:isTot?AD:AN}};
+    c.font={bold:true,color:{argb:(isMo||isTot)?AY:AW},size:10};
+    c.alignment={horizontal:'center',vertical:'middle'};
+    c.border=thinBorder('FF2A4A7E');
+  });
+
+  // Column widths
+  ws.getColumn(1).width=12;
+  ws.getColumn(2).width=14;
+  ws.getColumn(3).width=28;
+  moMonths.forEach(function(_,i){ws.getColumn(4+i).width=14;});
+  ws.getColumn(4+moMonths.length).width=12;
+  ws.getColumn(4+moMonths.length+1).width=12;
+
+  // Data rows (start at row 4)
+  rows.forEach(function(r,ri){
+    var rn=4+ri;
+    ws.getRow(rn).height=16;
+    var ps=r.employer==='Primeserve';
+    var hasMiss=r.missYTD>0;
+    var total=moRowTotal(r);
+    var bg=ri%2===0?'FF1A1A18':'FF111110';
+
+    var ec=ws.getCell(rn,1);
+    ec.value=ps?'PS':'OP';
+    ec.font={bold:true,color:{argb:ps?'FF2D8C7A':'FF6B9ED0'},size:10};
+    ec.fill={type:'pattern',pattern:'solid',fgColor:{argb:bg}};
+    ec.alignment={horizontal:'center'};
+
+    var ic=ws.getCell(rn,2);
+    ic.value=r.id;
+    ic.font={size:9,color:{argb:'FF888888'}};
+    ic.fill={type:'pattern',pattern:'solid',fgColor:{argb:bg}};
+
+    var nc=ws.getCell(rn,3);
+    nc.value=r.name;
+    nc.font={bold:true,size:10};
+    nc.fill={type:'pattern',pattern:'solid',fgColor:{argb:bg}};
+
+    moMonths.forEach(function(mo,mi){
+      var h=r.months[mo.key]||0;
+      var mc=ws.getCell(rn,4+mi);
+      mc.value=h>0?Math.round(h*100)/100:null;
+      mc.numFmt='0.0';
+      mc.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FF1A2A40'}};
+      mc.alignment={horizontal:'center'};
+      mc.font={size:10};
+    });
+
+    var tc=ws.getCell(rn,4+moMonths.length);
+    tc.value=total>0?Math.round(total*100)/100:null;
+    tc.numFmt='0.0';
+    tc.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FF162A50'}};
+    tc.font={bold:true,size:10,color:{argb:AW}};
+    tc.alignment={horizontal:'center'};
+
+    var xc=ws.getCell(rn,4+moMonths.length+1);
+    xc.value=r.missYTD||0;
+    xc.fill={type:'pattern',pattern:'solid',fgColor:{argb:hasMiss?'FF2A2000':'FF001A14'}};
+    xc.font={bold:true,size:10,color:{argb:hasMiss?AY:AT}};
+    xc.alignment={horizontal:'center'};
+  });
+
+  // Totals row
+  var tn=4+rows.length;
+  ws.getRow(tn).height=18;
+  ws.mergeCells(tn,1,tn,3);
+  var tl=ws.getCell(tn,1);
+  tl.value='TOTALS';
+  tl.font={bold:true,color:{argb:AW},size:11};
+  tl.fill={type:'pattern',pattern:'solid',fgColor:{argb:AN}};
+  tl.alignment={horizontal:'center'};
+
+  moMonths.forEach(function(mo,mi){
+    var colSum=rows.reduce(function(s,r){return s+(r.months[mo.key]||0);},0);
+    var tc=ws.getCell(tn,4+mi);
+    tc.value=Math.round(colSum*100)/100;
+    tc.numFmt='0.0';
+    tc.fill={type:'pattern',pattern:'solid',fgColor:{argb:AN}};
+    tc.font={bold:true,color:{argb:AY},size:10};
+    tc.alignment={horizontal:'center'};
+  });
+
+  var grand=rows.reduce(function(s,r){return s+moRowTotal(r);},0);
+  var gc=ws.getCell(tn,4+moMonths.length);
+  gc.value=Math.round(grand*100)/100;
+  gc.numFmt='0.0';
+  gc.fill={type:'pattern',pattern:'solid',fgColor:{argb:AN}};
+  gc.font={bold:true,color:{argb:AY},size:11};
+  gc.alignment={horizontal:'center'};
+
+  var mx=ws.getCell(tn,4+moMonths.length+1);
+  mx.fill={type:'pattern',pattern:'solid',fgColor:{argb:AN}};
+
+  // Page setup
+  ws.pageSetup={
+    paperSize:9,orientation:'landscape',fitToPage:true,fitToWidth:1,fitToHeight:0,
+    margins:{left:0.4,right:0.4,top:0.5,bottom:0.5,header:0.3,footer:0.3},
+    printTitlesRow:'1:3'
+  };
+  ws.headerFooter.oddFooter='&LOlympic Paints&CMonthly Hours Report&RPage &P of &N';
+
+  // Download
+  var buf=await wb.xlsx.writeBuffer();
+  var blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');
+  var fromTag=document.getElementById('mo-from').value;
+  var toTag=document.getElementById('mo-to').value;
+  a.href=url;
+  a.download='Olympic_Paints_Monthly_Hours_'+fromTag+'_'+toTag+'.xlsx';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  setTimeout(function(){URL.revokeObjectURL(url);},1500);
 }
 
 // ── MISSING ───────────────────────────────────────────────────────────
