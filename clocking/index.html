@@ -687,7 +687,7 @@ function showTab(id,btn){
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
-  ({overview:initOverview,yesterday:initYesterday,daily:initDaily,departments:initDepts,missing:initMissing}[id]||function(){})();
+  ({overview:initOverview,yesterday:initYesterday,daily:initDaily,departments:initDepts,monthly:initMo,missing:initMissing}[id]||function(){})();
 }
 
 const inited={};
@@ -1279,6 +1279,173 @@ async function exportWk(){
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(()=>URL.revokeObjectURL(url),1500);
 }
+
+// ── MONTHLY ───────────────────────────────────────────────────────────
+
+/* ── Date helpers ──────────────────────────────────────────────── */
+function parseDateStr(s){
+  var p=s.split('-').map(Number);
+  return new Date(p[0],p[1]-1,p[2]);
+}
+function fmtMonthLabel(y,m){
+  return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][m-1]+' '+y;
+}
+function fmtYMD(dt){
+  return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
+}
+function getMonthsInRange(from,to){
+  var months=[];
+  var y=from.getFullYear(),m=from.getMonth()+1;
+  var ey=to.getFullYear(),em=to.getMonth()+1;
+  while(y<ey||(y===ey&&m<=em)){
+    months.push({key:y+'-'+String(m).padStart(2,'0'),label:fmtMonthLabel(y,m)});
+    m++;if(m>12){m=1;y++;}
+  }
+  return months;
+}
+
+/* ── State ─────────────────────────────────────────────────────── */
+var moFromDate=null,moToDate=null,moMonths=[],moAggRows=[];
+
+/* ── Aggregation ───────────────────────────────────────────────── */
+var MO_WK_OFFSETS={Wed:0,Thu:1,Fri:2,Sat:3,Sun:4,Mon:5,Tue:6};
+
+function buildMonthlyAgg(from,to){
+  var fromMs=from.getTime(),toMs=to.getTime();
+  return D.wk_detail_table.map(function(r){
+    var months={};
+    D.wk_weeks.forEach(function(wk,wi){
+      var wkStart=parseDateStr(wk.start);
+      var weekData=r.weeks[wi];
+      if(!weekData)return;
+      Object.keys(MO_WK_OFFSETS).forEach(function(day){
+        var offset=MO_WK_OFFSETS[day];
+        var dayHrs=(weekData.days&&weekData.days[day])||0;
+        if(dayHrs<=0)return;
+        var dt=new Date(wkStart.getTime()+offset*86400000);
+        if(dt.getTime()<fromMs||dt.getTime()>toMs)return;
+        var key=dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0');
+        months[key]=(months[key]||0)+dayHrs;
+      });
+    });
+    return {employer:r.employer,id:r.id,name:r.name,missYTD:r.missYTD||0,months:months};
+  });
+}
+
+/* ── Preset + Apply ────────────────────────────────────────────── */
+function setMoPreset(p){
+  var now=new Date();
+  var y=now.getFullYear(),m=now.getMonth();
+  var from,to;
+  if(p==='this'){from=new Date(y,m,1);to=new Date(y,m+1,0);}
+  else if(p==='last'){from=new Date(y,m-1,1);to=new Date(y,m,0);}
+  else if(p==='3m'){from=new Date(y,m-2,1);to=new Date(y,m+1,0);}
+  else{from=new Date(y,0,1);to=new Date(y,m+1,0);}
+  document.getElementById('mo-from').value=fmtYMD(from);
+  document.getElementById('mo-to').value=fmtYMD(to);
+  applyMo();
+}
+
+function applyMo(){
+  var fv=document.getElementById('mo-from').value;
+  var tv=document.getElementById('mo-to').value;
+  if(!fv||!tv){alert('Please select both a From and To date.');return;}
+  var from=parseDateStr(fv),to=parseDateStr(tv);
+  if(from>to){alert('End date must be after start date.');return;}
+  moFromDate=from;moToDate=to;
+  moMonths=getMonthsInRange(from,to);
+  moAggRows=buildMonthlyAgg(from,to);
+  filterMo();
+}
+
+/* ── Filtering + row total ─────────────────────────────────────── */
+function moRowTotal(r){
+  return moMonths.reduce(function(s,mo){return s+(r.months[mo.key]||0);},0);
+}
+
+function getFilteredMoRows(){
+  var s=(document.getElementById('mo-search').value||'').toLowerCase();
+  var e=document.getElementById('mo-emp').value;
+  var miss=document.getElementById('mo-miss').value;
+  var minH=parseFloat(document.getElementById('mo-min-hrs').value)||0;
+  var rows=moAggRows.slice();
+  if(e)rows=rows.filter(function(r){return r.employer===e;});
+  if(s)rows=rows.filter(function(r){return r.name.toLowerCase().includes(s)||r.id.toLowerCase().includes(s);});
+  if(miss==='missing')rows=rows.filter(function(r){return r.missYTD>0;});
+  else if(miss==='clean')rows=rows.filter(function(r){return r.missYTD===0;});
+  if(minH>0)rows=rows.filter(function(r){return moRowTotal(r)>=minH;});
+  return rows;
+}
+
+function filterMo(){
+  if(!moMonths.length)return;
+  buildMoHeader();
+  var rows=getFilteredMoRows();
+  renderMo(rows);
+  updateMoMeta(rows);
+}
+
+/* ── Table header ──────────────────────────────────────────────── */
+function buildMoHeader(){
+  var thead=document.getElementById('mo-thead');
+  var r1='<tr><th rowspan="2">Employer</th><th rowspan="2">ID</th><th rowspan="2">Name</th>';
+  moMonths.forEach(function(mo){
+    r1+='<th style="background:#1A3D6E;color:#fff;text-align:center;white-space:nowrap;border-bottom:2px solid #F5C400">'+mo.label+'</th>';
+  });
+  r1+='<th rowspan="2" style="background:#0D2040;color:#F5C400;text-align:center;font-weight:800">Total</th>';
+  r1+='<th rowspan="2" style="text-align:center">Miss YTD</th></tr>';
+  var r2='<tr>';
+  moMonths.forEach(function(){r2+='<th style="background:rgba(26,61,110,.7);color:var(--color-text-secondary);text-align:center;font-size:10px">Hours</th>';});
+  r2+='</tr>';
+  thead.innerHTML=r1+r2;
+}
+
+/* ── Table body ────────────────────────────────────────────────── */
+function renderMo(rows){
+  var b=document.getElementById('mo-body');
+  b.innerHTML='';
+  if(!moMonths.length){
+    b.innerHTML='<tr><td colspan="6" style="padding:24px;text-align:center;color:var(--color-text-secondary);font-style:italic">Select a date range and click Apply to load data.</td></tr>';
+    return;
+  }
+  if(!rows.length){
+    var cols=3+moMonths.length+2;
+    b.innerHTML='<tr><td colspan="'+cols+'" style="padding:24px;text-align:center;color:var(--color-text-secondary);font-style:italic">No employees match the current filter.</td></tr>';
+    return;
+  }
+  rows.forEach(function(r){
+    var ps=r.employer==='Primeserve';
+    var hasMiss=r.missYTD>0;
+    var total=moRowTotal(r);
+    var cells='';
+    moMonths.forEach(function(mo){
+      var h=r.months[mo.key]||0;
+      cells+='<td class="center" style="background:rgba(107,158,208,.12);color:var(--color-text-primary);font-size:11px">'+(h>0?h.toFixed(1):'&mdash;')+'</td>';
+    });
+    b.innerHTML+='<tr class="'+(ps?'primeserve':'')+'">'+
+      '<td class="'+(ps?'emp-ps':'emp-op')+'" style="font-weight:800">'+(ps?'PS':'OP')+'</td>'+
+      '<td style="font-size:11px;color:var(--color-text-secondary)">'+r.id+'</td>'+
+      '<td><strong>'+r.name+'</strong></td>'+
+      cells+
+      '<td class="center" style="background:#1A3D6E;color:#F5C400;font-weight:800">'+(total>0?total.toFixed(1):'&mdash;')+'</td>'+
+      '<td class="center" style="background:'+(hasMiss?'rgba(245,196,0,.18)':'rgba(45,140,122,.15)')+';font-weight:800;color:'+(hasMiss?'var(--color-warning-fg)':'var(--color-success-fg)')+';">'+(r.missYTD||0)+'</td>'+
+      '</tr>';
+  });
+}
+
+/* ── Meta row ──────────────────────────────────────────────────── */
+function updateMoMeta(rows){
+  var meta=document.getElementById('mo-meta');
+  if(!meta)return;
+  var opN=rows.filter(function(r){return r.employer==='Olympic Paints';}).length;
+  var psN=rows.filter(function(r){return r.employer==='Primeserve';}).length;
+  var sumH=rows.reduce(function(s,r){return s+moRowTotal(r);},0);
+  var moLbl=moMonths.length?moMonths.map(function(m){return m.label;}).join(', '):'(none)';
+  meta.innerHTML='Showing <strong>'+rows.length+'</strong> employees (OP <strong>'+opN+'</strong> &middot; PS <strong>'+psN+'</strong>) &middot; <strong>'+moMonths.length+'</strong> month'+(moMonths.length===1?'':'s')+': '+moLbl+' &middot; visible total <strong>'+sumH.toFixed(1)+'h</strong>';
+}
+
+/* ── Init (lazy, once) ─────────────────────────────────────────── */
+function initMo(){once('monthly',function(){setMoPreset('last');});}
 
 // ── MISSING ───────────────────────────────────────────────────────────
 function initMissing(){once('missing',()=>{
