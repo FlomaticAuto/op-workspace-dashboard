@@ -430,6 +430,7 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
   <button onclick="showTab('daily',this)">Daily Attendance</button>
   <button onclick="showTab('departments',this)">Departments</button>
   <button onclick="showTab('weekly',this)">Weekly Hours</button>
+  <button onclick="showTab('monthly',this)">Monthly Reporting</button>
   <button onclick="showTab('missing',this)">Missing Clock Out</button>
 </nav>
 
@@ -442,6 +443,7 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
       <strong>Daily Attendance</strong> — Filter by date range to inspect any period. Use the chart to spot dips in headcount.<br>
       <strong>Departments</strong> — Which departments have the most missing clock-outs. Useful for line-manager conversations.<br>
       <strong>Weekly Hours</strong> — Per-employee hours in Wed–Tue weeks. Use the week chips to isolate recent weeks. Export to Excel for payroll.<br>
+      <strong>Monthly Reporting</strong> — Per-employee hours aggregated into calendar months. Select any date range with the From/To pickers or use quick presets. Export to Excel for month-end payroll or trend analysis.<br>
       <strong>Missing Clock Out</strong> — Full log of every missed punch. Search by name, ID, or department. Top-10 repeat offenders are charted.
     </div>
   </details>
@@ -570,6 +572,54 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
     <div class="chip"><div class="chip-dot" style="background:#FDF0A0;border:1px solid #D4A800"></div> Has missed clock-outs</div>
   </div>
   <div id="wk-table-wrap" class="table-wrap"><table id="wk-table"><thead id="wk-thead"></thead><tbody id="wk-body"></tbody></table></div>
+</div>
+
+<!-- MONTHLY -->
+<div id="tab-monthly" class="tab-content">
+  <p class="note" style="margin-top:8px;margin-bottom:10px">Hours are NET of 45 min/day break. Weeks run Wed&#8211;Tue; hours for weeks spanning a month boundary are split by day. Values in decimal hours (e.g. 168.0&#160;=&#160;168&#160;h). Miss YTD&#160;= total missing clock-outs YTD.</p>
+  <div class="controls">
+    <input type="text" id="mo-search" placeholder="Search name or ID..." oninput="filterMo()">
+    <select id="mo-emp" onchange="filterMo()" title="Employer">
+      <option value="">All Employers</option>
+      <option value="Olympic Paints">OP &#8212; Olympic Paints</option>
+      <option value="Primeserve">PS &#8212; Primeserve</option>
+    </select>
+    <select id="mo-miss" onchange="filterMo()" title="Missed clock-outs">
+      <option value="">Any miss status</option>
+      <option value="missing">Has missed clock-outs</option>
+      <option value="clean">No missed clock-outs</option>
+    </select>
+    <select id="mo-min-hrs" onchange="filterMo()" title="Minimum total hours (visible months)">
+      <option value="0">Any hours</option>
+      <option value="1">&#8805; 1h</option>
+      <option value="40">&#8805; 40h</option>
+      <option value="80">&#8805; 80h</option>
+      <option value="120">&#8805; 120h</option>
+    </select>
+  </div>
+
+  <div class="mo-filter-bar">
+    <span class="mo-filter-label">Date Range</span>
+    <button class="mo-preset" onclick="setMoPreset('this')">This Month</button>
+    <button class="mo-preset" onclick="setMoPreset('last')">Last Month</button>
+    <button class="mo-preset" onclick="setMoPreset('3m')">Last 3 Months</button>
+    <button class="mo-preset" onclick="setMoPreset('ytd')">YTD</button>
+    <span class="mo-divider"></span>
+    <span style="font-size:11px;color:var(--color-text-secondary)">From</span>
+    <input type="date" id="mo-from" style="font-size:11px;padding:4px 8px;border:1px solid var(--color-border-default);background:var(--color-surface-sunken);color:var(--color-text-primary);border-radius:var(--r-sm)">
+    <span style="font-size:11px;color:var(--color-text-secondary)">To</span>
+    <input type="date" id="mo-to" style="font-size:11px;padding:4px 8px;border:1px solid var(--color-border-default);background:var(--color-surface-sunken);color:var(--color-text-primary);border-radius:var(--r-sm)">
+    <button class="mo-preset" onclick="applyMo()" style="background:var(--color-success-bd);color:#fff;border-color:var(--color-success-bd)">Apply</button>
+    <div id="mo-meta" class="mo-meta" style="margin-left:auto"></div>
+    <button class="btn-export" onclick="exportMo()" title="Download visible rows as Excel">&#8595; Export to Excel</button>
+  </div>
+
+  <div class="legend">
+    <div class="chip"><div class="chip-dot" style="background:rgba(107,158,208,.3)"></div> Hours present</div>
+    <div class="chip"><div class="chip-dot" style="background:#1A3D6E"></div> Period total</div>
+    <div class="chip"><div class="chip-dot" style="background:#FDF0A0;border:1px solid #D4A800"></div> Has missed clock-outs</div>
+  </div>
+  <div id="mo-table-wrap" class="table-wrap"><table id="mo-table"><thead id="mo-thead"></thead><tbody id="mo-body"></tbody></table></div>
 </div>
 
 <!-- MISSING -->
