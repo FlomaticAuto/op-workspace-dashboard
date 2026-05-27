@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-24T00:15:09",
+  "generated_at": "2026-05-27T10:15:06",
   "total": 23,
-  "ok": 6,
-  "warn": 7,
-  "fail": 10,
+  "ok": 4,
+  "warn": 2,
+  "fail": 17,
   "jobs": [
     {
       "id": "sales_dashboard",
@@ -12,7 +12,7 @@
       "task": "OlympicPaints_Sales_Dashboard_Refresh",
       "cadence": "Daily \u00b7 07:15",
       "overall": "fail",
-      "task_last_run": "2026-05-23T08:51:51",
+      "task_last_run": "2026-05-27T08:30:30",
       "task_last_result": 0
     },
     {
@@ -21,9 +21,9 @@
       "name": "Per-Rep KPI Dashboards (AC \u00b7 AP \u00b7 BV \u00b7 NP \u00b7 BM)",
       "task": "OlympicPaints_KPI_Dashboard_Update",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "warn",
-      "task_last_run": "2026-05-23T09:47:47",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": null
     },
     {
       "id": "ecommerce_dashboard",
@@ -32,7 +32,7 @@
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
-      "task_last_run": "2026-05-23T08:15:15",
+      "task_last_run": "2026-05-27T08:15:15",
       "task_last_result": 0
     },
     {
@@ -41,8 +41,8 @@
       "name": "E-Commerce Email Digest",
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
-      "overall": "warn",
-      "task_last_run": "2026-05-22T08:00:00",
+      "overall": "ok",
+      "task_last_run": "2026-05-27T08:00:00",
       "task_last_result": 0
     },
     {
@@ -52,8 +52,8 @@
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
       "overall": "fail",
-      "task_last_run": "2026-05-23T07:30:30",
-      "task_last_result": 2147943467
+      "task_last_run": "2026-05-27T07:30:30",
+      "task_last_result": 2147946720
     },
     {
       "id": "haven_dashboard_check",
@@ -61,9 +61,9 @@
       "name": "HAVEN Dashboard Check (regenerate + Telegram)",
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
-      "overall": "warn",
-      "task_last_run": "2026-05-23T08:00:00",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": "2026-05-27T08:00:00",
+      "task_last_result": 1
     },
     {
       "id": "vehicle_report",
@@ -72,7 +72,7 @@
       "task": "Vehicle Report Weekly",
       "cadence": "Weekly \u00b7 Mon",
       "overall": "ok",
-      "task_last_run": "2026-05-18T09:00:00",
+      "task_last_run": "2026-05-25T09:00:00",
       "task_last_result": 0
     },
     {
@@ -92,8 +92,8 @@
       "task": "Olympic Paints - Kaizen Daily Sync",
       "cadence": "Daily \u00b7 07:30",
       "overall": "fail",
-      "task_last_run": "2026-05-23T07:30:30",
-      "task_last_result": 1
+      "task_last_run": null,
+      "task_last_result": null
     },
     {
       "id": "workspace_health",
@@ -101,9 +101,9 @@
       "name": "Workspace Weekly Health Report",
       "task": "OlympicPaints_Workspace_Health_Report",
       "cadence": "Weekly \u00b7 Fri 16:00",
-      "overall": "fail",
-      "task_last_run": "2026-05-22T16:00:00",
-      "task_last_result": 127
+      "overall": "ok",
+      "task_last_run": "2026-05-27T10:00:00",
+      "task_last_result": 0
     },
     {
       "id": "friday_sales_meeting",
@@ -111,9 +111,9 @@
       "name": "Friday Sales Meeting Pack",
       "task": "OlympicPaints_Friday_Sales_Meeting",
       "cadence": "Weekly \u00b7 Fri",
-      "overall": "ok",
-      "task_last_run": "2026-05-22T08:00:00",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "meeting_extractor",
@@ -121,8 +121,8 @@
       "name": "Meeting Minutes Extractor",
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "ok",
-      "task_last_run": "2026-05-23T07:00:00",
+      "overall": "warn",
+      "task_last_run": "2026-05-27T07:00:00",
       "task_last_result": 267014
     },
     {
@@ -131,8 +131,8 @@
       "name": "VAULT Meeting Extraction (Notion tasks)",
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "ok",
-      "task_last_run": "2026-05-23T07:00:00",
+      "overall": "warn",
+      "task_last_run": "2026-05-27T07:00:00",
       "task_last_result": 0
     },
     {
@@ -141,9 +141,9 @@
       "name": "CSO Strategic Intelligence Build",
       "task": "CSO-Intelligence-Data",
       "cadence": "Daily morning",
-      "overall": "warn",
-      "task_last_run": "2026-05-18T06:00:00",
-      "task_last_result": 1
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "portal_trigger_server",
@@ -151,9 +151,9 @@
       "name": "Portal Trigger Server (localhost:8765)",
       "task": "OlympicPortalTriggerServer",
       "cadence": "Continuous",
-      "overall": "ok",
-      "task_last_run": "2026-05-21T07:33:33",
-      "task_last_result": 267009
+      "overall": "fail",
+      "task_last_run": "2026-05-24T18:14:14",
+      "task_last_result": 2147942402
     },
     {
       "id": "pulse_daily_mailer",
@@ -162,8 +162,8 @@
       "task": "PULSE \u2014 Daily Mailer",
       "cadence": "Daily \u00b7 Mon-Fri 09:00",
       "overall": "fail",
-      "task_last_run": "2026-05-15T09:00:00",
-      "task_last_result": 0
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "pulse_leaderboard",
@@ -172,8 +172,8 @@
       "task": "PULSE \u2014 Leaderboard",
       "cadence": "Daily \u00b7 Mon-Fri 09:15",
       "overall": "fail",
-      "task_last_run": "2026-05-15T09:15:15",
-      "task_last_result": 0
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "pulse_web_snapshots",
@@ -181,9 +181,9 @@
       "name": "PULSE Web Snapshots (Vercel push)",
       "task": "PULSE \u2014 Web Snapshots",
       "cadence": "Daily \u00b7 Mon-Fri 09:20",
-      "overall": "warn",
-      "task_last_run": "2026-05-15T09:20:20",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "pulse_ack_escalation",
@@ -191,9 +191,9 @@
       "name": "PULSE Ack Escalation (afternoon nudge)",
       "task": "PULSE \u2014 Ack Escalation",
       "cadence": "Daily \u00b7 Mon-Fri 17:15",
-      "overall": "warn",
-      "task_last_run": "2026-05-15T18:39:39",
-      "task_last_result": 1
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "pulse_intake_escalation",
@@ -201,9 +201,9 @@
       "name": "PULSE Intake Escalation (Fri morning)",
       "task": "PULSE \u2014 Intake Escalation",
       "cadence": "Weekly \u00b7 Fri 09:00",
-      "overall": "warn",
-      "task_last_run": "2026-05-15T09:00:00",
-      "task_last_result": 1
+      "overall": "fail",
+      "task_last_run": null,
+      "task_last_result": 267011
     },
     {
       "id": "pulse_scorecard",
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 26
+  "success_pct": 17
 }
