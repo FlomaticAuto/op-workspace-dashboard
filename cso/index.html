@@ -400,11 +400,11 @@ function ccAvailableMonths(){
 function renderCcMonthPills(){
   const months=ccAvailableMonths();
   const el=document.getElementById('cc-month-pills');
-  let h='<button class="filter-pill'+(_ccMonth==='ALL'?' active':'')+'" data-m="ALL" onclick="setCcMonth('ALL',this)">All</button>';
+  let h=`<button class="filter-pill${_ccMonth==='ALL'?' active':''}" data-m="ALL" onclick="setCcMonth('ALL',this)">All</button>`;
   months.forEach(function(ym){
     var p=ym.split('-');
     var label=MNF_CC[+p[1]-1]+' '+p[0];
-    h+='<button class="filter-pill'+(_ccMonth===ym?' active':'')+'" data-m="'+ym+'" onclick="setCcMonth(''+ym+'',this)">'+label+'</button>';
+    h+=`<button class="filter-pill${_ccMonth===ym?' active':''}" data-m="${ym}" onclick="setCcMonth('${ym}',this)">${label}</button>`;
   });
   el.innerHTML=h;
 }
