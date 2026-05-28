@@ -95,17 +95,17 @@ tbody tr:hover td{color:var(--color-text-primary)}
 .cc-section .section-heading{font-family:var(--font-display);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:0.10em;color:var(--color-text-tertiary);margin-bottom:16px}
 .cc-hm-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
 .cc-hm-month-label{font-family:var(--font-display);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-tertiary);width:74px;min-width:74px;padding-top:12px}
-.cc-hm-days{display:flex;gap:4px;overflow-x:auto;padding-bottom:4px;flex:1}
-.hm-wk{display:flex;gap:3px;border:1px solid var(--color-border-subtle);border-radius:var(--r-sm);padding:3px}
+.cc-hm-days{display:flex;gap:4px;padding-bottom:0;flex:1;min-width:0}
+.hm-wk{display:flex;gap:2px;border:1px solid var(--color-border-subtle);border-radius:var(--r-sm);padding:2px}
 .hm-wk.wk-a{background:var(--color-surface-sunken)}
 .hm-wk.wk-b{background:var(--color-surface-overlay)}
 .hm-wk.wk-current{border-color:var(--color-brand-primary)!important;border-width:1.5px}
-.hm-cell{position:relative;width:50px;min-width:50px;height:52px;border-radius:var(--r-sm);background:var(--color-surface-elevated);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:4px;overflow:hidden;cursor:default;transition:filter .15s}
+.hm-cell{position:relative;width:36px;min-width:0;height:44px;border-radius:var(--r-sm);background:var(--color-surface-elevated);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:3px;overflow:hidden;cursor:default;transition:filter .15s}
 .hm-cell:hover{filter:brightness(1.15)}
 .hm-cell.empty{opacity:0.35}
 .hm-lstrip{position:absolute;bottom:0;left:0;width:100%;background:#2D6BA8;opacity:0.75;pointer-events:none}
-.hm-date{font-size:9px;font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;z-index:1;margin-bottom:1px}
-.hm-count{font-family:var(--font-display);font-weight:900;font-size:18px;line-height:1;z-index:1}
+.hm-date{font-size:8px;font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:0;z-index:1;margin-bottom:1px}
+.hm-count{font-family:var(--font-display);font-weight:900;font-size:16px;line-height:1;z-index:1}
 .cc-legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px;font-size:12px;color:var(--color-text-secondary);font-family:var(--font-body)}
 .cc-legend-item{display:flex;align-items:center;gap:6px}
 .cc-legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;flex-shrink:0}
@@ -403,7 +403,8 @@ function ccTextFg(n,bg){
 function ccAvailableMonths(){
   const data=CC_DATA[_ccRep]||{};
   const s=new Set();
-  for(const k of Object.keys(data)) s.add(k.substring(0,7));
+  const yr=new Date().getFullYear().toString();
+  for(const k of Object.keys(data)){if(k.startsWith(yr))s.add(k.substring(0,7));}
   return[...s].sort();
 }
 
