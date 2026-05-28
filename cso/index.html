@@ -213,6 +213,12 @@ tbody tr:hover td{color:var(--color-text-primary)}
       <div class="cc-chart-wrap"><canvas id="cc-chart"></canvas></div>
     </div>
 
+    <!-- Monthly summary chart (rep filter only, fixed 6-month window) -->
+    <div class="cc-section">
+      <div class="section-heading">Monthly Activity Summary — Last 6 Calendar Months</div>
+      <div class="cc-chart-wrap"><canvas id="cc-monthly-chart"></canvas></div>
+    </div>
+
   </div><!-- /tab-call-cycle -->
 
 </main>
@@ -375,6 +381,7 @@ const MNF_CC  = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','No
 let _ccRep    = 'ALL';
 let _ccMonth  = 'ALL';
 let _ccChart  = null;
+let _ccTrendChart = null;
 let _ccInited = false;
 
 function pad2cc(v){return String(v).padStart(2,'0');}
@@ -426,6 +433,7 @@ function setCcRep(rep,btn){
   renderCcMonthPills();
   renderCcHeatmap();
   renderCcChart();
+  renderCcMonthlyTrend();
 }
 
 function setCcMonth(m,btn){
@@ -596,11 +604,78 @@ function renderCcChart(){
   });
 }
 
+function getLastSixMonths(){
+  var now=new Date(); var months=[];
+  for(var i=5;i>=0;i--){
+    var d=new Date(now.getFullYear(),now.getMonth()-i,1);
+    months.push(d.getFullYear()+'-'+pad2cc(d.getMonth()+1));
+  }
+  return months;
+}
+
+function renderCcMonthlyTrend(){
+  var data=CC_DATA[_ccRep]||{};
+  var months=getLastSixMonths();
+  var labels=months.map(function(ym){var p=ym.split('-');return MNF_CC[+p[1]-1]+' '+p[0];});
+  var visits=[],leads=[],avgRevs=[];
+  months.forEach(function(ym){
+    var totalV=0,totalL=0,totalR=0;
+    for(var iso in data){
+      if(iso.startsWith(ym)){var c=data[iso];totalV+=c.v;totalL+=c.l;totalR+=c.r;}
+    }
+    visits.push(totalV);
+    leads.push(totalL);
+    var tot=totalV+totalL;
+    avgRevs.push(tot>0?Math.round(totalR/tot):null);
+  });
+  if(_ccTrendChart){_ccTrendChart.destroy();_ccTrendChart=null;}
+  var ctx=document.getElementById('cc-monthly-chart');
+  var gridLine={color:'var(--color-border-subtle)'};
+  _ccTrendChart=new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels:labels,
+      datasets:[
+        {label:'Total Visits',data:visits,backgroundColor:'#F5C400',borderRadius:4,yAxisID:'ym'},
+        {label:'Lead Visits',data:leads,backgroundColor:'#1A3D6E',borderRadius:4,yAxisID:'ym'},
+        {label:'Avg Revenue / Visit (R)',data:avgRevs,type:'line',borderColor:'#2D8C7A',backgroundColor:'rgba(45,140,122,0.08)',borderWidth:2.5,pointRadius:5,pointHoverRadius:7,tension:0.25,fill:false,yAxisID:'ym2',spanGaps:true}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{display:true,position:'top',labels:{color:'var(--color-text-secondary)',font:{family:'Barlow',size:12},boxWidth:12,padding:16}},
+        tooltip:{callbacks:{label:function(ctx){
+          if(ctx.dataset.yAxisID==='ym2') return ctx.dataset.label+': R'+(ctx.parsed.y||0).toLocaleString();
+          return ctx.dataset.label+': '+ctx.parsed.y;
+        }}}
+      },
+      scales:{
+        x:{ticks:{color:'var(--color-text-tertiary)',font:{family:'Barlow',size:12}},grid:gridLine},
+        ym:{
+          position:'left',
+          title:{display:true,text:'Visits',color:'var(--color-text-tertiary)',font:{family:'Barlow',size:11}},
+          ticks:{color:'var(--color-text-tertiary)',font:{family:'Barlow',size:11},stepSize:1},
+          grid:gridLine,beginAtZero:true
+        },
+        ym2:{
+          position:'right',
+          title:{display:true,text:'Avg Rev per Visit (R)',color:'#2D8C7A',font:{family:'Barlow',size:11}},
+          ticks:{color:'#2D8C7A',font:{family:'Barlow',size:11},callback:v=>'R'+Math.round(v).toLocaleString()},
+          grid:{display:false},beginAtZero:true
+        }
+      }
+    }
+  });
+}
+
 function initCc(){
   if(!_ccInited){
     renderCcMonthPills();
     renderCcHeatmap();
     renderCcChart();
+    renderCcMonthlyTrend();
     _ccInited=true;
   }
 }
