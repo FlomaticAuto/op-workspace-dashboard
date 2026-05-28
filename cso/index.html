@@ -146,7 +146,7 @@ tbody tr:hover td{color:var(--color-text-primary)}
     <!-- GRID VIEW -->
     <div id="grid-view">
       <div class="eyebrow">Insights</div>
-      <div class="insight-grid" id="insight-grid"></div>
+      <div class="insight-grid" id="insight-grid"><div class="insight-card" onclick="showDetail('store-buying-frequency')"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="card-title">Store Buying Frequency</div><div class="card-summary">How often each store places orders (last 12 months)</div><div class="card-updated">Updated 2026-05-28</div></div><div class="insight-card" onclick="showDetail('rep-performance')"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="card-title">Rep Performance</div><div class="card-summary">MTD sales vs target — 1 May 2026</div><div class="card-updated">Updated 2026-05-28</div></div><div class="insight-card" onclick="showDetail('product-mix')"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/></svg></div><div class="card-title">Product Mix</div><div class="card-summary">Revenue by product group — current financial year</div><div class="card-updated">Updated 2026-05-28</div></div></div>
     </div>
 
     <!-- DETAIL VIEW -->
@@ -347,7 +347,7 @@ function renderGrid(){
 }
 
 // ── INIT ──────────────────────────────────────────────────────────
-renderGrid();
+// Cards are pre-rendered in HTML — no renderGrid() call needed on load
 const initHash=location.hash.slice(1);
 if(initHash)showDetail(initHash);
 
