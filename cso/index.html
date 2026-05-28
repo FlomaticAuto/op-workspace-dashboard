@@ -104,6 +104,7 @@ tbody tr:hover td{color:var(--color-text-primary)}
 .hm-cell:hover{filter:brightness(1.15)}
 .hm-cell.empty{opacity:0.35}
 .hm-lstrip{position:absolute;bottom:0;left:0;width:100%;background:#2D6BA8;opacity:0.75;pointer-events:none}
+.hm-rstrip{position:absolute;top:0;left:0;width:100%;background:#E86060;opacity:0.80;pointer-events:none}
 .hm-date{font-size:8px;font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:0;z-index:1;margin-bottom:1px}
 .hm-count{font-family:var(--font-display);font-weight:900;font-size:16px;line-height:1;z-index:1}
 .cc-legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px;font-size:12px;color:var(--color-text-secondary);font-family:var(--font-body)}
@@ -203,6 +204,7 @@ tbody tr:hover td{color:var(--color-text-primary)}
         <span class="cc-legend-item"><span class="cc-legend-dot" style="background:#1A3D6E"></span>6–9</span>
         <span class="cc-legend-item"><span class="cc-legend-dot" style="background:#F5C400"></span>10+</span>
         <span class="cc-legend-item" style="margin-left:8px"><span class="cc-legend-dot" style="background:#2D6BA8;opacity:0.75"></span>Lead visit strip (bottom)</span>
+        <span class="cc-legend-item"><span class="cc-legend-dot" style="background:#E86060;opacity:0.80"></span>Recovery visit strip (top)</span>
       </div>
       <div id="cc-heatmap"></div>
     </div>
@@ -470,17 +472,20 @@ function renderCcHeatmap(){
       rowHtml+='<div class="hm-wk '+bc+(isCur?' wk-current':'')+'">';
       week.days.forEach(function(o){
         var iso=yr+'-'+pad2cc(mo)+'-'+pad2cc(o.d);
-        var cell=data[iso]||{v:0,l:0,r:0};
+        var cell=data[iso]||{v:0,l:0,r:0,rv:0};
         var total=cell.v+cell.l;
+        var rv=cell.rv||0;
         var leadPct=total>0?Math.round(cell.l/total*100):0;
+        var recovPct=total>0?Math.round(rv/total*100):0;
         var bg=total>0?'background:'+ccBg(total):'';
         var fg=ccTextFg(total,'');
-        var strip=leadPct>0?'<div class="hm-lstrip" style="height:'+leadPct+'%"></div>':'';
+        var lstrip=leadPct>0?'<div class="hm-lstrip" style="height:'+leadPct+'%"></div>':'';
+        var rstrip=recovPct>0?'<div class="hm-rstrip" style="height:'+recovPct+'%"></div>':'';
         var tip=total>0
-          ?(iso+': '+cell.v+' visit'+(cell.v!==1?'s':'')+' + '+cell.l+' lead'+(cell.l!==1?'s':'')+' = '+total+' total')
+          ?(iso+': '+cell.v+' visit'+(cell.v!==1?'s':'')+(rv>0?' ('+rv+' recovery)':'')+' + '+cell.l+' lead'+(cell.l!==1?'s':'')+' = '+total+' total')
           :(iso+': no activity');
         rowHtml+='<div class="hm-cell'+(total===0?' empty':'')+'" style="'+bg+'" title="'+tip+'">'
-          +strip
+          +lstrip+rstrip
           +'<div class="hm-date" style="color:'+fg+'">'+DNAMES[o.dow]+' '+pad2cc(o.d)+'</div>'
           +'<div class="hm-count" style="color:'+fg+'">'+(total||'')+'</div>'
           +'</div>';
@@ -498,12 +503,13 @@ function renderCcHeatmap(){
 function renderCcChart(){
   const data=CC_DATA[_ccRep]||{};
   var dates=Object.keys(data).filter(function(iso){return _ccMonth==='ALL'||iso.startsWith(_ccMonth);}).sort();
-  var totals=[],leads=[],avgRevs=[];
+  var totals=[],leads=[],recoveryVisits=[],avgRevs=[];
   dates.forEach(function(iso){
-    var c=data[iso]||{v:0,l:0,r:0};
+    var c=data[iso]||{v:0,l:0,r:0,rv:0};
     var t=c.v+c.l;
     totals.push(t);
     leads.push(c.l);
+    recoveryVisits.push(c.rv||0);
     avgRevs.push(t>0?Math.round(c.r/t):null);
   });
   if(_ccChart){_ccChart.destroy();_ccChart=null;}
@@ -552,12 +558,16 @@ function renderCcChart(){
           spanGaps:true
         },
         {
-          label:'Lapsed Customers (placeholder)',
-          data:dates.map(()=>null),
-          borderColor:'#5C6B7A',
-          borderWidth:1.5,
-          borderDash:[5,5],
-          pointRadius:0,
+          label:'Recovery Visits',
+          data:recoveryVisits,
+          borderColor:'#E86060',
+          backgroundColor:'rgba(232,96,96,0.08)',
+          borderWidth:2,
+          borderDash:[4,3],
+          pointRadius:3,
+          pointHoverRadius:5,
+          tension:0.25,
+          fill:false,
           yAxisID:'y'
         }
       ]
