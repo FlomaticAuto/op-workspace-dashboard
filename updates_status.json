@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T07:03:35",
+  "generated_at": "2026-05-28T08:15:08",
   "total": 23,
   "ok": 4,
   "warn": 2,
@@ -32,8 +32,8 @@
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
-      "task_last_run": "2026-05-27T08:15:15",
-      "task_last_result": 0
+      "task_last_run": "2026-05-28T08:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -42,7 +42,7 @@
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
       "overall": "ok",
-      "task_last_run": "2026-05-27T08:00:00",
+      "task_last_run": "2026-05-28T08:00:00",
       "task_last_result": 0
     },
     {
@@ -52,7 +52,7 @@
       "task": "HAVEN Clocking Report Daily",
       "cadence": "Daily \u00b7 07:30",
       "overall": "fail",
-      "task_last_run": "2026-05-27T07:30:30",
+      "task_last_run": "2026-05-28T07:30:30",
       "task_last_result": 2147946720
     },
     {
@@ -62,7 +62,7 @@
       "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
       "overall": "fail",
-      "task_last_run": "2026-05-27T08:00:00",
+      "task_last_run": "2026-05-28T08:00:00",
       "task_last_result": 1
     },
     {
@@ -123,7 +123,7 @@
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
       "task_last_run": "2026-05-28T07:00:00",
-      "task_last_result": 267009
+      "task_last_result": 267014
     },
     {
       "id": "vault_meeting_extraction",
