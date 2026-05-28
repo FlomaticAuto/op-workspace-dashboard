@@ -461,6 +461,7 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
     <div class="kpi good"><div class="kpi-label">Overall Compliance</div><div class="kpi-value" id="kpi-compliance"></div><div class="kpi-sub">Complete shift records</div></div>
     <div class="kpi"><div class="kpi-label">Olympic Paints</div><div class="kpi-value" id="kpi-op-emp"></div><div class="kpi-sub" id="kpi-op-sub"></div></div>
     <div class="kpi ps"><div class="kpi-label">Primeserve</div><div class="kpi-value" id="kpi-ps-emp"></div><div class="kpi-sub" id="kpi-ps-sub"></div></div>
+    <div class="kpi danger"><div class="kpi-label" id="kpi-mot-label">MTD Overtime</div><div class="kpi-value" id="kpi-mot-hrs"></div><div class="kpi-sub" id="kpi-mot-sub"></div></div>
   </div>
   <div class="charts-row">
     <div class="chart-card"><h3>Hours by Employer</h3><canvas id="c-emp-hours"></canvas></div>
@@ -683,6 +684,28 @@ function initKpis(){
   document.getElementById('miss-kpi-op-sub').textContent=`${(100-k.opCompliance).toFixed(1)}% of OP shifts`;
   document.getElementById('miss-kpi-ps').textContent=k.psMissing.toLocaleString();
   document.getElementById('miss-kpi-ps-sub').textContent=`${(100-k.psCompliance).toFixed(1)}% of PS shifts`;
+  // Current month OT
+  const mot=computeCurrentMonthOT();
+  document.getElementById('kpi-mot-label').textContent=mot.label+' OT';
+  document.getElementById('kpi-mot-hrs').textContent=mot.totalOT.toFixed(1)+'h';
+  document.getElementById('kpi-mot-sub').textContent=mot.empCount+' employee'+(mot.empCount!==1?'s':'')+' in overtime';
+}
+
+function computeCurrentMonthOT(){
+  const now=new Date();
+  const mk=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  const label=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][now.getMonth()]+' '+now.getFullYear();
+  let totalOT=0,empCount=0;
+  D.wk_detail_table.forEach(r=>{
+    let empOT=0;
+    D.wk_weeks.forEach((wk,wi)=>{
+      if(wk.start.slice(0,7)!==mk)return;
+      const t=r.weeks[wi]?r.weeks[wi].total||0:0;
+      empOT+=Math.max(0,t-OT_THRESHOLD);
+    });
+    if(empOT>0){totalOT+=empOT;empCount++;}
+  });
+  return{label,totalOT:Math.round(totalOT*10)/10,empCount};
 }
 
 // ── OVERVIEW ──────────────────────────────────────────────────────────
