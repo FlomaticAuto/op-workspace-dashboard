@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T06:15:07",
+  "generated_at": "2026-05-28T07:03:35",
   "total": 23,
   "ok": 4,
   "warn": 2,
@@ -122,8 +122,8 @@
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-05-27T07:00:00",
-      "task_last_result": 267014
+      "task_last_run": "2026-05-28T07:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vault_meeting_extraction",
@@ -132,7 +132,7 @@
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-05-27T07:00:00",
+      "task_last_run": "2026-05-28T07:00:00",
       "task_last_result": 0
     },
     {
