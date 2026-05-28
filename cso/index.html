@@ -262,24 +262,34 @@ const barLabels = {
 };
 // ── CHART INSTANCE ────────────────────────────────────────────────
 let _chart = null;
+let _pendingChartInsight = null;
 
 let _barLabelsRegistered=false;
 function renderChart(insight){
-  if(_chart){ _chart.destroy(); _chart=null; }
+  if(_chart){ try{_chart.destroy();}catch(e){} _chart=null; }
   _lblMap.clear();
   if(!_barLabelsRegistered){try{Chart.register(barLabels);_barLabelsRegistered=true;}catch(e){}}
-  const canvas=document.getElementById('detail-chart');
-  const cfg=insight.chart;
-  const opts={
-    responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{labels:{color:'var(--color-text-secondary)',font:{family:'Barlow',size:12}}},tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y??ctx.parsed.x}`}}},
-    scales:{
-      x:{ticks:{color:'var(--color-text-tertiary)',font:{family:'Barlow',size:11}},grid:{color:'var(--color-border-subtle)'}},
-      y:{ticks:{color:'var(--color-text-tertiary)',font:{family:'Barlow',size:11}},grid:{color:'var(--color-border-subtle)'}},
-    },
-    ...cfg.options
-  };
-  _chart=new Chart(canvas,{type:cfg.type,data:{labels:cfg.labels,datasets:cfg.datasets},options:opts});
+  _pendingChartInsight = insight;
+  requestAnimationFrame(function(){
+    if(_pendingChartInsight !== insight) return;
+    const canvas=document.getElementById('detail-chart');
+    const cfg=insight.chart;
+    const opts={
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'var(--color-text-secondary)',font:{family:'Barlow',size:12}}},tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y??ctx.parsed.x}`}}},
+      scales:{
+        x:{ticks:{color:'var(--color-text-tertiary)',font:{family:'Barlow',size:11}},grid:{color:'var(--color-border-subtle)'}},
+        y:{ticks:{color:'var(--color-text-tertiary)',font:{family:'Barlow',size:11}},grid:{color:'var(--color-border-subtle)'}},
+      },
+      ...cfg.options
+    };
+    try{
+      _chart=new Chart(canvas,{type:cfg.type,data:{labels:cfg.labels,datasets:cfg.datasets},options:opts});
+    }catch(err){
+      console.error('Chart.js error for',insight.id,err);
+      canvas.parentElement.innerHTML='<p style="color:var(--color-danger-fg);font-size:13px;padding:8px 0">Chart error: '+err.message+'</p>';
+    }
+  });
 }
 
 // ── TABLE ─────────────────────────────────────────────────────────
@@ -315,7 +325,7 @@ function showGrid(){
 
 function showDetail(id){
   const insight=INSIGHTS.find(i=>i.id===id);
-  if(!insight)return;
+  if(!insight){ console.warn('showDetail: id not found in INSIGHTS:',id); return; }
   window._curInsight=insight;
   document.getElementById('grid-view').style.display='none';
   document.getElementById('detail-view').style.display='';
@@ -323,7 +333,7 @@ function showDetail(id){
   document.getElementById('detail-updated').textContent='Last updated: '+insight.updated;
   document.getElementById('detail-analysis').innerHTML=insight.analysis;
   renderChart(insight);
-  renderTable(insight);
+  try{ renderTable(insight); }catch(err){ console.error('renderTable error for',id,err); }
   history.pushState({id},'','#'+id);
   window.scrollTo(0,0);
 }
