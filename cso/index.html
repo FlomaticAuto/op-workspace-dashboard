@@ -328,7 +328,7 @@ function showDetail(id){
   if(!insight){ console.warn('showDetail: id not found in INSIGHTS:',id); return; }
   window._curInsight=insight;
   document.getElementById('grid-view').style.display='none';
-  document.getElementById('detail-view').style.display='';
+  document.getElementById('detail-view').style.display='block';
   document.getElementById('detail-title').textContent=insight.title;
   document.getElementById('detail-updated').textContent='Last updated: '+insight.updated;
   document.getElementById('detail-analysis').innerHTML=insight.analysis;
