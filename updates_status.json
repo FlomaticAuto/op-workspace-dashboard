@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-30T14:15:06",
+  "generated_at": "2026-05-30T16:15:06",
   "total": 23,
-  "ok": 3,
-  "warn": 5,
+  "ok": 2,
+  "warn": 6,
   "fail": 15,
   "jobs": [
     {
@@ -31,7 +31,7 @@
       "name": "E-Commerce Dashboard",
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-05-29T08:15:15",
       "task_last_result": 0
     },
@@ -236,5 +236,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 13
+  "success_pct": 9
 }
