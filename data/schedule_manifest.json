@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T11:00:02+02:00",
+  "generated_at": "2026-05-30T12:00:02+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -21,9 +21,9 @@
       "task_path": "\\Olympic Paints\\Notion Todos Sync",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-05-30 11:43:11+02:00",
-      "scheduler_last_run_time": "2026-05-29 19:43:12+02:00",
-      "scheduler_last_task_result": 2,
+      "next_run": "2026-05-30 13:43:11+02:00",
+      "scheduler_last_run_time": "2026-05-30 11:43:12+02:00",
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -377,8 +377,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-05-30 11:13:10+02:00",
-      "scheduler_last_run_time": "2026-05-30 10:43:11+02:00",
+      "next_run": "2026-05-30 12:13:10+02:00",
+      "scheduler_last_run_time": "2026-05-30 11:43:11+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -481,23 +481,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-05-30 12:00:00+02:00",
-      "scheduler_last_run_time": "2026-05-30 11:00:01+02:00",
+      "next_run": "2026-05-30 13:00:00+02:00",
+      "scheduler_last_run_time": "2026-05-30 12:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-05-29T12:00:02+02:00",
-          "finished_at": "2026-05-29T12:00:07+02:00",
-          "duration_seconds": 4.743,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 61 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-29_12-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -605,12 +593,24 @@
           "stdout_tail": "Wrote 61 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-30_10-00-07.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-05-30T11:00:02+02:00",
+          "finished_at": "2026-05-30T11:00:06+02:00",
+          "duration_seconds": 4.856,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 61 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-05-30_11-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-05-30T10:00:07+02:00",
-        "finished_at": "2026-05-30T10:00:14+02:00",
-        "duration_seconds": 7.41,
+        "started_at": "2026-05-30T11:00:02+02:00",
+        "finished_at": "2026-05-30T11:00:06+02:00",
+        "duration_seconds": 4.856,
         "exit_code": 0,
         "ok": true,
         "summary": null
