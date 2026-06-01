@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T04:15:09",
+  "generated_at": "2026-06-01T06:15:09",
   "total": 23,
   "ok": 3,
   "warn": 4,
@@ -142,8 +142,8 @@
       "task": "CSO-Intelligence-Data",
       "cadence": "Daily morning",
       "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "task_last_run": "2026-06-01T06:00:00",
+      "task_last_result": 2
     },
     {
       "id": "portal_trigger_server",
