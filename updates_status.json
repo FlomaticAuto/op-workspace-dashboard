@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T08:56:35",
+  "generated_at": "2026-06-01T09:00:13",
   "total": 23,
   "ok": 4,
   "warn": 2,
@@ -72,8 +72,8 @@
       "task": "Vehicle Report Weekly",
       "cadence": "Weekly \u00b7 Mon",
       "overall": "ok",
-      "task_last_run": "2026-05-25T09:00:00",
-      "task_last_result": 0
+      "task_last_run": "2026-06-01T09:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vehicle_health",
