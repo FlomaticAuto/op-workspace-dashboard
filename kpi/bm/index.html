@@ -229,6 +229,14 @@
 .hm-legend-row{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
 .hm-leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-secondary)}
 .hm-leg-swatch{width:14px;height:14px;border-radius:3px;flex-shrink:0}
+.hm-totals{{display:flex;gap:4px;padding:5px;border-radius:10px;
+  border:1px solid var(--color-border-default);align-items:stretch;margin-left:4px;flex-shrink:0}}
+.hm-total-cell{{width:52px;min-width:52px;border-radius:6px;padding:7px 4px 10px;
+  text-align:center;display:flex;flex-direction:column;align-items:center}}
+.hm-total-type{{font-size:9px;font-family:var(--font-body);font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-tertiary);
+  margin-bottom:3px;display:block;white-space:nowrap}}
+.hm-total-count{{font-size:20px;font-weight:900;font-family:var(--font-display);line-height:1;display:block}}
 /* ── TABLES ──────────────────────────────────────────────── */
 .tw{overflow-x:auto;margin-top:14px}
 table{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:13px}
@@ -704,7 +712,7 @@ html,body{overflow-x:hidden}
     </a>
   </div>
 
-  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 01 June 2026 07:02</div>
+  <div class="ms-footer">Olympic Paints · Personal KPI Dashboard · Generated 01 June 2026 11:09</div>
 </div>
 
 <button class="ms-back-to-summary" type="button"
@@ -733,7 +741,7 @@ html,body{overflow-x:hidden}
   </div>
   <div class="hdr-r">
     <div class="hdr-ytd">R63.8K</div>
-    <div class="hdr-meta">Week ending 1 June 2026 &middot; Generated 01 June 2026 07:02</div>
+    <div class="hdr-meta">Week ending 1 June 2026 &middot; Generated 01 June 2026 11:09</div>
   </div>
 </div>
 
@@ -1477,7 +1485,7 @@ html,body{overflow-x:hidden}
   <strong>Olympic Paints</strong> &mdash; Byron Minnie Personal KPI Dashboard &mdash; Week ending 1 June 2026<br>
   Data sourced from Amazon QuickSight Weekly Sales Reports and Zoho CRM.<br>
   KPI A scoring uses year-on-year growth vs prior-year baseline. Target: exceed 10% YOY growth for commission eligibility.<br>
-  Generated 01 June 2026 07:02 &middot; <em>Confidential &mdash; for internal use only</em>
+  Generated 01 June 2026 11:09 &middot; <em>Confidential &mdash; for internal use only</em>
 </footer>
 
 <script>
@@ -1630,6 +1638,9 @@ new Chart(document.getElementById('cSalesRev'),{
   // When > 0 the cell switches to a green ramp; brighter = more leads visited.
   // (Eventually scope this to the rep's Hunting Week / cycle_week=4 only.)
   const DL={"2025-05-19": 2, "2025-05-20": 1, "2025-05-26": 1, "2025-05-30": 3, "2025-06-02": 2, "2025-06-04": 4, "2025-06-05": 1, "2025-06-06": 1, "2025-06-10": 1, "2025-06-11": 2, "2025-06-17": 2, "2025-06-18": 1, "2025-06-23": 1, "2025-06-25": 1, "2025-06-26": 1, "2025-06-30": 3, "2025-07-01": 1, "2025-07-02": 2, "2025-07-03": 2, "2025-07-04": 1, "2025-07-07": 3, "2025-07-08": 1, "2025-07-10": 3, "2025-07-14": 1, "2025-07-15": 2, "2025-07-16": 4, "2025-07-17": 1, "2025-07-21": 1, "2025-07-23": 1, "2025-07-24": 1, "2025-07-28": 1, "2025-07-29": 2, "2025-07-30": 1, "2025-07-31": 1, "2025-08-04": 1, "2025-08-05": 2, "2025-08-06": 1, "2025-08-11": 1, "2025-10-21": 1, "2025-10-23": 1, "2025-11-06": 1, "2025-11-10": 1, "2025-11-12": 1, "2025-11-13": 2, "2025-11-17": 2, "2025-11-18": 1, "2025-11-20": 1, "2025-11-24": 2, "2025-11-25": 1, "2025-11-26": 1, "2025-11-28": 1, "2025-12-03": 1, "2025-12-04": 3, "2025-12-08": 1, "2025-12-09": 3, "2025-12-10": 2, "2025-12-15": 3, "2025-12-18": 3, "2026-01-05": 6, "2026-01-08": 1, "2026-01-12": 4, "2026-01-13": 1, "2026-01-14": 9, "2026-01-15": 3, "2026-01-16": 1, "2026-01-19": 2, "2026-01-20": 2, "2026-01-21": 2, "2026-01-22": 4, "2026-01-23": 1, "2026-01-26": 2, "2026-01-27": 1, "2026-01-28": 1, "2026-01-29": 2, "2026-02-09": 3, "2026-02-11": 3, "2026-02-12": 4, "2026-02-16": 4, "2026-02-17": 4, "2026-02-18": 5, "2026-02-19": 9, "2026-02-20": 1, "2026-02-23": 10, "2026-02-24": 10, "2026-02-26": 3, "2026-03-02": 4, "2026-03-03": 4, "2026-03-04": 12, "2026-03-05": 5, "2026-03-09": 11, "2026-03-10": 7, "2026-03-11": 8, "2026-03-12": 5, "2026-03-16": 4, "2026-03-18": 6, "2026-03-19": 5, "2026-03-23": 1, "2026-04-13": 8, "2026-04-14": 10, "2026-04-15": 4, "2026-04-16": 8, "2026-04-22": 1, "2026-04-28": 1, "2026-04-29": 2, "2026-04-30": 5, "2026-05-06": 4, "2026-05-07": 9, "2026-05-11": 5, "2026-05-12": 11, "2026-05-13": 5, "2026-05-14": 7, "2026-05-18": 5, "2026-05-19": 1, "2026-05-20": 2, "2026-05-21": 4, "2026-05-26": 4, "2026-05-27": 7, "2026-05-28": 6};
+  // DR[iso] = recovery account visits (visits to is_recovery accounts).
+  // Currently empty — populated once visit→account cross-ref is wired.
+  const DR={};
   const DNAMES=['','Mon','Tue','Wed','Thu','Fri'];
   const MNF=["January","February","March","April","May","June","July","August","September","October","November","December"];
   // Months come from EITHER visits OR lead visits — so a day with only a
@@ -1723,6 +1734,28 @@ new Chart(document.getElementById('cSalesRev'),{
       });
       html+='</div>';
     });
+
+    // ── Month totals block (Store / Lead / Recovery) ──────────────────────
+    var pfx=ym+'-';
+    var storeTotal=Object.keys(DV).filter(function(d){return d.startsWith(pfx);})
+      .reduce(function(s,d){return s+(DV[d]||0);},0);
+    var leadTotal=Object.keys(DL).filter(function(d){return d.startsWith(pfx);})
+      .reduce(function(s,d){return s+(DL[d]||0);},0);
+    var recovTotal=Object.keys(DR).filter(function(d){return d.startsWith(pfx);})
+      .reduce(function(s,d){return s+(DR[d]||0);},0);
+    function _totCell(label,n,col){
+      var bg=n>0?col+'22':'rgba(255,255,255,0.04)';
+      var fg=n>0?col:'rgba(255,255,255,0.18)';
+      return'<div class="hm-total-cell" style="background:'+bg+'">'
+        +'<div class="hm-total-type">'+label+'</div>'
+        +'<div class="hm-total-count" style="color:'+fg+'">'+n+'</div>'
+        +'</div>';
+    }
+    if(html) html+='<div class="hm-totals">'
+      +_totCell('Store',storeTotal,'#2D8C7A')
+      +_totCell('Lead',leadTotal,'#4ade80')
+      +_totCell('Recovery',recovTotal,'#E86060')
+      +'</div>';
 
     var fallback='<span style="font-size:12px;color:var(--color-text-tertiary);font-family:var(--font-body);padding:8px">No visit data for this month</span>';
     // Render into every heatmap grid on the page (Activity tab + Monthly tab).
