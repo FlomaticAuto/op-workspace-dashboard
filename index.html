@@ -1330,9 +1330,8 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
 // live from data/schedule_manifest.json — not stored here.
 
 const DASHBOARDS = [
-  { id: 'kpi',             title: 'KPI Sales Dashboard',    agent: 'PRISM',   url: 'https://flomaticauto.github.io/olympic-paints-kpi/',                              desc: 'MTD sales, rep performance, debtors aging.' },
-  { id: 'pulse-board',     title: 'PULSE Leaderboard',      agent: 'PULSE',   url: 'https://olympic-paints-pulse-web.vercel.app/leaderboard',                         desc: 'Daily rep leaderboard — plan adherence, visits, leads.' },
-  { id: 'pulse-scorecard', title: 'PULSE Scorecard',        agent: 'PULSE',   url: 'https://olympic-paints-pulse-web.vercel.app/scorecard',                           desc: 'Bi-weekly rep scorecards.' },
+  { id: 'pulse-board',     title: 'PULSE',                  agent: 'PULSE',   url: 'https://olympic-paints-pulse-v2.vercel.app/',                                     desc: 'Daily rep plans, visit logs, recovery.' },
+  { id: 'pulse-scorecard', title: 'PULSE Scorecard',        agent: 'PULSE',   url: 'https://olympic-paints-pulse-v2.vercel.app/scorecard/latest',                     desc: 'Bi-weekly rep scorecards.' },
   { id: 'haven-clocking',  title: 'HAVEN Clocking',         agent: 'HAVEN',   url: 'https://flomaticauto.github.io/olympic-paints-clocking/',                         desc: 'Yesterday, daily, weekly, missed clock-outs.' },
   { id: 'ecommerce',       title: 'E-Commerce',             agent: 'FLASH',   url: 'https://flomaticauto.github.io/olympic-paints-ecommerce/',                        desc: 'WooCommerce orders, revenue, top products.' },
   { id: 'merch-calendar',  title: 'Merchandising Calendar', agent: 'STRIKER', url: 'https://op-merch-calendar.vercel.app/',                                           desc: 'Booked merchandising visits, mobile-first.' },
@@ -1353,11 +1352,11 @@ const REPORTS = [
 const AGENTS = [
   { id: 'APEX',    name: 'APEX',    tagline: 'Coordinator — routes all tasks',               slash: '/apex',    task_ids: [] },
   { id: 'HAVEN',   name: 'HAVEN',   tagline: 'HR & People — clocking, JDs, onboarding',      slash: '/haven',   task_ids: ['haven-clocking-report-daily'] },
-  { id: 'PRISM',   name: 'PRISM',   tagline: 'Analytics — QuickSight, formulas, YoY',        slash: '/prism',   task_ids: ['build-schedule-manifest','olympicpaints-kpi-dashboard-update','olympicpaints-sales-dashboard-refresh','olympicpaints-workspace-health-report','cso-intelligence-data'] },
+  { id: 'PRISM',   name: 'PRISM',   tagline: 'Analytics — QuickSight, formulas, YoY',        slash: '/prism',   task_ids: ['build-schedule-manifest','olympicpaints-sales-dashboard-refresh','olympicpaints-workspace-health-report','cso-intelligence-data'] },
   { id: 'STRIKER', name: 'STRIKER', tagline: 'Sales & CRM — Zoho, quotes, stockists',        slash: '/striker', task_ids: ['olympic-paints-zoho-meetings-pull','olympicpaints-friday-sales-meeting','zoho-leads-pull','vehicle-report-health-check'] },
-  { id: 'SIGMA',   name: 'SIGMA',   tagline: 'Operations — SOPs, dispatch, factory',         slash: '/sigma',   task_ids: ['olympic-portal-trigger-server','vehicle-report-weekly','h-s-weekly-refresh'] },
+  { id: 'SIGMA',   name: 'SIGMA',   tagline: 'Operations — SOPs, dispatch, factory',         slash: '/sigma',   task_ids: ['vehicle-report-weekly','h-s-weekly-refresh'] },
   { id: 'BLAZE',   name: 'BLAZE',   tagline: 'Marketing — social, copy, campaigns',          slash: '/blaze',   task_ids: [] },
-  { id: 'VAULT',   name: 'VAULT',   tagline: 'Admin & Filing — PARA, inbox, Notion docs',    slash: '/vault',   task_ids: ['sync-claude-todos','olympic-paints-kaizen-daily-sync','vault-meeting-extraction-daily','meeting-minutes-extractor'] },
+  { id: 'VAULT',   name: 'VAULT',   tagline: 'Admin & Filing — PARA, inbox, Notion docs',    slash: '/vault',   task_ids: ['sync-claude-todos','olympic-paints-kaizen-implement-poller','vault-meeting-extraction-daily','olympic-paints-meeting-minutes-extractor'] },
   { id: 'PULSE',   name: 'PULSE',   tagline: 'Sales & Ops Manager — daily ack, leaderboard', slash: '/pulse',   task_ids: [] },
   { id: 'FLASH',   name: 'FLASH',   tagline: 'E-Commerce — OneDayOnly, orders',              slash: '/flash',   task_ids: ['olympicpaints-emailecommercedashboard'] }
 ];
