@@ -12,8 +12,8 @@ import os
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
 
-DEFAULT_HEARTBEATS = Path(r"C:\Users\quint\.claude\heartbeats")
-DEFAULT_OUTPUT = Path(r"C:\Users\quint\workspace-dashboard\data\schedule_manifest.json")
+DEFAULT_HEARTBEATS = Path(r"C:\Users\Administrator\.claude\heartbeats")
+DEFAULT_OUTPUT = Path(r"C:\Users\Administrator\workspace-dashboard\data\schedule_manifest.json")
 STALE_GRACE_MINUTES = 60
 
 
@@ -121,6 +121,10 @@ def assemble_manifest(
 _NEVER_RUN_RESULT = 0x00041303  # 267011 — SCHED_S_TASK_HAS_NOT_RUN
 _LOCAL_TZ_SUFFIX = "+02:00"     # SAST; this machine is fixed at UTC+2 (no DST)
 
+# Trigger types that don't have a periodic schedule — exclude from staleness monitoring.
+# type=8 = at system startup, type=9 = at logon, type=11 = session state change.
+_SKIP_TRIGGER_TYPES = {8, 9, 11}
+
 
 def _coerce_scheduler_time(value: Any) -> Optional[str]:
     """pywin32 str()'s Task Scheduler datetimes with a bogus '+00:00' suffix
@@ -172,6 +176,12 @@ def enumerate_tasks_from_com() -> List[Dict[str, Any]]:
             schedule_summary = f"type={trig.Type} start={trig.StartBoundary}"
 
         job_id = _slug(name)
+
+        # Skip logon / boot / session-change triggers — no time schedule, never "stale".
+        if defn.Triggers.Count >= 1:
+            first_type = int(defn.Triggers.Item(1).Type)
+            if first_type in _SKIP_TRIGGER_TYPES:
+                continue
 
         last_result = int(task.LastTaskResult)
         last_run_time = _coerce_scheduler_time(task.LastRunTime)
