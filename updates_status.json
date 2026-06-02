@@ -1,30 +1,10 @@
 {
-  "generated_at": "2026-06-02T12:15:08",
-  "total": 23,
-  "ok": 5,
-  "warn": 2,
-  "fail": 16,
+  "generated_at": "2026-06-02T14:15:07",
+  "total": 20,
+  "ok": 6,
+  "warn": 5,
+  "fail": 9,
   "jobs": [
-    {
-      "id": "sales_dashboard",
-      "agent": "PRISM",
-      "name": "Sales Performance Dashboard",
-      "task": "OlympicPaints_Sales_Dashboard_Refresh",
-      "cadence": "Daily \u00b7 07:15",
-      "overall": "fail",
-      "task_last_run": "2026-05-27T08:30:30",
-      "task_last_result": 0
-    },
-    {
-      "id": "kpi_rep_dashboards",
-      "agent": "PRISM",
-      "name": "Per-Rep KPI Dashboards (AC \u00b7 AP \u00b7 BV \u00b7 NP \u00b7 BM)",
-      "task": "OlympicPaints_KPI_Dashboard_Update",
-      "cadence": "Daily \u00b7 07:00",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": null
-    },
     {
       "id": "ecommerce_dashboard",
       "agent": "PRISM",
@@ -49,19 +29,19 @@
       "id": "haven_clocking",
       "agent": "HAVEN",
       "name": "HAVEN Clocking Report (Process Inbox)",
-      "task": "HAVEN Clocking Report Daily",
+      "task": "Daily Process Inbox",
       "cadence": "Daily \u00b7 07:30",
       "overall": "ok",
       "task_last_run": "2026-06-02T07:30:30",
-      "task_last_result": 267014
+      "task_last_result": 0
     },
     {
       "id": "haven_dashboard_check",
       "agent": "HAVEN",
       "name": "HAVEN Dashboard Check (regenerate + Telegram)",
-      "task": "HAVEN \u2014 Daily Clocking Dashboard Check",
+      "task": "Weekly Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
-      "overall": "fail",
+      "overall": "warn",
       "task_last_run": "2026-06-01T08:00:00",
       "task_last_result": 1
     },
@@ -79,21 +59,21 @@
       "id": "vehicle_health",
       "agent": "STRIKER",
       "name": "STRIKER Vehicle Report Health Check",
-      "task": "STRIKER \u2014 Vehicle Report Health Check",
+      "task": "Vehicle Report Health Check",
       "cadence": "Weekly \u00b7 Mon",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": null
+      "overall": "ok",
+      "task_last_run": "2026-06-02T09:30:30",
+      "task_last_result": 0
     },
     {
       "id": "kaizen_sync",
       "agent": "VAULT",
       "name": "Kaizen Daily Sync",
-      "task": "Olympic Paints - Kaizen Daily Sync",
+      "task": "Olympic Paints - Kaizen Implement Poller",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": null
+      "overall": "warn",
+      "task_last_run": "2026-05-31T21:00:00",
+      "task_last_result": 0
     },
     {
       "id": "workspace_health",
@@ -101,7 +81,7 @@
       "name": "Workspace Weekly Health Report",
       "task": "OlympicPaints_Workspace_Health_Report",
       "cadence": "Weekly \u00b7 Fri 16:00",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-06-02T10:00:00",
       "task_last_result": 0
     },
@@ -140,20 +120,10 @@
       "agent": "PRISM",
       "name": "CSO Strategic Intelligence Build",
       "task": "CSO-Intelligence-Data",
-      "cadence": "Daily morning",
-      "overall": "fail",
-      "task_last_run": "2026-06-01T06:00:00",
-      "task_last_result": 2
-    },
-    {
-      "id": "portal_trigger_server",
-      "agent": "VAULT",
-      "name": "Portal Trigger Server (localhost:8765)",
-      "task": "OlympicPortalTriggerServer",
-      "cadence": "Continuous",
-      "overall": "fail",
-      "task_last_run": "2026-05-24T18:14:14",
-      "task_last_result": 2147942402
+      "cadence": "Weekly \u00b7 06:00",
+      "overall": "ok",
+      "task_last_run": "2026-06-02T13:21:21",
+      "task_last_result": 0
     },
     {
       "id": "pulse_daily_mailer",
@@ -236,5 +206,5 @@
       "task_last_result": 267011
     }
   ],
-  "success_pct": 22
+  "success_pct": 30
 }
