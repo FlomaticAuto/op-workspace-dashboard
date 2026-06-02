@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T13:00:03+02:00",
+  "generated_at": "2026-06-02T14:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -21,8 +21,8 @@
       "task_path": "\\Olympic Paints\\Notion Todos Sync",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-06-02 13:43:11+02:00",
-      "scheduler_last_run_time": "2026-06-02 11:43:12+02:00",
+      "next_run": "2026-06-02 15:43:11+02:00",
+      "scheduler_last_run_time": "2026-06-02 13:43:12+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -125,9 +125,9 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1400",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T14:00:00",
-      "next_run": "2026-06-02 14:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-01 14:00:00+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-06-03 14:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-02 14:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -401,8 +401,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-06-02 13:13:10+02:00",
-      "scheduler_last_run_time": "2026-06-02 12:43:11+02:00",
+      "next_run": "2026-06-02 14:13:10+02:00",
+      "scheduler_last_run_time": "2026-06-02 13:43:11+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -505,23 +505,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-06-02 14:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-02 13:00:01+02:00",
+      "next_run": "2026-06-02 15:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-02 14:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-06-02T03:00:02+02:00",
-          "finished_at": "2026-06-02T03:00:07+02:00",
-          "duration_seconds": 4.976,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 61 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-02_03-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -629,12 +617,24 @@
           "stdout_tail": "Wrote 61 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-02_12-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-06-02T13:00:02+02:00",
+          "finished_at": "2026-06-02T13:00:07+02:00",
+          "duration_seconds": 5.027,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 60 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-02_13-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-02T12:00:02+02:00",
-        "finished_at": "2026-06-02T12:00:08+02:00",
-        "duration_seconds": 5.801,
+        "started_at": "2026-06-02T13:00:02+02:00",
+        "finished_at": "2026-06-02T13:00:07+02:00",
+        "duration_seconds": 5.027,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -648,8 +648,8 @@
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-10T06:00:00",
       "next_run": "2026-06-08 06:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-01 06:00:00+02:00",
-      "scheduler_last_task_result": 2,
+      "scheduler_last_run_time": "2026-06-02 13:21:19+02:00",
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
         {
@@ -663,14 +663,38 @@
           "stdout_tail": "",
           "stderr_tail": "python: can't open file 'C:\\\\Users\\\\Administrator\\\\olympic-paints-cso-insights\\\\build_cso_intelligence.py': [Errno 2] No such file or directory",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\cso-intelligence-data\\2026-06-01_06-00-01.log"
+        },
+        {
+          "job_id": "cso-intelligence-data",
+          "agent": "PRISM",
+          "started_at": "2026-06-02T13:20:41+02:00",
+          "finished_at": "2026-06-02T13:20:42+02:00",
+          "duration_seconds": 1.316,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "[2026-06-02 13:20] Building CSO Insights...\n  âœ“ Logo copied\n  Reading parquet...\n  Computing rep performance from parquet...\n  Rep MTD (June 2026): AC R-5,072, AP R125,485, BV R235,413, NP R319,657, BM R0\n  Computing insights...",
+          "stderr_tail": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\build_cso_insights.py\", line 1251, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\build_cso_insights.py\", line 1231, in main\n    build_rep_performance(reps, report_week),\n    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\build_cso_insights.py\", line 214, in build_rep_performance\n    f\"MTD sales performance for week ending <strong>{REPORT_WEEK}</strong>. \"\n                                                     ^^^^^^^^^^^\nNameError: name 'REPORT_WEEK' is not defined. Did you mean: 'REPORT_DATE'?",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\cso-intelligence-data\\2026-06-02_13-20-41.log"
+        },
+        {
+          "job_id": "cso-intelligence-data",
+          "agent": "PRISM",
+          "started_at": "2026-06-02T13:21:20+02:00",
+          "finished_at": "2026-06-02T13:21:27+02:00",
+          "duration_seconds": 7.45,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[2026-06-02 13:21] Building CSO Insights...\n  âœ“ Logo copied\n  Reading parquet...\n  Computing rep performance from parquet...\n  Rep MTD (June 2026): AC R-5,072, AP R125,485, BV R235,413, NP R319,657, BM R0\n  Computing insights...\n  Computing call cycle data...\n  âœ“ Written C:\\Users\\Administrator\\workspace-dashboard\\cso\\index.html\n  Pushing to hub...\n  OK Pushed cso/ to hub (master + main) -> Vercel will auto-deploy\n  Pushing to GitHub Pages (olympic-paints-cso-insights)...\n  âœ“ Pushed to GitHub\nDone.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\cso-intelligence-data\\2026-06-02_13-21-20.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-01T06:00:01+02:00",
-        "finished_at": "2026-06-01T06:00:01+02:00",
-        "duration_seconds": 0.223,
-        "exit_code": 2,
-        "ok": false,
+        "started_at": "2026-06-02T13:21:20+02:00",
+        "finished_at": "2026-06-02T13:21:27+02:00",
+        "duration_seconds": 7.45,
+        "exit_code": 0,
+        "ok": true,
         "summary": null
       }
     },
