@@ -30,17 +30,16 @@ try:
 except Exception:
     pass
 
-WORKSPACE = Path(r"C:\Users\quint\workspace-dashboard")
+WORKSPACE = Path(r"C:\Users\Administrator\workspace-dashboard")
 # The Updates tab on index.html consumes this file via fetch('updates_status.json').
 # Standalone updates.html was deprecated 2026-05-17 — only JSON now.
 OUT_JSON = WORKSPACE / "updates_status.json"
 ALERT_STATE = WORKSPACE / "updates_alert_state.json"
 
-PULSE_BASE = Path(r"C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\1.Projects\PULSE — Sales & Ops Manager")
-PULSE_OUTPUT = PULSE_BASE / "output" / "site"
+PULSE_BASE = Path(r"C:\Users\Administrator\OneDrive\1.Projects\1.Olympic Paints\1.Projects\PULSE v2 — Sales & Ops Manager")
 PULSE_DATA = PULSE_BASE / "data"
 
-OP_BASE = Path(r"C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints")
+OP_BASE = Path(r"C:\Users\Administrator\OneDrive\1.Projects\1.Olympic Paints")
 SALES_BASE = OP_BASE / "3.Resources" / "16.Sales and Other data"
 AWS_BASE = OP_BASE / "1.Projects" / "AWS Data"
 HR_BASE = OP_BASE / "2.Areas" / "11. HR" / "Clocking Reports"
@@ -49,40 +48,6 @@ LOGISTICS_BASE = OP_BASE / "2.Areas" / "9. Supply Chain" / "Logisitics" / "OP Tr
 # ── MANIFEST ─────────────────────────────────────────────────────────────────
 # Cadence labels are descriptive; max_age_hours drives staleness logic.
 MANIFEST = [
-    {
-        "id": "sales_dashboard",
-        "agent": "PRISM",
-        "name": "Sales Performance Dashboard",
-        "task": "OlympicPaints_Sales_Dashboard_Refresh",
-        "cadence": "Daily · 07:15",
-        "max_age_hours": 30,
-        "inputs": [
-            {"label": "Sales Invoices (parquet)",   "path": SALES_BASE / "Sales_Invoices_All.parquet",                              "max_age_hours": "business_day", "source": "Daily ledger build"},
-            {"label": "Debtors Age Analysis",       "path": SALES_BASE / "Pad" / "debtors_age_analysis.csv",                        "max_age_hours": "business_day", "source": "PAD daily export"},
-            {"label": "Sales Orders Outstanding",   "path": SALES_BASE / "Pad" / "sales_order_outstanding.csv",                     "max_age_hours": "business_day", "source": "PAD daily export"},
-            {"label": "Zoho Meetings",              "path": SALES_BASE / "Zoho" / "Meetings_Report_AWS.xlsx",                       "max_age_hours": "business_day", "source": "Zoho export"},
-            {"label": "Zoho Lead Tracking",         "path": SALES_BASE / "Zoho" / "OP_Lead_Tracking.csv",                       "max_age_hours": "business_day", "source": "Zoho export"},
-            {"label": "Merchandising Visits",       "path": SALES_BASE / "Zoho" / "Meetings_Report_AWS_Merchandising.xlsx",         "max_age_hours": "business_day", "source": "Zoho export"},
-            {"label": "Delivery Details",           "path": SALES_BASE / "Manual" / "Delivery Details_Updated_2304.xlsx",           "max_age_hours": None, "source": "Manual reference"},
-            {"label": "Product Categories",         "path": SALES_BASE / "Manual" / "Product Categories_05052026.xlsx",             "max_age_hours": None, "source": "Manual reference"},
-            {"label": "New Stores Q1/2026",         "path": SALES_BASE / "Manual" / "New Stores Added By Reps_Quater1_2026.xlsx",   "max_age_hours": None, "source": "Manual quarterly"},
-        ],
-        "output": {"label": "Sales Dashboard index.html", "path": SALES_BASE / "Sales Dashboard" / "index.html", "max_age_hours": 30},
-        "dashboard_url": "https://flomaticauto.github.io/olympic-paints-sales/",
-    },
-    {
-        "id": "kpi_rep_dashboards",
-        "agent": "PRISM",
-        "name": "Per-Rep KPI Dashboards (AC · AP · BV · NP · BM)",
-        "task": "OlympicPaints_KPI_Dashboard_Update",
-        "cadence": "Daily · 07:00",
-        "max_age_hours": 30,
-        "inputs": [
-            {"label": "Sales Invoices (parquet)",   "path": SALES_BASE / "Sales_Invoices_All.parquet", "max_age_hours": "business_day", "source": "Daily ledger build"},
-        ],
-        "output": {"label": "KPI Dashboard.html", "path": AWS_BASE / "index.html", "max_age_hours": 30},
-        "dashboard_url": "https://flomaticauto.github.io/olympic-paints-kpi-ac/",
-    },
     {
         "id": "ecommerce_dashboard",
         "agent": "PRISM",
@@ -111,7 +76,7 @@ MANIFEST = [
         "id": "haven_clocking",
         "agent": "HAVEN",
         "name": "HAVEN Clocking Report (Process Inbox)",
-        "task": "HAVEN Clocking Report Daily",
+        "task": "Daily Process Inbox",
         "cadence": "Daily · 07:30",
         "max_age_hours": 30,
         "inputs": [
@@ -124,7 +89,7 @@ MANIFEST = [
         "id": "haven_dashboard_check",
         "agent": "HAVEN",
         "name": "HAVEN Dashboard Check (regenerate + Telegram)",
-        "task": "HAVEN — Daily Clocking Dashboard Check",
+        "task": "Weekly Dashboard Check",
         "cadence": "Daily · 08:00",
         "max_age_hours": 30,
         "inputs": [
@@ -148,7 +113,7 @@ MANIFEST = [
         "id": "vehicle_health",
         "agent": "STRIKER",
         "name": "STRIKER Vehicle Report Health Check",
-        "task": "STRIKER — Vehicle Report Health Check",
+        "task": "Vehicle Report Health Check",
         "cadence": "Weekly · Mon",
         "max_age_hours": 192,
         "inputs": [],
@@ -159,7 +124,7 @@ MANIFEST = [
         "id": "kaizen_sync",
         "agent": "VAULT",
         "name": "Kaizen Daily Sync",
-        "task": "Olympic Paints - Kaizen Daily Sync",
+        "task": "Olympic Paints - Kaizen Implement Poller",
         "cadence": "Daily · 07:30",
         "max_age_hours": 30,
         "inputs": [],
@@ -215,135 +180,52 @@ MANIFEST = [
         "agent": "PRISM",
         "name": "CSO Strategic Intelligence Build",
         "task": "CSO-Intelligence-Data",
-        "cadence": "Daily morning",
-        "max_age_hours": 30,
+        "cadence": "Weekly · 06:00",
+        "max_age_hours": 192,
         "inputs": [
             {"label": "Sales Invoices (parquet)", "path": SALES_BASE / "Sales_Invoices_All.parquet", "max_age_hours": "business_day", "source": "Daily ledger build"},
         ],
-        "output": {"label": "intelligence_data.json", "path": Path(r"C:\Users\quint\olympic-paints-cso-insights\intelligence_data.json"), "max_age_hours": 30},
+        "output": {"label": "CSO index.html", "path": WORKSPACE / "cso" / "index.html", "max_age_hours": 192},
         "dashboard_url": "https://flomaticauto.github.io/olympic-paints-cso-insights/",
     },
+    # ── PULSE v2 — Sales & Ops Manager (3 tasks) ────────────────────────────
     {
-        "id": "portal_trigger_server",
-        "agent": "VAULT",
-        "name": "Portal Trigger Server (localhost:8765)",
-        "task": "OlympicPortalTriggerServer",
-        "cadence": "Continuous",
-        "max_age_hours": None,
-        "inputs": [],
-        "output": {"label": "portal_trigger_server.py", "path": WORKSPACE / "scripts" / "portal_trigger_server.py", "max_age_hours": None},
-        "dashboard_url": None,
-    },
-    # ── PULSE — Sales & Ops Manager (8 weekday/weekly tasks) ────────────────
-    # All read the same shared data: Meetings_Report_AWS.xlsx + planned_week.json + pulse_cycle.parquet.
-    # Outputs vary per job (see each entry).
-    {
-        "id": "pulse_daily_mailer",
+        "id": "pulse_preview",
         "agent": "PULSE",
-        "name": "PULSE Daily Mailer (per-rep brief + Telegram)",
-        "task": "PULSE — Daily Mailer",
+        "name": "PULSE Daily Preview (Mon-Fri brief + send)",
+        "task": "Preview Gate",
         "cadence": "Daily · Mon-Fri 09:00",
         "max_age_hours": 30,
         "inputs": [
-            {"label": "Zoho Meetings",      "path": SALES_BASE / "Zoho" / "Meetings_Report_AWS.xlsx",   "max_age_hours": "business_day", "source": "Zoho export"},
-            {"label": "Planned week",       "path": PULSE_DATA / "planned_week.json",                   "max_age_hours": 192,            "source": "PULSE planner"},
-            {"label": "Cycle parquet",      "path": PULSE_DATA / "pulse_cycle.parquet",                 "max_age_hours": None,           "source": "PULSE cycle loader"},
+            {"label": "Planned week",       "path": PULSE_DATA / "planned_week.json",   "max_age_hours": 192, "source": "Build Next Week Plan"},
+            {"label": "Zoho Meetings",      "path": SALES_BASE / "Zoho" / "Meetings_Report_AWS.xlsx", "max_age_hours": "business_day", "source": "Zoho export"},
         ],
-        "output": {"label": "output/site/daily/<date>/<rep>.html", "path": PULSE_OUTPUT / "daily", "max_age_hours": 30},
-        "dashboard_url": "https://olympic-paints-pulse-web.vercel.app/",
+        "output": {"label": "health_tiers.json", "path": PULSE_DATA / "health_tiers.json", "max_age_hours": 30},
+        "dashboard_url": "https://olympic-paints-pulse-v2.vercel.app/",
     },
     {
-        "id": "pulse_leaderboard",
+        "id": "pulse_build_plan",
         "agent": "PULSE",
-        "name": "PULSE Leaderboard (weekday refresh)",
-        "task": "PULSE — Leaderboard",
-        "cadence": "Daily · Mon-Fri 09:15",
-        "max_age_hours": 30,
-        "inputs": [
-            {"label": "Zoho Meetings",      "path": SALES_BASE / "Zoho" / "Meetings_Report_AWS.xlsx",   "max_age_hours": "business_day", "source": "Zoho export"},
-            {"label": "Planned week",       "path": PULSE_DATA / "planned_week.json",                   "max_age_hours": 192,            "source": "PULSE planner"},
-        ],
-        "output": {"label": "output/site/index.html (leaderboard)", "path": PULSE_OUTPUT / "index.html", "max_age_hours": 30},
-        "dashboard_url": "https://olympic-paints-pulse-web.vercel.app/",
-    },
-    {
-        "id": "pulse_web_snapshots",
-        "agent": "PULSE",
-        "name": "PULSE Web Snapshots (Vercel push)",
-        "task": "PULSE — Web Snapshots",
-        "cadence": "Daily · Mon-Fri 09:20",
-        "max_age_hours": 30,
-        "inputs": [
-            {"label": "Daily site folder",  "path": PULSE_OUTPUT / "daily",                              "max_age_hours": 30,             "source": "pulse_daily.py"},
-            {"label": "Scorecard folder",   "path": PULSE_OUTPUT / "scorecard",                          "max_age_hours": 384,            "source": "pulse_scorecard.py"},
-        ],
-        "output": {"label": "output/site (committed to Vercel)", "path": PULSE_OUTPUT, "max_age_hours": 30},
-        "dashboard_url": "https://olympic-paints-pulse-web.vercel.app/",
-    },
-    {
-        "id": "pulse_ack_escalation",
-        "agent": "PULSE",
-        "name": "PULSE Ack Escalation (afternoon nudge)",
-        "task": "PULSE — Ack Escalation",
-        "cadence": "Daily · Mon-Fri 17:15",
-        "max_age_hours": 30,
-        "inputs": [
-            {"label": "Daily site folder",  "path": PULSE_OUTPUT / "daily",                              "max_age_hours": 30,             "source": "pulse_daily.py"},
-        ],
-        "output": {"label": "pulse_escalation.py", "path": PULSE_BASE / "scripts" / "pulse_escalation.py", "max_age_hours": None},
-        "dashboard_url": None,
-    },
-    {
-        "id": "pulse_intake_escalation",
-        "agent": "PULSE",
-        "name": "PULSE Intake Escalation (Fri morning)",
-        "task": "PULSE — Intake Escalation",
-        "cadence": "Weekly · Fri 09:00",
+        "name": "PULSE Build Next Week Plan (Sunday)",
+        "task": "Build Next Week Plan",
+        "cadence": "Weekly · Sun 17:00",
         "max_age_hours": 192,
         "inputs": [
-            {"label": "Planned week",       "path": PULSE_DATA / "planned_week.json",                   "max_age_hours": 192,            "source": "PULSE planner"},
-        ],
-        "output": {"label": "pulse_intake_escalation.py", "path": PULSE_BASE / "scripts" / "pulse_intake_escalation.py", "max_age_hours": None},
-        "dashboard_url": None,
-    },
-    {
-        "id": "pulse_scorecard",
-        "agent": "PULSE",
-        "name": "PULSE Bi-Weekly Scorecard",
-        "task": "PULSE — Scorecard",
-        "cadence": "Weekly · Mon 07:00",
-        "max_age_hours": 192,
-        "inputs": [
-            {"label": "Zoho Meetings",      "path": SALES_BASE / "Zoho" / "Meetings_Report_AWS.xlsx",   "max_age_hours": "business_day", "source": "Zoho export"},
-            {"label": "Cycle parquet",      "path": PULSE_DATA / "pulse_cycle.parquet",                 "max_age_hours": None,           "source": "PULSE cycle loader"},
-        ],
-        "output": {"label": "output/site/scorecard/index.html", "path": PULSE_OUTPUT / "scorecard" / "index.html", "max_age_hours": 192},
-        "dashboard_url": "https://olympic-paints-pulse-web.vercel.app/scorecard/",
-    },
-    {
-        "id": "pulse_cycle_loader",
-        "agent": "PULSE",
-        "name": "PULSE Cycle Loader (Sunday)",
-        "task": "PULSE — Cycle Loader",
-        "cadence": "Weekly · Sun 18:00",
-        "max_age_hours": 192,
-        "inputs": [
-            {"label": "Sales Invoices (parquet)", "path": SALES_BASE / "Sales_Invoices_All.parquet",     "max_age_hours": "business_day", "source": "Daily ledger build"},
-        ],
-        "output": {"label": "pulse_cycle.parquet", "path": PULSE_DATA / "pulse_cycle.parquet", "max_age_hours": 192},
-        "dashboard_url": None,
-    },
-    {
-        "id": "pulse_planner",
-        "agent": "PULSE",
-        "name": "PULSE Planner (Sun evening — sets next week)",
-        "task": "PULSE — Planner",
-        "cadence": "Weekly · Sun 19:00",
-        "max_age_hours": 192,
-        "inputs": [
-            {"label": "Cycle parquet",      "path": PULSE_DATA / "pulse_cycle.parquet",                 "max_age_hours": 192,            "source": "PULSE cycle loader"},
+            {"label": "Cycle parquet",      "path": PULSE_DATA / "pulse_cycle.parquet", "max_age_hours": None, "source": "cycle loader"},
+            {"label": "Sales parquet",      "path": SALES_BASE / "Sales_Invoices_All.parquet", "max_age_hours": "business_day", "source": "Daily ledger"},
         ],
         "output": {"label": "planned_week.json", "path": PULSE_DATA / "planned_week.json", "max_age_hours": 192},
+        "dashboard_url": "https://olympic-paints-pulse-v2.vercel.app/",
+    },
+    {
+        "id": "pulse_intake_reminder",
+        "agent": "PULSE",
+        "name": "PULSE Weekly Intake Reminder",
+        "task": "Weekly Intake Reminder",
+        "cadence": "Weekly · Fri 09:00",
+        "max_age_hours": 192,
+        "inputs": [],
+        "output": {"label": "pulse_config.json", "path": PULSE_BASE / "pulse_config.json", "max_age_hours": None},
         "dashboard_url": None,
     },
 ]
@@ -569,6 +451,12 @@ TELEGRAM_REPING_HOURS = 12
 
 
 def _telegram_token() -> str | None:
+    # 1. Machine-level env var (preferred)
+    import os
+    tok = os.environ.get("TELEGRAM_BOT_TOKEN")
+    if tok:
+        return tok
+    # 2. Fallback: PULSE v2 .env file
     env_path = PULSE_BASE / ".env"
     if not env_path.exists():
         return None
