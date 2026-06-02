@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-02T14:15:07",
-  "total": 20,
-  "ok": 6,
+  "generated_at": "2026-06-02T14:58:03",
+  "total": 15,
+  "ok": 8,
   "warn": 5,
-  "fail": 9,
+  "fail": 2,
   "jobs": [
     {
       "id": "ecommerce_dashboard",
@@ -126,85 +126,35 @@
       "task_last_result": 0
     },
     {
-      "id": "pulse_daily_mailer",
+      "id": "pulse_preview",
       "agent": "PULSE",
-      "name": "PULSE Daily Mailer (per-rep brief + Telegram)",
-      "task": "PULSE \u2014 Daily Mailer",
+      "name": "PULSE Daily Preview (Mon-Fri brief + send)",
+      "task": "Preview Gate",
       "cadence": "Daily \u00b7 Mon-Fri 09:00",
       "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "task_last_run": "2026-06-02T09:00:00",
+      "task_last_result": 267014
     },
     {
-      "id": "pulse_leaderboard",
+      "id": "pulse_build_plan",
       "agent": "PULSE",
-      "name": "PULSE Leaderboard (weekday refresh)",
-      "task": "PULSE \u2014 Leaderboard",
-      "cadence": "Daily \u00b7 Mon-Fri 09:15",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "name": "PULSE Build Next Week Plan (Sunday)",
+      "task": "Build Next Week Plan",
+      "cadence": "Weekly \u00b7 Sun 17:00",
+      "overall": "ok",
+      "task_last_run": "2026-05-29T17:00:00",
+      "task_last_result": 0
     },
     {
-      "id": "pulse_web_snapshots",
+      "id": "pulse_intake_reminder",
       "agent": "PULSE",
-      "name": "PULSE Web Snapshots (Vercel push)",
-      "task": "PULSE \u2014 Web Snapshots",
-      "cadence": "Daily \u00b7 Mon-Fri 09:20",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
-    },
-    {
-      "id": "pulse_ack_escalation",
-      "agent": "PULSE",
-      "name": "PULSE Ack Escalation (afternoon nudge)",
-      "task": "PULSE \u2014 Ack Escalation",
-      "cadence": "Daily \u00b7 Mon-Fri 17:15",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
-    },
-    {
-      "id": "pulse_intake_escalation",
-      "agent": "PULSE",
-      "name": "PULSE Intake Escalation (Fri morning)",
-      "task": "PULSE \u2014 Intake Escalation",
+      "name": "PULSE Weekly Intake Reminder",
+      "task": "Weekly Intake Reminder",
       "cadence": "Weekly \u00b7 Fri 09:00",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
-    },
-    {
-      "id": "pulse_scorecard",
-      "agent": "PULSE",
-      "name": "PULSE Bi-Weekly Scorecard",
-      "task": "PULSE \u2014 Scorecard",
-      "cadence": "Weekly \u00b7 Mon 07:00",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
-    },
-    {
-      "id": "pulse_cycle_loader",
-      "agent": "PULSE",
-      "name": "PULSE Cycle Loader (Sunday)",
-      "task": "PULSE \u2014 Cycle Loader",
-      "cadence": "Weekly \u00b7 Sun 18:00",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
-    },
-    {
-      "id": "pulse_planner",
-      "agent": "PULSE",
-      "name": "PULSE Planner (Sun evening \u2014 sets next week)",
-      "task": "PULSE \u2014 Planner",
-      "cadence": "Weekly \u00b7 Sun 19:00",
-      "overall": "fail",
-      "task_last_run": null,
-      "task_last_result": 267011
+      "overall": "ok",
+      "task_last_run": "2026-05-28T15:30:30",
+      "task_last_result": 0
     }
   ],
-  "success_pct": 30
+  "success_pct": 53
 }
