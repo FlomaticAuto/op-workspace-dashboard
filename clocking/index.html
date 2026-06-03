@@ -530,6 +530,11 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
       <option value="missing">Has missed clock-outs</option>
       <option value="clean">No missed clock-outs</option>
     </select>
+    <select id="wk-staff" onchange="filterWk()" title="Staff type">
+      <option value="">All Staff</option>
+      <option value="hr">HR Staff</option>
+      <option value="admin">Admin Staff</option>
+    </select>
     <select id="wk-min-hrs" onchange="filterWk()" title="Minimum total hours (visible weeks)">
       <option value="0">Any hours</option>
       <option value="1">≥ 1h</option>
@@ -605,6 +610,11 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
       <option value="">Any miss status</option>
       <option value="missing">Has misses in period</option>
       <option value="clean">No misses in period</option>
+    </select>
+    <select id="mo-staff" onchange="filterMonthly()" title="Staff type">
+      <option value="">All Staff</option>
+      <option value="hr">HR Staff</option>
+      <option value="admin">Admin Staff</option>
     </select>
     <button onclick="exportMonthly()" class="btn-export">⬇ Export</button>
   </div>
@@ -1043,13 +1053,21 @@ function renderWk(rows){
     </tr>`;
   });
 }
+const HR_IDS=new Set(['CC4454','CC4587','DF1189','DF2241','DF1204','DF1902','DF1904','DF1914','DF1919','DF1921','DF1923','DF1924','DF1926','DF1927','DF2242','DT1903','DT1905','DT1907','DT1908','PC2631','PC1015','PC1912','PC1914','PC1925','PC1926','PC3314','PC3560','PE1920','PE1926','PE2633','PE3312','PG1014','PG1901','PG1918','PG1920','PG1921','PG1922','PG1925','PG1926','PG4079','PP1913','PP1925','PP1926','PR1907','PR4408','TN2001','TN2481','TN2814','TN2632']);
+function _staffMatch(r,sf){
+  if(!sf)return true;
+  const k=r.id.replace(/\s+/g,'').toUpperCase();
+  return sf==='hr'?HR_IDS.has(k):!HR_IDS.has(k);
+}
 function getFilteredWkRows(){
   const s=(document.getElementById('wk-search').value||'').toLowerCase();
   const e=document.getElementById('wk-emp').value;
   const m=document.getElementById('wk-miss').value;
+  const sf=document.getElementById('wk-staff').value;
   const minH=parseFloat(document.getElementById('wk-min-hrs').value)||0;
   let rows=D.wk_detail_table.slice();
   if(e)rows=rows.filter(r=>r.employer===e);
+  if(sf)rows=rows.filter(r=>_staffMatch(r,sf));
   if(s)rows=rows.filter(r=>r.name.toLowerCase().includes(s)||r.id.toLowerCase().includes(s));
   if(m==='missing')rows=rows.filter(r=>(r.missYTD||0)>0);
   else if(m==='clean')rows=rows.filter(r=>(r.missYTD||0)===0);
@@ -1445,8 +1463,10 @@ function filterMonthly(){
   const s=(document.getElementById('mo-search').value||'').toLowerCase();
   const e=document.getElementById('mo-emp').value;
   const mf=document.getElementById('mo-miss').value;
+  const sf=document.getElementById('mo-staff').value;
   let rows=_moAggRows(from,to);
   if(e)rows=rows.filter(r=>r.employer===e);
+  if(sf)rows=rows.filter(r=>_staffMatch(r,sf));
   if(s)rows=rows.filter(r=>r.name.toLowerCase().includes(s)||r.id.toLowerCase().includes(s));
   if(mf==='missing')rows=rows.filter(r=>r.periodMiss>0);
   else if(mf==='clean')rows=rows.filter(r=>r.periodMiss===0);
@@ -1498,8 +1518,10 @@ async function exportMonthly(){
   const s=(document.getElementById('mo-search').value||'').toLowerCase();
   const e=document.getElementById('mo-emp').value;
   const mf=document.getElementById('mo-miss').value;
+  const sf=document.getElementById('mo-staff').value;
   let rows=_moAggRows(from,to);
   if(e)rows=rows.filter(r=>r.employer===e);
+  if(sf)rows=rows.filter(r=>_staffMatch(r,sf));
   if(s)rows=rows.filter(r=>r.name.toLowerCase().includes(s)||r.id.toLowerCase().includes(s));
   if(mf==='missing')rows=rows.filter(r=>r.periodMiss>0);
   else if(mf==='clean')rows=rows.filter(r=>r.periodMiss===0);
