@@ -1413,24 +1413,26 @@ function _moAggRows(from,to){
   const months=_moMonthsInRange(from,to);
   return D.wk_detail_table.map(r=>{
     const mh={};months.forEach(mk=>mh[mk]=0);
-    let pt=0;
+    let pt=0,pot=0;
     D.wk_weeks.forEach((wk,wi)=>{
       const ws=new Date(wk.start+'T00:00:00');
       const wd=r.weeks[wi];if(!wd||!wd.days)return;
+      let wkHrs=0;
       Object.entries(_MO_DAY_OFF).forEach(([day,off])=>{
         const dd=new Date(ws.getTime()+off*86400000);
         if(dd<from||dd>to)return;
         const h=wd.days[day]||0;if(!h)return;
         const mk=dd.getFullYear()+'-'+String(dd.getMonth()+1).padStart(2,'0');
-        if(mk in mh){mh[mk]=Math.round((mh[mk]+h)*100)/100;pt=Math.round((pt+h)*100)/100;}
+        if(mk in mh){mh[mk]=Math.round((mh[mk]+h)*100)/100;pt=Math.round((pt+h)*100)/100;wkHrs=Math.round((wkHrs+h)*100)/100;}
       });
+      pot=Math.round((pot+Math.max(0,wkHrs-OT_THRESHOLD))*100)/100;
     });
     const pm=D.miss_table.filter(mr=>{
       if(mr.name!==r.name)return false;
       const d=new Date(mr.date.replace(/\//g,'-')+'T00:00:00');
       return d>=from&&d<=to;
     }).length;
-    return{...r,mh,months,periodTotal:pt,periodMiss:pm};
+    return{...r,mh,months,periodTotal:pt,periodOT:pot,periodMiss:pm};
   });
 }
 function filterMonthly(){
@@ -1454,11 +1456,12 @@ function filterMonthly(){
   let th='<tr><th>Employer</th><th>ID</th><th>Name</th>';
   months.forEach(mk=>{th+=`<th style="background:#1A3D6E;color:#fff;min-width:80px;border-bottom:2px solid #F5C400">${_moFmtMk(mk)}</th>`;});
   th+='<th style="background:#0D2040;color:#fff;min-width:90px;border-bottom:2px solid #F5C400">Period Total</th>';
+  th+='<th style="background:#8B0000;color:#fff;min-width:70px;border-bottom:2px solid #F5C400" title="Total overtime (hours above 45h/wk) for selected period">Period OT</th>';
   th+='<th style="background:#A88000;color:#fff;min-width:60px;border-bottom:2px solid #F5C400">Miss</th></tr>';
   thead.innerHTML=th;
   const tbody=document.getElementById('mo-tbody');
   if(!active.length){
-    tbody.innerHTML=`<tr><td colspan="${months.length+5}" style="padding:24px;text-align:center;color:var(--color-text-secondary);font-style:italic">No hours found for the selected period.</td></tr>`;
+    tbody.innerHTML=`<tr><td colspan="${months.length+6}" style="padding:24px;text-align:center;color:var(--color-text-secondary);font-style:italic">No hours found for the selected period.</td></tr>`;
   }else{
     tbody.innerHTML='';
     active.forEach(r=>{
@@ -1472,6 +1475,7 @@ function filterMonthly(){
         <td><strong>${r.name}</strong></td>
         ${cells}
         <td class="center" style="background:#1A3D6E;color:#F5C400;font-weight:800">${r.periodTotal>0?r.periodTotal.toFixed(1):''}</td>
+        <td class="center ot-cell" style="background:${r.periodOT>0?'rgba(139,0,0,.25)':''};font-weight:800">${r.periodOT>0?r.periodOT.toFixed(1):''}</td>
         <td class="center" style="background:${hm?'rgba(245,196,0,.18)':'rgba(45,140,122,.15)'};font-weight:800;color:${hm?'var(--color-warning-fg)':'var(--color-success-fg)'}">${r.periodMiss}</td>
       </tr>`;
     });
@@ -1504,9 +1508,9 @@ async function exportMonthly(){
   const months=active[0].months;
   const wb2=new ExcelJS.Workbook();
   const ws2=wb2.addWorksheet('Monthly Hours');
-  ws2.addRow(['Employer','ID','Name',...months.map(_moFmtMk),'Period Total','Miss']);
+  ws2.addRow(['Employer','ID','Name',...months.map(_moFmtMk),'Period Total','Period OT','Miss']);
   ws2.getRow(1).font={bold:true};
-  active.forEach(r=>{ws2.addRow([r.employer,r.id,r.name,...months.map(mk=>r.mh[mk]||null),r.periodTotal||null,r.periodMiss]);});
+  active.forEach(r=>{ws2.addRow([r.employer,r.id,r.name,...months.map(mk=>r.mh[mk]||null),r.periodTotal||null,r.periodOT>0?r.periodOT:null,r.periodMiss]);});
   const buf=await wb2.xlsx.writeBuffer();
   const blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);
