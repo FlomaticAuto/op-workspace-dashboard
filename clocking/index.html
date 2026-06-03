@@ -210,6 +210,8 @@ td.emp-op{color:var(--color-brand-primary);font-weight:700}
 .pct-med{color:var(--color-warning-fg);font-weight:700}
 .ot-cell{background:rgba(232,96,96,0.18)!important;color:#C62828;font-weight:800}
 .theme-dark .ot-cell,.theme-navy .ot-cell{color:#FDDCDC}
+.hr-row td{font-weight:700}
+.hr-row .hr-badge{display:inline-block;font-family:var(--font-display);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--color-brand-primary);color:var(--color-text-on-brand);border-radius:3px;padding:1px 5px;margin-left:5px;vertical-align:middle}
 
 /* ── SECTION ──────────────────────────────────────────────────── */
 .section-hdr{display:flex;justify-content:space-between;align-items:center;margin:24px 0 12px}
@@ -1042,10 +1044,11 @@ function renderWk(rows){
       });
       cells+=`<td class="center" style="background:rgba(45,107,168,.25);color:var(--color-text-primary);font-weight:700">${wCapped>0?wCapped.toFixed(1):''}</td>`;
     });
-    b.innerHTML+=`<tr class="${ps?'primeserve':''}">
+    const isHR=HR_IDS.has(r.id.replace(/\s+/g,'').toUpperCase());
+    b.innerHTML+=`<tr class="${ps?'primeserve':''}${isHR?' hr-row':''}">
       <td class="${ps?'emp-ps':'emp-op'}" style="font-weight:800">${ps?'PS':'OP'}</td>
       <td style="font-size:11px;color:var(--color-text-secondary)">${r.id}</td>
-      <td><strong>${r.name}</strong></td>
+      <td><strong>${r.name}</strong>${isHR?'<span class="hr-badge">HR</span>':''}</td>
       ${cells}
       <td class="center" style="background:#1A3D6E;color:#F5C400;font-weight:800">${visTotal>0?visTotal.toFixed(1):''}</td>
       <td class="center${visOT>0?' ot-cell':''}" style="${visOT>0?'':'background:rgba(45,140,122,.08)'}">${visOT>0?visOT.toFixed(1):''}</td>
@@ -1487,12 +1490,13 @@ function filterMonthly(){
     active.forEach(r=>{
       const ps=r.employer==='Primeserve';
       const hm=r.periodMiss>0;
+      const isHR=HR_IDS.has(r.id.replace(/\s+/g,'').toUpperCase());
       let cells='';
       months.forEach(mk=>{const h=r.mh[mk]||0;cells+=`<td class="center">${h>0?h.toFixed(1):''}</td>`;});
-      tbody.innerHTML+=`<tr class="${ps?'primeserve':''}">
+      tbody.innerHTML+=`<tr class="${ps?'primeserve':''}${isHR?' hr-row':''}">
         <td class="${ps?'emp-ps':'emp-op'}" style="font-weight:800">${ps?'PS':'OP'}</td>
         <td style="font-size:11px;color:var(--color-text-secondary)">${r.id}</td>
-        <td><strong>${r.name}</strong></td>
+        <td><strong>${r.name}</strong>${isHR?'<span class="hr-badge">HR</span>':''}</td>
         ${cells}
         <td class="center" style="background:#1A3D6E;color:#F5C400;font-weight:800">${r.periodTotal>0?r.periodTotal.toFixed(1):''}</td>
         <td class="center ot-cell" style="background:${r.periodOT>0?'rgba(139,0,0,.25)':''};font-weight:800">${r.periodOT>0?r.periodOT.toFixed(1):''}</td>
