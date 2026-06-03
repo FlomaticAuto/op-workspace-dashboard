@@ -989,9 +989,9 @@ function buildWkHeader(){
   const sel=wkSelIdx.map(i=>D.wk_weeks[i]);
   let r1='<tr><th rowspan="2">Employer</th><th rowspan="2">ID</th><th rowspan="2">Name</th>';
   sel.forEach(w=>{
-    r1+=`<th colspan="9" style="background:#1A3D6E;color:#fff;text-align:center;white-space:nowrap;border-bottom:2px solid #F5C400">${w.label}</th>`;
+    r1+=`<th colspan="8" style="background:#1A3D6E;color:#fff;text-align:center;white-space:nowrap;border-bottom:2px solid #F5C400">${w.label}</th>`;
   });
-  r1+='<th rowspan="2" style="background:#0D2040;color:#fff;min-width:80px;border-bottom:2px solid #F5C400" title="Sum of the weeks currently visible">Period Total</th>';
+  r1+='<th rowspan="2" style="background:#0D2040;color:#fff;min-width:80px;border-bottom:2px solid #F5C400" title="Sum of all hours for visible weeks (uncapped)">Period Total</th>';
   r1+='<th rowspan="2" style="background:#8B0000;color:#fff;min-width:70px;border-bottom:2px solid #F5C400" title="Total overtime (hours above 45h/wk) for visible weeks">Period OT</th>';
   r1+='<th rowspan="2" style="background:#A88000;color:#fff;min-width:70px;border-bottom:2px solid #F5C400">Miss YTD</th></tr>';
   let r2='<tr>';
@@ -999,8 +999,7 @@ function buildWkHeader(){
     WK_DAYS.forEach(d=>{
       r2+=`<th style="background:#2D6BA8;color:#fff;font-size:10px;min-width:38px">${d}</th>`;
     });
-    r2+='<th style="background:#1A3D6E;color:#FAE04D;min-width:52px;font-weight:800">Total</th>';
-    r2+='<th style="background:#8B0000;color:#FDDCDC;min-width:44px;font-weight:800;font-size:10px" title="Overtime hours (above 45h)">OT</th>';
+    r2+='<th style="background:#1A3D6E;color:#FAE04D;min-width:52px;font-weight:800" title="Capped at 45h; see Period Total for full hours">Total</th>';
   });
   r2+='</tr>';
   thead.innerHTML=r1+r2;
@@ -1026,13 +1025,12 @@ function renderWk(rows){
     wkSelIdx.forEach(wi=>{
       const w=r.weeks[wi]||{days:{},total:0};
       const wTotal=w.total||0;
-      const wOT=Math.max(0,wTotal-OT_THRESHOLD);
+      const wCapped=Math.min(wTotal,OT_THRESHOLD);
       WK_DAYS.forEach(d=>{
         const v=(w.days&&w.days[d])||0;
         cells+=`<td class="center" style="background:rgba(107,158,208,.12);color:var(--color-text-primary);font-size:11px">${v>0?v.toFixed(1):''}</td>`;
       });
-      cells+=`<td class="center" style="background:rgba(45,107,168,.25);color:var(--color-text-primary);font-weight:700">${wTotal>0?wTotal.toFixed(1):''}</td>`;
-      cells+=wOT>0?`<td class="center ot-cell">${wOT.toFixed(1)}</td>`:'<td class="center" style="background:rgba(107,158,208,.05)"></td>';
+      cells+=`<td class="center" style="background:rgba(45,107,168,.25);color:var(--color-text-primary);font-weight:700">${wCapped>0?wCapped.toFixed(1):''}</td>`;
     });
     b.innerHTML+=`<tr class="${ps?'primeserve':''}">
       <td class="${ps?'emp-ps':'emp-op'}" style="font-weight:800">${ps?'PS':'OP'}</td>
@@ -1100,8 +1098,8 @@ async function exportWk(){
   });
 
   const N=sel.length;
-  const totalCols=3+N*9+3;        // Emp, ID, Name + (7 days+Total+OT)*N + Period Total + Period OT + Miss YTD
-  const ptCol=3+N*9+1;            // Period Total column index
+  const totalCols=3+N*8+3;        // Emp, ID, Name + (7 days+Total)*N + Period Total + Period OT + Miss YTD
+  const ptCol=3+N*8+1;            // Period Total column index
   const potCol=ptCol+1;           // Period OT column index
   const myCol=potCol+1;           // Miss YTD column index
 
@@ -1149,11 +1147,10 @@ async function exportWk(){
   r4.getCell(1).value='Employer';r4.getCell(2).value='Employee ID';r4.getCell(3).value='Name';
   let c=4;
   sel.forEach(w=>{
-    ws.mergeCells(4,c,4,c+8);
+    ws.mergeCells(4,c,4,c+7);
     r4.getCell(c).value=w.label;
     WK_DAYS.forEach(d=>{r5.getCell(c++).value=d;});
     r5.getCell(c++).value='Total';
-    r5.getCell(c++).value='OT';
   });
   ws.mergeCells(4,ptCol,5,ptCol);r4.getCell(ptCol).value='Period Total';
   ws.mergeCells(4,potCol,5,potCol);r4.getCell(potCol).value='Period OT';
@@ -1171,15 +1168,12 @@ async function exportWk(){
     b.alignment={horizontal:'center',vertical:'middle'};
     b.border=thinBorder(BORDER);
   }
-  // Highlight per-week Total and OT cells in row 5
+  // Highlight per-week Total cells in row 5
   for(let i=0;i<N;i++){
-    const cIdx=4+i*9+7;
+    const cIdx=4+i*8+7;
     const cell=r5.getCell(cIdx);
     cell.font={name:'Calibri',size:10,bold:true,color:{argb:YELLOW}};
     cell.fill={type:'pattern',pattern:'solid',fgColor:{argb:NAVY}};
-    const otCell=r5.getCell(cIdx+1);
-    otCell.font={name:'Calibri',size:10,bold:true,color:{argb:'FFCC0000'}};
-    otCell.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFFDE7E9'}};
   }
   // Period Total / Period OT / Miss YTD merged headers — distinct accent
   const ptH=r4.getCell(ptCol),potH=r4.getCell(potCol),myH=r4.getCell(myCol);
@@ -1237,44 +1231,41 @@ async function exportWk(){
         cell.fill={type:'pattern',pattern:'solid',fgColor:{argb:altFill}};
         cell.border=thinBorder(BORDER);
       });
-      // Week Total — formula = sum of preceding 7 day cells
+      // Week Total — capped at OT_THRESHOLD (45h); full hours appear in Period Total
       const totCell=row.getCell(cc);
       const startL=colLetter(cc-7),endL=colLetter(cc-1);
-      totCell.value={formula:'IF(SUM('+startL+rowNum+':'+endL+rowNum+')=0,"",SUM('+startL+rowNum+':'+endL+rowNum+'))'};
+      totCell.value={formula:`IF(SUM(${startL}${rowNum}:${endL}${rowNum})=0,"",MIN(SUM(${startL}${rowNum}:${endL}${rowNum}),${OT_THRESHOLD}))`};
       totCell.numFmt='0.00';
       totCell.font={name:'Calibri',size:10,bold:true,color:{argb:NAVY}};
       totCell.alignment={horizontal:'center',vertical:'middle'};
       totCell.fill={type:'pattern',pattern:'solid',fgColor:{argb:NAVY_LT}};
       totCell.border=thinBorder(BORDER);
-      const totL=colLetter(cc);
-      cc++;
-      // Week OT — overtime hours above threshold
-      const otCell=row.getCell(cc);
-      otCell.value={formula:`IF(${totL}${rowNum}>${OT_THRESHOLD},${totL}${rowNum}-${OT_THRESHOLD},"")`};
-      otCell.numFmt='0.00';
-      otCell.font={name:'Calibri',size:10,bold:true,color:{argb:'FFCC0000'}};
-      otCell.alignment={horizontal:'center',vertical:'middle'};
-      otCell.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFFDE7E9'}};
-      otCell.border=thinBorder(BORDER);
       cc++;
     });
 
-    // Period Total — formula = sum of all per-week totals
+    // Period Total — sum of raw day cells across all selected weeks (uncapped)
     const ptC=row.getCell(ptCol);
-    const ptParts=[];
-    for(let k=0;k<N;k++){ptParts.push(colLetter(4+k*9+7)+rowNum);}
-    ptC.value={formula:ptParts.join('+')};
+    const dayParts=[];
+    for(let k=0;k<N;k++){
+      const startL=colLetter(4+k*8),endL=colLetter(4+k*8+6);
+      dayParts.push(`SUM(${startL}${rowNum}:${endL}${rowNum})`);
+    }
+    ptC.value={formula:dayParts.join('+')};
     ptC.numFmt='0.00';
     ptC.font={name:'Calibri',size:11,bold:true,color:{argb:YELLOW}};
     ptC.fill={type:'pattern',pattern:'solid',fgColor:{argb:NAVY_DK}};
     ptC.alignment={horizontal:'center',vertical:'middle'};
     ptC.border=thinBorder(BORDER);
 
-    // Period OT — formula = sum of all per-week OT columns
+    // Period OT — sum of overtime (raw week total above 45h) across visible weeks
     const potC=row.getCell(potCol);
     const potParts=[];
-    for(let k=0;k<N;k++){potParts.push(colLetter(4+k*9+8)+rowNum);}
-    potC.value={formula:`IF(${potParts.join('+')}>0,${potParts.join('+')},"")` };
+    for(let k=0;k<N;k++){
+      const startL=colLetter(4+k*8),endL=colLetter(4+k*8+6);
+      potParts.push(`MAX(0,SUM(${startL}${rowNum}:${endL}${rowNum})-${OT_THRESHOLD})`);
+    }
+    const potSum=potParts.join('+');
+    potC.value={formula:`IF(${potSum}>0,${potSum},"")`};
     potC.numFmt='0.00';
     potC.font={name:'Calibri',size:11,bold:true,color:{argb:'FFCC0000'}};
     potC.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFFDE7E9'}};
@@ -1326,6 +1317,7 @@ async function exportWk(){
     ws.getColumn(4+k*8+7).width=9;
   }
   ws.getColumn(ptCol).width=13;
+  ws.getColumn(potCol).width=11;
   ws.getColumn(myCol).width=11;
 
   /* ── Auto-filter on header row + page setup ─────────────────── */
