@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T06:00:02+02:00",
+  "generated_at": "2026-06-03T07:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -151,8 +151,8 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Remind Account Health Forms",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-21T07:00:00",
-      "next_run": "2026-06-03 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-02 07:00:00+02:00",
+      "next_run": "2026-06-04 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 07:00:00+02:00",
       "scheduler_last_task_result": 2,
       "heartbeat_status": "missing",
       "history": []
@@ -216,9 +216,9 @@
       "task_path": "\\Olympic Paints\\CI\\OlympicPaints_SendCIReminders",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-20T07:00:00+02:00",
-      "next_run": "2026-06-03 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-02 07:00:00+02:00",
-      "scheduler_last_task_result": 1,
+      "next_run": "2026-06-04 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 07:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -349,9 +349,9 @@
       "task_path": "\\Olympic Paints\\FLASH\\OlympicPaints_FlashODOSubmission",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-20T07:00:00",
-      "next_run": "2026-06-03 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-02 07:00:00+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-06-04 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 07:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -401,8 +401,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-06-03 06:13:10+02:00",
-      "scheduler_last_run_time": "2026-06-03 05:43:11+02:00",
+      "next_run": "2026-06-03 07:13:10+02:00",
+      "scheduler_last_run_time": "2026-06-03 06:43:11+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -505,23 +505,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-06-03 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-03 06:00:01+02:00",
-      "scheduler_last_task_result": -2147020576,
+      "next_run": "2026-06-03 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 07:00:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-06-02T20:00:02+02:00",
-          "finished_at": "2026-06-02T20:00:07+02:00",
-          "duration_seconds": 4.745,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-02_20-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -629,12 +617,24 @@
           "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-03_05-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-06-03T06:00:02+02:00",
+          "finished_at": "2026-06-03T06:00:06+02:00",
+          "duration_seconds": 4.467,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-03_06-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-03T05:00:02+02:00",
-        "finished_at": "2026-06-03T05:00:07+02:00",
-        "duration_seconds": 4.722,
+        "started_at": "2026-06-03T06:00:02+02:00",
+        "finished_at": "2026-06-03T06:00:06+02:00",
+        "duration_seconds": 4.467,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -862,9 +862,9 @@
       "task_path": "\\Olympic Paints\\Sales\\Sales Dashboard Refresh",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-25T07:00:00+02:00",
-      "next_run": "2026-06-03 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-02 07:00:00+02:00",
-      "scheduler_last_task_result": 1,
+      "next_run": "2026-06-04 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 07:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -998,8 +998,8 @@
       "task_path": "\\Olympic Paints\\STRIKER\\Olympic Paints - Zoho Meetings Pull",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-20T06:15:00+02:00",
-      "next_run": "2026-06-03 06:15:00+02:00",
-      "scheduler_last_run_time": "2026-06-02 06:15:00+02:00",
+      "next_run": "2026-06-04 06:15:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 06:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -1074,12 +1074,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympic-paints-zoho-meetings-pull\\2026-06-02_06-15-01.log"
+        },
+        {
+          "job_id": "olympic-paints-zoho-meetings-pull",
+          "agent": "STRIKER",
+          "started_at": "2026-06-03T06:15:01+02:00",
+          "finished_at": "2026-06-03T06:15:28+02:00",
+          "duration_seconds": 27.367,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympic-paints-zoho-meetings-pull\\2026-06-03_06-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-02T06:15:01+02:00",
-        "finished_at": "2026-06-02T06:15:25+02:00",
-        "duration_seconds": 24.467,
+        "started_at": "2026-06-03T06:15:01+02:00",
+        "finished_at": "2026-06-03T06:15:28+02:00",
+        "duration_seconds": 27.367,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1258,8 +1270,8 @@
       "task_path": "\\Olympic Paints\\STRIKER\\Zoho Leads Pull",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-13T06:10:00",
-      "next_run": "2026-06-03 06:10:00+02:00",
-      "scheduler_last_run_time": "2026-06-02 06:10:01+02:00",
+      "next_run": "2026-06-04 06:10:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 06:10:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -1358,12 +1370,24 @@
           "stdout_tail": "Pulling leads modified since 2026-05-26T04:10:03+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Discovering Lead fields\n  discovered 66 fetchable fields (0 skipped â€” formula/rollup/subform)\n  splitting into 2 request batches (50, 17 fields each)\n\nâ†’ Leads\n  batch 1/2 â€” 50 fields\n  fetched 1 records from Leads\n  batch 2/2 â€” 17 fields\n  fetched 1 records from Leads\n\nâœ“ Wrote      1 leads â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\leads.parquet\n\nâ†’ Writing legacy CSV shims for existing consumers\n  âœ“ wrote 1 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking.csv\n  âœ“ wrote 1 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking_new.csv\n\nLead creation range: 2026-05-27 12:47:58+00:00 â†’ 2026-05-27 12:47:58+00:00\n\nTop lead statuses:\n  (none)                               1\n\nTop owners by lead count:\n  abooc@olympicpaints.co.za                 1",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\zoho-leads-pull\\2026-06-02_06-10-02.log"
+        },
+        {
+          "job_id": "zoho-leads-pull",
+          "agent": "STRIKER",
+          "started_at": "2026-06-03T06:10:02+02:00",
+          "finished_at": "2026-06-03T06:10:25+02:00",
+          "duration_seconds": 23.682,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Pulling leads modified since 2026-05-27T04:10:03+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Discovering Lead fields\n  discovered 66 fetchable fields (0 skipped â€” formula/rollup/subform)\n  splitting into 2 request batches (50, 17 fields each)\n\nâ†’ Leads\n  batch 1/2 â€” 50 fields\n  fetched 1 records from Leads\n  batch 2/2 â€” 17 fields\n  fetched 1 records from Leads\n\nâœ“ Wrote      1 leads â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\leads.parquet\n\nâ†’ Writing legacy CSV shims for existing consumers\n  âœ“ wrote 1 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking.csv\n  âœ“ wrote 1 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking_new.csv\n\nLead creation range: 2026-05-27 12:47:58+00:00 â†’ 2026-05-27 12:47:58+00:00\n\nTop lead statuses:\n  (none)                               1\n\nTop owners by lead count:\n  abooc@olympicpaints.co.za                 1",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\zoho-leads-pull\\2026-06-03_06-10-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-02T06:10:02+02:00",
-        "finished_at": "2026-06-02T06:10:12+02:00",
-        "duration_seconds": 10.369,
+        "started_at": "2026-06-03T06:10:02+02:00",
+        "finished_at": "2026-06-03T06:10:25+02:00",
+        "duration_seconds": 23.682,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1376,9 +1400,9 @@
       "task_path": "\\Olympic Paints\\VAULT\\Olympic Paints - Meeting Minutes Extractor",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-30T07:00:00+02:00",
-      "next_run": "2026-06-03 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-02 07:00:01+02:00",
-      "scheduler_last_task_result": 267014,
+      "next_run": "2026-06-04 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 07:00:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1389,23 +1413,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-06-03 06:15:00+02:00",
-      "scheduler_last_run_time": "2026-06-03 04:15:01+02:00",
+      "next_run": "2026-06-03 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 06:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-06-02T10:15:02+02:00",
-          "finished_at": "2026-06-02T10:15:10+02:00",
-          "duration_seconds": 8.221,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-02_10-15-02.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1513,12 +1525,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-03_04-15-02.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-06-03T06:15:02+02:00",
+          "finished_at": "2026-06-03T06:15:14+02:00",
+          "duration_seconds": 11.702,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-03_06-15-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-03T04:15:02+02:00",
-        "finished_at": "2026-06-03T04:15:10+02:00",
-        "duration_seconds": 8.15,
+        "started_at": "2026-06-03T06:15:02+02:00",
+        "finished_at": "2026-06-03T06:15:14+02:00",
+        "duration_seconds": 11.702,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1531,8 +1555,8 @@
       "task_path": "\\Olympic Paints\\VAULT\\VAULT Meeting Extraction Daily",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-04-22T07:00:00",
-      "next_run": "2026-06-03 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-02 07:00:01+02:00",
+      "next_run": "2026-06-04 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 07:00:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -1631,12 +1655,24 @@
           "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vault-meeting-extraction-daily\\2026-06-02_07-00-02.log"
+        },
+        {
+          "job_id": "vault-meeting-extraction-daily",
+          "agent": "VAULT",
+          "started_at": "2026-06-03T07:00:02+02:00",
+          "finished_at": "2026-06-03T07:00:02+02:00",
+          "duration_seconds": 0.297,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vault-meeting-extraction-daily\\2026-06-03_07-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-02T07:00:02+02:00",
-        "finished_at": "2026-06-02T07:00:03+02:00",
-        "duration_seconds": 0.542,
+        "started_at": "2026-06-03T07:00:02+02:00",
+        "finished_at": "2026-06-03T07:00:02+02:00",
+        "duration_seconds": 0.297,
         "exit_code": 0,
         "ok": true,
         "summary": null
