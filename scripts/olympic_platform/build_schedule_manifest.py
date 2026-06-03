@@ -16,6 +16,32 @@ DEFAULT_HEARTBEATS = Path(r"C:\Users\Administrator\.claude\heartbeats")
 DEFAULT_OUTPUT = Path(r"C:\Users\Administrator\workspace-dashboard\data\schedule_manifest.json")
 STALE_GRACE_MINUTES = 60
 
+# Curated business-criticality overlay (job_id -> high|medium|low). Lives in the
+# OneDrive agents/ folder; the same file the APEX digest reads. Baked into the
+# manifest here so the dashboard and the digest rank problems identically from a
+# single source. Missing/unreadable -> every job defaults to "medium".
+_CRITICALITY_CANDIDATES = [
+    Path(os.path.expanduser(r"~\OneDrive\1.Projects\1.Olympic Paints\agents\job_criticality.json")),
+    Path(r"C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\agents\job_criticality.json"),
+    Path(r"C:\Users\Administrator\OneDrive\1.Projects\1.Olympic Paints\agents\job_criticality.json"),
+]
+
+
+def _load_criticality(path: Optional[Path] = None) -> Dict[str, str]:
+    candidates = [path] if path else []
+    env = os.environ.get("OLYMPIC_JOB_CRITICALITY")
+    if env:
+        candidates.append(Path(env))
+    candidates += _CRITICALITY_CANDIDATES
+    for p in candidates:
+        if p and p.exists():
+            try:
+                data = json.loads(p.read_text(encoding="utf-8"))
+                return {k: v for k, v in data.items() if not k.startswith("_")}
+            except (OSError, json.JSONDecodeError):
+                continue
+    return {}
+
 
 def _parse_iso(value: Optional[str]) -> Optional[_dt.datetime]:
     if not value:
@@ -75,8 +101,10 @@ def assemble_manifest(
     tasks: Iterable[Dict[str, Any]],
     heartbeats_root: Path,
     now: Optional[str] = None,
+    criticality: Optional[Dict[str, str]] = None,
 ) -> Dict[str, Any]:
     now_dt = _parse_iso(now) if now else _dt.datetime.now(_dt.timezone(_dt.timedelta(hours=2)))
+    crit = criticality or {}
 
     out_tasks: List[Dict[str, Any]] = []
     for t in tasks:
@@ -89,6 +117,7 @@ def assemble_manifest(
             "agent": t["agent"],
             "task_path": t["task_path"],
             "enabled": t["enabled"],
+            "criticality": crit.get(t["job_id"], "medium"),
             "schedule_summary": t.get("schedule_summary"),
             "next_run": t.get("next_run"),
             # Task Scheduler's own record of the last run — useful for "missing"
@@ -212,7 +241,7 @@ def _slug(name: str) -> str:
 def main() -> int:
     hb_root = Path(os.environ.get("OLYMPIC_HEARTBEAT_ROOT", str(DEFAULT_HEARTBEATS)))
     tasks = enumerate_tasks_from_com()
-    manifest = assemble_manifest(tasks, heartbeats_root=hb_root)
+    manifest = assemble_manifest(tasks, heartbeats_root=hb_root, criticality=_load_criticality())
     DEFAULT_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     DEFAULT_OUTPUT.write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False),
