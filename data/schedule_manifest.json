@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T11:14:37+02:00",
+  "generated_at": "2026-06-03T12:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -21,8 +21,8 @@
       "task_path": "\\Olympic Paints\\Notion Todos Sync",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-06-03 11:43:11+02:00",
-      "scheduler_last_run_time": "2026-06-03 09:43:12+02:00",
+      "next_run": "2026-06-03 13:43:11+02:00",
+      "scheduler_last_run_time": "2026-06-03 11:43:12+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -190,9 +190,9 @@
       "task_path": "\\Olympic Paints\\CI\\OlympicPaints_CIWhatsApp_Slot2",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-28T12:00:00+02:00",
-      "next_run": "2026-06-03 12:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-02 12:00:00+02:00",
-      "scheduler_last_task_result": 1,
+      "next_run": "2026-06-04 12:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 12:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -387,8 +387,8 @@
       "task_path": "\\Olympic Paints\\Forms\\OlympicPaints_CheckPendingForms_1200",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-17T12:00:00+02:00",
-      "next_run": "2026-06-03 12:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-02 12:00:00+02:00",
+      "next_run": "2026-06-04 12:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 12:00:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -413,8 +413,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-06-03 11:43:10+02:00",
-      "scheduler_last_run_time": "2026-06-03 11:13:11+02:00",
+      "next_run": "2026-06-03 12:13:10+02:00",
+      "scheduler_last_run_time": "2026-06-03 11:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -517,9 +517,9 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-06-03 12:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-03 11:00:01+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-06-03 13:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-03 12:00:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
         {
