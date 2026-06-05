@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T00:00:02+02:00",
+  "generated_at": "2026-06-06T01:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -8,9 +8,9 @@
       "task_path": "\\Olympic Paints\\LanceDB — Nightly Ingest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-21T01:00:00",
-      "next_run": "2026-06-06 01:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-05 01:00:01+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-06-07 01:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-06 01:00:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -437,8 +437,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-06-06 00:13:10+02:00",
-      "scheduler_last_run_time": "2026-06-05 23:43:11+02:00",
+      "next_run": "2026-06-06 01:13:10+02:00",
+      "scheduler_last_run_time": "2026-06-06 00:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -541,23 +541,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-06-06 01:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-06 00:00:01+02:00",
+      "next_run": "2026-06-06 02:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-06 01:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-06-05T14:00:02+02:00",
-          "finished_at": "2026-06-05T14:00:08+02:00",
-          "duration_seconds": 5.683,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== pull --rebase origin master: fatal: unable to access 'https://github.com/FlomaticAuto/op-workspace-dashboard.git/': Could not resolve host: github.com\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== push origin master +master:main: fatal: unable to access 'https://github.com/FlomaticAuto/op-workspace-dashboard.git/': Could not resolve host: github.com",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-05_14-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -665,12 +653,24 @@
           "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-05_23-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-06-06T00:00:02+02:00",
+          "finished_at": "2026-06-06T00:00:06+02:00",
+          "duration_seconds": 4.024,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-06_00-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-05T23:00:02+02:00",
-        "finished_at": "2026-06-05T23:00:06+02:00",
-        "duration_seconds": 3.588,
+        "started_at": "2026-06-06T00:00:02+02:00",
+        "finished_at": "2026-06-06T00:00:06+02:00",
+        "duration_seconds": 4.024,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1533,23 +1533,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-06-06 00:15:00+02:00",
-      "scheduler_last_run_time": "2026-06-05 22:15:01+02:00",
+      "next_run": "2026-06-06 02:15:00+02:00",
+      "scheduler_last_run_time": "2026-06-06 00:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-06-05T04:15:02+02:00",
-          "finished_at": "2026-06-05T04:15:08+02:00",
-          "duration_seconds": 6.583,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-05_04-15-02.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1657,12 +1645,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-05_22-15-02.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-06-06T00:15:02+02:00",
+          "finished_at": "2026-06-06T00:15:11+02:00",
+          "duration_seconds": 9.108,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-06_00-15-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-05T22:15:02+02:00",
-        "finished_at": "2026-06-05T22:15:10+02:00",
-        "duration_seconds": 7.797,
+        "started_at": "2026-06-06T00:15:02+02:00",
+        "finished_at": "2026-06-06T00:15:11+02:00",
+        "duration_seconds": 9.108,
         "exit_code": 0,
         "ok": true,
         "summary": null
