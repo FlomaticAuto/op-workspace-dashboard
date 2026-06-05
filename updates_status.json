@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-05T07:07:18",
+  "generated_at": "2026-06-05T08:01:03",
   "total": 15,
-  "ok": 8,
+  "ok": 9,
   "warn": 5,
-  "fail": 2,
+  "fail": 1,
   "jobs": [
     {
       "id": "ecommerce_dashboard",
@@ -22,8 +22,8 @@
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
       "overall": "ok",
-      "task_last_run": "2026-06-04T08:00:00",
-      "task_last_result": 0
+      "task_last_run": "2026-06-05T08:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "haven_clocking",
@@ -32,7 +32,7 @@
       "task": "Daily Process Inbox",
       "cadence": "Daily \u00b7 07:30",
       "overall": "ok",
-      "task_last_run": "2026-06-04T07:30:30",
+      "task_last_run": "2026-06-05T07:30:30",
       "task_last_result": 0
     },
     {
@@ -91,9 +91,9 @@
       "name": "Friday Sales Meeting Pack",
       "task": "OlympicPaints_Friday_Sales_Meeting",
       "cadence": "Weekly \u00b7 Fri",
-      "overall": "fail",
-      "task_last_run": "2026-05-29T08:00:00",
-      "task_last_result": 1
+      "overall": "ok",
+      "task_last_run": "2026-06-05T08:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "meeting_extractor",
@@ -103,7 +103,7 @@
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
       "task_last_run": "2026-06-05T07:00:00",
-      "task_last_result": 267009
+      "task_last_result": 267014
     },
     {
       "id": "vault_meeting_extraction",
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 53
+  "success_pct": 60
 }
