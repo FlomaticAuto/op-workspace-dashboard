@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08T09:00:26",
+  "generated_at": "2026-06-08T10:15:07",
   "total": 15,
   "ok": 9,
   "warn": 4,
@@ -53,7 +53,7 @@
       "cadence": "Weekly \u00b7 Mon",
       "overall": "ok",
       "task_last_run": "2026-06-08T09:00:00",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "vehicle_health",
@@ -82,7 +82,7 @@
       "task": "OlympicPaints_Workspace_Health_Report",
       "cadence": "Weekly \u00b7 Fri 16:00",
       "overall": "warn",
-      "task_last_run": "2026-06-05T10:00:00",
+      "task_last_run": "2026-06-08T10:00:00",
       "task_last_result": 0
     },
     {
@@ -133,7 +133,7 @@
       "cadence": "Daily \u00b7 Mon-Fri 09:00",
       "overall": "fail",
       "task_last_run": "2026-06-08T09:00:00",
-      "task_last_result": 267009
+      "task_last_result": 267014
     },
     {
       "id": "pulse_build_plan",
