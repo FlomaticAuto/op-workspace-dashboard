@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08T09:00:04+02:00",
+  "generated_at": "2026-06-08T10:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -21,8 +21,8 @@
       "task_path": "\\Olympic Paints\\Notion Todos Sync",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-06-08 09:43:11+02:00",
-      "scheduler_last_run_time": "2026-06-08 07:43:12+02:00",
+      "next_run": "2026-06-08 11:43:11+02:00",
+      "scheduler_last_run_time": "2026-06-08 09:43:12+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -112,9 +112,9 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1000",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T10:00:00",
-      "next_run": "2026-06-08 10:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-05 10:00:00+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-06-09 10:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-08 10:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -449,8 +449,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-06-08 09:13:10+02:00",
-      "scheduler_last_run_time": "2026-06-08 08:43:11+02:00",
+      "next_run": "2026-06-08 10:13:10+02:00",
+      "scheduler_last_run_time": "2026-06-08 09:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -553,23 +553,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-06-08 10:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-08 09:00:01+02:00",
+      "next_run": "2026-06-08 11:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-08 10:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-06-07T23:00:02+02:00",
-          "finished_at": "2026-06-07T23:00:06+02:00",
-          "duration_seconds": 3.851,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-07_23-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -677,12 +665,24 @@
           "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== pull --rebase origin master: error: cannot lock ref 'refs/remotes/origin/master': is at f519163c41c9a4e54b44a84940550e79d92c90c9 but expected ca89f4e0dac6d235d7458a9b72afcd5c495a1102\nFrom https://github.com/FlomaticAuto/op-workspace-dashboard\n * branch            master     -> FETCH_HEAD\n ! ca89f4e..f519163  master     -> origin/master  (unable to update local ref)\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== push origin master +master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n ! [remote rejected] master -> main (cannot lock ref 'refs/heads/main': is at 1777e900e8a5d09115645930a423368b98b5f944 but expected d7e7cb513c2ba6e213a130114083e081115e5d54)\n ! [remote rejected] master -> master (failed)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-08_08-00-03.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-06-08T09:00:03+02:00",
+          "finished_at": "2026-06-08T09:00:11+02:00",
+          "duration_seconds": 7.79,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-08_09-00-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-08T08:00:03+02:00",
-        "finished_at": "2026-06-08T08:00:12+02:00",
-        "duration_seconds": 8.419,
+        "started_at": "2026-06-08T09:00:03+02:00",
+        "finished_at": "2026-06-08T09:00:11+02:00",
+        "duration_seconds": 7.79,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -883,9 +883,9 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_Workspace_Health_Report",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-25T10:00:00+02:00",
-      "next_run": "2026-06-08 10:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-05 10:00:00+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-06-09 10:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-08 10:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1002,8 +1002,8 @@
       "schedule_summary": "type=3 start=2026-04-23T09:00:00",
       "next_run": "2026-06-15 09:00:00+02:00",
       "scheduler_last_run_time": "2026-06-08 09:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
       "history": [
         {
           "job_id": "vehicle-report-weekly",
@@ -1040,12 +1040,24 @@
           "stdout_tail": "[INFO] Loaded 1 address mapping rule(s).\n[INFO] Vehicle Report Consolidation Workflow\n[INFO] Inbox: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\9. Supply Chain\\Logisitics\\Inbox\n[INFO] No Trip Report files found in Inbox. Exiting.\n[master 1438e1e] Dashboard update 2026-06-01 09:00\n 1 file changed, 1 insertion(+), 1 deletion(-)\nbranch 'master' set up to track 'origin/master'.\n[INFO] GPS source: VehicleInOut_Mar2026_May2026.xlsx\n[INFO] GPS period: 02/03/2026 - 22/05/2026\n[INFO] Clocking: 2,955 records, 26/03/2026 – 22/05/2026\n\n[INFO] Matching crew to clocking data...\n[INFO] Aligned window: 26/03/2026 - 22/05/2026\n\n[Crew] LJ92TDGP\n  [OK]   Clement Mvuyisi Tetyana (as 'Mvuyisi Tetyana'): 206.1 hrs over 19 truck-active days\n  [OK]   Philly Mapembe (as 'Philly Mpembe'): 237.6 hrs over 25 truck-active days\n  [OK]   Lehlohonolo Zwakala: 62.7 hrs over 11 truck-active days\n\n[Crew] LJ92TGGP\n  [OK]   Andrew Nkosi Nelani (as 'Athenkoso Andrew Nelani'): 224.2 hrs over 27 truck-active days\n  [OK]   Nhlamulo Jeff Mabunda (as 'Jeffrey Mabunda'): 234.1 hrs over 26 truck-active days\n  [OK]   Nhlanhla Moli: 209.8 hrs over 25 truck-active days\n\n[Crew] KW40KZGP\n  [OK]   Happy Simango: 189.2 hrs over 25 truck-active days\n  [OK]   Godfrey Mofokeng: 264.0 hrs over 26 truck-active days\n  [OK]   Petrus Masinge: 197.8 hrs over 25 truck-active days\n\n[Crew] KW57WWGP\n  [OK]   David Madakane (as 'David Mdakane'): 253.9 hrs over 23 truck-active days\n  [OK]   Nephilian Matsididi (as 'Nephathali Matsididi'): 221.6 hrs over 23 truck-active days\n  [OK]   Nhlanhla Zikode: 211.2 hrs over 24 truck-active days\n\n[Crew] MJ35FPGP\n  [WARN] No clocking match for: Shaun Fazile (Shaun Fazile)\n  [OK]   Timothy Sinyolo (as 'Timothy Senyolo'): 285.8 hrs over 30 truck-active days\n  [OK]   Loyiso Dlali: 345.3 hrs over 30 truck-active days\n\n[Crew] DH33HLGP\n\n[Crew] CR61GCGP\n\n[INFO] Updating Excel workbook with crew data...\n[INFO] Excel updated: 'Crew & Hours' sheet added to VehicleInOut_Mar2026_May2026.xlsx\n\n[INFO] Written: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\9. Supply Chain\\Logisitics\\OP Track & Driver Analitics\\Dashboard\\index.html\n\n[OK] Published -> https://flomaticauto.github.io/olympic-paints-vehicles/",
           "stderr_tail": "To https://github.com/FlomaticAuto/olympic-paints-vehicles.git\n   5059ae7..1438e1e  master -> master",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vehicle-report-weekly\\2026-06-01_09-00-00.log"
+        },
+        {
+          "job_id": "vehicle-report-weekly",
+          "agent": "SIGMA",
+          "started_at": "2026-06-08T09:00:01+02:00",
+          "finished_at": "2026-06-08T09:00:28+02:00",
+          "duration_seconds": 26.789,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[INFO] Master file saved: Vehicle In Out Report.xlsx\n[INFO] Archiving source files...\n  Archived: Weekly Trip Report 07062026 Multi Vehicles Trip Report.xls\n[INFO] Cleaning up old reports...\n[INFO] Workflow complete\n[master 0529b57] Dashboard update 2026-06-08 09:00\n 1 file changed, 1 insertion(+), 1 deletion(-)\nbranch 'master' set up to track 'origin/master'.\n[INFO] GPS source: VehicleInOut_Mar2026_May2026.xlsx\n[INFO] GPS period: 02/03/2026 - 22/05/2026\n[INFO] Clocking: 2,959 records, 26/03/2026 – 22/05/2026\n\n[INFO] Matching crew to clocking data...\n[INFO] Aligned window: 26/03/2026 - 22/05/2026\n\n[Crew] LJ92TDGP\n  [OK]   Clement Mvuyisi Tetyana (as 'Mvuyisi Tetyana'): 206.1 hrs over 19 truck-active days\n  [OK]   Philly Mapembe (as 'Philly Mpembe'): 237.6 hrs over 25 truck-active days\n  [OK]   Lehlohonolo Zwakala: 62.7 hrs over 11 truck-active days\n\n[Crew] LJ92TGGP\n  [OK]   Andrew Nkosi Nelani (as 'Athenkoso Andrew Nelani'): 224.2 hrs over 28 truck-active days\n  [OK]   Nhlamulo Jeff Mabunda (as 'Jeffrey Mabunda'): 234.1 hrs over 27 truck-active days\n  [OK]   Nhlanhla Moli: 209.8 hrs over 26 truck-active days\n\n[Crew] KW40KZGP\n  [OK]   Happy Simango: 210.1 hrs over 25 truck-active days\n  [OK]   Godfrey Mofokeng: 264.0 hrs over 26 truck-active days\n  [OK]   Petrus Masinge: 197.8 hrs over 25 truck-active days\n\n[Crew] KW57WWGP\n  [OK]   David Madakane (as 'David Mdakane'): 267.4 hrs over 23 truck-active days\n  [OK]   Nephilian Matsididi (as 'Nephathali Matsididi'): 236.1 hrs over 23 truck-active days\n  [OK]   Nhlanhla Zikode: 225.6 hrs over 24 truck-active days\n\n[Crew] MJ35FPGP\n  [WARN] No clocking match for: Shaun Fazile (Shaun Fazile)\n  [OK]   Timothy Sinyolo (as 'Timothy Senyolo'): 305.2 hrs over 30 truck-active days\n  [OK]   Loyiso Dlali: 345.3 hrs over 30 truck-active days\n\n[Crew] DH33HLGP\n\n[Crew] CR61GCGP\n\n[INFO] Updating Excel workbook with crew data...\n[INFO] Excel updated: 'Crew & Hours' sheet added to VehicleInOut_Mar2026_May2026.xlsx\n\n[INFO] Written: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\9. Supply Chain\\Logisitics\\OP Track & Driver Analitics\\Dashboard\\index.html\n\n[OK] Published -> https://flomaticauto.github.io/olympic-paints-vehicles/",
+          "stderr_tail": "To https://github.com/FlomaticAuto/olympic-paints-vehicles.git\n   1438e1e..0529b57  master -> master",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vehicle-report-weekly\\2026-06-08_09-00-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-01T09:00:00+02:00",
-        "finished_at": "2026-06-01T09:00:16+02:00",
-        "duration_seconds": 15.378,
+        "started_at": "2026-06-08T09:00:01+02:00",
+        "finished_at": "2026-06-08T09:00:28+02:00",
+        "duration_seconds": 26.789,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1388,8 +1400,8 @@
       "task_path": "\\Olympic Paints\\STRIKER\\OlympicPaints_ODO_StatusCheck",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-27T09:30:00+02:00",
-      "next_run": "2026-06-08 09:30:00+02:00",
-      "scheduler_last_run_time": "2026-06-04 09:30:00+02:00",
+      "next_run": "2026-06-09 09:30:00+02:00",
+      "scheduler_last_run_time": "2026-06-08 09:30:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
