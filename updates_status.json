@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T09:29:55",
+  "generated_at": "2026-06-09T09:30:05",
   "total": 15,
   "ok": 9,
   "warn": 4,
@@ -62,8 +62,8 @@
       "task": "Vehicle Report Health Check",
       "cadence": "Weekly \u00b7 Mon",
       "overall": "ok",
-      "task_last_run": "2026-06-02T09:30:30",
-      "task_last_result": 0
+      "task_last_run": "2026-06-09T09:30:30",
+      "task_last_result": 267009
     },
     {
       "id": "kaizen_sync",
