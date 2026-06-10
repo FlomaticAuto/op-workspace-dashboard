@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-10T20:15:06",
+  "generated_at": "2026-06-10T22:15:06",
   "total": 15,
   "ok": 9,
   "warn": 4,
@@ -72,7 +72,7 @@
       "task": "Olympic Paints - Kaizen Implement Poller",
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
-      "task_last_run": "2026-06-07T21:00:00",
+      "task_last_run": "2026-06-10T21:00:00",
       "task_last_result": 0
     },
     {
