@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-10T06:15:07",
+  "generated_at": "2026-06-10T07:07:04",
   "total": 15,
   "ok": 9,
-  "warn": 4,
-  "fail": 2,
+  "warn": 5,
+  "fail": 1,
   "jobs": [
     {
       "id": "ecommerce_dashboard",
@@ -101,9 +101,9 @@
       "name": "Meeting Minutes Extractor",
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "fail",
-      "task_last_run": "2026-06-09T07:00:00",
-      "task_last_result": 3221225786
+      "overall": "warn",
+      "task_last_run": "2026-06-10T07:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vault_meeting_extraction",
@@ -112,7 +112,7 @@
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-06-09T07:00:00",
+      "task_last_run": "2026-06-10T07:00:00",
       "task_last_result": 0
     },
     {
