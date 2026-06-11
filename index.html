@@ -1142,6 +1142,87 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
   outline-offset: 3px;
 }
 
+
+/* ── Doc Index ─────────────────────────────────────────────── */
+.doc-controls {
+  display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; align-items:center;
+}
+.doc-search {
+  flex:1; min-width:200px;
+  background:var(--color-surface-elevated);
+  border:1px solid var(--color-border-default);
+  border-radius:var(--r-md);
+  color:var(--color-text-primary);
+  font-size:13px; padding:7px 12px;
+  font-family:var(--font-body); outline:none;
+}
+.doc-search:focus { border-color:var(--color-brand-primary); }
+.doc-search::placeholder { color:var(--color-text-tertiary); }
+.doc-filter-btn {
+  background:var(--color-surface-elevated);
+  border:1px solid var(--color-border-default);
+  border-radius:var(--r-pill);
+  color:var(--color-text-secondary);
+  font-size:11px; padding:6px 14px;
+  cursor:pointer; font-family:var(--font-body); font-weight:600;
+  letter-spacing:0.04em; text-transform:uppercase;
+  transition:background 0.15s, color 0.15s, border-color 0.15s;
+  white-space:nowrap;
+}
+.doc-filter-btn:hover { background:var(--color-surface-overlay); color:var(--color-text-primary); }
+.doc-filter-btn.active {
+  background:var(--color-warning-bg);
+  border-color:var(--color-brand-primary);
+  color:var(--color-brand-primary);
+}
+.doc-table-wrap {
+  background:var(--color-surface-base);
+  border:1px solid var(--color-border-default);
+  border-radius:var(--r-lg); overflow:hidden;
+}
+.doc-table { width:100%; border-collapse:collapse; font-size:12px; }
+.doc-table thead tr {
+  background:var(--color-surface-elevated);
+  border-bottom:1px solid var(--color-border-default);
+}
+.doc-table th {
+  text-align:left; padding:10px 14px;
+  font-size:9px; font-weight:700; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--color-text-tertiary); white-space:nowrap;
+}
+.doc-table th.sortable { cursor:pointer; user-select:none; }
+.doc-table th.sortable:hover { color:var(--color-text-secondary); }
+.doc-table th.sort-asc .sort-ind::after { content:'▲'; margin-left:3px; opacity:.6; }
+.doc-table th.sort-desc .sort-ind::after { content:'▼'; margin-left:3px; opacity:.6; }
+.doc-table tbody tr { border-bottom:1px solid var(--color-border-subtle); transition:background 0.1s; }
+.doc-table tbody tr:last-child { border-bottom:none; }
+.doc-table tbody tr:hover { background:var(--color-surface-overlay); }
+.doc-table tbody tr.doc-hidden { display:none; }
+.doc-table td { padding:9px 14px; vertical-align:top; color:var(--color-text-secondary); line-height:1.45; }
+.doc-file {
+  font-family:'Courier New',monospace; font-size:11px;
+  color:var(--color-brand-primary); white-space:nowrap;
+}
+.doc-path {
+  font-size:10px; color:var(--color-text-tertiary);
+  font-family:'Courier New',monospace; margin-top:2px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:320px;
+}
+.doc-summary { color:var(--color-text-secondary); font-size:12px; }
+.doc-area-pill {
+  display:inline-block; font-size:9px; padding:2px 7px;
+  border-radius:4px; font-weight:700; letter-spacing:0.04em;
+  text-transform:uppercase; white-space:nowrap;
+}
+.area-root     { background:var(--color-warning-bg);  color:var(--color-brand-primary); border:1px solid var(--color-warning-bd); }
+.area-agents   { background:var(--color-danger-bg);   color:var(--color-danger-fg);     border:1px solid var(--color-danger-bd); }
+.area-runbooks { background:var(--color-info-bg);     color:var(--color-info-fg);       border:1px solid var(--color-info-bd); }
+.area-projects { background:rgba(155,89,182,0.10);   color:#9B7DBF;                    border:1px solid rgba(155,89,182,0.3); }
+.area-intel    { background:var(--color-success-bg);  color:var(--color-success-fg);    border:1px solid var(--color-success-bd); }
+.area-modules  { background:rgba(201,122,58,0.10);   color:var(--_terra);              border:1px solid rgba(201,122,58,0.3); }
+.area-safety   { background:rgba(232,123,173,0.10);  color:var(--_pink);               border:1px solid rgba(232,123,173,0.3); }
+.doc-count { font-size:11px; color:var(--color-text-tertiary); margin-left:auto; }
+.doc-empty { text-align:center; padding:28px; color:var(--color-text-tertiary); font-size:12px; display:none; }
 </style>
 </head>
 <body>
@@ -1201,6 +1282,9 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
         </button>
         <button class="nav-item" data-section="kaizen" onclick="showSection('kaizen', this)">
           <span class="nav-icon" aria-hidden="true">&#9881;</span><span class="nav-label">Kaizen</span>
+        </button>
+        <button class="nav-item" data-section="docs" onclick="showSection('docs', this)">
+          <span class="nav-icon" aria-hidden="true">&#9741;</span><span class="nav-label">Docs Index</span>
         </button>
       </nav>
     </aside>
@@ -1278,6 +1362,377 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
         <h2 style="font-family:var(--font-display);font-weight:800;font-size:18px;text-transform:uppercase;letter-spacing:0.04em;margin:32px 0 12px;">Pending Suggestions</h2>
         <div class="kaizen-pending-list" id="kaizen-pending-list"></div>
       </section>
+      <!-- ── DOCS INDEX ──────────────────────────────────────── -->
+      <section class="section-pane" id="section-docs">
+        <h1 class="section-title">Docs Index</h1>
+        <p style="color:var(--color-text-secondary);max-width:680px;margin:0 0 20px;font-size:14px;line-height:1.5;">
+          All <code>.md</code> files in the Olympic Paints repo — planning docs, agent profiles, runbooks, intelligence files, module READMEs. Search by name or keyword, filter by area.
+        </p>
+
+        <div class="doc-controls">
+          <input class="doc-search" id="docSearch" type="text" placeholder="Search file name or summary…" oninput="filterDocs()">
+          <button class="doc-filter-btn active" data-area="all"      onclick="setDocArea('all',this)">All</button>
+          <button class="doc-filter-btn"         data-area="root"     onclick="setDocArea('root',this)">Root</button>
+          <button class="doc-filter-btn"         data-area="agents"   onclick="setDocArea('agents',this)">Agents</button>
+          <button class="doc-filter-btn"         data-area="runbooks" onclick="setDocArea('runbooks',this)">Runbooks</button>
+          <button class="doc-filter-btn"         data-area="projects" onclick="setDocArea('projects',this)">Projects</button>
+          <button class="doc-filter-btn"         data-area="intel"    onclick="setDocArea('intel',this)">Intel</button>
+          <button class="doc-filter-btn"         data-area="modules"  onclick="setDocArea('modules',this)">Modules</button>
+          <button class="doc-filter-btn"         data-area="safety"   onclick="setDocArea('safety',this)">Safety/HR</button>
+          <span class="doc-count" id="docCount"></span>
+        </div>
+
+        <div class="doc-table-wrap">
+          <table class="doc-table" id="docTable">
+            <thead>
+              <tr>
+                <th class="sortable" id="th-file" onclick="sortDocsBy('file')">File <span class="sort-ind"></span></th>
+                <th>Area</th>
+                <th>Summary</th>
+              </tr>
+            </thead>
+            <tbody id="docBody">
+
+              <!-- ROOT -->
+              <tr data-area="root" data-file="CLAUDE.md" data-summary="Navigation hub and quick reference index for the entire repo — routes to the right doc for every common task.">
+                <td><div class="doc-file">CLAUDE.md</div><div class="doc-path">/</div></td>
+                <td><span class="doc-area-pill area-root">Root</span></td>
+                <td class="doc-summary">Navigation hub and quick reference index for the entire repo — routes to the right doc for every common task.</td>
+              </tr>
+              <tr data-area="root" data-file="DESIGN_SYSTEM.md" data-summary="HTML design system: CSS token block, four themes, typography scale, logo, Chart.js bar-label plugin, WCAG rules.">
+                <td><div class="doc-file">DESIGN_SYSTEM.md</div><div class="doc-path">/</div></td>
+                <td><span class="doc-area-pill area-root">Root</span></td>
+                <td class="doc-summary">HTML design system: CSS tokens, four themes, typography scale, logo, Chart.js plugin, WCAG rules.</td>
+              </tr>
+              <tr data-area="root" data-file="OPERATIONS_RUNBOOK.md" data-summary="Repo structure, deployment procedures, clocking pipeline, KPI checklist, employer split rules, troubleshooting.">
+                <td><div class="doc-file">OPERATIONS_RUNBOOK.md</div><div class="doc-path">/</div></td>
+                <td><span class="doc-area-pill area-root">Root</span></td>
+                <td class="doc-summary">Repo structure, deployment procedures, clocking pipeline, KPI checklist, employer split rules, troubleshooting.</td>
+              </tr>
+              <tr data-area="root" data-file="SCRIPTS_REFERENCE.md" data-summary="Command reference for all automation scripts: flags, paths, critical rules, notification setup, rep codes.">
+                <td><div class="doc-file">SCRIPTS_REFERENCE.md</div><div class="doc-path">/</div></td>
+                <td><span class="doc-area-pill area-root">Root</span></td>
+                <td class="doc-summary">Command reference for all automation scripts: flags, paths, critical rules, notification setup, rep codes.</td>
+              </tr>
+              <tr data-area="root" data-file="PLATFORM_SERVICES.md" data-summary="Shared platform services: WhatsApp/Make, Telegram, email, Supabase, publishing pipelines, job platform.">
+                <td><div class="doc-file">PLATFORM_SERVICES.md</div><div class="doc-path">/</div></td>
+                <td><span class="doc-area-pill area-root">Root</span></td>
+                <td class="doc-summary">Shared platform services: WhatsApp/Make, Telegram, email, Supabase, publishing pipelines, job platform.</td>
+              </tr>
+              <tr data-area="root" data-file="INDEX.md" data-summary="Top-level PARA directory index — maps the four PARA folders to their contents.">
+                <td><div class="doc-file">INDEX.md</div><div class="doc-path">/</div></td>
+                <td><span class="doc-area-pill area-root">Root</span></td>
+                <td class="doc-summary">Top-level PARA directory index — maps the four PARA folders to their contents.</td>
+              </tr>
+              <tr data-area="root" data-file="MACHINE_SETUP.md" data-summary="Windows machine setup: Python, paths, env vars, scheduled task prerequisites.">
+                <td><div class="doc-file">MACHINE_SETUP.md</div><div class="doc-path">/</div></td>
+                <td><span class="doc-area-pill area-root">Root</span></td>
+                <td class="doc-summary">Windows machine setup: Python, paths, env vars, scheduled task prerequisites.</td>
+              </tr>
+              <tr data-area="root" data-file="ONBOARDING.md" data-summary="Onboarding guide for new agents or team members joining the AI workspace.">
+                <td><div class="doc-file">ONBOARDING.md</div><div class="doc-path">/</div></td>
+                <td><span class="doc-area-pill area-root">Root</span></td>
+                <td class="doc-summary">Onboarding guide for new agents or team members joining the AI workspace.</td>
+              </tr>
+              <tr data-area="root" data-file="SETUP.md" data-summary="Repository setup instructions — cloning, dependencies, initial configuration.">
+                <td><div class="doc-file">SETUP.md</div><div class="doc-path">/</div></td>
+                <td><span class="doc-area-pill area-root">Root</span></td>
+                <td class="doc-summary">Repository setup instructions — cloning, dependencies, initial configuration.</td>
+              </tr>
+              <tr data-area="root" data-file="JOB_IMPLEMENTER_INSTRUCTIONS.md" data-summary="How to implement new scheduled jobs: registration pattern, run_job.py wrapper, criticality JSON.">
+                <td><div class="doc-file">JOB_IMPLEMENTER_INSTRUCTIONS.md</div><div class="doc-path">/</div></td>
+                <td><span class="doc-area-pill area-root">Root</span></td>
+                <td class="doc-summary">How to implement new scheduled jobs: registration pattern, run_job.py wrapper, criticality JSON.</td>
+              </tr>
+
+              <!-- AGENTS -->
+              <tr data-area="agents" data-file="agents/README.md" data-summary="Agent roster overview: all 7 agents, domains, routing cheat sheet — start here for task routing.">
+                <td><div class="doc-file">README.md</div><div class="doc-path">agents/</div></td>
+                <td><span class="doc-area-pill area-agents">Agents</span></td>
+                <td class="doc-summary">Agent roster overview: all 7 agents, domains, routing cheat sheet — start here for task routing.</td>
+              </tr>
+              <tr data-area="agents" data-file="agents/APEX.md" data-summary="APEX: orchestrator, task routing, health monitoring, escalation rules, daily digest.">
+                <td><div class="doc-file">APEX.md</div><div class="doc-path">agents/</div></td>
+                <td><span class="doc-area-pill area-agents">Agents</span></td>
+                <td class="doc-summary">APEX: orchestrator, task routing, health monitoring, escalation rules, daily digest.</td>
+              </tr>
+              <tr data-area="agents" data-file="agents/HAVEN.md" data-summary="HAVEN: HR clocking pipeline, Primeserve split, missed punch reporting, GitHub Pages dashboard.">
+                <td><div class="doc-file">HAVEN.md</div><div class="doc-path">agents/</div></td>
+                <td><span class="doc-area-pill area-agents">Agents</span></td>
+                <td class="doc-summary">HAVEN: HR clocking pipeline, Primeserve split, missed punch reporting, GitHub Pages dashboard.</td>
+              </tr>
+              <tr data-area="agents" data-file="agents/PRISM.md" data-summary="PRISM: analytics, QuickSight KPI analysis, YoY reporting, rock-bottom performance.">
+                <td><div class="doc-file">PRISM.md</div><div class="doc-path">agents/</div></td>
+                <td><span class="doc-area-pill area-agents">Agents</span></td>
+                <td class="doc-summary">PRISM: analytics, QuickSight KPI analysis, YoY reporting, rock-bottom performance.</td>
+              </tr>
+              <tr data-area="agents" data-file="agents/STRIKER.md" data-summary="STRIKER: Sales CRM, Zoho quotes, stockist management, CI verification, rep dashboards, PULSE.">
+                <td><div class="doc-file">STRIKER.md</div><div class="doc-path">agents/</div></td>
+                <td><span class="doc-area-pill area-agents">Agents</span></td>
+                <td class="doc-summary">STRIKER: Sales CRM, Zoho quotes, stockist management, CI verification, rep dashboards, PULSE.</td>
+              </tr>
+              <tr data-area="agents" data-file="agents/SIGMA.md" data-summary="SIGMA: operations, SOPs, vehicle dispatch, factory floor oversight, supplier coordination.">
+                <td><div class="doc-file">SIGMA.md</div><div class="doc-path">agents/</div></td>
+                <td><span class="doc-area-pill area-agents">Agents</span></td>
+                <td class="doc-summary">SIGMA: operations, SOPs, vehicle dispatch, factory floor oversight, supplier coordination.</td>
+              </tr>
+              <tr data-area="agents" data-file="agents/BLAZE.md" data-summary="BLAZE: marketing, social media, campaign copy, promotional materials, competitor tracking.">
+                <td><div class="doc-file">BLAZE.md</div><div class="doc-path">agents/</div></td>
+                <td><span class="doc-area-pill area-agents">Agents</span></td>
+                <td class="doc-summary">BLAZE: marketing, social media, campaign copy, promotional materials, competitor tracking.</td>
+              </tr>
+              <tr data-area="agents" data-file="agents/VAULT.md" data-summary="VAULT: admin, PARA inbox processing, Notion docs, credit apps, document management.">
+                <td><div class="doc-file">VAULT.md</div><div class="doc-path">agents/</div></td>
+                <td><span class="doc-area-pill area-agents">Agents</span></td>
+                <td class="doc-summary">VAULT: admin, PARA inbox processing, Notion docs, credit apps, document management.</td>
+              </tr>
+
+              <!-- RUNBOOKS -->
+              <tr data-area="runbooks" data-file="RUNBOOKS.md" data-summary="Master runbook index — all runbook files and which agent/pipeline each covers.">
+                <td><div class="doc-file">RUNBOOKS.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">Master runbook index — all runbook files and which agent/pipeline each covers.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="apex-health-monitor.md" data-summary="APEX daily health digest: how to run, what it checks, green/red per job, box-down detection.">
+                <td><div class="doc-file">apex-health-monitor.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">APEX daily health digest: how to run, what it checks, green/red per job, box-down detection.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="haven-clocking.md" data-summary="HAVEN clocking pipeline: Advius export → build_report → dashboard → GitHub Pages. Break rule, employer split.">
+                <td><div class="doc-file">haven-clocking.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">HAVEN clocking pipeline: Advius export → build_report → dashboard → GitHub Pages. Break rule, employer split.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="ci-verification-tracker.md" data-summary="CI verification system: send verification emails, track responses, run the WhatsApp dispatcher.">
+                <td><div class="doc-file">ci-verification-tracker.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">CI verification system: send verification emails, track responses, run the WhatsApp dispatcher.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="competitor-verification.md" data-summary="Competitor price verification forms, field intake, TDS/MSDS catalogue management.">
+                <td><div class="doc-file">competitor-verification.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">Competitor price verification forms, field intake, TDS/MSDS catalogue management.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="credit-apps-dashboard.md" data-summary="Credit application processing: PDF → extract → cross-ref database → pre-populated .docx → archive.">
+                <td><div class="doc-file">credit-apps-dashboard.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">Credit application processing: PDF → extract → cross-ref database → pre-populated .docx → archive.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="ecommerce-dashboard.md" data-summary="E-commerce dashboard: logistics cost ingest (parquet), monthly logistics-%-of-revenue report.">
+                <td><div class="doc-file">ecommerce-dashboard.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">E-commerce dashboard: logistics cost ingest (parquet), monthly logistics-%-of-revenue report.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="ecommerce-email-digest.md" data-summary="E-commerce order email digest: WooCommerce summary emails, triggers, format.">
+                <td><div class="doc-file">ecommerce-email-digest.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">E-commerce order email digest: WooCommerce summary emails, triggers, format.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="friday-sales-meeting.md" data-summary="Friday sales meeting prep: data to pull, report format, what reps need before the meeting.">
+                <td><div class="doc-file">friday-sales-meeting.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">Friday sales meeting prep: data to pull, report format, what reps need before the meeting.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="pulse-daily-mailer.md" data-summary="PULSE daily rep summary card: generation, approval, WhatsApp dispatch via Make.">
+                <td><div class="doc-file">pulse-daily-mailer.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">PULSE daily rep summary card: generation, approval, WhatsApp dispatch via Make.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="pulse-leaderboard.md" data-summary="PULSE rep leaderboard: ranking calculation and publishing.">
+                <td><div class="doc-file">pulse-leaderboard.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">PULSE rep leaderboard: ranking calculation and publishing.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="pulse-scorecard.md" data-summary="PULSE weekly rep scorecard: generation, targets, delivery.">
+                <td><div class="doc-file">pulse-scorecard.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">PULSE weekly rep scorecard: generation, targets, delivery.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="rep-account-health.md" data-summary="Rep account health forms: dispatch, Supabase polling, dashboard refresh.">
+                <td><div class="doc-file">rep-account-health.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">Rep account health forms: dispatch, Supabase polling, dashboard refresh.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="rep-dashboards.md" data-summary="Rep-facing dashboards: volume-price report, portal, call cycle audit. How to refresh data.">
+                <td><div class="doc-file">rep-dashboards.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">Rep-facing dashboards: volume-price report, portal, call cycle audit. How to refresh data.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="returns-watcher.md" data-summary="Returns watcher: monitors returns intake submissions and triggers downstream processing.">
+                <td><div class="doc-file">returns-watcher.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">Returns watcher: monitors returns intake submissions and triggers downstream processing.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="sigma-vehicle-dashboard.md" data-summary="SIGMA vehicle reports: OP Track data, driver analytics, daily log, scheduler config.">
+                <td><div class="doc-file">sigma-vehicle-dashboard.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">SIGMA vehicle reports: OP Track data, driver analytics, daily log, scheduler config.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="store-health-feedback.md" data-summary="Store health feedback: rep feedback forms on stockist accounts, dashboard and Supabase storage.">
+                <td><div class="doc-file">store-health-feedback.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">Store health feedback: rep feedback forms on stockist accounts, dashboard and Supabase storage.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="merchandising-plan.md" data-summary="Merchandising calendar build, visit download, attachment processing, scheduled rebuild.">
+                <td><div class="doc-file">merchandising-plan.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">Merchandising calendar build, visit download, attachment processing, scheduled rebuild.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="weekly-sales-report-notion.md" data-summary="Weekly sales report to Notion: data extraction, page creation, format.">
+                <td><div class="doc-file">weekly-sales-report-notion.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">Weekly sales report to Notion: data extraction, page creation, format.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="kpi-dashboard-weekly.md" data-summary="⚠️ DEPRECATED 2026-05-25 — KPI dashboard weekly update procedure, historical reference only.">
+                <td><div class="doc-file">kpi-dashboard-weekly.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">⚠️ DEPRECATED 2026-05-25 — KPI dashboard weekly update, historical reference only.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="hs-ncr-poller.md" data-summary="H&amp;S NCR poller: polls Jotform for new NCR submissions, updates ncr_form_id.json.">
+                <td><div class="doc-file">hs-ncr-poller.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">H&amp;S NCR poller: polls Jotform for new NCR submissions, updates ncr_form_id.json.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="cso-insights.md" data-summary="CSO insights: top-10 account analysis prompts, competitor briefing, strategic intelligence workflow.">
+                <td><div class="doc-file">cso-insights.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">CSO insights: top-10 account analysis prompts, competitor briefing, strategic intelligence workflow.</td>
+              </tr>
+              <tr data-area="runbooks" data-file="notion-todos-sync.md" data-summary="Notion todos sync: meeting transcript → task extraction → Notion task database.">
+                <td><div class="doc-file">notion-todos-sync.md</div><div class="doc-path">3.Resources/19. Runbooks/</div></td>
+                <td><span class="doc-area-pill area-runbooks">Runbooks</span></td>
+                <td class="doc-summary">Notion todos sync: meeting transcript → task extraction → Notion task database.</td>
+              </tr>
+
+              <!-- PROJECTS -->
+              <tr data-area="projects" data-file="1.Projects/INDEX.md" data-summary="Active projects index — all 1.Projects/ folders with status and purpose.">
+                <td><div class="doc-file">INDEX.md</div><div class="doc-path">1.Projects/</div></td>
+                <td><span class="doc-area-pill area-projects">Projects</span></td>
+                <td class="doc-summary">Active projects index — all 1.Projects/ folders with status and purpose.</td>
+              </tr>
+              <tr data-area="projects" data-file="PULSE v2/README.md" data-summary="PULSE v2 (live): Sales &amp; Ops Manager — architecture, data flow, daily card generation, web app.">
+                <td><div class="doc-file">README.md</div><div class="doc-path">1.Projects/PULSE v2 — Sales &amp; Ops Manager/</div></td>
+                <td><span class="doc-area-pill area-projects">Projects</span></td>
+                <td class="doc-summary">PULSE v2 (live): Sales &amp; Ops Manager — architecture, data flow, daily card generation, web app.</td>
+              </tr>
+              <tr data-area="projects" data-file="Returns KPI/README.md" data-summary="Returns KPI System: intake form, Supabase storage, returns volume and reason code tracking.">
+                <td><div class="doc-file">README.md</div><div class="doc-path">1.Projects/Returns KPI System/</div></td>
+                <td><span class="doc-area-pill area-projects">Projects</span></td>
+                <td class="doc-summary">Returns KPI System: intake form, Supabase storage, returns volume and reason code tracking.</td>
+              </tr>
+              <tr data-area="projects" data-file="Semantic Memory/README.md" data-summary="Semantic Memory: LanceDB + Ollama local vector store for business intelligence retrieval.">
+                <td><div class="doc-file">README.md</div><div class="doc-path">1.Projects/Semantic Memory/</div></td>
+                <td><span class="doc-area-pill area-projects">Projects</span></td>
+                <td class="doc-summary">Semantic Memory: LanceDB + Ollama local vector store for business intelligence retrieval.</td>
+              </tr>
+              <tr data-area="projects" data-file="Weekly Sales Report/README.md" data-summary="Weekly Sales Report: PDF extraction, QuickSight data, Notion publishing pipeline.">
+                <td><div class="doc-file">README.md</div><div class="doc-path">1.Projects/Weekly Sales Report/</div></td>
+                <td><span class="doc-area-pill area-projects">Projects</span></td>
+                <td class="doc-summary">Weekly Sales Report: PDF extraction, QuickSight data, Notion publishing pipeline.</td>
+              </tr>
+              <tr data-area="projects" data-file="AWS Data/DEPRECATED.md" data-summary="⚠️ KPI Sales Dashboard deprecation notice (2026-05-25) — what was archived and why.">
+                <td><div class="doc-file">DEPRECATED.md</div><div class="doc-path">1.Projects/AWS Data/</div></td>
+                <td><span class="doc-area-pill area-projects">Projects</span></td>
+                <td class="doc-summary">⚠️ KPI Sales Dashboard deprecation notice (2026-05-25) — what was archived and why.</td>
+              </tr>
+              <tr data-area="projects" data-file="sales_volume_planning.md" data-summary="Volume Price Report: data model, 12 product keys, tier pricing, rebuild_clients.py reference, open questions.">
+                <td><div class="doc-file">sales_volume_planning.md</div><div class="doc-path">1.Projects/KPI Report/Rep Portal/Rep Portal Design/</div></td>
+                <td><span class="doc-area-pill area-projects">Projects</span></td>
+                <td class="doc-summary">Volume Price Report: data model, 12 product keys, tier pricing, rebuild_clients.py, open questions.</td>
+              </tr>
+
+              <!-- INTEL -->
+              <tr data-area="intel" data-file="product-intelligence.md" data-summary="Enamel tier structure, SKU data, list prices, rock bottom floors, open product questions.">
+                <td><div class="doc-file">product-intelligence.md</div><div class="doc-path">3.Resources/17. Strategic Intelligence/</div></td>
+                <td><span class="doc-area-pill area-intel">Intel</span></td>
+                <td class="doc-summary">Enamel tier structure, SKU data, list prices, rock bottom floors, open product questions.</td>
+              </tr>
+              <tr data-area="intel" data-file="pricing-intelligence.md" data-summary="Rock bottom performance, actual selling prices, discount patterns, pricing governance rules.">
+                <td><div class="doc-file">pricing-intelligence.md</div><div class="doc-path">3.Resources/17. Strategic Intelligence/</div></td>
+                <td><span class="doc-area-pill area-intel">Intel</span></td>
+                <td class="doc-summary">Rock bottom performance, actual selling prices, discount patterns, pricing governance rules.</td>
+              </tr>
+              <tr data-area="intel" data-file="customer-intelligence.md" data-summary="Problem accounts, active leads, lost accounts, segment notes — accumulated CRM intelligence.">
+                <td><div class="doc-file">customer-intelligence.md</div><div class="doc-path">3.Resources/17. Strategic Intelligence/</div></td>
+                <td><span class="doc-area-pill area-intel">Intel</span></td>
+                <td class="doc-summary">Problem accounts, active leads, lost accounts, segment notes — accumulated CRM intelligence.</td>
+              </tr>
+              <tr data-area="intel" data-file="market-intelligence.md" data-summary="Competitors, geographic traction, channel conditions, market feedback from field.">
+                <td><div class="doc-file">market-intelligence.md</div><div class="doc-path">3.Resources/17. Strategic Intelligence/</div></td>
+                <td><span class="doc-area-pill area-intel">Intel</span></td>
+                <td class="doc-summary">Competitors, geographic traction, channel conditions, market feedback from field.</td>
+              </tr>
+              <tr data-area="intel" data-file="rep-performance.md" data-summary="Rep roster, KPI targets, discount patterns, activity and performance log.">
+                <td><div class="doc-file">rep-performance.md</div><div class="doc-path">3.Resources/17. Strategic Intelligence/</div></td>
+                <td><span class="doc-area-pill area-intel">Intel</span></td>
+                <td class="doc-summary">Rep roster, KPI targets, discount patterns, activity and performance log.</td>
+              </tr>
+              <tr data-area="intel" data-file="strategy-decisions.md" data-summary="Decisions made, open strategic questions, things tried and abandoned — business decision log.">
+                <td><div class="doc-file">strategy-decisions.md</div><div class="doc-path">3.Resources/17. Strategic Intelligence/</div></td>
+                <td><span class="doc-area-pill area-intel">Intel</span></td>
+                <td class="doc-summary">Decisions made, open strategic questions, things tried and abandoned — business decision log.</td>
+              </tr>
+              <tr data-area="intel" data-file="top10-account-analysis.md" data-summary="Top-10 account analysis: spend concentration, visit frequency, health ratings, growth opportunities.">
+                <td><div class="doc-file">top10-account-analysis.md</div><div class="doc-path">3.Resources/17. Strategic Intelligence/</div></td>
+                <td><span class="doc-area-pill area-intel">Intel</span></td>
+                <td class="doc-summary">Top-10 account analysis: spend concentration, visit frequency, health ratings, growth opportunities.</td>
+              </tr>
+              <tr data-area="intel" data-file="slm-email-triage-spec.md" data-summary="SLM email triage spec: how the email studio categorises and routes incoming sales/ops emails.">
+                <td><div class="doc-file">slm-email-triage-spec.md</div><div class="doc-path">3.Resources/17. Strategic Intelligence/</div></td>
+                <td><span class="doc-area-pill area-intel">Intel</span></td>
+                <td class="doc-summary">SLM email triage spec: how the email studio categorises and routes incoming sales/ops emails.</td>
+              </tr>
+              <tr data-area="intel" data-file="CSO_BRIEFING_PROMPT.md" data-summary="Prompt template: generates a Chief Sales Officer briefing from the intelligence knowledge base.">
+                <td><div class="doc-file">CSO_BRIEFING_PROMPT.md</div><div class="doc-path">3.Resources/17. Strategic Intelligence/</div></td>
+                <td><span class="doc-area-pill area-intel">Intel</span></td>
+                <td class="doc-summary">Prompt template: generates a Chief Sales Officer briefing from the intelligence knowledge base.</td>
+              </tr>
+              <tr data-area="intel" data-file="TOP10_STORE_ANALYSIS_PROMPT.md" data-summary="Prompt template: top-10 stockist store analysis using field data and visit history.">
+                <td><div class="doc-file">TOP10_STORE_ANALYSIS_PROMPT.md</div><div class="doc-path">3.Resources/17. Strategic Intelligence/</div></td>
+                <td><span class="doc-area-pill area-intel">Intel</span></td>
+                <td class="doc-summary">Prompt template: top-10 stockist store analysis using field data and visit history.</td>
+              </tr>
+
+              <!-- MODULES -->
+              <tr data-area="modules" data-file="olympic-paints-hub/CLAUDE.md" data-summary="Claude instructions for the olympic-paints-hub Next.js app (Rep Portal backend/admin).">
+                <td><div class="doc-file">CLAUDE.md</div><div class="doc-path">olympic-paints-hub/</div></td>
+                <td><span class="doc-area-pill area-modules">Modules</span></td>
+                <td class="doc-summary">Claude instructions for the olympic-paints-hub Next.js app (Rep Portal backend/admin).</td>
+              </tr>
+              <tr data-area="modules" data-file="olympic-email-studio/README.md" data-summary="Olympic Email Studio: AI-powered email triage and dispatch for sales and ops emails.">
+                <td><div class="doc-file">README.md</div><div class="doc-path">olympic-email-studio/</div></td>
+                <td><span class="doc-area-pill area-modules">Modules</span></td>
+                <td class="doc-summary">Olympic Email Studio: AI-powered email triage and dispatch for sales and ops emails.</td>
+              </tr>
+              <tr data-area="modules" data-file="olympic-email-studio/AGENTS.md" data-summary="Email studio agent definitions: which agents handle which email categories and actions.">
+                <td><div class="doc-file">AGENTS.md</div><div class="doc-path">olympic-email-studio/</div></td>
+                <td><span class="doc-area-pill area-modules">Modules</span></td>
+                <td class="doc-summary">Email studio agent definitions: which agents handle which email categories and actions.</td>
+              </tr>
+              <tr data-area="modules" data-file="geo-map/README.md" data-summary="Geographic map: rep territory visualisation, stockist/customer map, Limpopo coverage.">
+                <td><div class="doc-file">README.md</div><div class="doc-path">geo-map/</div></td>
+                <td><span class="doc-area-pill area-modules">Modules</span></td>
+                <td class="doc-summary">Geographic map: rep territory visualisation, stockist/customer map, Limpopo coverage.</td>
+              </tr>
+              <tr data-area="modules" data-file="ollama-dashboard/README.md" data-summary="Ollama dashboard: monitors local models used by the Semantic Memory stack (nomic-embed-text).">
+                <td><div class="doc-file">README.md</div><div class="doc-path">ollama-dashboard/</div></td>
+                <td><span class="doc-area-pill area-modules">Modules</span></td>
+                <td class="doc-summary">Ollama dashboard: monitors local models used by the Semantic Memory stack (nomic-embed-text).</td>
+              </tr>
+
+              <!-- SAFETY / HR -->
+              <tr data-area="safety" data-file="SAFETY_AUDIT_KPI.md" data-summary="Safety audit KPI definitions: proactive vs reactive NCR tracking, dashboard thresholds.">
+                <td><div class="doc-file">SAFETY_AUDIT_KPI.md</div><div class="doc-path">2.Areas/12. Health and Safety/</div></td>
+                <td><span class="doc-area-pill area-safety">Safety/HR</span></td>
+                <td class="doc-summary">Safety audit KPI definitions: proactive vs reactive NCR tracking, dashboard thresholds.</td>
+              </tr>
+
+            </tbody>
+          </table>
+          <div class="doc-empty" id="docEmpty">No documents match your search.</div>
+        </div>
+      </section>
+
       <div class="runbook-drawer" id="runbook-drawer" onclick="if(event.target===this)closeRunbookDrawer()">
         <div class="rb-sheet">
           <button class="rb-close" onclick="closeRunbookDrawer()" aria-label="Close">&times;</button>
@@ -1319,6 +1774,9 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
           </button>
           <button class="more-item" onclick="showSection('kaizen', findSidebarBtn('kaizen')); closeMoreDrawer()">
             <span class="nav-icon">&#9881;</span> Kaizen
+          </button>
+          <button class="more-item" onclick="showSection('docs', findSidebarBtn('docs')); closeMoreDrawer()">
+            <span class="nav-icon">&#9741;</span> Docs Index
           </button>
         </div>
       </div>
@@ -2599,6 +3057,66 @@ function renderKaizenPending(){
 
 document.getElementById('refresh-btn').addEventListener('click', refreshAll);
 refreshAll();  // initial load
+
+// ── Docs Index ───────────────────────────────────────────────
+let _docArea = 'all';
+let _docSortCol = null;
+let _docSortDir = 'asc';
+
+function filterDocs() {
+  const q = (document.getElementById('docSearch').value || '').toLowerCase();
+  const rows = document.querySelectorAll('#docBody tr');
+  let visible = 0;
+  rows.forEach(tr => {
+    const areaOk = _docArea === 'all' || tr.dataset.area === _docArea;
+    const textOk = !q || tr.dataset.file.toLowerCase().includes(q) || tr.dataset.summary.toLowerCase().includes(q);
+    const show = areaOk && textOk;
+    tr.classList.toggle('doc-hidden', !show);
+    if (show) visible++;
+  });
+  const total = rows.length;
+  const countEl = document.getElementById('docCount');
+  if (countEl) countEl.textContent = visible === total ? total + ' files' : visible + ' of ' + total + ' files';
+  const emptyEl = document.getElementById('docEmpty');
+  if (emptyEl) emptyEl.style.display = visible === 0 ? 'block' : 'none';
+}
+
+function setDocArea(area, btn) {
+  _docArea = area;
+  document.querySelectorAll('.doc-filter-btn').forEach(b => b.classList.toggle('active', b === btn));
+  filterDocs();
+}
+
+function sortDocsBy(col) {
+  const tbody = document.getElementById('docBody');
+  if (!tbody) return;
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const th = document.getElementById('th-' + col);
+  if (_docSortCol === col) {
+    _docSortDir = _docSortDir === 'asc' ? 'desc' : 'asc';
+  } else {
+    _docSortCol = col; _docSortDir = 'asc';
+  }
+  document.querySelectorAll('.doc-table th').forEach(t => t.classList.remove('sort-asc','sort-desc'));
+  if (th) th.classList.add(_docSortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+  rows.sort((a, b) => {
+    const va = a.dataset[col] || '', vb = b.dataset[col] || '';
+    return _docSortDir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
+  });
+  rows.forEach(r => tbody.appendChild(r));
+}
+
+// Init count when docs section first becomes visible
+(function() {
+  const obs = new MutationObserver(() => {
+    const s = document.getElementById('section-docs');
+    if (s && !s.classList.contains('doc-indexed')) {
+      s.classList.add('doc-indexed');
+      filterDocs();
+    }
+  });
+  obs.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] });
+})();
 </script>
 </body>
 </html>
