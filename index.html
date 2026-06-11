@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <!-- Pre-paint theme restore -->
 <script>var t=localStorage.getItem('oly-theme');if(t)document.documentElement.className=t;</script>
 <style>
@@ -1223,6 +1224,40 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
 .area-safety   { background:rgba(232,123,173,0.10);  color:var(--_pink);               border:1px solid rgba(232,123,173,0.3); }
 .doc-count { font-size:11px; color:var(--color-text-tertiary); margin-left:auto; }
 .doc-empty { text-align:center; padding:28px; color:var(--color-text-tertiary); font-size:12px; display:none; }
+.doc-table tbody tr { cursor:pointer; }
+.doc-table tbody tr:hover .doc-file { text-decoration:underline; }
+
+/* ── Md viewer drawer ──────────────────────────────────────── */
+.md-drawer {
+  position:fixed; inset:0;
+  background:rgba(0,0,0,0.55);
+  display:none; z-index:1100;
+  align-items:stretch; justify-content:flex-end;
+}
+.md-drawer.open { display:flex; }
+.md-sheet {
+  background:var(--color-surface-page);
+  width:min(820px,100%);
+  max-height:100vh; overflow-y:auto;
+  padding:28px 32px 64px; position:relative;
+}
+.md-close {
+  position:absolute; top:18px; right:22px;
+  background:transparent;
+  border:1px solid var(--color-border-default);
+  border-radius:50%; width:36px; height:36px;
+  font-size:22px; line-height:1;
+  color:var(--color-text-primary); cursor:pointer;
+  font-family:inherit;
+}
+.md-meta {
+  font-family:'Courier New',monospace; font-size:11px;
+  color:var(--color-text-tertiary);
+  margin-bottom:20px; padding-bottom:12px;
+  border-bottom:1px solid var(--color-border-subtle);
+}
+.md-loading { color:var(--color-text-tertiary); font-size:13px; padding:40px 0; text-align:center; }
+.md-error { color:var(--color-danger-fg); font-size:13px; padding:20px 0; }
 </style>
 </head>
 <body>
@@ -2275,6 +2310,15 @@ button:focus-visible, a:focus-visible, .task-row:focus-visible, .dash-card:focus
         <div class="rb-sheet">
           <button class="rb-close" onclick="closeRunbookDrawer()" aria-label="Close">&times;</button>
           <div class="rb-detail" id="runbook-detail"></div>
+        </div>
+      </div>
+
+      <!-- ── Markdown viewer drawer ── -->
+      <div class="md-drawer" id="md-drawer" onclick="if(event.target===this)closeMdDrawer()">
+        <div class="md-sheet">
+          <button class="md-close" onclick="closeMdDrawer()" aria-label="Close">&times;</button>
+          <div class="md-meta" id="md-meta"></div>
+          <div class="rb-detail" id="md-content"></div>
         </div>
       </div>
     </main>
@@ -3595,6 +3639,58 @@ function renderKaizenPending(){
 
 document.getElementById('refresh-btn').addEventListener('click', refreshAll);
 refreshAll();  // initial load
+
+// ── Md file viewer ──────────────────────────────────────────
+function openMdDrawer(filePath, label, pathLabel) {
+  const drawer = document.getElementById('md-drawer');
+  const meta   = document.getElementById('md-meta');
+  const content = document.getElementById('md-content');
+  meta.textContent = pathLabel + filePath;
+  content.innerHTML = '<div class="md-loading">Loading…</div>';
+  drawer.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  const url = '/docs/md/' + filePath;
+  fetch(url)
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.text();
+    })
+    .then(md => {
+      content.innerHTML = marked.parse(md);
+    })
+    .catch(err => {
+      content.innerHTML = '<div class="md-error">Could not load file: ' + err.message + '<br><small>' + url + '</small></div>';
+    });
+}
+
+function closeMdDrawer() {
+  document.getElementById('md-drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeMdDrawer();
+});
+
+// Wire doc table rows — delegate click on tbody
+// Build real served path from .doc-path + .doc-file rather than data-file shorthand
+document.addEventListener('DOMContentLoaded', () => {
+  const tbody = document.getElementById('docBody');
+  if (!tbody) return;
+  tbody.addEventListener('click', e => {
+    const tr = e.target.closest('tr');
+    if (!tr || tr.classList.contains('doc-hidden')) return;
+    const fileEl = tr.querySelector('.doc-file');
+    const pathEl = tr.querySelector('.doc-path');
+    const filename  = fileEl ? fileEl.textContent.trim() : '';
+    const dirLabel  = pathEl ? pathEl.textContent.trim() : '';
+    // dirLabel is like "2.Areas/1. Sales/2. ODO/" — strip leading/trailing slashes
+    const dir = dirLabel.replace(/^\//, '').replace(/\/$/, '');
+    const realPath = dir ? dir + '/' + filename : filename;
+    openMdDrawer(realPath, filename, dir ? dir + '/' : '');
+  });
+});
 
 // ── Docs Index ───────────────────────────────────────────────
 let _docArea = 'all';
