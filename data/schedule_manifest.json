@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T10:00:03+02:00",
+  "generated_at": "2026-06-12T11:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -114,7 +114,7 @@
       "schedule_summary": "type=3 start=2026-05-18T10:00:00",
       "next_run": "2026-06-15 10:00:00+02:00",
       "scheduler_last_run_time": "2026-06-12 10:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -449,9 +449,9 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-06-12 10:13:10+02:00",
-      "scheduler_last_run_time": "2026-06-12 09:43:11+02:00",
-      "scheduler_last_task_result": 1,
+      "next_run": "2026-06-12 11:13:10+02:00",
+      "scheduler_last_run_time": "2026-06-12 10:43:11+02:00",
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -553,23 +553,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-06-12 11:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-12 10:00:02+02:00",
+      "next_run": "2026-06-12 12:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-12 11:00:02+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-06-12T00:00:02+02:00",
-          "finished_at": "2026-06-12T00:00:05+02:00",
-          "duration_seconds": 2.984,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== push origin master +master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because a pushed branch tip is behind its remote\nhint: counterpart. If you want to integrate the remote changes, use 'git pull'\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-12_00-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -677,12 +665,24 @@
           "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== push origin master +master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because a pushed branch tip is behind its remote\nhint: counterpart. If you want to integrate the remote changes, use 'git pull'\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-12_09-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-06-12T10:00:03+02:00",
+          "finished_at": "2026-06-12T10:00:06+02:00",
+          "duration_seconds": 3.442,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== push origin master +master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because a pushed branch tip is behind its remote\nhint: counterpart. If you want to integrate the remote changes, use 'git pull'\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-12_10-00-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-12T09:00:02+02:00",
-        "finished_at": "2026-06-12T09:00:05+02:00",
-        "duration_seconds": 2.586,
+        "started_at": "2026-06-12T10:00:03+02:00",
+        "finished_at": "2026-06-12T10:00:06+02:00",
+        "duration_seconds": 3.442,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -885,7 +885,7 @@
       "schedule_summary": "type=3 start=2026-05-25T10:00:00+02:00",
       "next_run": "2026-06-15 10:00:00+02:00",
       "scheduler_last_run_time": "2026-06-12 10:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1593,23 +1593,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-06-12 10:15:00+02:00",
-      "scheduler_last_run_time": "2026-06-12 08:15:01+02:00",
+      "next_run": "2026-06-12 12:15:00+02:00",
+      "scheduler_last_run_time": "2026-06-12 10:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-06-11T14:15:01+02:00",
-          "finished_at": "2026-06-11T14:15:08+02:00",
-          "duration_seconds": 6.792,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-11_14-15-01.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1717,12 +1705,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-12_08-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-06-12T10:15:01+02:00",
+          "finished_at": "2026-06-12T10:15:23+02:00",
+          "duration_seconds": 21.681,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-12_10-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-12T08:15:01+02:00",
-        "finished_at": "2026-06-12T08:15:23+02:00",
-        "duration_seconds": 22.165,
+        "started_at": "2026-06-12T10:15:01+02:00",
+        "finished_at": "2026-06-12T10:15:23+02:00",
+        "duration_seconds": 21.681,
         "exit_code": 0,
         "ok": true,
         "summary": null
