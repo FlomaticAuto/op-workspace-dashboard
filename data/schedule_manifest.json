@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T23:00:04+02:00",
+  "generated_at": "2026-06-14T00:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -21,8 +21,8 @@
       "task_path": "\\Olympic Paints\\Notion Todos Sync",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-06-13 23:43:11+02:00",
-      "scheduler_last_run_time": "2026-06-13 21:43:12+02:00",
+      "next_run": "2026-06-14 01:43:11+02:00",
+      "scheduler_last_run_time": "2026-06-13 23:43:12+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -449,8 +449,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-06-13 23:13:10+02:00",
-      "scheduler_last_run_time": "2026-06-13 22:43:11+02:00",
+      "next_run": "2026-06-14 00:13:10+02:00",
+      "scheduler_last_run_time": "2026-06-13 23:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -553,23 +553,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-06-14 00:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-13 23:00:02+02:00",
+      "next_run": "2026-06-14 01:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-14 00:00:02+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-06-13T12:00:02+02:00",
-          "finished_at": "2026-06-13T12:00:13+02:00",
-          "duration_seconds": 10.934,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 58 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== push origin master +master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because a pushed branch tip is behind its remote\nhint: counterpart. If you want to integrate the remote changes, use 'git pull'\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-13_12-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -677,12 +665,24 @@
           "stdout_tail": "Wrote 60 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== push origin master +master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because a pushed branch tip is behind its remote\nhint: counterpart. If you want to integrate the remote changes, use 'git pull'\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-13_22-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-06-13T23:00:02+02:00",
+          "finished_at": "2026-06-13T23:00:15+02:00",
+          "duration_seconds": 12.936,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 60 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== push origin master +master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n + becb6d7...894f206 master -> main (forced update)\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because a pushed branch tip is behind its remote\nhint: counterpart. If you want to integrate the remote changes, use 'git pull'\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-13_23-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-13T22:00:02+02:00",
-        "finished_at": "2026-06-13T22:00:05+02:00",
-        "duration_seconds": 2.824,
+        "started_at": "2026-06-13T23:00:02+02:00",
+        "finished_at": "2026-06-13T23:00:15+02:00",
+        "duration_seconds": 12.936,
         "exit_code": 0,
         "ok": true,
         "summary": null
