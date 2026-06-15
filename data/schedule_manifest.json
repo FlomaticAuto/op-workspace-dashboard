@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T08:00:05+02:00",
+  "generated_at": "2026-06-15T09:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -164,9 +164,9 @@
       "task_path": "\\Olympic Paints\\CI\\OlympicPaints_CIAccountabilityCheck",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-27T08:30:00+02:00",
-      "next_run": "2026-06-15 08:30:00+02:00",
-      "scheduler_last_run_time": "2026-06-12 08:30:00+02:00",
-      "scheduler_last_task_result": 1,
+      "next_run": "2026-06-16 08:30:00+02:00",
+      "scheduler_last_run_time": "2026-06-15 08:30:00+02:00",
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -179,7 +179,7 @@
       "schedule_summary": "type=3 start=2026-05-28T08:00:00+02:00",
       "next_run": "2026-06-16 08:00:00+02:00",
       "scheduler_last_run_time": "2026-06-15 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -257,21 +257,9 @@
       "schedule_summary": "type=3 start=2026-05-08T08:00:00",
       "next_run": "2026-06-16 08:00:00+02:00",
       "scheduler_last_run_time": "2026-06-15 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "olympicpaints-emailecommercedashboard",
-          "agent": "FLASH",
-          "started_at": "2026-06-01T08:00:01+02:00",
-          "finished_at": "2026-06-01T08:00:21+02:00",
-          "duration_seconds": 19.679,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "[08:00:04] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:00:04] Reading WooCommerce export: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:00:11] Reading tracking log: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:00:12] FY2026 orders=151 · overdue week=0 · overdue all-time=2 · RTS=8.9% · Makro manu=3 · LRM manu=0\n[08:00:21] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za\n[08:00:21] Subject: E-Commerce Digest — 01 June 2026\n[08:00:21] Email dispatched and confirmed left Outbox.\n[08:00:21] Done.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-06-01_08-00-01.log"
-        },
         {
           "job_id": "olympicpaints-emailecommercedashboard",
           "agent": "FLASH",
@@ -379,12 +367,24 @@
           "stdout_tail": "[08:00:03] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:00:03] Reading WooCommerce export: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:00:04] Reading tracking log: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:00:04] FY2026 orders=160 · overdue week=1 · overdue all-time=4 · RTS=8.2% · Makro manu=3 · LRM manu=0\n[08:00:13] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za\n[08:00:13] Subject: E-Commerce Digest — 12 June 2026\n[08:00:13] Email dispatched and confirmed left Outbox.\n[08:00:13] Done.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-06-12_08-00-01.log"
+        },
+        {
+          "job_id": "olympicpaints-emailecommercedashboard",
+          "agent": "FLASH",
+          "started_at": "2026-06-15T08:00:01+02:00",
+          "finished_at": "2026-06-15T08:00:14+02:00",
+          "duration_seconds": 12.965,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[08:00:04] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:00:04] Reading WooCommerce export: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:00:05] Reading tracking log: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:00:05] FY2026 orders=160 · overdue week=1 · overdue all-time=4 · RTS=8.2% · Makro manu=3 · LRM manu=0\n[08:00:14] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za\n[08:00:14] Subject: E-Commerce Digest — 15 June 2026\n[08:00:14] Email dispatched and confirmed left Outbox.\n[08:00:14] Done.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-06-15_08-00-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-12T08:00:01+02:00",
-        "finished_at": "2026-06-12T08:00:13+02:00",
-        "duration_seconds": 12.171,
+        "started_at": "2026-06-15T08:00:01+02:00",
+        "finished_at": "2026-06-15T08:00:14+02:00",
+        "duration_seconds": 12.965,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -449,8 +449,8 @@
       "task_path": "\\Olympic Paints\\H&S\\NCR Poller",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-06-15 08:13:10+02:00",
-      "scheduler_last_run_time": "2026-06-15 07:43:11+02:00",
+      "next_run": "2026-06-15 09:13:10+02:00",
+      "scheduler_last_run_time": "2026-06-15 08:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -529,7 +529,7 @@
       "schedule_summary": "type=3 start=2026-05-28T08:00:00+02:00",
       "next_run": "2026-06-22 08:00:00+02:00",
       "scheduler_last_run_time": "2026-06-15 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -553,23 +553,11 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-06-15 09:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-15 08:00:02+02:00",
+      "next_run": "2026-06-15 10:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-15 09:00:02+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-06-14T22:00:02+02:00",
-          "finished_at": "2026-06-14T22:00:05+02:00",
-          "duration_seconds": 2.867,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 60 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== push origin master +master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because a pushed branch tip is behind its remote\nhint: counterpart. If you want to integrate the remote changes, use 'git pull'\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-14_22-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -677,12 +665,24 @@
           "stdout_tail": "Wrote 60 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== push origin master +master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n + 7d0c047...894f206 master -> main (forced update)\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because a pushed branch tip is behind its remote\nhint: counterpart. If you want to integrate the remote changes, use 'git pull'\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-15_07-00-03.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-06-15T08:00:04+02:00",
+          "finished_at": "2026-06-15T08:00:13+02:00",
+          "duration_seconds": 8.744,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 60 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git stash --include-untracked: error: Unable to create 'C:/Users/Administrator/workspace-dashboard/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, or the lock file may be stale\nerror: could not write index\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.\n  ! git -c http.extraheader=AUTHORIZATION: basic eC1hY2Nlc3MtdG9rZW46Z2hvX0QzTUpRSVNJblhqWmRBY3FwUjBRdUpiNFN5anZDNTJLWFhlbQ== push origin master +master:main: To https://github.com/FlomaticAuto/op-workspace-dashboard.git\n ! [remote rejected] master -> main (cannot lock ref 'refs/heads/main': is at 894f206d13e21d20ecc069c9206797d04e85c8b6 but expected 9799c856b7b5177494e7f63cbf43777048910de6)\n ! [rejected]        master -> master (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/FlomaticAuto/op-workspace-dashboard.git'\nhint: Updates were rejected because a pushed branch tip is behind its remote\nhint: counterpart. If you want to integrate the remote changes, use 'git pull'\nhint: before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-15_08-00-04.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-15T07:00:03+02:00",
-        "finished_at": "2026-06-15T07:00:18+02:00",
-        "duration_seconds": 14.223,
+        "started_at": "2026-06-15T08:00:04+02:00",
+        "finished_at": "2026-06-15T08:00:13+02:00",
+        "duration_seconds": 8.744,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -777,7 +777,7 @@
       "task_path": "\\Olympic Paints\\PRISM\\OlympicPaints_Sales_Dashboard_Refresh",
       "enabled": false,
       "schedule_summary": "type=2 start=2026-05-07T08:30:00",
-      "next_run": "2026-06-15 08:30:00+02:00",
+      "next_run": "2026-06-16 08:30:00+02:00",
       "scheduler_last_run_time": "2026-05-27 08:30:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
@@ -947,10 +947,10 @@
       "task_path": "\\Olympic Paints\\Sales\\VD Email Reports",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-06-13T08:15:00+02:00",
-      "next_run": "2026-06-15 08:15:00+02:00",
-      "scheduler_last_run_time": null,
-      "scheduler_last_task_result": 267011,
-      "heartbeat_status": "never_run",
+      "next_run": "2026-06-16 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-06-15 08:15:00+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "missing",
       "history": []
     },
     {
@@ -1012,8 +1012,8 @@
       "task_path": "\\Olympic Paints\\SIGMA\\Process and Publish Vehicle Dashboard",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-28T08:05:00+02:00",
-      "next_run": "2026-06-15 08:05:00+02:00",
-      "scheduler_last_run_time": "2026-06-09 09:54:04+02:00",
+      "next_run": "2026-06-22 08:05:00+02:00",
+      "scheduler_last_run_time": "2026-06-15 08:05:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1025,8 +1025,8 @@
       "task_path": "\\Olympic Paints\\SIGMA\\Vehicle Health Check",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-28T08:15:00+02:00",
-      "next_run": "2026-06-15 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-06-08 08:15:00+02:00",
+      "next_run": "2026-06-22 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-06-15 08:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1038,7 +1038,7 @@
       "task_path": "\\Olympic Paints\\SIGMA\\Vehicle Report Weekly",
       "enabled": false,
       "schedule_summary": "type=3 start=2026-04-23T09:00:00",
-      "next_run": "2026-06-15 09:00:00+02:00",
+      "next_run": "2026-06-22 09:00:00+02:00",
       "scheduler_last_run_time": "2026-06-08 09:00:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
@@ -1631,23 +1631,11 @@
       "task_path": "\\Olympic Paints\\VAULT\\Sync Claude TODOs",
       "enabled": true,
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-06-15 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-06-15 06:15:01+02:00",
+      "next_run": "2026-06-15 10:15:00+02:00",
+      "scheduler_last_run_time": "2026-06-15 08:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-06-14T12:15:02+02:00",
-          "finished_at": "2026-06-14T12:15:09+02:00",
-          "duration_seconds": 7.579,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-14_12-15-02.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1755,12 +1743,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-15_06-15-02.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-06-15T08:15:02+02:00",
+          "finished_at": "2026-06-15T08:15:12+02:00",
+          "duration_seconds": 10.729,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-15_08-15-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-15T06:15:02+02:00",
-        "finished_at": "2026-06-15T06:15:08+02:00",
-        "duration_seconds": 6.955,
+        "started_at": "2026-06-15T08:15:02+02:00",
+        "finished_at": "2026-06-15T08:15:12+02:00",
+        "duration_seconds": 10.729,
         "exit_code": 0,
         "ok": true,
         "summary": null
