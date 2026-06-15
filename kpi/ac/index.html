@@ -749,6 +749,7 @@ html,body{overflow-x:hidden}
 <div class="tab-nav">
   <button class="tab-btn active" data-tab="monthly"   onclick="showTab('monthly')">Monthly</button>
   <button class="tab-btn"        data-tab="overview"  onclick="showTab('overview')">Overview</button>
+  <button class="tab-btn"        data-tab="vd"        onclick="showTab('vd')">VD Report</button>
   <button class="tab-btn"        data-tab="sales"     onclick="showTab('sales')">Sales</button>
   <button class="tab-btn"        data-tab="pricing"   onclick="showTab('pricing')">Pricing</button>
   <button class="tab-btn"        data-tab="activity"  onclick="showTab('activity')">Activity</button>
@@ -1020,6 +1021,15 @@ html,body{overflow-x:hidden}
       </table>
     </div>
   </div>
+</div>
+
+<!-- ── VD REPORT TAB ── -->
+<div id="panel-vd" class="tab-panel">
+  <iframe
+    src="https://olympic-paints-vd.vercel.app/preview/daily_rep_AC.html"
+    style="width:100%;height:calc(100vh - 120px);border:none;display:block;"
+    title="VD Report — Aboo Cassim">
+  </iframe>
 </div>
 
 <!-- ── SALES TAB ── -->
