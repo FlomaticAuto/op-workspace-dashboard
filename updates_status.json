@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-16T08:15:35",
+  "generated_at": "2026-06-16T09:30:05",
   "total": 15,
-  "ok": 9,
-  "warn": 5,
+  "ok": 8,
+  "warn": 6,
   "fail": 1,
   "jobs": [
     {
@@ -13,7 +13,7 @@
       "cadence": "Daily \u00b7 08:15",
       "overall": "ok",
       "task_last_run": "2026-06-16T08:15:15",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "ecommerce_email",
@@ -51,7 +51,7 @@
       "name": "Vehicle In-Out Report",
       "task": "Vehicle Report Weekly",
       "cadence": "Weekly \u00b7 Mon",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-06-08T09:00:00",
       "task_last_result": 0
     },
@@ -62,8 +62,8 @@
       "task": "Vehicle Report Health Check",
       "cadence": "Weekly \u00b7 Mon",
       "overall": "ok",
-      "task_last_run": "2026-06-09T09:30:30",
-      "task_last_result": 0
+      "task_last_run": "2026-06-16T09:30:30",
+      "task_last_result": 267009
     },
     {
       "id": "kaizen_sync",
@@ -132,7 +132,7 @@
       "task": "Preview Gate",
       "cadence": "Daily \u00b7 Mon-Fri 09:00",
       "overall": "fail",
-      "task_last_run": "2026-06-15T09:00:00",
+      "task_last_run": "2026-06-16T09:00:00",
       "task_last_result": 267014
     },
     {
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 60
+  "success_pct": 53
 }
