@@ -14,7 +14,7 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 
-HUB_DIR = Path(r"C:\Users\quint\workspace-dashboard")
+HUB_DIR = Path(r"C:\Users\Administrator\workspace-dashboard")
 
 
 def push_to_hub(subfolder: str, message: str | None = None) -> bool:
@@ -42,6 +42,16 @@ def push_to_hub(subfolder: str, message: str | None = None) -> bool:
 
     run(["git", "config", "user.email", "auto@olympic-paints.local"])
     run(["git", "config", "user.name", "Olympic Paints Hub Bot"])
+
+    # Remove stale index lock if left over from a prior crash
+    lock_file = HUB_DIR / ".git" / "index.lock"
+    if lock_file.exists():
+        lock_file.unlink()
+        print("  ! Removed stale .git/index.lock")
+
+    # Ensure we're on master — if the repo drifted to main (e.g. after a manual
+    # checkout), git push origin master would push the wrong content.
+    run(["git", "checkout", "master"])
 
     # Stash any unstaged changes so pull --rebase doesn't fail, then restore them
     stashed = run(["git", "stash", "--include-untracked"])
