@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T13:43:35+02:00",
+  "generated_at": "2026-06-17T14:00:04+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -125,9 +125,9 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1400",
       "enabled": true,
       "schedule_summary": "type=3 start=2026-05-18T14:00:00",
-      "next_run": "2026-06-17 14:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-16 14:00:00+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-06-18 14:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-17 14:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -540,9 +540,9 @@
       "task_path": "\\Olympic Paints\\PRISM\\Build Schedule Manifest",
       "enabled": true,
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-06-17 14:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-17 13:00:02+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-06-17 15:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-17 14:00:02+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
         {
