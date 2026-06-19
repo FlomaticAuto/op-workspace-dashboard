@@ -96,6 +96,13 @@ tbody tr:hover td{color:var(--color-text-primary)}
 .cc-hm-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
 .cc-hm-month-label{font-family:var(--font-display);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-tertiary);width:74px;min-width:74px;padding-top:12px}
 .cc-hm-days{display:flex;gap:4px;padding-bottom:0;flex:1;min-width:0}
+.cc-hm-totals{display:flex;flex-direction:column;justify-content:center;gap:3px;min-width:106px;width:106px;padding:6px 10px;border:1px solid var(--color-border-subtle);border-radius:var(--r-sm);background:var(--color-surface-elevated);font-family:var(--font-body);font-size:11px}
+.cc-hm-totals .t-row{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.cc-hm-totals .t-label{color:var(--color-text-tertiary);font-weight:500;white-space:nowrap}
+.cc-hm-totals .t-val{font-weight:700;font-size:12px;color:var(--color-text-primary)}
+.cc-hm-totals .t-val.t-lead{color:#6B9ED0}
+.cc-hm-totals .t-val.t-recov{color:#E86060}
+.cc-hm-totals .t-divider{border:none;border-top:1px solid var(--color-border-subtle);margin:2px 0}
 .hm-wk{display:flex;gap:2px;border:1px solid var(--color-border-subtle);border-radius:var(--r-sm);padding:2px}
 .hm-wk.wk-a{background:var(--color-surface-sunken)}
 .hm-wk.wk-b{background:var(--color-surface-overlay)}
@@ -466,6 +473,7 @@ function renderCcHeatmap(){
       weeks[wkMap[key]].days.push({d:day,dow:dow});
     }
     var rowHtml='';
+    var mTotV=0,mTotL=0,mTotRv=0;
     weeks.forEach(function(week,wi){
       var bc=wi%2===0?'wk-a':'wk-b';
       var isCur=(week.y===tWk.y&&week.w===tWk.w);
@@ -475,6 +483,7 @@ function renderCcHeatmap(){
         var cell=data[iso]||{v:0,l:0,r:0,rv:0};
         var total=cell.v+cell.l;
         var rv=cell.rv||0;
+        mTotV+=cell.v; mTotL+=cell.l; mTotRv+=rv;
         var leadPct=total>0?Math.round(cell.l/total*100):0;
         var recovPct=total>0?Math.round(rv/total*100):0;
         var bg=total>0?'background:'+ccBg(total):'';
@@ -492,9 +501,18 @@ function renderCcHeatmap(){
       });
       rowHtml+='</div>';
     });
+    var mTotal=mTotV+mTotL;
+    var totalsHtml='<div class="cc-hm-totals">'
+      +'<div class="t-row"><span class="t-label">Visits</span><span class="t-val">'+mTotV+'</span></div>'
+      +'<div class="t-row"><span class="t-label">Leads</span><span class="t-val t-lead">'+mTotL+'</span></div>'
+      +(mTotRv>0?'<div class="t-row"><span class="t-label">Recovery</span><span class="t-val t-recov">'+mTotRv+'</span></div>':'')
+      +'<hr class="t-divider">'
+      +'<div class="t-row"><span class="t-label">Total</span><span class="t-val">'+mTotal+'</span></div>'
+      +'</div>';
     html+='<div class="cc-hm-row">'
       +'<div class="cc-hm-month-label">'+label+'</div>'
       +'<div class="cc-hm-days">'+rowHtml+'</div>'
+      +totalsHtml
       +'</div>';
   });
   el.innerHTML=html;
