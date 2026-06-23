@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T07:07:48",
+  "generated_at": "2026-06-23T08:15:11",
   "total": 15,
-  "ok": 2,
-  "warn": 12,
-  "fail": 1,
+  "ok": 3,
+  "warn": 10,
+  "fail": 2,
   "jobs": [
     {
       "id": "ecommerce_dashboard",
@@ -12,8 +12,8 @@
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
       "overall": "warn",
-      "task_last_run": "2026-06-18T08:15:15",
-      "task_last_result": 0
+      "task_last_run": "2026-06-23T08:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -21,9 +21,9 @@
       "name": "E-Commerce Email Digest",
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
-      "overall": "warn",
-      "task_last_run": "2026-06-18T08:00:00",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": "2026-06-23T08:00:00",
+      "task_last_result": 1
     },
     {
       "id": "haven_clocking",
@@ -31,8 +31,8 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "Daily Process Inbox",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "warn",
-      "task_last_run": "2026-06-18T07:30:30",
+      "overall": "ok",
+      "task_last_run": "2026-06-23T07:30:30",
       "task_last_result": 0
     },
     {
@@ -103,7 +103,7 @@
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
       "task_last_run": "2026-06-23T07:00:00",
-      "task_last_result": 267009
+      "task_last_result": 267014
     },
     {
       "id": "vault_meeting_extraction",
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 13
+  "success_pct": 20
 }
