@@ -31,7 +31,7 @@ def _resolve_memory_dir() -> str:
     any_dir = [c / "memory" for c in candidates if (c / "memory").is_dir()]
     if any_dir:
         return str(any_dir[0])
-    return r"C:\Users\quint\.claude\projects\C--Users-quint-OneDrive-1-Projects-1-Olympic-Paints\memory"
+    return r"C:\Users\Administrator\.claude\projects\C--Users-quint-OneDrive-1-Projects-1-Olympic-Paints\memory"
 
 MEMORY_DIR = _resolve_memory_dir()
 

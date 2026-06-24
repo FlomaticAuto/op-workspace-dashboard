@@ -31,7 +31,7 @@ if not NOTION_TOKEN:
 NOTION_API_URL     = "https://api.notion.com/v1"
 NOTION_API_VERSION = "2022-06-28"
 
-VEHICLE_INBOX = r"C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\2.Areas\9. Supply Chain\Logisitics\Inbox"
+VEHICLE_INBOX = r"C:\Users\Administrator\OneDrive\1.Projects\1.Olympic Paints\2.Areas\9. Supply Chain\Logisitics\Inbox"
 VEHICLE_LOG   = os.path.join(VEHICLE_INBOX, "vehicle_report_log.txt")
 
 MEETING_DB  = "247ff48d2bb18009979bd25bac9fe72e"

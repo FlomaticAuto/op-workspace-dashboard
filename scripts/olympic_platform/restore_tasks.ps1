@@ -5,7 +5,7 @@
 
 .PARAMETER BackupDir
     Required. The timestamped folder under
-    C:\Users\quint\.claude\heartbeats\_migration-backups\
+    $env:USERPROFILE\.claude\heartbeats\_migration-backups\
 #>
 param(
     [Parameter(Mandatory = $true)] [string]$BackupDir,

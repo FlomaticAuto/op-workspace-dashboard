@@ -28,7 +28,7 @@ except ImportError:
     print("ERROR: pandas / openpyxl not installed.")
     sys.exit(1)
 
-REPO_DEFAULT = r"C:\Users\quint\workspace-dashboard"
+REPO_DEFAULT = r"C:\Users\Administrator\workspace-dashboard"
 OUTPUT_FILE  = "clocking_stats.json"
 
 parser = argparse.ArgumentParser()

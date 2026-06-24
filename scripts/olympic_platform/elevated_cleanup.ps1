@@ -39,8 +39,8 @@ if (-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administra
 $svc = New-Object -ComObject Schedule.Service
 $svc.Connect()
 
-$wrapper   = 'C:\Users\quint\workspace-dashboard\scripts\olympic_platform\run_job.py'
-$backupDir = "C:\Users\quint\.claude\heartbeats\_migration-backups\cleanup-{0}" -f (Get-Date -Format 'yyyyMMdd-HHmmss')
+$wrapper   = '$env:USERPROFILE\workspace-dashboard\scripts\olympic_platform\run_job.py'
+$backupDir = "$env:USERPROFILE\.claude\heartbeats\_migration-backups\cleanup-{0}" -f (Get-Date -Format 'yyyyMMdd-HHmmss')
 
 if (-not $Apply) {
     Write-Host "DRY RUN -- re-run with -Apply to perform the cleanup." -ForegroundColor Green
@@ -127,7 +127,7 @@ try {
     $oldTask   = $oldFolder.GetTask('Olympic Paints - Meeting Minutes Extractor')
     Backup-Task '\Olympic Paints\Olympic Paints - Meeting Minutes Extractor' 'Meeting_Minutes_Extractor'
 
-    $bat     = 'C:\Users\quint\OneDrive\1.Projects\1.Olympic Paints\run_meeting_extractor.bat'
+    $bat     = '$env:USERPROFILE\OneDrive\1.Projects\1.Olympic Paints\run_meeting_extractor.bat'
     $newArgs = "`"$wrapper`" meeting-minutes-extractor --agent VAULT -- `"$bat`""
     $def     = Build-WrappedDef $oldTask $newArgs
 
@@ -157,5 +157,5 @@ function Walk($folder, $depth) {
 Walk $svc.GetFolder('\Olympic Paints') 0
 
 Write-Host "`nRefresh the manifest:" -ForegroundColor Cyan
-Write-Host "  cd C:\Users\quint\workspace-dashboard"
+Write-Host "  cd $env:USERPROFILE\workspace-dashboard"
 Write-Host "  python -m scripts.olympic_platform.build_schedule_manifest"

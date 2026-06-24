@@ -8,7 +8,7 @@ import tempfile
 from pathlib import Path
 from typing import Any, Dict, List
 
-DEFAULT_ROOT = Path(r"C:\Users\quint\.claude\heartbeats")
+DEFAULT_ROOT = Path(r"C:\Users\Administrator\.claude\heartbeats")
 HISTORY_LIMIT = 100
 
 

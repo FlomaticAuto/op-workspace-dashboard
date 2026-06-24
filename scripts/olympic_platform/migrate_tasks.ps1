@@ -22,9 +22,9 @@ param(
 $ErrorActionPreference = 'Stop'
 
 # ---------- Config ----------
-$WrapperPath  = 'C:\Users\quint\workspace-dashboard\scripts\olympic_platform\run_job.py'
-$MappingPath  = 'C:\Users\quint\workspace-dashboard\scripts\olympic_platform\agent_mapping.json'
-$BackupRoot   = 'C:\Users\quint\.claude\heartbeats\_migration-backups'
+$WrapperPath  = '$env:USERPROFILE\workspace-dashboard\scripts\olympic_platform\run_job.py'
+$MappingPath  = '$env:USERPROFILE\workspace-dashboard\scripts\olympic_platform\agent_mapping.json'
+$BackupRoot   = '$env:USERPROFILE\.claude\heartbeats\_migration-backups'
 $InScopePaths = @(
     'OneDrive\1.Projects\1.Olympic Paints',
     'workspace-dashboard',

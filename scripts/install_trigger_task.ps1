@@ -2,7 +2,7 @@
 # Run once as the user (no admin needed for user-scope task).
 
 $TaskName  = "OlympicPortalTriggerServer"
-$ScriptDir = "C:\Users\quint\workspace-dashboard\scripts"
+$ScriptDir = "$env:USERPROFILE\workspace-dashboard\scripts"
 $Python    = (Get-Command python).Source
 $Script    = Join-Path $ScriptDir "portal_trigger_server.py"
 

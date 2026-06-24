@@ -30,8 +30,8 @@ except ImportError:
         sys.path.insert(0, str(_pkg_root))
     from scripts.olympic_platform import heartbeat, notify  # type: ignore
 
-_DEFAULT_HEARTBEATS = Path(r"C:\Users\quint\.claude\heartbeats")
-_DEFAULT_LOGS = Path(r"C:\Users\quint\.claude\logs")
+_DEFAULT_HEARTBEATS = Path(r"C:\Users\Administrator\.claude\heartbeats")
+_DEFAULT_LOGS = Path(r"C:\Users\Administrator\.claude\logs")
 
 
 def _now_iso() -> str:
