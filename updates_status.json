@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T08:15:11",
+  "generated_at": "2026-06-26T10:15:10",
   "total": 15,
   "ok": 5,
   "warn": 9,
@@ -13,7 +13,7 @@
       "cadence": "Daily \u00b7 08:15",
       "overall": "warn",
       "task_last_run": "2026-06-26T08:15:15",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "ecommerce_email",
@@ -82,7 +82,7 @@
       "task": "OlympicPaints_Workspace_Health_Report",
       "cadence": "Weekly \u00b7 Fri 16:00",
       "overall": "warn",
-      "task_last_run": "2026-06-25T10:00:00",
+      "task_last_run": "2026-06-26T10:00:00",
       "task_last_result": 0
     },
     {
@@ -132,8 +132,8 @@
       "task": "Preview Gate",
       "cadence": "Daily \u00b7 Mon-Fri 09:00",
       "overall": "fail",
-      "task_last_run": "2026-06-25T09:00:00",
-      "task_last_result": 3221225786
+      "task_last_run": "2026-06-26T09:00:00",
+      "task_last_result": 267014
     },
     {
       "id": "pulse_build_plan",
