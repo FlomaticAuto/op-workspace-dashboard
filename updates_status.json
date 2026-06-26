@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-26T16:15:06",
+  "generated_at": "2026-06-26T18:15:08",
   "total": 15,
-  "ok": 5,
-  "warn": 9,
+  "ok": 6,
+  "warn": 8,
   "fail": 1,
   "jobs": [
     {
@@ -141,8 +141,8 @@
       "name": "PULSE Build Next Week Plan (Sunday)",
       "task": "Build Next Week Plan",
       "cadence": "Weekly \u00b7 Sun 17:00",
-      "overall": "warn",
-      "task_last_run": "2026-06-12T17:00:00",
+      "overall": "ok",
+      "task_last_run": "2026-06-26T17:00:00",
       "task_last_result": 0
     },
     {
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 33
+  "success_pct": 40
 }
