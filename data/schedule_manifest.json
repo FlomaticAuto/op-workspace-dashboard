@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T06:00:02+02:00",
+  "generated_at": "2026-06-27T07:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -474,8 +474,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-06-27 06:13:10+02:00",
-      "scheduler_last_run_time": "2026-06-27 05:43:11+02:00",
+      "next_run": "2026-06-27 07:13:10+02:00",
+      "scheduler_last_run_time": "2026-06-27 06:43:11+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -572,23 +572,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-06-27 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-27 06:00:02+02:00",
-      "scheduler_last_task_result": -2147020576,
+      "next_run": "2026-06-27 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-27 07:00:02+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-06-26T20:00:03+02:00",
-          "finished_at": "2026-06-26T20:00:08+02:00",
-          "duration_seconds": 5.41,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 59 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-26_20-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -696,12 +684,24 @@
           "stdout_tail": "Wrote 59 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-27_05-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-06-27T06:00:02+02:00",
+          "finished_at": "2026-06-27T06:00:06+02:00",
+          "duration_seconds": 4.219,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 59 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-06-27_06-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-27T05:00:02+02:00",
-        "finished_at": "2026-06-27T05:00:07+02:00",
-        "duration_seconds": 4.701,
+        "started_at": "2026-06-27T06:00:02+02:00",
+        "finished_at": "2026-06-27T06:00:06+02:00",
+        "duration_seconds": 4.219,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1527,23 +1527,11 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-05-13T06:10:00",
-      "next_run": "2026-06-27 06:10:00+02:00",
-      "scheduler_last_run_time": "2026-06-26 06:10:01+02:00",
+      "next_run": "2026-06-28 06:10:00+02:00",
+      "scheduler_last_run_time": "2026-06-27 06:10:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "zoho-leads-pull",
-          "agent": "STRIKER",
-          "started_at": "2026-06-13T06:10:02+02:00",
-          "finished_at": "2026-06-13T06:10:47+02:00",
-          "duration_seconds": 45.354,
-          "exit_code": 1,
-          "ok": false,
-          "stdout_tail": "Pulling leads modified since 2026-06-06T04:10:05+00:00\n\nâ†’ Users\n  could not fetch users: HTTPSConnectionPool(host='accounts.zoho.com', port=443): Max retries exceeded with url: /oauth/v2/token?refresh_token=1000.de50c2dfaed74f5091f4899ad439ddab.478fc8e51733ab21c45028cd1de96e15&client_id=1000.AOMA3QGFRDEQBZUI81K6KD0FYSQL0X&client_secret=5529e24b2b0be00cc08686af026b721fc71c223b9e&grant_type=refresh_token (Caused by ConnectTimeoutError(<HTTPSConnection(host='accounts.zoho.com', port=443) at 0x1c8fc3452b0>, 'Connection to accounts.zoho.com timed out. (connect timeout=30)'))\n  0 users mapped\n\nâ†’ Discovering Lead fields",
-          "stderr_tail": "    resp = conn.urlopen(\n        method=request.method,\n    ...<9 lines>...\n        chunked=chunked,\n    )\n  File \"C:\\Python313\\Lib\\site-packages\\urllib3\\connectionpool.py\", line 842, in urlopen\n    retries = retries.increment(\n        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]\n    )\n  File \"C:\\Python313\\Lib\\site-packages\\urllib3\\util\\retry.py\", line 543, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nurllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='accounts.zoho.com', port=443): Max retries exceeded with url: /oauth/v2/token?refresh_token=1000.de50c2dfaed74f5091f4899ad439ddab.478fc8e51733ab21c45028cd1de96e15&client_id=1000.AOMA3QGFRDEQBZUI81K6KD0FYSQL0X&client_secret=5529e24b2b0be00cc08686af026b721fc71c223b9e&grant_type=refresh_token (Caused by ConnectTimeoutError(<HTTPSConnection(host='accounts.zoho.com', port=443) at 0x1c8fc23f750>, 'Connection to accounts.zoho.com timed out. (connect timeout=30)'))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\pull_leads.py\", line 416, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\pull_leads.py\", line 328, in main\n    fields = discover_fields(z)\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\pull_leads.py\", line 136, in discover_fields\n    meta = z.list_module_fields(MODULE)\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\zoho_client.py\", line 197, in list_module_fields\n    body = self._get(\"/settings/fields\", params={\"module\": module})\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\zoho_client.py\", line 94, in _get\n    r = requests.get(url, headers=self._headers(), params=params or {}, timeout=60)\n                                  ~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\zoho_client.py\", line 87, in _headers\n    self._refresh_access_token()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\zoho_client.py\", line 68, in _refresh_access_token\n    r = requests.post(self.token_url, params={\n        \"refresh_token\": self.refresh_token,\n    ...<2 lines>...\n        \"grant_type\": \"refresh_token\",\n    }, timeout=30)\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\api.py\", line 134, in post\n    return request(\"post\", url, data=data, json=json, **kwargs)\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\api.py\", line 71, in request\n    return session.request(method=method, url=url, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\sessions.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\sessions.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\adapters.py\", line 717, in send\n    raise ConnectTimeout(e, request=request)\nrequests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='accounts.zoho.com', port=443): Max retries exceeded with url: /oauth/v2/token?refresh_token=1000.de50c2dfaed74f5091f4899ad439ddab.478fc8e51733ab21c45028cd1de96e15&client_id=1000.AOMA3QGFRDEQBZUI81K6KD0FYSQL0X&client_secret=5529e24b2b0be00cc08686af026b721fc71c223b9e&grant_type=refresh_token (Caused by ConnectTimeoutError(<HTTPSConnection(host='accounts.zoho.com', port=443) at 0x1c8fc23f750>, 'Connection to accounts.zoho.com timed out. (connect timeout=30)'))",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\zoho-leads-pull\\2026-06-13_06-10-02.log"
-        },
         {
           "job_id": "zoho-leads-pull",
           "agent": "STRIKER",
@@ -1651,12 +1639,24 @@
           "stdout_tail": "Pulling leads modified since 2026-06-19T04:10:04+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Discovering Lead fields\n  discovered 66 fetchable fields (0 skipped â€” formula/rollup/subform)\n  splitting into 2 request batches (50, 17 fields each)\n\nâ†’ Leads\n  batch 1/2 â€” 50 fields\n  fetched 3 records from Leads\n  batch 2/2 â€” 17 fields\n  fetched 3 records from Leads\n\nâœ“ Wrote      3 leads â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\leads.parquet\n\nâ†’ Writing legacy CSV shims for existing consumers\n  âœ“ wrote 3 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking.csv\n  âœ“ wrote 3 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking_new.csv\n\nLead creation range: 2026-06-22 06:23:06+00:00 â†’ 2026-06-24 05:53:19+00:00\n\nTop lead statuses:\n  (none)                               3\n\nTop owners by lead count:\n  byronm@olympicpaints.co.za                2\n  abooc@olympicpaints.co.za                 1",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\zoho-leads-pull\\2026-06-26_06-10-02.log"
+        },
+        {
+          "job_id": "zoho-leads-pull",
+          "agent": "STRIKER",
+          "started_at": "2026-06-27T06:10:02+02:00",
+          "finished_at": "2026-06-27T06:10:11+02:00",
+          "duration_seconds": 9.237,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Pulling leads modified since 2026-06-20T04:10:03+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Discovering Lead fields\n  discovered 66 fetchable fields (0 skipped â€” formula/rollup/subform)\n  splitting into 2 request batches (50, 17 fields each)\n\nâ†’ Leads\n  batch 1/2 â€” 50 fields\n  fetched 3 records from Leads\n  batch 2/2 â€” 17 fields\n  fetched 3 records from Leads\n\nâœ“ Wrote      3 leads â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\leads.parquet\n\nâ†’ Writing legacy CSV shims for existing consumers\n  âœ“ wrote 3 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking.csv\n  âœ“ wrote 3 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking_new.csv\n\nLead creation range: 2026-06-22 06:23:06+00:00 â†’ 2026-06-24 05:53:19+00:00\n\nTop lead statuses:\n  (none)                               3\n\nTop owners by lead count:\n  byronm@olympicpaints.co.za                2\n  abooc@olympicpaints.co.za                 1",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\zoho-leads-pull\\2026-06-27_06-10-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-26T06:10:02+02:00",
-        "finished_at": "2026-06-26T06:10:12+02:00",
-        "duration_seconds": 10.205,
+        "started_at": "2026-06-27T06:10:02+02:00",
+        "finished_at": "2026-06-27T06:10:11+02:00",
+        "duration_seconds": 9.237,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1670,9 +1670,9 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-04-30T07:00:00+02:00",
-      "next_run": "2026-06-27 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-26 07:00:01+02:00",
-      "scheduler_last_task_result": 267014,
+      "next_run": "2026-06-28 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-27 07:00:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1684,23 +1684,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-06-27 06:15:00+02:00",
-      "scheduler_last_run_time": "2026-06-27 04:15:01+02:00",
+      "next_run": "2026-06-27 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-06-27 06:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-06-26T10:15:01+02:00",
-          "finished_at": "2026-06-26T10:15:15+02:00",
-          "duration_seconds": 13.535,
-          "exit_code": 2,
-          "ok": false,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-26_10-15-01.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1808,12 +1796,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-27_04-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-06-27T06:15:01+02:00",
+          "finished_at": "2026-06-27T06:15:09+02:00",
+          "duration_seconds": 8.066,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-06-27_06-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-27T04:15:01+02:00",
-        "finished_at": "2026-06-27T04:15:13+02:00",
-        "duration_seconds": 11.483,
+        "started_at": "2026-06-27T06:15:01+02:00",
+        "finished_at": "2026-06-27T06:15:09+02:00",
+        "duration_seconds": 8.066,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1827,23 +1827,11 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-04-22T07:00:00",
-      "next_run": "2026-06-27 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-06-26 07:00:01+02:00",
+      "next_run": "2026-06-28 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-06-27 07:00:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "vault-meeting-extraction-daily",
-          "agent": "VAULT",
-          "started_at": "2026-06-13T07:00:02+02:00",
-          "finished_at": "2026-06-13T07:00:02+02:00",
-          "duration_seconds": 0.252,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vault-meeting-extraction-daily\\2026-06-13_07-00-02.log"
-        },
         {
           "job_id": "vault-meeting-extraction-daily",
           "agent": "VAULT",
@@ -1951,12 +1939,24 @@
           "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vault-meeting-extraction-daily\\2026-06-26_07-00-03.log"
+        },
+        {
+          "job_id": "vault-meeting-extraction-daily",
+          "agent": "VAULT",
+          "started_at": "2026-06-27T07:00:02+02:00",
+          "finished_at": "2026-06-27T07:00:02+02:00",
+          "duration_seconds": 0.415,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vault-meeting-extraction-daily\\2026-06-27_07-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-06-26T07:00:03+02:00",
-        "finished_at": "2026-06-26T07:00:03+02:00",
-        "duration_seconds": 0.512,
+        "started_at": "2026-06-27T07:00:02+02:00",
+        "finished_at": "2026-06-27T07:00:02+02:00",
+        "duration_seconds": 0.415,
         "exit_code": 0,
         "ok": true,
         "summary": null
