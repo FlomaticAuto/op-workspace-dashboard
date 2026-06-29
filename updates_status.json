@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T08:05:17",
+  "generated_at": "2026-06-29T08:15:05",
   "total": 15,
   "ok": 7,
   "warn": 7,
@@ -12,8 +12,8 @@
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
       "overall": "warn",
-      "task_last_run": "2026-06-28T08:15:15",
-      "task_last_result": 0
+      "task_last_run": "2026-06-29T08:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
