@@ -14,7 +14,18 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 
-HUB_DIR = Path(r"C:\Users\Administrator\workspace-dashboard")
+HUB_DIR = next(p for p in [Path(r"C:\Users\Administrator\workspace-dashboard"), Path(r"C:\Users\quint\workspace-dashboard")] if p.exists())
+
+
+def _scrub(text: str) -> str:
+    """Redact any 'AUTHORIZATION: basic <base64>' header that may have leaked in."""
+    import re
+    return re.sub(
+        r"(AUTHORIZATION:\s*basic\s+)[A-Za-z0-9+/=]+",
+        r"\1<redacted>",
+        text,
+        flags=re.IGNORECASE,
+    )
 
 
 def push_to_hub(subfolder: str, message: str | None = None) -> bool:
@@ -25,7 +36,11 @@ def push_to_hub(subfolder: str, message: str | None = None) -> bool:
     def run(cmd):
         r = subprocess.run(cmd, cwd=str(HUB_DIR), capture_output=True, text=True)
         if r.returncode != 0:
-            print(f"  ! {' '.join(cmd)}: {r.stderr.strip()}")
+            # Mask the Authorization header in BOTH the echoed cmd and stderr —
+            # otherwise the FlomaticAuto PAT (passed via -c http.extraheader=...)
+            # gets printed plaintext, lands in run_job.py's stderr_tail, and ships
+            # to Telegram on the failure alert.
+            print(f"  ! {_scrub(' '.join(cmd))}: {_scrub(r.stderr.strip())}")
         return r.returncode == 0
 
     import os, base64

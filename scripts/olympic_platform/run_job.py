@@ -82,6 +82,12 @@ def main(argv: list[str] | None = None) -> int:
     launch_error: str | None = None
     stdout = ""
     stderr = ""
+
+    # .cmd / .bat files are not PE executables — Windows CreateProcess rejects them
+    # with ERROR_BAD_EXE_FORMAT (WinError 193) unless routed through cmd.exe.
+    if cmd and Path(cmd[0]).suffix.lower() in {".cmd", ".bat"}:
+        cmd = ["cmd.exe", "/c"] + cmd
+
     try:
         with open(log_path, "w", encoding="utf-8", errors="replace") as log_fh:
             proc = subprocess.Popen(

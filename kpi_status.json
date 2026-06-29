@@ -1,11 +1,11 @@
 {
   "report_week": "1 May 2026",
   "report_date": "2026-05-01",
-  "generated_at": "2026-05-13 23:24 UTC",
+  "generated_at": "2026-05-21 10:15 UTC",
   "kpi_dashboard_url": "https://flomaticauto.github.io/olympic-paints-kpi/",
   "update_history": [
     {
-      "date": "2026-05-13",
+      "date": "2026-05-21",
       "week": "1 May 2026",
       "by": "build_kpi_dashboard.py",
       "source_files": [
@@ -27,6 +27,24 @@
         "Daily_Eccomerce_Repo_2026-05-07T06_00_47.pdf",
         "Daily_Eccomerce_Repo_2026-05-07T06_01_06.pdf",
         "Daily_Eccomerce_Repo_2026-05-07T06_01_09.pdf",
+        "Daily_Eccomerce_Repo_2026-05-09T06_00_48.pdf",
+        "Daily_Eccomerce_Repo_2026-05-09T06_01_06.pdf",
+        "Daily_Eccomerce_Repo_2026-05-09T06_01_09.pdf",
+        "Daily_Eccomerce_Repo_2026-05-10T06_00_48.pdf",
+        "Daily_Eccomerce_Repo_2026-05-10T06_01_06.pdf",
+        "Daily_Eccomerce_Repo_2026-05-10T06_01_09.pdf",
+        "Daily_Eccomerce_Repo_2026-05-11T06_00_48.pdf",
+        "Daily_Eccomerce_Repo_2026-05-11T06_01_06.pdf",
+        "Daily_Eccomerce_Repo_2026-05-11T06_01_09.pdf",
+        "Daily_Eccomerce_Repo_2026-05-12T06_00_48.pdf",
+        "Daily_Eccomerce_Repo_2026-05-12T06_01_06.pdf",
+        "Daily_Eccomerce_Repo_2026-05-12T06_01_09.pdf",
+        "Daily_Eccomerce_Repo_2026-05-13T06_00_48.pdf",
+        "Daily_Eccomerce_Repo_2026-05-13T06_01_06.pdf",
+        "Daily_Eccomerce_Repo_2026-05-13T06_01_09.pdf",
+        "Daily_Eccomerce_Repo_2026-05-14T06_00_48.pdf",
+        "Daily_Eccomerce_Repo_2026-05-14T06_01_06.pdf",
+        "Daily_Eccomerce_Repo_2026-05-14T06_01_08.pdf",
         "Daily_Sales_Report_P_2026-05-01T13_44_14.pdf",
         "Sales_Summary_2026-04-12T06_00_42.pdf",
         "Weekly_Sales_Report__2026-04-25T07_56_05.pdf",
@@ -39,7 +57,10 @@
         "Weekly_Sales_Report__2026-05-01T04_50_57.pdf",
         "Weekly_Sales_Report__2026-05-08T04_50_35.pdf",
         "Weekly_Sales_Report__2026-05-08T04_50_43.pdf",
-        "Weekly_Sales_Report__2026-05-08T04_50_56.pdf"
+        "Weekly_Sales_Report__2026-05-08T04_50_56.pdf",
+        "Weekly_Sales_Report__2026-05-15T04_50_34.pdf",
+        "Weekly_Sales_Report__2026-05-15T04_50_44.pdf",
+        "Weekly_Sales_Report__2026-05-15T04_50_57.pdf"
       ],
       "kpis_scored": [
         "A"
@@ -163,7 +184,7 @@
       "weight": 10,
       "status": "missing",
       "data_available": false,
-      "description": "Merchandising visits \u2014 graded vs 15 visits/rep/month (45/quarter). Training excluded until data feed exists.",
+      "description": "Merchandising visits \u2014 graded vs 8 visits/rep/month (24/quarter). Training excluded until data feed exists.",
       "note": "Needs: Attendance lists, training photos, POS compliance evidence per rep."
     }
   ],
