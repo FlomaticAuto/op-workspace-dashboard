@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-02T14:15:08",
+  "generated_at": "2026-07-02T16:15:07",
   "total": 15,
-  "ok": 7,
+  "ok": 6,
   "warn": 7,
-  "fail": 1,
+  "fail": 2,
   "jobs": [
     {
       "id": "ecommerce_dashboard",
@@ -151,10 +151,10 @@
       "name": "PULSE Weekly Intake Reminder",
       "task": "Weekly Intake Reminder",
       "cadence": "Weekly \u00b7 Fri 09:00",
-      "overall": "ok",
-      "task_last_run": "2026-06-25T15:30:30",
-      "task_last_result": 0
+      "overall": "fail",
+      "task_last_run": "2026-07-02T15:30:30",
+      "task_last_result": 1
     }
   ],
-  "success_pct": 47
+  "success_pct": 40
 }
