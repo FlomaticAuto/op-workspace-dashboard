@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-06T07:04:38",
+  "generated_at": "2026-07-06T07:23:48",
   "total": 15,
-  "ok": 2,
-  "warn": 10,
+  "ok": 3,
+  "warn": 9,
   "fail": 3,
   "jobs": [
     {
@@ -121,7 +121,7 @@
       "name": "CSO Strategic Intelligence Build",
       "task": "CSO-Intelligence-Data",
       "cadence": "Weekly \u00b7 06:00",
-      "overall": "warn",
+      "overall": "ok",
       "task_last_run": "2026-07-06T06:00:00",
       "task_last_result": 0
     },
@@ -156,5 +156,5 @@
       "task_last_result": 1
     }
   ],
-  "success_pct": 13
+  "success_pct": 20
 }
