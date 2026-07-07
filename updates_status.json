@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T09:30:14",
+  "generated_at": "2026-07-07T10:15:08",
   "total": 15,
   "ok": 5,
   "warn": 6,
@@ -63,7 +63,7 @@
       "cadence": "Weekly \u00b7 Mon",
       "overall": "ok",
       "task_last_run": "2026-07-07T09:30:30",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "kaizen_sync",
@@ -82,7 +82,7 @@
       "task": "OlympicPaints_Workspace_Health_Report",
       "cadence": "Weekly \u00b7 Fri 16:00",
       "overall": "warn",
-      "task_last_run": "2026-07-06T10:00:00",
+      "task_last_run": "2026-07-07T10:00:00",
       "task_last_result": 0
     },
     {
