@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T16:15:15",
+  "generated_at": "2026-07-10T18:15:11",
   "total": 15,
-  "ok": 6,
+  "ok": 7,
   "warn": 7,
-  "fail": 2,
+  "fail": 1,
   "jobs": [
     {
       "id": "ecommerce_dashboard",
@@ -141,9 +141,9 @@
       "name": "PULSE Build Next Week Plan (Sunday)",
       "task": "Build Next Week Plan",
       "cadence": "Weekly \u00b7 Sun 17:00",
-      "overall": "fail",
-      "task_last_run": "2026-07-03T17:00:00",
-      "task_last_result": 1
+      "overall": "ok",
+      "task_last_run": "2026-07-10T17:00:00",
+      "task_last_result": 0
     },
     {
       "id": "pulse_intake_reminder",
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 40
+  "success_pct": 47
 }
