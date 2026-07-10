@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T16:00:03+02:00",
+  "generated_at": "2026-07-10T17:00:05+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -67,7 +67,7 @@
       "schedule_summary": "type=2 start=2026-05-23T16:00:00+02:00",
       "next_run": "2026-07-11 16:00:00+02:00",
       "scheduler_last_run_time": "2026-07-10 16:00:01+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -95,7 +95,7 @@
       "schedule_summary": "type=3 start=2026-05-22T16:00:00+02:00",
       "next_run": "2026-07-13 16:00:00+02:00",
       "scheduler_last_run_time": "2026-07-10 16:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -149,8 +149,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-18T16:30:00",
-      "next_run": "2026-07-10 16:30:00+02:00",
-      "scheduler_last_run_time": "2026-07-09 16:30:00+02:00",
+      "next_run": "2026-07-13 16:30:00+02:00",
+      "scheduler_last_run_time": "2026-07-10 16:30:00+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -219,8 +219,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-28T17:00:00+02:00",
-      "next_run": "2026-07-10 17:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-09 17:00:00+02:00",
+      "next_run": "2026-07-13 17:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-10 17:00:00+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -247,8 +247,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-23T16:30:00+02:00",
-      "next_run": "2026-07-10 16:30:00+02:00",
-      "scheduler_last_run_time": "2026-07-09 16:30:00+02:00",
+      "next_run": "2026-07-13 16:30:00+02:00",
+      "scheduler_last_run_time": "2026-07-10 16:30:00+02:00",
       "scheduler_last_task_result": 2,
       "heartbeat_status": "missing",
       "history": []
@@ -261,8 +261,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-23T17:00:00+02:00",
-      "next_run": "2026-07-10 17:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-09 17:00:00+02:00",
+      "next_run": "2026-07-13 17:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-10 17:00:00+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -474,8 +474,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-07-10 16:13:10+02:00",
-      "scheduler_last_run_time": "2026-07-10 15:43:11+02:00",
+      "next_run": "2026-07-10 17:13:10+02:00",
+      "scheduler_last_run_time": "2026-07-10 16:43:11+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -516,8 +516,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-28T17:00:00+02:00",
-      "next_run": "2026-07-10 17:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-09 17:00:00+02:00",
+      "next_run": "2026-07-13 17:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-10 17:00:00+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -572,23 +572,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-07-10 17:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-10 16:00:01+02:00",
+      "next_run": "2026-07-10 18:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-10 17:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-07-10T06:00:02+02:00",
-          "finished_at": "2026-07-10T06:00:06+02:00",
-          "duration_seconds": 4.487,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 62 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-10_06-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -696,12 +684,24 @@
           "stdout_tail": "Wrote 62 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-10_15-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-07-10T16:00:02+02:00",
+          "finished_at": "2026-07-10T16:00:20+02:00",
+          "duration_seconds": 17.93,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 62 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-10_16-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-07-10T15:00:02+02:00",
-        "finished_at": "2026-07-10T15:00:06+02:00",
-        "duration_seconds": 4.063,
+        "started_at": "2026-07-10T16:00:02+02:00",
+        "finished_at": "2026-07-10T16:00:20+02:00",
+        "duration_seconds": 17.93,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -957,7 +957,7 @@
       "schedule_summary": "type=3 start=2026-05-23T16:00:00+02:00",
       "next_run": "2026-07-13 16:00:00+02:00",
       "scheduler_last_run_time": "2026-07-10 16:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1351,10 +1351,10 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-21T17:00:00+02:00",
-      "next_run": "2026-07-10 17:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-09 17:00:00+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-07-13 17:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-10 17:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "olympic-paints-zoho-meetings-pull-evening",
@@ -1774,23 +1774,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-07-10 16:15:00+02:00",
-      "scheduler_last_run_time": "2026-07-10 14:15:01+02:00",
+      "next_run": "2026-07-10 18:15:00+02:00",
+      "scheduler_last_run_time": "2026-07-10 16:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-07-09T20:15:02+02:00",
-          "finished_at": "2026-07-09T20:15:11+02:00",
-          "duration_seconds": 9.019,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-07-09_20-15-02.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1898,12 +1886,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-07-10_14-15-02.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-07-10T16:15:02+02:00",
+          "finished_at": "2026-07-10T16:15:18+02:00",
+          "duration_seconds": 16.513,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-07-10_16-15-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-07-10T14:15:02+02:00",
-        "finished_at": "2026-07-10T14:15:10+02:00",
-        "duration_seconds": 8.104,
+        "started_at": "2026-07-10T16:15:02+02:00",
+        "finished_at": "2026-07-10T16:15:18+02:00",
+        "duration_seconds": 16.513,
         "exit_code": 0,
         "ok": true,
         "summary": null
