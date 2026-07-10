@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-10T06:15:08",
+  "generated_at": "2026-07-10T07:17:29",
   "total": 15,
-  "ok": 5,
-  "warn": 8,
+  "ok": 6,
+  "warn": 7,
   "fail": 2,
   "jobs": [
     {
@@ -102,8 +102,8 @@
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-07-09T07:00:00",
-      "task_last_result": 267014
+      "task_last_run": "2026-07-10T07:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vault_meeting_extraction",
@@ -112,7 +112,7 @@
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-07-09T07:00:00",
+      "task_last_run": "2026-07-10T07:00:00",
       "task_last_result": 0
     },
     {
@@ -121,7 +121,7 @@
       "name": "CSO Strategic Intelligence Build",
       "task": "CSO-Intelligence-Data",
       "cadence": "Weekly \u00b7 06:00",
-      "overall": "warn",
+      "overall": "ok",
       "task_last_run": "2026-07-06T06:00:00",
       "task_last_result": 0
     },
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 33
+  "success_pct": 40
 }
