@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-11T12:15:08",
+  "generated_at": "2026-07-11T14:15:07",
   "total": 15,
-  "ok": 5,
-  "warn": 9,
+  "ok": 3,
+  "warn": 11,
   "fail": 1,
   "jobs": [
     {
@@ -21,7 +21,7 @@
       "name": "E-Commerce Email Digest",
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-07-10T08:00:00",
       "task_last_result": 0
     },
@@ -31,7 +31,7 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "Daily Process Inbox",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-07-10T07:30:30",
       "task_last_result": 0
     },
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 33
+  "success_pct": 20
 }
