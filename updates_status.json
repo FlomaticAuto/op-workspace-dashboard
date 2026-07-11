@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T08:15:12",
+  "generated_at": "2026-07-11T10:15:09",
   "total": 15,
   "ok": 5,
   "warn": 9,
@@ -13,7 +13,7 @@
       "cadence": "Daily \u00b7 08:15",
       "overall": "warn",
       "task_last_run": "2026-07-11T08:15:15",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "ecommerce_email",
