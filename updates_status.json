@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-13T07:09:14",
+  "generated_at": "2026-07-13T08:15:11",
   "total": 15,
-  "ok": 5,
-  "warn": 9,
-  "fail": 1,
+  "ok": 7,
+  "warn": 5,
+  "fail": 3,
   "jobs": [
     {
       "id": "ecommerce_dashboard",
@@ -12,8 +12,8 @@
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
       "overall": "warn",
-      "task_last_run": "2026-07-12T08:15:15",
-      "task_last_result": 0
+      "task_last_run": "2026-07-13T08:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -21,8 +21,8 @@
       "name": "E-Commerce Email Digest",
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
-      "overall": "warn",
-      "task_last_run": "2026-07-10T08:00:00",
+      "overall": "ok",
+      "task_last_run": "2026-07-13T08:00:00",
       "task_last_result": 0
     },
     {
@@ -31,8 +31,8 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "Daily Process Inbox",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "warn",
-      "task_last_run": "2026-07-10T07:30:30",
+      "overall": "ok",
+      "task_last_run": "2026-07-13T07:30:30",
       "task_last_result": 0
     },
     {
@@ -41,8 +41,8 @@
       "name": "HAVEN Dashboard Check (regenerate + Telegram)",
       "task": "Weekly Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
-      "overall": "warn",
-      "task_last_run": "2026-07-06T08:00:00",
+      "overall": "fail",
+      "task_last_run": "2026-07-13T08:00:00",
       "task_last_result": 1
     },
     {
@@ -101,9 +101,9 @@
       "name": "Meeting Minutes Extractor",
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "warn",
+      "overall": "fail",
       "task_last_run": "2026-07-13T07:00:00",
-      "task_last_result": 267009
+      "task_last_result": 3221225786
     },
     {
       "id": "vault_meeting_extraction",
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 33
+  "success_pct": 47
 }
