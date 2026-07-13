@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T18:00:04+02:00",
+  "generated_at": "2026-07-13T19:00:04+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -474,8 +474,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-07-13 18:13:10+02:00",
-      "scheduler_last_run_time": "2026-07-13 17:43:11+02:00",
+      "next_run": "2026-07-13 19:13:10+02:00",
+      "scheduler_last_run_time": "2026-07-13 18:43:11+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -572,23 +572,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-07-13 19:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-13 18:00:01+02:00",
+      "next_run": "2026-07-13 20:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-13 19:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-07-13T08:00:03+02:00",
-          "finished_at": "2026-07-13T08:00:10+02:00",
-          "duration_seconds": 7.714,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 62 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-13_08-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -696,12 +684,24 @@
           "stdout_tail": "Wrote 63 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic <redacted> pull --rebase origin master: fatal: unable to access 'https://github.com/FlomaticAuto/op-workspace-dashboard.git/': Could not resolve host: github.com\n  ! git -c http.extraheader=AUTHORIZATION: basic <redacted> push origin master +master:main: fatal: unable to access 'https://github.com/FlomaticAuto/op-workspace-dashboard.git/': Could not resolve host: github.com",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-13_17-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-07-13T18:00:04+02:00",
+          "finished_at": "2026-07-13T18:00:08+02:00",
+          "duration_seconds": 4.721,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 63 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-13_18-00-04.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-07-13T17:00:02+02:00",
-        "finished_at": "2026-07-13T17:00:09+02:00",
-        "duration_seconds": 6.998,
+        "started_at": "2026-07-13T18:00:04+02:00",
+        "finished_at": "2026-07-13T18:00:08+02:00",
+        "duration_seconds": 4.721,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -974,6 +974,20 @@
       "history": []
     },
     {
+      "job_id": "zoho-conformance-report-daily",
+      "name": "Zoho Conformance Report Daily",
+      "agent": "Reps",
+      "task_path": "\\Olympic Paints\\Reps\\Zoho Conformance Report Daily",
+      "enabled": true,
+      "criticality": "medium",
+      "schedule_summary": "type=3 start=2026-07-13T07:30:00+02:00",
+      "next_run": "2026-07-14 07:30:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
+      "history": []
+    },
+    {
       "job_id": "olympicpaints-buildreturnsdashboard",
       "name": "OlympicPaints_BuildReturnsDashboard",
       "agent": "Returns",
@@ -1107,8 +1121,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-05-19T19:00:00+02:00",
-      "next_run": "2026-07-13 19:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-12 19:00:01+02:00",
+      "next_run": "2026-07-14 19:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-13 19:00:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1800,23 +1814,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-07-13 18:15:00+02:00",
-      "scheduler_last_run_time": "2026-07-13 16:15:01+02:00",
+      "next_run": "2026-07-13 20:15:00+02:00",
+      "scheduler_last_run_time": "2026-07-13 18:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-07-12T22:15:02+02:00",
-          "finished_at": "2026-07-12T22:15:11+02:00",
-          "duration_seconds": 9.232,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-07-12_22-15-02.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -1924,12 +1926,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-07-13_16-15-03.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-07-13T18:15:02+02:00",
+          "finished_at": "2026-07-13T18:15:12+02:00",
+          "duration_seconds": 9.992,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-07-13_18-15-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-07-13T16:15:03+02:00",
-        "finished_at": "2026-07-13T16:15:16+02:00",
-        "duration_seconds": 13.674,
+        "started_at": "2026-07-13T18:15:02+02:00",
+        "finished_at": "2026-07-13T18:15:12+02:00",
+        "duration_seconds": 9.992,
         "exit_code": 0,
         "ok": true,
         "summary": null
