@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T06:15:09",
+  "generated_at": "2026-07-14T07:11:04",
   "total": 15,
-  "ok": 5,
-  "warn": 7,
-  "fail": 3,
+  "ok": 7,
+  "warn": 6,
+  "fail": 2,
   "jobs": [
     {
       "id": "ecommerce_dashboard",
@@ -101,9 +101,9 @@
       "name": "Meeting Minutes Extractor",
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
-      "overall": "fail",
-      "task_last_run": "2026-07-13T07:00:00",
-      "task_last_result": 3221225786
+      "overall": "warn",
+      "task_last_run": "2026-07-14T07:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vault_meeting_extraction",
@@ -112,7 +112,7 @@
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-07-13T07:00:00",
+      "task_last_run": "2026-07-14T07:00:00",
       "task_last_result": 0
     },
     {
@@ -121,7 +121,7 @@
       "name": "CSO Strategic Intelligence Build",
       "task": "CSO-Intelligence-Data",
       "cadence": "Weekly \u00b7 06:00",
-      "overall": "warn",
+      "overall": "ok",
       "task_last_run": "2026-07-13T06:00:00",
       "task_last_result": 0
     },
@@ -141,7 +141,7 @@
       "name": "PULSE Build Next Week Plan (Sunday)",
       "task": "Build Next Week Plan",
       "cadence": "Weekly \u00b7 Sun 17:00",
-      "overall": "warn",
+      "overall": "ok",
       "task_last_run": "2026-07-10T17:00:00",
       "task_last_result": 0
     },
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 33
+  "success_pct": 47
 }
