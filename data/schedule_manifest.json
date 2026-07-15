@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T17:00:02+02:00",
+  "generated_at": "2026-07-15T18:00:05+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -23,8 +23,8 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-07-15 17:43:11+02:00",
-      "scheduler_last_run_time": "2026-07-15 15:43:12+02:00",
+      "next_run": "2026-07-15 19:43:11+02:00",
+      "scheduler_last_run_time": "2026-07-15 17:43:12+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -474,8 +474,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-07-15 17:13:10+02:00",
-      "scheduler_last_run_time": "2026-07-15 16:43:11+02:00",
+      "next_run": "2026-07-15 18:13:10+02:00",
+      "scheduler_last_run_time": "2026-07-15 17:43:11+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -572,23 +572,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-07-15 18:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-15 17:00:01+02:00",
+      "next_run": "2026-07-15 19:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-15 18:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-07-15T07:00:03+02:00",
-          "finished_at": "2026-07-15T07:00:27+02:00",
-          "duration_seconds": 24.48,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-15_07-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -696,12 +684,24 @@
           "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-15_16-00-13.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-07-15T17:00:02+02:00",
+          "finished_at": "2026-07-15T17:00:07+02:00",
+          "duration_seconds": 4.971,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-15_17-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-07-15T16:00:13+02:00",
-        "finished_at": "2026-07-15T16:00:26+02:00",
-        "duration_seconds": 13.607,
+        "started_at": "2026-07-15T17:00:02+02:00",
+        "finished_at": "2026-07-15T17:00:07+02:00",
+        "duration_seconds": 4.971,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1435,21 +1435,9 @@
       "schedule_summary": "type=3 start=2026-05-21T17:00:00+02:00",
       "next_run": "2026-07-16 17:00:00+02:00",
       "scheduler_last_run_time": "2026-07-15 17:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 1,
+      "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "olympic-paints-zoho-meetings-pull-evening",
-          "agent": "STRIKER",
-          "started_at": "2026-07-01T17:00:01+02:00",
-          "finished_at": "2026-07-01T17:00:20+02:00",
-          "duration_seconds": 19.938,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Pulling records modified since 2026-06-17T15:00:02+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Events (Meetings)\n  fetched 190 records from Events\n\nâ†’ Notes (for 'Note Content' column)\n  fetched 183 records from Notes\n  7 parents have at least one note\n\nâ†’ Leads (prospect stores with same merchandising fields as Accounts)\n  fetched 5 records from Leads\nâœ“ Wrote      5 rows -> leads.parquet\nâœ“ Wrote      5 rows -> OP_Lead_Tracking.csv (Zoho-export shape)\nâœ“ Wrote      5 rows -> OP_Lead_Tracking_new.csv (no preamble, JS dates)\n\nâ†’ Accounts referenced by these meetings\n  122 distinct Account ids referenced\n  fetched 706 records from Accounts\n  merged 5147 existing + 190 new â†’ 5194 rows\n  merged 750 existing + 706 new â†’ 750 rows\nâœ“ Wrote   5194 rows -> Meetings_Report.xlsx\nâœ“ Wrote    149 rows -> Meetings_Report_Merchandising.xlsx\n\nâœ“ Wrote   5194 meetings  â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\meetings.parquet\nâœ“ Wrote    750 accounts  â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\accounts.parquet\n\nMeeting date range: 2025-01-25 â†’ 2026-07-01\nTop owners by meeting count:\n  byronm@olympicpaints.co.za                1217\n  abooc@olympicpaints.co.za                 1142\n  nikhil@olympicpaints.co.za                1059\n  bhadreshv@olympicpaints.co.za             913\n  amitp@olympicpaints.co.za                 674\n  quintusl@olympicpaints.co.za              149\n  lanceg@olympicpaints.co.za                32\n  sejalp@olympicpaints.co.za                4\n  manish.dullabh@datasemblr.com             2\n  nikhilp@olympicpaints.co.za               1",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympic-paints-zoho-meetings-pull-evening\\2026-07-01_17-00-01.log"
-        },
         {
           "job_id": "olympic-paints-zoho-meetings-pull-evening",
           "agent": "STRIKER",
@@ -1557,14 +1545,26 @@
           "stdout_tail": "Pulling records modified since 2026-06-30T15:00:05+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Events (Meetings)\n  fetched 277 records from Events\n\nâ†’ Notes (for 'Note Content' column)\n  fetched 283 records from Notes\n  18 parents have at least one note\n\nâ†’ Leads (prospect stores with same merchandising fields as Accounts)\n  fetched 13 records from Leads\nâœ“ Wrote     13 rows -> leads.parquet\nâœ“ Wrote     13 rows -> OP_Lead_Tracking.csv (Zoho-export shape)\nâœ“ Wrote     13 rows -> OP_Lead_Tracking_new.csv (no preamble, JS dates)\n\nâ†’ Accounts referenced by these meetings\n  211 distinct Account ids referenced\n  fetched 705 records from Accounts\n  merged 5401 existing + 277 new â†’ 5414 rows\n  merged 759 existing + 705 new â†’ 760 rows\nâœ“ Wrote   5414 rows -> Meetings_Report.xlsx\nâœ“ Wrote    150 rows -> Meetings_Report_Merchandising.xlsx\n\nâœ“ Wrote   5414 meetings  â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\meetings.parquet\nâœ“ Wrote    760 accounts  â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\accounts.parquet\n\nMeeting date range: 2025-01-25 â†’ 2026-07-14\nTop owners by meeting count:\n  byronm@olympicpaints.co.za                1280\n  abooc@olympicpaints.co.za                 1194\n  nikhil@olympicpaints.co.za                1108\n  bhadreshv@olympicpaints.co.za             948\n  amitp@olympicpaints.co.za                 694\n  quintusl@olympicpaints.co.za              150\n  lanceg@olympicpaints.co.za                32\n  sejalp@olympicpaints.co.za                4\n  manish.dullabh@datasemblr.com             2\n  nikhilp@olympicpaints.co.za               1",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympic-paints-zoho-meetings-pull-evening\\2026-07-14_17-00-03.log"
+        },
+        {
+          "job_id": "olympic-paints-zoho-meetings-pull-evening",
+          "agent": "STRIKER",
+          "started_at": "2026-07-15T17:00:01+02:00",
+          "finished_at": "2026-07-15T17:00:09+02:00",
+          "duration_seconds": 8.018,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "Pulling records modified since 2026-07-01T15:00:03+00:00\n\nâ†’ Users\n  could not fetch users: HTTPSConnectionPool(host='accounts.zoho.com', port=443): Max retries exceeded with url: /oauth/v2/token?refresh_token=1000.de50c2dfaed74f5091f4899ad439ddab.478fc8e51733ab21c45028cd1de96e15&client_id=1000.AOMA3QGFRDEQBZUI81K6KD0FYSQL0X&client_secret=5529e24b2b0be00cc08686af026b721fc71c223b9e&grant_type=refresh_token (Caused by NameResolutionError(\"HTTPSConnection(host='accounts.zoho.com', port=443): Failed to resolve 'accounts.zoho.com' ([Errno 11001] getaddrinfo failed)\"))\n  0 users mapped\n\nâ†’ Events (Meetings)",
+          "stderr_tail": "\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\adapters.py\", line 696, in send\n    resp = conn.urlopen(\n        method=request.method,\n    ...<9 lines>...\n        chunked=chunked,\n    )\n  File \"C:\\Python313\\Lib\\site-packages\\urllib3\\connectionpool.py\", line 842, in urlopen\n    retries = retries.increment(\n        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]\n    )\n  File \"C:\\Python313\\Lib\\site-packages\\urllib3\\util\\retry.py\", line 543, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nurllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='accounts.zoho.com', port=443): Max retries exceeded with url: /oauth/v2/token?refresh_token=1000.de50c2dfaed74f5091f4899ad439ddab.478fc8e51733ab21c45028cd1de96e15&client_id=1000.AOMA3QGFRDEQBZUI81K6KD0FYSQL0X&client_secret=5529e24b2b0be00cc08686af026b721fc71c223b9e&grant_type=refresh_token (Caused by NameResolutionError(\"HTTPSConnection(host='accounts.zoho.com', port=443): Failed to resolve 'accounts.zoho.com' ([Errno 11001] getaddrinfo failed)\"))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\pull_meetings.py\", line 659, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\pull_meetings.py\", line 536, in main\n    raw_events = list(z.iter_records(\"Events\", fields=EVENT_FIELDS, modified_since=modified_since))\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\zoho_client.py\", line 154, in iter_records\n    headers = self._headers()\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\zoho_client.py\", line 91, in _headers\n    self._refresh_access_token()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\zoho_client.py\", line 72, in _refresh_access_token\n    r = requests.post(self.token_url, params={\n        \"refresh_token\": self.refresh_token,\n    ...<2 lines>...\n        \"grant_type\": \"refresh_token\",\n    }, timeout=30)\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\api.py\", line 134, in post\n    return request(\"post\", url, data=data, json=json, **kwargs)\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\api.py\", line 71, in request\n    return session.request(method=method, url=url, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\sessions.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\sessions.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\adapters.py\", line 729, in send\n    raise ConnectionError(e, request=request)\nrequests.exceptions.ConnectionError: HTTPSConnectionPool(host='accounts.zoho.com', port=443): Max retries exceeded with url: /oauth/v2/token?refresh_token=1000.de50c2dfaed74f5091f4899ad439ddab.478fc8e51733ab21c45028cd1de96e15&client_id=1000.AOMA3QGFRDEQBZUI81K6KD0FYSQL0X&client_secret=5529e24b2b0be00cc08686af026b721fc71c223b9e&grant_type=refresh_token (Caused by NameResolutionError(\"HTTPSConnection(host='accounts.zoho.com', port=443): Failed to resolve 'accounts.zoho.com' ([Errno 11001] getaddrinfo failed)\"))",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympic-paints-zoho-meetings-pull-evening\\2026-07-15_17-00-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-07-14T17:00:03+02:00",
-        "finished_at": "2026-07-14T17:00:29+02:00",
-        "duration_seconds": 25.961,
-        "exit_code": 0,
-        "ok": true,
+        "started_at": "2026-07-15T17:00:01+02:00",
+        "finished_at": "2026-07-15T17:00:09+02:00",
+        "duration_seconds": 8.018,
+        "exit_code": 1,
+        "ok": false,
         "summary": null
       }
     },
