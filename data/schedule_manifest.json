@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T08:07:09+02:00",
+  "generated_at": "2026-07-20T09:00:04+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -177,8 +177,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-27T08:30:00+02:00",
-      "next_run": "2026-07-20 08:30:00+02:00",
-      "scheduler_last_run_time": "2026-07-17 08:30:00+02:00",
+      "next_run": "2026-07-21 08:30:00+02:00",
+      "scheduler_last_run_time": "2026-07-20 08:30:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -277,21 +277,9 @@
       "schedule_summary": "type=3 start=2026-05-08T08:00:00",
       "next_run": "2026-07-21 08:00:00+02:00",
       "scheduler_last_run_time": "2026-07-20 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "olympicpaints-emailecommercedashboard",
-          "agent": "FLASH",
-          "started_at": "2026-07-06T08:00:04+02:00",
-          "finished_at": "2026-07-06T08:00:27+02:00",
-          "duration_seconds": 22.564,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "[08:00:17] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:00:17] Reading WooCommerce export: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:00:17] Reading tracking log: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:00:18] FY2026 orders=166 · overdue week=0 · overdue all-time=6 · RTS=7.9% · Makro manu=3 · LRM manu=0\n[08:00:26] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za\n[08:00:26] Subject: E-Commerce Digest — 06 July 2026\n[08:00:26] Email dispatched and confirmed left Outbox.\n[08:00:26] Done.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-07-06_08-00-04.log"
-        },
         {
           "job_id": "olympicpaints-emailecommercedashboard",
           "agent": "FLASH",
@@ -399,12 +387,24 @@
           "stdout_tail": "[08:00:02] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:00:02] Reading WooCommerce export: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:00:03] Reading tracking log: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:00:03] FY2026 orders=166 · overdue week=0 · overdue all-time=6 · RTS=7.9% · Makro manu=3 · LRM manu=0\n[08:00:12] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za\n[08:00:12] Subject: E-Commerce Digest — 17 July 2026\n[08:00:12] Email dispatched and confirmed left Outbox.\n[08:00:12] Done.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-07-17_08-00-00.log"
+        },
+        {
+          "job_id": "olympicpaints-emailecommercedashboard",
+          "agent": "FLASH",
+          "started_at": "2026-07-20T08:06:57+02:00",
+          "finished_at": "2026-07-20T08:09:19+02:00",
+          "duration_seconds": 142.55,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[08:08:57] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:08:57] Reading WooCommerce export: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:09:00] Reading tracking log: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:09:07] FY2026 orders=166 · overdue week=0 · overdue all-time=6 · RTS=7.9% · Makro manu=3 · LRM manu=0\n[08:09:17] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za\n[08:09:17] Subject: E-Commerce Digest — 20 July 2026\n[08:09:17] Email dispatched and confirmed left Outbox.\n[08:09:17] Done.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-07-20_08-06-57.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-07-17T08:00:00+02:00",
-        "finished_at": "2026-07-17T08:00:12+02:00",
-        "duration_seconds": 11.745,
+        "started_at": "2026-07-20T08:06:57+02:00",
+        "finished_at": "2026-07-20T08:09:19+02:00",
+        "duration_seconds": 142.55,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -474,8 +474,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-07-20 08:13:10+02:00",
-      "scheduler_last_run_time": "2026-07-20 07:43:11+02:00",
+      "next_run": "2026-07-20 09:13:10+02:00",
+      "scheduler_last_run_time": "2026-07-20 08:43:11+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -572,23 +572,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-07-20 09:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 08:00:01+02:00",
+      "next_run": "2026-07-20 10:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-20 09:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-07-19T22:00:02+02:00",
-          "finished_at": "2026-07-19T22:00:06+02:00",
-          "duration_seconds": 3.992,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-19_22-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -696,12 +684,24 @@
           "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-20_07-00-05.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-07-20T08:06:56+02:00",
+          "finished_at": "2026-07-20T08:09:32+02:00",
+          "duration_seconds": 155.364,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-20_08-06-56.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-07-20T07:00:05+02:00",
-        "finished_at": "2026-07-20T07:02:14+02:00",
-        "duration_seconds": 129.315,
+        "started_at": "2026-07-20T08:06:56+02:00",
+        "finished_at": "2026-07-20T08:09:32+02:00",
+        "duration_seconds": 155.364,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -846,7 +846,7 @@
       "enabled": false,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-05-07T08:30:00",
-      "next_run": "2026-07-20 08:30:00+02:00",
+      "next_run": "2026-07-21 08:30:00+02:00",
       "scheduler_last_run_time": "2026-05-27 08:30:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
@@ -1007,8 +1007,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-14T08:15:00+02:00",
-      "next_run": "2026-07-20 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-07-14 16:37:38+02:00",
+      "next_run": "2026-07-27 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-07-20 08:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1119,8 +1119,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-06-13T08:15:00+02:00",
-      "next_run": "2026-07-20 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-07-17 08:15:00+02:00",
+      "next_run": "2026-07-21 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-07-20 08:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1203,8 +1203,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-06T08:20:00+02:00",
-      "next_run": "2026-07-20 08:20:00+02:00",
-      "scheduler_last_run_time": "2026-07-13 08:20:00+02:00",
+      "next_run": "2026-07-27 08:20:00+02:00",
+      "scheduler_last_run_time": "2026-07-20 08:20:00+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -1217,8 +1217,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-03T08:15:00+02:00",
-      "next_run": "2026-07-20 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-07-13 08:15:00+02:00",
+      "next_run": "2026-07-27 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-07-20 08:15:00+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -1231,7 +1231,7 @@
       "enabled": false,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-04-23T09:00:00",
-      "next_run": "2026-07-20 09:00:00+02:00",
+      "next_run": "2026-07-27 09:00:00+02:00",
       "scheduler_last_run_time": "2026-06-08 09:00:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
@@ -1880,23 +1880,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-07-20 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 06:15:01+02:00",
+      "next_run": "2026-07-20 10:15:00+02:00",
+      "scheduler_last_run_time": "2026-07-20 08:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-07-19T12:15:02+02:00",
-          "finished_at": "2026-07-19T12:15:12+02:00",
-          "duration_seconds": 10.686,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-07-19_12-15-02.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -2004,12 +1992,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-07-20_06-15-01.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-07-20T08:15:03+02:00",
+          "finished_at": "2026-07-20T08:15:45+02:00",
+          "duration_seconds": 41.51,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-07-20_08-15-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-07-20T06:15:01+02:00",
-        "finished_at": "2026-07-20T06:15:11+02:00",
-        "duration_seconds": 9.687,
+        "started_at": "2026-07-20T08:15:03+02:00",
+        "finished_at": "2026-07-20T08:15:45+02:00",
+        "duration_seconds": 41.51,
         "exit_code": 0,
         "ok": true,
         "summary": null
