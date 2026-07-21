@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T08:15:13",
+  "generated_at": "2026-07-21T09:30:09",
   "total": 15,
   "ok": 7,
   "warn": 6,
@@ -13,7 +13,7 @@
       "cadence": "Daily \u00b7 08:15",
       "overall": "warn",
       "task_last_run": "2026-07-21T08:15:15",
-      "task_last_result": 267009
+      "task_last_result": 0
     },
     {
       "id": "ecommerce_email",
@@ -62,8 +62,8 @@
       "task": "Vehicle Report Health Check",
       "cadence": "Weekly \u00b7 Mon",
       "overall": "ok",
-      "task_last_run": "2026-07-14T09:53:53",
-      "task_last_result": 0
+      "task_last_run": "2026-07-21T09:30:30",
+      "task_last_result": 267009
     },
     {
       "id": "kaizen_sync",
@@ -132,7 +132,7 @@
       "task": "Preview Gate",
       "cadence": "Daily \u00b7 Mon-Fri 09:00",
       "overall": "fail",
-      "task_last_run": "2026-07-20T09:00:00",
+      "task_last_run": "2026-07-21T09:00:00",
       "task_last_result": 267014
     },
     {
