@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T07:00:10+02:00",
+  "generated_at": "2026-07-21T08:00:02+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -23,8 +23,8 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-07-21 07:43:11+02:00",
-      "scheduler_last_run_time": "2026-07-21 05:43:12+02:00",
+      "next_run": "2026-07-21 09:43:11+02:00",
+      "scheduler_last_run_time": "2026-07-21 07:43:12+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -107,8 +107,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=3 start=2026-05-18T08:00:00",
-      "next_run": "2026-07-21 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 08:00:00+02:00",
+      "next_run": "2026-07-22 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-21 08:00:00+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -191,8 +191,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-28T08:00:00+02:00",
-      "next_run": "2026-07-21 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 08:00:00+02:00",
+      "next_run": "2026-07-22 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-21 08:00:00+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -235,7 +235,7 @@
       "schedule_summary": "type=3 start=2026-05-20T07:00:00+02:00",
       "next_run": "2026-07-22 07:00:00+02:00",
       "scheduler_last_run_time": "2026-07-21 07:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -275,10 +275,10 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-08T08:00:00",
-      "next_run": "2026-07-21 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 08:00:00+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-07-22 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-21 08:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "olympicpaints-emailecommercedashboard",
@@ -420,7 +420,7 @@
       "schedule_summary": "type=3 start=2026-05-20T07:00:00",
       "next_run": "2026-07-22 07:00:00+02:00",
       "scheduler_last_run_time": "2026-07-21 07:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -432,9 +432,9 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-17T08:00:00+02:00",
-      "next_run": "2026-07-21 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 08:00:00+02:00",
-      "scheduler_last_task_result": 267014,
+      "next_run": "2026-07-22 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-21 08:00:00+02:00",
+      "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -474,8 +474,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-07-21 07:13:10+02:00",
-      "scheduler_last_run_time": "2026-07-21 06:43:11+02:00",
+      "next_run": "2026-07-21 08:13:10+02:00",
+      "scheduler_last_run_time": "2026-07-21 07:43:11+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -502,8 +502,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=3 start=2026-05-28T07:30:00+02:00",
-      "next_run": "2026-07-21 07:30:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 07:30:00+02:00",
+      "next_run": "2026-07-22 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-07-21 07:30:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -530,8 +530,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=3 start=2026-05-20T07:15:00+02:00",
-      "next_run": "2026-07-21 07:15:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 07:15:00+02:00",
+      "next_run": "2026-07-22 07:15:00+02:00",
+      "scheduler_last_run_time": "2026-07-21 07:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -572,23 +572,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-07-21 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-07-21 07:00:01+02:00",
+      "next_run": "2026-07-21 09:00:00+02:00",
+      "scheduler_last_run_time": "2026-07-21 08:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-07-20T21:00:03+02:00",
-          "finished_at": "2026-07-20T21:00:09+02:00",
-          "duration_seconds": 6.05,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-20_21-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -696,12 +684,24 @@
           "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-21_06-00-03.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-07-21T07:00:05+02:00",
+          "finished_at": "2026-07-21T07:05:34+02:00",
+          "duration_seconds": 329.545,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-07-21_07-00-05.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-07-21T06:00:03+02:00",
-        "finished_at": "2026-07-21T06:00:13+02:00",
-        "duration_seconds": 9.054,
+        "started_at": "2026-07-21T07:00:05+02:00",
+        "finished_at": "2026-07-21T07:05:34+02:00",
+        "duration_seconds": 329.545,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -993,8 +993,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-14T07:45:00+02:00",
-      "next_run": "2026-07-21 07:45:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 07:45:00+02:00",
+      "next_run": "2026-07-22 07:45:00+02:00",
+      "scheduler_last_run_time": "2026-07-21 07:45:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1023,7 +1023,7 @@
       "schedule_summary": "type=3 start=2026-07-13T07:00:00+02:00",
       "next_run": "2026-07-22 07:00:00+02:00",
       "scheduler_last_run_time": "2026-07-21 07:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1035,8 +1035,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-13T07:30:00+02:00",
-      "next_run": "2026-07-21 07:30:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 07:30:00+02:00",
+      "next_run": "2026-07-22 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-07-21 07:30:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1091,8 +1091,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-08T07:20:00+02:00",
-      "next_run": "2026-07-21 07:20:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 07:20:00+02:00",
+      "next_run": "2026-07-22 07:20:00+02:00",
+      "scheduler_last_run_time": "2026-07-21 07:20:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1107,7 +1107,7 @@
       "schedule_summary": "type=3 start=2026-05-25T07:00:00+02:00",
       "next_run": "2026-07-22 07:00:00+02:00",
       "scheduler_last_run_time": "2026-07-21 07:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1133,8 +1133,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-06-13T07:15:00+02:00",
-      "next_run": "2026-07-21 07:15:00+02:00",
-      "scheduler_last_run_time": "2026-07-20 07:15:00+02:00",
+      "next_run": "2026-07-22 07:15:00+02:00",
+      "scheduler_last_run_time": "2026-07-21 07:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1868,7 +1868,7 @@
       "schedule_summary": "type=2 start=2026-04-30T07:00:00+02:00",
       "next_run": "2026-07-22 07:00:00+02:00",
       "scheduler_last_run_time": "2026-07-21 07:00:01+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 267014,
       "heartbeat_status": "missing",
       "history": []
     },
