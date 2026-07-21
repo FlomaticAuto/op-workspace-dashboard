@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-21T07:39:56",
+  "generated_at": "2026-07-21T08:15:10",
   "total": 15,
   "ok": 7,
-  "warn": 5,
-  "fail": 3,
+  "warn": 6,
+  "fail": 2,
   "jobs": [
     {
       "id": "ecommerce_dashboard",
@@ -11,9 +11,9 @@
       "name": "E-Commerce Dashboard",
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
-      "overall": "fail",
-      "task_last_run": "2026-07-20T08:15:15",
-      "task_last_result": 1
+      "overall": "warn",
+      "task_last_run": "2026-07-21T08:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -22,7 +22,7 @@
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
       "overall": "ok",
-      "task_last_run": "2026-07-20T08:00:00",
+      "task_last_run": "2026-07-21T08:00:00",
       "task_last_result": 0
     },
     {
@@ -103,7 +103,7 @@
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
       "task_last_run": "2026-07-21T07:00:00",
-      "task_last_result": 267009
+      "task_last_result": 267014
     },
     {
       "id": "vault_meeting_extraction",
