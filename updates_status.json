@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T06:15:08",
+  "generated_at": "2026-07-26T08:15:08",
   "total": 15,
   "ok": 3,
   "warn": 11,
@@ -12,8 +12,8 @@
       "task": "OlympicPaints_Ecommerce_Dashboard_Refresh",
       "cadence": "Daily \u00b7 08:15",
       "overall": "warn",
-      "task_last_run": "2026-07-25T08:15:15",
-      "task_last_result": 0
+      "task_last_run": "2026-07-26T08:15:15",
+      "task_last_result": 267009
     },
     {
       "id": "ecommerce_email",
@@ -102,7 +102,7 @@
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-07-25T07:00:00",
+      "task_last_run": "2026-07-26T07:00:00",
       "task_last_result": 267014
     },
     {
@@ -112,7 +112,7 @@
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-07-25T07:00:00",
+      "task_last_run": "2026-07-26T07:00:00",
       "task_last_result": 0
     },
     {
