@@ -132,7 +132,7 @@ summary{cursor:pointer;font-family:var(--font-display);font-size:12px;font-weigh
       <div class="hdr-sub">Kit Kat &amp; Easy Build — sales correlation with formal merchandising visits</div>
     </div>
   </div>
-  <div class="hdr-meta">Generated 2026-07-21 08:35<br>Source: AWS sales · Visits log</div>
+  <div class="hdr-meta">Generated 2026-07-27 07:00<br>Source: AWS sales · Visits log</div>
 </div>
 <div class="tab-bar">
   <button class="tab-btn active" onclick="showTab('overview',this)">Overview</button>
@@ -265,14 +265,14 @@ summary{cursor:pointer;font-family:var(--font-display);font-size:12px;font-weigh
 
   <div class="section-title">3 — Per-store breakdown</div>
   <p class="section-intro">Each row is one customer account in this group. The <strong>%∆</strong> column compares post-merchandising monthly revenue to pre-merchandising, so it answers: "Has this store's typical monthly revenue gone up since merchandising started?" The <strong>Status</strong> badge translates that to a quick traffic-light: 🟢 strong (≥ +15%), 🟡 mixed (-5% to +15%), 🔴 declined (< -5%).</p>
-  <p class="prose">1 of 2 active accounts are up post-merch. Strongest mover: KK021 at +82%. 1 active store declined: KK022 (-36%).</p>
+  <p class="prose">1 of 2 active accounts are up post-merch. Strongest mover: KK021 at +89%. 1 active store declined: KK022 (-35%).</p>
   <table>
     <thead>
       <tr><th>Acc#</th><th>Store</th><th>Pre-merch avg/mo</th><th>Post-merch avg/mo</th><th>%∆ (vol-adj)</th><th>Status</th></tr>
     </thead>
     <tbody>
-      <tr><td><code>KK021</code></td><td>Kit Kat Group (Pty) Ltd</td><td>R473K</td><td>R906K</td><td>+81.7%</td><td><span class='badge badge-strong'>🟢 Strong</span></td></tr>
-<tr><td><code>KK022</code></td><td>Kit Kat Group (Pty) Ltd</td><td>R179K</td><td>R132K</td><td>-36.2%</td><td><span class='badge badge-declined'>🔴 Declined</span></td></tr>
+      <tr><td><code>KK021</code></td><td>Kit Kat Group (Pty) Ltd</td><td>R473K</td><td>R939K</td><td>+88.6%</td><td><span class='badge badge-strong'>🟢 Strong</span></td></tr>
+<tr><td><code>KK022</code></td><td>Kit Kat Group (Pty) Ltd</td><td>R179K</td><td>R135K</td><td>-34.5%</td><td><span class='badge badge-declined'>🔴 Declined</span></td></tr>
 <tr><td><code>KK021/1</code></td><td>—</td><td>R115K</td><td><em style='color:var(--color-text-tertiary);font-size:12px;'>consolidated Feb 2025 into KK021</em></td><td>—</td><td></td></tr>
 <tr><td><code>KK021/2</code></td><td>—</td><td>R116K</td><td><em style='color:var(--color-text-tertiary);font-size:12px;'>consolidated Feb 2025 into KK021</em></td><td>—</td><td></td></tr>
 <tr><td><code>KK021/4</code></td><td>—</td><td>R114K</td><td><em style='color:var(--color-text-tertiary);font-size:12px;'>consolidated Feb 2025 into KK021</em></td><td>—</td><td></td></tr>
@@ -298,7 +298,7 @@ summary{cursor:pointer;font-family:var(--font-display);font-size:12px;font-weigh
   (function() {
     new Chart(document.getElementById('kitkat-sales'),{
       type:'bar',
-      data:{ labels:['Mar 24', 'Apr 24', 'May 24', 'Jun 24', 'Jul 24', 'Aug 24', 'Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'May 26', 'Jun 26', 'Jul 26'], datasets:[{label:'Sales',data:[1285439.44, 774527.9, 540081.16, 1162689.15, 752797.64, 612865.99, 1099905.36, 1037995.05, 934518.5, 1606609.79, 816006.25, 1562767.54, 378006.99, 1030447.77, 1012369.23, 1193301.66, 820762.31, 671610.07, 1658055.15, 754905.63, 1507813.46, 1731830.0, 1014824.78, 1775124.32, 418455.49, 1359696.99, 1004295.26, 449652.16, 370234.61],backgroundColor:['#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400']}]},
+      data:{ labels:['Mar 24', 'Apr 24', 'May 24', 'Jun 24', 'Jul 24', 'Aug 24', 'Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'May 26', 'Jun 26', 'Jul 26'], datasets:[{label:'Sales',data:[1285439.44, 774527.9, 540081.16, 1162689.15, 752797.64, 612865.99, 1099905.36, 1037995.05, 934518.5, 1606609.79, 816006.25, 1562767.54, 378006.99, 1030447.77, 1012369.23, 1193301.66, 820762.31, 671610.07, 1658055.15, 754905.63, 1507813.46, 1731830.0, 1014824.78, 1775124.32, 418455.49, 1359696.99, 1004295.26, 449652.16, 727140.11],backgroundColor:['#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400']}]},
       options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'R'+(v/1e6).toFixed(1)+'M'}}}}
     });
     new Chart(document.getElementById('kitkat-visits'),{
@@ -363,18 +363,18 @@ summary{cursor:pointer;font-family:var(--font-display);font-size:12px;font-weigh
 
   <div class="section-title">3 — Per-store breakdown</div>
   <p class="section-intro">Each row is one customer account in this group. The <strong>%∆</strong> column compares post-merchandising monthly revenue to pre-merchandising, so it answers: "Has this store's typical monthly revenue gone up since merchandising started?" The <strong>Status</strong> badge translates that to a quick traffic-light: 🟢 strong (≥ +15%), 🟡 mixed (-5% to +15%), 🔴 declined (< -5%).</p>
-  <p class="prose">1 of 6 active accounts are up post-merch. Strongest mover: KE008 at +30%. 4 active stores declined: KE023 (-11%), KE009 (-26%), KE012 (-13%), KE010 (-32%).</p>
+  <p class="prose">1 of 6 active accounts are up post-merch. Strongest mover: KE008 at +30%. 3 active stores declined: KE009 (-26%), KE010 (-21%), KE012 (-9%).</p>
   <table>
     <thead>
       <tr><th>Acc#</th><th>Store</th><th>Pre-merch avg/mo</th><th>Post-merch avg/mo</th><th>%∆ (vol-adj)</th><th>Status</th></tr>
     </thead>
     <tbody>
-      <tr><td><code>KE005</code></td><td>Easy Build Hardware</td><td>R169K</td><td>R180K</td><td>-3.7%</td><td><span class='badge badge-mixed'>🟡 Mixed</span></td></tr>
+      <tr><td><code>KE005</code></td><td>Easy Build Hardware</td><td>R169K</td><td>R183K</td><td>-1.5%</td><td><span class='badge badge-mixed'>🟡 Mixed</span></td></tr>
 <tr><td><code>KE008</code></td><td>Easy Build</td><td>R55K</td><td>R77K</td><td>+30.2%</td><td><span class='badge badge-strong'>🟢 Strong</span></td></tr>
-<tr><td><code>KE023</code></td><td>Easy Build Hardware Jubilee</td><td>R55K</td><td>R54K</td><td>-11.1%</td><td><span class='badge badge-declined'>🔴 Declined</span></td></tr>
+<tr><td><code>KE023</code></td><td>Easy Build Hardware Jubilee</td><td>R55K</td><td>R58K</td><td>-3.4%</td><td><span class='badge badge-mixed'>🟡 Mixed</span></td></tr>
 <tr><td><code>KE009</code></td><td>Easy Build</td><td>R54K</td><td>R46K</td><td>-25.7%</td><td><span class='badge badge-declined'>🔴 Declined</span></td></tr>
-<tr><td><code>KE012</code></td><td>Easy Build Hardware</td><td>R33K</td><td>R32K</td><td>-13.2%</td><td><span class='badge badge-declined'>🔴 Declined</span></td></tr>
-<tr><td><code>KE010</code></td><td>Easy Build Soweto</td><td>R40K</td><td>R31K</td><td>-31.5%</td><td><span class='badge badge-declined'>🔴 Declined</span></td></tr>
+<tr><td><code>KE010</code></td><td>Easy Build Soweto</td><td>R40K</td><td>R35K</td><td>-21.1%</td><td><span class='badge badge-declined'>🔴 Declined</span></td></tr>
+<tr><td><code>KE012</code></td><td>Easy Build Hardware</td><td>R33K</td><td>R33K</td><td>-8.6%</td><td><span class='badge badge-declined'>🔴 Declined</span></td></tr>
 <tr><td><code>KE005/1</code></td><td>—</td><td>R26K</td><td><em style='color:var(--color-text-tertiary);font-size:12px;'>consolidated Jan 2025 into KE005</em></td><td>—</td><td></td></tr>
     </tbody>
   </table>
@@ -398,7 +398,7 @@ summary{cursor:pointer;font-family:var(--font-display);font-size:12px;font-weigh
   (function() {
     new Chart(document.getElementById('easybuild-sales'),{
       type:'bar',
-      data:{ labels:['Mar 24', 'Apr 24', 'May 24', 'Jun 24', 'Jul 24', 'Aug 24', 'Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'May 26', 'Jun 26', 'Jul 26'], datasets:[{label:'Sales',data:[307360.09, 390016.02, 395386.81, 373638.13, 494644.36, 321640.2, 351965.2, 391193.79, 934958.94, 632526.08, 294502.13, 319166.01, 338758.4, 348228.27, 366546.89, 335570.39, 303498.87, 504452.19, 427871.39, 476961.85, 474899.23, 815597.35, 409346.25, 325635.72, 394582.96, 404704.09, 395861.97, 206075.19, 349249.94],backgroundColor:['#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400']}]},
+      data:{ labels:['Mar 24', 'Apr 24', 'May 24', 'Jun 24', 'Jul 24', 'Aug 24', 'Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'May 26', 'Jun 26', 'Jul 26'], datasets:[{label:'Sales',data:[307360.09, 390016.02, 395386.81, 373638.13, 494644.36, 321640.2, 351965.2, 391193.79, 934958.94, 632526.08, 294502.13, 319166.01, 338758.4, 348228.27, 366546.89, 335570.39, 303498.87, 504452.19, 427871.39, 476961.85, 474899.23, 815597.35, 409346.25, 325635.72, 394582.96, 404704.09, 395861.97, 206075.19, 471538.39],backgroundColor:['#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#6B9ED0', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400', '#F5C400']}]},
       options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'R'+(v/1e6).toFixed(1)+'M'}}}}
     });
     new Chart(document.getElementById('easybuild-visits'),{
