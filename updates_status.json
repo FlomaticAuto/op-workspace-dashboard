@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-28T12:15:07",
+  "generated_at": "2026-07-28T14:17:06",
   "total": 15,
   "ok": 7,
-  "warn": 6,
-  "fail": 2,
+  "warn": 7,
+  "fail": 1,
   "jobs": [
     {
       "id": "ecommerce_dashboard",
@@ -41,7 +41,7 @@
       "name": "HAVEN Dashboard Check (regenerate + Telegram)",
       "task": "Weekly Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
-      "overall": "fail",
+      "overall": "warn",
       "task_last_run": "2026-07-27T08:00:00",
       "task_last_result": 1
     },
