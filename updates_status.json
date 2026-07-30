@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T14:15:09",
+  "generated_at": "2026-07-30T16:15:08",
   "total": 15,
   "ok": 7,
   "warn": 7,
@@ -152,7 +152,7 @@
       "task": "Weekly Intake Reminder",
       "cadence": "Weekly \u00b7 Fri 09:00",
       "overall": "ok",
-      "task_last_run": "2026-07-23T15:30:30",
+      "task_last_run": "2026-07-30T15:30:30",
       "task_last_result": 0
     }
   ],
