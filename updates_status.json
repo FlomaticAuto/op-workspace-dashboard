@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-31T22:15:12",
+  "generated_at": "2026-08-01T00:15:09",
   "total": 15,
-  "ok": 7,
-  "warn": 7,
+  "ok": 5,
+  "warn": 9,
   "fail": 1,
   "jobs": [
     {
@@ -121,7 +121,7 @@
       "name": "CSO Strategic Intelligence Build",
       "task": "CSO-Intelligence-Data",
       "cadence": "Weekly \u00b7 06:00",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-07-27T06:00:00",
       "task_last_result": 0
     },
@@ -141,7 +141,7 @@
       "name": "PULSE Build Next Week Plan (Sunday)",
       "task": "Build Next Week Plan",
       "cadence": "Weekly \u00b7 Sun 17:00",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-07-31T17:00:00",
       "task_last_result": 0
     },
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 47
+  "success_pct": 33
 }
