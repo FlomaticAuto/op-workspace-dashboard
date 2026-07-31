@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31T16:15:10",
+  "generated_at": "2026-07-31T18:15:10",
   "total": 15,
   "ok": 7,
   "warn": 7,
@@ -142,7 +142,7 @@
       "task": "Build Next Week Plan",
       "cadence": "Weekly \u00b7 Sun 17:00",
       "overall": "ok",
-      "task_last_run": "2026-07-24T17:00:00",
+      "task_last_run": "2026-07-31T17:00:00",
       "task_last_result": 0
     },
     {
