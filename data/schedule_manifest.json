@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T11:00:05+02:00",
+  "generated_at": "2026-08-05T12:00:12+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -23,8 +23,8 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-08-05 11:43:11+02:00",
-      "scheduler_last_run_time": "2026-08-05 09:43:12+02:00",
+      "next_run": "2026-08-05 13:43:11+02:00",
+      "scheduler_last_run_time": "2026-08-05 11:43:12+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -205,8 +205,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-28T12:00:00+02:00",
-      "next_run": "2026-08-05 12:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-04 12:00:00+02:00",
+      "next_run": "2026-08-06 12:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-05 12:00:00+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -446,8 +446,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-17T12:00:00+02:00",
-      "next_run": "2026-08-05 12:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-04 12:00:00+02:00",
+      "next_run": "2026-08-06 12:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-05 12:00:00+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -474,8 +474,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-05 11:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-05 10:43:11+02:00",
+      "next_run": "2026-08-05 12:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-05 11:43:11+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
@@ -572,23 +572,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-05 12:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-05 11:00:02+02:00",
+      "next_run": "2026-08-05 13:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-05 12:00:02+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-05T01:00:02+02:00",
-          "finished_at": "2026-08-05T01:00:08+02:00",
-          "duration_seconds": 5.518,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-05_01-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -696,12 +684,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-05_10-06-18.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-05T11:00:03+02:00",
+          "finished_at": "2026-08-05T11:00:12+02:00",
+          "duration_seconds": 8.386,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-05_11-00-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-05T10:06:18+02:00",
-        "finished_at": "2026-08-05T10:15:24+02:00",
-        "duration_seconds": 546.057,
+        "started_at": "2026-08-05T11:00:03+02:00",
+        "finished_at": "2026-08-05T11:00:12+02:00",
+        "duration_seconds": 8.386,
         "exit_code": 0,
         "ok": true,
         "summary": null
