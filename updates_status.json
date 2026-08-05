@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-05T16:15:13",
+  "generated_at": "2026-08-05T22:15:58",
   "total": 15,
-  "ok": 6,
+  "ok": 7,
   "warn": 6,
-  "fail": 3,
+  "fail": 2,
   "jobs": [
     {
       "id": "ecommerce_dashboard",
@@ -31,9 +31,9 @@
       "name": "HAVEN Clocking Report (Process Inbox)",
       "task": "Daily Process Inbox",
       "cadence": "Daily \u00b7 07:30",
-      "overall": "fail",
-      "task_last_run": "2026-08-05T07:30:30",
-      "task_last_result": 1
+      "overall": "ok",
+      "task_last_run": "2026-08-05T20:31:31",
+      "task_last_result": 0
     },
     {
       "id": "haven_dashboard_check",
@@ -72,7 +72,7 @@
       "task": "Olympic Paints - Kaizen Implement Poller",
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
-      "task_last_run": "2026-08-02T21:00:00",
+      "task_last_run": "2026-08-05T21:00:00",
       "task_last_result": 0
     },
     {
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 40
+  "success_pct": 47
 }
