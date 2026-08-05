@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T20:00:10+02:00",
+  "generated_at": "2026-08-05T21:00:53+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -37,8 +37,8 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=3 start=2026-05-24T21:00:00+02:00",
-      "next_run": "2026-08-05 21:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-02 21:00:00+02:00",
+      "next_run": "2026-08-09 21:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-05 21:00:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -481,8 +481,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-05 20:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-05 19:43:11+02:00",
+      "next_run": "2026-08-05 21:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-05 20:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -508,12 +508,33 @@
       "task_path": "\\Olympic Paints\\HAVEN\\Daily Process Inbox",
       "enabled": true,
       "criticality": "high",
-      "schedule_summary": "type=3 start=2026-05-28T07:30:00+02:00",
+      "schedule_summary": "type=3 start=2026-08-05T07:30:00+02:00",
       "next_run": "2026-08-06 07:30:00+02:00",
-      "scheduler_last_run_time": "2026-08-05 07:30:00+02:00",
-      "scheduler_last_task_result": 1,
-      "heartbeat_status": "missing",
-      "history": []
+      "scheduler_last_run_time": "2026-08-05 20:31:51+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "daily-process-inbox",
+          "agent": "HAVEN",
+          "started_at": "2026-08-05T20:32:04+02:00",
+          "finished_at": "2026-08-05T20:32:07+02:00",
+          "duration_seconds": 2.862,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[20:32:07] ============================================================\n[20:32:07] HAVEN Inbox Processor\n[20:32:07] ============================================================\n[20:32:07] Inbox:  C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\11. HR\\Clocking Reports\\Inbox\n[20:32:07] Output: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\11. HR\\Clocking Reports\\Output\n\n[20:32:07] Found 7 .xlsx file(s):\n[20:32:07]   • Olympic Paints (12.05.2026).xlsx\n[20:32:07]   • Olympic Paints (13.05.2026).xlsx\n[20:32:07]   • Olympic Paints (14.05.2026).xlsx\n[20:32:07]   • Olympic Paints (17.05.2026).xlsx\n[20:32:07]   • Olympic Paints (18.05.2026).xlsx\n[20:32:07]   • Olympic Paints (24.05.2026).xlsx\n[20:32:07]   • Olympic Paints (25.05.2026).xlsx\n\n[20:32:07] ------------------------------------------------------------\n[20:32:07] SKIP: Olympic Paints (12.05.2026).xlsx  (Sheet0 has no data rows)\n[20:32:07] ------------------------------------------------------------\n[20:32:07] SKIP: Olympic Paints (13.05.2026).xlsx  (Sheet0 has no data rows)\n[20:32:07] ------------------------------------------------------------\n[20:32:07] SKIP: Olympic Paints (14.05.2026).xlsx  (Sheet0 has no data rows)\n[20:32:07] ------------------------------------------------------------\n[20:32:07] SKIP: Olympic Paints (17.05.2026).xlsx  (Sheet0 has no data rows)\n[20:32:07] ------------------------------------------------------------\n[20:32:07] SKIP: Olympic Paints (18.05.2026).xlsx  (Sheet0 has no data rows)\n[20:32:07] ------------------------------------------------------------\n[20:32:07] SKIP: Olympic Paints (24.05.2026).xlsx  (Sheet0 has no data rows)\n[20:32:07] ------------------------------------------------------------\n[20:32:07] SKIP: Olympic Paints (25.05.2026).xlsx  (Sheet0 has no data rows)\n[20:32:07] ============================================================\n[20:32:07] Done.  Processed: 0   Skipped: 7   Failed: 0\n[20:32:07] ============================================================",
+          "stderr_tail": "C:\\Python313\\Lib\\site-packages\\openpyxl\\styles\\stylesheet.py:237: UserWarning: Workbook contains no default style, apply openpyxl's default\n  warn(\"Workbook contains no default style, apply openpyxl's default\")",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\daily-process-inbox\\2026-08-05_20-32-04.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-08-05T20:32:04+02:00",
+        "finished_at": "2026-08-05T20:32:07+02:00",
+        "duration_seconds": 2.862,
+        "exit_code": 0,
+        "ok": true,
+        "summary": null
+      }
     },
     {
       "job_id": "end-of-day-clocking-check",
@@ -522,7 +543,7 @@
       "task_path": "\\Olympic Paints\\HAVEN\\End-of-Day Clocking Check",
       "enabled": true,
       "criticality": "medium",
-      "schedule_summary": "type=3 start=2026-05-28T17:00:00+02:00",
+      "schedule_summary": "type=3 start=2026-08-05T17:00:00+02:00",
       "next_run": "2026-08-06 17:00:00+02:00",
       "scheduler_last_run_time": "2026-08-05 17:00:00+02:00",
       "scheduler_last_task_result": 0,
@@ -544,13 +565,27 @@
       "history": []
     },
     {
+      "job_id": "hik-connect-extract",
+      "name": "Hik-Connect Extract",
+      "agent": "HAVEN",
+      "task_path": "\\Olympic Paints\\HAVEN\\Hik-Connect Extract",
+      "enabled": true,
+      "criticality": "medium",
+      "schedule_summary": "type=3 start=2026-08-05T07:00:00+02:00",
+      "next_run": "2026-08-06 07:00:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
+      "history": []
+    },
+    {
       "job_id": "weekly-dashboard-check",
       "name": "Weekly Dashboard Check",
       "agent": "HAVEN",
       "task_path": "\\Olympic Paints\\HAVEN\\Weekly Dashboard Check",
       "enabled": true,
       "criticality": "medium",
-      "schedule_summary": "type=3 start=2026-05-28T08:00:00+02:00",
+      "schedule_summary": "type=3 start=2026-08-05T08:00:00+02:00",
       "next_run": "2026-08-10 08:00:00+02:00",
       "scheduler_last_run_time": "2026-08-03 08:00:00+02:00",
       "scheduler_last_task_result": 1,
@@ -579,23 +614,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-05 21:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-05 20:00:02+02:00",
+      "next_run": "2026-08-05 22:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-05 21:00:02+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-05T10:06:18+02:00",
-          "finished_at": "2026-08-05T10:15:24+02:00",
-          "duration_seconds": 546.057,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-05_10-06-18.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -703,12 +726,24 @@
           "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-05_19-00-32.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-05T20:00:09+02:00",
+          "finished_at": "2026-08-05T20:00:23+02:00",
+          "duration_seconds": 14.122,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-05_20-00-09.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-05T19:00:32+02:00",
-        "finished_at": "2026-08-05T19:05:05+02:00",
-        "duration_seconds": 272.553,
+        "started_at": "2026-08-05T20:00:09+02:00",
+        "finished_at": "2026-08-05T20:00:23+02:00",
+        "duration_seconds": 14.122,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1937,23 +1972,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-08-05 20:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-05 18:15:01+02:00",
+      "next_run": "2026-08-05 22:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-05 20:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-08-05T00:15:01+02:00",
-          "finished_at": "2026-08-05T00:15:10+02:00",
-          "duration_seconds": 9.005,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-05_00-15-01.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -2061,12 +2084,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-05_18-17-55.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-08-05T20:15:07+02:00",
+          "finished_at": "2026-08-05T20:16:18+02:00",
+          "duration_seconds": 70.121,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-05_20-15-07.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-05T18:17:55+02:00",
-        "finished_at": "2026-08-05T18:20:58+02:00",
-        "duration_seconds": 182.669,
+        "started_at": "2026-08-05T20:15:07+02:00",
+        "finished_at": "2026-08-05T20:16:18+02:00",
+        "duration_seconds": 70.121,
         "exit_code": 0,
         "ok": true,
         "summary": null
