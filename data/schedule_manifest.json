@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T05:00:04+02:00",
+  "generated_at": "2026-08-06T06:00:24+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -23,8 +23,8 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-08-06 05:43:11+02:00",
-      "scheduler_last_run_time": "2026-08-06 03:43:12+02:00",
+      "next_run": "2026-08-06 07:43:11+02:00",
+      "scheduler_last_run_time": "2026-08-06 05:43:12+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -106,11 +106,11 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Dispatch Account Health Forms",
       "enabled": true,
       "criticality": "high",
-      "schedule_summary": "type=3 start=2026-05-18T08:00:00",
+      "schedule_summary": "type=3 start=2000-01-01T08:00:00+02:00",
       "next_run": "2026-08-06 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-05 08:00:00+02:00",
-      "scheduler_last_task_result": 1,
-      "heartbeat_status": "missing",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
       "history": []
     },
     {
@@ -120,12 +120,33 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1000",
       "enabled": true,
       "criticality": "medium",
-      "schedule_summary": "type=3 start=2026-05-18T10:00:00",
+      "schedule_summary": "type=3 start=2000-01-01T10:00:00+02:00",
       "next_run": "2026-08-06 10:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-05 10:00:00+02:00",
-      "scheduler_last_task_result": 1,
-      "heartbeat_status": "missing",
-      "history": []
+      "scheduler_last_run_time": "2026-08-06 05:10:50+02:00",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
+      "history": [
+        {
+          "job_id": "poll-account-health-forms-1000",
+          "agent": "Account Health Forms",
+          "started_at": "2026-08-06T05:10:51+02:00",
+          "finished_at": "2026-08-06T05:12:36+02:00",
+          "duration_seconds": 105.002,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "  Checking KP030 Platinum Rainbow Hardware [BV] … no response yet\n  Checking KM027/20 Discount Hardware [BV] … no response yet\n  Checking KF009 Fairplay Store [BV] … no response yet\n  Checking KH023 Hassim's Hyper [BV] … no response yet\n  Checking KM027/18 Discount HW Homebuild [BV] … no response yet\n  Checking KS012 Solly's Hardware (Oxford) [BV] … no response yet\n  Checking KS029/1 Duro Build [BV] … no response yet\n  Checking KD004 Discount Hardware [BV] … no response yet\n  Checking KW003 Wolhuterskop Trading [BV] … no response yet\n  Checking KM027/22 Khutsong Hardware & Steel [BV] … no response yet\n  Checking KR045 Rohaan Hardware [BV] … no response yet\n  Checking KX003 Exclusive Paint & Hardware [BV] … no response yet\n  Checking KF018/5 Fairplay Hardware Kwamhlanga [BV] … no response yet\n  Checking KS130 Mashaole General Dealer [BV] … no response yet\n  Checking KA114 AMK Hardware [BV] … no response yet\n  Checking KN033 Nimmi Investment [BV] … no response yet\n  Checking KH050 Hope and Harmony Projects [BV] … no response yet\n  Checking KE005 Easy Build Hardware [NP] … no response yet\n  Checking KE005/1 Easy Build Hardware [NP] … no response yet\n  Checking KB093/1 Baskid Nondabuya General Trd [NP] … no response yet\n  Checking KS129 Siza Bantu Mkhwenyana Hardware [NP] … no response yet\n  Checking KB012 Buy-Rite [NP] … no response yet\n  Checking KS017/1 Femac Hyper CC  ta Spaza Hyper [NP] … no response yet\n  Checking KN024 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KA110 Ace Steel And Roofing [NP] … no response yet\n  Checking KL035 Lucky Domestic Hardware [NP] … no response yet\n  Checking KS019/4 S.I.Hardware [NP] … no response yet\n  Checking KE035 Easytile & Sanware [NP] … no response yet\n  Checking KJ038 Jamwaria & Son's T/A Alm Spare [NP] … no response yet\n  Checking KN024/1 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KM148 Aaliya Hardware [NP] … no response yet\n  Checking KR008/1 BUDGET HARDWARE [NP] … no response yet\n  Checking KR036 Royal Water Pty Ltd [NP] … no response yet\n  Checking KO009 One Price Store [NP] … no response yet\n  Checking KM031 Mica Hardware - Purple Rain [NP] … no response yet\n  Checking KA095 Akay Build And Save TA [NP] … no response yet\n  Checking KG030 Grootvlei Hardware [NP] … no response yet\n  Checking KM165 M.A. HARDWARE [NP] … no response yet\n  Checking KF020/1 Malamulele Hardware [NP] … no response yet\n  Checking KA090/1 A A Owaish Maize Depot Pty Ltd [NP] … no response yet\n  Checking KF035 Fix It Hardware [NP] … no response yet\n  Checking KA113 Alex Hardware Devon [NP] … no response yet\n  Checking KY007 YMBM ENTERORISE T/A VALUE HARD [NP] … no response yet\n  Checking KJ039 Jabula HW [NP] … no response yet\n  Checking KT129 Siza Bantu Mkhwenyana Hardware [NP] … no response yet\n  Checking KN024/7 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KA078 Asif Cash & Carry & Hardware [NP] … no response yet\n  Checking KS128 Steel City Hardware [NP] … no response yet\n  Checking KN024/10 Navisha Investments Pty Ltd Oo [NP] … no response yet\nNo new submissions to write.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\poll-account-health-forms-1000\\2026-08-06_05-10-51.log"
+        }
+      ],
+      "last_run": {
+        "started_at": "2026-08-06T05:10:51+02:00",
+        "finished_at": "2026-08-06T05:12:36+02:00",
+        "duration_seconds": 105.002,
+        "exit_code": 0,
+        "ok": true,
+        "summary": null
+      }
     },
     {
       "job_id": "poll-account-health-forms-1400",
@@ -134,11 +155,11 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1400",
       "enabled": true,
       "criticality": "medium",
-      "schedule_summary": "type=3 start=2026-05-18T14:00:00",
+      "schedule_summary": "type=3 start=2000-01-01T14:00:00+02:00",
       "next_run": "2026-08-06 14:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-05 14:00:00+02:00",
-      "scheduler_last_task_result": 1,
-      "heartbeat_status": "missing",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
       "history": []
     },
     {
@@ -148,11 +169,11 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Poll Account Health Forms 1630",
       "enabled": true,
       "criticality": "medium",
-      "schedule_summary": "type=3 start=2026-05-18T16:30:00",
+      "schedule_summary": "type=3 start=2000-01-01T16:30:00+02:00",
       "next_run": "2026-08-06 16:30:00+02:00",
-      "scheduler_last_run_time": "2026-08-05 16:30:00+02:00",
-      "scheduler_last_task_result": 1,
-      "heartbeat_status": "missing",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
       "history": []
     },
     {
@@ -162,11 +183,11 @@
       "task_path": "\\Olympic Paints\\Account Health Forms\\Remind Account Health Forms",
       "enabled": true,
       "criticality": "medium",
-      "schedule_summary": "type=3 start=2026-05-21T07:00:00",
+      "schedule_summary": "type=3 start=2000-01-01T07:00:00+02:00",
       "next_run": "2026-08-06 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-05 07:00:00+02:00",
-      "scheduler_last_task_result": 2,
-      "heartbeat_status": "missing",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
       "history": []
     },
     {
@@ -493,10 +514,24 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-06 05:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-06 04:43:11+02:00",
+      "next_run": "2026-08-06 06:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-06 05:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
+      "history": []
+    },
+    {
+      "job_id": "olympicpaints-factoryncr-processor",
+      "name": "OlympicPaints_FactoryNCR_Processor",
+      "agent": "H&S",
+      "task_path": "\\Olympic Paints\\H&S\\OlympicPaints_FactoryNCR_Processor",
+      "enabled": true,
+      "criticality": "medium",
+      "schedule_summary": "type=2 start=2026-08-06T17:00:00+02:00",
+      "next_run": "2026-08-06 17:00:00+02:00",
+      "scheduler_last_run_time": null,
+      "scheduler_last_task_result": 267011,
+      "heartbeat_status": "never_run",
       "history": []
     },
     {
@@ -626,23 +661,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-06 06:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 05:00:02+02:00",
-      "scheduler_last_task_result": 267009,
+      "next_run": "2026-08-06 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-06 06:00:02+02:00",
+      "scheduler_last_task_result": -2147020576,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-05T19:00:32+02:00",
-          "finished_at": "2026-08-05T19:05:05+02:00",
-          "duration_seconds": 272.553,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 67 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-05_19-00-32.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -750,12 +773,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-06_04-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-06T05:00:03+02:00",
+          "finished_at": "2026-08-06T05:00:09+02:00",
+          "duration_seconds": 5.72,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-06_05-00-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-06T04:00:02+02:00",
-        "finished_at": "2026-08-06T04:00:07+02:00",
-        "duration_seconds": 4.737,
+        "started_at": "2026-08-06T05:00:03+02:00",
+        "finished_at": "2026-08-06T05:00:09+02:00",
+        "duration_seconds": 5.72,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1128,8 +1163,8 @@
       "task_path": "\\Olympic Paints\\Returns\\OlympicPaints_BuildReturnsDashboard",
       "enabled": true,
       "criticality": "medium",
-      "schedule_summary": "type=3 start=2026-05-23T16:00:00+02:00",
-      "next_run": "2026-08-06 16:00:00+02:00",
+      "schedule_summary": "type=3 start=2026-08-06T07:00:00+02:00",
+      "next_run": "2026-08-06 07:00:00+02:00",
       "scheduler_last_run_time": "2026-08-05 16:00:01+02:00",
       "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
@@ -1142,7 +1177,7 @@
       "task_path": "\\Olympic Paints\\Runbooks\\Audit Runbook Drift",
       "enabled": true,
       "criticality": "low",
-      "schedule_summary": "type=3 start=2026-05-21T06:30:00",
+      "schedule_summary": "type=3 start=2026-08-06T06:30:00+02:00",
       "next_run": "2026-08-10 06:30:00+02:00",
       "scheduler_last_run_time": "2026-08-03 06:30:00+02:00",
       "scheduler_last_task_result": 2,
@@ -1961,20 +1996,6 @@
         "ok": true,
         "summary": null
       }
-    },
-    {
-      "job_id": "olympic-paints-meeting-minutes-extractor",
-      "name": "Olympic Paints - Meeting Minutes Extractor",
-      "agent": "VAULT",
-      "task_path": "\\Olympic Paints\\VAULT\\Olympic Paints - Meeting Minutes Extractor",
-      "enabled": true,
-      "criticality": "medium",
-      "schedule_summary": "type=2 start=2026-04-30T07:00:00+02:00",
-      "next_run": "2026-08-06 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-05 07:00:01+02:00",
-      "scheduler_last_task_result": 267014,
-      "heartbeat_status": "missing",
-      "history": []
     },
     {
       "job_id": "sync-claude-todos",
