@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T06:00:03+02:00",
+  "generated_at": "2026-08-07T07:00:18+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -259,10 +259,10 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2000-01-01T07:00:00+02:00",
-      "next_run": "2026-08-07 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 07:00:00+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-08-10 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 07:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "remind-account-health-forms",
@@ -350,9 +350,9 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-20T07:00:00+02:00",
-      "next_run": "2026-08-07 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 07:00:00+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-08-10 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 07:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -622,9 +622,9 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-07 06:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-07 05:43:11+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-08-07 07:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-07 06:43:11+02:00",
+      "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -760,10 +760,10 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-08-05T07:00:00+02:00",
-      "next_run": "2026-08-07 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 07:00:00+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-08-10 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 07:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "hik-connect-extract",
@@ -823,23 +823,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-07 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-07 06:00:02+02:00",
-      "scheduler_last_task_result": -2147020576,
+      "next_run": "2026-08-07 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 07:00:02+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-06T20:00:03+02:00",
-          "finished_at": "2026-08-06T20:00:07+02:00",
-          "duration_seconds": 4.81,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-06_20-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -947,12 +935,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-07_05-00-03.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-07T06:00:02+02:00",
+          "finished_at": "2026-08-07T06:00:07+02:00",
+          "duration_seconds": 5.544,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-07_06-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-07T05:00:03+02:00",
-        "finished_at": "2026-08-07T05:00:08+02:00",
-        "duration_seconds": 5.591,
+        "started_at": "2026-08-07T06:00:02+02:00",
+        "finished_at": "2026-08-07T06:00:07+02:00",
+        "duration_seconds": 5.544,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1284,9 +1284,9 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-13T07:00:00+02:00",
-      "next_run": "2026-08-07 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 07:00:00+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-08-10 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 07:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1326,10 +1326,10 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-08-06T07:00:00+02:00",
-      "next_run": "2026-08-07 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 07:00:00+02:00",
-      "scheduler_last_task_result": 1,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-08-10 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 07:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "olympicpaints-buildreturnsdashboard",
@@ -1403,9 +1403,9 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-25T07:00:00+02:00",
-      "next_run": "2026-08-07 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 07:00:00+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-08-10 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 07:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1600,23 +1600,11 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-20T06:15:00+02:00",
-      "next_run": "2026-08-07 06:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 06:15:00+02:00",
+      "next_run": "2026-08-10 06:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 06:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "olympic-paints-zoho-meetings-pull",
-          "agent": "STRIKER",
-          "started_at": "2026-07-24T06:15:00+02:00",
-          "finished_at": "2026-07-24T06:15:21+02:00",
-          "duration_seconds": 21.236,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Pulling records modified since 2026-07-10T04:15:02+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Events (Meetings)\n  fetched 225 records from Events\n\nâ†’ Notes (for 'Note Content' column)\n  fetched 245 records from Notes\n  25 parents have at least one note\n\nâ†’ Leads (prospect stores with same merchandising fields as Accounts)\n  fetched 63 records from Leads\nâœ“ Wrote     63 rows -> leads.parquet\nâœ“ Wrote     63 rows -> OP_Lead_Tracking.csv (Zoho-export shape)\nâœ“ Wrote     63 rows -> OP_Lead_Tracking_new.csv (no preamble, JS dates)\n\nâ†’ Accounts referenced by these meetings\n  172 distinct Account ids referenced\n  fetched 714 records from Accounts\n  merged 5590 existing + 225 new â†’ 5590 rows\n  merged 770 existing + 714 new â†’ 770 rows\nâœ“ Wrote   5590 rows -> Meetings_Report.xlsx\nâœ“ Wrote    150 rows -> Meetings_Report_Merchandising.xlsx\n\nâœ“ Wrote   5590 meetings  â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\meetings.parquet\nâœ“ Wrote    770 accounts  â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\accounts.parquet\n\nMeeting date range: 2025-01-25 â†’ 2026-07-29\nTop owners by meeting count:\n  byronm@olympicpaints.co.za                1318\n  abooc@olympicpaints.co.za                 1245\n  nikhil@olympicpaints.co.za                1134\n  bhadreshv@olympicpaints.co.za             982\n  amitp@olympicpaints.co.za                 721\n  quintusl@olympicpaints.co.za              150\n  lanceg@olympicpaints.co.za                32\n  sejalp@olympicpaints.co.za                4\n  manish.dullabh@datasemblr.com             2\n  nikhilp@olympicpaints.co.za               1",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympic-paints-zoho-meetings-pull\\2026-07-24_06-15-00.log"
-        },
         {
           "job_id": "olympic-paints-zoho-meetings-pull",
           "agent": "STRIKER",
@@ -1724,12 +1712,24 @@
           "stdout_tail": "Pulling records modified since 2026-07-23T04:15:15+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Events (Meetings)\n  fetched 205 records from Events\n\nâ†’ Notes (for 'Note Content' column)\n  fetched 224 records from Notes\n  21 parents have at least one note\n\nâ†’ Leads (prospect stores with same merchandising fields as Accounts)\n  fetched 3 records from Leads\nâœ“ Wrote      3 rows -> leads.parquet\nâœ“ Wrote      3 rows -> OP_Lead_Tracking.csv (Zoho-export shape)\nâœ“ Wrote      3 rows -> OP_Lead_Tracking_new.csv (no preamble, JS dates)\n\nâ†’ Accounts referenced by these meetings\n  179 distinct Account ids referenced\n  fetched 716 records from Accounts\n  merged 5768 existing + 205 new â†’ 5768 rows\n  merged 771 existing + 716 new â†’ 772 rows\nâœ“ Wrote   5768 rows -> Meetings_Report.xlsx\nâœ“ Wrote    150 rows -> Meetings_Report_Merchandising.xlsx\n\nâœ“ Wrote   5768 meetings  â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\meetings.parquet\nâœ“ Wrote    772 accounts  â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\accounts.parquet\n\nMeeting date range: 2025-01-25 â†’ 2026-08-05\nTop owners by meeting count:\n  byronm@olympicpaints.co.za                1321\n  abooc@olympicpaints.co.za                 1280\n  nikhil@olympicpaints.co.za                1191\n  bhadreshv@olympicpaints.co.za             1030\n  amitp@olympicpaints.co.za                 756\n  quintusl@olympicpaints.co.za              150\n  lanceg@olympicpaints.co.za                32\n  sejalp@olympicpaints.co.za                4\n  manish.dullabh@datasemblr.com             2\n  nikhilp@olympicpaints.co.za               1",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympic-paints-zoho-meetings-pull\\2026-08-06_06-15-04.log"
+        },
+        {
+          "job_id": "olympic-paints-zoho-meetings-pull",
+          "agent": "STRIKER",
+          "started_at": "2026-08-07T06:15:01+02:00",
+          "finished_at": "2026-08-07T06:15:22+02:00",
+          "duration_seconds": 21.595,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Pulling records modified since 2026-07-24T04:15:03+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Events (Meetings)\n  fetched 194 records from Events\n\nâ†’ Notes (for 'Note Content' column)\n  fetched 213 records from Notes\n  21 parents have at least one note\n\nâ†’ Leads (prospect stores with same merchandising fields as Accounts)\n  fetched 4 records from Leads\nâœ“ Wrote      4 rows -> leads.parquet\nâœ“ Wrote      4 rows -> OP_Lead_Tracking.csv (Zoho-export shape)\nâœ“ Wrote      4 rows -> OP_Lead_Tracking_new.csv (no preamble, JS dates)\n\nâ†’ Accounts referenced by these meetings\n  175 distinct Account ids referenced\n  fetched 716 records from Accounts\n  merged 5784 existing + 194 new â†’ 5784 rows\n  merged 772 existing + 716 new â†’ 772 rows\nâœ“ Wrote   5784 rows -> Meetings_Report.xlsx\nâœ“ Wrote    150 rows -> Meetings_Report_Merchandising.xlsx\n\nâœ“ Wrote   5784 meetings  â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\meetings.parquet\nâœ“ Wrote    772 accounts  â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\accounts.parquet\n\nMeeting date range: 2025-01-25 â†’ 2026-08-06\nTop owners by meeting count:\n  byronm@olympicpaints.co.za                1321\n  abooc@olympicpaints.co.za                 1290\n  nikhil@olympicpaints.co.za                1191\n  bhadreshv@olympicpaints.co.za             1036\n  amitp@olympicpaints.co.za                 756\n  quintusl@olympicpaints.co.za              150\n  lanceg@olympicpaints.co.za                32\n  sejalp@olympicpaints.co.za                4\n  manish.dullabh@datasemblr.com             2\n  nikhilp@olympicpaints.co.za               1",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympic-paints-zoho-meetings-pull\\2026-08-07_06-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-06T06:15:04+02:00",
-        "finished_at": "2026-08-06T06:16:27+02:00",
-        "duration_seconds": 82.692,
+        "started_at": "2026-08-07T06:15:01+02:00",
+        "finished_at": "2026-08-07T06:15:22+02:00",
+        "duration_seconds": 21.595,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -2045,23 +2045,11 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-05-13T06:10:00",
-      "next_run": "2026-08-07 06:10:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 06:10:01+02:00",
+      "next_run": "2026-08-08 06:10:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 06:10:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "zoho-leads-pull",
-          "agent": "STRIKER",
-          "started_at": "2026-07-28T06:10:02+02:00",
-          "finished_at": "2026-07-28T06:10:14+02:00",
-          "duration_seconds": 12.001,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Pulling leads modified since 2026-07-21T04:10:05+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Discovering Lead fields\n  discovered 66 fetchable fields (0 skipped â€” formula/rollup/subform)\n  splitting into 2 request batches (50, 17 fields each)\n\nâ†’ Leads\n  batch 1/2 â€” 50 fields\n  fetched 48 records from Leads\n  batch 2/2 â€” 17 fields\n  fetched 48 records from Leads\n\nâœ“ Wrote     48 leads â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\leads.parquet\n\nâ†’ Writing legacy CSV shims for existing consumers\n  âœ“ wrote 48 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking.csv\n  âœ“ wrote 48 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking_new.csv\n\nLead creation range: 2025-12-10 05:52:50+00:00 â†’ 2026-07-21 08:31:49+00:00\n\nTop lead statuses:\n  Contacted                            43\n  (none)                               5\n\nTop owners by lead count:\n  byronm@olympicpaints.co.za                44\n  abooc@olympicpaints.co.za                 3\n  amitp@olympicpaints.co.za                 1",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\zoho-leads-pull\\2026-07-28_06-10-02.log"
-        },
         {
           "job_id": "zoho-leads-pull",
           "agent": "STRIKER",
@@ -2169,12 +2157,24 @@
           "stdout_tail": "Pulling leads modified since 2026-07-30T04:10:39+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Discovering Lead fields\n  discovered 66 fetchable fields (0 skipped â€” formula/rollup/subform)\n  splitting into 2 request batches (50, 17 fields each)\n\nâ†’ Leads\n  batch 1/2 â€” 50 fields\n  fetched 1 records from Leads\n  batch 2/2 â€” 17 fields\n  fetched 1 records from Leads\n\nâœ“ Wrote      1 leads â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\leads.parquet\n\nâ†’ Writing legacy CSV shims for existing consumers\n  âœ“ wrote 1 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking.csv\n  âœ“ wrote 1 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking_new.csv\n\nLead creation range: 2026-08-04 08:45:49+00:00 â†’ 2026-08-04 08:45:49+00:00\n\nTop lead statuses:\n  (none)                               1\n\nTop owners by lead count:\n  abooc@olympicpaints.co.za                 1",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\zoho-leads-pull\\2026-08-06_06-10-14.log"
+        },
+        {
+          "job_id": "zoho-leads-pull",
+          "agent": "STRIKER",
+          "started_at": "2026-08-07T06:10:02+02:00",
+          "finished_at": "2026-08-07T06:10:23+02:00",
+          "duration_seconds": 20.857,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Pulling leads modified since 2026-07-31T04:10:06+00:00\n\nâ†’ Users\n  22 users mapped\n\nâ†’ Discovering Lead fields\n  discovered 66 fetchable fields (0 skipped â€” formula/rollup/subform)\n  splitting into 2 request batches (50, 17 fields each)\n\nâ†’ Leads\n  batch 1/2 â€” 50 fields\n  fetched 2 records from Leads\n  batch 2/2 â€” 17 fields\n  fetched 2 records from Leads\n\nâœ“ Wrote      2 leads â†’ C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\zoho_meetings\\data\\leads.parquet\n\nâ†’ Writing legacy CSV shims for existing consumers\n  âœ“ wrote 2 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking.csv\n  âœ“ wrote 2 rows â†’ 3.Resources\\16.Sales and Other data\\Zoho\\OP_Lead_Tracking_new.csv\n\nLead creation range: 2026-08-04 08:45:49+00:00 â†’ 2026-08-06 10:06:28+00:00\n\nTop lead statuses:\n  (none)                               2\n\nTop owners by lead count:\n  abooc@olympicpaints.co.za                 2",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\zoho-leads-pull\\2026-08-07_06-10-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-06T06:10:14+02:00",
-        "finished_at": "2026-08-06T06:11:15+02:00",
-        "duration_seconds": 60.546,
+        "started_at": "2026-08-07T06:10:02+02:00",
+        "finished_at": "2026-08-07T06:10:23+02:00",
+        "duration_seconds": 20.857,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -2188,23 +2188,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-08-07 06:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-07 04:15:01+02:00",
+      "next_run": "2026-08-07 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 06:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-08-06T10:15:01+02:00",
-          "finished_at": "2026-08-06T10:15:08+02:00",
-          "duration_seconds": 6.125,
-          "exit_code": 2,
-          "ok": false,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-06_10-15-01.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -2312,12 +2300,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-07_04-15-02.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-08-07T06:15:01+02:00",
+          "finished_at": "2026-08-07T06:15:11+02:00",
+          "duration_seconds": 10.024,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-07_06-15-01.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-07T04:15:02+02:00",
-        "finished_at": "2026-08-07T04:15:15+02:00",
-        "duration_seconds": 13.012,
+        "started_at": "2026-08-07T06:15:01+02:00",
+        "finished_at": "2026-08-07T06:15:11+02:00",
+        "duration_seconds": 10.024,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -2331,23 +2331,11 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-04-22T07:00:00",
-      "next_run": "2026-08-07 07:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 07:00:01+02:00",
+      "next_run": "2026-08-08 07:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 07:00:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "vault-meeting-extraction-daily",
-          "agent": "VAULT",
-          "started_at": "2026-07-28T07:00:04+02:00",
-          "finished_at": "2026-07-28T07:00:08+02:00",
-          "duration_seconds": 4.459,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vault-meeting-extraction-daily\\2026-07-28_07-00-04.log"
-        },
         {
           "job_id": "vault-meeting-extraction-daily",
           "agent": "VAULT",
@@ -2455,12 +2443,24 @@
           "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vault-meeting-extraction-daily\\2026-08-06_07-00-04.log"
+        },
+        {
+          "job_id": "vault-meeting-extraction-daily",
+          "agent": "VAULT",
+          "started_at": "2026-08-07T07:00:16+02:00",
+          "finished_at": "2026-08-07T07:00:16+02:00",
+          "duration_seconds": 0.885,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vault-meeting-extraction-daily\\2026-08-07_07-00-16.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-06T07:00:04+02:00",
-        "finished_at": "2026-08-06T07:00:06+02:00",
-        "duration_seconds": 1.236,
+        "started_at": "2026-08-07T07:00:16+02:00",
+        "finished_at": "2026-08-07T07:00:16+02:00",
+        "duration_seconds": 0.885,
         "exit_code": 0,
         "ok": true,
         "summary": null
