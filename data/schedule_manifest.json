@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T09:00:03+02:00",
+  "generated_at": "2026-08-07T10:00:04+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -23,8 +23,8 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-08-07 09:43:11+02:00",
-      "scheduler_last_run_time": "2026-08-07 07:43:12+02:00",
+      "next_run": "2026-08-07 11:43:11+02:00",
+      "scheduler_last_run_time": "2026-08-07 09:43:12+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -154,10 +154,10 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2000-01-01T10:00:00+02:00",
-      "next_run": "2026-08-07 10:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 10:00:00+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-08-10 10:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 10:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "poll-account-health-forms-1000",
@@ -658,8 +658,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-07 09:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-07 08:43:11+02:00",
+      "next_run": "2026-08-07 10:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-07 09:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -883,23 +883,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-07 10:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-07 09:00:02+02:00",
+      "next_run": "2026-08-07 11:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 10:00:02+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-06T23:00:03+02:00",
-          "finished_at": "2026-08-06T23:00:10+02:00",
-          "duration_seconds": 6.558,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-06_23-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -1007,12 +995,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-07_08-00-03.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-07T09:00:03+02:00",
+          "finished_at": "2026-08-07T09:00:09+02:00",
+          "duration_seconds": 6.2,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-07_09-00-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-07T08:00:03+02:00",
-        "finished_at": "2026-08-07T08:00:29+02:00",
-        "duration_seconds": 26.422,
+        "started_at": "2026-08-07T09:00:03+02:00",
+        "finished_at": "2026-08-07T09:00:09+02:00",
+        "duration_seconds": 6.2,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1288,8 +1288,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-25T10:00:00+02:00",
-      "next_run": "2026-08-07 10:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 10:00:00+02:00",
+      "next_run": "2026-08-10 10:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 10:00:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1447,8 +1447,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-07-08T09:30:00+02:00",
-      "next_run": "2026-08-07 09:30:00+02:00",
-      "scheduler_last_run_time": "2026-08-06 09:30:01+02:00",
+      "next_run": "2026-08-08 09:30:00+02:00",
+      "scheduler_last_run_time": "2026-08-07 09:30:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
