@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T06:15:10",
+  "generated_at": "2026-08-08T10:15:14",
   "total": 15,
   "ok": 4,
   "warn": 9,
@@ -112,7 +112,7 @@
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-08-07T07:00:00",
+      "task_last_run": "2026-08-08T07:00:00",
       "task_last_result": 0
     },
     {
