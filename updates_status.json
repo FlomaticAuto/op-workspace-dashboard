@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-08T12:15:13",
+  "generated_at": "2026-08-08T14:15:09",
   "total": 15,
-  "ok": 4,
-  "warn": 9,
+  "ok": 3,
+  "warn": 10,
   "fail": 2,
   "jobs": [
     {
@@ -21,7 +21,7 @@
       "name": "E-Commerce Email Digest",
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
-      "overall": "ok",
+      "overall": "warn",
       "task_last_run": "2026-08-07T08:00:00",
       "task_last_result": 0
     },
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 27
+  "success_pct": 20
 }
