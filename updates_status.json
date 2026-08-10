@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T04:15:10",
+  "generated_at": "2026-08-10T06:15:11",
   "total": 15,
   "ok": 3,
   "warn": 10,
@@ -122,7 +122,7 @@
       "task": "CSO-Intelligence-Data",
       "cadence": "Weekly \u00b7 06:00",
       "overall": "warn",
-      "task_last_run": "2026-08-03T06:00:00",
+      "task_last_run": "2026-08-10T06:00:00",
       "task_last_result": 0
     },
     {
