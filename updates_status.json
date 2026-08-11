@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-11T06:15:11",
+  "generated_at": "2026-08-11T07:20:54",
   "total": 15,
-  "ok": 4,
-  "warn": 9,
+  "ok": 6,
+  "warn": 7,
   "fail": 2,
   "jobs": [
     {
@@ -112,7 +112,7 @@
       "task": "VAULT Meeting Extraction Daily",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-08-10T07:00:00",
+      "task_last_run": "2026-08-11T07:00:00",
       "task_last_result": 0
     },
     {
@@ -121,7 +121,7 @@
       "name": "CSO Strategic Intelligence Build",
       "task": "CSO-Intelligence-Data",
       "cadence": "Weekly \u00b7 06:00",
-      "overall": "warn",
+      "overall": "ok",
       "task_last_run": "2026-08-10T06:00:00",
       "task_last_result": 0
     },
@@ -141,7 +141,7 @@
       "name": "PULSE Build Next Week Plan (Sunday)",
       "task": "Build Next Week Plan",
       "cadence": "Weekly \u00b7 Sun 17:00",
-      "overall": "warn",
+      "overall": "ok",
       "task_last_run": "2026-08-07T17:00:00",
       "task_last_result": 0
     },
@@ -156,5 +156,5 @@
       "task_last_result": 0
     }
   ],
-  "success_pct": 27
+  "success_pct": 40
 }
