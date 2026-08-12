@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T14:00:10+02:00",
+  "generated_at": "2026-08-12T15:00:05+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -287,8 +287,8 @@
       "schedule_summary": "type=3 start=2000-01-01T14:00:00+02:00",
       "next_run": "2026-08-13 14:00:00+02:00",
       "scheduler_last_run_time": "2026-08-12 14:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
       "history": [
         {
           "job_id": "poll-account-health-forms-1400",
@@ -337,12 +337,24 @@
           "stdout_tail": "  Checking KP030 Platinum Rainbow Hardware [BV] … no response yet\n  Checking KM027/20 Discount Hardware [BV] … no response yet\n  Checking KF009 Fairplay Store [BV] … no response yet\n  Checking KH023 Hassim's Hyper [BV] … no response yet\n  Checking KM027/18 Discount HW Homebuild [BV] … no response yet\n  Checking KS012 Solly's Hardware (Oxford) [BV] … no response yet\n  Checking KS029/1 Duro Build [BV] … no response yet\n  Checking KD004 Discount Hardware [BV] … no response yet\n  Checking KW003 Wolhuterskop Trading [BV] … no response yet\n  Checking KM027/22 Khutsong Hardware & Steel [BV] … no response yet\n  Checking KR045 Rohaan Hardware [BV] … no response yet\n  Checking KX003 Exclusive Paint & Hardware [BV] … no response yet\n  Checking KF018/5 Fairplay Hardware Kwamhlanga [BV] … no response yet\n  Checking KS130 Mashaole General Dealer [BV] … no response yet\n  Checking KA114 AMK Hardware [BV] … no response yet\n  Checking KN033 Nimmi Investment [BV] … no response yet\n  Checking KH050 Hope and Harmony Projects [BV] … no response yet\n  Checking KE005 Easy Build Hardware [NP] … no response yet\n  Checking KE005/1 Easy Build Hardware [NP] … no response yet\n  Checking KB093/1 Baskid Nondabuya General Trd [NP] … no response yet\n  Checking KS129 Siza Bantu Mkhwenyana Hardware [NP] … no response yet\n  Checking KB012 Buy-Rite [NP] … no response yet\n  Checking KS017/1 Femac Hyper CC  ta Spaza Hyper [NP] … no response yet\n  Checking KN024 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KA110 Ace Steel And Roofing [NP] … no response yet\n  Checking KL035 Lucky Domestic Hardware [NP] … no response yet\n  Checking KS019/4 S.I.Hardware [NP] … no response yet\n  Checking KE035 Easytile & Sanware [NP] … no response yet\n  Checking KJ038 Jamwaria & Son's T/A Alm Spare [NP] … no response yet\n  Checking KN024/1 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KM148 Aaliya Hardware [NP] … no response yet\n  Checking KR008/1 BUDGET HARDWARE [NP] … no response yet\n  Checking KR036 Royal Water Pty Ltd [NP] … no response yet\n  Checking KO009 One Price Store [NP] … no response yet\n  Checking KM031 Mica Hardware - Purple Rain [NP] … no response yet\n  Checking KA095 Akay Build And Save TA [NP] … no response yet\n  Checking KG030 Grootvlei Hardware [NP] … no response yet\n  Checking KM165 M.A. HARDWARE [NP] … no response yet\n  Checking KF020/1 Malamulele Hardware [NP] … no response yet\n  Checking KA090/1 A A Owaish Maize Depot Pty Ltd [NP] … no response yet\n  Checking KF035 Fix It Hardware [NP] … no response yet\n  Checking KA113 Alex Hardware Devon [NP] … no response yet\n  Checking KY007 YMBM ENTERORISE T/A VALUE HARD [NP] … no response yet\n  Checking KJ039 Jabula HW [NP] … no response yet\n  Checking KT129 Siza Bantu Mkhwenyana Hardware [NP] … no response yet\n  Checking KN024/7 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KA078 Asif Cash & Carry & Hardware [NP] … no response yet\n  Checking KS128 Steel City Hardware [NP] … no response yet\n  Checking KN024/10 Navisha Investments Pty Ltd Oo [NP] … no response yet\nNo new submissions to write.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\poll-account-health-forms-1400\\2026-08-11_14-00-17.log"
+        },
+        {
+          "job_id": "poll-account-health-forms-1400",
+          "agent": "Account Health Forms",
+          "started_at": "2026-08-12T14:00:07+02:00",
+          "finished_at": "2026-08-12T14:02:47+02:00",
+          "duration_seconds": 160.248,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "  Checking KP030 Platinum Rainbow Hardware [BV] … no response yet\n  Checking KM027/20 Discount Hardware [BV] … no response yet\n  Checking KF009 Fairplay Store [BV] … no response yet\n  Checking KH023 Hassim's Hyper [BV] … no response yet\n  Checking KM027/18 Discount HW Homebuild [BV] … no response yet\n  Checking KS012 Solly's Hardware (Oxford) [BV] … no response yet\n  Checking KS029/1 Duro Build [BV] … no response yet\n  Checking KD004 Discount Hardware [BV] … no response yet\n  Checking KW003 Wolhuterskop Trading [BV] … no response yet\n  Checking KM027/22 Khutsong Hardware & Steel [BV] … no response yet\n  Checking KR045 Rohaan Hardware [BV] … no response yet\n  Checking KX003 Exclusive Paint & Hardware [BV] … no response yet\n  Checking KF018/5 Fairplay Hardware Kwamhlanga [BV] … no response yet\n  Checking KS130 Mashaole General Dealer [BV] … no response yet\n  Checking KA114 AMK Hardware [BV] … no response yet\n  Checking KN033 Nimmi Investment [BV] … no response yet\n  Checking KH050 Hope and Harmony Projects [BV] … no response yet\n  Checking KE005 Easy Build Hardware [NP] … no response yet\n  Checking KE005/1 Easy Build Hardware [NP] … no response yet\n  Checking KB093/1 Baskid Nondabuya General Trd [NP] … no response yet\n  Checking KS129 Siza Bantu Mkhwenyana Hardware [NP] … no response yet\n  Checking KB012 Buy-Rite [NP] … no response yet\n  Checking KS017/1 Femac Hyper CC  ta Spaza Hyper [NP] … no response yet\n  Checking KN024 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KA110 Ace Steel And Roofing [NP] … no response yet\n  Checking KL035 Lucky Domestic Hardware [NP] … no response yet\n  Checking KS019/4 S.I.Hardware [NP] … no response yet\n  Checking KE035 Easytile & Sanware [NP] … no response yet\n  Checking KJ038 Jamwaria & Son's T/A Alm Spare [NP] … no response yet\n  Checking KN024/1 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KM148 Aaliya Hardware [NP] … no response yet\n  Checking KR008/1 BUDGET HARDWARE [NP] … no response yet\n  Checking KR036 Royal Water Pty Ltd [NP] … no response yet\n  Checking KO009 One Price Store [NP] … no response yet\n  Checking KM031 Mica Hardware - Purple Rain [NP] … no response yet\n  Checking KA095 Akay Build And Save TA [NP] … no response yet\n  Checking KG030 Grootvlei Hardware [NP] … no response yet\n  Checking KM165 M.A. HARDWARE [NP] … no response yet\n  Checking KF020/1 Malamulele Hardware [NP] … no response yet\n  Checking KA090/1 A A Owaish Maize Depot Pty Ltd [NP] … no response yet\n  Checking KF035 Fix It Hardware [NP] … no response yet\n  Checking KA113 Alex Hardware Devon [NP] … no response yet\n  Checking KY007 YMBM ENTERORISE T/A VALUE HARD [NP] … no response yet\n  Checking KJ039 Jabula HW [NP] … no response yet\n  Checking KT129 Siza Bantu Mkhwenyana Hardware [NP] … no response yet\n  Checking KN024/7 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KA078 Asif Cash & Carry & Hardware [NP] … no response yet\n  Checking KS128 Steel City Hardware [NP] … no response yet\n  Checking KN024/10 Navisha Investments Pty Ltd Oo [NP] … no response yet\nNo new submissions to write.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\poll-account-health-forms-1400\\2026-08-12_14-00-07.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-11T14:00:17+02:00",
-        "finished_at": "2026-08-11T14:02:57+02:00",
-        "duration_seconds": 159.174,
+        "started_at": "2026-08-12T14:00:07+02:00",
+        "finished_at": "2026-08-12T14:02:47+02:00",
+        "duration_seconds": 160.248,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -910,8 +922,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-12 14:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-12 13:43:12+02:00",
+      "next_run": "2026-08-12 15:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-12 14:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1267,23 +1279,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-12 15:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-12 14:00:02+02:00",
+      "next_run": "2026-08-12 16:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-12 15:00:02+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-12T03:00:03+02:00",
-          "finished_at": "2026-08-12T03:00:08+02:00",
-          "duration_seconds": 5.152,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-12_03-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -1391,12 +1391,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-12_13-01-17.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-12T14:00:07+02:00",
+          "finished_at": "2026-08-12T14:00:41+02:00",
+          "duration_seconds": 33.773,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-12_14-00-07.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-12T13:01:17+02:00",
-        "finished_at": "2026-08-12T13:05:06+02:00",
-        "duration_seconds": 229.112,
+        "started_at": "2026-08-12T14:00:07+02:00",
+        "finished_at": "2026-08-12T14:00:41+02:00",
+        "duration_seconds": 33.773,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -2713,23 +2725,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-08-12 14:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-12 12:15:01+02:00",
+      "next_run": "2026-08-12 16:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-12 14:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-08-11T18:15:02+02:00",
-          "finished_at": "2026-08-11T18:15:14+02:00",
-          "duration_seconds": 11.702,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-11_18-15-02.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -2837,12 +2837,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-12_12-15-04.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-08-12T14:15:03+02:00",
+          "finished_at": "2026-08-12T14:15:19+02:00",
+          "duration_seconds": 15.259,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-12_14-15-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-12T12:15:04+02:00",
-        "finished_at": "2026-08-12T12:15:29+02:00",
-        "duration_seconds": 25.107,
+        "started_at": "2026-08-12T14:15:03+02:00",
+        "finished_at": "2026-08-12T14:15:19+02:00",
+        "duration_seconds": 15.259,
         "exit_code": 0,
         "ok": true,
         "summary": null
