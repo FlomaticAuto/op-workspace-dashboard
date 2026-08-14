@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T10:00:14+02:00",
+  "generated_at": "2026-08-14T11:00:05+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -204,8 +204,8 @@
       "schedule_summary": "type=3 start=2000-01-01T10:00:00+02:00",
       "next_run": "2026-08-17 10:00:00+02:00",
       "scheduler_last_run_time": "2026-08-14 10:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 1,
+      "heartbeat_status": "fresh",
       "history": [
         {
           "job_id": "poll-account-health-forms-1000",
@@ -290,14 +290,26 @@
           "stdout_tail": "  Checking KP030 Platinum Rainbow Hardware [BV] … no response yet\n  Checking KM027/20 Discount Hardware [BV] … no response yet\n  Checking KF009 Fairplay Store [BV] … no response yet\n  Checking KH023 Hassim's Hyper [BV] … no response yet\n  Checking KM027/18 Discount HW Homebuild [BV] … no response yet\n  Checking KS012 Solly's Hardware (Oxford) [BV] … no response yet\n  Checking KS029/1 Duro Build [BV] … no response yet\n  Checking KD004 Discount Hardware [BV] … no response yet\n  Checking KW003 Wolhuterskop Trading [BV] … no response yet\n  Checking KM027/22 Khutsong Hardware & Steel [BV] … no response yet\n  Checking KR045 Rohaan Hardware [BV] … no response yet\n  Checking KX003 Exclusive Paint & Hardware [BV] … no response yet\n  Checking KF018/5 Fairplay Hardware Kwamhlanga [BV] … no response yet\n  Checking KS130 Mashaole General Dealer [BV] … no response yet\n  Checking KA114 AMK Hardware [BV] … no response yet\n  Checking KN033 Nimmi Investment [BV] … no response yet\n  Checking KH050 Hope and Harmony Projects [BV] … no response yet\n  Checking KE005 Easy Build Hardware [NP] … no response yet\n  Checking KE005/1 Easy Build Hardware [NP] … no response yet\n  Checking KB093/1 Baskid Nondabuya General Trd [NP] … no response yet\n  Checking KS129 Siza Bantu Mkhwenyana Hardware [NP] … no response yet\n  Checking KB012 Buy-Rite [NP] … no response yet\n  Checking KS017/1 Femac Hyper CC  ta Spaza Hyper [NP] … no response yet\n  Checking KN024 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KA110 Ace Steel And Roofing [NP] … no response yet\n  Checking KL035 Lucky Domestic Hardware [NP] … no response yet\n  Checking KS019/4 S.I.Hardware [NP] … no response yet\n  Checking KE035 Easytile & Sanware [NP] … no response yet\n  Checking KJ038 Jamwaria & Son's T/A Alm Spare [NP] … no response yet\n  Checking KN024/1 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KM148 Aaliya Hardware [NP] … no response yet\n  Checking KR008/1 BUDGET HARDWARE [NP] … no response yet\n  Checking KR036 Royal Water Pty Ltd [NP] … no response yet\n  Checking KO009 One Price Store [NP] … no response yet\n  Checking KM031 Mica Hardware - Purple Rain [NP] … no response yet\n  Checking KA095 Akay Build And Save TA [NP] … no response yet\n  Checking KG030 Grootvlei Hardware [NP] … no response yet\n  Checking KM165 M.A. HARDWARE [NP] … no response yet\n  Checking KF020/1 Malamulele Hardware [NP] … no response yet\n  Checking KA090/1 A A Owaish Maize Depot Pty Ltd [NP] … no response yet\n  Checking KF035 Fix It Hardware [NP] … no response yet\n  Checking KA113 Alex Hardware Devon [NP] … no response yet\n  Checking KY007 YMBM ENTERORISE T/A VALUE HARD [NP] … no response yet\n  Checking KJ039 Jabula HW [NP] … no response yet\n  Checking KT129 Siza Bantu Mkhwenyana Hardware [NP] … no response yet\n  Checking KN024/7 Navisha Investments Pty Ltd [NP] … no response yet\n  Checking KA078 Asif Cash & Carry & Hardware [NP] … no response yet\n  Checking KS128 Steel City Hardware [NP] … no response yet\n  Checking KN024/10 Navisha Investments Pty Ltd Oo [NP] … no response yet\nNo new submissions to write.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\poll-account-health-forms-1000\\2026-08-13_10-00-01.log"
+        },
+        {
+          "job_id": "poll-account-health-forms-1000",
+          "agent": "Account Health Forms",
+          "started_at": "2026-08-14T10:00:06+02:00",
+          "finished_at": "2026-08-14T10:02:48+02:00",
+          "duration_seconds": 162.094,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "Checking 92 dispatched forms …\n  Checking KP061/2 Paint Mart Moe (Lenasia) [AC] … no response yet\n  Checking KV021 Vaal Auto Paints [AC] … no response yet\n  Checking KP059 Prime Build [AC] … no response yet\n  Checking KM027/5 POWER BUILD [AC] … no response yet\n  Checking KA109 Arham @ Melrose Hardware [AC] … no response yet\n  Checking KH048 Hardware City [AC] … no response yet\n  Checking KP061/3 Paint Mart Moe (Lenasia South) [AC] … no response yet\n  Checking KN014 Norman Building Material [AC] … no response yet\n  Checking KA030 Hassan & Sons Hardware [AC] … no response yet\n  Checking KD062 Deanans Auto Paints [AC] … no response yet\n  Checking KM027/21 Power Build [AC] … no response yet\n  Checking KF034 Faeez Cassim [AC] … no response yet\n  Checking KU009 Unibiz Exports Trading [AC] … no response yet\n  Checking KW014 Walwati Properties (PTY) LTD [AC] … no response yet\n  Checking KB032 Bonanza Plumbing & Electrical [AP] … no response yet\n  Checking KN018 Naaz Hardware & Furniture [AP] … no response yet\n  Checking KL023 MA Hardware [AP] … no response yet\n  Checking KC056 Cheap Cheap Hardware [AP] … no response yet\n  Checking KB114 Builderstown Hyper (PTY) LTD [AP] … no response yet\n  Checking KM043 Goldville SM  ta Meem H/War [AP] … no response yet\n  Checking KT036 Tshino Hardware [AP] … no response yet\n  Checking KM094 Al-Kauthar Inv TA Mas HW [AP] … no response yet\n  Checking KC053 Choice Build Hardware Siloam [AP] … no response yet\n  Checking KV001 Vuwani Hardware & Furniture cc [AP] … no response yet\n  Checking KS131 Strong Build [AP] … no response yet\n  Checking KA115 Amin Supermarket T/A Ayat HW [AP] … no response yet\n  Checking KR044 Raj Wholesalers [AP] … ",
+          "stderr_tail": "        **response_kw,\n    )\n  File \"C:\\Python313\\Lib\\site-packages\\urllib3\\connectionpool.py\", line 488, in _make_request\n    raise new_e\nurllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\adapters.py\", line 696, in send\n    resp = conn.urlopen(\n        method=request.method,\n    ...<9 lines>...\n        chunked=chunked,\n    )\n  File \"C:\\Python313\\Lib\\site-packages\\urllib3\\connectionpool.py\", line 842, in urlopen\n    retries = retries.increment(\n        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]\n    )\n  File \"C:\\Python313\\Lib\\site-packages\\urllib3\\util\\retry.py\", line 543, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nurllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='olympic-paints-forms-admin.vercel.app', port=443): Max retries exceeded with url: /api/forms/c6394e4c-58bf-44e5-904a-7554bdaa1787/submissions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)')))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\poll_account_health_forms.py\", line 336, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\poll_account_health_forms.py\", line 257, in main\n    subs = get_submissions(form_id, secret)\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\poll_account_health_forms.py\", line 113, in get_submissions\n    resp = requests.get(\n        f\"{FORMS_BASE}/api/forms/{form_id}/submissions\",\n        headers={\"x-admin-secret\": secret},\n        timeout=20,\n    )\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\api.py\", line 87, in get\n    return request(\"get\", url, params=params, **kwargs)\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\api.py\", line 71, in request\n    return session.request(method=method, url=url, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\sessions.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\sessions.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n  File \"C:\\Python313\\Lib\\site-packages\\requests\\adapters.py\", line 727, in send\n    raise SSLError(e, request=request)\nrequests.exceptions.SSLError: HTTPSConnectionPool(host='olympic-paints-forms-admin.vercel.app', port=443): Max retries exceeded with url: /api/forms/c6394e4c-58bf-44e5-904a-7554bdaa1787/submissions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)')))",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\poll-account-health-forms-1000\\2026-08-14_10-00-06.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-13T10:00:01+02:00",
-        "finished_at": "2026-08-13T10:01:38+02:00",
-        "duration_seconds": 97.236,
-        "exit_code": 0,
-        "ok": true,
+        "started_at": "2026-08-14T10:00:06+02:00",
+        "finished_at": "2026-08-14T10:02:48+02:00",
+        "duration_seconds": 162.094,
+        "exit_code": 1,
+        "ok": false,
         "summary": null
       }
     },
@@ -1006,8 +1018,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-14 10:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-14 09:43:11+02:00",
+      "next_run": "2026-08-14 11:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-14 10:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1411,23 +1423,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-14 11:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-14 10:00:01+02:00",
+      "next_run": "2026-08-14 12:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-14 11:00:02+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-14T00:00:01+02:00",
-          "finished_at": "2026-08-14T00:00:06+02:00",
-          "duration_seconds": 5.561,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-14_00-00-01.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -1535,12 +1535,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-14_09-00-02.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-14T10:00:06+02:00",
+          "finished_at": "2026-08-14T10:00:58+02:00",
+          "duration_seconds": 51.389,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-14_10-00-06.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-14T09:00:02+02:00",
-        "finished_at": "2026-08-14T09:00:07+02:00",
-        "duration_seconds": 4.618,
+        "started_at": "2026-08-14T10:00:06+02:00",
+        "finished_at": "2026-08-14T10:00:58+02:00",
+        "duration_seconds": 51.389,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -2869,23 +2881,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-08-14 10:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-14 08:15:01+02:00",
+      "next_run": "2026-08-14 12:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-14 10:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-08-13T14:15:02+02:00",
-          "finished_at": "2026-08-13T14:15:11+02:00",
-          "duration_seconds": 9.032,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-13_14-15-02.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -2993,12 +2993,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-14_08-15-02.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-08-14T10:15:03+02:00",
+          "finished_at": "2026-08-14T10:15:37+02:00",
+          "duration_seconds": 34.376,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-14_10-15-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-14T08:15:02+02:00",
-        "finished_at": "2026-08-14T08:15:10+02:00",
-        "duration_seconds": 8.052,
+        "started_at": "2026-08-14T10:15:03+02:00",
+        "finished_at": "2026-08-14T10:15:37+02:00",
+        "duration_seconds": 34.376,
         "exit_code": 0,
         "ok": true,
         "summary": null
