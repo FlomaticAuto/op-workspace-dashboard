@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-14T07:12:37",
+  "generated_at": "2026-08-14T08:00:27",
   "total": 15,
-  "ok": 4,
-  "warn": 8,
+  "ok": 5,
+  "warn": 7,
   "fail": 3,
   "jobs": [
     {
@@ -21,8 +21,8 @@
       "name": "E-Commerce Email Digest",
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
-      "overall": "warn",
-      "task_last_run": "2026-08-12T08:00:00",
+      "overall": "ok",
+      "task_last_run": "2026-08-14T08:00:00",
       "task_last_result": 0
     },
     {
@@ -32,7 +32,7 @@
       "task": "Daily Process Inbox",
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
-      "task_last_run": "2026-08-12T07:30:30",
+      "task_last_run": "2026-08-14T07:30:30",
       "task_last_result": 0
     },
     {
@@ -92,8 +92,8 @@
       "task": "OlympicPaints_Friday_Sales_Meeting",
       "cadence": "Weekly \u00b7 Fri",
       "overall": "ok",
-      "task_last_run": "2026-08-07T08:00:00",
-      "task_last_result": 0
+      "task_last_run": "2026-08-14T08:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "meeting_extractor",
@@ -156,5 +156,5 @@
       "task_last_result": 1
     }
   ],
-  "success_pct": 27
+  "success_pct": 33
 }
