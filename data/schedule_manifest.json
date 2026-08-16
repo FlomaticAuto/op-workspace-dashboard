@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T16:00:05+02:00",
+  "generated_at": "2026-08-16T17:00:16+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -67,7 +67,7 @@
       "schedule_summary": "type=2 start=2026-05-23T16:00:00+02:00",
       "next_run": "2026-08-17 16:00:00+02:00",
       "scheduler_last_run_time": "2026-08-16 16:00:01+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1042,8 +1042,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-16 16:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-16 15:43:11+02:00",
+      "next_run": "2026-08-16 17:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-16 16:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1056,10 +1056,10 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-08-06T17:00:00+02:00",
-      "next_run": "2026-08-16 17:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-15 17:00:01+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-08-17 17:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-16 17:00:01+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "olympicpaints-factoryncr-processor",
@@ -1471,23 +1471,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-16 17:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-16 16:00:01+02:00",
+      "next_run": "2026-08-16 18:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-16 17:00:02+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-16T06:00:03+02:00",
-          "finished_at": "2026-08-16T06:00:08+02:00",
-          "duration_seconds": 5.673,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-16_06-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -1595,12 +1583,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-16_15-00-03.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-16T16:00:03+02:00",
+          "finished_at": "2026-08-16T16:00:11+02:00",
+          "duration_seconds": 8.688,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-16_16-00-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-16T15:00:03+02:00",
-        "finished_at": "2026-08-16T15:00:08+02:00",
-        "duration_seconds": 5.287,
+        "started_at": "2026-08-16T16:00:03+02:00",
+        "finished_at": "2026-08-16T16:00:11+02:00",
+        "duration_seconds": 8.688,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -2929,23 +2929,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-08-16 16:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-16 14:15:01+02:00",
+      "next_run": "2026-08-16 18:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-16 16:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-08-15T20:15:02+02:00",
-          "finished_at": "2026-08-15T20:15:14+02:00",
-          "duration_seconds": 12.804,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-15_20-15-02.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -3053,12 +3041,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-16_14-15-03.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-08-16T16:15:02+02:00",
+          "finished_at": "2026-08-16T16:15:13+02:00",
+          "duration_seconds": 10.38,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-16_16-15-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-16T14:15:03+02:00",
-        "finished_at": "2026-08-16T14:15:14+02:00",
-        "duration_seconds": 11.194,
+        "started_at": "2026-08-16T16:15:02+02:00",
+        "finished_at": "2026-08-16T16:15:13+02:00",
+        "duration_seconds": 10.38,
         "exit_code": 0,
         "ok": true,
         "summary": null
