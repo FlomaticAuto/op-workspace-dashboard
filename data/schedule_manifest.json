@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T13:00:03+02:00",
+  "generated_at": "2026-08-18T14:00:06+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -23,9 +23,9 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-08-18 13:43:11+02:00",
-      "scheduler_last_run_time": "2026-08-18 11:43:12+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-08-18 15:43:11+02:00",
+      "scheduler_last_run_time": "2026-08-18 13:43:12+02:00",
+      "scheduler_last_task_result": 2,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -357,10 +357,10 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2000-01-01T14:00:00+02:00",
-      "next_run": "2026-08-18 14:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-17 14:00:00+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-08-19 14:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-18 14:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "poll-account-health-forms-1400",
@@ -1102,9 +1102,9 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-18 13:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-18 12:43:11+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-08-18 14:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-18 13:43:12+02:00",
+      "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1543,23 +1543,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-18 14:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 13:00:01+02:00",
+      "next_run": "2026-08-18 15:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-18 14:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-18T02:00:03+02:00",
-          "finished_at": "2026-08-18T02:01:02+02:00",
-          "duration_seconds": 59.053,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-18_02-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -1667,12 +1655,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-18_12-00-13.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-18T13:00:02+02:00",
+          "finished_at": "2026-08-18T13:00:07+02:00",
+          "duration_seconds": 4.995,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-18_13-00-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-18T12:00:13+02:00",
-        "finished_at": "2026-08-18T12:01:50+02:00",
-        "duration_seconds": 96.401,
+        "started_at": "2026-08-18T13:00:02+02:00",
+        "finished_at": "2026-08-18T13:00:07+02:00",
+        "duration_seconds": 4.995,
         "exit_code": 0,
         "ok": true,
         "summary": null
