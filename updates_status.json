@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T14:15:08",
+  "generated_at": "2026-08-18T16:15:09",
   "total": 15,
   "ok": 2,
   "warn": 8,
@@ -102,7 +102,7 @@
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-08-17T16:00:00",
+      "task_last_run": "2026-08-18T16:00:00",
       "task_last_result": 0
     },
     {
