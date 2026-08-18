@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T12:00:15+02:00",
+  "generated_at": "2026-08-18T13:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -720,7 +720,7 @@
       "schedule_summary": "type=3 start=2026-05-28T12:00:00+02:00",
       "next_run": "2026-08-19 12:00:00+02:00",
       "scheduler_last_run_time": "2026-08-18 12:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1076,7 +1076,7 @@
       "schedule_summary": "type=3 start=2026-05-17T12:00:00+02:00",
       "next_run": "2026-08-19 12:00:00+02:00",
       "scheduler_last_run_time": "2026-08-18 12:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1102,8 +1102,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-18 12:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-18 11:43:11+02:00",
+      "next_run": "2026-08-18 13:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-18 12:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1543,23 +1543,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-18 13:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 12:00:01+02:00",
+      "next_run": "2026-08-18 14:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-18 13:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-18T01:00:02+02:00",
-          "finished_at": "2026-08-18T01:00:08+02:00",
-          "duration_seconds": 6.286,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-18_01-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -1667,12 +1655,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git -c http.extraheader=AUTHORIZATION: basic <redacted> pull --rebase origin master: fatal: unable to access 'https://github.com/FlomaticAuto/op-workspace-dashboard.git/': Could not resolve host: github.com\n  ! git -c http.extraheader=AUTHORIZATION: basic <redacted> push origin master +master:main: fatal: unable to access 'https://github.com/FlomaticAuto/op-workspace-dashboard.git/': Could not resolve host: github.com",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-18_11-00-06.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-18T12:00:13+02:00",
+          "finished_at": "2026-08-18T12:01:50+02:00",
+          "duration_seconds": 96.401,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-18_12-00-13.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-18T11:00:06+02:00",
-        "finished_at": "2026-08-18T11:00:48+02:00",
-        "duration_seconds": 42.313,
+        "started_at": "2026-08-18T12:00:13+02:00",
+        "finished_at": "2026-08-18T12:01:50+02:00",
+        "duration_seconds": 96.401,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -3013,23 +3013,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-08-18 12:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 10:15:01+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-08-18 14:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-18 12:15:01+02:00",
+      "scheduler_last_task_result": 2,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-08-17T16:15:02+02:00",
-          "finished_at": "2026-08-17T16:15:13+02:00",
-          "duration_seconds": 11.015,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-17_16-15-02.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -3137,14 +3125,26 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-18_10-15-39.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-08-18T12:15:02+02:00",
+          "finished_at": "2026-08-18T12:15:18+02:00",
+          "duration_seconds": 15.898,
+          "exit_code": 2,
+          "ok": false,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-18_12-15-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-18T10:15:39+02:00",
-        "finished_at": "2026-08-18T10:20:18+02:00",
-        "duration_seconds": 279.221,
-        "exit_code": 0,
-        "ok": true,
+        "started_at": "2026-08-18T12:15:02+02:00",
+        "finished_at": "2026-08-18T12:15:18+02:00",
+        "duration_seconds": 15.898,
+        "exit_code": 2,
+        "ok": false,
         "summary": null
       }
     },
