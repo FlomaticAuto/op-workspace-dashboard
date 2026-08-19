@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T07:00:09+02:00",
+  "generated_at": "2026-08-19T08:00:05+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -23,8 +23,8 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-24T07:43:11+02:00",
-      "next_run": "2026-08-19 07:43:11+02:00",
-      "scheduler_last_run_time": "2026-08-19 05:43:12+02:00",
+      "next_run": "2026-08-19 09:43:11+02:00",
+      "scheduler_last_run_time": "2026-08-19 07:43:12+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -107,10 +107,10 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=3 start=2000-01-01T08:00:00+02:00",
-      "next_run": "2026-08-19 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 08:00:00+02:00",
-      "scheduler_last_task_result": 0,
-      "heartbeat_status": "fresh",
+      "next_run": "2026-08-20 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-19 08:00:00+02:00",
+      "scheduler_last_task_result": 267009,
+      "heartbeat_status": "stale",
       "history": [
         {
           "job_id": "dispatch-account-health-forms",
@@ -621,8 +621,8 @@
       "schedule_summary": "type=3 start=2000-01-01T07:00:00+02:00",
       "next_run": "2026-08-20 07:00:00+02:00",
       "scheduler_last_run_time": "2026-08-19 07:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
       "history": [
         {
           "job_id": "remind-account-health-forms",
@@ -695,12 +695,24 @@
           "stdout_tail": "[main c86499f] chore: rebuild store health feedback 2026-08-14 07:00\n 1 file changed, 3 insertions(+), 3 deletions(-)\nBuilt: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\store-health-feedback\\index.html\nPushed to GitHub Pages.\nReps with outstanding forms: ['AC', 'AP', 'BM', 'BV', 'NP']\n  AC: digest sent (14 accounts, reminder #6)\n  AP: digest sent (17 accounts, reminder #6)\n  BM: digest sent (3 accounts, reminder #6)\n  BV: digest sent (26 accounts, reminder #6)\n  NP: digest sent (32 accounts, reminder #6)\nRebuilding Store Health Feedback dashboard …\nWhatsApp summary sent.\nDone.",
           "stderr_tail": "To https://github.com/FlomaticAuto/olympic-paints-store-health-feedback.git\n   efcabc4..c86499f  HEAD -> main",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\remind-account-health-forms\\2026-08-14_07-00-01.log"
+        },
+        {
+          "job_id": "remind-account-health-forms",
+          "agent": "Account Health Forms",
+          "started_at": "2026-08-19T07:00:04+02:00",
+          "finished_at": "2026-08-19T07:00:49+02:00",
+          "duration_seconds": 44.951,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[main 1c5f19c] chore: rebuild store health feedback 2026-08-19 07:00\n 1 file changed, 3 insertions(+), 3 deletions(-)\nBuilt: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\AWS Data\\store-health-feedback\\index.html\nPushed to GitHub Pages.\nReps with outstanding forms: ['AC', 'AP', 'BM', 'BV', 'NP']\n  AC: digest sent (14 accounts, reminder #7)\n  AP: digest sent (17 accounts, reminder #7)\n  BM: digest sent (3 accounts, reminder #7)\n  BV: digest sent (26 accounts, reminder #7)\n  NP: digest sent (32 accounts, reminder #7)\nRebuilding Store Health Feedback dashboard …\nWhatsApp summary sent.\nDone.",
+          "stderr_tail": "To https://github.com/FlomaticAuto/olympic-paints-store-health-feedback.git\n   c86499f..1c5f19c  HEAD -> main",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\remind-account-health-forms\\2026-08-19_07-00-04.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-14T07:00:01+02:00",
-        "finished_at": "2026-08-14T07:00:47+02:00",
-        "duration_seconds": 46.116,
+        "started_at": "2026-08-19T07:00:04+02:00",
+        "finished_at": "2026-08-19T07:00:49+02:00",
+        "duration_seconds": 44.951,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -728,9 +740,9 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-28T08:00:00+02:00",
-      "next_run": "2026-08-19 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 08:00:00+02:00",
-      "scheduler_last_task_result": 267014,
+      "next_run": "2026-08-20 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-19 08:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -927,9 +939,9 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-08T08:00:00",
-      "next_run": "2026-08-19 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 08:00:00+02:00",
-      "scheduler_last_task_result": -2147020576,
+      "next_run": "2026-08-20 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-19 08:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "stale",
       "history": [
         {
@@ -1072,7 +1084,7 @@
       "schedule_summary": "type=3 start=2026-05-20T07:00:00",
       "next_run": "2026-08-20 07:00:00+02:00",
       "scheduler_last_run_time": "2026-08-19 07:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 1,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1084,9 +1096,9 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-17T08:00:00+02:00",
-      "next_run": "2026-08-19 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 08:00:00+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-08-20 08:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-19 08:00:00+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1126,8 +1138,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-19 07:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-19 06:43:11+02:00",
+      "next_run": "2026-08-19 08:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-19 07:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1297,8 +1309,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=3 start=2026-08-05T07:30:00+02:00",
-      "next_run": "2026-08-19 07:30:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 07:30:00+02:00",
+      "next_run": "2026-08-20 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-08-19 07:30:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
@@ -1397,12 +1409,24 @@
           "stdout_tail": "[07:30:02] ============================================================\n[07:30:02] HAVEN Inbox Processor\n[07:30:02] ============================================================\n[07:30:02] Inbox:  C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\11. HR\\Clocking Reports\\Inbox\n[07:30:02] Output: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\11. HR\\Clocking Reports\\Output\n\n[07:30:02] Inbox is empty. Nothing to do.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\daily-process-inbox\\2026-08-18_07-30-01.log"
+        },
+        {
+          "job_id": "daily-process-inbox",
+          "agent": "HAVEN",
+          "started_at": "2026-08-19T07:30:11+02:00",
+          "finished_at": "2026-08-19T07:30:26+02:00",
+          "duration_seconds": 14.775,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[07:30:26] ============================================================\n[07:30:26] HAVEN Inbox Processor\n[07:30:26] ============================================================\n[07:30:26] Inbox:  C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\11. HR\\Clocking Reports\\Inbox\n[07:30:26] Output: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\2.Areas\\11. HR\\Clocking Reports\\Output\n\n[07:30:26] Inbox is empty. Nothing to do.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\daily-process-inbox\\2026-08-19_07-30-11.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-18T07:30:01+02:00",
-        "finished_at": "2026-08-18T07:30:02+02:00",
-        "duration_seconds": 0.945,
+        "started_at": "2026-08-19T07:30:11+02:00",
+        "finished_at": "2026-08-19T07:30:26+02:00",
+        "duration_seconds": 14.775,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1430,9 +1454,9 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=3 start=2026-05-20T07:15:00+02:00",
-      "next_run": "2026-08-19 07:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 07:15:00+02:00",
-      "scheduler_last_task_result": 267014,
+      "next_run": "2026-08-20 07:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-19 07:15:00+02:00",
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1446,8 +1470,8 @@
       "schedule_summary": "type=3 start=2026-08-05T07:00:00+02:00",
       "next_run": "2026-08-20 07:00:00+02:00",
       "scheduler_last_run_time": "2026-08-19 07:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
       "history": [
         {
           "job_id": "hik-connect-extract",
@@ -1520,12 +1544,24 @@
           "stdout_tail": "[07:00:30]   SKIP (already processed): Olympic Paints (05.06.2026).xlsx\n[07:00:30]   SKIP (already processed): Olympic Paints (06.06.2026).xlsx\n[07:00:30]   SKIP (already processed): Olympic Paints (08.06.2026).xlsx\n[07:00:30]   SKIP (already processed): Olympic Paints (09.06.2026).xlsx\n[07:00:30]   SKIP (already processed): Olympic Paints (10.06.2026).xlsx\n[07:00:31]   SKIP (already processed): Olympic Paints (11.06.2026).xlsx\n[07:00:31]   SKIP (already processed): Olympic Paints (12.06.2026).xlsx\n[07:00:31]   SKIP (already processed): Olympic Paints (15.06.2026).xlsx\n[07:00:32]   SKIP (already processed): Olympic Paints (17.06.2026).xlsx\n[07:00:32]   SKIP (already processed): Olympic Paints (18.06.2026).xlsx\n[07:00:32]   SKIP (already processed): Olympic Paints (19.06.2026).xlsx\n[07:00:32]   SKIP (already processed): Olympic Paints (20.06.2026).xlsx\n[07:00:32]   SKIP (already processed): Olympic Paints (21.06.2026).xlsx\n[07:00:32]   SKIP (already processed): Olympic Paints (22.06.2026).xlsx\n[07:00:33]   SKIP (already processed): Olympic Paints (23.06.2026).xlsx\n[07:00:33]   SKIP (already processed): Olympic Paints (24.06.2026).xlsx\n[07:00:33]   SKIP (already processed): Olympic Paints (25.06.2026).xlsx\n[07:00:33]   SKIP (already processed): Olympic Paints (26.06.2026).xlsx\n[07:00:33]   SKIP (already processed): Olympic Paints (27.06.2026).xlsx\n[07:00:33]   SKIP (already processed): Olympic Paints (28.06.2026).xlsx\n[07:00:33]   SKIP (already processed): Olympic Paints (29.06.2026).xlsx\n[07:00:34]   SKIP (already processed): Olympic Paints (01.07.2026).xlsx\n[07:00:34]   SKIP (already processed): Olympic Paints (02.07.2026).xlsx\n[07:00:35]   SKIP (already processed): Olympic Paints (03.07.2026).xlsx\n[07:00:35]   SKIP (already processed): Olympic Paints (06.07.2026).xlsx\n[07:00:35]   SKIP (already processed): Olympic Paints (07.07.2026).xlsx\n[07:00:35]   SKIP (already processed): Olympic Paints (08.07.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (09.07.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (10.07.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (13.07.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (14.07.2026).xlsx\n[07:00:37]   SKIP (already processed): Olympic Paints (15.07.2026).xlsx\n[07:00:37]   SKIP (already processed): Olympic Paints (16.07.2026).xlsx\n[07:00:37]   SKIP (already processed): Olympic Paints (17.07.2026).xlsx\n[07:00:37]   SKIP (already processed): Olympic Paints (18.07.2026).xlsx\n[07:00:37]   SKIP (already processed): Olympic Paints (20.07.2026).xlsx\n[07:00:37]   SKIP (already processed): Olympic Paints (21.07.2026).xlsx\n[07:00:38]   SKIP (already processed): Olympic Paints (22.07.2026).xlsx\n[07:00:38]   SKIP (already processed): Olympic Paints (23.07.2026).xlsx\n[07:00:38]   SKIP (already processed): Olympic Paints (24.07.2026).xlsx\n[07:00:39]   SKIP (already processed): Olympic Paints (27.07.2026).xlsx\n[07:00:39]   SKIP (already processed): Olympic Paints (28.07.2026).xlsx\n[07:00:39]   SKIP (already processed): Olympic Paints (29.07.2026).xlsx\n[07:00:39]   SKIP (already processed): Olympic Paints (30.07.2026).xlsx\n[07:00:40]   SKIP (already processed): Olympic Paints (31.07.2026).xlsx\n[07:00:40]   SKIP (already processed): Olympic Paints (03.08.2026).xlsx\n[07:00:40]   SKIP (already processed): Olympic Paints (04.08.2026).xlsx\n[07:00:40] Extraction complete — saved: 0, skipped (already done): 62\n\n[07:00:40] No new files — nothing to ingest.",
           "stderr_tail": "C:\\Python313\\Lib\\site-packages\\openpyxl\\styles\\stylesheet.py:237: UserWarning: Workbook contains no default style, apply openpyxl's default\n  warn(\"Workbook contains no default style, apply openpyxl's default\")",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\hik-connect-extract\\2026-08-14_07-00-02.log"
+        },
+        {
+          "job_id": "hik-connect-extract",
+          "agent": "HAVEN",
+          "started_at": "2026-08-19T07:00:04+02:00",
+          "finished_at": "2026-08-19T07:00:44+02:00",
+          "duration_seconds": 39.431,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[07:00:32]   SKIP (already processed): Olympic Paints (05.06.2026).xlsx\n[07:00:32]   SKIP (already processed): Olympic Paints (06.06.2026).xlsx\n[07:00:33]   SKIP (already processed): Olympic Paints (08.06.2026).xlsx\n[07:00:33]   SKIP (already processed): Olympic Paints (09.06.2026).xlsx\n[07:00:33]   SKIP (already processed): Olympic Paints (10.06.2026).xlsx\n[07:00:33]   SKIP (already processed): Olympic Paints (11.06.2026).xlsx\n[07:00:34]   SKIP (already processed): Olympic Paints (12.06.2026).xlsx\n[07:00:34]   SKIP (already processed): Olympic Paints (15.06.2026).xlsx\n[07:00:34]   SKIP (already processed): Olympic Paints (17.06.2026).xlsx\n[07:00:35]   SKIP (already processed): Olympic Paints (18.06.2026).xlsx\n[07:00:35]   SKIP (already processed): Olympic Paints (19.06.2026).xlsx\n[07:00:35]   SKIP (already processed): Olympic Paints (20.06.2026).xlsx\n[07:00:35]   SKIP (already processed): Olympic Paints (21.06.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (22.06.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (23.06.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (24.06.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (25.06.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (26.06.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (27.06.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (28.06.2026).xlsx\n[07:00:36]   SKIP (already processed): Olympic Paints (29.06.2026).xlsx\n[07:00:37]   SKIP (already processed): Olympic Paints (01.07.2026).xlsx\n[07:00:37]   SKIP (already processed): Olympic Paints (02.07.2026).xlsx\n[07:00:37]   SKIP (already processed): Olympic Paints (03.07.2026).xlsx\n[07:00:37]   SKIP (already processed): Olympic Paints (06.07.2026).xlsx\n[07:00:38]   SKIP (already processed): Olympic Paints (07.07.2026).xlsx\n[07:00:38]   SKIP (already processed): Olympic Paints (08.07.2026).xlsx\n[07:00:38]   SKIP (already processed): Olympic Paints (09.07.2026).xlsx\n[07:00:38]   SKIP (already processed): Olympic Paints (10.07.2026).xlsx\n[07:00:39]   SKIP (already processed): Olympic Paints (13.07.2026).xlsx\n[07:00:39]   SKIP (already processed): Olympic Paints (14.07.2026).xlsx\n[07:00:40]   SKIP (already processed): Olympic Paints (15.07.2026).xlsx\n[07:00:40]   SKIP (already processed): Olympic Paints (16.07.2026).xlsx\n[07:00:40]   SKIP (already processed): Olympic Paints (17.07.2026).xlsx\n[07:00:41]   SKIP (already processed): Olympic Paints (18.07.2026).xlsx\n[07:00:41]   SKIP (already processed): Olympic Paints (20.07.2026).xlsx\n[07:00:41]   SKIP (already processed): Olympic Paints (21.07.2026).xlsx\n[07:00:41]   SKIP (already processed): Olympic Paints (22.07.2026).xlsx\n[07:00:41]   SKIP (already processed): Olympic Paints (23.07.2026).xlsx\n[07:00:42]   SKIP (already processed): Olympic Paints (24.07.2026).xlsx\n[07:00:42]   SKIP (already processed): Olympic Paints (27.07.2026).xlsx\n[07:00:43]   SKIP (already processed): Olympic Paints (28.07.2026).xlsx\n[07:00:43]   SKIP (already processed): Olympic Paints (29.07.2026).xlsx\n[07:00:43]   SKIP (already processed): Olympic Paints (30.07.2026).xlsx\n[07:00:43]   SKIP (already processed): Olympic Paints (31.07.2026).xlsx\n[07:00:43]   SKIP (already processed): Olympic Paints (03.08.2026).xlsx\n[07:00:43]   SKIP (already processed): Olympic Paints (04.08.2026).xlsx\n[07:00:43] Extraction complete — saved: 0, skipped (already done): 62\n\n[07:00:44] No new files — nothing to ingest.",
+          "stderr_tail": "C:\\Python313\\Lib\\site-packages\\openpyxl\\styles\\stylesheet.py:237: UserWarning: Workbook contains no default style, apply openpyxl's default\n  warn(\"Workbook contains no default style, apply openpyxl's default\")",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\hik-connect-extract\\2026-08-19_07-00-04.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-14T07:00:02+02:00",
-        "finished_at": "2026-08-14T07:00:40+02:00",
-        "duration_seconds": 38.394,
+        "started_at": "2026-08-19T07:00:04+02:00",
+        "finished_at": "2026-08-19T07:00:44+02:00",
+        "duration_seconds": 39.431,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1567,23 +1603,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-19 08:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-19 07:00:01+02:00",
+      "next_run": "2026-08-19 09:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-19 08:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-18T21:00:02+02:00",
-          "finished_at": "2026-08-18T21:00:10+02:00",
-          "duration_seconds": 7.803,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-18_21-00-02.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -1691,12 +1715,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-19_06-00-03.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-19T07:00:07+02:00",
+          "finished_at": "2026-08-19T07:00:53+02:00",
+          "duration_seconds": 45.737,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-19_07-00-07.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-19T06:00:03+02:00",
-        "finished_at": "2026-08-19T06:00:10+02:00",
-        "duration_seconds": 6.913,
+        "started_at": "2026-08-19T07:00:07+02:00",
+        "finished_at": "2026-08-19T07:00:53+02:00",
+        "duration_seconds": 45.737,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -2000,9 +2036,9 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-14T07:45:00+02:00",
-      "next_run": "2026-08-19 07:45:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 07:45:00+02:00",
-      "scheduler_last_task_result": 267014,
+      "next_run": "2026-08-20 07:45:00+02:00",
+      "scheduler_last_run_time": "2026-08-19 07:45:02+02:00",
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -2030,7 +2066,7 @@
       "schedule_summary": "type=3 start=2026-07-13T07:00:00+02:00",
       "next_run": "2026-08-20 07:00:00+02:00",
       "scheduler_last_run_time": "2026-08-19 07:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -2056,9 +2092,9 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-13T07:30:00+02:00",
-      "next_run": "2026-08-19 07:30:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 07:30:00+02:00",
-      "scheduler_last_task_result": 267014,
+      "next_run": "2026-08-20 07:30:00+02:00",
+      "scheduler_last_run_time": "2026-08-19 07:30:00+02:00",
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -2072,8 +2108,8 @@
       "schedule_summary": "type=3 start=2026-08-06T07:00:00+02:00",
       "next_run": "2026-08-20 07:00:00+02:00",
       "scheduler_last_run_time": "2026-08-19 07:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 1,
+      "heartbeat_status": "fresh",
       "history": [
         {
           "job_id": "olympicpaints-buildreturnsdashboard",
@@ -2158,12 +2194,24 @@
           "stdout_tail": "Returns Dashboard Builder — starting",
           "stderr_tail": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\Returns KPI System\\scripts\\build_returns_dashboard.py\", line 512, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\Returns KPI System\\scripts\\build_returns_dashboard.py\", line 503, in main\n    rows    = pull_submissions()\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\Returns KPI System\\scripts\\build_returns_dashboard.py\", line 57, in pull_submissions\n    url = os.environ[\"SUPABASE_URL\"]\n          ~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"<frozen os>\", line 716, in __getitem__\nKeyError: 'SUPABASE_URL'",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-buildreturnsdashboard\\2026-08-18_07-00-02.log"
+        },
+        {
+          "job_id": "olympicpaints-buildreturnsdashboard",
+          "agent": "Returns",
+          "started_at": "2026-08-19T07:00:04+02:00",
+          "finished_at": "2026-08-19T07:00:32+02:00",
+          "duration_seconds": 28.017,
+          "exit_code": 1,
+          "ok": false,
+          "stdout_tail": "Returns Dashboard Builder — starting",
+          "stderr_tail": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\Returns KPI System\\scripts\\build_returns_dashboard.py\", line 512, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\Returns KPI System\\scripts\\build_returns_dashboard.py\", line 503, in main\n    rows    = pull_submissions()\n  File \"C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\1.Projects\\Returns KPI System\\scripts\\build_returns_dashboard.py\", line 57, in pull_submissions\n    url = os.environ[\"SUPABASE_URL\"]\n          ~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"<frozen os>\", line 716, in __getitem__\nKeyError: 'SUPABASE_URL'",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-buildreturnsdashboard\\2026-08-19_07-00-04.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-18T07:00:02+02:00",
-        "finished_at": "2026-08-18T07:01:40+02:00",
-        "duration_seconds": 98.541,
+        "started_at": "2026-08-19T07:00:04+02:00",
+        "finished_at": "2026-08-19T07:00:32+02:00",
+        "duration_seconds": 28.017,
         "exit_code": 1,
         "ok": false,
         "summary": null
@@ -2226,8 +2274,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-08T07:20:00+02:00",
-      "next_run": "2026-08-19 07:20:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 07:20:00+02:00",
+      "next_run": "2026-08-20 07:20:00+02:00",
+      "scheduler_last_run_time": "2026-08-19 07:20:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -2242,7 +2290,7 @@
       "schedule_summary": "type=3 start=2026-05-25T07:00:00+02:00",
       "next_run": "2026-08-20 07:00:00+02:00",
       "scheduler_last_run_time": "2026-08-19 07:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -2268,8 +2316,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-06-13T07:15:00+02:00",
-      "next_run": "2026-08-19 07:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-18 07:15:00+02:00",
+      "next_run": "2026-08-20 07:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-19 07:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -3182,21 +3230,9 @@
       "schedule_summary": "type=2 start=2026-04-22T07:00:00",
       "next_run": "2026-08-20 07:00:00+02:00",
       "scheduler_last_run_time": "2026-08-19 07:00:01+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "vault-meeting-extraction-daily",
-          "agent": "VAULT",
-          "started_at": "2026-08-07T07:00:16+02:00",
-          "finished_at": "2026-08-07T07:00:16+02:00",
-          "duration_seconds": 0.885,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vault-meeting-extraction-daily\\2026-08-07_07-00-16.log"
-        },
         {
           "job_id": "vault-meeting-extraction-daily",
           "agent": "VAULT",
@@ -3304,12 +3340,24 @@
           "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vault-meeting-extraction-daily\\2026-08-18_07-00-03.log"
+        },
+        {
+          "job_id": "vault-meeting-extraction-daily",
+          "agent": "VAULT",
+          "started_at": "2026-08-19T07:00:08+02:00",
+          "finished_at": "2026-08-19T07:00:10+02:00",
+          "duration_seconds": 2.789,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "VAULT meeting extraction is PAUSED. Pass --force to override.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\vault-meeting-extraction-daily\\2026-08-19_07-00-08.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-18T07:00:03+02:00",
-        "finished_at": "2026-08-18T07:00:05+02:00",
-        "duration_seconds": 1.961,
+        "started_at": "2026-08-19T07:00:08+02:00",
+        "finished_at": "2026-08-19T07:00:10+02:00",
+        "duration_seconds": 2.789,
         "exit_code": 0,
         "ok": true,
         "summary": null
