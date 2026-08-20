@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T14:15:09",
+  "generated_at": "2026-08-20T16:15:09",
   "total": 15,
   "ok": 3,
   "warn": 8,
@@ -102,8 +102,8 @@
       "task": "Olympic Paints - Meeting Minutes Extractor",
       "cadence": "Daily \u00b7 07:00",
       "overall": "warn",
-      "task_last_run": "2026-08-19T16:00:00",
-      "task_last_result": 0
+      "task_last_run": "2026-08-20T16:00:00",
+      "task_last_result": 267009
     },
     {
       "id": "vault_meeting_extraction",
@@ -152,7 +152,7 @@
       "task": "Weekly Intake Reminder",
       "cadence": "Weekly \u00b7 Fri 09:00",
       "overall": "fail",
-      "task_last_run": "2026-08-13T15:30:30",
+      "task_last_run": "2026-08-20T15:30:30",
       "task_last_result": 1
     }
   ],
