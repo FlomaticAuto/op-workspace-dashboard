@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T18:00:07+02:00",
+  "generated_at": "2026-08-20T19:00:08+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -1210,8 +1210,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-20 18:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-20 17:43:11+02:00",
+      "next_run": "2026-08-20 19:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-20 18:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1699,23 +1699,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-20 19:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-20 18:00:01+02:00",
+      "next_run": "2026-08-20 20:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-20 19:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-20T08:00:03+02:00",
-          "finished_at": "2026-08-20T08:00:17+02:00",
-          "duration_seconds": 14.197,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-20_08-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -1823,12 +1811,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-20_17-00-29.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-20T18:00:04+02:00",
+          "finished_at": "2026-08-20T18:00:22+02:00",
+          "duration_seconds": 17.78,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-20_18-00-04.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-20T17:00:29+02:00",
-        "finished_at": "2026-08-20T17:00:38+02:00",
-        "duration_seconds": 8.81,
+        "started_at": "2026-08-20T18:00:04+02:00",
+        "finished_at": "2026-08-20T18:00:22+02:00",
+        "duration_seconds": 17.78,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -2466,9 +2466,9 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-05-19T19:00:00+02:00",
-      "next_run": "2026-08-20 19:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-19 19:00:01+02:00",
-      "scheduler_last_task_result": 0,
+      "next_run": "2026-08-21 19:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-20 19:00:01+02:00",
+      "scheduler_last_task_result": 267009,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -3193,23 +3193,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-08-20 18:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-20 16:15:01+02:00",
+      "next_run": "2026-08-20 20:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-20 18:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-08-19T22:15:01+02:00",
-          "finished_at": "2026-08-19T22:15:13+02:00",
-          "duration_seconds": 11.941,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-19_22-15-01.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -3317,12 +3305,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-20_16-15-02.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-08-20T18:15:02+02:00",
+          "finished_at": "2026-08-20T18:15:13+02:00",
+          "duration_seconds": 11.506,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-20_18-15-02.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-20T16:15:02+02:00",
-        "finished_at": "2026-08-20T16:15:13+02:00",
-        "duration_seconds": 10.825,
+        "started_at": "2026-08-20T18:15:02+02:00",
+        "finished_at": "2026-08-20T18:15:13+02:00",
+        "duration_seconds": 11.506,
         "exit_code": 0,
         "ok": true,
         "summary": null
