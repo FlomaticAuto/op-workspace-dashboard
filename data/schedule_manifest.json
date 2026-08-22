@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T08:00:05+02:00",
+  "generated_at": "2026-08-22T09:00:03+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -880,23 +880,11 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-08-05T08:15:00+02:00",
-      "next_run": "2026-08-22 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-21 08:15:01+02:00",
+      "next_run": "2026-08-23 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-22 08:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "dashboard-build",
-          "agent": "E-Commerce",
-          "started_at": "2026-08-11T08:15:03+02:00",
-          "finished_at": "2026-08-11T08:15:50+02:00",
-          "duration_seconds": 46.986,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "[2026-08-11 08:15:06] Fetching orders from https://olympicpaints.co.za since 2025-02-17T00:00:00 ...\n[2026-08-11 08:15:30] WC fetch OK: 379 orders ? 965 rows ? C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[fetch] WooCommerce CSV refreshed from live store.\n\n-- E-COMMERCE DASHBOARD BUILD SUMMARY --\n  Orders 2026:            230\n  Ready-to-Ship avg (wd):  6.91  (target 2)  6.4% on time  n=202\n  Local delivery (GP):     avg 9.46 wd / target 5 · 13.3% on time · n=83\n  Regional delivery:       avg 12.22 wd / target 7 · 1.7% on time · n=119\n  Past dispatch SLA total: 12\n  Past dispatch SLA 4w:    10\n  Total sales (ZAR):       R274,338.00\n  Open dispatch queue:     19\n  Makro YTD new orders:    70 (25 days tracked)\n  LRM YTD new orders:      2 (25 days tracked)\n  Output:                  C:\\Users\\Administrator\\workspace-dashboard\\ecommerce\\index.html\n  OK Pushed ecommerce/ to hub (master + main) -> Vercel will auto-deploy\n\nOpen in browser: file:///C:/Users/Administrator/workspace-dashboard/ecommerce/index.html",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\dashboard-build\\2026-08-11_08-15-03.log"
-        },
         {
           "job_id": "dashboard-build",
           "agent": "E-Commerce",
@@ -1004,12 +992,24 @@
           "stdout_tail": "[2026-08-21 08:15:13] Fetching orders from https://olympicpaints.co.za since 2025-02-27T00:00:00 ...\n[2026-08-21 08:15:17] WC fetch failed: Expecting value: line 1 column 1 (char 0) — keeping existing CSV.\n[fetch] WooCommerce live fetch failed — using existing CSV.\n\n-- E-COMMERCE DASHBOARD BUILD SUMMARY --\n  Orders 2026:            251\n  Ready-to-Ship avg (wd):  7.07  (target 2)  6.0% on time  n=215\n  Local delivery (GP):     avg 9.64 wd / target 5 · 12.6% on time · n=87\n  Regional delivery:       avg 12.36 wd / target 7 · 1.6% on time · n=128\n  Past dispatch SLA total: 26\n  Past dispatch SLA 4w:    20\n  Total sales (ZAR):       R296,017.00\n  Open dispatch queue:     26\n  Makro YTD new orders:    70 (25 days tracked)\n  LRM YTD new orders:      2 (25 days tracked)\n  Output:                  C:\\Users\\Administrator\\workspace-dashboard\\ecommerce\\index.html\n  ! git stash --include-untracked: fatal: Unable to create 'C:/Users/Administrator/workspace-dashboard/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, or the lock file may be stale\n  ! git -c http.extraheader=AUTHORIZATION: basic <redacted> pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: additionally, your index contains uncommitted changes.\nerror: Please commit or stash them.\n  OK Pushed ecommerce/ to hub (master + main) -> Vercel will auto-deploy\n\nOpen in browser: file:///C:/Users/Administrator/workspace-dashboard/ecommerce/index.html",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\dashboard-build\\2026-08-21_08-15-10.log"
+        },
+        {
+          "job_id": "dashboard-build",
+          "agent": "E-Commerce",
+          "started_at": "2026-08-22T08:15:03+02:00",
+          "finished_at": "2026-08-22T08:15:46+02:00",
+          "duration_seconds": 43.707,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[2026-08-22 08:15:06] Fetching orders from https://olympicpaints.co.za since 2025-02-28T00:00:00 ...\n[2026-08-22 08:15:29] WC fetch OK: 401 orders ? 1020 rows ? C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[fetch] WooCommerce CSV refreshed from live store.\n\n-- E-COMMERCE DASHBOARD BUILD SUMMARY --\n  Orders 2026:            252\n  Ready-to-Ship avg (wd):  7.0  (target 2)  5.6% on time  n=232\n  Local delivery (GP):     avg 9.6 wd / target 5 · 11.8% on time · n=93\n  Regional delivery:       avg 12.27 wd / target 7 · 1.4% on time · n=139\n  Past dispatch SLA total: 10\n  Past dispatch SLA 4w:    4\n  Total sales (ZAR):       R296,155.00\n  Open dispatch queue:     10\n  Makro YTD new orders:    70 (25 days tracked)\n  LRM YTD new orders:      2 (25 days tracked)\n  Output:                  C:\\Users\\Administrator\\workspace-dashboard\\ecommerce\\index.html\n  OK Pushed ecommerce/ to hub (master + main) -> Vercel will auto-deploy\n\nOpen in browser: file:///C:/Users/Administrator/workspace-dashboard/ecommerce/index.html",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\dashboard-build\\2026-08-22_08-15-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-21T08:15:10+02:00",
-        "finished_at": "2026-08-21T08:15:56+02:00",
-        "duration_seconds": 46.053,
+        "started_at": "2026-08-22T08:15:03+02:00",
+        "finished_at": "2026-08-22T08:15:46+02:00",
+        "duration_seconds": 43.707,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1222,8 +1222,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-22 08:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-22 07:43:11+02:00",
+      "next_run": "2026-08-22 09:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-22 08:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1723,23 +1723,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-22 09:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-22 08:00:01+02:00",
+      "next_run": "2026-08-22 10:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-22 09:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-21T22:00:03+02:00",
-          "finished_at": "2026-08-21T22:00:10+02:00",
-          "duration_seconds": 7.344,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-21_22-00-03.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -1847,12 +1835,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-22_07-00-03.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-22T08:00:03+02:00",
+          "finished_at": "2026-08-22T08:00:12+02:00",
+          "duration_seconds": 9.152,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-22_08-00-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-22T07:00:03+02:00",
-        "finished_at": "2026-08-22T07:00:10+02:00",
-        "duration_seconds": 6.797,
+        "started_at": "2026-08-22T08:00:03+02:00",
+        "finished_at": "2026-08-22T08:00:12+02:00",
+        "duration_seconds": 9.152,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -2009,7 +2009,7 @@
       "enabled": false,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-05-07T08:30:00",
-      "next_run": "2026-08-22 08:30:00+02:00",
+      "next_run": "2026-08-23 08:30:00+02:00",
       "scheduler_last_run_time": "2026-05-27 08:30:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
@@ -3229,23 +3229,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-08-22 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-22 06:15:01+02:00",
+      "next_run": "2026-08-22 10:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-22 08:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-08-21T12:15:06+02:00",
-          "finished_at": "2026-08-21T12:15:18+02:00",
-          "duration_seconds": 11.452,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-21_12-15-06.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -3353,12 +3341,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-22_06-15-02.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-08-22T08:15:03+02:00",
+          "finished_at": "2026-08-22T08:15:17+02:00",
+          "duration_seconds": 14.539,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-22_08-15-03.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-22T06:15:02+02:00",
-        "finished_at": "2026-08-22T06:15:15+02:00",
-        "duration_seconds": 12.496,
+        "started_at": "2026-08-22T08:15:03+02:00",
+        "finished_at": "2026-08-22T08:15:17+02:00",
+        "duration_seconds": 14.539,
         "exit_code": 0,
         "ok": true,
         "summary": null
