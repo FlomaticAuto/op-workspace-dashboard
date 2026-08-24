@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T08:00:24+02:00",
+  "generated_at": "2026-08-24T09:00:06+02:00",
   "tasks": [
     {
       "job_id": "lancedb-nightly-ingest",
@@ -109,21 +109,9 @@
       "schedule_summary": "type=3 start=2000-01-01T08:00:00+02:00",
       "next_run": "2026-08-25 08:00:00+02:00",
       "scheduler_last_run_time": "2026-08-24 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "dispatch-account-health-forms",
-          "agent": "Account Health Forms",
-          "started_at": "2026-08-07T08:00:01+02:00",
-          "finished_at": "2026-08-07T08:00:04+02:00",
-          "duration_seconds": 3.062,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Reading workbook …\n\nDone — 0 forms dispatched today.\n  AC: 0 sent (active tier: At Risk, 62 gated lower-tier)\n  AP: 0 sent (active tier: At Risk, 67 gated lower-tier)\n  BM: 0 sent (active tier: At Risk, 0 gated lower-tier)\n  BV: 0 sent (active tier: At Risk, 89 gated lower-tier)\n  NP: 0 sent (active tier: At Risk, 86 gated lower-tier)\n\nRemaining in queue: 304 accounts still pending",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\dispatch-account-health-forms\\2026-08-07_08-00-01.log"
-        },
         {
           "job_id": "dispatch-account-health-forms",
           "agent": "Account Health Forms",
@@ -231,12 +219,24 @@
           "stdout_tail": "Reading workbook …\n\nDone — 0 forms dispatched today.\n  AC: 0 sent (active tier: At Risk, 62 gated lower-tier)\n  AP: 0 sent (active tier: At Risk, 67 gated lower-tier)\n  BM: 0 sent (active tier: At Risk, 0 gated lower-tier)\n  BV: 0 sent (active tier: At Risk, 89 gated lower-tier)\n  NP: 0 sent (active tier: At Risk, 86 gated lower-tier)\n\nRemaining in queue: 304 accounts still pending",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\dispatch-account-health-forms\\2026-08-21_08-00-05.log"
+        },
+        {
+          "job_id": "dispatch-account-health-forms",
+          "agent": "Account Health Forms",
+          "started_at": "2026-08-24T08:00:06+02:00",
+          "finished_at": "2026-08-24T08:00:28+02:00",
+          "duration_seconds": 21.814,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Reading workbook …\n\nDone — 0 forms dispatched today.\n  AC: 0 sent (active tier: At Risk, 62 gated lower-tier)\n  AP: 0 sent (active tier: At Risk, 67 gated lower-tier)\n  BM: 0 sent (active tier: At Risk, 0 gated lower-tier)\n  BV: 0 sent (active tier: At Risk, 89 gated lower-tier)\n  NP: 0 sent (active tier: At Risk, 86 gated lower-tier)\n\nRemaining in queue: 304 accounts still pending",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\dispatch-account-health-forms\\2026-08-24_08-00-06.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-21T08:00:05+02:00",
-        "finished_at": "2026-08-21T08:00:10+02:00",
-        "duration_seconds": 5.132,
+        "started_at": "2026-08-24T08:00:06+02:00",
+        "finished_at": "2026-08-24T08:00:28+02:00",
+        "duration_seconds": 21.814,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -822,8 +822,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-05-27T08:30:00+02:00",
-      "next_run": "2026-08-24 08:30:00+02:00",
-      "scheduler_last_run_time": "2026-08-21 08:30:00+02:00",
+      "next_run": "2026-08-25 08:30:00+02:00",
+      "scheduler_last_run_time": "2026-08-24 08:30:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -838,7 +838,7 @@
       "schedule_summary": "type=3 start=2026-05-28T08:00:00+02:00",
       "next_run": "2026-08-25 08:00:00+02:00",
       "scheduler_last_run_time": "2026-08-24 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -892,23 +892,11 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-08-05T08:15:00+02:00",
-      "next_run": "2026-08-24 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-23 08:15:01+02:00",
+      "next_run": "2026-08-25 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-24 08:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "dashboard-build",
-          "agent": "E-Commerce",
-          "started_at": "2026-08-14T08:15:01+02:00",
-          "finished_at": "2026-08-14T08:15:35+02:00",
-          "duration_seconds": 34.112,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "[2026-08-14 08:15:03] Fetching orders from https://olympicpaints.co.za since 2025-02-20T00:00:00 ...\n[2026-08-14 08:15:24] WC fetch OK: 389 orders ? 986 rows ? C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[fetch] WooCommerce CSV refreshed from live store.\n\n-- E-COMMERCE DASHBOARD BUILD SUMMARY --\n  Orders 2026:            240\n  Ready-to-Ship avg (wd):  6.96  (target 2)  6.3% on time  n=205\n  Local delivery (GP):     avg 9.52 wd / target 5 · 12.9% on time · n=85\n  Regional delivery:       avg 12.27 wd / target 7 · 1.7% on time · n=120\n  Past dispatch SLA total: 18\n  Past dispatch SLA 4w:    13\n  Total sales (ZAR):       R285,433.00\n  Open dispatch queue:     25\n  Makro YTD new orders:    70 (25 days tracked)\n  LRM YTD new orders:      2 (25 days tracked)\n  Output:                  C:\\Users\\Administrator\\workspace-dashboard\\ecommerce\\index.html\n  OK Pushed ecommerce/ to hub (master + main) -> Vercel will auto-deploy\n\nOpen in browser: file:///C:/Users/Administrator/workspace-dashboard/ecommerce/index.html",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\dashboard-build\\2026-08-14_08-15-01.log"
-        },
         {
           "job_id": "dashboard-build",
           "agent": "E-Commerce",
@@ -1016,12 +1004,24 @@
           "stdout_tail": "[2026-08-23 08:15:46] Fetching orders from https://olympicpaints.co.za since 2025-03-01T00:00:00 ...\n[2026-08-23 08:16:14] WC fetch OK: 402 orders ? 1021 rows ? C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[fetch] WooCommerce CSV refreshed from live store.\n\n-- E-COMMERCE DASHBOARD BUILD SUMMARY --\n  Orders 2026:            253\n  Ready-to-Ship avg (wd):  7.0  (target 2)  5.6% on time  n=232\n  Local delivery (GP):     avg 9.6 wd / target 5 · 11.8% on time · n=93\n  Regional delivery:       avg 12.27 wd / target 7 · 1.4% on time · n=139\n  Past dispatch SLA total: 10\n  Past dispatch SLA 4w:    4\n  Total sales (ZAR):       R296,554.00\n  Open dispatch queue:     11\n  Makro YTD new orders:    70 (25 days tracked)\n  LRM YTD new orders:      2 (25 days tracked)\n  Output:                  C:\\Users\\Administrator\\workspace-dashboard\\ecommerce\\index.html\n  OK Pushed ecommerce/ to hub (master + main) -> Vercel will auto-deploy\n\nOpen in browser: file:///C:/Users/Administrator/workspace-dashboard/ecommerce/index.html",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\dashboard-build\\2026-08-23_08-15-10.log"
+        },
+        {
+          "job_id": "dashboard-build",
+          "agent": "E-Commerce",
+          "started_at": "2026-08-24T08:15:04+02:00",
+          "finished_at": "2026-08-24T08:15:50+02:00",
+          "duration_seconds": 45.478,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[2026-08-24 08:15:08] Fetching orders from https://olympicpaints.co.za since 2025-03-02T00:00:00 ...\n[2026-08-24 08:15:36] WC fetch OK: 406 orders ? 1038 rows ? C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[fetch] WooCommerce CSV refreshed from live store.\n\n-- E-COMMERCE DASHBOARD BUILD SUMMARY --\n  Orders 2026:            257\n  Ready-to-Ship avg (wd):  7.0  (target 2)  5.6% on time  n=232\n  Local delivery (GP):     avg 9.6 wd / target 5 · 11.8% on time · n=93\n  Regional delivery:       avg 12.27 wd / target 7 · 1.4% on time · n=139\n  Past dispatch SLA total: 10\n  Past dispatch SLA 4w:    4\n  Total sales (ZAR):       R297,865.00\n  Open dispatch queue:     15\n  Makro YTD new orders:    70 (25 days tracked)\n  LRM YTD new orders:      2 (25 days tracked)\n  Output:                  C:\\Users\\Administrator\\workspace-dashboard\\ecommerce\\index.html\n  OK Pushed ecommerce/ to hub (master + main) -> Vercel will auto-deploy\n\nOpen in browser: file:///C:/Users/Administrator/workspace-dashboard/ecommerce/index.html",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\dashboard-build\\2026-08-24_08-15-04.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-23T08:15:10+02:00",
-        "finished_at": "2026-08-23T08:17:37+02:00",
-        "duration_seconds": 147.093,
+        "started_at": "2026-08-24T08:15:04+02:00",
+        "finished_at": "2026-08-24T08:15:50+02:00",
+        "duration_seconds": 45.478,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1037,21 +1037,9 @@
       "schedule_summary": "type=3 start=2026-05-08T08:00:00",
       "next_run": "2026-08-25 08:00:00+02:00",
       "scheduler_last_run_time": "2026-08-24 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
-      "heartbeat_status": "stale",
+      "scheduler_last_task_result": 0,
+      "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "olympicpaints-emailecommercedashboard",
-          "agent": "FLASH",
-          "started_at": "2026-08-05T08:00:01+02:00",
-          "finished_at": "2026-08-05T08:00:18+02:00",
-          "duration_seconds": 17.741,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "[08:00:02] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:00:02] Reading WooCommerce export: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:00:02] Reading tracking log: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:00:03] FY2026 orders=166 · overdue week=0 · overdue all-time=6 · RTS=7.9% · Makro manu=3 · LRM manu=0\n[08:00:03] Outlook not running — launching …\n[08:00:18] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za\n[08:00:18] Subject: E-Commerce Digest — 05 August 2026\n[08:00:18] Email dispatched and confirmed left Outbox.\n[08:00:18] Done.",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-08-05_08-00-01.log"
-        },
         {
           "job_id": "olympicpaints-emailecommercedashboard",
           "agent": "FLASH",
@@ -1159,12 +1147,24 @@
           "stdout_tail": "[08:00:10] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:00:10] Reading WooCommerce export: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:00:11] Reading tracking log: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:00:12] FY2026 orders=251 · overdue week=11 · overdue all-time=26 · RTS=6.0% · Makro manu=3 · LRM manu=0\n[08:00:22] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za;sejalp@olympicpaints.co.za\n[08:00:22] Subject: E-Commerce Digest — 21 August 2026\n[08:00:22] Email dispatched and confirmed left Outbox.\n[08:00:22] Done.",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-08-21_08-00-05.log"
+        },
+        {
+          "job_id": "olympicpaints-emailecommercedashboard",
+          "agent": "FLASH",
+          "started_at": "2026-08-24T08:00:07+02:00",
+          "finished_at": "2026-08-24T08:00:44+02:00",
+          "duration_seconds": 37.315,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "[08:00:30] Olympic Paints — E-Commerce Dashboard Email Digest\n[08:00:30] Reading WooCommerce export: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Woocommerce_Transactions.csv\n[08:00:31] Reading tracking log: C:\\Users\\Administrator\\OneDrive\\1.Projects\\1.Olympic Paints\\3.Resources\\16.Sales and Other data\\Manual\\Daily Ecommerce Tracking.xlsx\n[08:00:33] FY2026 orders=253 · overdue week=1 · overdue all-time=10 · RTS=5.6% · Makro manu=3 · LRM manu=0\n[08:00:44] Email queued to: quintusl@olympicpaints.co.za;info@olympicpaints.co.za;kishanm@olympicpaints.co.za;sejalp@olympicpaints.co.za\n[08:00:44] Subject: E-Commerce Digest — 24 August 2026\n[08:00:44] Email dispatched and confirmed left Outbox.\n[08:00:44] Done.",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\olympicpaints-emailecommercedashboard\\2026-08-24_08-00-07.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-21T08:00:05+02:00",
-        "finished_at": "2026-08-21T08:00:25+02:00",
-        "duration_seconds": 19.748,
+        "started_at": "2026-08-24T08:00:07+02:00",
+        "finished_at": "2026-08-24T08:00:44+02:00",
+        "duration_seconds": 37.315,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -1234,8 +1234,8 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=1 start=2026-05-24T07:43:10+02:00",
-      "next_run": "2026-08-24 08:13:10+02:00",
-      "scheduler_last_run_time": "2026-08-24 07:43:11+02:00",
+      "next_run": "2026-08-24 09:13:10+02:00",
+      "scheduler_last_run_time": "2026-08-24 08:43:11+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -1721,7 +1721,7 @@
       "schedule_summary": "type=3 start=2026-08-05T08:00:00+02:00",
       "next_run": "2026-08-31 08:00:00+02:00",
       "scheduler_last_run_time": "2026-08-24 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -1747,23 +1747,11 @@
       "enabled": true,
       "criticality": "high",
       "schedule_summary": "type=2 start=2026-05-16T06:00:00",
-      "next_run": "2026-08-24 09:00:00+02:00",
-      "scheduler_last_run_time": "2026-08-24 08:00:01+02:00",
+      "next_run": "2026-08-24 10:00:00+02:00",
+      "scheduler_last_run_time": "2026-08-24 09:00:01+02:00",
       "scheduler_last_task_result": 267009,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "build-schedule-manifest",
-          "agent": "PRISM",
-          "started_at": "2026-08-23T22:00:10+02:00",
-          "finished_at": "2026-08-23T22:01:57+02:00",
-          "duration_seconds": 107.025,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-23_22-00-10.log"
-        },
         {
           "job_id": "build-schedule-manifest",
           "agent": "PRISM",
@@ -1871,12 +1859,24 @@
           "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git stash --include-untracked: error: Unable to create 'C:/Users/Administrator/workspace-dashboard/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, or the lock file may be stale\nerror: could not write index\n  ! git -c http.extraheader=AUTHORIZATION: basic <redacted> pull --rebase origin master: error: cannot pull with rebase: You have unstaged changes.\nerror: additionally, your index contains uncommitted changes.\nerror: Please commit or stash them.\n  ! git add data: fatal: Unable to create 'C:/Users/Administrator/workspace-dashboard/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, or the lock file may be stale\n  ! git commit -m Schedule manifest — 2026-08-24T07:00:35+02:00: fatal: Unable to create 'C:/Users/Administrator/workspace-dashboard/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, or the lock file may be stale\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-24_07-00-31.log"
+        },
+        {
+          "job_id": "build-schedule-manifest",
+          "agent": "PRISM",
+          "started_at": "2026-08-24T08:00:07+02:00",
+          "finished_at": "2026-08-24T08:00:43+02:00",
+          "duration_seconds": 35.929,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "Wrote 68 tasks to C:\\Users\\Administrator\\workspace-dashboard\\data\\schedule_manifest.json\n  ! git checkout master: fatal: Unable to create 'C:/Users/Administrator/workspace-dashboard/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, or the lock file may be stale\n  OK Pushed data/ to hub (master + main) -> Vercel will auto-deploy",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\build-schedule-manifest\\2026-08-24_08-00-07.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-24T07:00:31+02:00",
-        "finished_at": "2026-08-24T07:03:08+02:00",
-        "duration_seconds": 157.705,
+        "started_at": "2026-08-24T08:00:07+02:00",
+        "finished_at": "2026-08-24T08:00:43+02:00",
+        "duration_seconds": 35.929,
         "exit_code": 0,
         "ok": true,
         "summary": null
@@ -2033,7 +2033,7 @@
       "enabled": false,
       "criticality": "medium",
       "schedule_summary": "type=2 start=2026-05-07T08:30:00",
-      "next_run": "2026-08-24 08:30:00+02:00",
+      "next_run": "2026-08-25 08:30:00+02:00",
       "scheduler_last_run_time": "2026-05-27 08:30:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
@@ -2194,8 +2194,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-14T08:15:00+02:00",
-      "next_run": "2026-08-24 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-17 08:15:00+02:00",
+      "next_run": "2026-08-31 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-24 08:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -2224,7 +2224,7 @@
       "schedule_summary": "type=3 start=2026-07-21T08:00:00+02:00",
       "next_run": "2026-08-31 08:00:00+02:00",
       "scheduler_last_run_time": "2026-08-24 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -2482,8 +2482,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-06-13T08:15:00+02:00",
-      "next_run": "2026-08-24 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-21 08:15:00+02:00",
+      "next_run": "2026-08-25 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-24 08:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -2512,7 +2512,7 @@
       "schedule_summary": "type=3 start=2026-07-03T08:00:00+02:00",
       "next_run": "2026-08-31 08:00:00+02:00",
       "scheduler_last_run_time": "2026-08-24 08:00:00+02:00",
-      "scheduler_last_task_result": 267009,
+      "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
     },
@@ -2552,8 +2552,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-03T08:05:00+02:00",
-      "next_run": "2026-08-24 08:05:00+02:00",
-      "scheduler_last_run_time": "2026-08-17 08:05:00+02:00",
+      "next_run": "2026-08-31 08:05:00+02:00",
+      "scheduler_last_run_time": "2026-08-24 08:05:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -2566,8 +2566,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-06T08:20:00+02:00",
-      "next_run": "2026-08-24 08:20:00+02:00",
-      "scheduler_last_run_time": "2026-08-17 08:20:00+02:00",
+      "next_run": "2026-08-31 08:20:00+02:00",
+      "scheduler_last_run_time": "2026-08-24 08:20:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -2580,8 +2580,8 @@
       "enabled": true,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-07-03T08:15:00+02:00",
-      "next_run": "2026-08-24 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-17 08:15:00+02:00",
+      "next_run": "2026-08-31 08:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-24 08:15:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "missing",
       "history": []
@@ -2594,7 +2594,7 @@
       "enabled": false,
       "criticality": "medium",
       "schedule_summary": "type=3 start=2026-04-23T09:00:00",
-      "next_run": "2026-08-24 09:00:00+02:00",
+      "next_run": "2026-08-31 09:00:00+02:00",
       "scheduler_last_run_time": "2026-06-08 09:00:00+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
@@ -3265,23 +3265,11 @@
       "enabled": true,
       "criticality": "low",
       "schedule_summary": "type=1 start=2026-05-14T06:15:00+02:00",
-      "next_run": "2026-08-24 08:15:00+02:00",
-      "scheduler_last_run_time": "2026-08-24 06:15:01+02:00",
+      "next_run": "2026-08-24 10:15:00+02:00",
+      "scheduler_last_run_time": "2026-08-24 08:15:01+02:00",
       "scheduler_last_task_result": 0,
       "heartbeat_status": "fresh",
       "history": [
-        {
-          "job_id": "sync-claude-todos",
-          "agent": "VAULT",
-          "started_at": "2026-08-23T12:15:02+02:00",
-          "finished_at": "2026-08-23T12:15:14+02:00",
-          "duration_seconds": 11.883,
-          "exit_code": 0,
-          "ok": true,
-          "stdout_tail": "",
-          "stderr_tail": "",
-          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-23_12-15-02.log"
-        },
         {
           "job_id": "sync-claude-todos",
           "agent": "VAULT",
@@ -3389,12 +3377,24 @@
           "stdout_tail": "",
           "stderr_tail": "",
           "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-24_06-15-04.log"
+        },
+        {
+          "job_id": "sync-claude-todos",
+          "agent": "VAULT",
+          "started_at": "2026-08-24T08:15:05+02:00",
+          "finished_at": "2026-08-24T08:15:24+02:00",
+          "duration_seconds": 19.513,
+          "exit_code": 0,
+          "ok": true,
+          "stdout_tail": "",
+          "stderr_tail": "",
+          "log_path": "C:\\Users\\Administrator\\.claude\\logs\\sync-claude-todos\\2026-08-24_08-15-05.log"
         }
       ],
       "last_run": {
-        "started_at": "2026-08-24T06:15:04+02:00",
-        "finished_at": "2026-08-24T06:15:52+02:00",
-        "duration_seconds": 48.253,
+        "started_at": "2026-08-24T08:15:05+02:00",
+        "finished_at": "2026-08-24T08:15:24+02:00",
+        "duration_seconds": 19.513,
         "exit_code": 0,
         "ok": true,
         "summary": null
