@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-24T07:29:01",
+  "generated_at": "2026-08-24T08:05:28",
   "total": 15,
-  "ok": 3,
-  "warn": 8,
+  "ok": 4,
+  "warn": 7,
   "fail": 4,
   "jobs": [
     {
@@ -21,8 +21,8 @@
       "name": "E-Commerce Email Digest",
       "task": "OlympicPaints_EmailECommerceDashboard",
       "cadence": "Daily morning",
-      "overall": "warn",
-      "task_last_run": "2026-08-21T08:00:00",
+      "overall": "ok",
+      "task_last_run": "2026-08-24T08:00:00",
       "task_last_result": 0
     },
     {
@@ -32,7 +32,7 @@
       "task": "Daily Process Inbox",
       "cadence": "Daily \u00b7 07:30",
       "overall": "warn",
-      "task_last_run": "2026-08-21T07:30:30",
+      "task_last_run": "2026-08-24T07:30:30",
       "task_last_result": 0
     },
     {
@@ -42,7 +42,7 @@
       "task": "Weekly Dashboard Check",
       "cadence": "Daily \u00b7 08:00",
       "overall": "warn",
-      "task_last_run": "2026-08-17T08:00:00",
+      "task_last_run": "2026-08-24T08:00:00",
       "task_last_result": 0
     },
     {
@@ -156,5 +156,5 @@
       "task_last_result": 1
     }
   ],
-  "success_pct": 20
+  "success_pct": 27
 }
